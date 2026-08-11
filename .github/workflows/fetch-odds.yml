@@ -1,0 +1,34 @@
+name: Fetch odds snapshot
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Dense: every 3 hours, Thursday–Saturday (UTC dow 4,5,6) — the window
+    # where lines actually move as injury news lands and money comes in.
+    - cron: "0 0,3,6,9,12,15,18,21 * * 4,5,6"
+    # Sparse: once a day, Sunday–Wednesday (UTC dow 0,1,2,3) — mostly to
+    # catch Monday-night line settling and any Wednesday practice-report move.
+    - cron: "0 14 * * 0,1,2,3"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch odds
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python3 scripts/fetch_odds.py
+
+      - name: Commit snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/odds/
+          git diff --cached --quiet && exit 0
+          git commit -m "chore(bot): update odds snapshot [automated]"
+          git push

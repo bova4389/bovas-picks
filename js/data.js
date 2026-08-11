@@ -67,6 +67,39 @@ export async function getPopularity(week, season = SEASON) {
   }
 }
 
+/**
+ * Latest odds snapshot, or null if scripts/fetch_odds.py hasn't run yet
+ * (nothing committed to data/odds/ locally, or the GitHub Action hasn't
+ * fired since the repo went live). Buckets are relative to "now" — bucket 0
+ * is the current game-week, +1 is next — not Mike's week numbers. See
+ * scripts/fetch_odds.py for why.
+ */
+export async function getOddsSnapshot() {
+  try {
+    return await loadJSON('data/odds/current.json');
+  } catch {
+    return null;
+  }
+}
+
+/** Movement history for one bucket ("current" or "bucket+1"), or []. */
+export async function getOddsHistory(bucketLabel) {
+  try {
+    return await loadJSON(`data/odds/history/${bucketLabel}.json`);
+  } catch {
+    return [];
+  }
+}
+
+/** The Odds API's last-reported request budget, or null. */
+export async function getOddsQuota() {
+  try {
+    return await loadJSON('data/odds/quota.json');
+  } catch {
+    return null;
+  }
+}
+
 /* ── Pick persistence ─────────────────────────────────────────────────────
    Picks live in localStorage so a half-finished card survives a refresh or a
    phone locking itself mid-slate. Keyed per season+week.

@@ -6,6 +6,7 @@
    ========================================================================== */
 
 import { initPickSheet } from './picksheet.js';
+import { initOdds } from './odds.js';
 
 const tabs = [...document.querySelectorAll('.tab')];
 
@@ -40,3 +41,4 @@ const fromHash = document.getElementById(`tab-${location.hash.slice(1)}`);
 if (fromHash) select(fromHash);
 
 initPickSheet(document.getElementById('picksheet-root'));
+initOdds(document.getElementById('odds-root'));

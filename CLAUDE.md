@@ -5,9 +5,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Identity
 
 - **Site name**: NFL Pickem Analyzer
-- **GitHub repo**: (not yet created — suggested name `nfl-pickem-analyzer`, public by default unless told otherwise)
+- **GitHub repo**: local `git init` done (2026-08-11), own nested repo per the workspace convention
+  (see workspace `CLAUDE.md` Git Setup). Not yet pushed — no remote created (`gh` isn't installed
+  in this environment; create `bova4389/nfl-pickem-analyzer` on github.com and
+  `git remote add origin` when ready).
 - **Hosting**: TBD — likely GitHub Pages if it becomes a live site, otherwise a local tool
-- **Status**: Planning / scaffold only. No features built yet.
+- **Status**: Pick Sheet and Odds tabs are functional. Recommend, Lookback, Survivor still "Soon".
 
 ## Concept
 
@@ -66,7 +69,9 @@ index.html          shell + tab markup + placeholder panels
 css/styles.css      design system (see below)
 js/app.js           tab navigation, deep links (#odds), boots the active tab   [versioned]
 js/data.js          SHARED data layer — fetch + cache + localStorage           [NEVER versioned]
+js/teams.js         team-name crosswalk (mascot ↔ full name ↔ abbreviation)    [NEVER versioned]
 js/picksheet.js     Pick Sheet tab
+js/odds.js          Odds tab — reads data/odds/, no fetching of its own
 ```
 
 **Cache busting:** `index.html` versions `css/styles.css` and `js/app.js` with `?v=YYYYMMDD`.
@@ -131,8 +136,29 @@ a week total.
 python scripts/parse_pool_picks.py "path/to/Weekly picks 26.xlsx" 2026 [week]
 ```
 
-→ `data/raw/entries-<year>-w<NN>.json` — names + individual cards, **gitignored**
+→ `data/raw/entries-<year>-w<NN>.json` — names + individual cards, **tracked** (see Data & Privacy
+  below — this project doesn't follow the Majors PII rule)
 → `data/popularity/pop-<year>-w<NN>.json` — aggregate percentages only, **safe to commit**
+
+**3. Odds — on a schedule, not mailed.** `scripts/fetch_odds.py` pulls NFL moneylines from
+[The Odds API](https://the-odds-api.com/) (free tier, 500 requests/month), de-vigs them, and
+snapshots the result. Run manually or via `.github/workflows/fetch-odds.yml`, which fires densely
+Thursday–Saturday and sparsely the rest of the week to stay inside budget.
+
+```bash
+ODDS_API_KEY=xxxxx python scripts/fetch_odds.py
+```
+
+→ `data/odds/current.json` — latest snapshot, **safe to commit** (no PII, just market prices)
+→ `data/odds/history/<bucket>.json` — every snapshot for that game-week bucket, appended to; the
+  Odds tab's line-movement numbers come from the first vs. latest entry per game
+→ `data/odds/quota.json` — requests-remaining as of the last call
+
+Buckets are relative to "now" (`current`, `bucket+1`, …), not Mike's week numbers — the API has no
+concept of Mike's numbering. Reconciling odds to a specific pool week is the Recommend tab's job,
+matched by date and team. **Needs `ODDS_API_KEY` as a repo secret before the GitHub Action will run**
+— sign up at the-odds-api.com (an account Claude cannot create on your behalf) and add the secret
+once the repo has a remote.
 
 ## Data & Privacy
 
@@ -175,30 +201,47 @@ not before.
 
 ## Candidate Tech (no build step, CDN-only — matches workspace convention)
 
-- **Schedule/scores data**: ESPN's public site API, e.g. `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard` — same API family already used for tournament data in `Majors Golf Pool`.
-- **Odds/spreads (optional)**: [The Odds API](https://the-odds-api.com/) has a free tier and could inform straight-up and survivor picks with market-implied win probabilities.
+- **Odds/spreads**: [The Odds API](https://the-odds-api.com/) — **decided, implemented.** Free
+  tier, fetched on a schedule per the Data Pipeline section above. Needs `ODDS_API_KEY`.
+- **Schedule/scores data**: ESPN's public site API, e.g. `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard` — same API family already used for tournament data in `Majors Golf Pool`. Not yet wired up; the commissioner's own workbook covers the pool's schedule for now, and Odds API events carry their own schedule too.
+- **Future-week power ratings (for the lookahead window beyond ~10-12 days)**: undecided. nfelo is
+  named in `SURVIVOR-STRATEGY.md` §4 as the source, but it has no public API — would mean scraping
+  a Tier 2 model site (not a banned tout, but still adds a dependency). Not built; the Odds tab
+  labels weeks it can't cover rather than guessing.
 
-## Data Model (draft)
+## Data Model
 
 ```
 data/
-├── straight-pickem.json   ← [{ week, picks: [{game, pickedTeam, actualWinner, correct}] }]
-└── survivor.json          ← { usedTeams: [...], eliminatedWeek: null, boughtBack: false, picks: [{week, team, result}] }
+├── number-map-<year>.json          ← weekly sheet + numbers, from parse_weekly_sheets.py
+├── raw/entries-<year>-w<NN>.json   ← per-entrant cards, from parse_pool_picks.py
+├── popularity/pop-<year>-w<NN>.json ← aggregate pick %, from parse_pool_picks.py
+├── survivor-<year>.json            ← entries + weekly pick %, from parse_survivor.py
+└── odds/
+    ├── current.json                ← latest snapshot, from fetch_odds.py
+    ├── quota.json                  ← Odds API requests remaining
+    └── history/<bucket>.json       ← snapshot trail per game-week bucket
 ```
+
+Straight-up and survivor *tracking* (picks marked correct/incorrect, running totals) is still
+draft-only — no schema exists yet. Build it against real results once Week 1 is graded rather than
+guessing the shape now.
 
 ## Open Questions
 
 - Personal local tool vs. a deployed live site — decide once the core tracking logic works.
 - Data entry: manual JSON updates each week (like `Majors Golf Pool/standings.js`) vs. pulling live scores automatically to auto-grade picks.
-- Whether to include odds/spread data at all, or keep this to schedule + team performance stats only.
+- Whether to include odds/spread data at all, or keep this to schedule + team performance stats only — **resolved: yes**, the Odds tab is built on it.
 
 ## GitHub Setup
 
-1. `cd "NFL Pickems"`
-2. `git init`
-3. `gh repo create bova4389/nfl-pickem-analyzer --public --source=. --remote=origin` (or create on github.com and `git remote add origin <url>`; swap `--public` for `--private` if preferred)
-4. `git add .`
-5. `git commit -m "Initial scaffold"`
-6. `git branch -M main`
-7. `git push -u origin main`
-8. When ready to deploy: repo Settings → Pages → deploy from `main`.
+`git init` and the initial commit are done locally (2026-08-11) — own nested repo per the
+workspace convention, no remote yet. To finish:
+
+1. Create `bova4389/nfl-pickem-analyzer` on github.com (public by default unless told otherwise —
+   `gh repo create` isn't available since `gh` isn't installed in this environment) and
+   `git remote add origin <url>`, run from inside `NFL Pickems/`.
+2. `git push -u origin main`
+3. Repo Settings → Secrets → Actions → add `ODDS_API_KEY` (sign up at the-odds-api.com first —
+   that account creation is a step only you can do) so `.github/workflows/fetch-odds.yml` can run.
+4. When ready to deploy: repo Settings → Pages → deploy from `main`.
