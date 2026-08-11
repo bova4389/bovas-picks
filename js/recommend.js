@@ -14,7 +14,7 @@
 import {
   SEASON, getNumberMap, weekNumbers, scoredGames, getPopularity, getOddsSnapshot,
 } from './data.js';
-import { mascotOf } from './teams.js';
+import { buildOddsIndex, matchOdds, orientProbs } from './oddsMatch.js';
 
 // STRATEGY.md §4 Step 4.
 const FLOOR = 0.38;
@@ -125,27 +125,10 @@ function rankedSection(withOdds, havePop) {
     ${liveDogs.map(recRow).join('')}`;
 }
 
-/** Odds events keyed by the unordered pair of mascots, so home/away order in
- *  the API response can never desync from the number-map's own labels. */
-function buildOddsIndex(events) {
-  const idx = new Map();
-  for (const ev of events) {
-    idx.set([mascotOf(ev.away), mascotOf(ev.home)].sort().join('|'), ev);
-  }
-  return idx;
-}
-
 function buildRow(g, oddsIndex, pop) {
-  const ev = oddsIndex.get([g.away, g.home].sort().join('|')) || null;
+  const ev = matchOdds(g, oddsIndex);
   const popGame = pop ? pop.games.find((p) => p.awayNum === g.awayNum) : null;
-
-  let awayProb = null;
-  let homeProb = null;
-  if (ev) {
-    const evHomeIsGameHome = mascotOf(ev.home) === g.home;
-    homeProb = evHomeIsGameHome ? ev.homeWinProb : ev.awayWinProb;
-    awayProb = evHomeIsGameHome ? ev.awayWinProb : ev.homeWinProb;
-  }
+  const { awayProb, homeProb } = orientProbs(g, ev);
 
   let underdogSide = null;
   let underdogProb = null;

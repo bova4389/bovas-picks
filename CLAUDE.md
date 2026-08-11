@@ -70,10 +70,37 @@ css/styles.css      design system (see below)
 js/app.js           tab navigation, deep links (#odds), boots the active tab   [versioned]
 js/data.js          SHARED data layer — fetch + cache + localStorage           [NEVER versioned]
 js/teams.js         team-name crosswalk (mascot ↔ full name ↔ abbreviation)    [NEVER versioned]
+js/oddsMatch.js      SHARED — join a {away,home} game to an odds event         [NEVER versioned]
+js/oddsBadge.js      SHARED — inline "who's favored" text fragment            [NEVER versioned]
 js/picksheet.js     Pick Sheet tab
 js/odds.js          Odds tab — reads data/odds/, no fetching of its own
 js/recommend.js     Recommend tab — leverage = win prob ÷ pick share, per STRATEGY.md §4
 ```
+
+**Odds are not siloed in the Odds tab.** Any tab that lists matchups shows the favorite inline —
+Pick Sheet does this now, and it's a requirement (not a nice-to-have) for the Survivor grid and
+Lookback when they're built. The reusable half of this is `js/oddsMatch.js` (pure data: join a
+`{away, home}` game to an odds event, oriented probabilities) and `js/oddsBadge.js`
+(`favoriteLine(game, oddsIndex)` → a text fragment like `` Jaguars <strong>85%</strong> ``, or `''`
+if there's no market line — callers treat `''` as "render nothing"). Both `recommend.js` and
+`picksheet.js` already build their `oddsIndex` the same way:
+
+```js
+import { getOddsSnapshot } from './data.js';
+import { buildOddsIndex } from './oddsMatch.js';
+import { favoriteLine } from './oddsBadge.js';
+
+const snapshot = await getOddsSnapshot();               // null-safe, never throws
+const oddsIndex = snapshot ? buildOddsIndex(snapshot.events) : new Map();
+// per matchup: favoriteLine(game, oddsIndex) — '' means don't render anything
+```
+
+**What's deliberately NOT shared: the wrapper markup.** `favoriteLine()` returns a bare text
+fragment, not a component with its own container — Pick Sheet wraps it in `.game-odds` (a
+grid-spanning line above its pick buttons; see `css/styles.css`), because that's what fits its
+grid layout. The Survivor grid will have a different row shape and needs its own wrapper class to
+match — reuse the *function*, not `.game-odds` itself. Do not build a new odds-matching join for
+Survivor/Lookback; do not duplicate `js/oddsMatch.js`'s logic inline in those tabs either.
 
 **Cache busting:** `index.html` versions `css/styles.css` and `js/app.js` with `?v=YYYYMMDD`.
 `js/data.js` and `js/picksheet.js` are imported *by JS*, never referenced from HTML, and
@@ -202,6 +229,11 @@ not before.
 - Teams already used (locked out for future weeks).
 - Remaining eligible teams, to help plan which strong teams to save for harder weeks later in the season.
 - Buy-back tracking (elimination date, re-entry date, new pick history restarting after buy-back).
+- **Whichever row lists remaining/available teams must show the favorite inline** (win %, from
+  `js/oddsBadge.js`'s `favoriteLine()` — see "Odds are not siloed" under Site Architecture). Not
+  optional: this is what lets a glance at the grid answer "which of my remaining teams has a good
+  matchup this week" without a tab switch, which is the whole point of the tool sharing one odds
+  engine across pools.
 
 ### Analysis / decision support
 - **Recommend tab (built)** — `js/recommend.js` computes `leverage = win_probability ÷ pick_share`

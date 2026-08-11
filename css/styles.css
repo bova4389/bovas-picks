@@ -293,6 +293,19 @@ main { padding: 28px 0 96px; }
 }
 .game.is-picked { border-color: var(--purple-mid); box-shadow: var(--shadow-sm); }
 
+/* Inline favorite indicator — grid-column:1/-1 spans the away/at/home row
+   below it, so it reads as one line above the pick buttons regardless of
+   how many columns that row has. Shared text comes from js/oddsBadge.js;
+   this is the wrapper Pick Sheet's layout happens to need. A future
+   Survivor/Lookback row will want its own wrapper class, not this one. */
+.game-odds {
+  grid-column: 1 / -1;
+  padding: 0 4px;
+  font-size: .75rem; font-weight: 500;
+  color: var(--ink-soft);
+}
+.game-odds strong { color: var(--purple); font-weight: 700; }
+
 .game-at {
   display: grid; place-items: center;
   padding: 0 2px;

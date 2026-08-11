@@ -9,8 +9,10 @@
 
 import {
   SEASON, getNumberMap, weekNumbers, gamesForWeek, scoredGames,
-  loadPicks, savePicks, loadProfile, saveProfile,
+  loadPicks, savePicks, loadProfile, saveProfile, getOddsSnapshot,
 } from './data.js';
+import { buildOddsIndex } from './oddsMatch.js';
+import { favoriteLine } from './oddsBadge.js';
 
 const DAY_ORDER = ['Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday'];
 
@@ -18,6 +20,7 @@ let map = null;
 let week = null;
 let picks = {};          // { [awayNum]: chosenNumber }  — keyed by game
 let profile = loadProfile();
+let oddsIndex = new Map();
 
 const el = (id) => document.getElementById(id);
 
@@ -38,6 +41,11 @@ export async function initPickSheet(root) {
       </div>`;
     return;
   }
+
+  // Odds are best-effort here — a missing/failed snapshot (getOddsSnapshot
+  // never throws) just means no favorite badges render, not a broken sheet.
+  const snapshot = await getOddsSnapshot();
+  oddsIndex = snapshot ? buildOddsIndex(snapshot.events) : new Map();
 
   const weeks = weekNumbers(map);
   week = weeks[0];
@@ -200,8 +208,10 @@ function gameRow(g) {
   }
 
   const chosen = picks[g.awayNum];
+  const fav = favoriteLine(g, oddsIndex);
   return `
     <div class="game${chosen ? ' is-picked' : ''}">
+      ${fav ? `<div class="game-odds">${fav} favored</div>` : ''}
       ${side(g, g.awayNum, g.away, 'Away', chosen)}
       <div class="game-at">at</div>
       ${side(g, g.homeNum, g.home, 'Home', chosen)}
