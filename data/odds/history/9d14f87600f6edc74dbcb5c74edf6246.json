@@ -1,0 +1,16 @@
+[
+ {
+  "id": "9d14f87600f6edc74dbcb5c74edf6246",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "New England Patriots",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6923,
+  "rawAwayProb": 0.3509,
+  "homeWinProb": 0.6636,
+  "awayWinProb": 0.3364,
+  "vig": 0.0432,
+  "bucket": 6,
+  "fetchedAt": "2026-08-11T23:37:33.178510+00:00"
+ }
+]

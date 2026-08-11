@@ -1,0 +1,16 @@
+[
+ {
+  "id": "be0e03cc42fbc9b6962467b22c7bf9dd",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "Cleveland Browns",
+  "away": "Houston Texans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3704,
+  "rawAwayProb": 0.6721,
+  "homeWinProb": 0.3553,
+  "awayWinProb": 0.6447,
+  "vig": 0.0425,
+  "bucket": 14,
+  "fetchedAt": "2026-08-11T23:37:33.178510+00:00"
+ }
+]
