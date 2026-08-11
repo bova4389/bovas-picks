@@ -130,11 +130,13 @@ future value — assumes one life each. With 2 buy-backs across ~18 entries, the
 **50 lives**, so it will very likely run deep into the season. **Future value matters as much here
 as in Mike's pool, possibly more.**
 
-**Lock timing may differ from Mike's pool — confirm before relying on it.** In-app survivor
+**Lock timing may differ from Mike's pool — low priority, not worth chasing.** In-app survivor
 platforms commonly lock each pick at that game's own kickoff rather than one shared weekly
-deadline, which would open a real edge Mike's pool doesn't have: parking a pick in the early
-window to lock in value, or holding a decision until Sunday morning for injury/inactive news on a
-later game. Do not assume this is available — verify the app's actual lock behavior first (see §7).
+deadline, which in principle opens a late-window play: parking a pick early to lock in value, or
+holding a decision until Sunday morning for injury/inactive news on a later game. This is solo
+analysis with no rival watching the clock, so there's no competitive pressure making that edge
+worth engineering the process around — note it in §7 if the actual lock behavior comes up
+naturally, don't go verify it as a task.
 
 ### The buy-back decision, stated plainly
 
@@ -259,9 +261,9 @@ never use them, not to spend a week proving it.
   changes how long the aggressive line stays available.
 - **Does Mike's pool allow team reuse after a certain point?** Some large pools reset in the back
   half. Confirm before planning an elite budget around 18 weeks.
-- **Exact pick-lock mechanism for Yahoo and Sleeper** — per-game kickoff (opens the late-window
-  play described in §2) or one shared weekly cutoff like Mike's pool. This determines whether the
-  Saturday-deadline constraint applies there too.
+- *(Low priority)* **Exact pick-lock mechanism for Yahoo and Sleeper** — per-game kickoff or one
+  shared weekly cutoff like Mike's pool. Would matter for a competitive edge; doesn't for solo
+  analysis with no rival racing the deadline, so no need to go confirm this deliberately.
 - **Tie/rollover rules** — what happens if everyone remaining loses in the same week, and whether
   the pot splits or rolls.
 - Weekly Yahoo/Sleeper screenshots, to see whether those small fields concentrate the way Mike's

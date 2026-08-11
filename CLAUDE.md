@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   in this environment; create `bova4389/nfl-pickem-analyzer` on github.com and
   `git remote add origin` when ready).
 - **Hosting**: TBD — likely GitHub Pages if it becomes a live site, otherwise a local tool
-- **Status**: Pick Sheet and Odds tabs are functional. Recommend, Lookback, Survivor still "Soon".
+- **Status**: Pick Sheet, Odds, and Recommend tabs are functional. Lookback and Survivor still "Soon".
 
 ## Concept
 
@@ -72,6 +72,7 @@ js/data.js          SHARED data layer — fetch + cache + localStorage          
 js/teams.js         team-name crosswalk (mascot ↔ full name ↔ abbreviation)    [NEVER versioned]
 js/picksheet.js     Pick Sheet tab
 js/odds.js          Odds tab — reads data/odds/, no fetching of its own
+js/recommend.js     Recommend tab — leverage = win prob ÷ pick share, per STRATEGY.md §4
 ```
 
 **Cache busting:** `index.html` versions `css/styles.css` and `js/app.js` with `?v=YYYYMMDD`.
@@ -142,23 +143,30 @@ python scripts/parse_pool_picks.py "path/to/Weekly picks 26.xlsx" 2026 [week]
 
 **3. Odds — on a schedule, not mailed.** `scripts/fetch_odds.py` pulls NFL moneylines from
 [The Odds API](https://the-odds-api.com/) (free tier, 500 requests/month), de-vigs them, and
-snapshots the result. Run manually or via `.github/workflows/fetch-odds.yml`, which fires densely
-Thursday–Saturday and sparsely the rest of the week to stay inside budget.
+snapshots the result. Run manually or via `.github/workflows/fetch-odds.yml`, which fires on a
+consistent daily anchor (14:00 UTC, every day of the week — so Monday's opening line and
+Saturday's closing line are both on record at the same clock time) with denser sampling layered on
+top Thursday–Saturday, all inside budget.
 
 ```bash
 ODDS_API_KEY=xxxxx python scripts/fetch_odds.py
 ```
 
 → `data/odds/current.json` — latest snapshot, **safe to commit** (no PII, just market prices)
-→ `data/odds/history/<bucket>.json` — every snapshot for that game-week bucket, appended to; the
-  Odds tab's line-movement numbers come from the first vs. latest entry per game
+→ `data/odds/history/<event-id>.json` — every snapshot ever taken of that specific game, oldest
+  first, keyed by the Odds API's event id rather than by week bucket. This is deliberate: a bucket
+  is only where a game sits *today*, and it drifts forward as weeks roll over, so bucket-keyed
+  history would silently lose whatever a game's line did while it was still "next week." Per-game
+  files mean "movement since first snapshot" is always the true opening line for that game — the
+  Odds tab's line-movement numbers read straight off `history[0]` vs. the latest entry.
 → `data/odds/quota.json` — requests-remaining as of the last call
 
-Buckets are relative to "now" (`current`, `bucket+1`, …), not Mike's week numbers — the API has no
-concept of Mike's numbering. Reconciling odds to a specific pool week is the Recommend tab's job,
-matched by date and team. **Needs `ODDS_API_KEY` as a repo secret before the GitHub Action will run**
-— sign up at the-odds-api.com (an account Claude cannot create on your behalf) and add the secret
-once the repo has a remote.
+The `bucket` field on each event in `current.json` is a *display* grouping only (0 = this
+game-week, +1 = next, recomputed fresh every run) — not Mike's week numbers, and not a storage
+key. Reconciling odds to a specific pool week is the Recommend tab's job, matched by team pair, not
+this script's. **Needs `ODDS_API_KEY` as a repo secret before the GitHub Action will run** — sign
+up at the-odds-api.com (an account Claude cannot create on your behalf) and add the secret once the
+repo has a remote.
 
 ## Data & Privacy
 
@@ -196,7 +204,12 @@ not before.
 - Buy-back tracking (elimination date, re-entry date, new pick history restarting after buy-back).
 
 ### Analysis / decision support
-- Per-week matchup view to inform picks — likely pulling live schedule/scores and possibly odds.
+- **Recommend tab (built)** — `js/recommend.js` computes `leverage = win_probability ÷ pick_share`
+  per STRATEGY.md §4 Step 4 for every game in the selected week, joining the Odds tab's snapshot to
+  `data/popularity/`. Ranks candidates clearing the 38% floor by leverage descending; if that
+  week's popularity file doesn't exist yet (the normal case before Sunday), falls back to ranking
+  live underdogs by win probability alone rather than hiding the tab. Full slate always shown below
+  the ranked list, including games below the floor or missing a market line.
 - Survivor strategy view — highlight strong remaining teams by upcoming schedule difficulty, so a team isn't wasted on an easy week too early.
 
 ## Candidate Tech (no build step, CDN-only — matches workspace convention)
@@ -220,7 +233,7 @@ data/
 └── odds/
     ├── current.json                ← latest snapshot, from fetch_odds.py
     ├── quota.json                  ← Odds API requests remaining
-    └── history/<bucket>.json       ← snapshot trail per game-week bucket
+    └── history/<event-id>.json     ← full snapshot trail for one game, oldest first
 ```
 
 Straight-up and survivor *tracking* (picks marked correct/incorrect, running totals) is still

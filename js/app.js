@@ -7,6 +7,7 @@
 
 import { initPickSheet } from './picksheet.js';
 import { initOdds } from './odds.js';
+import { initRecommend } from './recommend.js';
 
 const tabs = [...document.querySelectorAll('.tab')];
 
@@ -42,3 +43,4 @@ if (fromHash) select(fromHash);
 
 initPickSheet(document.getElementById('picksheet-root'));
 initOdds(document.getElementById('odds-root'));
+initRecommend(document.getElementById('recommend-root'));

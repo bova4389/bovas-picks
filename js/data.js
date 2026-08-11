@@ -82,10 +82,15 @@ export async function getOddsSnapshot() {
   }
 }
 
-/** Movement history for one bucket ("current" or "bucket+1"), or []. */
-export async function getOddsHistory(bucketLabel) {
+/**
+ * Full snapshot history for one game, oldest first, or []. Keyed by the
+ * Odds API's event id — NOT by week bucket, so this covers the game's whole
+ * life in the feed (from whenever it first appears through kickoff), never
+ * just however long it's been sitting in its current bucket.
+ */
+export async function getOddsHistory(eventId) {
   try {
-    return await loadJSON(`data/odds/history/${bucketLabel}.json`);
+    return await loadJSON(`data/odds/history/${eventId}.json`);
   } catch {
     return [];
   }

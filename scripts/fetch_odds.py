@@ -6,28 +6,40 @@ Run manually:
 
     ODDS_API_KEY=xxxxx python scripts/fetch_odds.py
 
-Or via .github/workflows/fetch-odds.yml on a schedule (dense Thursday through
-Saturday, sparse the rest of the week, to stay inside the free tier's 500
-requests/month). The key lives in the repo's ODDS_API_KEY secret, never in
+Or via .github/workflows/fetch-odds.yml on a schedule: a consistent once-daily
+snapshot every day of the week (so Monday's opening line and Saturday's
+closing line are both on record), with denser sampling layered on top
+Thursday through Saturday as injury news lands. Stays inside the free tier's
+500 requests/month. The key lives in the repo's ODDS_API_KEY secret, never in
 this file or in committed JSON.
 
 What it writes:
 
-    data/odds/current.json          latest snapshot, one row per upcoming
-                                     game, de-vigged win probabilities
-    data/odds/history/<bucket>.json every snapshot for that game-week bucket,
-                                     appended to — this is the line-movement
-                                     trail the Odds tab reads
-    data/odds/quota.json            requests-remaining as of the last call,
-                                     so the UI can show the budget honestly
+    data/odds/current.json           latest snapshot, one row per upcoming
+                                      game, de-vigged win probabilities
+    data/odds/history/<event-id>.json every snapshot ever taken of that
+                                      specific game, oldest first — this is
+                                      the line-movement trail the Odds tab
+                                      reads, and it is NOT split by week
+                                      bucket. A game's own history starts
+                                      whenever it first appears in the feed
+                                      (days before it becomes "this week")
+                                      and keeps accumulating straight through
+                                      to kickoff, so "movement since first
+                                      snapshot" is always the true opening
+                                      line for that game — never truncated by
+                                      which relative bucket it happened to be
+                                      in on a given day.
+    data/odds/quota.json             requests-remaining as of the last call,
+                                      so the UI can show the budget honestly
 
-Games are bucketed into "weeks" by wall-clock proximity, not by matching
-against the commissioner's week numbers — the API doesn't know Mike's
-numbering and neither does this script. A bucket boundary falls on the
-Wednesday between two NFL slates (games run Thursday through Monday, so
-Wednesday is always a gap). That means bucket labels are relative
-("current", "next") rather than "Week 7" — reconciling that against the pool
-week is the Recommend tab's job, matched by date and team, not this script's.
+`bucket` on each event in current.json is a *display* grouping only (0 =
+this game-week by wall-clock proximity, 1 = next, …), recomputed fresh every
+run — not a storage key. It floors to the Wednesday between two NFL slates
+(games run Thursday through Monday, so Wednesday is always a gap), and reset
+each run because "this week" drifts forward as time passes. Matching an odds
+event to a specific pool week (Mike's numbering) is the Recommend tab's job,
+by date and team — this script only knows relative proximity to "now".
 
 The Odds API returns two-way American moneylines per bookmaker. This script
 averages across whatever bookmakers are returned for the `us` region, then
@@ -155,10 +167,10 @@ def main():
         summary = summarize_event(ev)
         if summary is None:
             continue
-        bucket = week_bucket(ev["commence_time"], anchor)
-        summary["bucket"] = bucket
+        summary["bucket"] = week_bucket(ev["commence_time"], anchor)
         rows.append(summary)
-        by_bucket.setdefault(bucket, []).append(summary)
+        by_bucket.setdefault(summary["bucket"], 0)
+        by_bucket[summary["bucket"]] += 1
 
     rows.sort(key=lambda r: r["commenceTime"])
 
@@ -174,20 +186,28 @@ def main():
         json.dumps(quota, indent=1), encoding="utf-8"
     )
 
-    for bucket, bucket_rows in by_bucket.items():
-        label = "current" if bucket == 0 else f"bucket{bucket:+d}"
-        hist_path = history_dir / f"{label}.json"
+    # Per-game history, not per-bucket: a bucket is where the game sits
+    # *today*, which changes as weeks roll over. Keying by event id instead
+    # means a game's history file is continuous from the moment it first
+    # appears in the feed through kickoff, so "first snapshot" is always the
+    # real opening line, not just the first one taken since it became "this
+    # week".
+    for summary in rows:
+        safe_id = "".join(c if c.isalnum() else "_" for c in summary["id"])
+        hist_path = history_dir / f"{safe_id}.json"
         try:
             history = json.loads(hist_path.read_text(encoding="utf-8"))
         except FileNotFoundError:
             history = []
-        history.append({"fetchedAt": fetched_at, "events": bucket_rows})
+        entry = dict(summary)
+        entry["fetchedAt"] = fetched_at
+        history.append(entry)
         hist_path.write_text(json.dumps(history, indent=1), encoding="utf-8")
 
     print(f"fetched {len(rows)} games across {len(by_bucket)} bucket(s)")
     for bucket in sorted(by_bucket):
         label = "this week" if bucket == 0 else f"bucket {bucket:+d}"
-        print(f"  {label}: {len(by_bucket[bucket])} games")
+        print(f"  {label}: {by_bucket[bucket]} games")
     print(
         f"quota: {quota['requestsUsed']} used, "
         f"{quota['requestsRemaining']} remaining, "

@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260811" />
+  <link rel="stylesheet" href="css/styles.css?v=20260811b" />
 </head>
 <body>
 
@@ -30,7 +30,7 @@
       <nav class="tabs" role="tablist" aria-label="Sections">
         <button class="tab" role="tab" id="tab-picksheet"  aria-controls="panel-picksheet"  aria-selected="true">Pick Sheet</button>
         <button class="tab" role="tab" id="tab-odds"       aria-controls="panel-odds"       aria-selected="false">Odds</button>
-        <button class="tab" role="tab" id="tab-recommend"  aria-controls="panel-recommend"  aria-selected="false">Recommend<span class="tab-soon">Soon</span></button>
+        <button class="tab" role="tab" id="tab-recommend"  aria-controls="panel-recommend"  aria-selected="false">Recommend</button>
         <button class="tab" role="tab" id="tab-lookback"   aria-controls="panel-lookback"   aria-selected="false">Lookback<span class="tab-soon">Soon</span></button>
         <button class="tab" role="tab" id="tab-survivor"   aria-controls="panel-survivor"   aria-selected="false">Survivor<span class="tab-soon">Soon</span></button>
       </nav>
@@ -53,19 +53,14 @@
       </div>
     </section>
 
-    <!-- ── Placeholders ───────────────────────────────────────────────── -->
-    <section class="panel card soon" id="panel-recommend" role="tabpanel" aria-labelledby="tab-recommend" hidden>
-      <p class="eyebrow">Needs the odds engine first</p>
-      <h2>Leverage &amp; recommendations</h2>
-      <p>Win probability crossed against how much of the field is on each side — the calculation the whole strategy turns on.</p>
-      <ul>
-        <li>Every underdog ranked by win probability ÷ estimated pick share</li>
-        <li>Hard filter on longshots: the pool wastes ~140 picks a week there</li>
-        <li>Suggested dog count for the slate, with the reason written out</li>
-        <li>Monday-night tiebreaker placed against the field's guess density</li>
-      </ul>
+    <!-- ── Recommend ──────────────────────────────────────────────────── -->
+    <section class="panel" id="panel-recommend" role="tabpanel" aria-labelledby="tab-recommend" hidden>
+      <div id="recommend-root">
+        <p class="eyebrow">Loading</p>
+      </div>
     </section>
 
+    <!-- ── Placeholders ───────────────────────────────────────────────── -->
     <section class="panel card soon" id="panel-lookback" role="tabpanel" aria-labelledby="tab-lookback" hidden>
       <p class="eyebrow">Needs more weekly files</p>
       <h2>Field lookback</h2>
@@ -96,6 +91,6 @@
     Personal tool. Picks are emailed manually — this only builds and checks the message.
   </footer>
 
-  <script type="module" src="js/app.js?v=20260811"></script>
+  <script type="module" src="js/app.js?v=20260811b"></script>
 </body>
 </html>

@@ -5,9 +5,14 @@ on:
   schedule:
     # Dense: every 3 hours, Thursday–Saturday (UTC dow 4,5,6) — the window
     # where lines actually move as injury news lands and money comes in.
-    - cron: "0 0,3,6,9,12,15,18,21 * * 4,5,6"
-    # Sparse: once a day, Sunday–Wednesday (UTC dow 0,1,2,3) — mostly to
-    # catch Monday-night line settling and any Wednesday practice-report move.
+    # Deliberately includes 14:00 UTC so it lines up with the daily anchor
+    # below rather than sampling on a different clock each day.
+    - cron: "0 2,5,8,11,14,17,20,23 * * 4,5,6"
+    # Anchor: once a day at 14:00 UTC, every day (Sunday–Wednesday here;
+    # Thu–Sat get their 14:00 run from the dense schedule above). Together
+    # these give a same-time snapshot on all seven days, so "Monday's
+    # opening line vs. Saturday's closing line" is a clean same-clock
+    # comparison, not just whatever the dense window happened to catch.
     - cron: "0 14 * * 0,1,2,3"
 
 permissions:

@@ -28,11 +28,13 @@ export async function initOdds(root) {
   }
   const buckets = [...byBucket.keys()].sort((a, b) => a - b);
 
-  const quota = await getOddsQuota();
-  const histories = await Promise.all(
-    buckets.map((b) => getOddsHistory(bucketLabel(b)))
-  );
-  const historyByBucket = new Map(buckets.map((b, i) => [b, histories[i]]));
+  // One history file per game, not per bucket — a game's own history is
+  // continuous from whenever it first appeared in the feed through kickoff.
+  const [quota, histories] = await Promise.all([
+    getOddsQuota(),
+    Promise.all(snapshot.events.map((ev) => getOddsHistory(ev.id))),
+  ]);
+  const historyById = new Map(snapshot.events.map((ev, i) => [ev.id, histories[i]]));
 
   root.innerHTML = `
     <div class="section-head">
@@ -42,17 +44,13 @@ export async function initOdds(root) {
       </div>
       ${quota ? budgetNote(quota) : ''}
     </div>
-    <p class="hint" style="margin:0 0 20px;color:var(--ink-soft);">
+    <p class="lede">
       Snapshot from ${formatTimestamp(snapshot.fetchedAt)}. Win probability is
       the de-vigged moneyline, averaged across ${bookmakerRange(snapshot.events)}
       sportsbook${bookmakerRange(snapshot.events) === 1 ? '' : 's'}.
     </p>
-    ${buckets.map((b) => bucketSection(b, byBucket.get(b), historyByBucket.get(b))).join('')}
+    ${buckets.map((b) => bucketSection(b, byBucket.get(b), historyById)).join('')}
   `;
-}
-
-function bucketLabel(bucket) {
-  return bucket === 0 ? 'current' : `bucket${bucket > 0 ? '+' : ''}${bucket}`;
 }
 
 function bucketTitle(bucket) {
@@ -62,7 +60,7 @@ function bucketTitle(bucket) {
   return bucket > 0 ? `${bucket} weeks out` : `${-bucket} weeks ago`;
 }
 
-function bucketSection(bucket, events, history) {
+function bucketSection(bucket, events, historyById) {
   const byDay = new Map();
   for (const ev of events) {
     const day = weekdayOf(ev.commenceTime);
@@ -79,7 +77,7 @@ function bucketSection(bucket, events, history) {
       ${days.map((day) => `
         <div class="daygroup">
           <h3>${escape(day)}</h3>
-          ${byDay.get(day).map((ev) => oddsRow(ev, history)).join('')}
+          ${byDay.get(day).map((ev) => oddsRow(ev, historyById.get(ev.id))).join('')}
         </div>`).join('')}
     </div>`;
 }
@@ -115,13 +113,9 @@ function oddsRow(ev, history) {
 
 function movementFor(ev, history) {
   if (!history || history.length < 2) return null;
-  const snapshotsWithGame = history
-    .map((h) => h.events.find((e) => e.id === ev.id))
-    .filter(Boolean);
-  if (snapshotsWithGame.length < 2) return null;
 
-  const opening = snapshotsWithGame[0];
-  const current = snapshotsWithGame[snapshotsWithGame.length - 1];
+  const opening = history[0];
+  const current = history[history.length - 1];
   const deltaPts = Math.round((current.homeWinProb - opening.homeWinProb) * 100);
   if (deltaPts === 0) return { dir: 'flat', text: 'Unchanged since open' };
 
