@@ -1,16 +1,26 @@
-# CLAUDE.md — NFL Pickem Analyzer
+# CLAUDE.md — Bova's Picks
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Identity
 
-- **Site name**: NFL Pickem Analyzer
+- **Site name**: Bova's Picks (renamed from "NFL Pickem Analyzer" 2026-08-11; the local folder is
+  still `NFL Pickems/` — see the note at the end of this section for why).
 - **GitHub repo**: local `git init` done (2026-08-11), own nested repo per the workspace convention
   (see workspace `CLAUDE.md` Git Setup). Not yet pushed — no remote created (`gh` isn't installed
-  in this environment; create `bova4389/nfl-pickem-analyzer` on github.com and
+  in this environment; create `bova4389/bovas-picks` on github.com and
   `git remote add origin` when ready).
 - **Hosting**: TBD — likely GitHub Pages if it becomes a live site, otherwise a local tool
 - **Status**: Pick Sheet, Odds, and Recommend tabs are functional. Lookback and Survivor still "Soon".
+
+**Folder left as `NFL Pickems/`, not renamed to match.** The rename request was for *displayed*
+branding — title, header, docs — not the repo's on-disk path. Renaming the folder now would touch
+every relative import (`js/*.js`, `data/*.json`), the `.claude/launch.json` dev-server entry, and
+every cross-reference from the workspace-root `CLAUDE.md`, for a directory nobody but Claude Code
+ever sees — the live site and the future `bovas-picks` GitHub repo don't care what the local folder
+is called. If the folder ever does get renamed (e.g. to keep the local path consistent with the
+repo slug), update `.claude/launch.json`'s `pickem` entry and the workspace `CLAUDE.md`'s Git Setup
+table in the same pass — see [`Git Setup` in the workspace CLAUDE.md](../CLAUDE.md).
 
 ## Concept
 
@@ -283,7 +293,7 @@ guessing the shape now.
 `git init` and the initial commit are done locally (2026-08-11) — own nested repo per the
 workspace convention, no remote yet. To finish:
 
-1. Create `bova4389/nfl-pickem-analyzer` on github.com (public by default unless told otherwise —
+1. Create `bova4389/bovas-picks` on github.com (public by default unless told otherwise —
    `gh repo create` isn't available since `gh` isn't installed in this environment) and
    `git remote add origin <url>`, run from inside `NFL Pickems/`.
 2. `git push -u origin main`
