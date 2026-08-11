@@ -1,0 +1,1885 @@
+{
+ "year": 2025,
+ "weeks": {
+  "1": [
+   {
+    "day": "Thursday",
+    "away": "Cowboys",
+    "home": "Eagles",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Friday",
+    "away": "Chiefs",
+    "home": "Chargers",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Buccaneers",
+    "home": "Falcons",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Bengals",
+    "home": "Browns",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Dolphins",
+    "home": "Colts",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Panthers",
+    "home": "Jaguars",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Raiders",
+    "home": "Patriots",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Cardinals",
+    "home": "Saints",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Steelers",
+    "home": "Jets",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Giants",
+    "home": "Commanders",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Titans",
+    "home": "Broncos",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "49ers",
+    "home": "Seahawks",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Lions",
+    "home": "Packers",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Texans",
+    "home": "Rams",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Sunday",
+    "away": "Ravens",
+    "home": "Bills",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   },
+   {
+    "day": "Monday",
+    "away": "Vikings",
+    "home": "Bears",
+    "counts": true,
+    "awayNum": 27,
+    "homeNum": 28
+   }
+  ],
+  "2": [
+   {
+    "day": "Thursday",
+    "away": "Commanders",
+    "home": "Packers",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Browns",
+    "home": "Ravens",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Jaguars",
+    "home": "Bengals",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Giants",
+    "home": "Cowboys",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Bears",
+    "home": "Lions",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Patriots",
+    "home": "Dolphins",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "49ers",
+    "home": "Saints",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Bills",
+    "home": "Jets",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Seahawks",
+    "home": "Steelers",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Rams",
+    "home": "Titans",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Panthers",
+    "home": "Cardinals",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Broncos",
+    "home": "Colts",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Eagles",
+    "home": "Chiefs",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Sunday",
+    "away": "Falcons",
+    "home": "Vikings",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   },
+   {
+    "day": "Monday",
+    "away": "Buccaneers",
+    "home": "Texans",
+    "counts": true,
+    "awayNum": 27,
+    "homeNum": 28
+   },
+   {
+    "day": "Monday",
+    "away": "Chargers",
+    "home": "Raiders",
+    "counts": true,
+    "awayNum": 29,
+    "homeNum": 30
+   }
+  ],
+  "3": [
+   {
+    "day": "Thursday",
+    "away": "Dolphins",
+    "home": "Bills",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Falcons",
+    "home": "Panthers",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Packers",
+    "home": "Browns",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Texans",
+    "home": "Jaguars",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Bengals",
+    "home": "Vikings",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Steelers",
+    "home": "Patriots",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Rams",
+    "home": "Eagles",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Jets",
+    "home": "Buccaneers",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Colts",
+    "home": "Titans",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Raiders",
+    "home": "Commanders",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Broncos",
+    "home": "Chargers",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Saints",
+    "home": "Seahawks",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Cowboys",
+    "home": "Bears",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Sunday",
+    "away": "Cardinals",
+    "home": "49ers",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   },
+   {
+    "day": "Sunday",
+    "away": "Chiefs",
+    "home": "Giants",
+    "counts": true,
+    "awayNum": 27,
+    "homeNum": 28
+   },
+   {
+    "day": "Monday",
+    "away": "Lions",
+    "home": "Ravens",
+    "counts": true,
+    "awayNum": 29,
+    "homeNum": 30
+   }
+  ],
+  "4": [
+   {
+    "day": "Thursday",
+    "away": "Seahawks",
+    "home": "Cardinals",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Vikings",
+    "home": "Steelers",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Commanders",
+    "home": "Falcons",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Saints",
+    "home": "Bills",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Browns",
+    "home": "Lions",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Titans",
+    "home": "Texans",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Panthers",
+    "home": "Patriots",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Chargers",
+    "home": "Giants",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Eagles",
+    "home": "Buccaneers",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Colts",
+    "home": "Rams",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Jaguars",
+    "home": "49ers",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Ravens",
+    "home": "Chiefs",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Bears",
+    "home": "Raiders",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Sunday",
+    "away": "Packers",
+    "home": "Cowboys",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   },
+   {
+    "day": "Monday",
+    "away": "Jets",
+    "home": "Dolphins",
+    "counts": true,
+    "awayNum": 27,
+    "homeNum": 28
+   },
+   {
+    "day": "Monday",
+    "away": "Bengals",
+    "home": "Broncos",
+    "counts": true,
+    "awayNum": 29,
+    "homeNum": 30
+   }
+  ],
+  "5": [
+   {
+    "day": "Thursday",
+    "away": "49ers",
+    "home": "Rams",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Vikings",
+    "home": "Browns",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Texans",
+    "home": "Ravens",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Dolphins",
+    "home": "Panthers",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Raiders",
+    "home": "Colts",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Giants",
+    "home": "Saints",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Cowboys",
+    "home": "Jets",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Broncos",
+    "home": "Eagles",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Titans",
+    "home": "Cardinals",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Buccaneers",
+    "home": "Seahawks",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Lions",
+    "home": "Bengals",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Commanders",
+    "home": "Chargers",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Patriots",
+    "home": "Bills",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Monday",
+    "away": "Chiefs",
+    "home": "Jaguars",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   }
+  ],
+  "6": [
+   {
+    "day": "Thursday",
+    "away": "Eagles",
+    "home": "Giants",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Broncos",
+    "home": "Jets",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Rams",
+    "home": "Ravens",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Cowboys",
+    "home": "Panthers",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Cardinals",
+    "home": "Colts",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Seahawks",
+    "home": "Jaguars",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Chargers",
+    "home": "Dolphins",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Browns",
+    "home": "Steelers",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "49ers",
+    "home": "Buccaneers",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Titans",
+    "home": "Raiders",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Bengals",
+    "home": "Packers",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Patriots",
+    "home": "Saints",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Lions",
+    "home": "Chiefs",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Monday",
+    "away": "Bills",
+    "home": "Falcons",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   },
+   {
+    "day": "Monday",
+    "away": "Bears",
+    "home": "Commanders",
+    "counts": true,
+    "awayNum": 27,
+    "homeNum": 28
+   }
+  ],
+  "7": [
+   {
+    "day": "Thursday",
+    "away": "Steelers",
+    "home": "Bengals",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Rams",
+    "home": "Jaguars",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Saints",
+    "home": "Bears",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Dolphins",
+    "home": "Browns",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Raiders",
+    "home": "Chiefs",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Eagles",
+    "home": "Vikings",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Panthers",
+    "home": "Jets",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Patriots",
+    "home": "Titans",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Giants",
+    "home": "Broncos",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Colts",
+    "home": "Chargers",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Packers",
+    "home": "Cardinals",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Commanders",
+    "home": "Cowboys",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Falcons",
+    "home": "49ers",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Monday",
+    "away": "Buccaneers",
+    "home": "Lions",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   },
+   {
+    "day": "Monday",
+    "away": "Texans",
+    "home": "Seahawks",
+    "counts": true,
+    "awayNum": 27,
+    "homeNum": 28
+   }
+  ],
+  "8": [
+   {
+    "day": "Thursday",
+    "away": "Vikings",
+    "home": "Chargers",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Dolphins",
+    "home": "Falcons",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Bears",
+    "home": "Ravens",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Bills",
+    "home": "Panthers",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Jets",
+    "home": "Bengals",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "49ers",
+    "home": "Texans",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Browns",
+    "home": "Patriots",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Giants",
+    "home": "Eagles",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Buccaneers",
+    "home": "Saints",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Cowboys",
+    "home": "Broncos",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Titans",
+    "home": "Colts",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Packers",
+    "home": "Steelers",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Monday",
+    "away": "Commanders",
+    "home": "Chiefs",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   }
+  ],
+  "9": [
+   {
+    "day": "Thursday",
+    "away": "Ravens",
+    "home": "Dolphins",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Bears",
+    "home": "Bengals",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Vikings",
+    "home": "Lions",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Panthers",
+    "home": "Packers",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Broncos",
+    "home": "Texans",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Falcons",
+    "home": "Patriots",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "49ers",
+    "home": "Giants",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Colts",
+    "home": "Steelers",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Chargers",
+    "home": "Titans",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Saints",
+    "home": "Rams",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Jaguars",
+    "home": "Raiders",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Chiefs",
+    "home": "Bills",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Seahawks",
+    "home": "Commanders",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Monday",
+    "away": "Cardinals",
+    "home": "Cowboys",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   }
+  ],
+  "10": [
+   {
+    "day": "Thursday",
+    "away": "Raiders",
+    "home": "Broncos",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Falcons",
+    "home": "Colts",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Saints",
+    "home": "Panthers",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Giants",
+    "home": "Bears",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Jaguars",
+    "home": "Texans",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Bills",
+    "home": "Dolphins",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Ravens",
+    "home": "Vikings",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Browns",
+    "home": "Jets",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Patriots",
+    "home": "Buccaneers",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Cardinals",
+    "home": "Seahawks",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Rams",
+    "home": "49ers",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Lions",
+    "home": "Commanders",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Steelers",
+    "home": "Chargers",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Monday",
+    "away": "Eagles",
+    "home": "Packers",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   }
+  ],
+  "11": [
+   {
+    "day": "Thursday",
+    "away": "Jets",
+    "home": "Patriots",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Commanders",
+    "home": "Dolphins",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Panthers",
+    "home": "Falcons",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Buccaneers",
+    "home": "Bills",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Chargers",
+    "home": "Jaguars",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Bears",
+    "home": "Vikings",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Packers",
+    "home": "Giants",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Bengals",
+    "home": "Steelers",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Texans",
+    "home": "Titans",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "49ers",
+    "home": "Cardinals",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Seahawks",
+    "home": "Rams",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Ravens",
+    "home": "Browns",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Chiefs",
+    "home": "Broncos",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Sunday",
+    "away": "Lions",
+    "home": "Eagles",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   },
+   {
+    "day": "Monday",
+    "away": "Cowboys",
+    "home": "Raiders",
+    "counts": true,
+    "awayNum": 27,
+    "homeNum": 28
+   }
+  ],
+  "12": [
+   {
+    "day": "Thursday",
+    "away": "Bills",
+    "home": "Texans",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Jets",
+    "home": "Ravens",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Steelers",
+    "home": "Bears",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Patriots",
+    "home": "Bengals",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Giants",
+    "home": "Lions",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Vikings",
+    "home": "Packers",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Colts",
+    "home": "Chiefs",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Seahawks",
+    "home": "Titans",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Jaguars",
+    "home": "Cardinals",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Browns",
+    "home": "Raiders",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Eagles",
+    "home": "Cowboys",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Falcons",
+    "home": "Saints",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Buccaneers",
+    "home": "Rams",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Monday",
+    "away": "Panthers",
+    "home": "49ers",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   }
+  ],
+  "13": [
+   {
+    "day": "Thursday",
+    "away": "Packers",
+    "home": "Lions",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Thursday",
+    "away": "Chiefs",
+    "home": "Cowboys",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Thursday",
+    "away": "Bengals",
+    "home": "Ravens",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Friday",
+    "away": "Bears",
+    "home": "Eagles",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Rams",
+    "home": "Panthers",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "49ers",
+    "home": "Browns",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Texans",
+    "home": "Colts",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Saints",
+    "home": "Dolphins",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Falcons",
+    "home": "Jets",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Cardinals",
+    "home": "Buccaneers",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Jaguars",
+    "home": "Titans",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Vikings",
+    "home": "Seahawks",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Sunday",
+    "away": "Raiders",
+    "home": "Chargers",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   },
+   {
+    "day": "Sunday",
+    "away": "Bills",
+    "home": "Steelers",
+    "counts": true,
+    "awayNum": 27,
+    "homeNum": 28
+   },
+   {
+    "day": "Sunday",
+    "away": "Broncos",
+    "home": "Commanders",
+    "counts": true,
+    "awayNum": 29,
+    "homeNum": 30
+   },
+   {
+    "day": "Monday",
+    "away": "Giants",
+    "home": "Patriots",
+    "counts": true,
+    "awayNum": 31,
+    "homeNum": 32
+   }
+  ],
+  "14": [
+   {
+    "day": "Thursday",
+    "away": "Cowboys",
+    "home": "Lions",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Seahawks",
+    "home": "Falcons",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Steelers",
+    "home": "Ravens",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Titans",
+    "home": "Browns",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Bears",
+    "home": "Packers",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Colts",
+    "home": "Jaguars",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Commanders",
+    "home": "Vikings",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Dolphins",
+    "home": "Jets",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Saints",
+    "home": "Buccaneers",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Broncos",
+    "home": "Raiders",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Rams",
+    "home": "Cardinals",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Bengals",
+    "home": "Bills",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Texans",
+    "home": "Chiefs",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Monday",
+    "away": "Eagles",
+    "home": "Chargers",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   }
+  ],
+  "15": [
+   {
+    "day": "Thursday",
+    "away": "Falcons",
+    "home": "Buccaneers",
+    "counts": false,
+    "awayNum": null,
+    "homeNum": null
+   },
+   {
+    "day": "Sunday",
+    "away": "Browns",
+    "home": "Bears",
+    "counts": true,
+    "awayNum": 1,
+    "homeNum": 2
+   },
+   {
+    "day": "Sunday",
+    "away": "Ravens",
+    "home": "Bengals",
+    "counts": true,
+    "awayNum": 3,
+    "homeNum": 4
+   },
+   {
+    "day": "Sunday",
+    "away": "Cardinals",
+    "home": "Texans",
+    "counts": true,
+    "awayNum": 5,
+    "homeNum": 6
+   },
+   {
+    "day": "Sunday",
+    "away": "Jets",
+    "home": "Jaguars",
+    "counts": true,
+    "awayNum": 7,
+    "homeNum": 8
+   },
+   {
+    "day": "Sunday",
+    "away": "Chargers",
+    "home": "Chiefs",
+    "counts": true,
+    "awayNum": 9,
+    "homeNum": 10
+   },
+   {
+    "day": "Sunday",
+    "away": "Bills",
+    "home": "Patriots",
+    "counts": true,
+    "awayNum": 11,
+    "homeNum": 12
+   },
+   {
+    "day": "Sunday",
+    "away": "Commanders",
+    "home": "Giants",
+    "counts": true,
+    "awayNum": 13,
+    "homeNum": 14
+   },
+   {
+    "day": "Sunday",
+    "away": "Raiders",
+    "home": "Eagles",
+    "counts": true,
+    "awayNum": 15,
+    "homeNum": 16
+   },
+   {
+    "day": "Sunday",
+    "away": "Packers",
+    "home": "Broncos",
+    "counts": true,
+    "awayNum": 17,
+    "homeNum": 18
+   },
+   {
+    "day": "Sunday",
+    "away": "Lions",
+    "home": "Rams",
+    "counts": true,
+    "awayNum": 19,
+    "homeNum": 20
+   },
+   {
+    "day": "Sunday",
+    "away": "Panthers",
+    "home": "Saints",
+    "counts": true,
+    "awayNum": 21,
+    "homeNum": 22
+   },
+   {
+    "day": "Sunday",
+    "away": "Colts",
+    "home": "Seahawks",
+    "counts": true,
+    "awayNum": 23,
+    "homeNum": 24
+   },
+   {
+    "day": "Sunday",
+    "away": "Titans",
+    "home": "49ers",
+    "counts": true,
+    "awayNum": 25,
+    "homeNum": 26
+   },
+   {
+    "day": "Sunday",
+    "away": "Vikings",
+    "home": "Cowboys",
+    "counts": true,
+    "awayNum": 27,
+    "homeNum": 28
+   },
+   {
+    "day": "Monday",
+    "away": "Dolphins",
+    "home": "Steelers",
+    "counts": true,
+    "awayNum": 29,
+    "homeNum": 30
+   }
+  ]
+ },
+ "byes": {
+  "1": [],
+  "2": [],
+  "3": [],
+  "4": [],
+  "5": [
+   "Falcons",
+   "Bears",
+   "Packers",
+   "Steelers"
+  ],
+  "6": [
+   "Texans",
+   "Vikings"
+  ],
+  "7": [
+   "Ravens",
+   "Bills"
+  ],
+  "8": [
+   "Cardinals",
+   "Lions",
+   "Jaguars",
+   "Raiders",
+   "Rams",
+   "Seahawks"
+  ],
+  "9": [
+   "Browns",
+   "Jets",
+   "Eagles",
+   "Buccaneers"
+  ],
+  "10": [
+   "Bengals",
+   "Cowboys",
+   "Chiefs",
+   "Titans"
+  ],
+  "11": [
+   "Colts",
+   "Saints"
+  ],
+  "12": [
+   "Broncos",
+   "Chargers",
+   "Dolphins",
+   "Commanders"
+  ],
+  "13": [],
+  "14": [
+   "Panthers",
+   "Patriots",
+   "Giants",
+   "49ers"
+  ],
+  "15": []
+ }
+}

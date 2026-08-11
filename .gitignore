@@ -1,0 +1,21 @@
+# ---------------------------------------------------------------------------
+# Source workbooks stay out of the repo.
+#
+# Entrant names ARE fine to commit — this is a personal site and the pool's own
+# weekly mailing already shares them with all 270 entrants. See CLAUDE.md
+# "Data & Privacy".
+#
+# The workbooks themselves are excluded because they carry the commissioner's
+# personal email and cell number in every sheet footer. The parsers pull only
+# games, numbers, and picks, so nothing downstream needs the raw files.
+# ---------------------------------------------------------------------------
+
+*.xlsx
+*.xls
+*.xlsm
+
+# Local scratch
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc

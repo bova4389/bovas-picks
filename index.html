@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#4F2D7F" />
+  <title>NFL Pickem Analyzer</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F2D7F'/%3E%3Cpath d='M16 7c4 0 7 3.4 7 9s-3 9-7 9-7-3.4-7-9 3-9 7-9z' fill='%23A06DFF'/%3E%3Cpath d='M16 11v10M13 14h6M13 18h6' stroke='%232B144D' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810b" />
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">P</div>
+        <div class="brand-name">Pickem Analyzer <span>&nbsp;/&nbsp; 2025</span></div>
+      </div>
+
+      <h1>Make the pick,<br />not the guess.</h1>
+      <p class="tagline">
+        Weekly sheet, field leverage, and line movement for a 268-entry straight-up pool.
+      </p>
+
+      <nav class="tabs" role="tablist" aria-label="Sections">
+        <button class="tab" role="tab" id="tab-picksheet"  aria-controls="panel-picksheet"  aria-selected="true">Pick Sheet</button>
+        <button class="tab" role="tab" id="tab-odds"       aria-controls="panel-odds"       aria-selected="false">Odds<span class="tab-soon">Soon</span></button>
+        <button class="tab" role="tab" id="tab-recommend"  aria-controls="panel-recommend"  aria-selected="false">Recommend<span class="tab-soon">Soon</span></button>
+        <button class="tab" role="tab" id="tab-lookback"   aria-controls="panel-lookback"   aria-selected="false">Lookback<span class="tab-soon">Soon</span></button>
+        <button class="tab" role="tab" id="tab-survivor"   aria-controls="panel-survivor"   aria-selected="false">Survivor<span class="tab-soon">Soon</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ── Pick Sheet ─────────────────────────────────────────────────── -->
+    <section class="panel" id="panel-picksheet" role="tabpanel" aria-labelledby="tab-picksheet">
+      <div id="picksheet-root">
+        <p class="eyebrow">Loading</p>
+      </div>
+    </section>
+
+    <!-- ── Placeholders ───────────────────────────────────────────────── -->
+    <section class="panel card soon" id="panel-odds" role="tabpanel" aria-labelledby="tab-odds" hidden>
+      <p class="eyebrow">Next up</p>
+      <h2>Odds &amp; line movement</h2>
+      <p>Every matchup this week and next, with how the number has moved since it opened — the trail that shows where the money went.</p>
+      <ul>
+        <li>Snapshots collected on a schedule by GitHub Actions, so history accumulates while you sleep</li>
+        <li>Dense sampling Thursday–Saturday, sparse early week, inside the 500-credit monthly budget</li>
+        <li>Moneyline converted to true win probability with the vig removed</li>
+        <li>Weeks beyond the lookahead window come from power ratings, clearly marked as projections</li>
+      </ul>
+    </section>
+
+    <section class="panel card soon" id="panel-recommend" role="tabpanel" aria-labelledby="tab-recommend" hidden>
+      <p class="eyebrow">Needs the odds engine first</p>
+      <h2>Leverage &amp; recommendations</h2>
+      <p>Win probability crossed against how much of the field is on each side — the calculation the whole strategy turns on.</p>
+      <ul>
+        <li>Every underdog ranked by win probability ÷ estimated pick share</li>
+        <li>Hard filter on longshots: the pool wastes ~140 picks a week there</li>
+        <li>Suggested dog count for the slate, with the reason written out</li>
+        <li>Monday-night tiebreaker placed against the field's guess density</li>
+      </ul>
+    </section>
+
+    <section class="panel card soon" id="panel-lookback" role="tabpanel" aria-labelledby="tab-lookback" hidden>
+      <p class="eyebrow">Needs more weekly files</p>
+      <h2>Field lookback</h2>
+      <p>Who in the pool actually picks well, and who quietly burns their week on longshots.</p>
+      <ul>
+        <li>Per-entrant accuracy, and accuracy relative to pure chalk</li>
+        <li>Who consistently finds live dogs versus who throws darts</li>
+        <li>Which teams the field over- and under-backs, week to week</li>
+        <li>Who to root for and against once your card is locked</li>
+      </ul>
+    </section>
+
+    <section class="panel card soon" id="panel-survivor" role="tabpanel" aria-labelledby="tab-survivor" hidden>
+      <p class="eyebrow">Different math entirely</p>
+      <h2>Survivor planning</h2>
+      <p>One team a week, no reuse, a loss ends it. Planning matters more than any single pick.</p>
+      <ul>
+        <li>Teams already used, and what that leaves for the weeks ahead</li>
+        <li>Future-week schedule strength so a good team isn't spent early</li>
+        <li>Buy-back state tracked separately from the original run</li>
+        <li>Shares the same schedule and odds engine — no parallel system</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="wrap">
+    Personal tool. Picks are emailed manually — this only builds and checks the message.
+  </footer>
+
+  <script type="module" src="js/app.js?v=20260810"></script>
+</body>
+</html>

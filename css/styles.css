@@ -1,0 +1,455 @@
+/* ==========================================================================
+   NFL Pickem Analyzer — design system
+
+   Visual language modelled on Grant Thornton's site: a deep purple brand
+   field, LIGHT display weights at large sizes (their h1 runs weight 200 at
+   70px), warm neutrals instead of cold greys, and generous 20px card radii.
+
+   Built mobile-first — the phone is the primary surface, since picks get
+   made wherever you happen to be on a Saturday.
+   ========================================================================== */
+
+:root {
+  /* Brand */
+  --purple:        #4F2D7F;
+  --purple-deep:   #2B144D;
+  --purple-mid:    #725799;
+  --purple-soft:   #EDE7F5;
+  --violet:        #A06DFF;   /* bright accent — highlights, focus, "live" */
+  --teal:          #00838F;   /* secondary accent — positive / confirmed */
+
+  /* Warm neutrals (never pure grey — this is what reads as "designed") */
+  --ink:           #44423F;
+  --ink-soft:      #6E6B67;
+  --ink-faint:     #98948F;
+  --paper:         #F2F0EE;
+  --paper-2:       #EAE7E4;
+  --line:          #DCDBDA;
+  --white:         #FFFFFF;
+
+  /* Semantic */
+  --good:          #00838F;
+  --warn:          #B26A00;
+  --bad:           #B3261E;
+  --warn-bg:       #FDF4E4;
+  --bad-bg:        #FCEDEC;
+
+  /* Form */
+  --r-lg: 20px;
+  --r-md: 12px;
+  --r-sm: 8px;
+  --shadow-sm: 0 1px 2px rgba(43,20,77,.06), 0 2px 8px rgba(43,20,77,.04);
+  --shadow-md: 0 2px 4px rgba(43,20,77,.08), 0 8px 24px rgba(43,20,77,.08);
+  --shadow-lg: 0 4px 12px rgba(43,20,77,.10), 0 16px 48px rgba(43,20,77,.12);
+
+  --wrap: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { margin: 0; letter-spacing: -0.02em; }
+
+/* Light weights at display sizes — the single most GT-like move here. */
+h1 { font-size: clamp(2rem, 7vw, 3.5rem); font-weight: 200; line-height: 1.08; }
+h2 { font-size: clamp(1.35rem, 3.6vw, 2rem);  font-weight: 300; line-height: 1.15; }
+h3 { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }
+
+a { color: var(--purple); }
+
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+
+/* ── Masthead ─────────────────────────────────────────────────────────── */
+
+.masthead {
+  background: var(--purple);
+  color: var(--white);
+  padding: 28px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::after {           /* soft violet bloom, mirrors GT's gradient fields */
+  content: "";
+  position: absolute;
+  right: -140px; top: -180px;
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, rgba(160,109,255,.55), transparent 68%);
+  pointer-events: none;
+}
+.masthead .wrap { position: relative; z-index: 1; }
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark {
+  width: 34px; height: 34px; flex: none;
+  border-radius: 10px 10px 10px 2px;
+  background: var(--violet);
+  display: grid; place-items: center;
+  font-weight: 700; font-size: 15px; color: var(--purple-deep);
+}
+.brand-name { font-size: 1rem; font-weight: 500; letter-spacing: .01em; }
+.brand-name span { opacity: .62; font-weight: 300; }
+
+.masthead h1 { margin: 20px 0 6px; color: var(--white); }
+.masthead .tagline {
+  margin: 0 0 26px;
+  font-weight: 200;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  color: rgba(255,255,255,.72);
+  max-width: 46ch;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────────────────── */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab {
+  flex: none;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,.66);
+  font: inherit;
+  font-size: .9375rem;
+  font-weight: 500;
+  padding: 13px 18px;
+  border-radius: var(--r-md) var(--r-md) 0 0;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+.tab:hover { color: #fff; background: rgba(255,255,255,.09); }
+.tab[aria-selected="true"] {
+  background: var(--paper);
+  color: var(--purple-deep);
+  font-weight: 600;
+}
+.tab .tab-soon {
+  display: inline-block;
+  margin-left: 7px;
+  font-size: .625rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.16);
+  vertical-align: 1px;
+}
+.tab[aria-selected="true"] .tab-soon { background: var(--purple-soft); color: var(--purple); }
+
+/* ── Layout ───────────────────────────────────────────────────────────── */
+
+main { padding: 28px 0 96px; }
+.panel[hidden] { display: none; }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  margin: 0 0 14px;
+}
+.eyebrow {
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--purple-mid);
+  margin: 0 0 6px;
+}
+
+/* ── Controls ─────────────────────────────────────────────────────────── */
+
+.controls {
+  display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-end;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label {
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.field select, .field input {
+  font: inherit;
+  font-weight: 500;
+  padding: 11px 14px;
+  min-height: 46px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--white);
+  color: var(--ink);
+}
+.field select:focus-visible,
+.field input:focus-visible,
+.pick:focus-visible,
+.tab:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 2px;
+}
+.field input[type="number"] { width: 110px; }
+
+.btn {
+  appearance: none;
+  font: inherit; font-weight: 600;
+  min-height: 46px;
+  padding: 11px 22px;
+  border-radius: var(--r-sm);
+  border: 1.5px solid var(--purple);
+  background: var(--purple);
+  color: var(--white);
+  cursor: pointer;
+  transition: background .15s, border-color .15s, transform .06s;
+}
+.btn:hover { background: var(--purple-deep); border-color: var(--purple-deep); }
+.btn:active { transform: translateY(1px); }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.btn-ghost { background: transparent; color: var(--purple); }
+.btn-ghost:hover { background: var(--purple-soft); border-color: var(--purple); }
+
+/* ── Progress bar ─────────────────────────────────────────────────────── */
+
+.progress {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+}
+.progress-count { font-size: 1.5rem; font-weight: 300; letter-spacing: -.02em; }
+.progress-count strong { font-weight: 600; }
+.progress-track {
+  flex: 1 1 160px; height: 8px; min-width: 120px;
+  background: var(--paper-2); border-radius: 20px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--purple), var(--violet));
+  border-radius: 20px;
+  transition: width .25s ease;
+}
+.progress.is-complete .progress-fill { background: linear-gradient(90deg, var(--teal), #34B3BD); }
+
+.pill {
+  font-size: .75rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 6px 12px; border-radius: 20px;
+  background: var(--warn-bg); color: var(--warn);
+}
+.pill.ok { background: #E1F2F3; color: var(--good); }
+
+/* ── Game rows ────────────────────────────────────────────────────────── */
+
+.daygroup { margin: 0 0 22px; }
+.daygroup h3 {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 0 10px; padding: 0 4px;
+  color: var(--purple-deep);
+  text-transform: uppercase; letter-spacing: .1em; font-size: .75rem;
+}
+.daygroup h3::after {
+  content: ""; flex: 1; height: 1px; background: var(--line);
+}
+
+.game {
+  display: grid;
+  /* minmax(0,1fr) not 1fr — plain 1fr grows to fit the longest team name, which
+     left the two buttons visibly unequal (153px vs 128px). */
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  transition: border-color .15s, box-shadow .15s;
+}
+.game.is-picked { border-color: var(--purple-mid); box-shadow: var(--shadow-sm); }
+
+.game-at {
+  display: grid; place-items: center;
+  padding: 0 2px;
+  font-size: .6875rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.pick {
+  appearance: none;
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; min-height: 58px;
+  padding: 10px 12px;
+  font: inherit;
+  text-align: left;
+  border: 2px solid transparent;
+  border-radius: var(--r-sm);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.pick:hover { background: var(--purple-soft); }
+
+.pick-num {
+  flex: none;
+  display: grid; place-items: center;
+  width: 32px; height: 32px;
+  border-radius: var(--r-sm);
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  font-size: .875rem; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--purple);
+}
+.pick-team {
+  font-weight: 600; font-size: 1rem; line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.pick-side {
+  display: block;
+  font-size: .6875rem; font-weight: 600;
+  letter-spacing: .09em; text-transform: uppercase;
+  /* Deliberately darker than --ink-faint: at 10px uppercase this label was
+     failing contrast at 2.65:1. This lands at 5.8:1. */
+  color: #5F5C58;
+}
+
+.pick[aria-pressed="true"] {
+  background: var(--purple);
+  border-color: var(--purple-deep);
+  color: var(--white);
+}
+.pick[aria-pressed="true"] .pick-num {
+  background: var(--violet); border-color: var(--violet); color: var(--purple-deep);
+}
+.pick[aria-pressed="true"] .pick-side { color: rgba(255,255,255,.82); }
+
+/* Excluded games — visibly inert, never mistakable for a pickable row */
+.game.excluded {
+  background: repeating-linear-gradient(
+    -45deg, var(--paper) 0 8px, var(--paper-2) 8px 16px);
+  border-style: dashed;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  padding: 14px 16px;
+}
+.game.excluded .matchup { font-weight: 500; color: var(--ink-soft); }
+.game.excluded .why {
+  font-size: .75rem; font-weight: 600;
+  letter-spacing: .04em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ── Output ───────────────────────────────────────────────────────────── */
+
+.output { margin-top: 26px; padding: 20px; }
+.output h3 { margin-bottom: 4px; }
+.output .hint { margin: 0 0 14px; color: var(--ink-soft); font-size: .9375rem; }
+
+.email-box {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: .9375rem; line-height: 1.7;
+  white-space: pre-wrap; word-break: break-word;
+  padding: 16px 18px;
+  border-radius: var(--r-md);
+  background: var(--purple-deep);
+  color: #EFE7FF;
+  border: 0;
+  width: 100%;
+  min-height: 128px;
+  resize: vertical;
+}
+.output-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+.issues { margin: 0 0 14px; padding: 14px 16px; border-radius: var(--r-md); }
+.issues.bad  { background: var(--bad-bg);  border-left: 4px solid var(--bad); }
+.issues.ok   { background: #E1F2F3;        border-left: 4px solid var(--good); }
+.issues p { margin: 0; font-weight: 600; }
+.issues ul { margin: 8px 0 0; padding-left: 20px; }
+.issues li { margin: 3px 0; }
+
+/* ── Placeholder panels ───────────────────────────────────────────────── */
+
+.soon { padding: 40px 28px; text-align: center; }
+.soon .eyebrow { color: var(--violet); }
+.soon h2 { margin-bottom: 10px; }
+.soon p { max-width: 56ch; margin: 0 auto 8px; color: var(--ink-soft); }
+.soon ul {
+  max-width: 46ch; margin: 18px auto 0; padding: 0; list-style: none;
+  text-align: left;
+}
+.soon li {
+  padding: 10px 0 10px 28px; position: relative;
+  border-top: 1px solid var(--line); color: var(--ink-soft);
+}
+.soon li::before {
+  content: ""; position: absolute; left: 6px; top: 18px;
+  width: 7px; height: 7px; border-radius: 2px 2px 2px 0;
+  background: var(--violet);
+}
+
+.notice {
+  padding: 16px 18px; border-radius: var(--r-md);
+  background: var(--warn-bg); border-left: 4px solid var(--warn);
+  color: #6B4200;
+}
+.notice code {
+  background: rgba(0,0,0,.06); padding: 2px 6px; border-radius: 4px;
+  font-size: .875em;
+}
+
+footer {
+  padding: 22px 0 34px;
+  color: var(--ink-faint); font-size: .8125rem;
+}
+
+/* Narrow phones: reclaim horizontal room so "Buccaneers"/"Commanders" stay on
+   one line. Without this they wrapped and rows grew to ~90px, which read as
+   sloppy next to the short-named rows. */
+@media (max-width: 430px) {
+  .game { gap: 5px; padding: 5px; }
+  .pick { gap: 7px; padding: 10px 7px; }
+  .pick-num { width: 25px; height: 25px; font-size: .8125rem; border-radius: 6px; }
+  .pick-team { font-size: .9375rem; letter-spacing: -.02em; }
+  .game-at { font-size: .625rem; padding: 0; }
+}
+
+/* ── Larger screens ───────────────────────────────────────────────────── */
+
+@media (min-width: 720px) {
+  .masthead { padding-top: 34px; }
+  .game { gap: 12px; padding: 10px; }
+  .pick { min-height: 62px; padding: 12px 16px; }
+  .pick-team { font-size: 1.0625rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
