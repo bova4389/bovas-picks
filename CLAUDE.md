@@ -79,8 +79,12 @@ benchmark of 3%–7%.
 
 Consequences for anything built here:
 
-- **Do not build sportsbook integrations or bet-placement features.** The vehicle is unprofitable
-  after tax before a single pick is made.
+- **"Sportsbook" means the fixed-odds product, not the company.** DraftKings and FanDuel each run
+  several separately-licensed products under one login that file different tax forms: their
+  **Sportsbook** tabs report GROSS on W-2G, their **DFS** tabs report NET on 1099-MISC. Playing
+  DK/FD is fine; the fixed-odds tab is what the research rules out.
+- **Do not build fixed-odds integrations or bet-placement features.** That vehicle is unprofitable
+  after tax before a single pick is made. DFS-side tooling is not ruled out.
 - **The private pools are the best-returning vehicle in the research** — no rake, ~268 recreational
   entrants, net tax treatment, no account-limiting risk. Extending this tool to more pools beats
   every DK/FD strategy evaluated.

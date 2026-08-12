@@ -52,6 +52,43 @@ and survivor pools this repo was built for. See §4.1.
 
 ---
 
+## 1a. Terminology: "sportsbook" is a *product*, not a competitor
+
+Earlier drafts of this brief used "sportsbook" as if it named a different company from
+DraftKings/FanDuel. It does not, and the sloppiness obscured the actual recommendation.
+
+**DraftKings and FanDuel each operate several distinct products under one brand and one login.**
+They are separately licensed, separately regulated, and — critically — **file different tax forms
+on different bases.** The whole argument of this document is a choice *between products inside the
+apps you already want to use*, not a choice to leave them.
+
+| Product | What it is | Tax form | Reporting basis | Indiana | Verdict |
+|---|---|---|---|---|---|
+| **DraftKings Sportsbook** | Fixed odds — moneyline, spread, totals, parlays, live | W-2G, per qualifying wager | **GROSS** | Legal | **Avoid** — §2's tax wall |
+| **FanDuel Sportsbook** | Same | W-2G, per qualifying wager | **GROSS** | Legal | **Avoid** — §2's tax wall |
+| **DraftKings DFS** | Salary-cap contests vs. other players | 1099-MISC | **NET** (prizes − entry fees) | Legal, IGC-licensed | **The play** — cash games, §4.2 |
+| **FanDuel DFS** | Salary-cap contests vs. other players | 1099-MISC | **NET** | Legal, IGC-licensed | **The play** — cash games, §4.2 |
+| **DraftKings Pick6** | Pick'em props, licensed as DFS | 1099-MISC *(verify)* | Net *(verify)* | Legal, IGC-licensed | Worth a measured test — §4.2a |
+
+So: **you can absolutely stay on DraftKings and FanDuel.** The recommendation was never "use a
+different operator." It is **"use the DFS tab, not the Sportsbook tab,"** because that single choice
+is worth more after tax than any handicapping edge you could build (§1's table: a $6,603/yr swing
+on identical skill).
+
+Two consequences worth being explicit about:
+
+- **The apps make this easy to get wrong.** Same brand, same login, often one wallet. Nothing in the
+  interface signals that moving from the DFS tab to the Sportsbook tab changes your tax reporting
+  from net to gross. It is the most expensive tab switch available to you.
+- **Track the two products separately from day one.** They produce different forms and different
+  filing positions, and a combined P&L cannot be untangled at year end. This is a hard requirement
+  on the Phase 0 ledger in §5.
+
+Where this brief says "sportsbook" from here on, it means **the fixed-odds product** — DraftKings
+Sportsbook or FanDuel Sportsbook specifically — never the company.
+
+---
+
 ## 2. The Tax Wall (read this before anything else)
 
 You were right on both instincts. The details are worse than you guessed.
@@ -206,6 +243,14 @@ Treat these as opportunistic, never as infrastructure. Do not build a system who
 can be cease-and-desisted out of your state in a week — and understand that funds on a platform
 that exits your state are an operational problem, not a theoretical one.
 
+**DraftKings Pick6 is a different risk profile and should not be lumped in with them.** It is
+DraftKings' own pick'em product, licensed as DFS and operating in Indiana under Indiana Gaming
+Commission oversight — the same regulator and the same operator as the DFS contests in §4.2. The
+regulatory instability described above is largely about *independent* pick'em operators whose DFS
+classification is being challenged; a licensed operator running it as a regulated DFS product is
+not in that fight the same way. Softer pricing than a fixed-odds board is the attraction. **Confirm
+its tax reporting before scaling** — see §4.2a.
+
 ### 3.4 Which sports
 
 Ranked by exploitability for a part-time analyst who is already building NFL infrastructure:
@@ -265,6 +310,24 @@ Constraints that are not optional:
   field against you.
 - **NBA first** if you extend beyond NFL — injury-news latency is the most reliable edge and it
   automates well.
+
+### 4.2a DraftKings Pick6 — the one product worth a genuine test
+
+Available in Indiana, licensed as DFS by the IGC, and priced softer than a fixed-odds board because
+it is a pick'em product rather than a market with a house making two-way prices. That combination —
+DFS regulatory treatment plus prop-style pricing — is the most interesting thing on either app.
+
+**The open question is tax reporting, and it is not cosmetic.** Pick6 is regulated as DFS, which
+implies 1099-MISC net treatment, but that is inference rather than something confirmed. Since the
+net-vs-gross distinction is worth more than the handicapping edge (§1), verify before scaling:
+
+1. Check whether DraftKings issues Pick6 activity on 1099-MISC (net) or W-2G (gross) — a support
+   ticket in writing, or the prior-year tax documents page, will answer it.
+2. If it lands on the same 1099-MISC as DFS contests, it belongs in §4.2's allocation.
+3. If it lands on a W-2G, §2's math applies in full and it is as bad as the fixed-odds product.
+
+Do not assume the answer from the fact that it is licensed as DFS. Licensing category and IRS
+reporting basis are decided by different bodies for different reasons.
 
 ### 4.3 One-time promotional harvest
 
