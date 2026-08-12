@@ -12,5 +12,19 @@
   "vig": 0.0421,
   "bucket": 13,
   "fetchedAt": "2026-08-11T23:37:33.178510+00:00"
+ },
+ {
+  "id": "9760d8f19f84bfee300a74ceb656c95d",
+  "commenceTime": "2026-11-09T01:20:00Z",
+  "home": "Chicago Bears",
+  "away": "Tampa Bay Buccaneers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6575,
+  "rawAwayProb": 0.3846,
+  "homeWinProb": 0.6309,
+  "awayWinProb": 0.3691,
+  "vig": 0.0421,
+  "bucket": 12,
+  "fetchedAt": "2026-08-12T14:48:30.666512+00:00"
  }
 ]

@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-11T23:37:33.178510+00:00",
+ "fetchedAt": "2026-08-12T14:48:30.666512+00:00",
  "events": [
   {
    "id": "8c94552d022acec4a0458d70c19d3da9",
@@ -12,7 +12,7 @@
    "homeWinProb": 0.6369,
    "awayWinProb": 0.3631,
    "vig": 0.0421,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "acc580d74344ea3b31bbcdd057fe6a9c",
@@ -25,7 +25,7 @@
    "homeWinProb": 0.6367,
    "awayWinProb": 0.3633,
    "vig": 0.0432,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "95c01d1bb797d6df14824b106c5a9130",
@@ -38,7 +38,7 @@
    "homeWinProb": 0.5976,
    "awayWinProb": 0.4024,
    "vig": 0.0414,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "b6cfdcbafa61ce220ba87dc2d9b80c77",
@@ -46,12 +46,12 @@
    "home": "Indianapolis Colts",
    "away": "Baltimore Ravens",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.3925,
-   "rawAwayProb": 0.6499,
-   "homeWinProb": 0.3765,
-   "awayWinProb": 0.6235,
+   "rawHomeProb": 0.3918,
+   "rawAwayProb": 0.6506,
+   "homeWinProb": 0.3758,
+   "awayWinProb": 0.6242,
    "vig": 0.0424,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "7e09efed7e12c659b82740b67ce2f9a1",
@@ -64,7 +64,7 @@
    "homeWinProb": 0.4959,
    "awayWinProb": 0.5041,
    "vig": 0.0488,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "fc362aff0d889ec52d358307a70c32ed",
@@ -77,7 +77,7 @@
    "homeWinProb": 0.426,
    "awayWinProb": 0.574,
    "vig": 0.0451,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "ed6d24ff979f9c71979fead577b0b3f7",
@@ -90,7 +90,7 @@
    "homeWinProb": 0.6372,
    "awayWinProb": 0.3628,
    "vig": 0.041,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "e55c6fe19fce094ce214c8b0e5b504e9",
@@ -103,7 +103,7 @@
    "homeWinProb": 0.759,
    "awayWinProb": 0.241,
    "vig": 0.0455,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "c1d3fcec25aaeb06ebd2244d33d338e0",
@@ -111,12 +111,12 @@
    "home": "Detroit Lions",
    "away": "New Orleans Saints",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.7694,
-   "rawAwayProb": 0.2744,
-   "homeWinProb": 0.7371,
-   "awayWinProb": 0.2629,
+   "rawHomeProb": 0.7685,
+   "rawAwayProb": 0.2753,
+   "homeWinProb": 0.7362,
+   "awayWinProb": 0.2638,
    "vig": 0.0438,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "7dddb296a42e7a41a774b24bd1709ce1",
@@ -129,7 +129,7 @@
    "homeWinProb": 0.5716,
    "awayWinProb": 0.4284,
    "vig": 0.0428,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "1edfa5ceaa1ad2cb57df1c1b908731f6",
@@ -137,12 +137,12 @@
    "home": "Los Angeles Chargers",
    "away": "Arizona Cardinals",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.8524,
-   "rawAwayProb": 0.1925,
-   "homeWinProb": 0.8158,
-   "awayWinProb": 0.1842,
+   "rawHomeProb": 0.8534,
+   "rawAwayProb": 0.1914,
+   "homeWinProb": 0.8168,
+   "awayWinProb": 0.1832,
    "vig": 0.0448,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "cb77efed7e711d25a72c1a2a0a1af119",
@@ -155,7 +155,7 @@
    "homeWinProb": 0.5084,
    "awayWinProb": 0.4916,
    "vig": 0.0503,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "c5d95f48a16849ab6bebc68fbbfcb74a",
@@ -168,7 +168,7 @@
    "homeWinProb": 0.6375,
    "awayWinProb": 0.3625,
    "vig": 0.0447,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "17885cb8dcade8f6c3bce14b2de805e8",
@@ -181,7 +181,7 @@
    "homeWinProb": 0.6607,
    "awayWinProb": 0.3393,
    "vig": 0.0433,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "3e646c7479c57f5d9752d8c7dfe7059b",
@@ -194,7 +194,7 @@
    "homeWinProb": 0.43,
    "awayWinProb": 0.57,
    "vig": 0.0454,
-   "bucket": 5
+   "bucket": 4
   },
   {
    "id": "5ad8135dc2b5f27de0b777acd317855a",
@@ -202,12 +202,12 @@
    "home": "Kansas City Chiefs",
    "away": "Denver Broncos",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6026,
-   "rawAwayProb": 0.4429,
-   "homeWinProb": 0.5764,
-   "awayWinProb": 0.4236,
-   "vig": 0.0454,
-   "bucket": 5
+   "rawHomeProb": 0.6014,
+   "rawAwayProb": 0.4441,
+   "homeWinProb": 0.5752,
+   "awayWinProb": 0.4248,
+   "vig": 0.0455,
+   "bucket": 4
   },
   {
    "id": "56e8897681915f7ec92baeee952bb1ae",
@@ -220,7 +220,7 @@
    "homeWinProb": 0.5927,
    "awayWinProb": 0.4073,
    "vig": 0.0469,
-   "bucket": 6
+   "bucket": 5
   },
   {
    "id": "aee7eae1849ebb103b9bf233e9741392",
@@ -233,7 +233,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 6
+   "bucket": 5
   },
   {
    "id": "2143ade9684fd876b68a4e8cbf451f05",
@@ -241,12 +241,12 @@
    "home": "Baltimore Ravens",
    "away": "New Orleans Saints",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7802,
-   "rawAwayProb": 0.2632,
-   "homeWinProb": 0.7478,
-   "awayWinProb": 0.2522,
-   "vig": 0.0434,
-   "bucket": 6
+   "rawHomeProb": 0.7753,
+   "rawAwayProb": 0.2667,
+   "homeWinProb": 0.7441,
+   "awayWinProb": 0.2559,
+   "vig": 0.0419,
+   "bucket": 5
   },
   {
    "id": "0283a29e1b38ef78b29b904fd56a16dd",
@@ -259,7 +259,7 @@
    "homeWinProb": 0.6225,
    "awayWinProb": 0.3775,
    "vig": 0.0428,
-   "bucket": 6
+   "bucket": 5
   },
   {
    "id": "36ad2fa722f4915ef23d2c81351261de",
@@ -272,7 +272,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 6
+   "bucket": 5
   },
   {
    "id": "0636ebff776d43f8c829a36713c80b22",
@@ -280,12 +280,12 @@
    "home": "Tampa Bay Buccaneers",
    "away": "Cleveland Browns",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7143,
-   "rawAwayProb": 0.3279,
-   "homeWinProb": 0.6854,
-   "awayWinProb": 0.3146,
-   "vig": 0.0422,
-   "bucket": 6
+   "rawHomeProb": 0.7101,
+   "rawAwayProb": 0.3333,
+   "homeWinProb": 0.6806,
+   "awayWinProb": 0.3194,
+   "vig": 0.0435,
+   "bucket": 5
   },
   {
    "id": "4aeee070bb6ec60bdfae4dede61b9014",
@@ -298,7 +298,7 @@
    "homeWinProb": 0.3146,
    "awayWinProb": 0.6854,
    "vig": 0.0422,
-   "bucket": 6
+   "bucket": 5
   },
   {
    "id": "9d14f87600f6edc74dbcb5c74edf6246",
@@ -306,12 +306,12 @@
    "home": "New England Patriots",
    "away": "Pittsburgh Steelers",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.6923,
-   "rawAwayProb": 0.3509,
-   "homeWinProb": 0.6636,
-   "awayWinProb": 0.3364,
-   "vig": 0.0432,
-   "bucket": 6
+   "rawHomeProb": 0.697,
+   "rawAwayProb": 0.3448,
+   "homeWinProb": 0.669,
+   "awayWinProb": 0.331,
+   "vig": 0.0418,
+   "bucket": 5
   },
   {
    "id": "fafc649c455e32a0f2ba1bd06e2039bc",
@@ -319,12 +319,12 @@
    "home": "Tennessee Titans",
    "away": "Philadelphia Eagles",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.3704,
-   "rawAwayProb": 0.6721,
-   "homeWinProb": 0.3553,
-   "awayWinProb": 0.6447,
-   "vig": 0.0425,
-   "bucket": 6
+   "rawHomeProb": 0.3571,
+   "rawAwayProb": 0.6855,
+   "homeWinProb": 0.3425,
+   "awayWinProb": 0.6575,
+   "vig": 0.0427,
+   "bucket": 5
   },
   {
    "id": "1fd6628c781f556a7a19638e97d7107f",
@@ -337,7 +337,7 @@
    "homeWinProb": 0.5635,
    "awayWinProb": 0.4365,
    "vig": 0.0413,
-   "bucket": 6
+   "bucket": 5
   },
   {
    "id": "71b3b83747589efdc5baef2c5cf811bf",
@@ -350,7 +350,7 @@
    "homeWinProb": 0.7715,
    "awayWinProb": 0.2285,
    "vig": 0.042,
-   "bucket": 6
+   "bucket": 5
   },
   {
    "id": "4dd8020192a544385db42374e5555303",
@@ -358,12 +358,12 @@
    "home": "Arizona Cardinals",
    "away": "Seattle Seahawks",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.2083,
-   "rawAwayProb": 0.8333,
-   "homeWinProb": 0.2,
-   "awayWinProb": 0.8,
-   "vig": 0.0417,
-   "bucket": 6
+   "rawHomeProb": 0.2041,
+   "rawAwayProb": 0.8387,
+   "homeWinProb": 0.1957,
+   "awayWinProb": 0.8043,
+   "vig": 0.0428,
+   "bucket": 5
   },
   {
    "id": "85ef85098ddd22fe4ecf45e7e3c0a9c0",
@@ -376,7 +376,7 @@
    "homeWinProb": 0.6369,
    "awayWinProb": 0.3631,
    "vig": 0.0432,
-   "bucket": 6
+   "bucket": 5
   },
   {
    "id": "68bc55903f50af4af4766adcc89fcc61",
@@ -384,12 +384,12 @@
    "home": "San Francisco 49ers",
    "away": "Miami Dolphins",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.8425,
-   "rawAwayProb": 0.2,
-   "homeWinProb": 0.8082,
-   "awayWinProb": 0.1918,
-   "vig": 0.0425,
-   "bucket": 6
+   "rawHomeProb": 0.8519,
+   "rawAwayProb": 0.1905,
+   "homeWinProb": 0.8173,
+   "awayWinProb": 0.1827,
+   "vig": 0.0423,
+   "bucket": 5
   },
   {
    "id": "50bc247030707d823b9c3581d7eb5760",
@@ -402,7 +402,7 @@
    "homeWinProb": 0.7095,
    "awayWinProb": 0.2905,
    "vig": 0.0433,
-   "bucket": 6
+   "bucket": 5
   },
   {
    "id": "32367f882fac1a0c20a6335619922025",
@@ -415,7 +415,7 @@
    "homeWinProb": 0.76,
    "awayWinProb": 0.24,
    "vig": 0.0417,
-   "bucket": 6
+   "bucket": 5
   },
   {
    "id": "e5fbd3b3953b896b1bf897ddadb3cc4b",
@@ -428,7 +428,7 @@
    "homeWinProb": 0.7508,
    "awayWinProb": 0.2492,
    "vig": 0.0423,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "b225458a282e140c44c45651255f2f6c",
@@ -441,7 +441,7 @@
    "homeWinProb": 0.5996,
    "awayWinProb": 0.4004,
    "vig": 0.0407,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "613b8cd3a5fab58f7be4e3fd6f76223e",
@@ -454,7 +454,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "71123be049587b6facce3a20c53e5d09",
@@ -467,7 +467,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "07f552badfa8a565d1be22123713e4da",
@@ -480,7 +480,7 @@
    "homeWinProb": 0.7914,
    "awayWinProb": 0.2086,
    "vig": 0.042,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "17a730b7d399feeab6a78c30767c29d2",
@@ -493,7 +493,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "1f3cfd315a24d1a7dd5859a8e6b88e18",
@@ -506,7 +506,7 @@
    "homeWinProb": 0.5174,
    "awayWinProb": 0.4826,
    "vig": 0.0462,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "0339a0e41bcee12820eb3e64bb5fadb4",
@@ -514,12 +514,12 @@
    "home": "Miami Dolphins",
    "away": "Kansas City Chiefs",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.2632,
-   "rawAwayProb": 0.7802,
-   "homeWinProb": 0.2522,
-   "awayWinProb": 0.7478,
-   "vig": 0.0434,
-   "bucket": 7
+   "rawHomeProb": 0.2667,
+   "rawAwayProb": 0.7753,
+   "homeWinProb": 0.2559,
+   "awayWinProb": 0.7441,
+   "vig": 0.0419,
+   "bucket": 6
   },
   {
    "id": "555afd4a27aaa392662881cffa8f2eef",
@@ -527,12 +527,12 @@
    "home": "New York Giants",
    "away": "Tennessee Titans",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.6296,
-   "rawAwayProb": 0.4132,
-   "homeWinProb": 0.6038,
-   "awayWinProb": 0.3962,
-   "vig": 0.0429,
-   "bucket": 7
+   "rawHomeProb": 0.6241,
+   "rawAwayProb": 0.4167,
+   "homeWinProb": 0.5996,
+   "awayWinProb": 0.4004,
+   "vig": 0.0407,
+   "bucket": 6
   },
   {
    "id": "2a529c108305ffa049d8b6cfdbaa4d36",
@@ -540,12 +540,12 @@
    "home": "Washington Commanders",
    "away": "Seattle Seahawks",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.3937,
-   "rawAwayProb": 0.6491,
-   "homeWinProb": 0.3775,
-   "awayWinProb": 0.6225,
-   "vig": 0.0428,
-   "bucket": 7
+   "rawHomeProb": 0.3846,
+   "rawAwayProb": 0.6575,
+   "homeWinProb": 0.3691,
+   "awayWinProb": 0.6309,
+   "vig": 0.0421,
+   "bucket": 6
   },
   {
    "id": "9d2b09e0f9b6dd5ce0d985894f4f98fa",
@@ -558,7 +558,7 @@
    "homeWinProb": 0.8173,
    "awayWinProb": 0.1827,
    "vig": 0.0423,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "f1724dead3eab61546033032fc782375",
@@ -571,7 +571,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "84cfca14efc21363fd605508404cf1ff",
@@ -584,7 +584,7 @@
    "homeWinProb": 0.4486,
    "awayWinProb": 0.5514,
    "vig": 0.0418,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "2e523fcb0497aa689473e290eb2b97de",
@@ -597,7 +597,7 @@
    "homeWinProb": 0.6369,
    "awayWinProb": 0.3631,
    "vig": 0.0432,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "3bfd8bfb4b8e9a365a0877879b73b16b",
@@ -610,7 +610,7 @@
    "homeWinProb": 0.4066,
    "awayWinProb": 0.5934,
    "vig": 0.042,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "47dc7baa254659f3beb2ed2b38c207b6",
@@ -623,7 +623,7 @@
    "homeWinProb": 0.5174,
    "awayWinProb": 0.4826,
    "vig": 0.0462,
-   "bucket": 7
+   "bucket": 6
   },
   {
    "id": "d55cb69fed50a09170560b5b75d8de86",
@@ -636,7 +636,7 @@
    "homeWinProb": 0.4486,
    "awayWinProb": 0.5514,
    "vig": 0.0418,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "c9d8ed8aa4889486eaf10a630138ede0",
@@ -649,7 +649,7 @@
    "homeWinProb": 0.4966,
    "awayWinProb": 0.5034,
    "vig": 0.0434,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "664e6bda5721dc63be16bcf7d962a436",
@@ -657,12 +657,12 @@
    "home": "New York Giants",
    "away": "Arizona Cardinals",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7531,
-   "rawAwayProb": 0.2899,
-   "homeWinProb": 0.7221,
-   "awayWinProb": 0.2779,
-   "vig": 0.0429,
-   "bucket": 8
+   "rawHomeProb": 0.7561,
+   "rawAwayProb": 0.2857,
+   "homeWinProb": 0.7258,
+   "awayWinProb": 0.2742,
+   "vig": 0.0418,
+   "bucket": 7
   },
   {
    "id": "f01589b0e7e6dd4f4ac1220a1db81f53",
@@ -675,7 +675,7 @@
    "homeWinProb": 0.7659,
    "awayWinProb": 0.2341,
    "vig": 0.0419,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "573cc0ef39631a4f6673ec843a8bedd4",
@@ -688,7 +688,7 @@
    "homeWinProb": 0.5934,
    "awayWinProb": 0.4066,
    "vig": 0.042,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "164e6eb68f31bac190381903c3cccd31",
@@ -701,7 +701,7 @@
    "homeWinProb": 0.7659,
    "awayWinProb": 0.2341,
    "vig": 0.0419,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "2ea94ddf20f66432b9024fe2e2eaba5f",
@@ -714,7 +714,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "daf55e2df5341c007fee5a0fc5bbc2d4",
@@ -727,7 +727,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "99a9bae4dc0dc2590496bd3102b211f2",
@@ -740,7 +740,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "1b4f2e60ce83fa1d63a5dff83769d27c",
@@ -753,7 +753,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "c327223d76a3b7b0db8c6c104442f44b",
@@ -766,7 +766,7 @@
    "homeWinProb": 0.7508,
    "awayWinProb": 0.2492,
    "vig": 0.0423,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "a7e7efb75a9792ac63480ae6328dca18",
@@ -779,7 +779,7 @@
    "homeWinProb": 0.5635,
    "awayWinProb": 0.4365,
    "vig": 0.0413,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "e0cbd266dcf997089203a1b33ba0333d",
@@ -792,7 +792,7 @@
    "homeWinProb": 0.3194,
    "awayWinProb": 0.6806,
    "vig": 0.0435,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "96d2373cda647873b971f268482bced0",
@@ -805,7 +805,7 @@
    "homeWinProb": 0.6092,
    "awayWinProb": 0.3908,
    "vig": 0.0445,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "a73a76599a4f3422803e57bd8f61b626",
@@ -818,7 +818,7 @@
    "homeWinProb": 0.4066,
    "awayWinProb": 0.5934,
    "vig": 0.042,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "8bd90781e17e6d97df3941063cedae1e",
@@ -831,7 +831,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 8
+   "bucket": 7
   },
   {
    "id": "259b5df9aa0d10257f56de78523495e0",
@@ -844,7 +844,7 @@
    "homeWinProb": 0.6309,
    "awayWinProb": 0.3691,
    "vig": 0.0421,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "21b26266f3d78af02eb672e606275d95",
@@ -857,7 +857,7 @@
    "homeWinProb": 0.4695,
    "awayWinProb": 0.5305,
    "vig": 0.0416,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "c4647ca1201e6768501877267ca8251b",
@@ -870,7 +870,7 @@
    "homeWinProb": 0.3092,
    "awayWinProb": 0.6908,
    "vig": 0.0433,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "9db4ed15fe34fca1fb62f040cd244591",
@@ -883,7 +883,7 @@
    "homeWinProb": 0.5427,
    "awayWinProb": 0.4573,
    "vig": 0.0414,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "cc52bba56e74f5cddbe9011046181c3d",
@@ -896,7 +896,7 @@
    "homeWinProb": 0.3691,
    "awayWinProb": 0.6309,
    "vig": 0.0421,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "448d7cf18c6db4c811ed82ded1b72867",
@@ -909,7 +909,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "6b024bad1abb54f597225e4ab9b39d89",
@@ -922,7 +922,7 @@
    "homeWinProb": 0.7659,
    "awayWinProb": 0.2341,
    "vig": 0.0419,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "2cda9bf0fbe35a2735f0dd8aaafe9eff",
@@ -935,7 +935,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "fbffd0b7722fd81d68d5d62472dc80e8",
@@ -948,7 +948,7 @@
    "homeWinProb": 0.5427,
    "awayWinProb": 0.4573,
    "vig": 0.0414,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "d1d408fdfd272046fb517fe992a1c5a0",
@@ -961,7 +961,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "f8e7f43f73aa983c5c99c189587f0118",
@@ -974,7 +974,7 @@
    "homeWinProb": 0.2492,
    "awayWinProb": 0.7508,
    "vig": 0.0423,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "2caea57b1e5cfbba1334cfbfd46f6771",
@@ -987,7 +987,7 @@
    "homeWinProb": 0.5996,
    "awayWinProb": 0.4004,
    "vig": 0.0407,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "8e5d515b10d8a5ffb324640ed60bcc55",
@@ -1000,7 +1000,7 @@
    "homeWinProb": 0.6309,
    "awayWinProb": 0.3691,
    "vig": 0.0421,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "86457f91112732f21ad4bb7d37bd291c",
@@ -1013,7 +1013,7 @@
    "homeWinProb": 0.3553,
    "awayWinProb": 0.6447,
    "vig": 0.0425,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "e6d00eedd87d367e510314bd8cab8f6f",
@@ -1026,7 +1026,7 @@
    "homeWinProb": 0.583,
    "awayWinProb": 0.417,
    "vig": 0.0426,
-   "bucket": 9
+   "bucket": 8
   },
   {
    "id": "855f58fad5f0f14b239f4f63df27998b",
@@ -1039,7 +1039,7 @@
    "homeWinProb": 0.4573,
    "awayWinProb": 0.5427,
    "vig": 0.0414,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "57418b2cf5aca558b3c98eafac1e264a",
@@ -1052,7 +1052,7 @@
    "homeWinProb": 0.4977,
    "awayWinProb": 0.5023,
    "vig": 0.0428,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "7c312fdf24fb35f58b0e07c2932cc997",
@@ -1065,7 +1065,7 @@
    "homeWinProb": 0.417,
    "awayWinProb": 0.583,
    "vig": 0.0426,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "e86227938fd3cf008fc5648fb5128344",
@@ -1073,12 +1073,12 @@
    "home": "Cleveland Browns",
    "away": "Baltimore Ravens",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.3125,
-   "rawAwayProb": 0.7297,
-   "homeWinProb": 0.2998,
-   "awayWinProb": 0.7002,
-   "vig": 0.0422,
-   "bucket": 10
+   "rawHomeProb": 0.3175,
+   "rawAwayProb": 0.726,
+   "homeWinProb": 0.3042,
+   "awayWinProb": 0.6958,
+   "vig": 0.0435,
+   "bucket": 9
   },
   {
    "id": "caca2d752fe1a1779029082e95332fcc",
@@ -1091,7 +1091,7 @@
    "homeWinProb": 0.705,
    "awayWinProb": 0.295,
    "vig": 0.0431,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "84aa9e190e625d7e9cd67e1f157a45b4",
@@ -1104,7 +1104,7 @@
    "homeWinProb": 0.6309,
    "awayWinProb": 0.3691,
    "vig": 0.0421,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "0b0b582b32b09ab6ff6664ffae0c9653",
@@ -1117,7 +1117,7 @@
    "homeWinProb": 0.7914,
    "awayWinProb": 0.2086,
    "vig": 0.042,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "1cf74afd313e9fd300e1462012b174cb",
@@ -1130,7 +1130,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "27f3994841ce8081c0b7349cf3d1e3d7",
@@ -1143,7 +1143,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "3729ac6d2a66b642850caf2044cdc658",
@@ -1156,7 +1156,7 @@
    "homeWinProb": 0.84,
    "awayWinProb": 0.16,
    "vig": 0.0417,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "45b2690b350ed45145c7a716b18e8e66",
@@ -1169,7 +1169,7 @@
    "homeWinProb": 0.295,
    "awayWinProb": 0.705,
    "vig": 0.0431,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "20fefae8c296247460ba5773caa42218",
@@ -1182,7 +1182,7 @@
    "homeWinProb": 0.5635,
    "awayWinProb": 0.4365,
    "vig": 0.0413,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "82fd5a159fa130e67abab93a9537f70b",
@@ -1195,7 +1195,7 @@
    "homeWinProb": 0.5996,
    "awayWinProb": 0.4004,
    "vig": 0.0407,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "f122527f003276d3bca19efa48c902c1",
@@ -1208,7 +1208,7 @@
    "homeWinProb": 0.6806,
    "awayWinProb": 0.3194,
    "vig": 0.0435,
-   "bucket": 10
+   "bucket": 9
   },
   {
    "id": "ffebea881c1d7b2dfb85b3e590c35985",
@@ -1221,7 +1221,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "2e710ea5a306b614f0f966e3d78732f8",
@@ -1234,7 +1234,7 @@
    "homeWinProb": 0.4469,
    "awayWinProb": 0.5531,
    "vig": 0.0414,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "b1be064fb52a198a62109c279e7ab24c",
@@ -1247,7 +1247,7 @@
    "homeWinProb": 0.3425,
    "awayWinProb": 0.6575,
    "vig": 0.0427,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "550ec5290f935d311995affbcb0b5c79",
@@ -1260,7 +1260,7 @@
    "homeWinProb": 0.6309,
    "awayWinProb": 0.3691,
    "vig": 0.0421,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "2823e986597c449ab94126cd5ed3fae9",
@@ -1273,7 +1273,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "5dce18baccec5d3ad5fb3a3ce52f7619",
@@ -1286,7 +1286,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "2bba7fde6f97d0e54403d53676e4ab63",
@@ -1294,12 +1294,12 @@
    "home": "Houston Texans",
    "away": "New York Giants",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7041,
-   "rawAwayProb": 0.339,
-   "homeWinProb": 0.675,
-   "awayWinProb": 0.325,
-   "vig": 0.0431,
-   "bucket": 11
+   "rawHomeProb": 0.697,
+   "rawAwayProb": 0.3448,
+   "homeWinProb": 0.669,
+   "awayWinProb": 0.331,
+   "vig": 0.0418,
+   "bucket": 10
   },
   {
    "id": "f3992ad4496724baf7dcd1ef58245d6b",
@@ -1312,7 +1312,7 @@
    "homeWinProb": 0.5635,
    "awayWinProb": 0.4365,
    "vig": 0.0413,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "be5dd120ca08b43d647b6caa8953500a",
@@ -1325,7 +1325,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "436119bb3ccdaa6ed7808aa3ebd82b76",
@@ -1338,7 +1338,7 @@
    "homeWinProb": 0.2428,
    "awayWinProb": 0.7572,
    "vig": 0.0426,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "e8e5715eefb6a9ce64765e9ddf49c0cc",
@@ -1351,7 +1351,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "f7679cf18454e4d88a8f2b990c3f08ac",
@@ -1364,7 +1364,7 @@
    "homeWinProb": 0.2559,
    "awayWinProb": 0.7441,
    "vig": 0.0419,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "176d474ed8b2bbf1eb4d7e9c56b4bf22",
@@ -1377,7 +1377,7 @@
    "homeWinProb": 0.5996,
    "awayWinProb": 0.4004,
    "vig": 0.0407,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "4853610e63c246f2027a6a248e642c9a",
@@ -1390,7 +1390,7 @@
    "homeWinProb": 0.5934,
    "awayWinProb": 0.4066,
    "vig": 0.042,
-   "bucket": 11
+   "bucket": 10
   },
   {
    "id": "ab2865e9f2d4b012de8bc6fb6de11a7c",
@@ -1398,12 +1398,12 @@
    "home": "Green Bay Packers",
    "away": "Carolina Panthers",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7647,
-   "rawAwayProb": 0.2778,
-   "homeWinProb": 0.7335,
-   "awayWinProb": 0.2665,
-   "vig": 0.0425,
-   "bucket": 12
+   "rawHomeProb": 0.7727,
+   "rawAwayProb": 0.2703,
+   "homeWinProb": 0.7409,
+   "awayWinProb": 0.2591,
+   "vig": 0.043,
+   "bucket": 11
   },
   {
    "id": "9255ca8f32aea590d00aa57de79f6bb6",
@@ -1416,7 +1416,7 @@
    "homeWinProb": 0.7958,
    "awayWinProb": 0.2042,
    "vig": 0.0418,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "921859689f5f8b3b8b1caf4248bdb1ec",
@@ -1429,7 +1429,7 @@
    "homeWinProb": 0.6575,
    "awayWinProb": 0.3425,
    "vig": 0.0427,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "c93c421e5fa46031a43162d111d981d0",
@@ -1437,12 +1437,12 @@
    "home": "Buffalo Bills",
    "away": "Baltimore Ravens",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.5745,
-   "rawAwayProb": 0.4673,
-   "homeWinProb": 0.5514,
-   "awayWinProb": 0.4486,
-   "vig": 0.0418,
-   "bucket": 12
+   "rawHomeProb": 0.5868,
+   "rawAwayProb": 0.4545,
+   "homeWinProb": 0.5635,
+   "awayWinProb": 0.4365,
+   "vig": 0.0413,
+   "bucket": 11
   },
   {
    "id": "9c5d8f57e0ba0fbd9ef436c1f0898f99",
@@ -1455,7 +1455,7 @@
    "homeWinProb": 0.705,
    "awayWinProb": 0.295,
    "vig": 0.0431,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "ab5ab731ab655bd6308bc7a922275518",
@@ -1468,7 +1468,7 @@
    "homeWinProb": 0.6908,
    "awayWinProb": 0.3092,
    "vig": 0.0433,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "52e7ee9c42525e6deec02da32dc2fad8",
@@ -1481,7 +1481,7 @@
    "homeWinProb": 0.6575,
    "awayWinProb": 0.3425,
    "vig": 0.0427,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "159dbf0253dd2038eda2212f84387f0c",
@@ -1494,7 +1494,7 @@
    "homeWinProb": 0.6575,
    "awayWinProb": 0.3425,
    "vig": 0.0427,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "98f1b121b793977434c046e76c707145",
@@ -1507,7 +1507,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "2ff84d3f6053d083c8c0a5bebf7cdd4c",
@@ -1520,7 +1520,7 @@
    "homeWinProb": 0.6447,
    "awayWinProb": 0.3553,
    "vig": 0.0425,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "f2a036d5edf483a277880014861e78ad",
@@ -1533,7 +1533,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "05405af79752f5e742cdf50b61f6745e",
@@ -1546,7 +1546,7 @@
    "homeWinProb": 0.2591,
    "awayWinProb": 0.7409,
    "vig": 0.043,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "b9c60db63b1a19ad319f24b33c0defe8",
@@ -1559,7 +1559,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "7d664fbcd39350e559d83c0068ba7169",
@@ -1572,7 +1572,7 @@
    "homeWinProb": 0.6636,
    "awayWinProb": 0.3364,
    "vig": 0.0432,
-   "bucket": 12
+   "bucket": 11
   },
   {
    "id": "c75744790b7acf6260c78ba5e739c0e5",
@@ -1585,7 +1585,7 @@
    "homeWinProb": 0.6447,
    "awayWinProb": 0.3553,
    "vig": 0.0425,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "dc56d980f527ffeef89940133b211b13",
@@ -1598,7 +1598,7 @@
    "homeWinProb": 0.3348,
    "awayWinProb": 0.6652,
    "vig": 0.0407,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "014282b888c741b7d70c857c09f40aa7",
@@ -1606,12 +1606,12 @@
    "home": "Carolina Panthers",
    "away": "Denver Broncos",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.4237,
-   "rawAwayProb": 0.6183,
-   "homeWinProb": 0.4066,
-   "awayWinProb": 0.5934,
-   "vig": 0.042,
-   "bucket": 13
+   "rawHomeProb": 0.4167,
+   "rawAwayProb": 0.6241,
+   "homeWinProb": 0.4004,
+   "awayWinProb": 0.5996,
+   "vig": 0.0407,
+   "bucket": 12
   },
   {
    "id": "e571bab6736f9338130a78a4f75c3231",
@@ -1624,7 +1624,7 @@
    "homeWinProb": 0.6447,
    "awayWinProb": 0.3553,
    "vig": 0.0425,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "415fc42e72888c63e82f7bce24c65391",
@@ -1637,7 +1637,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "44d8c37868b700e90f816db7c5df5cdd",
@@ -1645,12 +1645,12 @@
    "home": "Miami Dolphins",
    "away": "Detroit Lions",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.3226,
-   "rawAwayProb": 0.7207,
-   "homeWinProb": 0.3092,
-   "awayWinProb": 0.6908,
-   "vig": 0.0433,
-   "bucket": 13
+   "rawHomeProb": 0.3125,
+   "rawAwayProb": 0.7297,
+   "homeWinProb": 0.2998,
+   "awayWinProb": 0.7002,
+   "vig": 0.0422,
+   "bucket": 12
   },
   {
    "id": "e354e6a04b1cb9c96e549b863debb92e",
@@ -1663,7 +1663,7 @@
    "homeWinProb": 0.7768,
    "awayWinProb": 0.2232,
    "vig": 0.0421,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "89de07377e0aa8ffaa2ae6a7dc0855cc",
@@ -1676,7 +1676,7 @@
    "homeWinProb": 0.3425,
    "awayWinProb": 0.6575,
    "vig": 0.0427,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "fe93e6ab1e553c0169936a0a983c324f",
@@ -1689,7 +1689,7 @@
    "homeWinProb": 0.669,
    "awayWinProb": 0.331,
    "vig": 0.0418,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "39aeac43cea7b12558b91cdab1255a10",
@@ -1702,7 +1702,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "ac9d38a18d5c92814233a31aa9a48d78",
@@ -1715,7 +1715,7 @@
    "homeWinProb": 0.7715,
    "awayWinProb": 0.2285,
    "vig": 0.042,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "240e23b02b1e3fef655d04a286b5a623",
@@ -1728,7 +1728,7 @@
    "homeWinProb": 0.8465,
    "awayWinProb": 0.1535,
    "vig": 0.0424,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "2922c573ec3df8466c4a34975e446898",
@@ -1741,7 +1741,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "9760d8f19f84bfee300a74ceb656c95d",
@@ -1754,7 +1754,7 @@
    "homeWinProb": 0.6309,
    "awayWinProb": 0.3691,
    "vig": 0.0421,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "17ad7eff2f7875e20a8109abe40470e3",
@@ -1767,7 +1767,7 @@
    "homeWinProb": 0.4004,
    "awayWinProb": 0.5996,
    "vig": 0.0407,
-   "bucket": 13
+   "bucket": 12
   },
   {
    "id": "74d39e19225caf211ad2c8eb4110179f",
@@ -1780,7 +1780,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "b8c10fdf1e0ac4e13deee7f7c0af0b0b",
@@ -1793,7 +1793,7 @@
    "homeWinProb": 0.5207,
    "awayWinProb": 0.4793,
    "vig": 0.0407,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "3c71d515b726f1096aabb435badb83fd",
@@ -1806,7 +1806,7 @@
    "homeWinProb": 0.3553,
    "awayWinProb": 0.6447,
    "vig": 0.0425,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "1057d50949844ddf483da9c8c20354be",
@@ -1819,7 +1819,7 @@
    "homeWinProb": 0.2591,
    "awayWinProb": 0.7409,
    "vig": 0.043,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "e5aa20e1364dd639f042af1c2281bbe2",
@@ -1832,7 +1832,7 @@
    "homeWinProb": 0.5174,
    "awayWinProb": 0.4826,
    "vig": 0.0462,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "be0e03cc42fbc9b6962467b22c7bf9dd",
@@ -1845,7 +1845,7 @@
    "homeWinProb": 0.3553,
    "awayWinProb": 0.6447,
    "vig": 0.0425,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "5d8d85473b87f772a979ecf294acab94",
@@ -1858,7 +1858,7 @@
    "homeWinProb": 0.6636,
    "awayWinProb": 0.3364,
    "vig": 0.0432,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "b5700b4d938fd94429f60d4622cc9c0a",
@@ -1871,7 +1871,7 @@
    "homeWinProb": 0.705,
    "awayWinProb": 0.295,
    "vig": 0.0431,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "28800df7e768ecec14f116454d560f9b",
@@ -1884,7 +1884,7 @@
    "homeWinProb": 0.4486,
    "awayWinProb": 0.5514,
    "vig": 0.0418,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "6c932a965110f3f89ec4a5f1a6ac256e",
@@ -1897,7 +1897,7 @@
    "homeWinProb": 0.2086,
    "awayWinProb": 0.7914,
    "vig": 0.042,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "6079a5cbabf99b265a17edfc92a1da60",
@@ -1910,7 +1910,7 @@
    "homeWinProb": 0.2742,
    "awayWinProb": 0.7258,
    "vig": 0.0418,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "7627192fd89b05120ab6c712aa23fd81",
@@ -1923,7 +1923,7 @@
    "homeWinProb": 0.5217,
    "awayWinProb": 0.4783,
    "vig": 0.0455,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "48e497c230e6c9afcb3b600091d28e17",
@@ -1936,7 +1936,7 @@
    "homeWinProb": 0.6309,
    "awayWinProb": 0.3691,
    "vig": 0.0421,
-   "bucket": 14
+   "bucket": 13
   },
   {
    "id": "35e3bdff558b5d1506251e814986f164",
@@ -1944,12 +1944,12 @@
    "home": "Baltimore Ravens",
    "away": "Los Angeles Chargers",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.6491,
-   "rawAwayProb": 0.3937,
-   "homeWinProb": 0.6225,
-   "awayWinProb": 0.3775,
-   "vig": 0.0428,
-   "bucket": 14
+   "rawHomeProb": 0.6575,
+   "rawAwayProb": 0.3846,
+   "homeWinProb": 0.6309,
+   "awayWinProb": 0.3691,
+   "vig": 0.0421,
+   "bucket": 13
   },
   {
    "id": "66f9e83cf025d58acee12bce18661fb3",
@@ -1957,12 +1957,12 @@
    "home": "Houston Texans",
    "away": "Indianapolis Colts",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7041,
-   "rawAwayProb": 0.339,
-   "homeWinProb": 0.675,
-   "awayWinProb": 0.325,
-   "vig": 0.0431,
-   "bucket": 15
+   "rawHomeProb": 0.7101,
+   "rawAwayProb": 0.3333,
+   "homeWinProb": 0.6806,
+   "awayWinProb": 0.3194,
+   "vig": 0.0435,
+   "bucket": 14
   },
   {
    "id": "403a88701352da05b0710a9e883b803e",
@@ -1975,7 +1975,7 @@
    "homeWinProb": 0.8223,
    "awayWinProb": 0.1777,
    "vig": 0.0423,
-   "bucket": 15
+   "bucket": 14
   },
   {
    "id": "4527f57f5bc32742d8194af1ccf7da7e",
@@ -1983,12 +1983,12 @@
    "home": "Carolina Panthers",
    "away": "Baltimore Ravens",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.3704,
-   "rawAwayProb": 0.6721,
-   "homeWinProb": 0.3553,
-   "awayWinProb": 0.6447,
-   "vig": 0.0425,
-   "bucket": 15
+   "rawHomeProb": 0.3571,
+   "rawAwayProb": 0.6855,
+   "homeWinProb": 0.3425,
+   "awayWinProb": 0.6575,
+   "vig": 0.0427,
+   "bucket": 14
   },
   {
    "id": "4c5b1c0843a260278e95eb93e7787576",
@@ -2001,7 +2001,7 @@
    "homeWinProb": 0.8173,
    "awayWinProb": 0.1827,
    "vig": 0.0423,
-   "bucket": 15
+   "bucket": 14
   },
   {
    "id": "3ea90704fb576633bd1e2fa5aafd9ea3",
@@ -2014,7 +2014,7 @@
    "homeWinProb": 0.6958,
    "awayWinProb": 0.3042,
    "vig": 0.0435,
-   "bucket": 15
+   "bucket": 14
   },
   {
    "id": "5e63079b678f8c13419adc169fff02d3",
@@ -2027,7 +2027,7 @@
    "homeWinProb": 0.7095,
    "awayWinProb": 0.2905,
    "vig": 0.0433,
-   "bucket": 15
+   "bucket": 14
   },
   {
    "id": "41e2dd69bddd65d7e823d9ed61cc2afc",
@@ -2040,7 +2040,7 @@
    "homeWinProb": 0.6575,
    "awayWinProb": 0.3425,
    "vig": 0.0427,
-   "bucket": 15
+   "bucket": 14
   },
   {
    "id": "8ba112fabf4e87639338a5f437c5abfe",
@@ -2048,12 +2048,12 @@
    "home": "New York Giants",
    "away": "Jacksonville Jaguars",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.495,
-   "rawAwayProb": 0.5495,
-   "homeWinProb": 0.4739,
-   "awayWinProb": 0.5261,
-   "vig": 0.0446,
-   "bucket": 15
+   "rawHomeProb": 0.4878,
+   "rawAwayProb": 0.5556,
+   "homeWinProb": 0.4675,
+   "awayWinProb": 0.5325,
+   "vig": 0.0434,
+   "bucket": 14
   },
   {
    "id": "4b20b742b6168aaca4f25d87f11b1526",
@@ -2066,7 +2066,7 @@
    "homeWinProb": 0.7768,
    "awayWinProb": 0.2232,
    "vig": 0.0421,
-   "bucket": 15
+   "bucket": 14
   },
   {
    "id": "1940706a79cbcbafacdcbf231069716b",
@@ -2079,7 +2079,7 @@
    "homeWinProb": 0.7572,
    "awayWinProb": 0.2428,
    "vig": 0.0426,
-   "bucket": 15
+   "bucket": 14
   },
   {
    "id": "cbe45bafcc2615fc1d96cbc12840377a",
@@ -2092,7 +2092,7 @@
    "homeWinProb": 0.6806,
    "awayWinProb": 0.3194,
    "vig": 0.0435,
-   "bucket": 15
+   "bucket": 14
   },
   {
    "id": "60e1d27b083a335b722c2c852ea85612",
@@ -2105,7 +2105,7 @@
    "homeWinProb": 0.6412,
    "awayWinProb": 0.3588,
    "vig": 0.0409,
-   "bucket": 15
+   "bucket": 14
   },
   {
    "id": "3a60ed1d20004aa4d4772b2c1a2272e7",
@@ -2118,7 +2118,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 15
+   "bucket": 14
   },
   {
    "id": "5b612899d6dcdf998107f2c6c6e49a58",
@@ -2131,7 +2131,7 @@
    "homeWinProb": 0.6707,
    "awayWinProb": 0.3293,
    "vig": 0.0423,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "9b825e6518156008da499be041975fdd",
@@ -2144,7 +2144,7 @@
    "homeWinProb": 0.5571,
    "awayWinProb": 0.4429,
    "vig": 0.0406,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "ffaa06af56a7137d4b078c5c46c0b730",
@@ -2157,7 +2157,7 @@
    "homeWinProb": 0.5284,
    "awayWinProb": 0.4716,
    "vig": 0.0419,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "f36f518585aec40e8cb40e071c0844aa",
@@ -2170,7 +2170,7 @@
    "homeWinProb": 0.5755,
    "awayWinProb": 0.4245,
    "vig": 0.0425,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "44a3bcf5bd002583ddef2207a92dd977",
@@ -2183,7 +2183,7 @@
    "homeWinProb": 0.4604,
    "awayWinProb": 0.5396,
    "vig": 0.042,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "6a05021bdb6bab24b9bb381ffff10f0c",
@@ -2196,7 +2196,7 @@
    "homeWinProb": 0.6575,
    "awayWinProb": 0.3425,
    "vig": 0.0427,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "60d0c074801985c1062795362a24200e",
@@ -2209,7 +2209,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "f7d3ae7a8fe2438cef7d7d7bc67e31db",
@@ -2222,7 +2222,7 @@
    "homeWinProb": 0.705,
    "awayWinProb": 0.295,
    "vig": 0.0431,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "eaa993c3d62d6b5aeb6142cdd7862fd5",
@@ -2235,7 +2235,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "e9da808e36e1b7475698a57465ad4519",
@@ -2248,7 +2248,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "81a8fee5b649a3ad5ad59e9528f2f376",
@@ -2261,7 +2261,7 @@
    "homeWinProb": 0.6806,
    "awayWinProb": 0.3194,
    "vig": 0.0435,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "5ea0e3ea5944b0ad5169f21c0787b331",
@@ -2274,7 +2274,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "69a1dbe9de3d3212c3a7a55be5d204ab",
@@ -2287,7 +2287,7 @@
    "homeWinProb": 0.3425,
    "awayWinProb": 0.6575,
    "vig": 0.0427,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "d68dced0b26726890b9c79bd19a5ffe5",
@@ -2300,7 +2300,7 @@
    "homeWinProb": 0.5,
    "awayWinProb": 0.5,
    "vig": 0.0476,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "c64ceba13ede564e8658693e3171e7f9",
@@ -2313,7 +2313,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 16
+   "bucket": 15
   },
   {
    "id": "2cdaecba7c0bff9b58a48a82e6ee17a7",
@@ -2321,12 +2321,12 @@
    "home": "Tampa Bay Buccaneers",
    "away": "Carolina Panthers",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.6644,
-   "rawAwayProb": 0.3788,
-   "homeWinProb": 0.6369,
-   "awayWinProb": 0.3631,
-   "vig": 0.0432,
-   "bucket": 16
+   "rawHomeProb": 0.6575,
+   "rawAwayProb": 0.3846,
+   "homeWinProb": 0.6309,
+   "awayWinProb": 0.3691,
+   "vig": 0.0421,
+   "bucket": 15
   },
   {
    "id": "06e52a676b516186989e3b181a37c8a7",
@@ -2339,7 +2339,7 @@
    "homeWinProb": 0.6447,
    "awayWinProb": 0.3553,
    "vig": 0.0425,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "c94419ba8fb818fc36a5b21b526aab75",
@@ -2352,7 +2352,7 @@
    "homeWinProb": 0.3775,
    "awayWinProb": 0.6225,
    "vig": 0.0428,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "0236f9aa68d65ea03bd1ca025b749c20",
@@ -2365,7 +2365,7 @@
    "homeWinProb": 0.583,
    "awayWinProb": 0.417,
    "vig": 0.0426,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "b447fab53534af892f98a74eae26c1c6",
@@ -2378,7 +2378,7 @@
    "homeWinProb": 0.3425,
    "awayWinProb": 0.6575,
    "vig": 0.0427,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "9a55467e1cd6310ae2af20d8154612e1",
@@ -2391,7 +2391,7 @@
    "homeWinProb": 0.7867,
    "awayWinProb": 0.2133,
    "vig": 0.042,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "1ccb61b811b7aae4270df22a67e6459f",
@@ -2404,7 +2404,7 @@
    "homeWinProb": 0.3425,
    "awayWinProb": 0.6575,
    "vig": 0.0427,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "f8a92363386bd337975650879086cca6",
@@ -2417,7 +2417,7 @@
    "homeWinProb": 0.4365,
    "awayWinProb": 0.5635,
    "vig": 0.0413,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "a5495c3360b3bb13da76ba23a675c9ef",
@@ -2430,7 +2430,7 @@
    "homeWinProb": 0.4066,
    "awayWinProb": 0.5934,
    "vig": 0.042,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "ae3429e95ee704c7fd001cade20072d0",
@@ -2443,7 +2443,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "f4897f48a5351881280f7598bd826408",
@@ -2456,7 +2456,7 @@
    "homeWinProb": 0.2341,
    "awayWinProb": 0.7659,
    "vig": 0.0419,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "4116dbff75ab7957b69c2152f204b74d",
@@ -2469,7 +2469,7 @@
    "homeWinProb": 0.5261,
    "awayWinProb": 0.4739,
    "vig": 0.0446,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "c186c605febd6370b292469c9151cfb3",
@@ -2482,7 +2482,7 @@
    "homeWinProb": 0.6309,
    "awayWinProb": 0.3691,
    "vig": 0.0421,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "26bf8e165d2d273ed0772a355f07ab16",
@@ -2495,7 +2495,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "0db4646c964ecdff19957373fe707546",
@@ -2508,7 +2508,7 @@
    "homeWinProb": 0.6575,
    "awayWinProb": 0.3425,
    "vig": 0.0427,
-   "bucket": 17
+   "bucket": 16
   },
   {
    "id": "01548e41e7ba5318bb25c9bc2a32f73d",
@@ -2521,7 +2521,7 @@
    "homeWinProb": 0.6636,
    "awayWinProb": 0.3364,
    "vig": 0.0432,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "f7fba6b1804e02292ee0ce4738484258",
@@ -2534,7 +2534,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "bec99e2f2b4c80e345731d69ee38d831",
@@ -2542,12 +2542,12 @@
    "home": "Baltimore Ravens",
    "away": "Tampa Bay Buccaneers",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7143,
-   "rawAwayProb": 0.3279,
-   "homeWinProb": 0.6854,
-   "awayWinProb": 0.3146,
-   "vig": 0.0422,
-   "bucket": 18
+   "rawHomeProb": 0.7207,
+   "rawAwayProb": 0.3226,
+   "homeWinProb": 0.6908,
+   "awayWinProb": 0.3092,
+   "vig": 0.0433,
+   "bucket": 17
   },
   {
    "id": "dcc7b377d3b3ec990304612bbef47d3d",
@@ -2560,7 +2560,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "2c6added7199a59f1e9dae8492c29da4",
@@ -2573,7 +2573,7 @@
    "homeWinProb": 0.325,
    "awayWinProb": 0.675,
    "vig": 0.0431,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "5185ace33aebc87d39074147940f2fa5",
@@ -2586,7 +2586,7 @@
    "homeWinProb": 0.3194,
    "awayWinProb": 0.6806,
    "vig": 0.0435,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "a31f461ccd92e1072f23ccfae281ae9a",
@@ -2599,7 +2599,7 @@
    "homeWinProb": 0.7478,
    "awayWinProb": 0.2522,
    "vig": 0.0434,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "5dc9cb8fba610d682dc670ae4e7d59f3",
@@ -2607,12 +2607,12 @@
    "home": "Washington Commanders",
    "away": "Houston Texans",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.495,
-   "rawAwayProb": 0.5495,
-   "homeWinProb": 0.4739,
-   "awayWinProb": 0.5261,
-   "vig": 0.0446,
-   "bucket": 18
+   "rawHomeProb": 0.4878,
+   "rawAwayProb": 0.5556,
+   "homeWinProb": 0.4675,
+   "awayWinProb": 0.5325,
+   "vig": 0.0434,
+   "bucket": 17
   },
   {
    "id": "45203f985f8d1567ad19b0617dd267f8",
@@ -2620,12 +2620,12 @@
    "home": "Philadelphia Eagles",
    "away": "Indianapolis Colts",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7101,
-   "rawAwayProb": 0.3333,
-   "homeWinProb": 0.6806,
-   "awayWinProb": 0.3194,
-   "vig": 0.0435,
-   "bucket": 18
+   "rawHomeProb": 0.7041,
+   "rawAwayProb": 0.339,
+   "homeWinProb": 0.675,
+   "awayWinProb": 0.325,
+   "vig": 0.0431,
+   "bucket": 17
   },
   {
    "id": "484c491dc1dee090d740ba077b7d9709",
@@ -2638,7 +2638,7 @@
    "homeWinProb": 0.3194,
    "awayWinProb": 0.6806,
    "vig": 0.0435,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "180b5fa7ea6bd0d2d9ddb9ba5ee38cc0",
@@ -2651,7 +2651,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "6174916c7e2df8d1b80a88cfbd259d44",
@@ -2664,7 +2664,7 @@
    "homeWinProb": 0.4573,
    "awayWinProb": 0.5427,
    "vig": 0.0414,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "f5ab9d8455daf9e2a6c4c443fe0cd19f",
@@ -2672,12 +2672,12 @@
    "home": "Seattle Seahawks",
    "away": "New York Giants",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7802,
-   "rawAwayProb": 0.2632,
-   "homeWinProb": 0.7478,
-   "awayWinProb": 0.2522,
-   "vig": 0.0434,
-   "bucket": 18
+   "rawHomeProb": 0.7826,
+   "rawAwayProb": 0.2597,
+   "homeWinProb": 0.7508,
+   "awayWinProb": 0.2492,
+   "vig": 0.0423,
+   "bucket": 17
   },
   {
    "id": "c4877c048defcb80e0ab37c0688f37f6",
@@ -2690,7 +2690,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "690e2ee2ed5f0875f7cbaecdc51373f5",
@@ -2703,7 +2703,7 @@
    "homeWinProb": 0.5934,
    "awayWinProb": 0.4066,
    "vig": 0.042,
-   "bucket": 18
+   "bucket": 17
   },
   {
    "id": "790af233087803c297861901ffa271d7",
@@ -2716,7 +2716,7 @@
    "homeWinProb": 0.5635,
    "awayWinProb": 0.4365,
    "vig": 0.0413,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "171aba127aaad3dcbe32a02fc194eb32",
@@ -2729,7 +2729,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "784568b1df055bf7eb8780c110d5e910",
@@ -2742,7 +2742,7 @@
    "homeWinProb": 0.6309,
    "awayWinProb": 0.3691,
    "vig": 0.0421,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "5931eee49f5f2656a5344e1388a68816",
@@ -2750,12 +2750,12 @@
    "home": "Washington Commanders",
    "away": "Atlanta Falcons",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.6491,
-   "rawAwayProb": 0.3937,
-   "homeWinProb": 0.6225,
-   "awayWinProb": 0.3775,
-   "vig": 0.0428,
-   "bucket": 19
+   "rawHomeProb": 0.6575,
+   "rawAwayProb": 0.3846,
+   "homeWinProb": 0.6309,
+   "awayWinProb": 0.3691,
+   "vig": 0.0421,
+   "bucket": 18
   },
   {
    "id": "2f4b1899c1c278947920e0254b682d90",
@@ -2768,7 +2768,7 @@
    "homeWinProb": 0.4279,
    "awayWinProb": 0.5721,
    "vig": 0.0432,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "000fc688beb4fc004ecdad115d9adb1c",
@@ -2781,7 +2781,7 @@
    "homeWinProb": 0.4279,
    "awayWinProb": 0.5721,
    "vig": 0.0432,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "1cb23c83ae4af84cffcdae6b31d06e83",
@@ -2794,7 +2794,7 @@
    "homeWinProb": 0.6575,
    "awayWinProb": 0.3425,
    "vig": 0.0427,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "99719df35bc2efdcc72096f865ed8841",
@@ -2807,7 +2807,7 @@
    "homeWinProb": 0.8119,
    "awayWinProb": 0.1881,
    "vig": 0.0422,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "29211b6e78461220a2833184233f70e5",
@@ -2820,7 +2820,7 @@
    "homeWinProb": 0.5934,
    "awayWinProb": 0.4066,
    "vig": 0.042,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "3b696c07ff6a1ef461d023a73db17584",
@@ -2833,7 +2833,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "e15a91cebf3480ff0b93b4fbacb09797",
@@ -2846,7 +2846,7 @@
    "homeWinProb": 0.6309,
    "awayWinProb": 0.3691,
    "vig": 0.0421,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "d8cd12e7684fa2aa39f5b188ef6e62e0",
@@ -2859,7 +2859,7 @@
    "homeWinProb": 0.5,
    "awayWinProb": 0.5,
    "vig": 0.0476,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "77396e9d565860fbfd05779028223a8a",
@@ -2872,7 +2872,7 @@
    "homeWinProb": 0.6854,
    "awayWinProb": 0.3146,
    "vig": 0.0422,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "9f507007b9c0a7082c1471a5fa841336",
@@ -2885,7 +2885,7 @@
    "homeWinProb": 0.3364,
    "awayWinProb": 0.6636,
    "vig": 0.0432,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "b34897a0368d570291d44e176c0c2331",
@@ -2898,7 +2898,7 @@
    "homeWinProb": 0.4739,
    "awayWinProb": 0.5261,
    "vig": 0.0446,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "b2759105c27a25289ea1938f290c50fd",
@@ -2911,7 +2911,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 19
+   "bucket": 18
   },
   {
    "id": "3f226ec5402c6ec4d84a59be80c2fa67",
@@ -2924,7 +2924,7 @@
    "homeWinProb": 0.5442,
    "awayWinProb": 0.4558,
    "vig": 0.04,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "2828c07018dfafbe96aba205809cc7ac",
@@ -2937,7 +2937,7 @@
    "homeWinProb": 0.5186,
    "awayWinProb": 0.4814,
    "vig": 0.0438,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "126f27c71e8130ef87de0d137e833d9b",
@@ -2950,7 +2950,7 @@
    "homeWinProb": 0.4553,
    "awayWinProb": 0.5447,
    "vig": 0.041,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "f1af9705dbd2bbe4f1555f080ad06ba2",
@@ -2963,7 +2963,7 @@
    "homeWinProb": 0.5137,
    "awayWinProb": 0.4863,
    "vig": 0.0417,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "8fd00347b6d77ce384d83cba814430d7",
@@ -2976,7 +2976,7 @@
    "homeWinProb": 0.6806,
    "awayWinProb": 0.3194,
    "vig": 0.0435,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "bd13d00f06ad222b0a1b6ea4d0add763",
@@ -2989,7 +2989,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "0f23afce92c2f0af28973c0a7533763e",
@@ -3002,7 +3002,7 @@
    "homeWinProb": 0.7867,
    "awayWinProb": 0.2133,
    "vig": 0.042,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "74cb0e112d069cdbda1671ae85531f43",
@@ -3010,12 +3010,12 @@
    "home": "Pittsburgh Steelers",
    "away": "Carolina Panthers",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.6491,
-   "rawAwayProb": 0.3937,
-   "homeWinProb": 0.6225,
-   "awayWinProb": 0.3775,
-   "vig": 0.0428,
-   "bucket": 20
+   "rawHomeProb": 0.6575,
+   "rawAwayProb": 0.3846,
+   "homeWinProb": 0.6309,
+   "awayWinProb": 0.3691,
+   "vig": 0.0421,
+   "bucket": 19
   },
   {
    "id": "ca8982dccb6c3ae01525800317287f02",
@@ -3028,7 +3028,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "29425f5c68826d615277cf9be2b82e00",
@@ -3041,7 +3041,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "fe2eb511d4c2da3a8e88b85b4f4e9f7e",
@@ -3054,7 +3054,7 @@
    "homeWinProb": 0.2665,
    "awayWinProb": 0.7335,
    "vig": 0.0425,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "cf5cefa5556bcd0156bd394171ef6c8e",
@@ -3067,7 +3067,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "669a7b568c2a64f9a136dadb0eda1da8",
@@ -3080,7 +3080,7 @@
    "homeWinProb": 0.2905,
    "awayWinProb": 0.7095,
    "vig": 0.0433,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "fc7cce3ae7c73cc7151357829e11b6d5",
@@ -3093,7 +3093,7 @@
    "homeWinProb": 0.583,
    "awayWinProb": 0.417,
    "vig": 0.0426,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "b1c4ec04c3398a9efa25492000858384",
@@ -3106,7 +3106,7 @@
    "homeWinProb": 0.5934,
    "awayWinProb": 0.4066,
    "vig": 0.042,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "ca92c191ebf7361ea56f9bbc09a5f51b",
@@ -3119,7 +3119,7 @@
    "homeWinProb": 0.6575,
    "awayWinProb": 0.3425,
    "vig": 0.0427,
-   "bucket": 20
+   "bucket": 19
   },
   {
    "id": "be268ce293cf4fad1c0c867a3ca4c257",
@@ -3132,7 +3132,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "e5dd9cc3fd5452d55c250949e946743d",
@@ -3145,7 +3145,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "d9a186d988a3ede2a33e504f4890fe52",
@@ -3153,12 +3153,12 @@
    "home": "Miami Dolphins",
    "away": "Buffalo Bills",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.2632,
-   "rawAwayProb": 0.7802,
-   "homeWinProb": 0.2522,
-   "awayWinProb": 0.7478,
-   "vig": 0.0434,
-   "bucket": 21
+   "rawHomeProb": 0.2667,
+   "rawAwayProb": 0.7753,
+   "homeWinProb": 0.2559,
+   "awayWinProb": 0.7441,
+   "vig": 0.0419,
+   "bucket": 20
   },
   {
    "id": "b009f04b4f61b264a5163157c3439dc1",
@@ -3171,7 +3171,7 @@
    "homeWinProb": 0.325,
    "awayWinProb": 0.675,
    "vig": 0.0431,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "f2e03f9b857485bb13211ee0f5eb5935",
@@ -3184,7 +3184,7 @@
    "homeWinProb": 0.4486,
    "awayWinProb": 0.5514,
    "vig": 0.0418,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "c8945d476449633912cf51a346ac98ca",
@@ -3197,7 +3197,7 @@
    "homeWinProb": 0.6447,
    "awayWinProb": 0.3553,
    "vig": 0.0425,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "f62dba1e231083f489c391271a1f171c",
@@ -3210,7 +3210,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "c96a3e9e40569b4ed5a546dff131c61d",
@@ -3223,7 +3223,7 @@
    "homeWinProb": 0.6225,
    "awayWinProb": 0.3775,
    "vig": 0.0428,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "419106b9bcc9f7ef39cfc2d1ee9a3f87",
@@ -3236,7 +3236,7 @@
    "homeWinProb": 0.3425,
    "awayWinProb": 0.6575,
    "vig": 0.0427,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "bfe51fa0034c9d22a69ffd80e2d717f5",
@@ -3249,7 +3249,7 @@
    "homeWinProb": 0.3691,
    "awayWinProb": 0.6309,
    "vig": 0.0421,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "d0ffa5ed13cbd7610f9176041464404a",
@@ -3262,7 +3262,7 @@
    "homeWinProb": 0.4739,
    "awayWinProb": 0.5261,
    "vig": 0.0446,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "08abdb683fcb6d77f66baed136f47283",
@@ -3275,7 +3275,7 @@
    "homeWinProb": 0.4573,
    "awayWinProb": 0.5427,
    "vig": 0.0414,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "12089441cea51add4694cdde98b4a5b7",
@@ -3288,7 +3288,7 @@
    "homeWinProb": 0.5261,
    "awayWinProb": 0.4739,
    "vig": 0.0446,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "67d842cb73300ef923959105698b63bb",
@@ -3301,7 +3301,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "e7820b1226edbb1ef1fddce6b20f963d",
@@ -3314,7 +3314,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "37bc346543da471e067b695b862ccfe9",
@@ -3327,7 +3327,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 21
+   "bucket": 20
   },
   {
    "id": "7f809a45bc8baedf0cb0259e7da7cd29",
@@ -3340,7 +3340,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "d7da5587a88a7fc35c36b453d3264d5a",
@@ -3348,12 +3348,12 @@
    "home": "Baltimore Ravens",
    "away": "Pittsburgh Steelers",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7101,
-   "rawAwayProb": 0.3333,
-   "homeWinProb": 0.6806,
-   "awayWinProb": 0.3194,
-   "vig": 0.0435,
-   "bucket": 22
+   "rawHomeProb": 0.7041,
+   "rawAwayProb": 0.339,
+   "homeWinProb": 0.675,
+   "awayWinProb": 0.325,
+   "vig": 0.0431,
+   "bucket": 21
   },
   {
    "id": "97cbd9ad26dff1af47192120defe112d",
@@ -3366,7 +3366,7 @@
    "homeWinProb": 0.7958,
    "awayWinProb": 0.2042,
    "vig": 0.0418,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "d190fb7ea85c33b96a495041dad22142",
@@ -3379,7 +3379,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "8c16104c8afc72b583531508b2aa1c33",
@@ -3392,7 +3392,7 @@
    "homeWinProb": 0.7478,
    "awayWinProb": 0.2522,
    "vig": 0.0434,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "3f460f14b810d7bf642bdf7b658530c0",
@@ -3400,12 +3400,12 @@
    "home": "Washington Commanders",
    "away": "Dallas Cowboys",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.495,
-   "rawAwayProb": 0.5495,
-   "homeWinProb": 0.4739,
-   "awayWinProb": 0.5261,
-   "vig": 0.0446,
-   "bucket": 22
+   "rawHomeProb": 0.4878,
+   "rawAwayProb": 0.5556,
+   "homeWinProb": 0.4675,
+   "awayWinProb": 0.5325,
+   "vig": 0.0434,
+   "bucket": 21
   },
   {
    "id": "71d0d10e384393c1e071c39dd3931c19",
@@ -3418,7 +3418,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "8f81778bbdb984be44e24a3d55a49b4d",
@@ -3431,7 +3431,7 @@
    "homeWinProb": 0.5514,
    "awayWinProb": 0.4486,
    "vig": 0.0418,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "9bb63096709ba607443c454d2a813b14",
@@ -3444,7 +3444,7 @@
    "homeWinProb": 0.7258,
    "awayWinProb": 0.2742,
    "vig": 0.0418,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "bea47af467e217653bba8d69888e4d95",
@@ -3457,7 +3457,7 @@
    "homeWinProb": 0.5325,
    "awayWinProb": 0.4675,
    "vig": 0.0434,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "bb66a6f02c535c0cd8b9c689a5513687",
@@ -3470,7 +3470,7 @@
    "homeWinProb": 0.7715,
    "awayWinProb": 0.2285,
    "vig": 0.042,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "f370f9410ef82b37bd15d1719434370b",
@@ -3483,7 +3483,7 @@
    "homeWinProb": 0.8119,
    "awayWinProb": 0.1881,
    "vig": 0.0422,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "7b8ce34c0e173e4ff6ccf8e8caa09113",
@@ -3496,7 +3496,7 @@
    "homeWinProb": 0.4675,
    "awayWinProb": 0.5325,
    "vig": 0.0434,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "01baed6f9d6482c5d89d37379c7c63c7",
@@ -3509,7 +3509,7 @@
    "homeWinProb": 0.417,
    "awayWinProb": 0.583,
    "vig": 0.0426,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "f1480276ab67dcf60686556ba9336695",
@@ -3522,7 +3522,7 @@
    "homeWinProb": 0.2341,
    "awayWinProb": 0.7659,
    "vig": 0.0419,
-   "bucket": 22
+   "bucket": 21
   },
   {
    "id": "dc2d9177b48e6f3962dabb1407aba7d3",
@@ -3535,7 +3535,7 @@
    "homeWinProb": 0.5934,
    "awayWinProb": 0.4066,
    "vig": 0.042,
-   "bucket": 22
+   "bucket": 21
   }
  ]
 }
