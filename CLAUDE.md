@@ -69,6 +69,26 @@ Saturday-morning information, never assume Sunday inactives are available, and h
 questionable-status players probabilistically. Thanksgiving and Christmas weeks need a separate
 Thursday-kickoff deadline.
 
+## Real-Money Betting — Settled, Do Not Re-Litigate
+
+[`DFS-BETTING-ROI.md`](DFS-BETTING-ROI.md) researched expanding into DraftKings/FanDuel. **The
+answer was no**, and the reason is structural rather than a matter of model quality: Indiana allows
+**no** deduction for wagering losses and taxes **gross** winnings, while OBBBA capped the federal
+loss deduction at **90%** of losses for tax years beginning after 2025. Together those put the
+break-even edge on sportsbook handle at **~4.5%–6.0% ROI**, against a documented professional
+benchmark of 3%–7%.
+
+Consequences for anything built here:
+
+- **Do not build sportsbook integrations or bet-placement features.** The vehicle is unprofitable
+  after tax before a single pick is made.
+- **The private pools are the best-returning vehicle in the research** — no rake, ~268 recreational
+  entrants, net tax treatment, no account-limiting risk. Extending this tool to more pools beats
+  every DK/FD strategy evaluated.
+- **Closing line value, not win rate, is the edge metric** if any wagering analysis is ever added.
+- Figures are reproducible: `python scripts/betting_roi_model.py --help` takes county rate,
+  marginal bracket, and handle as parameters.
+
 ## Site Architecture
 
 Tabbed single page. Each tab's logic is its own ES module under `js/` — deliberately **not** one
@@ -290,13 +310,77 @@ guessing the shape now.
 
 ## GitHub Setup
 
-`git init` and the initial commit are done locally (2026-08-11) — own nested repo per the
-workspace convention, no remote yet. To finish:
+**Done as of 2026-08-12** — remote is `https://github.com/bova4389/bovas-picks`, `main` is pushed,
+and `ODDS_API_KEY` is configured (proven by `github-actions[bot]` odds commits landing on 8/11 and
+8/12; the workflow cannot commit without it).
 
-1. Create `bova4389/bovas-picks` on github.com (public by default unless told otherwise —
-   `gh repo create` isn't available since `gh` isn't installed in this environment) and
-   `git remote add origin <url>`, run from inside `NFL Pickems/`.
-2. `git push -u origin main`
-3. Repo Settings → Secrets → Actions → add `ODDS_API_KEY` (sign up at the-odds-api.com first —
-   that account creation is a step only you can do) so `.github/workflows/fetch-odds.yml` can run.
-4. When ready to deploy: repo Settings → Pages → deploy from `main`.
+One step remains:
+
+- **GitHub Pages is not enabled.** When ready to deploy: repo Settings → Pages → deploy from `main`.
+  Revisit the public-URL question in Data & Privacy first — ~270 real names become search-indexable
+  the moment this is publicly reachable.
+
+## Syncing Local ↔ GitHub
+
+Work reaches this repo from two places that never see each other: **a local machine**, and
+**Claude Code on the web**, which runs in an ephemeral container that clones from GitHub and pushes
+back. GitHub is the only shared ground. Nothing written in a web session exists anywhere else until
+it is pushed, and nothing on the local drive is visible to a web session until it is pushed.
+
+**A third writer moves `main` on its own:** `.github/workflows/fetch-odds.yml` commits to `main`
+eight times a day Thursday–Saturday and once daily Sunday–Wednesday. **`origin/main` will almost
+always be ahead of a local checkout that has sat overnight.** This is the single most likely source
+of a surprising push rejection, and it is expected behavior rather than a problem.
+
+### Start every local session with a pull
+
+```bash
+cd "path/to/NFL Pickems"
+git fetch origin
+git status -sb                    # shows how far behind main is
+git pull --ff-only origin main    # refuses to invent a merge if histories diverged
+```
+
+`--ff-only` is deliberate: it fails loudly on divergence instead of silently creating a tangled
+merge commit. If it fails, use `git pull --rebase origin main` to replay local commits on top.
+
+### Pulling a branch pushed from a web session
+
+```bash
+git fetch origin <branch-name>
+git checkout <branch-name>
+```
+
+To fold it into `main` (docs-only branches need no PR):
+
+```bash
+git checkout main
+git pull --ff-only origin main
+git merge --no-ff <branch-name>
+git push origin main
+```
+
+### Why a local push cannot destroy web-session work
+
+Three independent protections, worth knowing so the fear doesn't drive bad workarounds:
+
+1. **Single root commit** (`fe0e6d4`, 2026-08-11). Local and GitHub share one lineage — there is no
+   "unrelated histories" hazard, which is the failure mode where two repos silently overwrite.
+2. **Branches are independent refs.** Pushing `main` cannot alter, remove, or ignore a branch like
+   `claude/*`. Only an explicit push to that branch name touches it.
+3. **Git refuses non-fast-forward pushes by default.** A local `main` behind `origin/main` gets a
+   *rejection*, never a silent overwrite. The rejection is the safety net working.
+
+**The one thing that does destroy remote work: `git push --force` (or `-f`, or
+`--force-with-lease`).** Never use it here. A rejected push is solved with `git pull --rebase`, not
+with force.
+
+### Odds data conflicts
+
+`data/odds/` is bot-owned. Do not hand-edit it locally. On a conflict there, take the remote copy —
+the next scheduled run regenerates it anyway:
+
+```bash
+git checkout origin/main -- data/odds/
+git add data/odds/
+```
