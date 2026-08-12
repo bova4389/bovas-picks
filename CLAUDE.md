@@ -310,15 +310,44 @@ guessing the shape now.
 
 ## GitHub Setup
 
-**Done as of 2026-08-12** — remote is `https://github.com/bova4389/bovas-picks`, `main` is pushed,
-and `ODDS_API_KEY` is configured (proven by `github-actions[bot]` odds commits landing on 8/11 and
-8/12; the workflow cannot commit without it).
+**Complete as of 2026-08-11.** All four setup steps are done:
 
-One step remains:
+| Step | Status | Evidence |
+|---|---|---|
+| Remote created + `git remote add origin` | Done | `origin` → `https://github.com/bova4389/bovas-picks` |
+| `git push -u origin main` | Done | Root commit `fe0e6d4` onward on `origin/main` |
+| `ODDS_API_KEY` repo secret | Done | `github-actions[bot]` odds commits land daily; the workflow cannot commit without it |
+| **GitHub Pages enabled** | **Done 2026-08-11 23:11 UTC** | 5 successful `pages build and deployment` runs from `main`, latest 2026-08-12 14:48 UTC |
 
-- **GitHub Pages is not enabled.** When ready to deploy: repo Settings → Pages → deploy from `main`.
-  Revisit the public-URL question in Data & Privacy first — ~270 real names become search-indexable
-  the moment this is publicly reachable.
+**The site is live at `https://bova4389.github.io/bovas-picks/` and is publicly reachable.**
+
+## ⚠ Privacy: the public-URL trigger has fired
+
+Data & Privacy above says entrant names are fine to commit *"unless the site is ever deployed to a
+public URL — that is the moment to revisit."* **That moment has passed.** Pages went live 8/11 and
+serves the whole repository root as static files, so everything tracked on `main` is fetchable:
+
+- `data/raw/entries-2025-w01.json` — **268 real first-and-last names**, each with that person's
+  full pick card, reachable at `<pages-url>/data/raw/entries-2025-w01.json`.
+- **Entry 79's `name` field is a third party's email address** (`Ja…@yahoo,com`) — the exact item
+  Data & Privacy says to "scrub if this site ever becomes publicly reachable."
+- `data/survivor-2025.json` — same exposure for the survivor pool.
+
+Neither `robots.txt` nor obscurity applies; GitHub Pages is crawlable by default. **Nothing in the
+site's own UI links to these files, but that does not matter** — they are directly addressable, and
+a repo that is public makes them readable regardless of Pages.
+
+Resolve before treating the deployment as final. Options, cheapest first:
+
+1. **Make the repo private and use a private Pages deployment** (GitHub Pro or higher) — keeps the
+   data model exactly as-is and is the only option that changes no code.
+2. **Stop tracking `data/raw/` and `data/survivor-*.json`**, keep them local, and have the Lookback
+   views read `data/popularity/` (percentages, no names) instead. Requires purging them from git
+   history, not just deleting them going forward.
+3. **Pseudonymize at parse time** — have `scripts/parse_pool_picks.py` emit stable entry IDs plus
+   the nickname only, and keep the name crosswalk out of the repo.
+
+Until one is chosen, treat every commit touching `data/raw/` as a publication of 268 people's names.
 
 ## Syncing Local ↔ GitHub
 
