@@ -1,0 +1,3169 @@
+{
+ "year": 2025,
+ "currentWeek": 1,
+ "weeks": {
+  "1": {
+   "entrants": 235,
+   "distinctTeams": 20,
+   "picks": [
+    {
+     "team": "DEN",
+     "count": 79,
+     "pct": 33.6
+    },
+    {
+     "team": "WAS",
+     "count": 39,
+     "pct": 16.6
+    },
+    {
+     "team": "ARI",
+     "count": 37,
+     "pct": 15.7
+    },
+    {
+     "team": "PHI",
+     "count": 31,
+     "pct": 13.2
+    },
+    {
+     "team": "CIN",
+     "count": 15,
+     "pct": 6.4
+    },
+    {
+     "team": "PIT",
+     "count": 9,
+     "pct": 3.8
+    },
+    {
+     "team": "JAC",
+     "count": 5,
+     "pct": 2.1
+    },
+    {
+     "team": "BAL",
+     "count": 2,
+     "pct": 0.9
+    },
+    {
+     "team": "GB",
+     "count": 2,
+     "pct": 0.9
+    },
+    {
+     "team": "IND",
+     "count": 2,
+     "pct": 0.9
+    },
+    {
+     "team": "KC",
+     "count": 2,
+     "pct": 0.9
+    },
+    {
+     "team": "LAR",
+     "count": 2,
+     "pct": 0.9
+    },
+    {
+     "team": "MIA",
+     "count": 2,
+     "pct": 0.9
+    },
+    {
+     "team": "TB",
+     "count": 2,
+     "pct": 0.9
+    },
+    {
+     "team": "BUF",
+     "count": 1,
+     "pct": 0.4
+    },
+    {
+     "team": "CHI",
+     "count": 1,
+     "pct": 0.4
+    },
+    {
+     "team": "DAL",
+     "count": 1,
+     "pct": 0.4
+    },
+    {
+     "team": "LV",
+     "count": 1,
+     "pct": 0.4
+    },
+    {
+     "team": "NE",
+     "count": 1,
+     "pct": 0.4
+    },
+    {
+     "team": "SF",
+     "count": 1,
+     "pct": 0.4
+    }
+   ]
+  }
+ },
+ "entries": [
+  {
+   "entry": 8,
+   "name": null,
+   "nick": "Dolfan 14",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 9,
+   "name": null,
+   "nick": "Jasper",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 10,
+   "name": null,
+   "nick": "Jeremiah",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 13,
+   "name": null,
+   "nick": "Nick",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 20,
+   "name": "Juliana Lombardo",
+   "nick": "Juulio Jones 69",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 21,
+   "name": "Brian Kirk",
+   "nick": "NaplesNDFan",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 23,
+   "name": "Don Nealon",
+   "nick": "DaCanes",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 28,
+   "name": "Patrick Joyce",
+   "nick": "Harrigan",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 31,
+   "name": "John Lettieri",
+   "nick": "John The Destroyer",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 46,
+   "name": "Robert Dragovcic",
+   "nick": "Adriatic King1",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 51,
+   "name": "Greg ",
+   "nick": "Hurricane Boi",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 54,
+   "name": "Frank Hendricks",
+   "nick": "Colonel",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 57,
+   "name": null,
+   "nick": "Bryant Whittaker",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 60,
+   "name": "Jackie Heksel",
+   "nick": "Jackie H",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 67,
+   "name": null,
+   "nick": "Grant 2",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 70,
+   "name": "Delphine",
+   "nick": "What's this do Tommy",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 79,
+   "name": "Jeffery Copello",
+   "nick": "JC",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 86,
+   "name": "Steve Baiera",
+   "nick": "Sush61",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 92,
+   "name": null,
+   "nick": "Lil Kyle 2",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 114,
+   "name": null,
+   "nick": "Prosecco Landis",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 116,
+   "name": null,
+   "nick": "Nicole",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 120,
+   "name": "Ike Faulkenberry",
+   "nick": "Ike",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 127,
+   "name": null,
+   "nick": "Scarlette",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 133,
+   "name": "Errol(Guy) Valencic",
+   "nick": "Mule Charger",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 136,
+   "name": "Kris Trouteaud",
+   "nick": "Kris Trouteaud",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 145,
+   "name": "Jason Dean",
+   "nick": "Deanmachine",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 156,
+   "name": "Brad Thomas",
+   "nick": "BradT",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 160,
+   "name": "Paul Hardie",
+   "nick": "Big Blue",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 172,
+   "name": "Jake Diaz",
+   "nick": "Jacob Diaz",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 176,
+   "name": "Angalina Jefferies",
+   "nick": "Angelina",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 192,
+   "name": "Cindy Bawden",
+   "nick": "Cinbad",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 198,
+   "name": "Mac Rollins",
+   "nick": "Momoneymac",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 200,
+   "name": "Janie Posh",
+   "nick": "Jfinfanatic",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 217,
+   "name": "Matt Bova",
+   "nick": "Bova",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 221,
+   "name": "Lori Collins",
+   "nick": "Lori C",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 224,
+   "name": "Albert Layne",
+   "nick": "Albert Layne",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 230,
+   "name": "Ed Marenburg",
+   "nick": "EDZO 17",
+   "picks": {
+    "1": "ARI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "ARI"
+   ]
+  },
+  {
+   "entry": 175,
+   "name": "Lori Schwab",
+   "nick": "Dr Lori",
+   "picks": {
+    "1": "BAL"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "BAL"
+   ]
+  },
+  {
+   "entry": 218,
+   "name": "Marcy Martinowich",
+   "nick": "Marcy",
+   "picks": {
+    "1": "BAL"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "BAL"
+   ]
+  },
+  {
+   "entry": 234,
+   "name": null,
+   "nick": "Wound's Warriors 2",
+   "picks": {
+    "1": "BUF"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "BUF"
+   ]
+  },
+  {
+   "entry": 88,
+   "name": null,
+   "nick": "Holden Tudix",
+   "picks": {
+    "1": "CHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CHI"
+   ]
+  },
+  {
+   "entry": 7,
+   "name": "Kirsten ",
+   "nick": "Blondie",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 19,
+   "name": null,
+   "nick": "RugMuncher96",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 40,
+   "name": "Joe Ercolani",
+   "nick": "Joey Erc",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 53,
+   "name": "Chris Falco",
+   "nick": "Halfsighted",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 77,
+   "name": null,
+   "nick": "Cherr",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 83,
+   "name": "Angie Munk",
+   "nick": "Turtle",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 91,
+   "name": "Kyle Rayburn",
+   "nick": "Lil Kyle 1",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 130,
+   "name": "Anita McKenize",
+   "nick": "Anita",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 183,
+   "name": null,
+   "nick": "Chris Griffin 4",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 199,
+   "name": "David Rollins",
+   "nick": "Steelcurtain31",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 201,
+   "name": "John Corallo",
+   "nick": "JBC-1",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 204,
+   "name": "Dino Barbounis",
+   "nick": "Docdinob",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 211,
+   "name": null,
+   "nick": "Gator Jit 4",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 215,
+   "name": "Cynthia Dankert",
+   "nick": "Cyndie D",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 233,
+   "name": "Jeff Fleischer",
+   "nick": "Wound's Warriors 1",
+   "picks": {
+    "1": "CIN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "CIN"
+   ]
+  },
+  {
+   "entry": 180,
+   "name": "Chris Griffin",
+   "nick": "Chris Griffin 1",
+   "picks": {
+    "1": "DAL"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DAL"
+   ]
+  },
+  {
+   "entry": 2,
+   "name": "Sandy O'Donnell",
+   "nick": "Bills Fan",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 3,
+   "name": "Tyler Harris",
+   "nick": "Harrisite",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 6,
+   "name": null,
+   "nick": "Griffy",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 11,
+   "name": null,
+   "nick": "AR-8",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 15,
+   "name": null,
+   "nick": "Chau",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 22,
+   "name": "Max Kirk",
+   "nick": "Maxbkirk",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 26,
+   "name": "Nick Spinelli",
+   "nick": "Tomakawked",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 27,
+   "name": "Thomas Santangelo",
+   "nick": "Tsanta",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 35,
+   "name": null,
+   "nick": "Sue 2",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 39,
+   "name": "Anthony (Jacks)",
+   "nick": "Doody",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 41,
+   "name": "Steve Acquafresca",
+   "nick": "Freshwater",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 43,
+   "name": "Taylor Ives",
+   "nick": "Huskies",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 47,
+   "name": "Robert Dragovcic",
+   "nick": "Adriatic King2",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 48,
+   "name": "Tim Barrington",
+   "nick": "MaybeNextWeek",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 55,
+   "name": "Joe Janisch",
+   "nick": "Scuba Joe",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 58,
+   "name": "Andrea Weldemeyer",
+   "nick": "Hail Andi",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 59,
+   "name": "Matt Heksel",
+   "nick": "Mr Matt",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 64,
+   "name": null,
+   "nick": "Karen K 2",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 69,
+   "name": "Jason Kondra(jkon22@yahoo,com)",
+   "nick": "Jason Cuse",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 71,
+   "name": "Matt Symons",
+   "nick": "Symons",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 73,
+   "name": "Ronnie Grigby",
+   "nick": "Ronnie",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 74,
+   "name": "Hamilton Abreu",
+   "nick": "NJ Gernerals",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 76,
+   "name": null,
+   "nick": "Mr Vegas 2",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 78,
+   "name": "Dave Copello",
+   "nick": "D.C.",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 81,
+   "name": "Thaddius Longsworth",
+   "nick": "Thaddius",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 87,
+   "name": "John Richard",
+   "nick": "Falcon",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 89,
+   "name": "Jim McCab (Richard Friend)",
+   "nick": "Jim Slim Dawg",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 93,
+   "name": "Justin Santangelo",
+   "nick": "Jsanta",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 94,
+   "name": "Leslie Kugel",
+   "nick": "Kugeliscious1",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 97,
+   "name": "Scott Laxar",
+   "nick": "Slazar",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 99,
+   "name": "Allie Scuffil",
+   "nick": "Allie",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 100,
+   "name": "Chris Russo son",
+   "nick": "Chris R",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 102,
+   "name": "Michael Cenzi",
+   "nick": "Cenzinator92",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 106,
+   "name": "Lynn Lilly",
+   "nick": "Lynn",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 108,
+   "name": "Kevin Saba",
+   "nick": "The Mayor",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 115,
+   "name": null,
+   "nick": "Trandis",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 117,
+   "name": "Dan Noyes",
+   "nick": "Noyesmaker",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 119,
+   "name": "Cathy Prosise",
+   "nick": "Cathy P",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 121,
+   "name": "Lynne Howell",
+   "nick": "Lynne H",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 125,
+   "name": "Steve Roling",
+   "nick": "Steve",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 131,
+   "name": "Melissa Petry",
+   "nick": "Melissa",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 134,
+   "name": "Andy Cummings",
+   "nick": "AC",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 137,
+   "name": "Dave Trouteaud",
+   "nick": "Dave Trouteaud",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 141,
+   "name": "Patricia Vince",
+   "nick": "Cryin Colts Fan",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 142,
+   "name": "Bruce Westemeier",
+   "nick": "Bruce",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 143,
+   "name": "Tim O",
+   "nick": "TJO",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 146,
+   "name": "Charley Bohley",
+   "nick": "Tuna",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 149,
+   "name": "Robyn Shaw",
+   "nick": "Robyn",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 153,
+   "name": "Shawn Roman",
+   "nick": "Lehigh Lions",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 155,
+   "name": "Jason Hart",
+   "nick": "Jazon",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 158,
+   "name": "Rob Glessner",
+   "nick": "Rob Comedy",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 162,
+   "name": "Joe Failla",
+   "nick": "Dolpfan 72",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 163,
+   "name": "Austin",
+   "nick": "Tua Waddles over the Hill",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 164,
+   "name": "AL Cook",
+   "nick": "Blitzburgh",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 165,
+   "name": "Kaleigh Cook",
+   "nick": "Turn Down for Watt",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 166,
+   "name": "David Desroches",
+   "nick": "Mile High Club",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 168,
+   "name": "Don Jones",
+   "nick": "DJFL",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 169,
+   "name": "Matt Kohn",
+   "nick": "Matt Kohn",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 174,
+   "name": "Jamy Hillaker",
+   "nick": "Bulldogge Mom",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 178,
+   "name": "Mark Miller",
+   "nick": "Mark Miller",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 182,
+   "name": null,
+   "nick": "Chris Griffin 3",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 184,
+   "name": "Brian Heath",
+   "nick": "BLH71",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 186,
+   "name": "Max Zuercher",
+   "nick": "Max",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 188,
+   "name": "Stacy Hering",
+   "nick": "FinsUp",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 189,
+   "name": "KC VanBrockin",
+   "nick": "Bonita Bullies",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 195,
+   "name": "Susan Morris",
+   "nick": "D-Girl",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 196,
+   "name": "Mike Gallagher",
+   "nick": "Gallagher",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 197,
+   "name": "Skip Vigars",
+   "nick": "Skip",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 202,
+   "name": "Beth Corallo",
+   "nick": "JBC-2",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 207,
+   "name": "Tiffany Merchant",
+   "nick": "Looper 22",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 210,
+   "name": null,
+   "nick": "Gator Jit 3",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 214,
+   "name": "Jake Davis",
+   "nick": "Jake Davis",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 219,
+   "name": "John Martinowich",
+   "nick": "Johnmartinowich",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 220,
+   "name": "Eddie Faglione",
+   "nick": "Bugman",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 222,
+   "name": "Greg Osullivan",
+   "nick": "Greg O",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 225,
+   "name": "Tim Pranger",
+   "nick": "Mozier Momma 1",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 227,
+   "name": "Tom Reese",
+   "nick": "Wingdoggs",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 228,
+   "name": "Jennifer Reese ",
+   "nick": "Hummas Vibes",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 231,
+   "name": "Jim Gibbons",
+   "nick": "GoBirds",
+   "picks": {
+    "1": "DEN"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "DEN"
+   ]
+  },
+  {
+   "entry": 24,
+   "name": "Bryce Nealon",
+   "nick": "Fitznews",
+   "picks": {
+    "1": "GB"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "GB"
+   ]
+  },
+  {
+   "entry": 56,
+   "name": "Rachel Linse (Joe J wife)",
+   "nick": "Sharkdiver",
+   "picks": {
+    "1": "GB"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "GB"
+   ]
+  },
+  {
+   "entry": 4,
+   "name": "Tony Seeger",
+   "nick": "Dr T",
+   "picks": {
+    "1": "IND"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "IND"
+   ]
+  },
+  {
+   "entry": 14,
+   "name": null,
+   "nick": "Sucre ",
+   "picks": {
+    "1": "IND"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "IND"
+   ]
+  },
+  {
+   "entry": 61,
+   "name": "Rick Wojcik",
+   "nick": "Rick Wojo",
+   "picks": {
+    "1": "JAC"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "JAC"
+   ]
+  },
+  {
+   "entry": 90,
+   "name": null,
+   "nick": "Muff Diver",
+   "picks": {
+    "1": "JAC"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "JAC"
+   ]
+  },
+  {
+   "entry": 129,
+   "name": "Curtis Gunther",
+   "nick": "Gunther 1",
+   "picks": {
+    "1": "JAC"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "JAC"
+   ]
+  },
+  {
+   "entry": 170,
+   "name": "Jimmy Nagaj",
+   "nick": "Clydes Clippers 33",
+   "picks": {
+    "1": "JAC"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "JAC"
+   ]
+  },
+  {
+   "entry": 191,
+   "name": "John Fowle",
+   "nick": "Foul Ball",
+   "picks": {
+    "1": "JAC"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "JAC"
+   ]
+  },
+  {
+   "entry": 63,
+   "name": "Karen Kiedrowski tom mom",
+   "nick": "Karen K",
+   "picks": {
+    "1": "KC"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "KC"
+   ]
+  },
+  {
+   "entry": 181,
+   "name": null,
+   "nick": "Chris Griffin 2",
+   "picks": {
+    "1": "KC"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "KC"
+   ]
+  },
+  {
+   "entry": 187,
+   "name": "Robert Parry",
+   "nick": "Buffalo Bob",
+   "picks": {
+    "1": "LAR"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "LAR"
+   ]
+  },
+  {
+   "entry": 216,
+   "name": "Ty Slagel",
+   "nick": "Ty Slagel",
+   "picks": {
+    "1": "LAR"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "LAR"
+   ]
+  },
+  {
+   "entry": 229,
+   "name": "Ryan Oxx",
+   "nick": "Oxx",
+   "picks": {
+    "1": "LV"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "LV"
+   ]
+  },
+  {
+   "entry": 42,
+   "name": "Acey Edgemon",
+   "nick": "Acey",
+   "picks": {
+    "1": "MIA"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "MIA"
+   ]
+  },
+  {
+   "entry": 208,
+   "name": "Kevin Kenny",
+   "nick": "Gator Jit 1",
+   "picks": {
+    "1": "MIA"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "MIA"
+   ]
+  },
+  {
+   "entry": 126,
+   "name": null,
+   "nick": "Londyn",
+   "picks": {
+    "1": "NE"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "NE"
+   ]
+  },
+  {
+   "entry": 1,
+   "name": "Mike Lowe",
+   "nick": "Budman",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 12,
+   "name": null,
+   "nick": "JT",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 32,
+   "name": "Josh (Jacks)",
+   "nick": "Juice 1",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 36,
+   "name": null,
+   "nick": "StellaMagoo",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 49,
+   "name": "Tim Barrington",
+   "nick": "7-11 Guy",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 50,
+   "name": "Tim Barrington",
+   "nick": "Cee Deez Nutz",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 65,
+   "name": "Tom Weiler",
+   "nick": "Tee Time",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 66,
+   "name": "Grant ",
+   "nick": "Grant 1",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 68,
+   "name": "Matt Moran",
+   "nick": "Auggie",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 75,
+   "name": "Bobby nese",
+   "nick": "Mr Vegas 1",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 82,
+   "name": "Linda Munk(little lori mom)",
+   "nick": "Bootz8910",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 96,
+   "name": null,
+   "nick": "Kugeliscious3",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 101,
+   "name": "Tom Corliss",
+   "nick": "Trockout",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 104,
+   "name": "Jerry Thigpen",
+   "nick": "Jerry Thigpen",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 105,
+   "name": "Rene Thigpen",
+   "nick": "Rene Thigpen",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 107,
+   "name": "Austin Nicodemus",
+   "nick": "Paxton",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 111,
+   "name": null,
+   "nick": "Big Mike 2",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 113,
+   "name": "Chris Landis",
+   "nick": "The Landis",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 122,
+   "name": "Mark Hershey",
+   "nick": "Kaz",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 123,
+   "name": "Jim Young",
+   "nick": "Jimmy Y",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 128,
+   "name": "Adam Rackley",
+   "nick": "Rackley",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 135,
+   "name": "Billy Ignace",
+   "nick": "Shark",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 139,
+   "name": "Aaron Jackson",
+   "nick": "Aaron Jackson",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 144,
+   "name": null,
+   "nick": "ECR",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 152,
+   "name": "Dick EnDres",
+   "nick": "ID",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 159,
+   "name": "Patty Strohn",
+   "nick": "Xray Lady",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 190,
+   "name": "Dan Napadano",
+   "nick": "Nap",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 203,
+   "name": "Sean Gould",
+   "nick": "Big Sean",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 212,
+   "name": "John Knoy",
+   "nick": "Gator John",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 213,
+   "name": "Duncan Minnick",
+   "nick": "Danny Dimonds",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 223,
+   "name": "Dick Degroat",
+   "nick": "Bills Dad",
+   "picks": {
+    "1": "PHI"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PHI"
+   ]
+  },
+  {
+   "entry": 18,
+   "name": "Zach Wright",
+   "nick": "MuffDiver69",
+   "picks": {
+    "1": "PIT"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PIT"
+   ]
+  },
+  {
+   "entry": 30,
+   "name": "Jacob marsh",
+   "nick": "Marshmadness",
+   "picks": {
+    "1": "PIT"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PIT"
+   ]
+  },
+  {
+   "entry": 37,
+   "name": "Mary (son) Jeral",
+   "nick": "Slim Pickens",
+   "picks": {
+    "1": "PIT"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PIT"
+   ]
+  },
+  {
+   "entry": 85,
+   "name": "Gregg Lazzaro",
+   "nick": "Isakama",
+   "picks": {
+    "1": "PIT"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PIT"
+   ]
+  },
+  {
+   "entry": 132,
+   "name": "Ashley Minge",
+   "nick": "Ashley M",
+   "picks": {
+    "1": "PIT"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PIT"
+   ]
+  },
+  {
+   "entry": 154,
+   "name": "Ervin Funke",
+   "nick": "Swingin",
+   "picks": {
+    "1": "PIT"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PIT"
+   ]
+  },
+  {
+   "entry": 157,
+   "name": "Kevin Wood",
+   "nick": "Creepin Pats",
+   "picks": {
+    "1": "PIT"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PIT"
+   ]
+  },
+  {
+   "entry": 161,
+   "name": "Matthew Hardie",
+   "nick": "Sagttgrandma",
+   "picks": {
+    "1": "PIT"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PIT"
+   ]
+  },
+  {
+   "entry": 206,
+   "name": "Ruth Macellari",
+   "nick": "Ruth M",
+   "picks": {
+    "1": "PIT"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "PIT"
+   ]
+  },
+  {
+   "entry": 17,
+   "name": null,
+   "nick": "The Germans",
+   "picks": {
+    "1": "SF"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "SF"
+   ]
+  },
+  {
+   "entry": 98,
+   "name": "Patty &Rick",
+   "nick": "Patty Smack",
+   "picks": {
+    "1": "TB"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "TB"
+   ]
+  },
+  {
+   "entry": 179,
+   "name": "Rob Poulin",
+   "nick": "Poulins Pats",
+   "picks": {
+    "1": "TB"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "TB"
+   ]
+  },
+  {
+   "entry": 5,
+   "name": null,
+   "nick": "Milo",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 16,
+   "name": null,
+   "nick": "Steve O",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 25,
+   "name": "Luke Nealon",
+   "nick": "Crown Eden",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 29,
+   "name": "Greg Piretti(Jack's)",
+   "nick": "Mr P",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 33,
+   "name": null,
+   "nick": "Juice 2",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 34,
+   "name": "Sue",
+   "nick": "Sue 1",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 38,
+   "name": "Jacueline Grimm",
+   "nick": "You serious Clark",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 44,
+   "name": "Rusty Moore",
+   "nick": "Irishgunslinger",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 45,
+   "name": "Jon Paul Jackson",
+   "nick": "Hock Tua",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 52,
+   "name": "Matt Colla",
+   "nick": "Gino",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 62,
+   "name": "Scott Wojcik",
+   "nick": "Scott W",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 72,
+   "name": "Madison Fisher",
+   "nick": "Madison",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 80,
+   "name": "Samuel Bennett",
+   "nick": "DJS",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 84,
+   "name": "Aaron Lewelling",
+   "nick": "Alew",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 95,
+   "name": null,
+   "nick": "Kugeliscious2",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 103,
+   "name": "Alyssa Cenzi",
+   "nick": "BabaLou",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 109,
+   "name": "Doc Mike",
+   "nick": "Doc Mike",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 110,
+   "name": "Big Mike",
+   "nick": "Big Mike 1",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 112,
+   "name": "Mike Richards",
+   "nick": "Detroit Mike",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 118,
+   "name": "Joe (Gator) Oliver",
+   "nick": "Gator Joe",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 124,
+   "name": "Sami Ehi",
+   "nick": "Sami",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 138,
+   "name": "Mike Tiseo",
+   "nick": "MNT",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 140,
+   "name": "Chris Oneill",
+   "nick": "Monsters of the Midway",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 147,
+   "name": "Jack Gordon",
+   "nick": "Horace Clarke",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 148,
+   "name": "Rease Wagner",
+   "nick": "Rease",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 150,
+   "name": "Larry Niedert",
+   "nick": "DLN",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 151,
+   "name": "Herb Sandborn",
+   "nick": "Handyman Herb",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 167,
+   "name": "Evan(Mark) Jones",
+   "nick": "AppStateAlum",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 171,
+   "name": "Dave Giles",
+   "nick": "SokkerJock",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 173,
+   "name": "Alex Salas",
+   "nick": "Alexis 20",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 177,
+   "name": "Ken Watts",
+   "nick": "Watts",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 185,
+   "name": "Brian Heath",
+   "nick": "BLH44",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 193,
+   "name": "Chris Licout",
+   "nick": "Chrissy",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 194,
+   "name": "Tony Snider",
+   "nick": "Big T",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 205,
+   "name": "Brian Stoner",
+   "nick": "BAStoner",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 209,
+   "name": null,
+   "nick": "Gator Jit 2",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 226,
+   "name": null,
+   "nick": "Mozier Momma 2",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 232,
+   "name": "Zachary Roach",
+   "nick": "The Roach",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  },
+  {
+   "entry": 235,
+   "name": "Wyatt Hilderbrand",
+   "nick": "Wyatt Picks",
+   "picks": {
+    "1": "WAS"
+   },
+   "problems": [],
+   "alive": true,
+   "used": [
+    "WAS"
+   ]
+  }
+ ]
+}
