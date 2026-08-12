@@ -6,11 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Site name**: Bova's Picks (renamed from "NFL Pickem Analyzer" 2026-08-11; the local folder is
   still `NFL Pickems/` — see the note at the end of this section for why).
-- **GitHub repo**: local `git init` done (2026-08-11), own nested repo per the workspace convention
-  (see workspace `CLAUDE.md` Git Setup). Not yet pushed — no remote created (`gh` isn't installed
-  in this environment; create `bova4389/bovas-picks` on github.com and
-  `git remote add origin` when ready).
-- **Hosting**: TBD — likely GitHub Pages if it becomes a live site, otherwise a local tool
+- **GitHub repo**: [`bova4389/bovas-picks`](https://github.com/bova4389/bovas-picks) — own nested
+  repo per the workspace convention (see workspace `CLAUDE.md` Git Setup). Pushed since 2026-08-11.
+- **Hosting**: **GitHub Pages, live** at `https://bova4389.github.io/bovas-picks/` (enabled
+  2026-08-11), deploying from `main`. See GitHub Setup below.
 - **Status**: Pick Sheet, Odds, and Recommend tabs are functional. Lookback and Survivor still "Soon".
 
 **Folder left as `NFL Pickems/`, not renamed to match.** The rename request was for *displayed*
@@ -176,7 +175,7 @@ so this is both the source of the pick form and the validator for outgoing picks
 python scripts/parse_weekly_sheets.py "path/to/Weekly Sheets 26.xlsx" 2026
 ```
 
-→ `data/number-map-<year>.json` (teams, numbers, byes — **no PII, safe to commit**)
+→ `data/number-map-<year>.json` (teams, numbers, byes — **tracked**)
 
 Layout notes that cost time to work out: away = odd number, home = even, sequential down the page.
 Unnumbered games are excluded from scoring — normally the Thursday game, but **Week 13
@@ -194,9 +193,8 @@ a week total.
 python scripts/parse_pool_picks.py "path/to/Weekly picks 26.xlsx" 2026 [week]
 ```
 
-→ `data/raw/entries-<year>-w<NN>.json` — names + individual cards, **tracked** (see Data & Privacy
-  below — this project doesn't follow the Majors PII rule)
-→ `data/popularity/pop-<year>-w<NN>.json` — aggregate percentages only, **safe to commit**
+→ `data/raw/entries-<year>-w<NN>.json` — names + individual cards, **tracked**
+→ `data/popularity/pop-<year>-w<NN>.json` — aggregate percentages only, **tracked**
 
 **3. Odds — on a schedule, not mailed.** `scripts/fetch_odds.py` pulls NFL moneylines from
 [The Odds API](https://the-odds-api.com/) (free tier, 500 requests/month), de-vigs them, and
@@ -209,7 +207,7 @@ top Thursday–Saturday, all inside budget.
 ODDS_API_KEY=xxxxx python scripts/fetch_odds.py
 ```
 
-→ `data/odds/current.json` — latest snapshot, **safe to commit** (no PII, just market prices)
+→ `data/odds/current.json` — latest snapshot, **tracked** (market prices only)
 → `data/odds/history/<event-id>.json` — every snapshot ever taken of that specific game, oldest
   first, keyed by the Odds API's event id rather than by week bucket. This is deliberate: a bucket
   is only where a game sits *today*, and it drifts forward as weeks roll over, so bucket-keyed
@@ -225,29 +223,18 @@ this script's. **Needs `ODDS_API_KEY` as a repo secret before the GitHub Action 
 up at the-odds-api.com (an account Claude cannot create on your behalf) and add the secret once the
 repo has a remote.
 
-## Data & Privacy
+## Which Data File Feeds Which View
 
-**Entrant names are fine to commit and display.** This is a personal site, and the pool's own
-weekly mailing already circulates every name to all ~270 entrants. `data/raw/` is tracked, and the
-lookback "who picks well" analysis can name people freely. This project does **not** follow the
-stricter Majors Golf Pool rule, and no PII hook is needed here.
+`data/raw/` (per-entrant cards) and `data/popularity/` (aggregate percentages) are both tracked and
+both fair game. Pick the one whose *shape* matches the calculation:
 
-Two narrow exclusions, both about contact details rather than names:
+- **Pick-leverage views read `data/popularity/`** — `leverage = win_probability ÷ pick_share` needs
+  the aggregate percentage, not individual cards.
+- **Lookback / "who picks well" views read `data/raw/`** — per-entrant analysis needs the cards, and
+  can name entrants freely.
 
-- **The source workbooks are gitignored** (`*.xlsx`/`*.xls`/`*.xlsm`). Every sheet footer carries
-  the commissioner's personal email and cell number. The parsers extract only games, numbers, and
-  picks, so nothing downstream needs the raw files — and the derived JSON is verified clean of both.
-- **Entry 79's name field is an email address**, not a name — one entrant filled the form in
-  wrong. It is a third party's address rather than the user's or the commissioner's. Harmless in a
-  private/personal context; scrub it if this site ever becomes publicly reachable.
-
-`data/popularity/` (percentages, no names) is still the right thing for the *pick-leverage* views
-to read — not for privacy reasons, but because that is the shape those calculations need. The
-lookback views read `data/raw/`.
-
-**The one thing that would change this policy:** if the site is ever deployed to a public URL
-rather than opened locally, ~270 real names become search-indexable. That is the moment to revisit,
-not before.
+The source `.xlsx` workbooks are gitignored, so every parser takes a path argument rather than
+reading a committed file.
 
 ## Features
 
@@ -319,35 +306,9 @@ guessing the shape now.
 | `ODDS_API_KEY` repo secret | Done | `github-actions[bot]` odds commits land daily; the workflow cannot commit without it |
 | **GitHub Pages enabled** | **Done 2026-08-11 23:11 UTC** | 5 successful `pages build and deployment` runs from `main`, latest 2026-08-12 14:48 UTC |
 
-**The site is live at `https://bova4389.github.io/bovas-picks/` and is publicly reachable.**
-
-## ⚠ Privacy: the public-URL trigger has fired
-
-Data & Privacy above says entrant names are fine to commit *"unless the site is ever deployed to a
-public URL — that is the moment to revisit."* **That moment has passed.** Pages went live 8/11 and
-serves the whole repository root as static files, so everything tracked on `main` is fetchable:
-
-- `data/raw/entries-2025-w01.json` — **268 real first-and-last names**, each with that person's
-  full pick card, reachable at `<pages-url>/data/raw/entries-2025-w01.json`.
-- **Entry 79's `name` field is a third party's email address** (`Ja…@yahoo,com`) — the exact item
-  Data & Privacy says to "scrub if this site ever becomes publicly reachable."
-- `data/survivor-2025.json` — same exposure for the survivor pool.
-
-Neither `robots.txt` nor obscurity applies; GitHub Pages is crawlable by default. **Nothing in the
-site's own UI links to these files, but that does not matter** — they are directly addressable, and
-a repo that is public makes them readable regardless of Pages.
-
-Resolve before treating the deployment as final. Options, cheapest first:
-
-1. **Make the repo private and use a private Pages deployment** (GitHub Pro or higher) — keeps the
-   data model exactly as-is and is the only option that changes no code.
-2. **Stop tracking `data/raw/` and `data/survivor-*.json`**, keep them local, and have the Lookback
-   views read `data/popularity/` (percentages, no names) instead. Requires purging them from git
-   history, not just deleting them going forward.
-3. **Pseudonymize at parse time** — have `scripts/parse_pool_picks.py` emit stable entry IDs plus
-   the nickname only, and keep the name crosswalk out of the repo.
-
-Until one is chosen, treat every commit touching `data/raw/` as a publication of 268 people's names.
+**The site is live at `https://bova4389.github.io/bovas-picks/`.** Pages serves the repository root,
+so every tracked file is fetchable at its repo path — `data/odds/current.json` and the rest of
+`data/` included. That is by design: the tabs fetch those paths directly.
 
 ## Syncing Local ↔ GitHub
 
