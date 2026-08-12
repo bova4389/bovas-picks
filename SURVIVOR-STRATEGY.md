@@ -222,11 +222,34 @@ board. That is where a defensible fade lives, provided it clears the ~70% floor.
 
 The explicit requirement — and there is one hard limit to state first.
 
-**Sportsbooks only post lines about 10–12 days out.** Lookahead lines cover roughly *next* week,
-get pulled during the current week, and repost Sunday evening. **There is no market price for Week
-11 in Week 4, anywhere, at any price.** Anything you see for distant weeks on any site is a model
-projection derived from power ratings or preseason win totals. That does not make it useless — it
-makes it a projection, and it must be labelled as one.
+**Corrected 2026-08-11 against a real snapshot.** An earlier draft of this file said flatly that
+books never price beyond ~10–12 days. That is right *during* the season and wrong in the
+preseason. The live feed returned **all 272 games of 2026** — but the depth tells the real story:
+
+| | Week 1 | Weeks 2–18 |
+|---|---|---|
+| Bookmakers quoting | **8.5 average** | **~1.0–1.3** |
+| What that is | a consensus market | one shop's early number |
+
+So the whole season is nominally priced right now, but everything past the current week is a
+single book's speculative line that will move a lot. Once the season starts, books pull distant
+weeks entirely and only ~10–12 days stay posted. Either way there is a stretch of schedule the
+market does not price *meaningfully*.
+
+**`bookmakerCount` in our odds snapshot is the trust signal — read it before trusting a number.**
+8+ books is a market. 1 book is an opinion. Treat a 1-book line as better than our projection but
+far softer than a Week 1 consensus price.
+
+Even thin, the market discriminates better than our compressed projections:
+
+| Across the 2026 season | Market feed | Our projections |
+|---|---|---|
+| Highest win probability | **85%** | 75% |
+| Games at ≥80% | **10** | 0 |
+| Games at ≥70% | **58** | 16 |
+
+Which is the practical answer to §1's 70% floor: **the floor is workable against market odds even
+this early** — 58 games clear it — and remains unusable against projections.
 
 **Free, and closest to what you asked for:**
 

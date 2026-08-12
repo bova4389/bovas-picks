@@ -5,12 +5,24 @@ Power ratings and projected win probabilities for every unplayed game.
     python scripts/build_projections.py 2026            # build projections
     python scripts/build_projections.py 2025 --backtest # prove it predicts
 
-WHY THIS EXISTS. The Odds API only returns games books have actually posted,
-and NFL books post ~10-12 days ahead. Survivor planning needs 3-4 weeks of
-lookahead plus a whole-season map of where each elite team's best spot falls
-(SURVIVOR-STRATEGY.md §1). That gap cannot be closed by buying more API
-credits — the market simply hasn't priced Week 12 in Week 3 — so it has to be
-modelled.
+WHY THIS EXISTS. The Odds API returns whatever books have posted, and how far
+that reaches depends on the time of year — verified against a real snapshot
+taken 2026-08-11, which returned all 272 games of the season:
+
+    bucket 5  (week 1)      8.5 bookmakers on average  <- real consensus market
+    buckets 6-22 (wks 2-18) ~1.0-1.3 bookmakers        <- one shop's early number
+
+So in the PRESEASON the whole season is nominally priced, but everything past
+the current week is a single book's speculative line, not a consensus. Once the
+season starts, books pull distant weeks entirely and only ~10-12 days stay
+posted. Either way there is a stretch of the schedule the market does not
+price meaningfully, and survivor planning needs 3-4 weeks of lookahead plus a
+whole-season map of where each elite team's best spot falls
+(SURVIVOR-STRATEGY.md §1).
+
+`bookmakerCount` in the odds snapshot is the trust signal, and consumers should
+read it: 8+ books is a market, 1 book is an opinion. This model exists to cover
+the thin end and to cross-check the single-book numbers.
 
 THE MODEL. One number per team, in points, relative to a league-average team.
 
