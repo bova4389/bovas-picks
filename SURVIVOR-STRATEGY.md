@@ -15,7 +15,8 @@ this week, given I can never spend it again?"* Almost nothing transfers between 
 | Entries | **235** (2025 Wk 1) | 15–20 | 15–20 |
 | Lives | **1 — one loss and out** | 3 (2 buy-backs) | 3 (2 buy-backs) |
 | Submission | Same email as the pickem | In-app | In-app |
-| Field data | Full weekly spreadsheet | Screenshots | Screenshots |
+| Entry / buy-back | — (one life) | $30–50 / $15–25 | $30–50 / $15–25 |
+| Field data | Full weekly spreadsheet | None — new league | None — new league |
 | Strategy driver | **Leverage + future value** | **Survival + future value** | same |
 
 **These three require different play, and the difference is not a matter of taste.** A pick that
@@ -152,8 +153,41 @@ supports one of two coherent strategies, and the failure mode is drifting betwee
 **Pick one before Week 1 and write it down.** The expensive mistake is playing aggressive, losing,
 and then declining to buy back — you paid the cost of the strategy and refused its payoff.
 
-The aggressive line is only correct if you are genuinely willing to spend the buy-back fees. That
-depends on the entry fee and pot size in each pool — **numbers still needed** (see §6).
+### Settled: play the aggressive line in both pools
+
+The fees make this one-sided. Entry is **$30–50**, a buy-back is **$15–25** — roughly *half* an
+entry. Run it at midpoints with ~18 entrants:
+
+| | |
+|---|---|
+| Base pot | 18 × $40 ≈ **$720** |
+| Buy-back revenue (cheap fee → many take it) | ~$300 |
+| Realistic pot | **~$1,000** |
+| Our maximum possible spend (entry + 2 buy-backs) | **$80** |
+
+**A buy-back costs ~2% of the pot. Burning both costs ~5%.** Aggression is priced as a rounding
+error, and it buys something real: arriving at Week 6 holding elite teams that everyone else has
+already spent.
+
+The expected-cost side is smaller still. Suppose aggression raises the chance of an early
+elimination from ~10% to ~30% — that is only `0.20 × $20 ≈ $4` of extra expected spend. Against a
+~$1,000 pot, moving win probability by even one percentage point is worth $10. **The trade clears
+by a wide margin.** Play aggressive in both the Yahoo and Sleeper pools, and commit to actually
+buying back — that commitment is the strategy, not an afterthought.
+
+Two things that would change this answer, neither yet confirmed:
+
+- **Does a buy-back reset the used-teams list?** This is the single most important unknown in
+  either pool. If a re-entry starts clean, the aggressive line gets *dramatically* stronger — you
+  re-enter holding every elite team while the survivors have spent theirs. If a buy-back is merely
+  an extra life carrying the same used list, it is still worth it at these prices, just less so.
+- **The buy-back cutoff week.** If buy-backs close around Week 4, aggression is only correct
+  *inside* that window; after it, both pools revert to one life and should be played like Mike's
+  minus the leverage. Aggression past the cutoff is just recklessness.
+
+Cheap buy-backs also have a second-order effect worth noting: at ~half an entry, most of the field
+will re-enter, so these pools will run long. That reinforces §2's conclusion that future value
+matters here as much as in the 235-entry pool.
 
 ---
 
@@ -212,9 +246,59 @@ makes it a projection, and it must be labelled as one.
   they report winning up to **7.7× expected** in large survivor contests. Given Mike's pool size,
   this is the one paid tool plausibly worth the fee.
 
-**For our own tool:** future weeks come from power ratings (nfelo) projected across the schedule,
-stored separately from market-derived numbers and always displayed as projections. Current and
-next week come from the de-vigged moneyline. Two sources, two trust levels, never blended silently.
+**Built in-house** — `scripts/fetch_schedule.py` (full season from ESPN) plus
+`scripts/build_projections.py` (power ratings → projected win probability for every unplayed game,
+including a per-team "best remaining week"). Constants were grid-searched on 2021–24 and checked
+against 2025 as a held-out season. Two sources, two trust levels, never blended silently: market
+odds for this week and next, projections beyond, always labelled.
+
+**Measured performance** (`python scripts/build_projections.py 2025 --backtest`):
+
+| | 2021–24 | 2025 |
+|---|---|---|
+| Model, straight up | **~65%** | ~55% |
+| "Better record wins" control | ~62% | ~59% |
+| Always pick home | ~55% | ~51% |
+
+Scored across **8 completed seasons** (2017–19, 2021–25; 2020 excluded, since empty stadiums
+distort home field) at two holdout points each — 16 cells:
+
+| Straight-up accuracy | Mean of 16 cells | Best cell | 2025 |
+|---|---|---|---|
+| **Model** | **63.6%** | 73.1% | 52–58% |
+| "Better record wins" control | 62.3% | 76.3% | 57–62% |
+| Always pick home | 56.1% | 63.8% | 51% |
+
+Brier **0.2247** against 0.25 for a coin flip. The model beats the naive record control in **9 of
+16 cells** — a modest edge — but it also produces *calibrated probabilities*, which a record
+comparison cannot, and probabilities are exactly what the EV formula in §1 consumes.
+
+Seven of the eight seasons land in the low-to-mid 60s. **2025 is the lone collapse**, and the
+model, the control, and the home baseline all fell together that year — an unusually unpredictable
+season rather than a parameter problem. Re-run the backtest once 2026 has ~12 weeks in it.
+
+### The compression limit — the rule that matters most here
+
+Regressing last season toward the mean is correct for accuracy, but it flattens the probability
+spread hard. Measured for 2026:
+
+- 2025 final ratings spanned **19.7 points**; after carryover, **7.9 points**
+- Highest projected win probability anywhere: **75%**
+- Games at 80%+: **0 of 272.** Games at 70%+: **16 of 272**
+
+**So the ~70% floor in §1 applies to market odds only — never to a projection.** Filtering
+projections against it would reject the entire season. Two consequences:
+
+1. **Weeks 1–2: use the market.** It has priced the whole slate, and that is exactly when the
+   projections are weakest.
+2. **Use projections for ordering, not levels.** Compression hits every game about equally, so
+   "is Week 9 a better Seattle spot than Week 6" still answers correctly even though both numbers
+   read low. That ordering *is* the elite-team budget — which is what we needed future weeks for.
+
+Projections sharpen from around Week 4 as real results displace the carried-over prior.
+
+**RotoWire remains the cross-check**, as intended. If our ordering of a team's best weeks diverges
+sharply from theirs, treat it as a bug signal rather than an edge.
 
 ---
 
@@ -255,10 +339,13 @@ never use them, not to spend a week proving it.
 
 ## 7. Still Needed
 
-- **Entry fee and pot size for the Yahoo and Sleeper pools**, plus the exact buy-back cost. The
-  aggressive-vs-conservative decision in §2 cannot be settled without them.
-- **Buy-back cutoff week** in each pool — many pools close buy-backs around Week 4, which sharply
-  changes how long the aggressive line stays available.
+- **Does a buy-back reset the used-teams list, or is it just an extra life?** The highest-value
+  unknown in either pool — it is the difference between "aggressive is good" and "aggressive is
+  overwhelmingly good." Check the league settings before Week 1.
+- **Buy-back cutoff week** in each pool — many close around Week 4. Aggression is correct *inside*
+  that window and reckless outside it, so this sets the expiry date on the §2 recommendation.
+- ~~Entry fee and pot size~~ — **answered 2026-08-11:** $30–50 entry, $15–25 buy-backs. The
+  aggressive line is settled; see §2.
 - **Does Mike's pool allow team reuse after a certain point?** Some large pools reset in the back
   half. Confirm before planning an elite budget around 18 weeks.
 - *(Low priority)* **Exact pick-lock mechanism for Yahoo and Sleeper** — per-game kickoff or one
@@ -266,8 +353,21 @@ never use them, not to spend a week proving it.
   analysis with no rival racing the deadline, so no need to go confirm this deliberately.
 - **Tie/rollover rules** — what happens if everyone remaining loses in the same week, and whether
   the pot splits or rolls.
-- Weekly Yahoo/Sleeper screenshots, to see whether those small fields concentrate the way Mike's
-  does.
+
+**Not needed: field history for Yahoo and Sleeper.** Both are brand-new leagues with no past
+seasons, so there is nothing to look back at. This costs us essentially nothing, because §2 already
+concludes that pick popularity is not worth acting on at 15–20 entries — the leverage term is too
+small to pay for any win probability given up. The strategy for those two pools was never going to
+consume field data.
+
+Two things follow from them being new, though, and both point the same way:
+
+- **Assume a casual field.** A first-year league of friends has no selection for sophistication.
+  Expect heavy chalk and little future-value planning from opponents — which is an argument for
+  disciplined team-budgeting on our side, not for fancy picks.
+- **History accrues from Week 1.** Each week's results are worth capturing as they happen, if only
+  to confirm the "small fields don't concentrate enough to matter" assumption rather than trusting
+  it indefinitely. Low effort, low urgency — nothing depends on it.
 
 ---
 

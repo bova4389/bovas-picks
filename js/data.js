@@ -96,6 +96,41 @@ export async function getOddsHistory(eventId) {
   }
 }
 
+/**
+ * Full season schedule with results, from scripts/fetch_schedule.py. Covers
+ * every week including ones the market has not priced, which is what survivor
+ * planning and bye-week lookahead need.
+ */
+export async function getSchedule(season = SEASON) {
+  try {
+    return await loadJSON(`data/schedule-${season}.json`);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Modelled win probabilities for unplayed games, from
+ * scripts/build_projections.py. Fills the gap past the market's ~10-12 day
+ * lookahead window.
+ *
+ * TWO RULES, both load-bearing — see that script's COMPRESSION note:
+ *  1. Market odds ALWAYS override these where both exist. Never blend them
+ *     silently; a 78% projection four weeks out is far softer than a 78%
+ *     moneyline on Saturday, and the UI must say which it is showing.
+ *  2. Do NOT apply survivor's 70% win-probability floor to these. Preseason
+ *     regression compresses the spread so hard that nothing reaches 80% and
+ *     only ~16 games reach 70%. Use projections to ORDER a team's weeks
+ *     against each other, not to clear an absolute bar.
+ */
+export async function getProjections(season = SEASON) {
+  try {
+    return await loadJSON(`data/projections-${season}.json`);
+  } catch {
+    return null;
+  }
+}
+
 /** The Odds API's last-reported request budget, or null. */
 export async function getOddsQuota() {
   try {

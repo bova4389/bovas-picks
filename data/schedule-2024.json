@@ -1,0 +1,2787 @@
+{
+ "year": 2024,
+ "games": [
+  {
+   "id": "401671789",
+   "week": 1,
+   "date": "2024-09-06T00:40Z",
+   "home": "KC",
+   "away": "BAL",
+   "homeScore": 27,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671805",
+   "week": 1,
+   "date": "2024-09-07T00:15Z",
+   "home": "PHI",
+   "away": "GB",
+   "homeScore": 34,
+   "awayScore": 29,
+   "completed": true
+  },
+  {
+   "id": "401671744",
+   "week": 1,
+   "date": "2024-09-08T17:00Z",
+   "home": "ATL",
+   "away": "PIT",
+   "homeScore": 10,
+   "awayScore": 18,
+   "completed": true
+  },
+  {
+   "id": "401671617",
+   "week": 1,
+   "date": "2024-09-08T17:00Z",
+   "home": "BUF",
+   "away": "ARI",
+   "homeScore": 34,
+   "awayScore": 28,
+   "completed": true
+  },
+  {
+   "id": "401671719",
+   "week": 1,
+   "date": "2024-09-08T17:00Z",
+   "home": "CHI",
+   "away": "TEN",
+   "homeScore": 24,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671628",
+   "week": 1,
+   "date": "2024-09-08T17:00Z",
+   "home": "CIN",
+   "away": "NE",
+   "homeScore": 10,
+   "awayScore": 16,
+   "completed": true
+  },
+  {
+   "id": "401671861",
+   "week": 1,
+   "date": "2024-09-08T17:00Z",
+   "home": "IND",
+   "away": "HOU",
+   "homeScore": 27,
+   "awayScore": 29,
+   "completed": true
+  },
+  {
+   "id": "401671849",
+   "week": 1,
+   "date": "2024-09-08T17:00Z",
+   "home": "MIA",
+   "away": "JAC",
+   "homeScore": 20,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671734",
+   "week": 1,
+   "date": "2024-09-08T17:00Z",
+   "home": "NO",
+   "away": "CAR",
+   "homeScore": 47,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671712",
+   "week": 1,
+   "date": "2024-09-08T17:00Z",
+   "home": "NYG",
+   "away": "MIN",
+   "homeScore": 6,
+   "awayScore": 28,
+   "completed": true
+  },
+  {
+   "id": "401671659",
+   "week": 1,
+   "date": "2024-09-08T20:05Z",
+   "home": "LAC",
+   "away": "LV",
+   "homeScore": 22,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671664",
+   "week": 1,
+   "date": "2024-09-08T20:05Z",
+   "home": "SEA",
+   "away": "DEN",
+   "homeScore": 26,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671761",
+   "week": 1,
+   "date": "2024-09-08T20:25Z",
+   "home": "CLE",
+   "away": "DAL",
+   "homeScore": 17,
+   "awayScore": 33,
+   "completed": true
+  },
+  {
+   "id": "401671770",
+   "week": 1,
+   "date": "2024-09-08T20:25Z",
+   "home": "TB",
+   "away": "WAS",
+   "homeScore": 37,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671792",
+   "week": 1,
+   "date": "2024-09-09T00:20Z",
+   "home": "DET",
+   "away": "LAR",
+   "homeScore": 26,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671696",
+   "week": 1,
+   "date": "2024-09-10T00:15Z",
+   "home": "SF",
+   "away": "NYJ",
+   "homeScore": 32,
+   "awayScore": 19,
+   "completed": true
+  },
+  {
+   "id": "401671807",
+   "week": 2,
+   "date": "2024-09-13T00:15Z",
+   "home": "MIA",
+   "away": "BUF",
+   "homeScore": 10,
+   "awayScore": 31,
+   "completed": true
+  },
+  {
+   "id": "401671709",
+   "week": 2,
+   "date": "2024-09-15T17:00Z",
+   "home": "DAL",
+   "away": "NO",
+   "homeScore": 19,
+   "awayScore": 44,
+   "completed": true
+  },
+  {
+   "id": "401671721",
+   "week": 2,
+   "date": "2024-09-15T17:00Z",
+   "home": "DET",
+   "away": "TB",
+   "homeScore": 16,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671723",
+   "week": 2,
+   "date": "2024-09-15T17:00Z",
+   "home": "GB",
+   "away": "IND",
+   "homeScore": 16,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671636",
+   "week": 2,
+   "date": "2024-09-15T17:00Z",
+   "home": "TEN",
+   "away": "NYJ",
+   "homeScore": 17,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671645",
+   "week": 2,
+   "date": "2024-09-15T17:00Z",
+   "home": "MIN",
+   "away": "SF",
+   "homeScore": 23,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671702",
+   "week": 2,
+   "date": "2024-09-15T17:00Z",
+   "home": "NE",
+   "away": "SEA",
+   "homeScore": 20,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671716",
+   "week": 2,
+   "date": "2024-09-15T17:00Z",
+   "home": "WAS",
+   "away": "NYG",
+   "homeScore": 21,
+   "awayScore": 18,
+   "completed": true
+  },
+  {
+   "id": "401671652",
+   "week": 2,
+   "date": "2024-09-15T17:00Z",
+   "home": "CAR",
+   "away": "LAC",
+   "homeScore": 3,
+   "awayScore": 26,
+   "completed": true
+  },
+  {
+   "id": "401671635",
+   "week": 2,
+   "date": "2024-09-15T17:00Z",
+   "home": "JAC",
+   "away": "CLE",
+   "homeScore": 13,
+   "awayScore": 18,
+   "completed": true
+  },
+  {
+   "id": "401671624",
+   "week": 2,
+   "date": "2024-09-15T17:00Z",
+   "home": "BAL",
+   "away": "LV",
+   "homeScore": 23,
+   "awayScore": 26,
+   "completed": true
+  },
+  {
+   "id": "401671754",
+   "week": 2,
+   "date": "2024-09-15T20:05Z",
+   "home": "ARI",
+   "away": "LAR",
+   "homeScore": 41,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671668",
+   "week": 2,
+   "date": "2024-09-15T20:25Z",
+   "home": "DEN",
+   "away": "PIT",
+   "homeScore": 6,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671670",
+   "week": 2,
+   "date": "2024-09-15T20:25Z",
+   "home": "KC",
+   "away": "CIN",
+   "homeScore": 26,
+   "awayScore": 25,
+   "completed": true
+  },
+  {
+   "id": "401671786",
+   "week": 2,
+   "date": "2024-09-16T00:20Z",
+   "home": "HOU",
+   "away": "CHI",
+   "homeScore": 19,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671691",
+   "week": 2,
+   "date": "2024-09-17T00:15Z",
+   "home": "PHI",
+   "away": "ATL",
+   "homeScore": 21,
+   "awayScore": 22,
+   "completed": true
+  },
+  {
+   "id": "401671808",
+   "week": 3,
+   "date": "2024-09-20T00:15Z",
+   "home": "NYJ",
+   "away": "NE",
+   "homeScore": 24,
+   "awayScore": 3,
+   "completed": true
+  },
+  {
+   "id": "401671855",
+   "week": 3,
+   "date": "2024-09-22T17:00Z",
+   "home": "CLE",
+   "away": "NYG",
+   "homeScore": 15,
+   "awayScore": 21,
+   "completed": true
+  },
+  {
+   "id": "401671823",
+   "week": 3,
+   "date": "2024-09-22T17:00Z",
+   "home": "TEN",
+   "away": "GB",
+   "homeScore": 14,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671865",
+   "week": 3,
+   "date": "2024-09-22T17:00Z",
+   "home": "IND",
+   "away": "CHI",
+   "homeScore": 21,
+   "awayScore": 16,
+   "completed": true
+  },
+  {
+   "id": "401671646",
+   "week": 3,
+   "date": "2024-09-22T17:00Z",
+   "home": "MIN",
+   "away": "HOU",
+   "homeScore": 34,
+   "awayScore": 7,
+   "completed": true
+  },
+  {
+   "id": "401671736",
+   "week": 3,
+   "date": "2024-09-22T17:00Z",
+   "home": "NO",
+   "away": "PHI",
+   "homeScore": 12,
+   "awayScore": 15,
+   "completed": true
+  },
+  {
+   "id": "401671632",
+   "week": 3,
+   "date": "2024-09-22T17:00Z",
+   "home": "PIT",
+   "away": "LAC",
+   "homeScore": 20,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671741",
+   "week": 3,
+   "date": "2024-09-22T17:00Z",
+   "home": "TB",
+   "away": "DEN",
+   "homeScore": 7,
+   "awayScore": 26,
+   "completed": true
+  },
+  {
+   "id": "401671658",
+   "week": 3,
+   "date": "2024-09-22T20:05Z",
+   "home": "LV",
+   "away": "CAR",
+   "homeScore": 22,
+   "awayScore": 36,
+   "completed": true
+  },
+  {
+   "id": "401671662",
+   "week": 3,
+   "date": "2024-09-22T20:05Z",
+   "home": "SEA",
+   "away": "MIA",
+   "homeScore": 24,
+   "awayScore": 3,
+   "completed": true
+  },
+  {
+   "id": "401671763",
+   "week": 3,
+   "date": "2024-09-22T20:25Z",
+   "home": "DAL",
+   "away": "BAL",
+   "homeScore": 25,
+   "awayScore": 28,
+   "completed": true
+  },
+  {
+   "id": "401671772",
+   "week": 3,
+   "date": "2024-09-22T20:25Z",
+   "home": "LAR",
+   "away": "SF",
+   "homeScore": 27,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671771",
+   "week": 3,
+   "date": "2024-09-22T20:25Z",
+   "home": "ARI",
+   "away": "DET",
+   "homeScore": 13,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671793",
+   "week": 3,
+   "date": "2024-09-23T00:20Z",
+   "home": "ATL",
+   "away": "KC",
+   "homeScore": 17,
+   "awayScore": 22,
+   "completed": true
+  },
+  {
+   "id": "401671682",
+   "week": 3,
+   "date": "2024-09-23T23:30Z",
+   "home": "BUF",
+   "away": "JAC",
+   "homeScore": 47,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671490",
+   "week": 3,
+   "date": "2024-09-24T00:15Z",
+   "home": "CIN",
+   "away": "WAS",
+   "homeScore": 33,
+   "awayScore": 38,
+   "completed": true
+  },
+  {
+   "id": "401671812",
+   "week": 4,
+   "date": "2024-09-27T00:15Z",
+   "home": "NYG",
+   "away": "DAL",
+   "homeScore": 15,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671727",
+   "week": 4,
+   "date": "2024-09-29T17:00Z",
+   "home": "ATL",
+   "away": "NO",
+   "homeScore": 26,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671871",
+   "week": 4,
+   "date": "2024-09-29T17:00Z",
+   "home": "CHI",
+   "away": "LAR",
+   "homeScore": 24,
+   "awayScore": 18,
+   "completed": true
+  },
+  {
+   "id": "401671643",
+   "week": 4,
+   "date": "2024-09-29T17:00Z",
+   "home": "GB",
+   "away": "MIN",
+   "homeScore": 29,
+   "awayScore": 31,
+   "completed": true
+  },
+  {
+   "id": "401671867",
+   "week": 4,
+   "date": "2024-09-29T17:00Z",
+   "home": "IND",
+   "away": "PIT",
+   "homeScore": 27,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671622",
+   "week": 4,
+   "date": "2024-09-29T17:00Z",
+   "home": "NYJ",
+   "away": "DEN",
+   "homeScore": 9,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671740",
+   "week": 4,
+   "date": "2024-09-29T17:00Z",
+   "home": "TB",
+   "away": "PHI",
+   "homeScore": 33,
+   "awayScore": 16,
+   "completed": true
+  },
+  {
+   "id": "401671745",
+   "week": 4,
+   "date": "2024-09-29T17:00Z",
+   "home": "CAR",
+   "away": "CIN",
+   "homeScore": 24,
+   "awayScore": 34,
+   "completed": true
+  },
+  {
+   "id": "401671857",
+   "week": 4,
+   "date": "2024-09-29T17:00Z",
+   "home": "HOU",
+   "away": "JAC",
+   "homeScore": 24,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671755",
+   "week": 4,
+   "date": "2024-09-29T20:05Z",
+   "home": "ARI",
+   "away": "WAS",
+   "homeScore": 14,
+   "awayScore": 42,
+   "completed": true
+  },
+  {
+   "id": "401671758",
+   "week": 4,
+   "date": "2024-09-29T20:05Z",
+   "home": "SF",
+   "away": "NE",
+   "homeScore": 30,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671672",
+   "week": 4,
+   "date": "2024-09-29T20:25Z",
+   "home": "LV",
+   "away": "CLE",
+   "homeScore": 20,
+   "awayScore": 16,
+   "completed": true
+  },
+  {
+   "id": "401671674",
+   "week": 4,
+   "date": "2024-09-29T20:25Z",
+   "home": "LAC",
+   "away": "KC",
+   "homeScore": 10,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671783",
+   "week": 4,
+   "date": "2024-09-30T00:20Z",
+   "home": "BAL",
+   "away": "BUF",
+   "homeScore": 35,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671683",
+   "week": 4,
+   "date": "2024-09-30T23:30Z",
+   "home": "MIA",
+   "away": "TEN",
+   "homeScore": 12,
+   "awayScore": 31,
+   "completed": true
+  },
+  {
+   "id": "401671491",
+   "week": 4,
+   "date": "2024-10-01T00:15Z",
+   "home": "DET",
+   "away": "SEA",
+   "homeScore": 42,
+   "awayScore": 29,
+   "completed": true
+  },
+  {
+   "id": "401671815",
+   "week": 5,
+   "date": "2024-10-04T00:15Z",
+   "home": "ATL",
+   "away": "TB",
+   "homeScore": 36,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671804",
+   "week": 5,
+   "date": "2024-10-06T13:30Z",
+   "home": "MIN",
+   "away": "NYJ",
+   "homeScore": 23,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671872",
+   "week": 5,
+   "date": "2024-10-06T17:00Z",
+   "home": "CHI",
+   "away": "CAR",
+   "homeScore": 36,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671626",
+   "week": 5,
+   "date": "2024-10-06T17:00Z",
+   "home": "CIN",
+   "away": "BAL",
+   "homeScore": 38,
+   "awayScore": 41,
+   "completed": true
+  },
+  {
+   "id": "401671700",
+   "week": 5,
+   "date": "2024-10-06T17:00Z",
+   "home": "NE",
+   "away": "MIA",
+   "homeScore": 10,
+   "awayScore": 15,
+   "completed": true
+  },
+  {
+   "id": "401671718",
+   "week": 5,
+   "date": "2024-10-06T17:00Z",
+   "home": "WAS",
+   "away": "CLE",
+   "homeScore": 34,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671633",
+   "week": 5,
+   "date": "2024-10-06T17:00Z",
+   "home": "JAC",
+   "away": "IND",
+   "homeScore": 37,
+   "awayScore": 34,
+   "completed": true
+  },
+  {
+   "id": "401671859",
+   "week": 5,
+   "date": "2024-10-06T17:00Z",
+   "home": "HOU",
+   "away": "BUF",
+   "homeScore": 23,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671747",
+   "week": 5,
+   "date": "2024-10-06T20:05Z",
+   "home": "DEN",
+   "away": "LV",
+   "homeScore": 34,
+   "awayScore": 18,
+   "completed": true
+  },
+  {
+   "id": "401671756",
+   "week": 5,
+   "date": "2024-10-06T20:05Z",
+   "home": "SF",
+   "away": "ARI",
+   "homeScore": 23,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671679",
+   "week": 5,
+   "date": "2024-10-06T20:25Z",
+   "home": "LAR",
+   "away": "GB",
+   "homeScore": 19,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671680",
+   "week": 5,
+   "date": "2024-10-06T20:25Z",
+   "home": "SEA",
+   "away": "NYG",
+   "homeScore": 20,
+   "awayScore": 29,
+   "completed": true
+  },
+  {
+   "id": "401671784",
+   "week": 5,
+   "date": "2024-10-07T01:45Z",
+   "home": "PIT",
+   "away": "DAL",
+   "homeScore": 17,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671687",
+   "week": 5,
+   "date": "2024-10-08T00:15Z",
+   "home": "KC",
+   "away": "NO",
+   "homeScore": 26,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671819",
+   "week": 6,
+   "date": "2024-10-11T00:15Z",
+   "home": "SEA",
+   "away": "SF",
+   "homeScore": 24,
+   "awayScore": 36,
+   "completed": true
+  },
+  {
+   "id": "401671802",
+   "week": 6,
+   "date": "2024-10-13T13:30Z",
+   "home": "CHI",
+   "away": "JAC",
+   "homeScore": 35,
+   "awayScore": 16,
+   "completed": true
+  },
+  {
+   "id": "401671722",
+   "week": 6,
+   "date": "2024-10-13T17:00Z",
+   "home": "GB",
+   "away": "ARI",
+   "homeScore": 34,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671820",
+   "week": 6,
+   "date": "2024-10-13T17:00Z",
+   "home": "TEN",
+   "away": "IND",
+   "homeScore": 17,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671619",
+   "week": 6,
+   "date": "2024-10-13T17:00Z",
+   "home": "NE",
+   "away": "HOU",
+   "homeScore": 21,
+   "awayScore": 41,
+   "completed": true
+  },
+  {
+   "id": "401671735",
+   "week": 6,
+   "date": "2024-10-13T17:00Z",
+   "home": "NO",
+   "away": "TB",
+   "homeScore": 27,
+   "awayScore": 51,
+   "completed": true
+  },
+  {
+   "id": "401671714",
+   "week": 6,
+   "date": "2024-10-13T17:00Z",
+   "home": "PHI",
+   "away": "CLE",
+   "homeScore": 20,
+   "awayScore": 16,
+   "completed": true
+  },
+  {
+   "id": "401671625",
+   "week": 6,
+   "date": "2024-10-13T17:00Z",
+   "home": "BAL",
+   "away": "WAS",
+   "homeScore": 30,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671655",
+   "week": 6,
+   "date": "2024-10-13T20:05Z",
+   "home": "DEN",
+   "away": "LAC",
+   "homeScore": 16,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671657",
+   "week": 6,
+   "date": "2024-10-13T20:05Z",
+   "home": "LV",
+   "away": "PIT",
+   "homeScore": 13,
+   "awayScore": 32,
+   "completed": true
+  },
+  {
+   "id": "401671764",
+   "week": 6,
+   "date": "2024-10-13T20:25Z",
+   "home": "DAL",
+   "away": "DET",
+   "homeScore": 9,
+   "awayScore": 47,
+   "completed": true
+  },
+  {
+   "id": "401671769",
+   "week": 6,
+   "date": "2024-10-13T20:25Z",
+   "home": "CAR",
+   "away": "ATL",
+   "homeScore": 20,
+   "awayScore": 38,
+   "completed": true
+  },
+  {
+   "id": "401671791",
+   "week": 6,
+   "date": "2024-10-14T00:20Z",
+   "home": "NYG",
+   "away": "CIN",
+   "homeScore": 7,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671684",
+   "week": 6,
+   "date": "2024-10-15T00:15Z",
+   "home": "NYJ",
+   "away": "BUF",
+   "homeScore": 20,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671816",
+   "week": 7,
+   "date": "2024-10-18T00:15Z",
+   "home": "NO",
+   "away": "DEN",
+   "homeScore": 10,
+   "awayScore": 33,
+   "completed": true
+  },
+  {
+   "id": "401671801",
+   "week": 7,
+   "date": "2024-10-20T13:30Z",
+   "home": "JAC",
+   "away": "NE",
+   "homeScore": 32,
+   "awayScore": 16,
+   "completed": true
+  },
+  {
+   "id": "401671730",
+   "week": 7,
+   "date": "2024-10-20T17:00Z",
+   "home": "ATL",
+   "away": "SEA",
+   "homeScore": 14,
+   "awayScore": 34,
+   "completed": true
+  },
+  {
+   "id": "401671616",
+   "week": 7,
+   "date": "2024-10-20T17:00Z",
+   "home": "BUF",
+   "away": "TEN",
+   "homeScore": 34,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671853",
+   "week": 7,
+   "date": "2024-10-20T17:00Z",
+   "home": "CLE",
+   "away": "CIN",
+   "homeScore": 14,
+   "awayScore": 21,
+   "completed": true
+  },
+  {
+   "id": "401671644",
+   "week": 7,
+   "date": "2024-10-20T17:00Z",
+   "home": "GB",
+   "away": "HOU",
+   "homeScore": 24,
+   "awayScore": 22,
+   "completed": true
+  },
+  {
+   "id": "401671864",
+   "week": 7,
+   "date": "2024-10-20T17:00Z",
+   "home": "IND",
+   "away": "MIA",
+   "homeScore": 16,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671724",
+   "week": 7,
+   "date": "2024-10-20T17:00Z",
+   "home": "MIN",
+   "away": "DET",
+   "homeScore": 29,
+   "awayScore": 31,
+   "completed": true
+  },
+  {
+   "id": "401671710",
+   "week": 7,
+   "date": "2024-10-20T17:00Z",
+   "home": "NYG",
+   "away": "PHI",
+   "homeScore": 3,
+   "awayScore": 28,
+   "completed": true
+  },
+  {
+   "id": "401671663",
+   "week": 7,
+   "date": "2024-10-20T20:05Z",
+   "home": "LAR",
+   "away": "LV",
+   "homeScore": 20,
+   "awayScore": 15,
+   "completed": true
+  },
+  {
+   "id": "401671640",
+   "week": 7,
+   "date": "2024-10-20T20:05Z",
+   "home": "WAS",
+   "away": "CAR",
+   "homeScore": 40,
+   "awayScore": 7,
+   "completed": true
+  },
+  {
+   "id": "401671777",
+   "week": 7,
+   "date": "2024-10-20T20:25Z",
+   "home": "SF",
+   "away": "KC",
+   "homeScore": 18,
+   "awayScore": 28,
+   "completed": true
+  },
+  {
+   "id": "401671785",
+   "week": 7,
+   "date": "2024-10-21T00:20Z",
+   "home": "PIT",
+   "away": "NYJ",
+   "homeScore": 37,
+   "awayScore": 15,
+   "completed": true
+  },
+  {
+   "id": "401671695",
+   "week": 7,
+   "date": "2024-10-22T00:15Z",
+   "home": "TB",
+   "away": "BAL",
+   "homeScore": 31,
+   "awayScore": 41,
+   "completed": true
+  },
+  {
+   "id": "401671699",
+   "week": 7,
+   "date": "2024-10-22T01:00Z",
+   "home": "ARI",
+   "away": "LAC",
+   "homeScore": 17,
+   "awayScore": 15,
+   "completed": true
+  },
+  {
+   "id": "401671817",
+   "week": 8,
+   "date": "2024-10-25T00:15Z",
+   "home": "LAR",
+   "away": "MIN",
+   "homeScore": 30,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671667",
+   "week": 8,
+   "date": "2024-10-27T17:00Z",
+   "home": "CIN",
+   "away": "PHI",
+   "homeScore": 17,
+   "awayScore": 37,
+   "completed": true
+  },
+  {
+   "id": "401671852",
+   "week": 8,
+   "date": "2024-10-27T17:00Z",
+   "home": "CLE",
+   "away": "BAL",
+   "homeScore": 29,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671720",
+   "week": 8,
+   "date": "2024-10-27T17:00Z",
+   "home": "DET",
+   "away": "TEN",
+   "homeScore": 52,
+   "awayScore": 14,
+   "completed": true
+  },
+  {
+   "id": "401671850",
+   "week": 8,
+   "date": "2024-10-27T17:00Z",
+   "home": "MIA",
+   "away": "ARI",
+   "homeScore": 27,
+   "awayScore": 28,
+   "completed": true
+  },
+  {
+   "id": "401671618",
+   "week": 8,
+   "date": "2024-10-27T17:00Z",
+   "home": "NE",
+   "away": "NYJ",
+   "homeScore": 25,
+   "awayScore": 22,
+   "completed": true
+  },
+  {
+   "id": "401671739",
+   "week": 8,
+   "date": "2024-10-27T17:00Z",
+   "home": "TB",
+   "away": "ATL",
+   "homeScore": 26,
+   "awayScore": 31,
+   "completed": true
+  },
+  {
+   "id": "401671707",
+   "week": 8,
+   "date": "2024-10-27T17:00Z",
+   "home": "JAC",
+   "away": "GB",
+   "homeScore": 27,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671856",
+   "week": 8,
+   "date": "2024-10-27T17:00Z",
+   "home": "HOU",
+   "away": "IND",
+   "homeScore": 23,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671750",
+   "week": 8,
+   "date": "2024-10-27T20:05Z",
+   "home": "LAC",
+   "away": "NO",
+   "homeScore": 26,
+   "awayScore": 8,
+   "completed": true
+  },
+  {
+   "id": "401671760",
+   "week": 8,
+   "date": "2024-10-27T20:05Z",
+   "home": "SEA",
+   "away": "BUF",
+   "homeScore": 10,
+   "awayScore": 31,
+   "completed": true
+  },
+  {
+   "id": "401671600",
+   "week": 8,
+   "date": "2024-10-27T20:25Z",
+   "home": "DEN",
+   "away": "CAR",
+   "homeScore": 28,
+   "awayScore": 14,
+   "completed": true
+  },
+  {
+   "id": "401671671",
+   "week": 8,
+   "date": "2024-10-27T20:25Z",
+   "home": "LV",
+   "away": "KC",
+   "homeScore": 20,
+   "awayScore": 27,
+   "completed": true
+  },
+  {
+   "id": "401671599",
+   "week": 8,
+   "date": "2024-10-27T20:25Z",
+   "home": "WAS",
+   "away": "CHI",
+   "homeScore": 18,
+   "awayScore": 15,
+   "completed": true
+  },
+  {
+   "id": "401671795",
+   "week": 8,
+   "date": "2024-10-28T00:20Z",
+   "home": "SF",
+   "away": "DAL",
+   "homeScore": 30,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671685",
+   "week": 8,
+   "date": "2024-10-29T00:15Z",
+   "home": "PIT",
+   "away": "NYG",
+   "homeScore": 26,
+   "awayScore": 18,
+   "completed": true
+  },
+  {
+   "id": "401671809",
+   "week": 9,
+   "date": "2024-11-01T00:15Z",
+   "home": "NYJ",
+   "away": "HOU",
+   "homeScore": 21,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671728",
+   "week": 9,
+   "date": "2024-11-03T18:00Z",
+   "home": "ATL",
+   "away": "DAL",
+   "homeScore": 27,
+   "awayScore": 21,
+   "completed": true
+  },
+  {
+   "id": "401671493",
+   "week": 9,
+   "date": "2024-11-03T18:00Z",
+   "home": "BUF",
+   "away": "MIA",
+   "homeScore": 30,
+   "awayScore": 27,
+   "completed": true
+  },
+  {
+   "id": "401671704",
+   "week": 9,
+   "date": "2024-11-03T18:00Z",
+   "home": "CIN",
+   "away": "LV",
+   "homeScore": 41,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671629",
+   "week": 9,
+   "date": "2024-11-03T18:00Z",
+   "home": "CLE",
+   "away": "LAC",
+   "homeScore": 10,
+   "awayScore": 27,
+   "completed": true
+  },
+  {
+   "id": "401671822",
+   "week": 9,
+   "date": "2024-11-03T18:00Z",
+   "home": "TEN",
+   "away": "NE",
+   "homeScore": 20,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671711",
+   "week": 9,
+   "date": "2024-11-03T18:00Z",
+   "home": "NYG",
+   "away": "WAS",
+   "homeScore": 22,
+   "awayScore": 27,
+   "completed": true
+  },
+  {
+   "id": "401671650",
+   "week": 9,
+   "date": "2024-11-03T18:00Z",
+   "home": "CAR",
+   "away": "NO",
+   "homeScore": 23,
+   "awayScore": 22,
+   "completed": true
+  },
+  {
+   "id": "401671623",
+   "week": 9,
+   "date": "2024-11-03T18:00Z",
+   "home": "BAL",
+   "away": "DEN",
+   "homeScore": 41,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671797",
+   "week": 9,
+   "date": "2024-11-03T21:05Z",
+   "home": "PHI",
+   "away": "JAC",
+   "homeScore": 28,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671661",
+   "week": 9,
+   "date": "2024-11-03T21:05Z",
+   "home": "ARI",
+   "away": "CHI",
+   "homeScore": 29,
+   "awayScore": 9,
+   "completed": true
+  },
+  {
+   "id": "401671767",
+   "week": 9,
+   "date": "2024-11-03T21:25Z",
+   "home": "GB",
+   "away": "DET",
+   "homeScore": 14,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671776",
+   "week": 9,
+   "date": "2024-11-03T21:25Z",
+   "home": "SEA",
+   "away": "LAR",
+   "homeScore": 20,
+   "awayScore": 26,
+   "completed": true
+  },
+  {
+   "id": "401671647",
+   "week": 9,
+   "date": "2024-11-04T01:20Z",
+   "home": "MIN",
+   "away": "IND",
+   "homeScore": 21,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671688",
+   "week": 9,
+   "date": "2024-11-05T01:15Z",
+   "home": "KC",
+   "away": "TB",
+   "homeScore": 30,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671810",
+   "week": 10,
+   "date": "2024-11-08T01:15Z",
+   "home": "BAL",
+   "away": "CIN",
+   "homeScore": 35,
+   "awayScore": 34,
+   "completed": true
+  },
+  {
+   "id": "401671803",
+   "week": 10,
+   "date": "2024-11-10T14:30Z",
+   "home": "CAR",
+   "away": "NYG",
+   "homeScore": 20,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671873",
+   "week": 10,
+   "date": "2024-11-10T18:00Z",
+   "home": "CHI",
+   "away": "NE",
+   "homeScore": 3,
+   "awayScore": 19,
+   "completed": true
+  },
+  {
+   "id": "401671863",
+   "week": 10,
+   "date": "2024-11-10T18:00Z",
+   "home": "IND",
+   "away": "BUF",
+   "homeScore": 20,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671637",
+   "week": 10,
+   "date": "2024-11-10T18:00Z",
+   "home": "KC",
+   "away": "DEN",
+   "homeScore": 16,
+   "awayScore": 14,
+   "completed": true
+  },
+  {
+   "id": "401671733",
+   "week": 10,
+   "date": "2024-11-10T18:00Z",
+   "home": "NO",
+   "away": "ATL",
+   "homeScore": 20,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671742",
+   "week": 10,
+   "date": "2024-11-10T18:00Z",
+   "home": "TB",
+   "away": "SF",
+   "homeScore": 20,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671641",
+   "week": 10,
+   "date": "2024-11-10T18:00Z",
+   "home": "WAS",
+   "away": "PIT",
+   "homeScore": 27,
+   "awayScore": 28,
+   "completed": true
+  },
+  {
+   "id": "401671708",
+   "week": 10,
+   "date": "2024-11-10T18:00Z",
+   "home": "JAC",
+   "away": "MIN",
+   "homeScore": 7,
+   "awayScore": 12,
+   "completed": true
+  },
+  {
+   "id": "401671751",
+   "week": 10,
+   "date": "2024-11-10T21:05Z",
+   "home": "LAC",
+   "away": "TEN",
+   "homeScore": 27,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671676",
+   "week": 10,
+   "date": "2024-11-10T21:25Z",
+   "home": "DAL",
+   "away": "PHI",
+   "homeScore": 6,
+   "awayScore": 34,
+   "completed": true
+  },
+  {
+   "id": "401671678",
+   "week": 10,
+   "date": "2024-11-10T21:25Z",
+   "home": "ARI",
+   "away": "NYJ",
+   "homeScore": 31,
+   "awayScore": 6,
+   "completed": true
+  },
+  {
+   "id": "401671787",
+   "week": 10,
+   "date": "2024-11-11T01:20Z",
+   "home": "HOU",
+   "away": "DET",
+   "homeScore": 23,
+   "awayScore": 26,
+   "completed": true
+  },
+  {
+   "id": "401671693",
+   "week": 10,
+   "date": "2024-11-12T01:15Z",
+   "home": "LAR",
+   "away": "MIA",
+   "homeScore": 15,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671813",
+   "week": 11,
+   "date": "2024-11-15T01:15Z",
+   "home": "PHI",
+   "away": "WAS",
+   "homeScore": 26,
+   "awayScore": 18,
+   "completed": true
+  },
+  {
+   "id": "401671869",
+   "week": 11,
+   "date": "2024-11-17T18:00Z",
+   "home": "CHI",
+   "away": "GB",
+   "homeScore": 19,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671642",
+   "week": 11,
+   "date": "2024-11-17T18:00Z",
+   "home": "DET",
+   "away": "JAC",
+   "homeScore": 52,
+   "awayScore": 6,
+   "completed": true
+  },
+  {
+   "id": "401671824",
+   "week": 11,
+   "date": "2024-11-17T18:00Z",
+   "home": "TEN",
+   "away": "MIN",
+   "homeScore": 13,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671851",
+   "week": 11,
+   "date": "2024-11-17T18:00Z",
+   "home": "MIA",
+   "away": "LV",
+   "homeScore": 34,
+   "awayScore": 19,
+   "completed": true
+  },
+  {
+   "id": "401671701",
+   "week": 11,
+   "date": "2024-11-17T18:00Z",
+   "home": "NE",
+   "away": "LAR",
+   "homeScore": 22,
+   "awayScore": 28,
+   "completed": true
+  },
+  {
+   "id": "401671746",
+   "week": 11,
+   "date": "2024-11-17T18:00Z",
+   "home": "NO",
+   "away": "CLE",
+   "homeScore": 35,
+   "awayScore": 14,
+   "completed": true
+  },
+  {
+   "id": "401671782",
+   "week": 11,
+   "date": "2024-11-17T18:00Z",
+   "home": "NYJ",
+   "away": "IND",
+   "homeScore": 27,
+   "awayScore": 28,
+   "completed": true
+  },
+  {
+   "id": "401671630",
+   "week": 11,
+   "date": "2024-11-17T18:00Z",
+   "home": "PIT",
+   "away": "BAL",
+   "homeScore": 18,
+   "awayScore": 16,
+   "completed": true
+  },
+  {
+   "id": "401671748",
+   "week": 11,
+   "date": "2024-11-17T21:05Z",
+   "home": "DEN",
+   "away": "ATL",
+   "homeScore": 38,
+   "awayScore": 6,
+   "completed": true
+  },
+  {
+   "id": "401671757",
+   "week": 11,
+   "date": "2024-11-17T21:05Z",
+   "home": "SF",
+   "away": "SEA",
+   "homeScore": 17,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671665",
+   "week": 11,
+   "date": "2024-11-17T21:25Z",
+   "home": "BUF",
+   "away": "KC",
+   "homeScore": 30,
+   "awayScore": 21,
+   "completed": true
+  },
+  {
+   "id": "401671675",
+   "week": 11,
+   "date": "2024-11-18T01:20Z",
+   "home": "LAC",
+   "away": "CIN",
+   "homeScore": 34,
+   "awayScore": 27,
+   "completed": true
+  },
+  {
+   "id": "401671694",
+   "week": 11,
+   "date": "2024-11-19T01:15Z",
+   "home": "DAL",
+   "away": "HOU",
+   "homeScore": 10,
+   "awayScore": 34,
+   "completed": true
+  },
+  {
+   "id": "401671875",
+   "week": 12,
+   "date": "2024-11-22T01:15Z",
+   "home": "CLE",
+   "away": "PIT",
+   "homeScore": 24,
+   "awayScore": 19,
+   "completed": true
+  },
+  {
+   "id": "401671870",
+   "week": 12,
+   "date": "2024-11-24T18:00Z",
+   "home": "CHI",
+   "away": "MIN",
+   "homeScore": 27,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671866",
+   "week": 12,
+   "date": "2024-11-24T18:00Z",
+   "home": "IND",
+   "away": "DET",
+   "homeScore": 6,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671847",
+   "week": 12,
+   "date": "2024-11-24T18:00Z",
+   "home": "MIA",
+   "away": "NE",
+   "homeScore": 34,
+   "awayScore": 15,
+   "completed": true
+  },
+  {
+   "id": "401671638",
+   "week": 12,
+   "date": "2024-11-24T18:00Z",
+   "home": "NYG",
+   "away": "TB",
+   "homeScore": 7,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671715",
+   "week": 12,
+   "date": "2024-11-24T18:00Z",
+   "home": "WAS",
+   "away": "DAL",
+   "homeScore": 26,
+   "awayScore": 34,
+   "completed": true
+  },
+  {
+   "id": "401671651",
+   "week": 12,
+   "date": "2024-11-24T18:00Z",
+   "home": "CAR",
+   "away": "KC",
+   "homeScore": 27,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671858",
+   "week": 12,
+   "date": "2024-11-24T18:00Z",
+   "home": "HOU",
+   "away": "TEN",
+   "homeScore": 27,
+   "awayScore": 32,
+   "completed": true
+  },
+  {
+   "id": "401671656",
+   "week": 12,
+   "date": "2024-11-24T21:05Z",
+   "home": "LV",
+   "away": "DEN",
+   "homeScore": 19,
+   "awayScore": 29,
+   "completed": true
+  },
+  {
+   "id": "401671768",
+   "week": 12,
+   "date": "2024-11-24T21:25Z",
+   "home": "GB",
+   "away": "SF",
+   "homeScore": 38,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671775",
+   "week": 12,
+   "date": "2024-11-24T21:25Z",
+   "home": "SEA",
+   "away": "ARI",
+   "homeScore": 16,
+   "awayScore": 6,
+   "completed": true
+  },
+  {
+   "id": "401671794",
+   "week": 12,
+   "date": "2024-11-25T01:20Z",
+   "home": "LAR",
+   "away": "PHI",
+   "homeScore": 20,
+   "awayScore": 37,
+   "completed": true
+  },
+  {
+   "id": "401671689",
+   "week": 12,
+   "date": "2024-11-26T01:15Z",
+   "home": "LAC",
+   "away": "BAL",
+   "homeScore": 23,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671492",
+   "week": 13,
+   "date": "2024-11-28T17:30Z",
+   "home": "DET",
+   "away": "CHI",
+   "homeScore": 23,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671779",
+   "week": 13,
+   "date": "2024-11-28T21:30Z",
+   "home": "DAL",
+   "away": "NYG",
+   "homeScore": 27,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671798",
+   "week": 13,
+   "date": "2024-11-29T01:20Z",
+   "home": "GB",
+   "away": "MIA",
+   "homeScore": 30,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671806",
+   "week": 13,
+   "date": "2024-11-29T20:00Z",
+   "home": "KC",
+   "away": "LV",
+   "homeScore": 19,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671649",
+   "week": 13,
+   "date": "2024-12-01T18:00Z",
+   "home": "ATL",
+   "away": "LAC",
+   "homeScore": 13,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671627",
+   "week": 13,
+   "date": "2024-12-01T18:00Z",
+   "home": "CIN",
+   "away": "PIT",
+   "homeScore": 38,
+   "awayScore": 44,
+   "completed": true
+  },
+  {
+   "id": "401671726",
+   "week": 13,
+   "date": "2024-12-01T18:00Z",
+   "home": "MIN",
+   "away": "ARI",
+   "homeScore": 23,
+   "awayScore": 22,
+   "completed": true
+  },
+  {
+   "id": "401671620",
+   "week": 13,
+   "date": "2024-12-01T18:00Z",
+   "home": "NE",
+   "away": "IND",
+   "homeScore": 24,
+   "awayScore": 25,
+   "completed": true
+  },
+  {
+   "id": "401671703",
+   "week": 13,
+   "date": "2024-12-01T18:00Z",
+   "home": "NYJ",
+   "away": "SEA",
+   "homeScore": 21,
+   "awayScore": 26,
+   "completed": true
+  },
+  {
+   "id": "401671743",
+   "week": 13,
+   "date": "2024-12-01T18:00Z",
+   "home": "WAS",
+   "away": "TEN",
+   "homeScore": 42,
+   "awayScore": 19,
+   "completed": true
+  },
+  {
+   "id": "401671705",
+   "week": 13,
+   "date": "2024-12-01T18:00Z",
+   "home": "JAC",
+   "away": "HOU",
+   "homeScore": 20,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671753",
+   "week": 13,
+   "date": "2024-12-01T21:05Z",
+   "home": "NO",
+   "away": "LAR",
+   "homeScore": 14,
+   "awayScore": 21,
+   "completed": true
+  },
+  {
+   "id": "401671752",
+   "week": 13,
+   "date": "2024-12-01T21:05Z",
+   "home": "CAR",
+   "away": "TB",
+   "homeScore": 23,
+   "awayScore": 26,
+   "completed": true
+  },
+  {
+   "id": "401671666",
+   "week": 13,
+   "date": "2024-12-01T21:25Z",
+   "home": "BAL",
+   "away": "PHI",
+   "homeScore": 19,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671781",
+   "week": 13,
+   "date": "2024-12-02T01:20Z",
+   "home": "BUF",
+   "away": "SF",
+   "homeScore": 35,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671686",
+   "week": 13,
+   "date": "2024-12-03T01:15Z",
+   "home": "DEN",
+   "away": "CLE",
+   "homeScore": 41,
+   "awayScore": 32,
+   "completed": true
+  },
+  {
+   "id": "401671814",
+   "week": 14,
+   "date": "2024-12-06T01:15Z",
+   "home": "DET",
+   "away": "GB",
+   "homeScore": 34,
+   "awayScore": 31,
+   "completed": true
+  },
+  {
+   "id": "401671821",
+   "week": 14,
+   "date": "2024-12-08T18:00Z",
+   "home": "TEN",
+   "away": "JAC",
+   "homeScore": 6,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671848",
+   "week": 14,
+   "date": "2024-12-08T18:00Z",
+   "home": "MIA",
+   "away": "NYJ",
+   "homeScore": 32,
+   "awayScore": 26,
+   "completed": true
+  },
+  {
+   "id": "401671648",
+   "week": 14,
+   "date": "2024-12-08T18:00Z",
+   "home": "MIN",
+   "away": "ATL",
+   "homeScore": 42,
+   "awayScore": 21,
+   "completed": true
+  },
+  {
+   "id": "401671601",
+   "week": 14,
+   "date": "2024-12-08T18:00Z",
+   "home": "NYG",
+   "away": "NO",
+   "homeScore": 11,
+   "awayScore": 14,
+   "completed": true
+  },
+  {
+   "id": "401671713",
+   "week": 14,
+   "date": "2024-12-08T18:00Z",
+   "home": "PHI",
+   "away": "CAR",
+   "homeScore": 22,
+   "awayScore": 16,
+   "completed": true
+  },
+  {
+   "id": "401671631",
+   "week": 14,
+   "date": "2024-12-08T18:00Z",
+   "home": "PIT",
+   "away": "CLE",
+   "homeScore": 27,
+   "awayScore": 14,
+   "completed": true
+  },
+  {
+   "id": "401671654",
+   "week": 14,
+   "date": "2024-12-08T18:00Z",
+   "home": "TB",
+   "away": "LV",
+   "homeScore": 28,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671660",
+   "week": 14,
+   "date": "2024-12-08T21:05Z",
+   "home": "ARI",
+   "away": "SEA",
+   "homeScore": 18,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671773",
+   "week": 14,
+   "date": "2024-12-08T21:25Z",
+   "home": "LAR",
+   "away": "BUF",
+   "homeScore": 44,
+   "awayScore": 42,
+   "completed": true
+  },
+  {
+   "id": "401671774",
+   "week": 14,
+   "date": "2024-12-08T21:25Z",
+   "home": "SF",
+   "away": "CHI",
+   "homeScore": 38,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671788",
+   "week": 14,
+   "date": "2024-12-09T01:20Z",
+   "home": "KC",
+   "away": "LAC",
+   "homeScore": 19,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671690",
+   "week": 14,
+   "date": "2024-12-10T01:15Z",
+   "home": "DAL",
+   "away": "CIN",
+   "homeScore": 20,
+   "awayScore": 27,
+   "completed": true
+  },
+  {
+   "id": "401671818",
+   "week": 15,
+   "date": "2024-12-13T01:15Z",
+   "home": "SF",
+   "away": "LAR",
+   "homeScore": 6,
+   "awayScore": 12,
+   "completed": true
+  },
+  {
+   "id": "401671854",
+   "week": 15,
+   "date": "2024-12-15T18:00Z",
+   "home": "CLE",
+   "away": "KC",
+   "homeScore": 7,
+   "awayScore": 21,
+   "completed": true
+  },
+  {
+   "id": "401671825",
+   "week": 15,
+   "date": "2024-12-15T18:00Z",
+   "home": "TEN",
+   "away": "CIN",
+   "homeScore": 27,
+   "awayScore": 37,
+   "completed": true
+  },
+  {
+   "id": "401671737",
+   "week": 15,
+   "date": "2024-12-15T18:00Z",
+   "home": "NO",
+   "away": "WAS",
+   "homeScore": 19,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671639",
+   "week": 15,
+   "date": "2024-12-15T18:00Z",
+   "home": "NYG",
+   "away": "BAL",
+   "homeScore": 14,
+   "awayScore": 35,
+   "completed": true
+  },
+  {
+   "id": "401671731",
+   "week": 15,
+   "date": "2024-12-15T18:00Z",
+   "home": "CAR",
+   "away": "DAL",
+   "homeScore": 14,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671706",
+   "week": 15,
+   "date": "2024-12-15T18:00Z",
+   "home": "JAC",
+   "away": "NYJ",
+   "homeScore": 25,
+   "awayScore": 32,
+   "completed": true
+  },
+  {
+   "id": "401671860",
+   "week": 15,
+   "date": "2024-12-15T18:00Z",
+   "home": "HOU",
+   "away": "MIA",
+   "homeScore": 20,
+   "awayScore": 12,
+   "completed": true
+  },
+  {
+   "id": "401671669",
+   "week": 15,
+   "date": "2024-12-15T21:25Z",
+   "home": "DEN",
+   "away": "IND",
+   "homeScore": 31,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671681",
+   "week": 15,
+   "date": "2024-12-15T21:25Z",
+   "home": "DET",
+   "away": "BUF",
+   "homeScore": 42,
+   "awayScore": 48,
+   "completed": true
+  },
+  {
+   "id": "401671766",
+   "week": 15,
+   "date": "2024-12-15T21:25Z",
+   "home": "PHI",
+   "away": "PIT",
+   "homeScore": 27,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671677",
+   "week": 15,
+   "date": "2024-12-15T21:25Z",
+   "home": "ARI",
+   "away": "NE",
+   "homeScore": 30,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671762",
+   "week": 15,
+   "date": "2024-12-15T21:25Z",
+   "home": "LAC",
+   "away": "TB",
+   "homeScore": 17,
+   "awayScore": 40,
+   "completed": true
+  },
+  {
+   "id": "401671796",
+   "week": 15,
+   "date": "2024-12-16T01:20Z",
+   "home": "SEA",
+   "away": "GB",
+   "homeScore": 13,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671489",
+   "week": 15,
+   "date": "2024-12-17T01:00Z",
+   "home": "MIN",
+   "away": "CHI",
+   "homeScore": 30,
+   "awayScore": 12,
+   "completed": true
+  },
+  {
+   "id": "401671697",
+   "week": 15,
+   "date": "2024-12-17T01:30Z",
+   "home": "LV",
+   "away": "ATL",
+   "homeScore": 9,
+   "awayScore": 15,
+   "completed": true
+  },
+  {
+   "id": "401671749",
+   "week": 16,
+   "date": "2024-12-20T01:15Z",
+   "home": "LAC",
+   "away": "DEN",
+   "homeScore": 34,
+   "awayScore": 27,
+   "completed": true
+  },
+  {
+   "id": "401671780",
+   "week": 16,
+   "date": "2024-12-21T18:00Z",
+   "home": "KC",
+   "away": "HOU",
+   "homeScore": 27,
+   "awayScore": 19,
+   "completed": true
+  },
+  {
+   "id": "401671778",
+   "week": 16,
+   "date": "2024-12-21T21:30Z",
+   "home": "BAL",
+   "away": "PIT",
+   "homeScore": 34,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671729",
+   "week": 16,
+   "date": "2024-12-22T18:00Z",
+   "home": "ATL",
+   "away": "NYG",
+   "homeScore": 34,
+   "awayScore": 7,
+   "completed": true
+  },
+  {
+   "id": "401671868",
+   "week": 16,
+   "date": "2024-12-22T18:00Z",
+   "home": "CHI",
+   "away": "DET",
+   "homeScore": 17,
+   "awayScore": 34,
+   "completed": true
+  },
+  {
+   "id": "401671811",
+   "week": 16,
+   "date": "2024-12-22T18:00Z",
+   "home": "CIN",
+   "away": "CLE",
+   "homeScore": 24,
+   "awayScore": 6,
+   "completed": true
+  },
+  {
+   "id": "401671862",
+   "week": 16,
+   "date": "2024-12-22T18:00Z",
+   "home": "IND",
+   "away": "TEN",
+   "homeScore": 38,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671621",
+   "week": 16,
+   "date": "2024-12-22T18:00Z",
+   "home": "NYJ",
+   "away": "LAR",
+   "homeScore": 9,
+   "awayScore": 19,
+   "completed": true
+  },
+  {
+   "id": "401671717",
+   "week": 16,
+   "date": "2024-12-22T18:00Z",
+   "home": "WAS",
+   "away": "PHI",
+   "homeScore": 36,
+   "awayScore": 33,
+   "completed": true
+  },
+  {
+   "id": "401671732",
+   "week": 16,
+   "date": "2024-12-22T18:00Z",
+   "home": "CAR",
+   "away": "ARI",
+   "homeScore": 36,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671759",
+   "week": 16,
+   "date": "2024-12-22T21:05Z",
+   "home": "SEA",
+   "away": "MIN",
+   "homeScore": 24,
+   "awayScore": 27,
+   "completed": true
+  },
+  {
+   "id": "401671494",
+   "week": 16,
+   "date": "2024-12-22T21:25Z",
+   "home": "BUF",
+   "away": "NE",
+   "homeScore": 24,
+   "awayScore": 21,
+   "completed": true
+  },
+  {
+   "id": "401671673",
+   "week": 16,
+   "date": "2024-12-22T21:25Z",
+   "home": "LV",
+   "away": "JAC",
+   "homeScore": 19,
+   "awayScore": 14,
+   "completed": true
+  },
+  {
+   "id": "401671874",
+   "week": 16,
+   "date": "2024-12-22T21:25Z",
+   "home": "MIA",
+   "away": "SF",
+   "homeScore": 29,
+   "awayScore": 17,
+   "completed": true
+  },
+  {
+   "id": "401671790",
+   "week": 16,
+   "date": "2024-12-23T01:20Z",
+   "home": "DAL",
+   "away": "TB",
+   "homeScore": 26,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671692",
+   "week": 16,
+   "date": "2024-12-24T01:15Z",
+   "home": "GB",
+   "away": "NO",
+   "homeScore": 34,
+   "awayScore": 0,
+   "completed": true
+  },
+  {
+   "id": "401671799",
+   "week": 17,
+   "date": "2024-12-25T18:00Z",
+   "home": "PIT",
+   "away": "KC",
+   "homeScore": 10,
+   "awayScore": 29,
+   "completed": true
+  },
+  {
+   "id": "401671800",
+   "week": 17,
+   "date": "2024-12-25T21:30Z",
+   "home": "HOU",
+   "away": "BAL",
+   "homeScore": 2,
+   "awayScore": 31,
+   "completed": true
+  },
+  {
+   "id": "401671876",
+   "week": 17,
+   "date": "2024-12-27T01:15Z",
+   "home": "CHI",
+   "away": "SEA",
+   "homeScore": 3,
+   "awayScore": 6,
+   "completed": true
+  },
+  {
+   "id": "401671832",
+   "week": 17,
+   "date": "2024-12-28T18:00Z",
+   "home": "NE",
+   "away": "LAC",
+   "homeScore": 7,
+   "awayScore": 40,
+   "completed": true
+  },
+  {
+   "id": "401671835",
+   "week": 17,
+   "date": "2024-12-28T21:30Z",
+   "home": "CIN",
+   "away": "DEN",
+   "homeScore": 30,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671829",
+   "week": 17,
+   "date": "2024-12-29T01:00Z",
+   "home": "LAR",
+   "away": "ARI",
+   "homeScore": 13,
+   "awayScore": 9,
+   "completed": true
+  },
+  {
+   "id": "401671495",
+   "week": 17,
+   "date": "2024-12-29T18:00Z",
+   "home": "BUF",
+   "away": "NYJ",
+   "homeScore": 40,
+   "awayScore": 14,
+   "completed": true
+  },
+  {
+   "id": "401671738",
+   "week": 17,
+   "date": "2024-12-29T18:00Z",
+   "home": "NO",
+   "away": "LV",
+   "homeScore": 10,
+   "awayScore": 25,
+   "completed": true
+  },
+  {
+   "id": "401671846",
+   "week": 17,
+   "date": "2024-12-29T18:00Z",
+   "home": "NYG",
+   "away": "IND",
+   "homeScore": 45,
+   "awayScore": 33,
+   "completed": true
+  },
+  {
+   "id": "401671765",
+   "week": 17,
+   "date": "2024-12-29T18:00Z",
+   "home": "PHI",
+   "away": "DAL",
+   "homeScore": 41,
+   "awayScore": 7,
+   "completed": true
+  },
+  {
+   "id": "401671653",
+   "week": 17,
+   "date": "2024-12-29T18:00Z",
+   "home": "TB",
+   "away": "CAR",
+   "homeScore": 48,
+   "awayScore": 14,
+   "completed": true
+  },
+  {
+   "id": "401671634",
+   "week": 17,
+   "date": "2024-12-29T18:00Z",
+   "home": "JAC",
+   "away": "TEN",
+   "homeScore": 20,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671877",
+   "week": 17,
+   "date": "2024-12-29T21:05Z",
+   "home": "CLE",
+   "away": "MIA",
+   "homeScore": 3,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671725",
+   "week": 17,
+   "date": "2024-12-29T21:25Z",
+   "home": "MIN",
+   "away": "GB",
+   "homeScore": 27,
+   "awayScore": 25,
+   "completed": true
+  },
+  {
+   "id": "401671842",
+   "week": 17,
+   "date": "2024-12-30T01:20Z",
+   "home": "WAS",
+   "away": "ATL",
+   "homeScore": 30,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671698",
+   "week": 17,
+   "date": "2024-12-31T01:15Z",
+   "home": "SF",
+   "away": "DET",
+   "homeScore": 34,
+   "awayScore": 40,
+   "completed": true
+  },
+  {
+   "id": "401671834",
+   "week": 18,
+   "date": "2025-01-04T21:30Z",
+   "home": "BAL",
+   "away": "CLE",
+   "homeScore": 35,
+   "awayScore": 10,
+   "completed": true
+  },
+  {
+   "id": "401671836",
+   "week": 18,
+   "date": "2025-01-05T01:00Z",
+   "home": "PIT",
+   "away": "CIN",
+   "homeScore": 17,
+   "awayScore": 19,
+   "completed": true
+  },
+  {
+   "id": "401671827",
+   "week": 18,
+   "date": "2025-01-05T18:00Z",
+   "home": "ATL",
+   "away": "CAR",
+   "homeScore": 38,
+   "awayScore": 44,
+   "completed": true
+  },
+  {
+   "id": "401671840",
+   "week": 18,
+   "date": "2025-01-05T18:00Z",
+   "home": "DAL",
+   "away": "WAS",
+   "homeScore": 19,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671844",
+   "week": 18,
+   "date": "2025-01-05T18:00Z",
+   "home": "GB",
+   "away": "CHI",
+   "homeScore": 22,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671826",
+   "week": 18,
+   "date": "2025-01-05T18:00Z",
+   "home": "TEN",
+   "away": "HOU",
+   "homeScore": 14,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671837",
+   "week": 18,
+   "date": "2025-01-05T18:00Z",
+   "home": "IND",
+   "away": "JAC",
+   "homeScore": 26,
+   "awayScore": 23,
+   "completed": true
+  },
+  {
+   "id": "401671831",
+   "week": 18,
+   "date": "2025-01-05T18:00Z",
+   "home": "NE",
+   "away": "BUF",
+   "homeScore": 23,
+   "awayScore": 16,
+   "completed": true
+  },
+  {
+   "id": "401671841",
+   "week": 18,
+   "date": "2025-01-05T18:00Z",
+   "home": "PHI",
+   "away": "NYG",
+   "homeScore": 20,
+   "awayScore": 13,
+   "completed": true
+  },
+  {
+   "id": "401671828",
+   "week": 18,
+   "date": "2025-01-05T18:00Z",
+   "home": "TB",
+   "away": "NO",
+   "homeScore": 27,
+   "awayScore": 19,
+   "completed": true
+  },
+  {
+   "id": "401671838",
+   "week": 18,
+   "date": "2025-01-05T21:25Z",
+   "home": "DEN",
+   "away": "KC",
+   "homeScore": 38,
+   "awayScore": 0,
+   "completed": true
+  },
+  {
+   "id": "401671839",
+   "week": 18,
+   "date": "2025-01-05T21:25Z",
+   "home": "LV",
+   "away": "LAC",
+   "homeScore": 20,
+   "awayScore": 34,
+   "completed": true
+  },
+  {
+   "id": "401671830",
+   "week": 18,
+   "date": "2025-01-05T21:25Z",
+   "home": "LAR",
+   "away": "SEA",
+   "homeScore": 25,
+   "awayScore": 30,
+   "completed": true
+  },
+  {
+   "id": "401671833",
+   "week": 18,
+   "date": "2025-01-05T21:25Z",
+   "home": "NYJ",
+   "away": "MIA",
+   "homeScore": 32,
+   "awayScore": 20,
+   "completed": true
+  },
+  {
+   "id": "401671845",
+   "week": 18,
+   "date": "2025-01-05T21:25Z",
+   "home": "ARI",
+   "away": "SF",
+   "homeScore": 47,
+   "awayScore": 24,
+   "completed": true
+  },
+  {
+   "id": "401671843",
+   "week": 18,
+   "date": "2025-01-06T01:20Z",
+   "home": "DET",
+   "away": "MIN",
+   "homeScore": 31,
+   "awayScore": 9,
+   "completed": true
+  }
+ ],
+ "byes": {
+  "1": [],
+  "2": [],
+  "3": [],
+  "4": [],
+  "5": [
+   "DET",
+   "LAC",
+   "PHI",
+   "TEN"
+  ],
+  "6": [
+   "KC",
+   "LAR",
+   "MIA",
+   "MIN"
+  ],
+  "7": [
+   "CHI",
+   "DAL"
+  ],
+  "8": [],
+  "9": [
+   "PIT",
+   "SF"
+  ],
+  "10": [
+   "CLE",
+   "GB",
+   "LV",
+   "SEA"
+  ],
+  "11": [
+   "ARI",
+   "CAR",
+   "NYG",
+   "TB"
+  ],
+  "12": [
+   "ATL",
+   "BUF",
+   "CIN",
+   "JAC",
+   "NO",
+   "NYJ"
+  ],
+  "13": [],
+  "14": [
+   "BAL",
+   "DEN",
+   "HOU",
+   "IND",
+   "NE",
+   "WAS"
+  ],
+  "15": [],
+  "16": [],
+  "17": [],
+  "18": []
+ },
+ "gameCount": 272,
+ "completed": 272
+}
