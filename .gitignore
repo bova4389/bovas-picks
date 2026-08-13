@@ -14,6 +14,11 @@
 *.xls
 *.xlsm
 
+# Upstream repos cloned by scripts/build_team_identity.py. Several hundred MB of
+# other people's git history; the assets it extracts ARE committed, so nothing
+# here needs keeping. Delete it freely — the next build re-clones.
+.cache/
+
 # Local scratch
 .DS_Store
 Thumbs.db

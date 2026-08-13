@@ -1,0 +1,2318 @@
+{
+  "season": 2026,
+  "generatedAt": "2026-08-13T15:18:18Z",
+  "generatedBy": "scripts/build_team_identity.py",
+  "provenance": {
+    "palettePrimary": "nflverse/nflplotR, mirroring ESPN's team feed: screen-tuned and tracks rebrands promptly",
+    "paletteExtended": "jimniels/teamcolors, mirroring club style guides (Pantone/CMYK); lags rebrands, so it is withheld per-team wherever it disagrees on primary or secondary",
+    "logos": "nflverse/nflplotR embedded 500x500 PNGs",
+    "helmets": "ajreinhard/data-viz 2023_helm, official helmets, transparent background, 350x320",
+    "wordmarks": "nflverse/nflplotR embedded PNGs",
+    "uniforms": "ajreinhard/data-viz per-game uniform observations, 2015-2020, modal kit per side, snapped to palette",
+    "names": "nflverse/nfldata 2026 team table",
+    "trademarkNotice": "assets/teams/NOTICE.md"
+  },
+  "uniformWindow": {
+    "from": 2015,
+    "to": 2020
+  },
+  "teams": {
+    "ARI": {
+      "abbr": "ARI",
+      "fullName": "Arizona Cardinals",
+      "location": "Arizona",
+      "mascot": "Cardinals",
+      "conference": "NFC",
+      "division": "West",
+      "palette": {
+        "primary": {
+          "hex": "#97233F",
+          "source": "nflverse+style-guide",
+          "pantone": "194 C",
+          "cmyk": "0 100 60 30"
+        },
+        "secondary": {
+          "hex": "#000000",
+          "source": "nflverse+style-guide",
+          "pantone": "Process Black C",
+          "cmyk": "70 50 50 100"
+        },
+        "additional": [
+          {
+            "hex": "#FFB612",
+            "source": "style-guide",
+            "pantone": "1235 C",
+            "cmyk": "0 25 100 0"
+          },
+          {
+            "hex": "#A5ACAF",
+            "source": "style-guide",
+            "pantone": "429 C",
+            "cmyk": "5 0 0 30"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#97233F",
+          "pants": "#FFFFFF",
+          "helmet": "#FFFFFF",
+          "socks": "#97233F",
+          "sampled": {
+            "jersey": "#AE0024",
+            "pants": "#FEFEFE",
+            "helmet": "#F9F9EB",
+            "socks": "#AD0024"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.0,
+          "observations": 49,
+          "modalShare": 0.408
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFFFFF",
+          "helmet": "#FFFFFF",
+          "socks": "#97233F",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#FEFEFE",
+            "helmet": "#F9F9EB",
+            "socks": "#AD0024"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.796,
+          "observations": 49,
+          "modalShare": 0.408
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/ARI.png",
+        "wordmark": "assets/teams/wordmarks/ARI.png",
+        "helmetFacingRight": "assets/teams/helmets/ARI-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/ARI-left.png"
+      }
+    },
+    "ATL": {
+      "abbr": "ATL",
+      "fullName": "Atlanta Falcons",
+      "location": "Atlanta",
+      "mascot": "Falcons",
+      "conference": "NFC",
+      "division": "South",
+      "palette": {
+        "primary": {
+          "hex": "#A71930",
+          "source": "nflverse+style-guide",
+          "pantone": "187 C",
+          "cmyk": "20 100 80 0"
+        },
+        "secondary": {
+          "hex": "#000000",
+          "source": "nflverse+style-guide",
+          "pantone": "Process Black C",
+          "cmyk": "70 50 50 100"
+        },
+        "additional": [
+          {
+            "hex": "#A5ACAF",
+            "source": "style-guide",
+            "pantone": "877 C",
+            "cmyk": "5 0 0 25"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#A71930",
+          "pants": "#FFFFFF",
+          "helmet": "#000000",
+          "socks": "#A71930",
+          "sampled": {
+            "jersey": "#C0001D",
+            "pants": "#FFFFFF",
+            "helmet": "#000000",
+            "socks": "#C0001D"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.02,
+          "observations": 51,
+          "modalShare": 0.51
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFFFFF",
+          "helmet": "#000000",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#FFFFFF",
+            "pants": "#FFFFFF",
+            "helmet": "#000000",
+            "socks": "#000000"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.88,
+          "observations": 50,
+          "modalShare": 0.56
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/ATL.png",
+        "wordmark": "assets/teams/wordmarks/ATL.png",
+        "helmetFacingRight": "assets/teams/helmets/ATL-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/ATL-left.png"
+      }
+    },
+    "BAL": {
+      "abbr": "BAL",
+      "fullName": "Baltimore Ravens",
+      "location": "Baltimore",
+      "mascot": "Ravens",
+      "conference": "AFC",
+      "division": "North",
+      "palette": {
+        "primary": {
+          "hex": "#241773",
+          "source": "nflverse+style-guide",
+          "pantone": "273 C",
+          "cmyk": "100 100 0 5"
+        },
+        "secondary": {
+          "hex": "#9E7C0C",
+          "source": "nflverse+style-guide",
+          "pantone": "8660 C Metallic",
+          "cmyk": "0 20 80 20"
+        },
+        "additional": [
+          {
+            "hex": "#000000",
+            "source": "style-guide",
+            "pantone": "Process Black C",
+            "cmyk": "70 50 50 100"
+          },
+          {
+            "hex": "#C60C30",
+            "source": "style-guide",
+            "pantone": "186 C",
+            "cmyk": "10 100 100 0"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#241773",
+          "pants": "#FFFFFF",
+          "helmet": "#000000",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#2A0365",
+            "pants": "#FFFFFF",
+            "helmet": "#000000",
+            "socks": "#000000"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.06,
+          "observations": 50,
+          "modalShare": 0.22
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#000000",
+          "helmet": "#000000",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#FFFFFF",
+            "pants": "#000000",
+            "helmet": "#000000",
+            "socks": "#000000"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.82,
+          "observations": 50,
+          "modalShare": 0.28
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/BAL.png",
+        "wordmark": "assets/teams/wordmarks/BAL.png",
+        "helmetFacingRight": "assets/teams/helmets/BAL-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/BAL-left.png"
+      }
+    },
+    "BUF": {
+      "abbr": "BUF",
+      "fullName": "Buffalo Bills",
+      "location": "Buffalo",
+      "mascot": "Bills",
+      "conference": "AFC",
+      "division": "East",
+      "palette": {
+        "primary": {
+          "hex": "#00338D",
+          "source": "nflverse+style-guide",
+          "pantone": "287 C",
+          "cmyk": "100 60 0 20"
+        },
+        "secondary": {
+          "hex": "#C60C30",
+          "source": "nflverse+style-guide",
+          "pantone": "186 C",
+          "cmyk": "10 100 100 0"
+        },
+        "additional": []
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#00338D",
+          "pants": "#FFFFFF",
+          "helmet": "#FFFFFF",
+          "socks": "#00338D",
+          "sampled": {
+            "jersey": "#00338D",
+            "pants": "#FEFEFE",
+            "helmet": "#FFFFFF",
+            "socks": "#00338C"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.22,
+          "observations": 50,
+          "modalShare": 0.2
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#00338D",
+          "helmet": "#FFFFFF",
+          "socks": "#00338D",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#00338D",
+            "helmet": "#FFFFFF",
+            "socks": "#00338C"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.824,
+          "observations": 51,
+          "modalShare": 0.216
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/BUF.png",
+        "wordmark": "assets/teams/wordmarks/BUF.png",
+        "helmetFacingRight": "assets/teams/helmets/BUF-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/BUF-left.png"
+      }
+    },
+    "CAR": {
+      "abbr": "CAR",
+      "fullName": "Carolina Panthers",
+      "location": "Carolina",
+      "mascot": "Panthers",
+      "conference": "NFC",
+      "division": "South",
+      "palette": {
+        "primary": {
+          "hex": "#0085CA",
+          "source": "nflverse+style-guide",
+          "pantone": "Process Blue C",
+          "cmyk": "100 10 0 5"
+        },
+        "secondary": {
+          "hex": "#000000",
+          "source": "nflverse+style-guide",
+          "pantone": "Black 6 C",
+          "cmyk": "100 40 0 100"
+        },
+        "additional": [
+          {
+            "hex": "#BFC0BF",
+            "source": "style-guide",
+            "pantone": "421 C",
+            "cmyk": "0 0 0 20"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#000000",
+          "pants": "#BFC0BF",
+          "helmet": "#BFC0BF",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#000000",
+            "pants": "#D1D5D7",
+            "helmet": "#B5BECA",
+            "socks": "#000000"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.28,
+          "observations": 50,
+          "modalShare": 0.24
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFFFFF",
+          "helmet": "#BFC0BF",
+          "socks": "#0085CA",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#FEFEFE",
+            "helmet": "#B5BECA",
+            "socks": "#0087D4"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.76,
+          "observations": 50,
+          "modalShare": 0.48
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/CAR.png",
+        "wordmark": "assets/teams/wordmarks/CAR.png",
+        "helmetFacingRight": "assets/teams/helmets/CAR-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/CAR-left.png"
+      }
+    },
+    "CHI": {
+      "abbr": "CHI",
+      "fullName": "Chicago Bears",
+      "location": "Chicago",
+      "mascot": "Bears",
+      "conference": "NFC",
+      "division": "North",
+      "palette": {
+        "primary": {
+          "hex": "#0B162A",
+          "source": "nflverse"
+        },
+        "secondary": {
+          "hex": "#E64100",
+          "source": "nflverse"
+        },
+        "additional": [],
+        "disagreement": {
+          "screen": {
+            "primary": "#0B162A",
+            "secondary": "#E64100"
+          },
+          "styleGuideMirror": [
+            "#0B162A",
+            "#C83803"
+          ]
+        }
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#0B162A",
+          "pants": "#FFFFFF",
+          "helmet": "#0B162A",
+          "socks": "#E64100",
+          "sampled": {
+            "jersey": "#03182F",
+            "pants": "#FEFEFE",
+            "helmet": "#03182E",
+            "socks": "#DC4813"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.061,
+          "observations": 49,
+          "modalShare": 0.694
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#0B162A",
+          "helmet": "#0B162A",
+          "socks": "#FFFFFF",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#03182F",
+            "helmet": "#03182E",
+            "socks": "#FFFFFF"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.837,
+          "observations": 49,
+          "modalShare": 0.837
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/CHI.png",
+        "wordmark": "assets/teams/wordmarks/CHI.png",
+        "helmetFacingRight": "assets/teams/helmets/CHI-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/CHI-left.png"
+      },
+      "notes": [
+        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #0B162A / #E64100. Style-guide mirror: #0B162A, #C83803. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+      ]
+    },
+    "CIN": {
+      "abbr": "CIN",
+      "fullName": "Cincinnati Bengals",
+      "location": "Cincinnati",
+      "mascot": "Bengals",
+      "conference": "AFC",
+      "division": "North",
+      "palette": {
+        "primary": {
+          "hex": "#FB4F14",
+          "source": "nflverse+style-guide",
+          "pantone": "1655 C",
+          "cmyk": "0 85 100 0"
+        },
+        "secondary": {
+          "hex": "#000000",
+          "source": "nflverse+style-guide",
+          "pantone": "Process Black C",
+          "cmyk": "70 50 50 100"
+        },
+        "additional": []
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#000000",
+          "pants": "#000000",
+          "helmet": "#FB4F14",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#000000",
+            "pants": "#000000",
+            "helmet": "#FB3012",
+            "socks": "#000000"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.122,
+          "observations": 49,
+          "modalShare": 0.286
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#000000",
+          "helmet": "#FB4F14",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#FFFFFF",
+            "pants": "#000000",
+            "helmet": "#FB3012",
+            "socks": "#000000"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.896,
+          "observations": 48,
+          "modalShare": 0.312
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/CIN.png",
+        "wordmark": "assets/teams/wordmarks/CIN.png",
+        "helmetFacingRight": "assets/teams/helmets/CIN-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/CIN-left.png"
+      }
+    },
+    "CLE": {
+      "abbr": "CLE",
+      "fullName": "Cleveland Browns",
+      "location": "Cleveland",
+      "mascot": "Browns",
+      "conference": "AFC",
+      "division": "North",
+      "palette": {
+        "primary": {
+          "hex": "#FF3C00",
+          "source": "nflverse"
+        },
+        "secondary": {
+          "hex": "#311D00",
+          "source": "nflverse"
+        },
+        "additional": [],
+        "disagreement": {
+          "screen": {
+            "primary": "#FF3C00",
+            "secondary": "#311D00"
+          },
+          "styleGuideMirror": [
+            "#FB4F14",
+            "#22150C",
+            "#A5ACAF"
+          ]
+        }
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#311D00",
+          "pants": "#311D00",
+          "helmet": "#FF3C00",
+          "socks": "#311D00",
+          "sampled": {
+            "jersey": "#311D00",
+            "pants": "#311D00",
+            "helmet": "#FF3C00",
+            "socks": "#301C00"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.229,
+          "observations": 48,
+          "modalShare": 0.146
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFFFFF",
+          "helmet": "#FF3C00",
+          "socks": "#FF3C00",
+          "sampled": {
+            "jersey": "#FFFFFF",
+            "pants": "#FFFFFF",
+            "helmet": "#FF3D00",
+            "socks": "#FE3C00"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.86,
+          "observations": 50,
+          "modalShare": 0.24
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/CLE.png",
+        "wordmark": "assets/teams/wordmarks/CLE.png",
+        "helmetFacingRight": "assets/teams/helmets/CLE-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/CLE-left.png"
+      },
+      "notes": [
+        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #FF3C00 / #311D00. Style-guide mirror: #FB4F14, #22150C, #A5ACAF. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+      ]
+    },
+    "DAL": {
+      "abbr": "DAL",
+      "fullName": "Dallas Cowboys",
+      "location": "Dallas",
+      "mascot": "Cowboys",
+      "conference": "NFC",
+      "division": "East",
+      "palette": {
+        "primary": {
+          "hex": "#002244",
+          "source": "nflverse+style-guide",
+          "pantone": "289 C",
+          "cmyk": "100 65 0 60"
+        },
+        "secondary": {
+          "hex": "#B0B7BC",
+          "source": "nflverse+style-guide",
+          "pantone": "8180 C Metallic",
+          "cmyk": "3 0 0 32"
+        },
+        "additional": [
+          {
+            "hex": "#ACC0C6",
+            "source": "style-guide",
+            "pantone": "8240 C",
+            "cmyk": "10 0 0 20"
+          },
+          {
+            "hex": "#A5ACAF",
+            "source": "style-guide",
+            "pantone": "429 C",
+            "cmyk": "0 0 0 20"
+          },
+          {
+            "hex": "#00338D",
+            "source": "style-guide",
+            "pantone": "287 C",
+            "cmyk": "100 60 0 20"
+          },
+          {
+            "hex": "#000000",
+            "source": "style-guide",
+            "pantone": "Process Black",
+            "cmyk": "70 50 50 100"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#FFFFFF",
+          "pants": "#A5ACAF",
+          "helmet": "#ACC0C6",
+          "socks": "#00338D",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#8DBCB9",
+            "helmet": "#B2BFCB",
+            "socks": "#002676"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.9,
+          "observations": 50,
+          "modalShare": 0.66
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#A5ACAF",
+          "helmet": "#ACC0C6",
+          "socks": "#00338D",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#8DBCB9",
+            "helmet": "#B2BFCB",
+            "socks": "#002676"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.694,
+          "observations": 49,
+          "modalShare": 0.51
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/DAL.png",
+        "wordmark": "assets/teams/wordmarks/DAL.png",
+        "helmetFacingRight": "assets/teams/helmets/DAL-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/DAL-left.png"
+      }
+    },
+    "DEN": {
+      "abbr": "DEN",
+      "fullName": "Denver Broncos",
+      "location": "Denver",
+      "mascot": "Broncos",
+      "conference": "AFC",
+      "division": "West",
+      "palette": {
+        "primary": {
+          "hex": "#002244",
+          "source": "nflverse+style-guide",
+          "pantone": "289 C",
+          "cmyk": "100 72 0 64"
+        },
+        "secondary": {
+          "hex": "#FB4F14",
+          "source": "nflverse+style-guide",
+          "pantone": "1655 C",
+          "cmyk": "0 82 100 0"
+        },
+        "additional": []
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#FB4F14",
+          "pants": "#FFFFFF",
+          "helmet": "#002244",
+          "socks": "#002244",
+          "sampled": {
+            "jersey": "#EF5F20",
+            "pants": "#FFFFFF",
+            "helmet": "#03182F",
+            "socks": "#03182E"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.02,
+          "observations": 51,
+          "modalShare": 0.333
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFFFFF",
+          "helmet": "#002244",
+          "socks": "#002244",
+          "sampled": {
+            "jersey": "#FFFFFF",
+            "pants": "#FFFFFF",
+            "helmet": "#03182F",
+            "socks": "#03182E"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.917,
+          "observations": 48,
+          "modalShare": 0.438
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/DEN.png",
+        "wordmark": "assets/teams/wordmarks/DEN.png",
+        "helmetFacingRight": "assets/teams/helmets/DEN-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/DEN-left.png"
+      },
+      "notes": [
+        "New uniform set in 2024. Uniform colours are derived from 2015-2020 observations snapped to the current palette, so the colours are right and the design details may not be."
+      ]
+    },
+    "DET": {
+      "abbr": "DET",
+      "fullName": "Detroit Lions",
+      "location": "Detroit",
+      "mascot": "Lions",
+      "conference": "NFC",
+      "division": "North",
+      "palette": {
+        "primary": {
+          "hex": "#0076B6",
+          "source": "nflverse"
+        },
+        "secondary": {
+          "hex": "#B0B7BC",
+          "source": "nflverse"
+        },
+        "additional": [],
+        "disagreement": {
+          "screen": {
+            "primary": "#0076B6",
+            "secondary": "#B0B7BC"
+          },
+          "styleGuideMirror": [
+            "#005A8B",
+            "#B0B7BC",
+            "#000000"
+          ]
+        }
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#0076B6",
+          "pants": "#FFFFFF",
+          "helmet": "#B0B7BC",
+          "socks": "#0076B6",
+          "sampled": {
+            "jersey": "#1B66BB",
+            "pants": "#E2E2E7",
+            "helmet": "#CBD1DC",
+            "socks": "#0761B0"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.021,
+          "observations": 48,
+          "modalShare": 0.396
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#0076B6",
+          "helmet": "#B0B7BC",
+          "socks": "#0076B6",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#1B66BB",
+            "helmet": "#CBD1DC",
+            "socks": "#0761B0"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.878,
+          "observations": 49,
+          "modalShare": 0.388
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/DET.png",
+        "wordmark": "assets/teams/wordmarks/DET.png",
+        "helmetFacingRight": "assets/teams/helmets/DET-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/DET-left.png"
+      },
+      "notes": [
+        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #0076B6 / #B0B7BC. Style-guide mirror: #005A8B, #B0B7BC, #000000. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+      ]
+    },
+    "GB": {
+      "abbr": "GB",
+      "fullName": "Green Bay Packers",
+      "location": "Green Bay",
+      "mascot": "Packers",
+      "conference": "NFC",
+      "division": "North",
+      "palette": {
+        "primary": {
+          "hex": "#203731",
+          "source": "nflverse+style-guide",
+          "pantone": "5535 C",
+          "cmyk": "70 40 60 60"
+        },
+        "secondary": {
+          "hex": "#FFB612",
+          "source": "nflverse+style-guide",
+          "pantone": "1235 C",
+          "cmyk": "0 25 100 0"
+        },
+        "additional": []
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#203731",
+          "pants": "#FFB612",
+          "helmet": "#FFB612",
+          "socks": "#203731",
+          "sampled": {
+            "jersey": "#004000",
+            "pants": "#FBBF11",
+            "helmet": "#FBBF11",
+            "socks": "#004000"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.058,
+          "observations": 52,
+          "modalShare": 0.577
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFB612",
+          "helmet": "#FFB612",
+          "socks": "#203731",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#FBBF11",
+            "helmet": "#FBBF11",
+            "socks": "#004000"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.906,
+          "observations": 53,
+          "modalShare": 0.547
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/GB.png",
+        "wordmark": "assets/teams/wordmarks/GB.png",
+        "helmetFacingRight": "assets/teams/helmets/GB-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/GB-left.png"
+      }
+    },
+    "HOU": {
+      "abbr": "HOU",
+      "fullName": "Houston Texans",
+      "location": "Houston",
+      "mascot": "Texans",
+      "conference": "AFC",
+      "division": "South",
+      "palette": {
+        "primary": {
+          "hex": "#03202F",
+          "source": "nflverse+style-guide",
+          "pantone": "5395 C",
+          "cmyk": "100 60 0 80"
+        },
+        "secondary": {
+          "hex": "#A71930",
+          "source": "nflverse+style-guide",
+          "pantone": "187 C",
+          "cmyk": "0 100 79 20"
+        },
+        "additional": []
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#03202F",
+          "pants": "#FFFFFF",
+          "helmet": "#03202F",
+          "socks": "#03202F",
+          "sampled": {
+            "jersey": "#03182F",
+            "pants": "#FEFEFE",
+            "helmet": "#03182E",
+            "socks": "#02172E"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.115,
+          "observations": 52,
+          "modalShare": 0.442
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#03202F",
+          "helmet": "#03202F",
+          "socks": "#03202F",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#03182F",
+            "helmet": "#03182E",
+            "socks": "#02172E"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.84,
+          "observations": 50,
+          "modalShare": 0.72
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/HOU.png",
+        "wordmark": "assets/teams/wordmarks/HOU.png",
+        "helmetFacingRight": "assets/teams/helmets/HOU-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/HOU-left.png"
+      },
+      "notes": [
+        "New uniform set in 2024. Uniform colours are derived from 2015-2020 observations snapped to the current palette, so the colours are right and the design details may not be."
+      ]
+    },
+    "IND": {
+      "abbr": "IND",
+      "fullName": "Indianapolis Colts",
+      "location": "Indianapolis",
+      "mascot": "Colts",
+      "conference": "AFC",
+      "division": "South",
+      "palette": {
+        "primary": {
+          "hex": "#002C5F",
+          "source": "nflverse+style-guide",
+          "pantone": "654 C",
+          "cmyk": "100 65 0 35"
+        },
+        "secondary": {
+          "hex": "#A5ACAF",
+          "source": "nflverse+style-guide",
+          "pantone": "429 C",
+          "cmyk": "5 0 0 30"
+        },
+        "additional": []
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#002C5F",
+          "pants": "#FFFFFF",
+          "helmet": "#FFFFFF",
+          "socks": "#002C5F",
+          "sampled": {
+            "jersey": "#12356B",
+            "pants": "#FEFEFE",
+            "helmet": "#F9F9EB",
+            "socks": "#12356A"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.021,
+          "observations": 48,
+          "modalShare": 0.479
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFFFFF",
+          "helmet": "#FFFFFF",
+          "socks": "#002C5F",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#FEFEFE",
+            "helmet": "#F9F9EB",
+            "socks": "#12356A"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.843,
+          "observations": 51,
+          "modalShare": 0.392
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/IND.png",
+        "wordmark": "assets/teams/wordmarks/IND.png",
+        "helmetFacingRight": "assets/teams/helmets/IND-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/IND-left.png"
+      }
+    },
+    "JAC": {
+      "abbr": "JAC",
+      "fullName": "Jacksonville Jaguars",
+      "location": "Jacksonville",
+      "mascot": "Jaguars",
+      "conference": "AFC",
+      "division": "South",
+      "palette": {
+        "primary": {
+          "hex": "#006778",
+          "source": "nflverse+style-guide",
+          "pantone": "3155 C",
+          "cmyk": "100 0 20 30"
+        },
+        "secondary": {
+          "hex": "#000000",
+          "source": "nflverse+style-guide",
+          "pantone": "Process Black C",
+          "cmyk": "70 50 50 100"
+        },
+        "additional": [
+          {
+            "hex": "#9F792C",
+            "source": "style-guide",
+            "pantone": "126 C",
+            "cmyk": "34 48 100 13"
+          },
+          {
+            "hex": "#D7A22A",
+            "source": "style-guide",
+            "pantone": "7555 C",
+            "cmyk": "17 37 100 0"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#000000",
+          "pants": "#000000",
+          "helmet": "#D7A22A",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#000000",
+            "pants": "#000000",
+            "helmet": "#BE994B",
+            "socks": "#000000"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.245,
+          "observations": 49,
+          "modalShare": 0.245
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#000000",
+          "helmet": "#D7A22A",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#F2F2F2",
+            "pants": "#000000",
+            "helmet": "#BE994B",
+            "socks": "#000000"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.82,
+          "observations": 50,
+          "modalShare": 0.4
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/JAC.png",
+        "wordmark": "assets/teams/wordmarks/JAC.png",
+        "helmetFacingRight": "assets/teams/helmets/JAC-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/JAC-left.png"
+      }
+    },
+    "KC": {
+      "abbr": "KC",
+      "fullName": "Kansas City Chiefs",
+      "location": "Kansas City",
+      "mascot": "Chiefs",
+      "conference": "AFC",
+      "division": "West",
+      "palette": {
+        "primary": {
+          "hex": "#E31837",
+          "source": "nflverse+style-guide",
+          "pantone": "186 C",
+          "cmyk": "0 100 81 4"
+        },
+        "secondary": {
+          "hex": "#FFB612",
+          "source": "nflverse+style-guide",
+          "pantone": "1235 C",
+          "cmyk": "0 25 100 0"
+        },
+        "additional": [
+          {
+            "hex": "#000000",
+            "source": "style-guide",
+            "pantone": "Process Black C",
+            "cmyk": "70 50 50 100"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#E31837",
+          "pants": "#FFFFFF",
+          "helmet": "#E31837",
+          "socks": "#E31837",
+          "sampled": {
+            "jersey": "#C80417",
+            "pants": "#FEFEFE",
+            "helmet": "#C80417",
+            "socks": "#C70416"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.0,
+          "observations": 57,
+          "modalShare": 0.877
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#E31837",
+          "helmet": "#E31837",
+          "socks": "#FFFFFF",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#C80417",
+            "helmet": "#C80417",
+            "socks": "#FFFFFF"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.843,
+          "observations": 51,
+          "modalShare": 0.667
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/KC.png",
+        "wordmark": "assets/teams/wordmarks/KC.png",
+        "helmetFacingRight": "assets/teams/helmets/KC-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/KC-left.png"
+      }
+    },
+    "LAC": {
+      "abbr": "LAC",
+      "fullName": "Los Angeles Chargers",
+      "location": "Los Angeles Chargers",
+      "mascot": "Chargers",
+      "conference": "AFC",
+      "division": "West",
+      "palette": {
+        "primary": {
+          "hex": "#007BC7",
+          "source": "nflverse"
+        },
+        "secondary": {
+          "hex": "#FFC20E",
+          "source": "nflverse"
+        },
+        "additional": [],
+        "disagreement": {
+          "screen": {
+            "primary": "#007BC7",
+            "secondary": "#FFC20E"
+          },
+          "styleGuideMirror": [
+            "#002244",
+            "#0073CF",
+            "#FFB612"
+          ]
+        }
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#002244",
+          "pants": "#FFFFFF",
+          "helmet": "#FFFFFF",
+          "socks": "#002244",
+          "sampled": {
+            "jersey": "#03182F",
+            "pants": "#FEFEFE",
+            "helmet": "#F6F6E5",
+            "socks": "#02172E"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.271,
+          "observations": 48,
+          "modalShare": 0.146
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#002244",
+          "helmet": "#FFFFFF",
+          "socks": "#002244",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#03182F",
+            "helmet": "#F6F6E5",
+            "socks": "#02172E"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.8,
+          "observations": 50,
+          "modalShare": 0.3
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/LAC.png",
+        "wordmark": "assets/teams/wordmarks/LAC.png",
+        "helmetFacingRight": "assets/teams/helmets/LAC-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/LAC-left.png"
+      },
+      "notes": [
+        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #007BC7 / #FFC20E. Style-guide mirror: #002244, #0073CF, #FFB612. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+      ]
+    },
+    "LAR": {
+      "abbr": "LAR",
+      "fullName": "Los Angeles Rams",
+      "location": "Los Angeles Rams",
+      "mascot": "Rams",
+      "conference": "NFC",
+      "division": "West",
+      "palette": {
+        "primary": {
+          "hex": "#003594",
+          "source": "nflverse"
+        },
+        "secondary": {
+          "hex": "#FFD100",
+          "source": "nflverse"
+        },
+        "additional": [],
+        "disagreement": {
+          "screen": {
+            "primary": "#003594",
+            "secondary": "#FFD100"
+          },
+          "styleGuideMirror": [
+            "#002244",
+            "#B3995D"
+          ]
+        }
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#003594",
+          "pants": "#FFD100",
+          "helmet": "#002244",
+          "socks": "#003594",
+          "sampled": {
+            "jersey": "#1D2C7B",
+            "pants": "#F2C800",
+            "helmet": "#071430",
+            "socks": "#1C2C7B"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.373,
+          "observations": 51,
+          "modalShare": 0.294
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#002244",
+          "helmet": "#002244",
+          "socks": "#002244",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#16223C",
+            "helmet": "#071430",
+            "socks": "#15213C"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.824,
+          "observations": 51,
+          "modalShare": 0.333
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/LAR.png",
+        "wordmark": "assets/teams/wordmarks/LAR.png",
+        "helmetFacingRight": "assets/teams/helmets/LAR-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/LAR-left.png"
+      },
+      "notes": [
+        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #003594 / #FFD100. Style-guide mirror: #002244, #B3995D. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+      ]
+    },
+    "LV": {
+      "abbr": "LV",
+      "fullName": "Las Vegas Raiders",
+      "location": "Las Vegas",
+      "mascot": "Raiders",
+      "conference": "AFC",
+      "division": "West",
+      "palette": {
+        "primary": {
+          "hex": "#000000",
+          "source": "nflverse+style-guide",
+          "pantone": "Process Black C",
+          "cmyk": "70 50 50 100"
+        },
+        "secondary": {
+          "hex": "#A5ACAF",
+          "source": "nflverse+style-guide",
+          "pantone": "429 C",
+          "cmyk": "5 0 0 25"
+        },
+        "additional": []
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#000000",
+          "pants": "#FFFFFF",
+          "helmet": "#A5ACAF",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#121212",
+            "pants": "#D1D7DE",
+            "helmet": "#BDC5D0",
+            "socks": "#000000"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.042,
+          "observations": 48,
+          "modalShare": 0.792
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFFFFF",
+          "helmet": "#A5ACAF",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#D1D7DE",
+            "helmet": "#BDC5D0",
+            "socks": "#000000"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.837,
+          "observations": 49,
+          "modalShare": 0.653
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/LV.png",
+        "wordmark": "assets/teams/wordmarks/LV.png",
+        "helmetFacingRight": "assets/teams/helmets/LV-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/LV-left.png"
+      }
+    },
+    "MIA": {
+      "abbr": "MIA",
+      "fullName": "Miami Dolphins",
+      "location": "Miami",
+      "mascot": "Dolphins",
+      "conference": "AFC",
+      "division": "East",
+      "palette": {
+        "primary": {
+          "hex": "#008E97",
+          "source": "nflverse+style-guide",
+          "pantone": "321 C",
+          "cmyk": "100 21 42 2"
+        },
+        "secondary": {
+          "hex": "#F58220",
+          "source": "nflverse+style-guide",
+          "pantone": "151 C",
+          "cmyk": "0 60 100 0"
+        },
+        "additional": [
+          {
+            "hex": "#005778",
+            "source": "style-guide",
+            "pantone": "7701 C",
+            "cmyk": "100 61 35 15"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFFFFF",
+          "helmet": "#FFFFFF",
+          "socks": "#008E97",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#FEFEFE",
+            "helmet": "#FFFFFF",
+            "socks": "#008C96"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.542,
+          "observations": 48,
+          "modalShare": 0.25
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#008E97",
+          "helmet": "#FFFFFF",
+          "socks": "#008E97",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#008D97",
+            "helmet": "#FFFFFF",
+            "socks": "#008C96"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.898,
+          "observations": 49,
+          "modalShare": 0.347
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/MIA.png",
+        "wordmark": "assets/teams/wordmarks/MIA.png",
+        "helmetFacingRight": "assets/teams/helmets/MIA-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/MIA-left.png"
+      }
+    },
+    "MIN": {
+      "abbr": "MIN",
+      "fullName": "Minnesota Vikings",
+      "location": "Minnesota",
+      "mascot": "Vikings",
+      "conference": "NFC",
+      "division": "North",
+      "palette": {
+        "primary": {
+          "hex": "#4F2683",
+          "source": "nflverse+style-guide",
+          "pantone": "268 C",
+          "cmyk": "82 100 0 12"
+        },
+        "secondary": {
+          "hex": "#FFC62F",
+          "source": "nflverse+style-guide",
+          "pantone": "123 C",
+          "cmyk": "0 23 91 0"
+        },
+        "additional": [
+          {
+            "hex": "#E9BF9B",
+            "source": "style-guide",
+            "pantone": "720 C",
+            "cmyk": "0 30 30 5"
+          },
+          {
+            "hex": "#000000",
+            "source": "style-guide",
+            "pantone": "Process Black C",
+            "cmyk": "70 50 50 100"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#4F2683",
+          "pants": "#FFFFFF",
+          "helmet": "#4F2683",
+          "socks": "#4F2683",
+          "sampled": {
+            "jersey": "#3C2185",
+            "pants": "#FEFEFE",
+            "helmet": "#4E2A5A",
+            "socks": "#351D77"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.0,
+          "observations": 50,
+          "modalShare": 0.5
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#4F2683",
+          "helmet": "#4F2683",
+          "socks": "#4F2683",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#3C2185",
+            "helmet": "#4E2A5A",
+            "socks": "#351D77"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.882,
+          "observations": 51,
+          "modalShare": 0.412
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/MIN.png",
+        "wordmark": "assets/teams/wordmarks/MIN.png",
+        "helmetFacingRight": "assets/teams/helmets/MIN-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/MIN-left.png"
+      }
+    },
+    "NE": {
+      "abbr": "NE",
+      "fullName": "New England Patriots",
+      "location": "New England",
+      "mascot": "Patriots",
+      "conference": "AFC",
+      "division": "East",
+      "palette": {
+        "primary": {
+          "hex": "#002244",
+          "source": "nflverse+style-guide",
+          "pantone": "289 C",
+          "cmyk": "100 65 0 60"
+        },
+        "secondary": {
+          "hex": "#C60C30",
+          "source": "nflverse+style-guide",
+          "pantone": "186 C",
+          "cmyk": "10 100 100 0"
+        },
+        "additional": [
+          {
+            "hex": "#B0B7BC",
+            "source": "style-guide",
+            "pantone": "429 C",
+            "cmyk": "3 0 0 32"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#002244",
+          "pants": "#B0B7BC",
+          "helmet": "#B0B7BC",
+          "socks": "#002244",
+          "sampled": {
+            "jersey": "#03182F",
+            "pants": "#D6DBDF",
+            "helmet": "#B6BEC8",
+            "socks": "#02172E"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.018,
+          "observations": 56,
+          "modalShare": 0.554
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#002244",
+          "helmet": "#B0B7BC",
+          "socks": "#FFFFFF",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#03182F",
+            "helmet": "#B6BEC8",
+            "socks": "#FFFFFF"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.923,
+          "observations": 52,
+          "modalShare": 0.615
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/NE.png",
+        "wordmark": "assets/teams/wordmarks/NE.png",
+        "helmetFacingRight": "assets/teams/helmets/NE-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/NE-left.png"
+      }
+    },
+    "NO": {
+      "abbr": "NO",
+      "fullName": "New Orleans Saints",
+      "location": "New Orleans",
+      "mascot": "Saints",
+      "conference": "NFC",
+      "division": "South",
+      "palette": {
+        "primary": {
+          "hex": "#D3BC8D",
+          "source": "nflverse"
+        },
+        "secondary": {
+          "hex": "#000000",
+          "source": "nflverse"
+        },
+        "additional": [],
+        "disagreement": {
+          "screen": {
+            "primary": "#D3BC8D",
+            "secondary": "#000000"
+          },
+          "styleGuideMirror": [
+            "#9F8958",
+            "#000000"
+          ]
+        }
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#000000",
+          "pants": "#000000",
+          "helmet": "#D3BC8D",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#000000",
+            "pants": "#000000",
+            "helmet": "#C7BE8C",
+            "socks": "#000000"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.204,
+          "observations": 54,
+          "modalShare": 0.611
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#000000",
+          "helmet": "#D3BC8D",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#000000",
+            "helmet": "#C7BE8C",
+            "socks": "#000000"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.878,
+          "observations": 49,
+          "modalShare": 0.367
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/NO.png",
+        "wordmark": "assets/teams/wordmarks/NO.png",
+        "helmetFacingRight": "assets/teams/helmets/NO-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/NO-left.png"
+      },
+      "notes": [
+        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #D3BC8D / #000000. Style-guide mirror: #9F8958, #000000. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+      ]
+    },
+    "NYG": {
+      "abbr": "NYG",
+      "fullName": "New York Giants",
+      "location": "New York Giants",
+      "mascot": "Giants",
+      "conference": "NFC",
+      "division": "East",
+      "palette": {
+        "primary": {
+          "hex": "#0B2265",
+          "source": "nflverse+style-guide",
+          "pantone": "2758 C",
+          "cmyk": "100 75 0 30"
+        },
+        "secondary": {
+          "hex": "#A71930",
+          "source": "nflverse+style-guide",
+          "pantone": "187 C",
+          "cmyk": "20 100 80 0"
+        },
+        "additional": [
+          {
+            "hex": "#A5ACAF",
+            "source": "style-guide",
+            "pantone": "429 C",
+            "cmyk": "5 0 0 30"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#0B2265",
+          "pants": "#FFFFFF",
+          "helmet": "#0B2265",
+          "socks": "#0B2265",
+          "sampled": {
+            "jersey": "#2A367E",
+            "pants": "#FEFEFE",
+            "helmet": "#000062",
+            "socks": "#2A357D"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.083,
+          "observations": 48,
+          "modalShare": 0.75
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#A5ACAF",
+          "helmet": "#0B2265",
+          "socks": "#A71930",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#A9B3AC",
+            "helmet": "#000062",
+            "socks": "#B30000"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.796,
+          "observations": 49,
+          "modalShare": 0.633
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/NYG.png",
+        "wordmark": "assets/teams/wordmarks/NYG.png",
+        "helmetFacingRight": "assets/teams/helmets/NYG-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/NYG-left.png"
+      }
+    },
+    "NYJ": {
+      "abbr": "NYJ",
+      "fullName": "New York Jets",
+      "location": "New York Jets",
+      "mascot": "Jets",
+      "conference": "AFC",
+      "division": "East",
+      "palette": {
+        "primary": {
+          "hex": "#003F2D",
+          "source": "nflverse"
+        },
+        "secondary": {
+          "hex": "#000000",
+          "source": "nflverse"
+        },
+        "additional": [],
+        "disagreement": {
+          "screen": {
+            "primary": "#003F2D",
+            "secondary": "#000000"
+          },
+          "styleGuideMirror": [
+            "#203731"
+          ]
+        }
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#203731",
+          "pants": "#FFFFFF",
+          "helmet": "#FFFFFF",
+          "socks": "#203731",
+          "sampled": {
+            "jersey": "#2C533C",
+            "pants": "#FEFEFE",
+            "helmet": "#F9F9EB",
+            "socks": "#2C523B"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.188,
+          "observations": 48,
+          "modalShare": 0.292
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#203731",
+          "helmet": "#FFFFFF",
+          "socks": "#FFFFFF",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#2C533C",
+            "helmet": "#F9F9EB",
+            "socks": "#FFFFFF"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.833,
+          "observations": 48,
+          "modalShare": 0.396
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/NYJ.png",
+        "wordmark": "assets/teams/wordmarks/NYJ.png",
+        "helmetFacingRight": "assets/teams/helmets/NYJ-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/NYJ-left.png"
+      },
+      "notes": [
+        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #003F2D / #000000. Style-guide mirror: #203731. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use.",
+        "New uniform set in 2024. Uniform colours are derived from 2015-2020 observations snapped to the current palette, so the colours are right and the design details may not be."
+      ]
+    },
+    "PHI": {
+      "abbr": "PHI",
+      "fullName": "Philadelphia Eagles",
+      "location": "Philadelphia",
+      "mascot": "Eagles",
+      "conference": "NFC",
+      "division": "East",
+      "palette": {
+        "primary": {
+          "hex": "#004C54",
+          "source": "nflverse"
+        },
+        "secondary": {
+          "hex": "#A5ACAF",
+          "source": "nflverse"
+        },
+        "additional": [],
+        "disagreement": {
+          "screen": {
+            "primary": "#004C54",
+            "secondary": "#A5ACAF"
+          },
+          "styleGuideMirror": [
+            "#004953",
+            "#A5ACAF",
+            "#ACC0C6",
+            "#000000",
+            "#565A5C"
+          ]
+        }
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#004C54",
+          "pants": "#FFFFFF",
+          "helmet": "#004953",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#265264",
+            "pants": "#FEFEFE",
+            "helmet": "#003333",
+            "socks": "#000000"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.02,
+          "observations": 51,
+          "modalShare": 0.725
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#004C54",
+          "helmet": "#004953",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#265264",
+            "helmet": "#003333",
+            "socks": "#000000"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.725,
+          "observations": 51,
+          "modalShare": 0.333
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/PHI.png",
+        "wordmark": "assets/teams/wordmarks/PHI.png",
+        "helmetFacingRight": "assets/teams/helmets/PHI-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/PHI-left.png"
+      },
+      "notes": [
+        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #004C54 / #A5ACAF. Style-guide mirror: #004953, #A5ACAF, #ACC0C6, #000000, #565A5C. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+      ]
+    },
+    "PIT": {
+      "abbr": "PIT",
+      "fullName": "Pittsburgh Steelers",
+      "location": "Pittsburgh",
+      "mascot": "Steelers",
+      "conference": "AFC",
+      "division": "North",
+      "palette": {
+        "primary": {
+          "hex": "#000000",
+          "source": "nflverse+style-guide",
+          "pantone": "Process Black C",
+          "cmyk": "70 50 50 100"
+        },
+        "secondary": {
+          "hex": "#FFB612",
+          "source": "nflverse+style-guide",
+          "pantone": "1235 C",
+          "cmyk": "0 25 100 0"
+        },
+        "additional": [
+          {
+            "hex": "#C60C30",
+            "source": "style-guide",
+            "pantone": "186 C",
+            "cmyk": "10 100 100 0"
+          },
+          {
+            "hex": "#00539B",
+            "source": "style-guide",
+            "pantone": "287 C",
+            "cmyk": "100 68 0 12"
+          },
+          {
+            "hex": "#A5ACAF",
+            "source": "style-guide",
+            "pantone": "429 C",
+            "cmyk": "5 0 0 30"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#000000",
+          "pants": "#FFB612",
+          "helmet": "#000000",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#000000",
+            "pants": "#FCD638",
+            "helmet": "#000000",
+            "socks": "#000000"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.0,
+          "observations": 51,
+          "modalShare": 0.824
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFB612",
+          "helmet": "#000000",
+          "socks": "#000000",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#FCD638",
+            "helmet": "#000000",
+            "socks": "#000000"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.923,
+          "observations": 52,
+          "modalShare": 0.923
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/PIT.png",
+        "wordmark": "assets/teams/wordmarks/PIT.png",
+        "helmetFacingRight": "assets/teams/helmets/PIT-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/PIT-left.png"
+      }
+    },
+    "SEA": {
+      "abbr": "SEA",
+      "fullName": "Seattle Seahawks",
+      "location": "Seattle",
+      "mascot": "Seahawks",
+      "conference": "NFC",
+      "division": "West",
+      "palette": {
+        "primary": {
+          "hex": "#002244",
+          "source": "nflverse+style-guide",
+          "pantone": "289 C",
+          "cmyk": "100 65 0 60"
+        },
+        "secondary": {
+          "hex": "#69BE28",
+          "source": "nflverse+style-guide",
+          "pantone": "368 C",
+          "cmyk": "57 0 84 0"
+        },
+        "additional": [
+          {
+            "hex": "#A5ACAF",
+            "source": "style-guide",
+            "pantone": "429 C",
+            "cmyk": "5 0 0 30"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#002244",
+          "pants": "#002244",
+          "helmet": "#002244",
+          "socks": "#002244",
+          "sampled": {
+            "jersey": "#24293C",
+            "pants": "#24293C",
+            "helmet": "#0C2135",
+            "socks": "#24283B"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.0,
+          "observations": 50,
+          "modalShare": 0.72
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#002244",
+          "helmet": "#002244",
+          "socks": "#002244",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#24293C",
+            "helmet": "#0C2135",
+            "socks": "#24283B"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.852,
+          "observations": 54,
+          "modalShare": 0.426
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/SEA.png",
+        "wordmark": "assets/teams/wordmarks/SEA.png",
+        "helmetFacingRight": "assets/teams/helmets/SEA-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/SEA-left.png"
+      }
+    },
+    "SF": {
+      "abbr": "SF",
+      "fullName": "San Francisco 49ers",
+      "location": "San Francisco",
+      "mascot": "49ers",
+      "conference": "NFC",
+      "division": "West",
+      "palette": {
+        "primary": {
+          "hex": "#AA0000",
+          "source": "nflverse+style-guide",
+          "pantone": "187C",
+          "cmyk": "0 100 59 26"
+        },
+        "secondary": {
+          "hex": "#B3995D",
+          "source": "nflverse+style-guide",
+          "pantone": "465 C",
+          "cmyk": "5 20 50 20"
+        },
+        "additional": [
+          {
+            "hex": "#000000",
+            "source": "style-guide",
+            "pantone": "Process Black C",
+            "cmyk": "70 50 50 100"
+          },
+          {
+            "hex": "#A5ACAF",
+            "source": "style-guide",
+            "pantone": "429 C",
+            "cmyk": "5 0 0 30"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#AA0000",
+          "pants": "#B3995D",
+          "helmet": "#B3995D",
+          "socks": "#AA0000",
+          "sampled": {
+            "jersey": "#BB0915",
+            "pants": "#D1AD7D",
+            "helmet": "#BF9E79",
+            "socks": "#BB0915"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.08,
+          "observations": 50,
+          "modalShare": 0.72
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#B3995D",
+          "helmet": "#B3995D",
+          "socks": "#AA0000",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#D1AD7D",
+            "helmet": "#BF9E79",
+            "socks": "#BB0915"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.878,
+          "observations": 49,
+          "modalShare": 0.673
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/SF.png",
+        "wordmark": "assets/teams/wordmarks/SF.png",
+        "helmetFacingRight": "assets/teams/helmets/SF-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/SF-left.png"
+      }
+    },
+    "TB": {
+      "abbr": "TB",
+      "fullName": "Tampa Bay Buccaneers",
+      "location": "Tampa Bay",
+      "mascot": "Buccaneers",
+      "conference": "NFC",
+      "division": "South",
+      "palette": {
+        "primary": {
+          "hex": "#A71930",
+          "source": "nflverse"
+        },
+        "secondary": {
+          "hex": "#322F2B",
+          "source": "nflverse"
+        },
+        "additional": [],
+        "disagreement": {
+          "screen": {
+            "primary": "#A71930",
+            "secondary": "#322F2B"
+          },
+          "styleGuideMirror": [
+            "#D50A0A",
+            "#34302B",
+            "#000000",
+            "#FF7900",
+            "#B1BABF"
+          ]
+        }
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#D50A0A",
+          "pants": "#34302B",
+          "helmet": "#34302B",
+          "socks": "#D50A0A",
+          "sampled": {
+            "jersey": "#D60A0B",
+            "pants": "#535353",
+            "helmet": "#323336",
+            "socks": "#D5090A"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.408,
+          "observations": 49,
+          "modalShare": 0.286
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#FFFFFF",
+          "helmet": "#34302B",
+          "socks": "#34302B",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#FEFEFE",
+            "helmet": "#323336",
+            "socks": "#525252"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.824,
+          "observations": 51,
+          "modalShare": 0.392
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/TB.png",
+        "wordmark": "assets/teams/wordmarks/TB.png",
+        "helmetFacingRight": "assets/teams/helmets/TB-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/TB-left.png"
+      },
+      "notes": [
+        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #A71930 / #322F2B. Style-guide mirror: #D50A0A, #34302B, #000000, #FF7900, #B1BABF. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+      ]
+    },
+    "TEN": {
+      "abbr": "TEN",
+      "fullName": "Tennessee Titans",
+      "location": "Tennessee",
+      "mascot": "Titans",
+      "conference": "AFC",
+      "division": "South",
+      "palette": {
+        "primary": {
+          "hex": "#4495D2",
+          "source": "nflverse"
+        },
+        "secondary": {
+          "hex": "#D50A0A",
+          "source": "nflverse"
+        },
+        "additional": [],
+        "disagreement": {
+          "screen": {
+            "primary": "#4495D2",
+            "secondary": "#D50A0A"
+          },
+          "styleGuideMirror": [
+            "#002244",
+            "#4B92DB",
+            "#C60C30",
+            "#A5ACAF"
+          ]
+        }
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#002244",
+          "pants": "#002244",
+          "helmet": "#FFFFFF",
+          "socks": "#002244",
+          "sampled": {
+            "jersey": "#03182F",
+            "pants": "#03182F",
+            "helmet": "#F9F9EB",
+            "socks": "#02172E"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.224,
+          "observations": 49,
+          "modalShare": 0.286
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#002244",
+          "helmet": "#002244",
+          "socks": "#002244",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#0C2340",
+            "helmet": "#001328",
+            "socks": "#0B2240"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.792,
+          "observations": 53,
+          "modalShare": 0.264
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/TEN.png",
+        "wordmark": "assets/teams/wordmarks/TEN.png",
+        "helmetFacingRight": "assets/teams/helmets/TEN-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/TEN-left.png"
+      },
+      "notes": [
+        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #4495D2 / #D50A0A. Style-guide mirror: #002244, #4B92DB, #C60C30, #A5ACAF. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+      ]
+    },
+    "WAS": {
+      "abbr": "WAS",
+      "fullName": "Washington Commanders",
+      "location": "Washington",
+      "mascot": "Commanders",
+      "conference": "NFC",
+      "division": "East",
+      "palette": {
+        "primary": {
+          "hex": "#5A1414",
+          "source": "nflverse+style-guide",
+          "pantone": "4625 C",
+          "cmyk": "0 27 27 65"
+        },
+        "secondary": {
+          "hex": "#FFB612",
+          "source": "nflverse+style-guide",
+          "pantone": "1235 C",
+          "cmyk": "0 25 100 0"
+        },
+        "additional": [
+          {
+            "hex": "#773141",
+            "source": "style-guide",
+            "pantone": "195 C",
+            "cmyk": "20 100 60 30"
+          },
+          {
+            "hex": "#000000",
+            "source": "style-guide",
+            "pantone": "Process Black C",
+            "cmyk": "70 50 50 100"
+          }
+        ]
+      },
+      "uniforms": {
+        "home": {
+          "jersey": "#5A1414",
+          "pants": "#FFFFFF",
+          "helmet": "#5A1414",
+          "socks": "#5A1414",
+          "sampled": {
+            "jersey": "#800000",
+            "pants": "#FEFEFE",
+            "helmet": "#800000",
+            "socks": "#800000"
+          },
+          "kind": "color",
+          "whiteJerseyRate": 0.06,
+          "observations": 50,
+          "modalShare": 0.34
+        },
+        "away": {
+          "jersey": "#FFFFFF",
+          "pants": "#5A1414",
+          "helmet": "#5A1414",
+          "socks": "#FFFFFF",
+          "sampled": {
+            "jersey": "#FEFEFE",
+            "pants": "#800000",
+            "helmet": "#800000",
+            "socks": "#FFFFFF"
+          },
+          "kind": "white",
+          "whiteJerseyRate": 0.75,
+          "observations": 48,
+          "modalShare": 0.562
+        }
+      },
+      "assets": {
+        "logo": "assets/teams/logos/WAS.png",
+        "wordmark": "assets/teams/wordmarks/WAS.png",
+        "helmetFacingRight": "assets/teams/helmets/WAS-right.png",
+        "helmetFacingLeft": "assets/teams/helmets/WAS-left.png"
+      },
+      "notes": [
+        "Rebranded to Commanders in 2022. Uniform colours are derived from 2015-2020 observations snapped to the current palette, so the colours are right and the design details may not be."
+      ]
+    }
+  }
+}

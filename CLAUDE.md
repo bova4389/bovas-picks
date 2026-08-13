@@ -105,6 +105,7 @@ js/data.js          SHARED data layer — fetch + cache + localStorage          
 js/teams.js         team-name crosswalk (mascot ↔ full name ↔ abbreviation)    [NEVER versioned]
 js/oddsMatch.js      SHARED — join a {away,home} game to an odds event         [NEVER versioned]
 js/oddsBadge.js      SHARED — inline "who's favored" text fragment            [NEVER versioned]
+js/teamIdentity.js  SHARED — team colours, uniforms, logo/helmet paths        [NEVER versioned]
 js/picksheet.js     Pick Sheet tab
 js/odds.js          Odds tab — reads data/odds/, no fetching of its own
 js/recommend.js     Recommend tab — leverage = win prob ÷ pick share, per STRATEGY.md §4
@@ -212,9 +213,12 @@ Rules for new code:
 2. `python scripts/build_projections.py <year>` — needs the prior season's completed schedule.
 3. When the commissioner's workbook arrives:
    `python scripts/parse_weekly_sheets.py "Weekly Sheets.xlsx" <year>`
-4. Confirm the site: the masthead year (written by `app.js` from `SEASON`, not hardcoded) should
+4. `python scripts/build_team_identity.py && python scripts/check_team_assets.py` — picks up any
+   offseason rebrand, relocation, or uniform change. Cheap, and skipping it is how a renamed team
+   renders in last year's colours.
+5. Confirm the site: the masthead year (written by `app.js` from `SEASON`, not hardcoded) should
    already read the new season, and Pick Sheet / Recommend should un-gate on their own.
-5. `SEASON` needs no edit. If you find yourself editing a year literal anywhere, that is the bug.
+6. `SEASON` needs no edit. If you find yourself editing a year literal anywhere, that is the bug.
 
 ## Data Pipeline
 
@@ -332,15 +336,78 @@ data/
 ├── raw/entries-<year>-w<NN>.json   ← per-entrant cards, from parse_pool_picks.py
 ├── popularity/pop-<year>-w<NN>.json ← aggregate pick %, from parse_pool_picks.py
 ├── survivor-<year>.json            ← entries + weekly pick %, from parse_survivor.py
+├── teams/team-identity.json        ← palettes + uniforms + mark paths, from build_team_identity.py
 └── odds/
     ├── current.json                ← latest snapshot, from fetch_odds.py
     ├── quota.json                  ← Odds API requests remaining
     └── history/<event-id>.json     ← full snapshot trail for one game, oldest first
+
+assets/teams/
+├── logos/<ABBR>.png                ← 500×500 primary logo
+├── helmets/<ABBR>-{left,right}.png ← by the direction the helmet faces
+├── wordmarks/<ABBR>.png            ← team name, single ink
+└── NOTICE.md                       ← provenance + trademark terms. Read before reusing.
 ```
 
 Straight-up and survivor *tracking* (picks marked correct/incorrect, running totals) is still
 draft-only — no schema exists yet. Build it against real results once Week 1 is graded rather than
 guessing the shape now.
+
+## Team Identity — the design backbone
+
+Colours, uniforms, and club marks for all 32 teams. **Anything that renders a team reads from
+`js/teamIdentity.js`** — never a hardcoded hex or image path, so a rebrand is one rebuild instead of
+a sweep through every tab. Same null-safe contract as the odds helpers: `teamColors()` returns
+`null` and `markPath()` returns `''` when a team is unknown, and `''` means "render nothing."
+
+```js
+import { teamColors, teamUniform, markPath } from './teamIdentity.js';
+
+const c = await teamColors('Buccaneers');        // {primary, secondary, ink} — or null
+const kit = await teamUniform('Buccaneers', 'home');  // {jersey, pants, helmet, socks, kind}
+const helmet = await markPath('Buccaneers', 'helmet', 'right');  // '' means render nothing
+```
+
+Lookups accept all three upstream spellings (`TB`, `Buccaneers`, `Tampa Bay Buccaneers`) plus the
+abbreviations other feeds use (`JAX`, `LA`, `OAK`, `SD`), deferring to `js/teams.js` rather than
+inventing a second crosswalk.
+
+**`ink` is computed, not chosen.** It's black-or-white by WCAG relative luminance against the team's
+primary, because several primaries (Chargers powder blue, Vikings gold, Saints old gold) are light
+enough that white-on-brand fails this site's 4.5:1 floor. All 32 verified passing. Don't replace it
+with an eyeballed value.
+
+Three things about the data that are load-bearing:
+
+- **Two colour authorities, deliberately.** `primary`/`secondary` come from the nflverse/ESPN feed —
+  screen-tuned, tracks rebrands promptly. Pantone/CMYK comes from a style-guide mirror that lags
+  rebrands, so it's attached **only** where both sources agree on the exact hexes; 15 teams have it.
+  The other 10 carry a `palette.disagreement` block naming both candidates instead of silently
+  picking one. Web work should use the screen values; **confirm against the club style guide before
+  any print or apparel use.** Sampling the logo art to break ties does not work — ESPN re-renders
+  the marks with its own colour treatment (the Bears logo ships `#FF3F00` against an official
+  `#C83803`), so it's a third opinion, not a tiebreaker.
+- **Uniforms are derived, not asserted.** Modal jersey/pants/helmet per side from per-game
+  observations (2015–2020), snapped to the team's official palette. The derivation independently
+  reproduces the known conventions — Dallas and Miami are the only white-at-home teams — which is
+  the check that it works. Teams with post-2020 redesigns (`WAS`, `NYJ`, `DEN`, `HOU`) carry a
+  `notes` entry: colours current, design details may lag.
+- **The marks are not ours and are not licensed.** Nominative use in a personal tool. See
+  [`assets/teams/NOTICE.md`](assets/teams/NOTICE.md) before putting them anywhere else — and don't
+  put them on anything sold, sponsored, or advertised.
+
+```bash
+python scripts/build_team_identity.py     # clones upstream mirrors, writes data + 128 images
+python scripts/check_team_assets.py       # decodes all 128, fails on blank/missing artwork
+python scripts/fetch_team_assets.py --dry-run   # refresh logos from league/ESPN CDNs
+```
+
+`build_team_identity.py` reads **GitHub mirrors, not nfl.com or espncdn.com** — a Claude Code web
+session in this repo has a GitHub-only egress allowlist, and those hosts answer 403 there. That is
+why `scripts/lib/rdata.py` exists (a minimal R `.rda` reader, to pull logos out of nflplotR's
+embedded blob) and `scripts/lib/pngstat.py` (a minimal PNG decoder, since there's no Pillow and no
+build step). `fetch_team_assets.py` is the open-network refresh path and is **unexercised** —
+`--dry-run` it first.
 
 ## Open Questions
 
