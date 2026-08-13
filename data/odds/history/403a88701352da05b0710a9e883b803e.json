@@ -124,5 +124,19 @@
   "vig": 0.0423,
   "bucket": 14,
   "fetchedAt": "2026-08-13T20:27:00.730907+00:00"
+ },
+ {
+  "id": "403a88701352da05b0710a9e883b803e",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8571,
+  "rawAwayProb": 0.1852,
+  "homeWinProb": 0.8223,
+  "awayWinProb": 0.1777,
+  "vig": 0.0423,
+  "bucket": 14,
+  "fetchedAt": "2026-08-13T23:28:42.234191+00:00"
  }
 ]

@@ -124,5 +124,19 @@
   "vig": 0.0462,
   "bucket": 6,
   "fetchedAt": "2026-08-13T20:27:00.730907+00:00"
+ },
+ {
+  "id": "1f3cfd315a24d1a7dd5859a8e6b88e18",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Jacksonville Jaguars",
+  "away": "New England Patriots",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5413,
+  "rawAwayProb": 0.505,
+  "homeWinProb": 0.5174,
+  "awayWinProb": 0.4826,
+  "vig": 0.0462,
+  "bucket": 6,
+  "fetchedAt": "2026-08-13T23:28:42.234191+00:00"
  }
 ]
