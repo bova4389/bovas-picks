@@ -26,5 +26,19 @@
   "vig": 0.0434,
   "bucket": 17,
   "fetchedAt": "2026-08-12T14:48:30.666512+00:00"
+ },
+ {
+  "id": "180b5fa7ea6bd0d2d9ddb9ba5ee38cc0",
+  "commenceTime": "2026-12-13T21:25:00Z",
+  "home": "Cincinnati Bengals",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 17,
+  "fetchedAt": "2026-08-13T03:56:08.749202+00:00"
  }
 ]
