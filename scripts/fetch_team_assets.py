@@ -49,11 +49,39 @@ SOURCES = {
     "logos": {
         # The league's own club endpoint serves the mark the club currently
         # uses, so it is the one that moves on a rebrand. ESPN is the fallback.
-        "nfl": "https://static.www.nfl.com/t_q-best/league/api/clubs/logos/{cdn}.png",
+        #
+        # The path segment is a Cloudinary transform, and the choice of
+        # transform decides the ENCODING, not just the byte size. `t_q-best`
+        # -- what this used to request -- returns an 8-bit *palette* PNG:
+        # 79-256 colours and ~27 partial-alpha pixels per mark, which flattens
+        # the antialiasing on every curved edge. `f_png` returns 8-bit RGBA
+        # with ~800-1100 colours and the alpha ramp intact, for roughly twice
+        # the bytes. Always fetch `f_png`; a palette-quantised mark looks
+        # visibly ragged against a dark cell background.
+        #
+        # Do not use `t_lazy` as a quality reference when comparing: it is
+        # Cloudinary's blurred lazy-load placeholder, not the original.
+        "nfl": "https://static.www.nfl.com/f_png/league/api/clubs/logos/{cdn}.png",
         "espn": "https://a.espncdn.com/i/teamlogos/nfl/500/{lower}.png",
     },
+    # NO WORKING WORDMARK ENDPOINT (re-checked 2026-08-13).
+    #
+    # Both templates below 404 on every team. nfl.com itself no longer serves
+    # club wordmarks from a templated per-club path at all -- its pages now
+    # reference opaque Cloudinary asset ids
+    # (/image/private/f_auto/league/kujtrvt65vrfbzvlp9p7), which cannot be
+    # derived from an abbreviation. ESPN has no NFL wordmark directory either;
+    # /500/wordmark/, /wordmarks/, /500-dark/wordmark/ and the combiner form
+    # all 404. Note that ESPN answers some *unknown* logo subpaths (500-dark/,
+    # 500/scoreboard/) with the plain logo bytes rather than a 404, so verify a
+    # candidate by comparing bytes, not just by getting a 200.
+    #
+    # The installed wordmarks come from the nflverse/nflplotR mirror via
+    # build_team_identity.py and are current. `fetch_team_assets.py wordmarks`
+    # is therefore expected to fail until a real endpoint is found; it will
+    # skip every team rather than damage what is installed.
     "wordmarks": {
-        "nfl": "https://static.www.nfl.com/t_q-best/league/api/clubs/wordmarks/{cdn}.png",
+        "nfl": "https://static.www.nfl.com/f_png/league/api/clubs/wordmarks/{cdn}.png",
         "espn": "https://a.espncdn.com/i/teamlogos/nfl/500/wordmark/{lower}.png",
     },
 }

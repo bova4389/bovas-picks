@@ -40,12 +40,24 @@ to license either. Treat their availability as convenience, not permission.
 
 ## Currency
 
-The helmet set is the `2023_helm` vintage. Teams that have changed uniform or
-helmet design since — the Jets, Broncos and Texans all introduced new sets in
-2024 — will render as their 2023 design. Palette data for those teams is
-current; only the helmet artwork lags.
+The helmet set is the `2023_helm` vintage. Audited 2026-08-13 against current
+club designs: **NYJ and TEN are the only two whose primary helmet is genuinely
+wrong** (New York's 2024 "JETS" wordmark decal, Tennessee's 2026 white shell).
+The other 30 are still accurate — Denver's and Houston's 2024 redesigns kept
+their primary shell colour and side decal, Detroit's and Atlanta's changes are
+facemask/front-bumper only, and everything else since 2023 is an alternate or
+throwback rather than a primary. Both replacements are **unsourced**: no CDN
+publishes helmet renders, club sites publish video rather than transparent
+artwork, and the Gridiron Uniform Database's templates are its author's own
+drawings. See `docs/REFRESH-TEAM-ASSETS.md` §2 for what was tried.
 
-`scripts/fetch_team_assets.py` refreshes logos and helmets from the league and
-ESPN CDNs directly, for running in an environment whose network policy allows
-those hosts. Claude Code web sessions in this repo do not: their egress
-allowlist covers GitHub only, which is why the build reads from GitHub mirrors.
+Logos were verified team-by-team on the same date and are current; `LAR` was
+corrected to the club's blue-and-gold primary, which only the league CDN
+carries. Note that re-running `build_team_identity.py` reverts that one file.
+
+`scripts/fetch_team_assets.py` refreshes logos from the league and ESPN CDNs
+directly, for running in an environment whose network policy allows those hosts.
+Claude Code web sessions in this repo do not: their egress allowlist covers
+GitHub only, which is why the build reads from GitHub mirrors. Its wordmark
+endpoints no longer resolve on either CDN; the installed wordmarks come from the
+mirror and remain current.
