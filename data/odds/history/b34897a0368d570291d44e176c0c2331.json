@@ -54,5 +54,19 @@
   "vig": 0.0434,
   "bucket": 18,
   "fetchedAt": "2026-08-13T06:08:06.944315+00:00"
+ },
+ {
+  "id": "b34897a0368d570291d44e176c0c2331",
+  "commenceTime": "2026-12-21T01:20:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Detroit Lions",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4878,
+  "rawAwayProb": 0.5556,
+  "homeWinProb": 0.4675,
+  "awayWinProb": 0.5325,
+  "vig": 0.0434,
+  "bucket": 18,
+  "fetchedAt": "2026-08-13T08:59:02.832035+00:00"
  }
 ]
