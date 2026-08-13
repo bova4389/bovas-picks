@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Team asset review — Bova's Picks</title>
+<style>
+  /* Self-contained on purpose: this page must not be able to break the site's
+     stylesheet, and keeping it off css/styles.css means it never participates
+     in that file's ?v= cache-busting. Tokens are copied from :root there so it
+     still looks like the rest of the site. */
+  :root {
+    --purple:#4F2D7F; --purple-deep:#2B144D; --purple-mid:#725799; --purple-soft:#EDE7F5;
+    --violet:#A06DFF; --violet-ink:#5B2BA8; --teal:#00838F;
+    --ink:#44423F; --ink-soft:#6E6B67; --ink-faint:#98948F;
+    --paper:#F2F0EE; --paper-2:#EAE7E4; --line:#DCDBDA; --white:#FFFFFF;
+    --warn:#B26A00; --bad:#B3261E;
+    --r-lg:20px; --r-md:12px; --r-sm:8px;
+    --shadow-sm:0 1px 2px rgba(43,20,77,.06), 0 2px 8px rgba(43,20,77,.04);
+    --wrap:1120px;
+
+    /* The Schedule tab's .schedteam-badge slot. This is the number that
+       matters — everything on this page defaults to it. */
+    --slot: 28px;
+    --stage: var(--paper);
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--paper); color:var(--ink);
+    font:15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:var(--wrap); margin:0 auto; padding:28px 20px 80px; }
+  h1 { font-size:1.5rem; margin:0 0 4px; color:var(--purple-deep); letter-spacing:-.01em; }
+  h2 {
+    font-size:1.05rem; margin:38px 0 6px; color:var(--purple-deep);
+    display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+  }
+  h2 .note { font-size:.8rem; font-weight:400; color:var(--ink-soft); }
+  .lede { color:var(--ink-soft); margin:0 0 22px; max-width:70ch; }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.85em;
+         background:var(--paper-2); padding:1px 5px; border-radius:4px; }
+
+  /* controls */
+  .panel {
+    position:sticky; top:0; z-index:5; background:var(--white);
+    border:1px solid var(--line); border-radius:var(--r-md); padding:12px 14px;
+    display:flex; gap:20px; align-items:center; flex-wrap:wrap;
+    box-shadow:var(--shadow-sm); margin-bottom:6px;
+  }
+  .panel label { font-size:.8rem; color:var(--ink-soft); font-weight:600;
+                 display:flex; align-items:center; gap:8px; }
+  input[type=range] { width:170px; accent-color:var(--purple); }
+  .val { font-variant-numeric:tabular-nums; color:var(--purple-deep); font-weight:700;
+         min-width:46px; display:inline-block; }
+  .swatches { display:flex; gap:6px; }
+  .sw { width:26px; height:26px; border-radius:6px; border:1px solid var(--line); cursor:pointer; padding:0; }
+  .sw[aria-pressed="true"] { outline:2px solid var(--violet); outline-offset:2px; }
+  .btn {
+    border:1px solid var(--line); background:var(--white); color:var(--ink);
+    border-radius:999px; padding:5px 12px; font-size:.8rem; font-weight:600; cursor:pointer;
+  }
+  .btn[aria-pressed="true"] { background:var(--purple); border-color:var(--purple); color:#fff; }
+
+  /* stage */
+  .stage { background:var(--stage); border:1px solid var(--line); border-radius:var(--r-md);
+           padding:16px; margin-top:10px; }
+
+  /* the real thing: a schedule bar */
+  .schedgame {
+    background:var(--white); border:1px solid var(--line); border-radius:var(--r-md);
+    padding:10px 14px; margin-bottom:8px; display:flex; align-items:center; gap:12px;
+    box-shadow:var(--shadow-sm);
+  }
+  .schedteam { display:flex; align-items:center; gap:10px; flex:1; min-width:0; }
+  .schedteam-home { flex-direction:row-reverse; }
+  .schedteam-badge {
+    width:var(--slot); height:var(--slot); border-radius:7px; flex:none;
+    background:var(--paper-2); display:grid; place-items:center; overflow:hidden;
+  }
+  .schedteam-badge img { width:100%; height:100%; object-fit:contain; display:block; }
+  .schedteam-name { font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .schedgame-mid { color:var(--ink-faint); font-size:.8rem; flex:none; }
+
+  /* grids */
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); gap:4px 6px; }
+  .cell {
+    display:flex; flex-direction:column; align-items:center; gap:5px;
+    padding:9px 4px; border-radius:var(--r-sm);
+  }
+  .cell:hover { background:rgba(160,109,255,.09); }
+  .cell .abbr { font-size:.68rem; color:var(--ink-soft); font-weight:700; letter-spacing:.04em; }
+  .cell.flag .abbr { color:var(--violet-ink); }
+  .cell.flag .abbr::after { content:" ●"; color:var(--violet); font-size:.7em; }
+  .box { width:var(--slot); height:var(--slot); display:grid; place-items:center; }
+  .box img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+  .pair { display:flex; gap:3px; align-items:center; }
+
+  .wordmarks { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:12px; }
+  .wm { background:var(--white); border:1px solid var(--line); border-radius:var(--r-sm);
+        padding:12px; display:flex; align-items:center; justify-content:center; min-height:56px; }
+  .wm img { max-width:100%; height:auto; }
+
+  .legend { font-size:.8rem; color:var(--ink-soft); margin:8px 0 0; }
+  .legend b { color:var(--violet-ink); }
+  table.tally { border-collapse:collapse; font-size:.85rem; margin-top:8px; }
+  table.tally td { padding:2px 14px 2px 0; }
+  table.tally td:first-child { color:var(--ink-soft); }
+  table.tally b { font-variant-numeric:tabular-nums; }
+  .miss { color:var(--bad); font-weight:700; }
+  .ok { color:var(--teal); font-weight:700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Team asset review</h1>
+  <p class="lede">
+    Every logo, helmet and wordmark in <code>assets/teams/</code>, rendered at the size the
+    Schedule tab actually reserves for them — <code>.schedteam-badge</code> is
+    <code>28&times;28px</code>. The Odds tab has no image slot today; it is text only. Drag the
+    size control to judge other sizes before committing to one.
+  </p>
+
+  <div class="panel">
+    <label>Size
+      <input id="size" type="range" min="14" max="96" step="1" value="28" />
+      <span class="val" id="sizeVal">28px</span>
+    </label>
+    <label>Background
+      <span class="swatches" id="bgs"></span>
+    </label>
+    <label>Helmet facing
+      <button class="btn" data-facing="match" aria-pressed="true">Matchup</button>
+      <button class="btn" data-facing="right" aria-pressed="false">Right</button>
+      <button class="btn" data-facing="left" aria-pressed="false">Left</button>
+    </label>
+    <button class="btn" id="reset">Reset to 28px</button>
+  </div>
+
+  <h2>Inventory <span class="note">counted from the files this page loads</span></h2>
+  <table class="tally">
+    <tr><td>Logos</td><td><b id="tLogo">…</b> / 32</td></tr>
+    <tr><td>Helmets</td><td><b id="tHelm">…</b> / 64 <span class="note">(both facings)</span></td></tr>
+    <tr><td>Wordmarks</td><td><b id="tWord">…</b> / 32</td></tr>
+    <tr><td>Failed to load</td><td id="tFail">…</td></tr>
+  </table>
+  <p class="legend">
+    <b>●</b> marks the two helmets rebuilt in-repo on 2026-08-13 — Jets (2024 decal) and
+    Titans (2026 white shell). Everything else is the 2023 upstream artwork.
+  </p>
+
+  <h2>As a Schedule row <span class="note">away left, home right — the tab's real layout</span></h2>
+  <div class="stage">
+    <div id="matchups"></div>
+  </div>
+  <p class="legend">
+    Helmets are named by the direction they point. Away sits on the left so it takes the
+    <b>right-facing</b> helmet; home sits on the right and takes the <b>left-facing</b> one, so both
+    face the middle of the card.
+  </p>
+
+  <h2>All 32 logos</h2>
+  <div class="stage"><div class="grid" id="gLogos"></div></div>
+
+  <h2>All 32 helmets</h2>
+  <div class="stage"><div class="grid" id="gHelms"></div></div>
+
+  <h2>Wordmarks <span class="note">shown at natural width; not used in Schedule or Odds</span></h2>
+  <div class="stage"><div class="wordmarks" id="gWords"></div></div>
+
+</div>
+
+<script>
+const TEAMS = ["ARI","ATL","BAL","BUF","CAR","CHI","CIN","CLE","DAL","DEN","DET","GB",
+  "HOU","IND","JAC","KC","LAC","LAR","LV","MIA","MIN","NE","NO","NYG","NYJ","PHI",
+  "PIT","SEA","SF","TB","TEN","WAS"];
+const REBUILT = new Set(["NYJ","TEN"]);
+const NAMES = {ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Panthers",
+  CHI:"Bears",CIN:"Bengals",CLE:"Browns",DAL:"Cowboys",DEN:"Broncos",DET:"Lions",
+  GB:"Packers",HOU:"Texans",IND:"Colts",JAC:"Jaguars",KC:"Chiefs",LAC:"Chargers",
+  LAR:"Rams",LV:"Raiders",MIA:"Dolphins",MIN:"Vikings",NE:"Patriots",NO:"Saints",
+  NYG:"Giants",NYJ:"Jets",PHI:"Eagles",PIT:"Steelers",SEA:"Seahawks",SF:"49ers",
+  TB:"Buccaneers",TEN:"Titans",WAS:"Commanders"};
+
+// A few games worth eyeballing: the two rebuilds, a dark shell, a light shell.
+const GAMES = [["NYJ","TEN"],["TEN","IND"],["NYJ","NE"],["PIT","DAL"],["LAR","SEA"]];
+
+let loaded = {logo:0, helmet:0, wordmark:0}, failed = [];
+
+function img(src, kind, alt){
+  const el = document.createElement('img');
+  // Deliberately NOT loading="lazy". The inventory tally below counts load
+  // events, and with lazy loading it only ever reaches 32/64/32 once you have
+  // scrolled every grid into view — which makes a "is anything missing?" page
+  // report missing assets that are fine. 128 small PNGs load in one go.
+  el.alt = alt; el.src = src;
+  // kind === null means "render it but do not count it": the Schedule preview
+  // re-uses 10 helmets that the grid below already counts, and counting both
+  // reported 74 of 64 helmets.
+  el.addEventListener('load',  () => { if (kind) loaded[kind]++; tally(); });
+  el.addEventListener('error', () => { failed.push(src); tally(); });
+  return el;
+}
+function tally(){
+  document.getElementById('tLogo').textContent = loaded.logo;
+  document.getElementById('tHelm').textContent = loaded.helmet;
+  document.getElementById('tWord').textContent = loaded.wordmark;
+  const f = document.getElementById('tFail');
+  f.textContent = failed.length ? failed.length + ' — ' + failed.join(', ') : 'none';
+  f.className = failed.length ? 'miss' : 'ok';
+}
+
+// ---- schedule rows -------------------------------------------------------
+const mUp = document.getElementById('matchups');
+GAMES.forEach(([away, home]) => {
+  const row = document.createElement('div');
+  row.className = 'schedgame';
+  const side = (abbr, which) => {
+    const d = document.createElement('div');
+    d.className = 'schedteam schedteam-' + which;
+    const badge = document.createElement('div');
+    badge.className = 'schedteam-badge';
+    // away on the left points right; home on the right points left
+    badge.appendChild(img(`assets/teams/helmets/${abbr}-${which==='away'?'right':'left'}.png`,
+                          null, `${NAMES[abbr]} helmet`));
+    const n = document.createElement('span');
+    n.className = 'schedteam-name'; n.textContent = NAMES[abbr];
+    d.append(badge, n);
+    return d;
+  };
+  const mid = document.createElement('span');
+  mid.className = 'schedgame-mid'; mid.textContent = 'Sun 1:00';
+  row.append(side(away,'away'), mid, side(home,'home'));
+  mUp.appendChild(row);
+});
+
+// ---- grids ---------------------------------------------------------------
+const gL = document.getElementById('gLogos'), gH = document.getElementById('gHelms');
+TEAMS.forEach(t => {
+  const cell = (inner) => {
+    const c = document.createElement('div');
+    c.className = 'cell' + (REBUILT.has(t) ? ' flag' : '');
+    const a = document.createElement('span'); a.className='abbr'; a.textContent=t;
+    c.append(inner, a); return c;
+  };
+  const box = document.createElement('div');
+  box.className='box'; box.appendChild(img(`assets/teams/logos/${t}.png`,'logo',NAMES[t]));
+  gL.appendChild(cell(box));
+
+  const pair = document.createElement('div');
+  pair.className='pair'; pair.dataset.team=t;
+  ['right','left'].forEach(f => {
+    const b = document.createElement('div'); b.className='box facing-'+f;
+    b.appendChild(img(`assets/teams/helmets/${t}-${f}.png`,'helmet',`${NAMES[t]} ${f}`));
+    pair.appendChild(b);
+  });
+  gH.appendChild(cell(pair));
+});
+
+const gW = document.getElementById('gWords');
+TEAMS.forEach(t => {
+  const d = document.createElement('div'); d.className='wm';
+  d.appendChild(img(`assets/teams/wordmarks/${t}.png`,'wordmark',NAMES[t]+' wordmark'));
+  gW.appendChild(d);
+});
+
+// ---- controls ------------------------------------------------------------
+const size = document.getElementById('size'), sizeVal = document.getElementById('sizeVal');
+function applySize(){
+  document.documentElement.style.setProperty('--slot', size.value + 'px');
+  sizeVal.textContent = size.value + 'px' + (size.value === '28' ? ' — Schedule slot' : '');
+}
+size.addEventListener('input', applySize); applySize();
+document.getElementById('reset').addEventListener('click', () => { size.value = 28; applySize(); });
+
+const BGS = [['Paper','#F2F0EE'],['White','#FFFFFF'],['Card 2','#EAE7E4'],['Deep','#2B144D'],['Black','#111111']];
+const bgs = document.getElementById('bgs');
+BGS.forEach(([name,hex],i) => {
+  const b = document.createElement('button');
+  b.className='sw'; b.style.background=hex; b.title=name;
+  b.setAttribute('aria-pressed', i===0 ? 'true':'false');
+  b.addEventListener('click', () => {
+    document.documentElement.style.setProperty('--stage', hex);
+    [...bgs.children].forEach(c => c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');
+  });
+  bgs.appendChild(b);
+});
+
+document.querySelectorAll('[data-facing]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-facing]').forEach(b => b.setAttribute('aria-pressed','false'));
+    btn.setAttribute('aria-pressed','true');
+    const mode = btn.dataset.facing;
+    document.querySelectorAll('#gHelms .pair').forEach(p => {
+      p.querySelector('.facing-right').style.display = (mode==='left') ? 'none' : '';
+      p.querySelector('.facing-left').style.display  = (mode==='right') ? 'none' : '';
+    });
+  });
+});
+</script>
+</body>
+</html>
