@@ -155,6 +155,21 @@ export async function getProjections(season = SEASON) {
 }
 
 /**
+ * The survivor pool's field, from scripts/parse_survivor.py: per-week pick
+ * distribution plus every entry's used-team list. Null before the workbook
+ * for this season has been parsed, which is the normal state until Week 1
+ * results post — callers must degrade to "my own entry only" rather than
+ * falling back to last season's file (see js/season.js on why).
+ */
+export async function getSurvivor(season = SEASON) {
+  try {
+    return await loadJSON(`data/survivor-${season}.json`);
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Cross-check every loaded feed against the active season.
  *
  * The guard that stops the tabs combining two seasons — see js/season.js for

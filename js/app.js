@@ -7,6 +7,7 @@
 
 import { SEASON } from './data.js';
 import { initSchedule } from './schedule.js';
+import { initGrid } from './grid.js';
 import { initPickSheet } from './picksheet.js';
 import { initOdds } from './odds.js';
 import { initRecommend } from './recommend.js';
@@ -48,6 +49,7 @@ document.getElementById('brand-season').innerHTML = `&nbsp;/&nbsp; ${SEASON}`;
 // Schedule first: it owns the live-score polling every other tab reads from,
 // and it is the landing tab.
 initSchedule(document.getElementById('schedule-root'), SEASON);
+initGrid(document.getElementById('grid-root'), SEASON);
 initPickSheet(document.getElementById('picksheet-root'));
 initOdds(document.getElementById('odds-root'));
 initRecommend(document.getElementById('recommend-root'));

@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260811i" />
+  <link rel="stylesheet" href="css/styles.css?v=20260813" />
 </head>
 <body>
 
@@ -31,6 +31,7 @@
 
       <nav class="tabs" role="tablist" aria-label="Sections">
         <button class="tab" role="tab" id="tab-schedule"   aria-controls="panel-schedule"   aria-selected="true">Schedule</button>
+        <button class="tab" role="tab" id="tab-grid"       aria-controls="panel-grid"       aria-selected="false">Grid</button>
         <button class="tab" role="tab" id="tab-picksheet"  aria-controls="panel-picksheet"  aria-selected="false">Pick Sheet</button>
         <button class="tab" role="tab" id="tab-odds"       aria-controls="panel-odds"       aria-selected="false">Odds</button>
         <button class="tab" role="tab" id="tab-recommend"  aria-controls="panel-recommend"  aria-selected="false">Recommend</button>
@@ -45,6 +46,13 @@
     <!-- ── Schedule ───────────────────────────────────────────────────── -->
     <section class="panel" id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule">
       <div id="schedule-root">
+        <p class="eyebrow">Loading</p>
+      </div>
+    </section>
+
+    <!-- ── Grid ───────────────────────────────────────────────────────── -->
+    <section class="panel" id="panel-grid" role="tabpanel" aria-labelledby="tab-grid" hidden>
+      <div id="grid-root">
         <p class="eyebrow">Loading</p>
       </div>
     </section>
@@ -101,6 +109,6 @@
     Personal tool. Picks are emailed manually — this only builds and checks the message.
   </footer>
 
-  <script type="module" src="js/app.js?v=20260811c"></script>
+  <script type="module" src="js/app.js?v=20260813"></script>
 </body>
 </html>

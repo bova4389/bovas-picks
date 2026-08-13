@@ -720,3 +720,349 @@ footer {
      colour and just stops moving. */
   .live-dot { animation: none !important; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   GRID TAB — the whole season as one table.
+
+   Structural rules that are load-bearing rather than taste:
+
+   1. ONE PAINT AT A TIME. Every background rule is scoped under a
+      .paint-<mode> container class, so exactly one family can ever apply.
+      Marks (divisional edge, slot label, tag corner) are borders, text and
+      pseudo-elements instead — that is what lets them stack on top of any
+      paint without a combinatorial explosion of colours.
+   2. TOGGLES ARE CONTAINER CLASSES. Paint, marks, zoom and selection are all
+      switched by classes on .gridwrap, never by re-rendering. 576 cells
+      re-render fine, but it would drop the scroll position and the focused
+      cell every time a checkbox moved.
+   3. STICKY NEEDS `border-collapse: separate`. With `collapse`, shared
+      borders belong to the table rather than the cells, and sticky headers
+      shed them while scrolling. Borders live on the cells here.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Win-probability ramp. The teal end is "this row's team is favoured", the
+     warm end is "this row's team is the dog", and the middle is deliberately
+     plain white — a coin flip should not look like information. All are light
+     enough that --ink clears 4.5:1 on top of them (measured, not eyeballed). */
+  --p6: #BCE0E3;
+  --p5: #D5EBEC;
+  --p4: #E9F4F4;
+  --p3: #FFFFFF;
+  --p2: #F8EBE6;
+  --p1: #F6DCD4;
+  --p0: #F1CBC1;
+
+  /* Text tones for the painted cells.
+
+     THE EXISTING GREYS DO NOT SURVIVE A COLOURED BACKGROUND. --ink-soft
+     measures 5.30:1 on white but only 3.76:1 on the strongest teal step and
+     3.55:1 on the strongest warm one, and --ink-faint fails everywhere. Same
+     trap the AWAY/HOME label hit, one layer deeper: a tone chosen against
+     paper stops being legible the moment a paint slides under it. Each of
+     these was picked against the WORST background it can land on -- the
+     darkest paint step -- so it clears 4.5:1 on all seven at once, plus the
+     bye grey and the divisional purple. Measured, not eyeballed.
+
+       --ink-quiet  4.75:1 minimum   --teal-ink  4.95:1 minimum
+       --amber-ink  4.86:1 minimum
+
+     Anything new that renders text inside a .gc must use one of these. */
+  --ink-quiet:  #5A5854;
+  --teal-ink:   #005F68;
+  --amber-ink:  #7E4B00;
+}
+
+/* ── Controls ─────────────────────────────────────────────────────────── */
+
+.gridctl { row-gap: 14px; }
+.gridctl select { min-width: 132px; }
+
+.gzoom { display: flex; gap: 6px; }
+.gzoom .btn { min-width: 46px; min-height: 46px; padding: 0; font-size: 1.125rem; }
+
+.gmarks { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.gmark {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 46px; font-size: .875rem; color: var(--ink); cursor: pointer;
+}
+.gmark input { width: 17px; height: 17px; accent-color: var(--purple); }
+
+.gcount { color: var(--ink-quiet); font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+.gteams summary {
+  cursor: pointer; padding: 10px 12px; min-height: 46px;
+  border: 1px solid var(--line); border-radius: var(--r-sm);
+  background: var(--white); font-size: .875rem; display: flex; align-items: center;
+}
+.gteams[open] summary { border-color: var(--purple-mid); }
+.gteams-actions { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.gteams-actions .btn { padding: 10px 12px; font-size: .8125rem; }
+.gteams-list {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(74px, 1fr)); gap: 4px;
+}
+.gteamchip {
+  display: flex; align-items: center; gap: 5px;
+  padding: 9px 6px; border-radius: var(--r-sm); font-size: .8125rem; cursor: pointer;
+}
+.gteamchip:hover { background: var(--purple-soft); }
+.gteamchip input { accent-color: var(--purple); }
+.gteamchip.is-used span { text-decoration: line-through; color: var(--ink-quiet); }
+
+/* ── The table ────────────────────────────────────────────────────────── */
+
+.gridwrap {
+  --cw: 62px;   /* cell width  */
+  --ch: 38px;   /* cell height */
+  --fs: 12px;   /* cell text   */
+  --tw: 96px;   /* team column */
+  --mh: 20px;   /* month band  */
+  margin: 0 0 22px;
+}
+.gridwrap.z0 { --cw: 46px; --ch: 24px; --fs: 10.5px; --tw: 64px;  --mh: 18px; }
+.gridwrap.z1 { --cw: 54px; --ch: 32px; --fs: 11px;   --tw: 80px;  --mh: 19px; }
+.gridwrap.z2 { --cw: 62px; --ch: 40px; --fs: 12px;   --tw: 96px;  --mh: 20px; }
+.gridwrap.z3 { --cw: 84px; --ch: 54px; --fs: 13.5px; --tw: 118px; --mh: 22px; }
+
+.gridscroll {
+  overflow: auto;
+  max-height: 76vh;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--white);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.gtable {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.gtable thead th {
+  position: sticky;
+  z-index: 3;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  font-weight: 600;
+}
+
+.gmonths th {
+  top: 0; height: var(--mh);
+  font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 500;
+}
+.gweeks th {
+  top: var(--mh); height: 24px;
+  font-size: var(--fs); color: var(--ink-soft);
+}
+.gweeks th.is-now { color: var(--purple); background: var(--purple-soft); }
+
+.gcorner {
+  left: 0; z-index: 5;
+  width: var(--tw); min-width: var(--tw);
+  border-right: 2px solid var(--line);
+  text-align: left; padding-left: 8px;
+}
+.gcorner-label { font-size: 9.5px; letter-spacing: .1em; color: var(--ink-soft); }
+
+/* ── Team column ──────────────────────────────────────────────────────── */
+
+.gteam {
+  position: sticky; left: 0; z-index: 2;
+  width: var(--tw); min-width: var(--tw); height: var(--ch);
+  padding: 0 8px;
+  background: var(--white);
+  border-right: 2px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: left; vertical-align: middle;
+}
+.gteam-abbr { font-size: calc(var(--fs) + 1px); font-weight: 700; letter-spacing: -.01em; }
+.gteam.is-used .gteam-abbr { text-decoration: line-through; color: var(--ink-quiet); }
+.gteam-meta { display: none; gap: 5px; align-items: center; margin-left: 6px; }
+.z2 .gteam-meta, .z3 .gteam-meta { display: inline-flex; }
+.grec { font-size: 10px; color: var(--ink-soft); }
+.gused {
+  font-size: 9.5px; font-weight: 700; color: var(--violet-ink);
+  background: var(--purple-soft); border-radius: 4px; padding: 1px 4px;
+}
+.gscarce { font-size: 9.5px; color: var(--teal-ink); font-weight: 600; }
+
+/* ── Cells ────────────────────────────────────────────────────────────── */
+
+.gc {
+  position: relative;
+  width: var(--cw); min-width: var(--cw); height: var(--ch);
+  padding: 1px 2px;
+  text-align: center; line-height: 1.12;
+  font-size: var(--fs);
+  background: var(--white);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap; overflow: hidden;
+  cursor: pointer;
+}
+.gc.is-bye, .gc.is-empty { background: var(--paper-2); color: var(--ink-quiet); cursor: default; }
+.gc:focus-visible { outline: 3px solid var(--violet); outline-offset: -3px; z-index: 4; }
+
+.gc-opp { display: block; font-weight: 600; letter-spacing: -.01em; }
+.gc.is-away .gc-opp { font-weight: 500; color: var(--ink-quiet); }
+.gc-prob, .gc-slot, .gc-rest { display: none; }
+
+/* What fits in a cell is a function of how tall it is, so the reveal order is
+   the order of usefulness: opponent, then the number, then the slot, then
+   rest. Nothing is ever truncated to squeeze in one more field. */
+.z1 .gc-prob, .z2 .gc-prob, .z3 .gc-prob {
+  display: block; font-size: .85em; color: var(--ink-quiet); font-weight: 500;
+}
+.z2.mk-thu .is-thu .gc-slot,
+.z3.mk-thu .is-thu .gc-slot,
+.z2.mk-prime .is-prime .gc-slot,
+.z3.mk-prime .is-prime .gc-slot,
+.z2 .is-intl .gc-slot,
+.z3 .is-intl .gc-slot {
+  display: block; font-size: 8.5px; letter-spacing: .06em;
+  color: var(--violet-ink); font-weight: 700;
+}
+.z3.mk-rest .gc-rest { display: block; font-size: 8.5px; color: var(--ink-quiet); }
+.z3.mk-rest .is-short .gc-rest { color: var(--amber-ink); font-weight: 700; }
+.z3.mk-rest .is-rested .gc-rest { color: var(--teal-ink); font-weight: 700; }
+
+/* Modelled, not priced. A dotted underline reads as provisional at any zoom
+   and survives being photographed off a screen, which a colour shift alone
+   does not. */
+.z1 .gc.is-proj .gc-prob,
+.z2 .gc.is-proj .gc-prob,
+.z3 .gc.is-proj .gc-prob {
+  display: inline-block;
+  color: var(--ink-quiet);
+  border-bottom: 1px dotted currentColor;
+}
+
+/* ── Paint: win probability ───────────────────────────────────────────── */
+
+.paint-prob .gc.p-6 { background: var(--p6); }
+.paint-prob .gc.p-5 { background: var(--p5); }
+.paint-prob .gc.p-4 { background: var(--p4); }
+.paint-prob .gc.p-3 { background: var(--p3); }
+.paint-prob .gc.p-2 { background: var(--p2); }
+.paint-prob .gc.p-1 { background: var(--p1); }
+.paint-prob .gc.p-0 { background: var(--p0); }
+
+/* ── Paint: survivor usability ────────────────────────────────────────── */
+
+.paint-surv .gc.s-hi   { background: var(--p6); }
+.paint-surv .gc.s-ok   { background: var(--p5); }
+.paint-surv .gc.s-edge { background: #F4F0E6; }
+.paint-surv .gc.s-no   { background: var(--paper-2); color: var(--ink-quiet); }
+.paint-surv .gc.s-no .gc-opp { font-weight: 400; }
+
+/* ── Paint: matchup type ──────────────────────────────────────────────── */
+
+.paint-type .gc.t-div   { background: #E3D9F0; }
+.paint-type .gc.t-conf  { background: #F1ECF7; }
+.paint-type .gc.t-inter { background: var(--white); }
+
+/* ── Marks ────────────────────────────────────────────────────────────── */
+
+.mk-div .gc.is-div  { box-shadow: inset 3px 0 0 var(--purple-mid); }
+.mk-div .gc.is-conf { box-shadow: inset 3px 0 0 #D3C7E4; }
+
+.mk-prime .gc.is-prime .gc-opp::before {
+  content: ''; display: inline-block;
+  width: 5px; height: 5px; margin-right: 3px; vertical-align: 1px;
+  border-radius: 50%; background: var(--violet);
+}
+
+/* Tag corner. Reserved to ::after on purpose — nothing else in the grid uses
+   that pseudo-element, so a tag can never be hidden behind another mark. */
+.mk-tags .gc.tag-target::after,
+.mk-tags .gc.tag-avoid::after,
+.mk-tags .gc.tag-watch::after {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 0; height: 0;
+  border-left: 9px solid transparent;
+}
+.mk-tags .gc.tag-target::after { border-top: 9px solid var(--good); }
+.mk-tags .gc.tag-avoid::after  { border-top: 9px solid var(--bad); }
+.mk-tags .gc.tag-watch::after  { border-top: 9px solid var(--warn); }
+
+/* ── Survivor state ───────────────────────────────────────────────────── */
+
+.gc.is-usedrow { opacity: .38; }
+.gc.is-mypick {
+  box-shadow: inset 0 0 0 2px var(--violet-ink) !important;
+  font-weight: 700;
+}
+
+/* ── Played games ─────────────────────────────────────────────────────── */
+
+.gc.is-post .gc-opp { color: var(--ink-quiet); }
+.gc.is-won  .gc-opp { color: var(--teal-ink); }
+.gc.is-lost .gc-opp { text-decoration: line-through; }
+
+/* ── Selection crosshair ──────────────────────────────────────────────── */
+
+.gc.is-selrow::before, .gc.is-selcol::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(79, 45, 127, .07);
+  pointer-events: none;
+}
+.gc.is-sel { outline: 2px solid var(--purple); outline-offset: -2px; z-index: 1; }
+.gteam.is-selrow, .gweeks th.is-selcol { background: var(--purple-soft); color: var(--purple); }
+
+/* ── Detail strip ─────────────────────────────────────────────────────── */
+
+.gdetail { padding: 16px 18px; margin: 0 0 14px; border-left: 4px solid var(--purple); }
+.gdetail-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.gdetail-head h3 { font-size: 1.125rem; font-weight: 500; }
+.gdetail-facts { margin: 10px 0 0; }
+.gdetail-facts strong { color: var(--purple); font-weight: 700; }
+.gdetail-move { margin: 4px 0 0; font-size: .875rem; }
+.gdetail-move:empty { display: none; }
+.gdetail-actions {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px;
+}
+.gdetail-note { font-size: .8125rem; color: var(--amber-ink); }
+
+.gtagset { display: inline-flex; gap: 6px; }
+.gtagbtn {
+  min-height: 46px; padding: 8px 14px;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--white); color: var(--ink-soft);
+  font: inherit; font-size: .8125rem; cursor: pointer;
+}
+.gtagbtn.is-on { color: var(--white); border-color: transparent; font-weight: 600; }
+.gtagbtn.tag-target.is-on { background: var(--good); }
+.gtagbtn.tag-avoid.is-on  { background: var(--bad); }
+.gtagbtn.tag-watch.is-on  { background: var(--warn); }
+
+/* ── Legend ───────────────────────────────────────────────────────────── */
+
+.glegend { padding: 0; }
+.glegend summary { cursor: pointer; padding: 16px 20px; font-weight: 500; }
+.glegend-body { padding: 0 20px 18px; }
+.glegend-body h3 { margin-top: 14px; }
+.glegend-body .lede { margin-bottom: 6px; max-width: 72ch; }
+.gswatch {
+  display: inline-block; width: 15px; height: 15px; margin: 0 1px 0 8px;
+  vertical-align: -3px; border: 1px solid var(--line); border-radius: 3px;
+}
+.gswatch.p-6 { background: var(--p6); } .gswatch.p-5 { background: var(--p5); }
+.gswatch.p-4 { background: var(--p4); } .gswatch.p-3 { background: var(--p3); }
+.gswatch.p-2 { background: var(--p2); } .gswatch.p-1 { background: var(--p1); }
+.gswatch.p-0 { background: var(--p0); }
+.gproj-demo { border-bottom: 1px dotted var(--ink-quiet); color: var(--ink-quiet); }
+
+/* ── Phone ────────────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .gridscroll { max-height: 68vh; }
+  .gridctl select { min-width: 120px; }
+  /* The team column is the anchor for horizontal scrolling, so it keeps its
+     legibility at the cost of one fewer week on screen. */
+  .gridwrap { --tw: 62px; }
+  .gridwrap.z3 { --tw: 80px; }
+}

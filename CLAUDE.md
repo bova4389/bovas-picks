@@ -10,7 +10,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   repo per the workspace convention (see workspace `CLAUDE.md` Git Setup). Pushed since 2026-08-11.
 - **Hosting**: **GitHub Pages, live** at `https://bova4389.github.io/bovas-picks/` (enabled
   2026-08-11), deploying from `main`. See GitHub Setup below.
-- **Status**: Pick Sheet, Odds, and Recommend tabs are functional. Lookback and Survivor still "Soon".
+- **Status**: Schedule, Grid, Pick Sheet, Odds and Recommend tabs are functional. Lookback and
+  Survivor still "Soon" — though the Grid tab already carries the survivor used-team tracking that
+  the Survivor tab was going to open with.
 
 **Folder left as `NFL Pickems/`, not renamed to match.** The rename request was for *displayed*
 branding — title, header, docs — not the repo's on-disk path. Renaming the folder now would touch
@@ -105,6 +107,14 @@ js/data.js          SHARED data layer — fetch + cache + localStorage          
 js/teams.js         team-name crosswalk (mascot ↔ full name ↔ abbreviation)    [NEVER versioned]
 js/oddsMatch.js      SHARED — join a {away,home} game to an odds event         [NEVER versioned]
 js/oddsBadge.js      SHARED — inline "who's favored" text fragment            [NEVER versioned]
+js/season.js        SHARED — season identity + the cross-feed audit          [NEVER versioned]
+js/seasonBanner.js  SHARED — the audit's rendering half                      [NEVER versioned]
+js/espn.js          SHARED — live scoreboard fetch, cached                   [NEVER versioned]
+js/gameState.js     SHARED — canonical "what happened in this game"          [NEVER versioned]
+js/gridModel.js     SHARED — the 32 x 18 team-week matrix, pure data         [NEVER versioned]
+js/survivorLeagues.js SHARED — per-pool used teams + field scarcity          [NEVER versioned]
+js/schedule.js      Schedule tab — one week, live scores
+js/grid.js          Grid tab — the whole season as one table
 js/picksheet.js     Pick Sheet tab
 js/odds.js          Odds tab — reads data/odds/, no fetching of its own
 js/recommend.js     Recommend tab — leverage = win prob ÷ pick share, per STRATEGY.md §4
@@ -216,6 +226,74 @@ Rules for new code:
    already read the new season, and Pick Sheet / Recommend should un-gate on their own.
 5. `SEASON` needs no edit. If you find yourself editing a year literal anywhere, that is the bug.
 
+## Grid Tab — Read Before Adding Any Highlight
+
+The whole season as one table: 32 teams down, 18 weeks across, built from
+`data/schedule-<year>.json` and painted from the odds snapshot. It replaces a hand-maintained
+Excel sheet, and it is the tab that gets the most use, so the rules below exist to stop it
+degrading into a swatch book.
+
+**One paint, many marks.** A cell has one background, so exactly one *paint* is ever active —
+win probability, survivor usability, or matchup type — and every background rule in `styles.css`
+is scoped under a `.paint-<mode>` container class to enforce that. Everything else is a *mark*: a
+border, a corner triangle, a glyph, a text line. **Any new highlight must be a mark, not a fourth
+background**, unless it replaces one of the three paints outright.
+
+**Toggles are container classes, never re-renders.** Paint, marks, zoom and the selection
+crosshair are all switched by editing the class list on `.gridwrap`. Re-rendering 576 cells is
+fast enough, but it drops the scroll position and the focused cell, and this grid is navigated
+with the arrow keys. `renderTable()` is only for changes that alter *which* rows or columns exist.
+
+**The odds join is the season-wide one.** `js/oddsMatch.js`'s `buildOddsIndex` keys purely on the
+team pair, which silently collapses both meetings of a division rivalry — harmless for one week's
+slate, fatal here, where all 272 games are on screen and 96 of them share a pair with another
+game. The grid uses `buildSeasonOddsIndex` / `matchSeasonOdds` from the same module, which key on
+pair **and** kickoff. Do not add a third join.
+
+`js/oddsBadge.js`'s `favoriteLine()` is deliberately **not** used here, and that is not a
+violation of the "odds are not siloed" rule. That rule is about never rebuilding the join, and the
+join is reused. `favoriteLine()` renders *the favorite*; every grid cell needs the probability
+oriented to **that row's team**, including when it is the dog, which a favorite-only fragment
+cannot express.
+
+**Midnight Eastern is not a kickoff.** ESPN carries not-yet-scheduled flex games at 00:00 with no
+time assigned — 24 of them in the 2026 file, all in Weeks 16-18. Read literally, every one looks
+like a Sunday afternoon game and the rest-day figures either side of it are fiction.
+`gridModel.js`'s `slotOf()` reports them as `TBD`, and those cells render no slot mark and no rest
+figure rather than a confident wrong one.
+
+**Rest days are a fact, not an edge.** STRATEGY.md §3 bans situational angles — revenge games,
+letdown and lookahead spots — as post-hoc filtered noise. "Off a bye" painted green is the same
+move wearing a lab coat. Rest is displayed as a plain number of days and left for the market
+figure in the same cell to price. Do not add a lookahead/letdown/revenge mark.
+
+**Text inside a painted cell uses the grid's own tones.** `--ink-soft` measures 5.30:1 on white
+but 3.55:1 on the strongest warm paint step, and `--ink-faint` fails everywhere — the same trap
+the AWAY/HOME label hit, one layer deeper. `--ink-quiet`, `--teal-ink` and `--amber-ink` were each
+measured against the *worst* background they can land on and clear 4.5:1 on all seven paint steps.
+Any new text in a `.gc` uses one of those.
+
+**Where state lives** (all localStorage, all per season where it matters):
+
+| Key | Holds |
+|---|---|
+| `grid:prefs` | paint, marks, zoom, sort, week window, active pool, hidden teams |
+| `grid:tags:<year>` | per-cell target / avoid / watch flags, keyed `TEAM\|WEEK` |
+| `survivor:<year>:<pool>` | my used teams for one pool, as `week -> team` |
+
+Used teams are stored **per pool and never merged** — SURVIVOR-STRATEGY.md's three pools are
+different games, and a pick that is right in the Yahoo pool can be wrong in Mike's the same
+Sunday. Field scarcity ("what share of surviving entries still holds this team") comes from
+`data/survivor-<year>.json` and is Mike's pool only; the two app pools have no such feed and are
+not getting one, because that document concludes pick popularity is not worth acting on at 15-20
+entrants.
+
+**Not built yet, in rough priority order:** free-text notes per cell (the tags are the flag half
+of that feature); ESPN team news and injury links in the detail strip; venue/neutral-site data,
+which would need `scripts/fetch_schedule.py` to capture `competitions[0].venue` and `neutralSite`
+— today the international slate is inferred from the 9:30am Eastern Sunday window, which catches
+all six of 2026's but would miss a Friday or Saturday game abroad.
+
 ## Data Pipeline
 
 The commissioner mails two Excel workbooks. Both are parsed into `data/`; neither is committed.
@@ -296,9 +374,16 @@ reading a committed file.
 - Running weekly win count and season-long total, mirroring how the pool itself scores.
 
 ### Survivor pool tracker
-- Teams already used (locked out for future weeks).
-- Remaining eligible teams, to help plan which strong teams to save for harder weeks later in the season.
-- Buy-back tracking (elimination date, re-entry date, new pick history restarting after buy-back).
+- **Teams already used (built)** — tracked per pool on the Grid tab, struck through in the team
+  column with the week they were spent. See the Grid Tab section for the storage keys.
+- **Remaining eligible teams (built)** — the Grid's "Survivor usable" paint colours only the weeks
+  clearing the ~70% floor, so what is left to spend, and when, is the shape of the grid itself.
+  "Only unused" hides spent teams entirely.
+- **Field scarcity (built, Mike's pool only)** — what share of surviving entries still holds each
+  team, from `data/survivor-<year>.json`.
+- Buy-back tracking (elimination date, re-entry date, new pick history restarting after buy-back)
+  — **not built.** `survivorLeagues.js` carries a `buybacks` counter in each pool's state and
+  nothing reads it yet.
 - **Whichever row lists remaining/available teams must show the favorite inline** (win %, from
   `js/oddsBadge.js`'s `favoriteLine()` — see "Odds are not siloed" under Site Architecture). Not
   optional: this is what lets a glance at the grid answer "which of my remaining teams has a good
