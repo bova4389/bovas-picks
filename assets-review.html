@@ -18,12 +18,11 @@
     --warn:#B26A00; --bad:#B3261E;
     --r-lg:20px; --r-md:12px; --r-sm:8px;
     --shadow-sm:0 1px 2px rgba(43,20,77,.06), 0 2px 8px rgba(43,20,77,.04);
-    --wrap:1120px;
+    --wrap:1180px;
 
     /* The Schedule tab's .schedteam-badge slot. This is the number that
-       matters — everything on this page defaults to it. */
+       matters — every mark on this page is sized from it. */
     --slot: 28px;
-    --stage: var(--paper);
   }
   * { box-sizing:border-box; }
   body {
@@ -31,85 +30,103 @@
     font:15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap { max-width:var(--wrap); margin:0 auto; padding:28px 20px 80px; }
+  .wrap { max-width:var(--wrap); margin:0 auto; padding:26px 20px 90px; }
   h1 { font-size:1.5rem; margin:0 0 4px; color:var(--purple-deep); letter-spacing:-.01em; }
-  h2 {
-    font-size:1.05rem; margin:38px 0 6px; color:var(--purple-deep);
-    display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
-  }
-  h2 .note { font-size:.8rem; font-weight:400; color:var(--ink-soft); }
-  .lede { color:var(--ink-soft); margin:0 0 22px; max-width:70ch; }
+  .lede { color:var(--ink-soft); margin:0 0 20px; max-width:74ch; }
   code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.85em;
          background:var(--paper-2); padding:1px 5px; border-radius:4px; }
 
-  /* controls */
   .panel {
     position:sticky; top:0; z-index:5; background:var(--white);
-    border:1px solid var(--line); border-radius:var(--r-md); padding:12px 14px;
+    border:1px solid var(--line); border-radius:var(--r-md); padding:11px 14px;
     display:flex; gap:20px; align-items:center; flex-wrap:wrap;
-    box-shadow:var(--shadow-sm); margin-bottom:6px;
+    box-shadow:var(--shadow-sm); margin-bottom:14px;
   }
   .panel label { font-size:.8rem; color:var(--ink-soft); font-weight:600;
                  display:flex; align-items:center; gap:8px; }
-  input[type=range] { width:170px; accent-color:var(--purple); }
+  input[type=range] { width:150px; accent-color:var(--purple); }
   .val { font-variant-numeric:tabular-nums; color:var(--purple-deep); font-weight:700;
-         min-width:46px; display:inline-block; }
-  .swatches { display:flex; gap:6px; }
-  .sw { width:26px; height:26px; border-radius:6px; border:1px solid var(--line); cursor:pointer; padding:0; }
-  .sw[aria-pressed="true"] { outline:2px solid var(--violet); outline-offset:2px; }
-  .btn {
-    border:1px solid var(--line); background:var(--white); color:var(--ink);
-    border-radius:999px; padding:5px 12px; font-size:.8rem; font-weight:600; cursor:pointer;
-  }
+         min-width:40px; display:inline-block; }
+  .btn { border:1px solid var(--line); background:var(--white); color:var(--ink);
+         border-radius:999px; padding:5px 12px; font-size:.8rem; font-weight:600; cursor:pointer; }
   .btn[aria-pressed="true"] { background:var(--purple); border-color:var(--purple); color:#fff; }
 
-  /* stage */
-  .stage { background:var(--stage); border:1px solid var(--line); border-radius:var(--r-md);
-           padding:16px; margin-top:10px; }
-
-  /* the real thing: a schedule bar */
-  .schedgame {
-    background:var(--white); border:1px solid var(--line); border-radius:var(--r-md);
-    padding:10px 14px; margin-bottom:8px; display:flex; align-items:center; gap:12px;
-    box-shadow:var(--shadow-sm);
+  /* ---- variant blocks ---- */
+  .variant { margin:30px 0 0; }
+  .variant > h2 {
+    font-size:1.02rem; margin:0 0 3px; color:var(--purple-deep);
+    display:flex; align-items:baseline; gap:9px; flex-wrap:wrap;
   }
+  .variant > h2 .tag {
+    font-size:.66rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
+    color:#fff; background:var(--purple-mid); border-radius:999px; padding:2px 8px;
+  }
+  .variant > h2 .tag.rec { background:var(--teal); }
+  .variant > h2 .tag.warn { background:var(--warn); }
+  .why { color:var(--ink-soft); font-size:.87rem; margin:0 0 10px; max-width:82ch; }
+  .why b { color:var(--ink); }
+  .rows { border-radius:var(--r-md); padding:12px; }
+
+  /* ---- the matchup bar: real Schedule class names ---- */
+  .schedgame {
+    border-radius:var(--r-md); padding:9px 14px; margin-bottom:7px;
+    display:flex; align-items:center; gap:12px; border:1px solid transparent;
+  }
+  .schedgame:last-child { margin-bottom:0; }
   .schedteam { display:flex; align-items:center; gap:10px; flex:1; min-width:0; }
   .schedteam-home { flex-direction:row-reverse; }
   .schedteam-badge {
-    width:var(--slot); height:var(--slot); border-radius:7px; flex:none;
-    background:var(--paper-2); display:grid; place-items:center; overflow:hidden;
+    width:var(--slot); height:var(--slot); flex:none;
+    display:grid; place-items:center; overflow:hidden;
   }
   .schedteam-badge img { width:100%; height:100%; object-fit:contain; display:block; }
-  .schedteam-name { font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .schedgame-mid { color:var(--ink-faint); font-size:.8rem; flex:none; }
-
-  /* grids */
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); gap:4px 6px; }
-  .cell {
-    display:flex; flex-direction:column; align-items:center; gap:5px;
-    padding:9px 4px; border-radius:var(--r-sm);
+  .schedteam-name {
+    font-weight:650; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    letter-spacing:-.005em;
   }
-  .cell:hover { background:rgba(160,109,255,.09); }
-  .cell .abbr { font-size:.68rem; color:var(--ink-soft); font-weight:700; letter-spacing:.04em; }
-  .cell.flag .abbr { color:var(--violet-ink); }
-  .cell.flag .abbr::after { content:" ●"; color:var(--violet); font-size:.7em; }
+  .schedteam-wm { flex:1; min-width:0; display:flex; align-items:center; }
+  .schedteam-home .schedteam-wm { justify-content:flex-end; }
+  .schedteam-wm img { height:calc(var(--slot) * .72); width:auto; max-width:100%; object-fit:contain; }
+  .schedgame-mid {
+    flex:none; font-size:.72rem; font-weight:700; letter-spacing:.06em;
+    text-transform:uppercase; opacity:.55;
+  }
+
+  /* stage backgrounds */
+  .on-white   { background:#FFFFFF; }
+  .on-paper   { background:var(--paper); }
+  .on-paper2  { background:var(--paper-2); }
+  .on-deep    { background:#241A33; }
+  .on-black   { background:#111111; }
+  .rows.on-white .schedgame, .rows.on-paper .schedgame, .rows.on-paper2 .schedgame { background:#fff; border-color:var(--line); }
+  .rows.on-deep .schedgame, .rows.on-black .schedgame { background:rgba(255,255,255,.055); border-color:rgba(255,255,255,.12); }
+  .rows.on-deep .schedteam-name, .rows.on-black .schedteam-name { color:#F4F2F7; }
+  .rows.on-deep .schedgame-mid, .rows.on-black .schedgame-mid { color:#CFC8DC; }
+
+  /* ---- contrast report ---- */
+  table.cx { border-collapse:collapse; font-size:.84rem; width:100%; max-width:760px; }
+  table.cx th { text-align:left; font-size:.7rem; text-transform:uppercase; letter-spacing:.06em;
+                color:var(--ink-soft); border-bottom:1px solid var(--line); padding:5px 10px 5px 0; }
+  table.cx td { padding:4px 10px 4px 0; border-bottom:1px solid var(--line); vertical-align:middle; }
+  .chip { display:inline-flex; align-items:center; gap:7px; }
+  .chip i { width:14px; height:14px; border-radius:3px; display:block; border:1px solid rgba(0,0,0,.12); }
+  .ratio { font-variant-numeric:tabular-nums; }
+  .fail { color:var(--bad); font-weight:700; }
+  .pass { color:var(--teal); font-weight:700; }
+  .swatch-txt { font-weight:700; }
+
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(104px,1fr)); gap:3px 6px; }
+  .cell { display:flex; flex-direction:column; align-items:center; gap:5px; padding:9px 4px; border-radius:var(--r-sm); }
+  .cell .abbr { font-size:.67rem; color:var(--ink-soft); font-weight:700; letter-spacing:.04em; }
   .box { width:var(--slot); height:var(--slot); display:grid; place-items:center; }
   .box img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
-  .pair { display:flex; gap:3px; align-items:center; }
-
-  .wordmarks { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:12px; }
-  .wm { background:var(--white); border:1px solid var(--line); border-radius:var(--r-sm);
-        padding:12px; display:flex; align-items:center; justify-content:center; min-height:56px; }
+  .wmgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px; }
+  .wm { background:#fff; border:1px solid var(--line); border-radius:var(--r-sm); padding:11px;
+        display:flex; align-items:center; justify-content:center; min-height:52px; }
   .wm img { max-width:100%; height:auto; }
-
-  .legend { font-size:.8rem; color:var(--ink-soft); margin:8px 0 0; }
-  .legend b { color:var(--violet-ink); }
-  table.tally { border-collapse:collapse; font-size:.85rem; margin-top:8px; }
-  table.tally td { padding:2px 14px 2px 0; }
-  table.tally td:first-child { color:var(--ink-soft); }
-  table.tally b { font-variant-numeric:tabular-nums; }
-  .miss { color:var(--bad); font-weight:700; }
-  .ok { color:var(--teal); font-weight:700; }
+  .note { font-size:.8rem; color:var(--ink-soft); }
+  .err { background:#FCEDEC; border:1px solid #E7B7B3; color:#8A211B; padding:12px 14px;
+         border-radius:var(--r-md); margin:14px 0; }
 </style>
 </head>
 <body>
@@ -117,66 +134,53 @@
 
   <h1>Team asset review</h1>
   <p class="lede">
-    Every logo, helmet and wordmark in <code>assets/teams/</code>, rendered at the size the
-    Schedule tab actually reserves for them — <code>.schedteam-badge</code> is
-    <code>28&times;28px</code>. The Odds tab has no image slot today; it is text only. Drag the
-    size control to judge other sizes before committing to one.
+    Logos and wordmarks at the size the Schedule tab reserves for a team mark —
+    <code>.schedteam-badge</code> is <code>28&times;28px</code>. The Odds tab has no image slot
+    today; it is text only. Helmet images were dropped on 2026-08-13: at 28px a side-profile
+    helmet reads as a grey blob no matter how current its decal is.
   </p>
 
   <div class="panel">
-    <label>Size
-      <input id="size" type="range" min="14" max="96" step="1" value="28" />
+    <label>Mark size
+      <input id="size" type="range" min="16" max="72" step="1" value="28" />
       <span class="val" id="sizeVal">28px</span>
     </label>
-    <label>Background
-      <span class="swatches" id="bgs"></span>
+    <label>Show
+      <button class="btn" data-mode="all" aria-pressed="true">All variants</button>
+      <button class="btn" data-mode="tricky" aria-pressed="false">Hard-contrast teams only</button>
     </label>
-    <label>Helmet facing
-      <button class="btn" data-facing="match" aria-pressed="true">Matchup</button>
-      <button class="btn" data-facing="right" aria-pressed="false">Right</button>
-      <button class="btn" data-facing="left" aria-pressed="false">Left</button>
-    </label>
-    <button class="btn" id="reset">Reset to 28px</button>
+    <button class="btn" id="reset">Reset</button>
+    <span class="note" id="inv"></span>
   </div>
 
-  <h2>Inventory <span class="note">counted from the files this page loads</span></h2>
-  <table class="tally">
-    <tr><td>Logos</td><td><b id="tLogo">…</b> / 32</td></tr>
-    <tr><td>Helmets</td><td><b id="tHelm">…</b> / 64 <span class="note">(both facings)</span></td></tr>
-    <tr><td>Wordmarks</td><td><b id="tWord">…</b> / 32</td></tr>
-    <tr><td>Failed to load</td><td id="tFail">…</td></tr>
-  </table>
-  <p class="legend">
-    <b>●</b> marks the two helmets rebuilt in-repo on 2026-08-13 — Jets (2024 decal) and
-    Titans (2026 white shell). Everything else is the 2023 upstream artwork.
-  </p>
+  <div id="fail" class="err" hidden></div>
+  <div id="variants"></div>
 
-  <h2>As a Schedule row <span class="note">away left, home right — the tab's real layout</span></h2>
-  <div class="stage">
-    <div id="matchups"></div>
+  <div class="variant">
+    <h2>Why some names cannot simply be the team colour</h2>
+    <p class="why">
+      This project holds a <b>4.5:1</b> contrast floor for text. Measured against white,
+      <b id="nFail">…</b> of 32 primaries fail it outright and two more sit within a rounding error.
+      Variant D therefore does not use the raw hex — it darkens each colour just far enough to pass,
+      which keeps the team recognisable without breaking the floor. The column below shows the
+      original, the ratio it scores, and the adjusted value actually rendered.
+    </p>
+    <table class="cx" id="cx"></table>
   </div>
-  <p class="legend">
-    Helmets are named by the direction they point. Away sits on the left so it takes the
-    <b>right-facing</b> helmet; home sits on the right and takes the <b>left-facing</b> one, so both
-    face the middle of the card.
-  </p>
 
-  <h2>All 32 logos</h2>
-  <div class="stage"><div class="grid" id="gLogos"></div></div>
+  <div class="variant">
+    <h2>All 32 logos</h2>
+    <div class="rows on-white"><div class="grid" id="gLogos"></div></div>
+  </div>
 
-  <h2>All 32 helmets</h2>
-  <div class="stage"><div class="grid" id="gHelms"></div></div>
-
-  <h2>Wordmarks <span class="note">shown at natural width; not used in Schedule or Odds</span></h2>
-  <div class="stage"><div class="wordmarks" id="gWords"></div></div>
+  <div class="variant">
+    <h2>All 32 wordmarks <span class="note">natural width</span></h2>
+    <div class="rows on-white"><div class="wmgrid" id="gWords"></div></div>
+  </div>
 
 </div>
 
-<script>
-const TEAMS = ["ARI","ATL","BAL","BUF","CAR","CHI","CIN","CLE","DAL","DEN","DET","GB",
-  "HOU","IND","JAC","KC","LAC","LAR","LV","MIA","MIN","NE","NO","NYG","NYJ","PHI",
-  "PIT","SEA","SF","TB","TEN","WAS"];
-const REBUILT = new Set(["NYJ","TEN"]);
+<script type="module">
 const NAMES = {ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Panthers",
   CHI:"Bears",CIN:"Bengals",CLE:"Browns",DAL:"Cowboys",DEN:"Broncos",DET:"Lions",
   GB:"Packers",HOU:"Texans",IND:"Colts",JAC:"Jaguars",KC:"Chiefs",LAC:"Chargers",
@@ -184,122 +188,266 @@ const NAMES = {ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Panth
   NYG:"Giants",NYJ:"Jets",PHI:"Eagles",PIT:"Steelers",SEA:"Seahawks",SF:"49ers",
   TB:"Buccaneers",TEN:"Titans",WAS:"Commanders"};
 
-// A few games worth eyeballing: the two rebuilds, a dark shell, a light shell.
-const GAMES = [["NYJ","TEN"],["TEN","IND"],["NYJ","NE"],["PIT","DAL"],["LAR","SEA"]];
+// Deliberately weighted toward the teams that break things: NO/TEN/CIN/CLE/
+// MIA/CAR/LAC all fail 4.5:1 on white, and CIN v CLE is two near-identical
+// oranges in the same bar.
+const GAMES_ALL = [["NO","TEN"],["CIN","CLE"],["MIA","CAR"],["LAC","KC"],["PIT","BAL"],["GB","MIN"]];
+const GAMES_TRICKY = [["NO","TEN"],["CIN","CLE"],["MIA","CAR"],["LAC","KC"]];
 
-let loaded = {logo:0, helmet:0, wordmark:0}, failed = [];
+// ---- colour maths --------------------------------------------------------
+const lum = (hex) => {
+  const h = String(hex).replace('#','');
+  const ch = (p) => { const c = parseInt(p,16)/255;
+    return c <= 0.03928 ? c/12.92 : ((c+0.055)/1.055) ** 2.4; };
+  return 0.2126*ch(h.slice(0,2)) + 0.7152*ch(h.slice(2,4)) + 0.0722*ch(h.slice(4,6));
+};
+const ratio = (a,b) => { const x=lum(a), y=lum(b);
+  return (Math.max(x,y)+0.05)/(Math.min(x,y)+0.05); };
+const readableInkOn = (bg) => lum(bg) > 0.179 ? '#000000' : '#FFFFFF';
 
-function img(src, kind, alt){
-  const el = document.createElement('img');
-  // Deliberately NOT loading="lazy". The inventory tally below counts load
-  // events, and with lazy loading it only ever reaches 32/64/32 once you have
-  // scrolled every grid into view — which makes a "is anything missing?" page
-  // report missing assets that are fine. 128 small PNGs load in one go.
-  el.alt = alt; el.src = src;
-  // kind === null means "render it but do not count it": the Schedule preview
-  // re-uses 10 helmets that the grid below already counts, and counting both
-  // reported 74 of 64 helmets.
-  el.addEventListener('load',  () => { if (kind) loaded[kind]++; tally(); });
-  el.addEventListener('error', () => { failed.push(src); tally(); });
-  return el;
+/** Darken `hex` just far enough to clear `target` against `bg`.
+ *  Scaling RGB toward black keeps hue and reads as the same team colour; the
+ *  alternative — swapping to black — throws the identity away entirely, which
+ *  is the whole point of this variant. */
+function ensureContrast(hex, bg = '#FFFFFF', target = 4.5) {
+  let h = String(hex).replace('#','');
+  let [r,g,b] = [0,2,4].map(i => parseInt(h.slice(i,i+2),16));
+  const to = (r,g,b) => '#' + [r,g,b].map(v => Math.round(v).toString(16).padStart(2,'0')).join('');
+  let out = to(r,g,b), guard = 0;
+  while (ratio(out,bg) < target && guard++ < 60) {
+    r *= 0.94; g *= 0.94; b *= 0.94;
+    out = to(r,g,b);
+  }
+  return out;
 }
-function tally(){
-  document.getElementById('tLogo').textContent = loaded.logo;
-  document.getElementById('tHelm').textContent = loaded.helmet;
-  document.getElementById('tWord').textContent = loaded.wordmark;
-  const f = document.getElementById('tFail');
-  f.textContent = failed.length ? failed.length + ' — ' + failed.join(', ') : 'none';
-  f.className = failed.length ? 'miss' : 'ok';
-}
+const mix = (hex, bg, t) => {   // t = how much of `hex`
+  const p = (x)=>[0,2,4].map(i=>parseInt(String(x).replace('#','').slice(i,i+2),16));
+  const [r1,g1,b1]=p(hex), [r2,g2,b2]=p(bg);
+  const m=(a,b)=>Math.round(a*t + b*(1-t));
+  return '#' + [m(r1,r2),m(g1,g2),m(b1,b2)].map(v=>v.toString(16).padStart(2,'0')).join('');
+};
 
-// ---- schedule rows -------------------------------------------------------
-const mUp = document.getElementById('matchups');
-GAMES.forEach(([away, home]) => {
+// ---- data ----------------------------------------------------------------
+let TEAMS = {};
+try {
+  const res = await fetch('data/teams/team-identity.json');
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  TEAMS = (await res.json()).teams;
+} catch (e) {
+  const box = document.getElementById('fail');
+  box.hidden = false;
+  box.innerHTML = `<b>Could not load <code>data/teams/team-identity.json</code></b> (${e.message}).
+    Colours come from that file, so the variants below need this page served over http —
+    open it through the dev server or the live site rather than as a <code>file://</code> path.`;
+}
+const primary = (t) => TEAMS[t]?.palette?.primary?.hex ?? '#666666';
+const secondary = (t) => TEAMS[t]?.palette?.secondary?.hex ?? '#999999';
+const logoSrc = (t) => TEAMS[t]?.assets?.logo ?? `assets/teams/logos/${t}.png`;
+const wmSrc = (t) => TEAMS[t]?.assets?.wordmark ?? `assets/teams/wordmarks/${t}.png`;
+
+// ---- variant definitions -------------------------------------------------
+// Each returns the inline style + content decisions for one side of a bar.
+const VARIANTS = [
+  {
+    id:'a', tag:'Baseline', cls:'rec',
+    title:'Logo + name, black on white',
+    why:`Your instinct, and it holds up: the logo carries the colour, the type stays out of its
+         way. Nothing here can fail contrast, and it is the only variant that looks identical for
+         all 32 teams — so no team gets accidentally louder than another.`,
+    stage:'on-white',
+    side:(t) => ({ nameColor:'#111111' })
+  },
+  {
+    id:'b', tag:'Baseline', cls:'',
+    title:'Logo + name on the site’s paper',
+    why:`Same thing on <code>--paper</code>, which is what the Schedule tab actually sits on. Worth
+         seeing because several logos have white in them — the Patriots, Cowboys and Giants marks
+         all have white interior shapes that disappear into a white card and reappear on paper.`,
+    stage:'on-paper',
+    side:(t) => ({ nameColor:'#111111' })
+  },
+  {
+    id:'c', tag:'Tinted', cls:'',
+    title:'Team-colour wash behind each side',
+    why:`An 8% tint of the team colour behind its half of the bar. Enough to read as "this side is
+         theirs" without competing with the logo. The tint is mixed against the card rather than
+         set with opacity, so the text contrast underneath stays predictable.`,
+    stage:'on-white',
+    side:(t) => ({ nameColor:'#111111', bg:mix(primary(t),'#FFFFFF',0.08) })
+  },
+  {
+    id:'d', tag:'Team colour', cls:'warn',
+    title:'Team name in the team’s own colour, darkened to pass 4.5:1',
+    why:`What you asked for, with the floor enforced. Seven primaries fail 4.5:1 on white outright
+         — Saints, Titans, Bengals, Browns, Dolphins, Panthers, Chargers — so each colour is
+         darkened only as far as it must be. Compare the Bengals and Browns rows against variant A:
+         at this size the coloured name reads as fussier, and the two orange teams stop being
+         distinguishable from one another.`,
+    stage:'on-white',
+    side:(t) => ({ nameColor:ensureContrast(primary(t),'#FFFFFF',4.5) })
+  },
+  {
+    id:'e', tag:'Team colour', cls:'',
+    title:'Colour carried by an edge bar, not the type',
+    why:`The team colour appears as a 4px rule on the outer edge of each side, with the name left
+         black. This gets team colour into the row without putting it anywhere it has to pass a
+         contrast test — a bar is not text, so the full-strength hex is usable.`,
+    stage:'on-white',
+    side:(t,which) => ({ nameColor:'#111111', edge:primary(t), which })
+  },
+  {
+    id:'f', tag:'Wordmark', cls:'',
+    title:'Wordmark instead of logo and name',
+    why:`No logo, no typed name — the wordmark is both. Reads cleanly and is unmistakably on-brand,
+         but note the trade: wordmark widths vary a lot (Tennessee is stacked two-line, Jacksonville
+         is very wide), so the two sides of a bar do not balance, and 13 of them are a single ink
+         that vanishes on a matching background.`,
+    stage:'on-white',
+    side:() => ({ wordmark:true })
+  },
+  {
+    id:'g', tag:'Dark', cls:'',
+    title:'Logo + name on a dark card',
+    why:`For comparison, since the transparent PNGs have to survive it. Most hold up; the ones to
+         look at are the teams whose marks are mostly dark ink — the Raiders, Steelers, Bears and
+         Jets shields lose their edges against this.`,
+    stage:'on-deep',
+    side:() => ({ nameColor:'#F4F2F7' })
+  },
+];
+
+// ---- render --------------------------------------------------------------
+function bar(away, home, v) {
   const row = document.createElement('div');
   row.className = 'schedgame';
-  const side = (abbr, which) => {
+
+  const side = (t, which) => {
+    const cfg = v.side(t, which) || {};
     const d = document.createElement('div');
     d.className = 'schedteam schedteam-' + which;
+    if (cfg.bg) d.style.background = cfg.bg;
+    if (cfg.edge) {
+      d.style[which === 'away' ? 'borderLeft' : 'borderRight'] = `4px solid ${cfg.edge}`;
+      d.style[which === 'away' ? 'paddingLeft' : 'paddingRight'] = '9px';
+    }
+
+    if (cfg.wordmark) {
+      const w = document.createElement('div');
+      w.className = 'schedteam-wm';
+      const im = document.createElement('img');
+      im.src = wmSrc(t); im.alt = NAMES[t] + ' wordmark';
+      w.appendChild(im); d.appendChild(w);
+      return d;
+    }
+
     const badge = document.createElement('div');
     badge.className = 'schedteam-badge';
-    // away on the left points right; home on the right points left
-    badge.appendChild(img(`assets/teams/helmets/${abbr}-${which==='away'?'right':'left'}.png`,
-                          null, `${NAMES[abbr]} helmet`));
+    const im = document.createElement('img');
+    im.src = logoSrc(t); im.alt = NAMES[t];
+    badge.appendChild(im);
+
     const n = document.createElement('span');
-    n.className = 'schedteam-name'; n.textContent = NAMES[abbr];
+    n.className = 'schedteam-name';
+    n.textContent = NAMES[t];
+    if (cfg.nameColor) n.style.color = cfg.nameColor;
+
     d.append(badge, n);
     return d;
   };
+
   const mid = document.createElement('span');
-  mid.className = 'schedgame-mid'; mid.textContent = 'Sun 1:00';
+  mid.className = 'schedgame-mid';
+  mid.textContent = 'Sun 1:00';
   row.append(side(away,'away'), mid, side(home,'home'));
-  mUp.appendChild(row);
-});
+  return row;
+}
 
-// ---- grids ---------------------------------------------------------------
-const gL = document.getElementById('gLogos'), gH = document.getElementById('gHelms');
-TEAMS.forEach(t => {
-  const cell = (inner) => {
-    const c = document.createElement('div');
-    c.className = 'cell' + (REBUILT.has(t) ? ' flag' : '');
-    const a = document.createElement('span'); a.className='abbr'; a.textContent=t;
-    c.append(inner, a); return c;
-  };
-  const box = document.createElement('div');
-  box.className='box'; box.appendChild(img(`assets/teams/logos/${t}.png`,'logo',NAMES[t]));
-  gL.appendChild(cell(box));
-
-  const pair = document.createElement('div');
-  pair.className='pair'; pair.dataset.team=t;
-  ['right','left'].forEach(f => {
-    const b = document.createElement('div'); b.className='box facing-'+f;
-    b.appendChild(img(`assets/teams/helmets/${t}-${f}.png`,'helmet',`${NAMES[t]} ${f}`));
-    pair.appendChild(b);
+let games = GAMES_ALL;
+function renderVariants() {
+  const host = document.getElementById('variants');
+  host.textContent = '';
+  VARIANTS.forEach(v => {
+    const sec = document.createElement('section');
+    sec.className = 'variant';
+    const h = document.createElement('h2');
+    h.innerHTML = `<span class="tag ${v.cls}">${v.tag}</span> ${v.title}`;
+    const why = document.createElement('p');
+    why.className = 'why'; why.innerHTML = v.why;
+    const rows = document.createElement('div');
+    rows.className = 'rows ' + v.stage;
+    games.forEach(([a,b]) => rows.appendChild(bar(a,b,v)));
+    sec.append(h, why, rows);
+    host.appendChild(sec);
   });
-  gH.appendChild(cell(pair));
-});
+}
 
-const gW = document.getElementById('gWords');
-TEAMS.forEach(t => {
-  const d = document.createElement('div'); d.className='wm';
-  d.appendChild(img(`assets/teams/wordmarks/${t}.png`,'wordmark',NAMES[t]+' wordmark'));
-  gW.appendChild(d);
-});
+function renderGrids() {
+  const gL = document.getElementById('gLogos'), gW = document.getElementById('gWords');
+  gL.textContent=''; gW.textContent='';
+  Object.keys(NAMES).sort().forEach(t => {
+    const c = document.createElement('div'); c.className='cell';
+    const box = document.createElement('div'); box.className='box';
+    const im = document.createElement('img'); im.src=logoSrc(t); im.alt=NAMES[t];
+    box.appendChild(im);
+    const ab = document.createElement('span'); ab.className='abbr'; ab.textContent=t;
+    c.append(box, ab); gL.appendChild(c);
+
+    const w = document.createElement('div'); w.className='wm';
+    const wi = document.createElement('img'); wi.src=wmSrc(t); wi.alt=NAMES[t]+' wordmark';
+    w.appendChild(wi); gW.appendChild(w);
+  });
+}
+
+function renderContrast() {
+  const rows = Object.keys(NAMES).sort().map(t => {
+    const p = primary(t);
+    const r = ratio(p, '#FFFFFF');
+    return { t, p, r, adj: ensureContrast(p, '#FFFFFF', 4.5) };
+  }).sort((a,b) => a.r - b.r);
+
+  const fails = rows.filter(r => r.r < 4.5);
+  document.getElementById('nFail').textContent = fails.length;
+
+  const tbl = document.getElementById('cx');
+  tbl.innerHTML = `<thead><tr><th>Team</th><th>Primary</th><th>On white</th>
+    <th>Darkened for variant D</th><th>Then</th></tr></thead>`;
+  const body = document.createElement('tbody');
+  rows.forEach(({t,p,r,adj}) => {
+    const tr = document.createElement('tr');
+    const ok = r >= 4.5;
+    tr.innerHTML = `
+      <td>${NAMES[t]} <span class="note">${t}</span></td>
+      <td><span class="chip"><i style="background:${p}"></i><code>${p}</code></span></td>
+      <td class="ratio ${ok?'pass':'fail'}">${r.toFixed(2)}:1${ok?'':' ✗'}</td>
+      <td><span class="chip"><i style="background:${adj}"></i><code>${adj}</code></span></td>
+      <td class="swatch-txt" style="color:${adj}">${NAMES[t]}</td>`;
+    body.appendChild(tr);
+  });
+  tbl.appendChild(body);
+}
 
 // ---- controls ------------------------------------------------------------
 const size = document.getElementById('size'), sizeVal = document.getElementById('sizeVal');
 function applySize(){
   document.documentElement.style.setProperty('--slot', size.value + 'px');
-  sizeVal.textContent = size.value + 'px' + (size.value === '28' ? ' — Schedule slot' : '');
+  sizeVal.textContent = size.value + 'px' + (size.value === '28' ? ' ✓' : '');
 }
-size.addEventListener('input', applySize); applySize();
-document.getElementById('reset').addEventListener('click', () => { size.value = 28; applySize(); });
+size.addEventListener('input', applySize);
+document.getElementById('reset').addEventListener('click', () => { size.value=28; applySize(); });
 
-const BGS = [['Paper','#F2F0EE'],['White','#FFFFFF'],['Card 2','#EAE7E4'],['Deep','#2B144D'],['Black','#111111']];
-const bgs = document.getElementById('bgs');
-BGS.forEach(([name,hex],i) => {
-  const b = document.createElement('button');
-  b.className='sw'; b.style.background=hex; b.title=name;
-  b.setAttribute('aria-pressed', i===0 ? 'true':'false');
-  b.addEventListener('click', () => {
-    document.documentElement.style.setProperty('--stage', hex);
-    [...bgs.children].forEach(c => c.setAttribute('aria-pressed','false'));
-    b.setAttribute('aria-pressed','true');
-  });
-  bgs.appendChild(b);
-});
+document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('[data-mode]').forEach(x => x.setAttribute('aria-pressed','false'));
+  b.setAttribute('aria-pressed','true');
+  games = b.dataset.mode === 'tricky' ? GAMES_TRICKY : GAMES_ALL;
+  renderVariants();
+}));
 
-document.querySelectorAll('[data-facing]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('[data-facing]').forEach(b => b.setAttribute('aria-pressed','false'));
-    btn.setAttribute('aria-pressed','true');
-    const mode = btn.dataset.facing;
-    document.querySelectorAll('#gHelms .pair').forEach(p => {
-      p.querySelector('.facing-right').style.display = (mode==='left') ? 'none' : '';
-      p.querySelector('.facing-left').style.display  = (mode==='right') ? 'none' : '';
-    });
-  });
-});
+applySize();
+renderVariants();
+renderGrids();
+renderContrast();
+document.getElementById('inv').textContent =
+  `${Object.keys(TEAMS).length || 32} teams · 32 logos · 32 wordmarks · no helmets`;
 </script>
 </body>
 </html>

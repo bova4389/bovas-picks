@@ -115,19 +115,14 @@ export async function teamUniform(team, side = 'home') {
  * nothing" contract as oddsBadge's favoriteLine(), so callers treat a missing
  * asset as a layout decision rather than an error.
  *
- * `kind` is 'logo' | 'wordmark' | 'helmet'. Helmets come in two facings; pass
- * `facing` as 'left' or 'right' meaning the direction the helmet points. In a
- * matchup, the left-hand team wants 'right' and the right-hand team wants
- * 'left' so the two face each other.
+ * `kind` is 'logo' | 'wordmark'. There is no 'helmet': the helmet images were
+ * dropped on 2026-08-13 because they did not read at the ~28px a team mark gets
+ * here. An unknown kind returns '' like any other missing asset, so a stale
+ * caller renders nothing rather than throwing.
  */
-export async function markPath(team, kind = 'logo', facing = 'right') {
+export async function markPath(team, kind = 'logo') {
   const record = await getTeam(team);
   if (!record) return '';
-
-  if (kind === 'helmet') {
-    const key = facing === 'left' ? 'helmetFacingLeft' : 'helmetFacingRight';
-    return record.assets?.[key] ?? '';
-  }
   return record.assets?.[kind] ?? '';
 }
 

@@ -113,7 +113,7 @@ js/espn.js          SHARED — live scoreboard fetch, cached                   [
 js/gameState.js     SHARED — canonical "what happened in this game"          [NEVER versioned]
 js/gridModel.js     SHARED — the 32 x 18 team-week matrix, pure data         [NEVER versioned]
 js/survivorLeagues.js SHARED — per-pool used teams + field scarcity          [NEVER versioned]
-js/teamIdentity.js  SHARED — team colours, uniforms, logo/helmet paths       [NEVER versioned]
+js/teamIdentity.js  SHARED — team colours, uniforms, logo/wordmark paths     [NEVER versioned]
 js/schedule.js      Schedule tab — one week, live scores
 js/grid.js          Grid tab — the whole season as one table
 js/picksheet.js     Pick Sheet tab
@@ -429,7 +429,6 @@ data/
 
 assets/teams/
 ├── logos/<ABBR>.png                ← 500×500 primary logo
-├── helmets/<ABBR>-{left,right}.png ← by the direction the helmet faces
 ├── wordmarks/<ABBR>.png            ← team name, single ink
 └── NOTICE.md                       ← provenance + trademark terms. Read before reusing.
 ```
@@ -450,7 +449,8 @@ import { teamColors, teamUniform, markPath } from './teamIdentity.js';
 
 const c = await teamColors('Buccaneers');        // {primary, secondary, ink} — or null
 const kit = await teamUniform('Buccaneers', 'home');  // {jersey, pants, helmet, socks, kind}
-const helmet = await markPath('Buccaneers', 'helmet', 'right');  // '' means render nothing
+const logo = await markPath('Buccaneers');            // 'logo' is the default
+const wm = await markPath('Buccaneers', 'wordmark');  // '' means render nothing
 ```
 
 Lookups accept all three upstream spellings (`TB`, `Buccaneers`, `Tampa Bay Buccaneers`) plus the
@@ -483,19 +483,17 @@ Three things about the data that are load-bearing:
 
 ```bash
 python scripts/build_team_identity.py     # clones upstream mirrors, writes data + 128 images
-python scripts/check_team_assets.py       # decodes all 128, fails on blank/missing artwork
+python scripts/check_team_assets.py       # decodes all 64, fails on blank/missing artwork
 python scripts/fetch_team_assets.py logos --dry-run          # refresh from official CDNs
-python scripts/fetch_team_assets.py ingest-helmets <folder>   # install helmets grabbed by hand
+python scripts/fetch_team_assets.py wordmarks --dry-run      # (no endpoint today — see the doc)
 ```
 
-**The helmet set is 2023 vintage** — the Jets, Broncos and Texans redesigned in 2024, so those
-three render a season behind (palettes are current; only the artwork lags). There is no free
-programmatic source for current helmet renders, so closing that gap needs a local session with
-open network plus some manual sourcing: see
-[`docs/REFRESH-TEAM-ASSETS.md`](docs/REFRESH-TEAM-ASSETS.md), which carries the runbook and a
-paste-in prompt. Do not fill a missing facing by mirroring a team with a directional decal —
-helmet decals face forward on both sides, so a flip yields backwards lettering; `fetch_team_assets.py`
-enforces this and only mirrors the handful of symmetric marks.
+**There are no helmet images.** They were removed on 2026-08-13. The Schedule tab shows a team
+mark at 28×28px, and a side-profile helmet is a grey blob at that size — two were first rebuilt
+to their current 2024/2026 designs, which proved the problem was the form rather than the
+currency. The set is logos and wordmarks only; `uniforms.<side>.helmet` is a *colour* and is
+unaffected. See [`assets-review.html`](assets-review.html) for how the marks read at real size,
+and [`docs/REFRESH-TEAM-ASSETS.md`](docs/REFRESH-TEAM-ASSETS.md) for the refresh runbook.
 
 `build_team_identity.py` reads **GitHub mirrors, not nfl.com or espncdn.com** — a Claude Code web
 session in this repo has a GitHub-only egress allowlist, and those hosts answer 403 there. That is

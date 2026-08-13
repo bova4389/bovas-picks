@@ -8,7 +8,6 @@ personal pick'em tool.
 | Set | Files | Size | Source |
 |---|---|---|---|
 | `logos/` | 32 | 500×500 PNG, transparent | [nflverse/nflplotR](https://github.com/nflverse/nflplotR) embedded assets, mirroring ESPN's team feed |
-| `helmets/` | 64 | 350×320 PNG, transparent, two facings each | [ajreinhard/data-viz](https://github.com/ajreinhard/data-viz) `2023_helm/` |
 | `wordmarks/` | 32 | ~1500×260 PNG, transparent, single ink | [nflverse/nflplotR](https://github.com/nflverse/nflplotR) embedded assets |
 
 Colour and uniform data derived from these and other sources lives in
@@ -40,20 +39,13 @@ to license either. Treat their availability as convenience, not permission.
 
 ## Currency
 
-The helmet set is the `2023_helm` vintage. Audited 2026-08-13: **NYJ and TEN
-were the only two whose primary helmet had genuinely changed**, and both have
-been **rebuilt in-repo** rather than sourced. Every file in `helmets/` is the
-same drawing — silhouette IoU between any two is exactly 1.0000 — so a helmet is
-just shell colour, shared linework, facemask and decal. `scripts/rebuild_helmet.py`
-composes the two current designs from parts already here: the white shell from
-the Colts' instance of the template, and the decals from `logos/TEN.png` and
-`logos/NYJ.png`, which the mirror already carries at the current design. No
-third-party photograph or artwork was used, and none is in this repository.
-
-The other 30 remain accurate: Denver's and Houston's 2024 redesigns kept their
-primary shell colour and side decal, Detroit's and Atlanta's changes are
-facemask/front-bumper only, and everything else since 2023 is an alternate or
-throwback rather than a primary.
+**Helmet images were removed on 2026-08-13.** They did not read at the size this
+site actually shows a team mark — the Schedule tab's slot is 28x28px, and at
+that size a side-profile helmet is a grey blob regardless of how current its
+decal is. Rebuilding two of them to the 2024/2026 designs first confirmed that
+currency was not the problem; the form was. The set is now logos and wordmarks
+only. `uniforms.<side>.helmet` in `team-identity.json` is a *colour* and is
+unaffected. Git history has the images if they are ever wanted back.
 
 Logos were verified team-by-team on the same date and are current; `LAR` was
 corrected to the club's blue-and-gold primary, which only the league CDN

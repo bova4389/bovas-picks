@@ -6,13 +6,13 @@
     "palettePrimary": "nflverse/nflplotR, mirroring ESPN's team feed: screen-tuned and tracks rebrands promptly",
     "paletteExtended": "jimniels/teamcolors, mirroring club style guides (Pantone/CMYK); lags rebrands, so it is withheld per-team wherever it disagrees on primary or secondary",
     "logos": "nflverse/nflplotR embedded 500x500 PNGs",
-    "helmets": "ajreinhard/data-viz 2023_helm, official helmets, transparent background, 350x320",
     "wordmarks": "nflverse/nflplotR embedded PNGs",
     "uniforms": "ajreinhard/data-viz per-game uniform observations, 2015-2020, modal kit per side, snapped to palette",
     "names": "nflverse/nfldata 2026 team table",
     "trademarkNotice": "assets/teams/NOTICE.md",
     "paletteAudit": "2026-08-13 local session: all 10 palette.disagreement blocks resolved against the clubs' current brand colours. 5 corrected (CHI, LAC, NYJ, TB, TEN), 5 confirmed (CLE, DET, LAR, NO, PHI). Kit colours snapped from a corrected value were moved with it; `uniforms.*.sampled` is raw observation and was not. See docs/REFRESH-TEAM-ASSETS.md section 3.",
-    "uniformOverrides": "TEN only: kit set from the March 2026 rebrand, not derived. Every other team's kit is still the 2015-2020 derivation described under `uniforms`. See uniforms.<side>.derived for the values replaced."
+    "uniformOverrides": "TEN only: kit set from the March 2026 rebrand, not derived. Every other team's kit is still the 2015-2020 derivation described under `uniforms`. See uniforms.<side>.derived for the values replaced.",
+    "assetsDropped": "Helmet images removed 2026-08-13: the 2023 upstream renders did not look good at the sizes this site uses them, so the set is logos and wordmarks only. uniforms.<side>.helmet is a COLOUR and is unaffected. History has the files if they are ever wanted back."
   },
   "uniformWindow": {
     "from": 2015,
@@ -90,9 +90,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/ARI.png",
-        "wordmark": "assets/teams/wordmarks/ARI.png",
-        "helmetFacingRight": "assets/teams/helmets/ARI-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/ARI-left.png"
+        "wordmark": "assets/teams/wordmarks/ARI.png"
       }
     },
     "ATL": {
@@ -160,9 +158,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/ATL.png",
-        "wordmark": "assets/teams/wordmarks/ATL.png",
-        "helmetFacingRight": "assets/teams/helmets/ATL-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/ATL-left.png"
+        "wordmark": "assets/teams/wordmarks/ATL.png"
       }
     },
     "BAL": {
@@ -236,9 +232,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/BAL.png",
-        "wordmark": "assets/teams/wordmarks/BAL.png",
-        "helmetFacingRight": "assets/teams/helmets/BAL-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/BAL-left.png"
+        "wordmark": "assets/teams/wordmarks/BAL.png"
       }
     },
     "BUF": {
@@ -299,9 +293,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/BUF.png",
-        "wordmark": "assets/teams/wordmarks/BUF.png",
-        "helmetFacingRight": "assets/teams/helmets/BUF-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/BUF-left.png"
+        "wordmark": "assets/teams/wordmarks/BUF.png"
       }
     },
     "CAR": {
@@ -369,9 +361,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/CAR.png",
-        "wordmark": "assets/teams/wordmarks/CAR.png",
-        "helmetFacingRight": "assets/teams/helmets/CAR-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/CAR-left.png"
+        "wordmark": "assets/teams/wordmarks/CAR.png"
       }
     },
     "CHI": {
@@ -448,9 +438,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/CHI.png",
-        "wordmark": "assets/teams/wordmarks/CHI.png",
-        "helmetFacingRight": "assets/teams/helmets/CHI-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/CHI-left.png"
+        "wordmark": "assets/teams/wordmarks/CHI.png"
       },
       "notes": [
         "Palette audited 2026-08-13 against the club's current brand colours; secondary #E64100 -> #C83803. Navy #0B162A is PMS 5395 C and was already correct. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
@@ -514,9 +502,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/CIN.png",
-        "wordmark": "assets/teams/wordmarks/CIN.png",
-        "helmetFacingRight": "assets/teams/helmets/CIN-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/CIN-left.png"
+        "wordmark": "assets/teams/wordmarks/CIN.png"
       }
     },
     "CLE": {
@@ -590,9 +576,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/CLE.png",
-        "wordmark": "assets/teams/wordmarks/CLE.png",
-        "helmetFacingRight": "assets/teams/helmets/CLE-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/CLE-left.png"
+        "wordmark": "assets/teams/wordmarks/CLE.png"
       },
       "notes": [
         "Palette audited 2026-08-13; the installed screen values are current. Confirmed: Orange #FF3C00 (PMS 2028 C), Seal Brown #311D00 (PMS Black 4 C). The mirror's #FB4F14 is Cincinnati's orange. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
@@ -681,9 +665,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/DAL.png",
-        "wordmark": "assets/teams/wordmarks/DAL.png",
-        "helmetFacingRight": "assets/teams/helmets/DAL-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/DAL-left.png"
+        "wordmark": "assets/teams/wordmarks/DAL.png"
       }
     },
     "DEN": {
@@ -744,9 +726,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/DEN.png",
-        "wordmark": "assets/teams/wordmarks/DEN.png",
-        "helmetFacingRight": "assets/teams/helmets/DEN-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/DEN-left.png"
+        "wordmark": "assets/teams/wordmarks/DEN.png"
       },
       "notes": [
         "New uniform set in 2024. Uniform colours are derived from 2015-2020 observations snapped to the current palette, so the colours are right and the design details may not be."
@@ -823,9 +803,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/DET.png",
-        "wordmark": "assets/teams/wordmarks/DET.png",
-        "helmetFacingRight": "assets/teams/helmets/DET-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/DET-left.png"
+        "wordmark": "assets/teams/wordmarks/DET.png"
       },
       "notes": [
         "Palette audited 2026-08-13; the installed screen values are current. Confirmed: Honolulu Blue #0076B6 (PMS 7462 C), Silver #B0B7BC (PMS 8180 C). The mirror's #005A8B is the pre-2017 blue. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
@@ -889,9 +867,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/GB.png",
-        "wordmark": "assets/teams/wordmarks/GB.png",
-        "helmetFacingRight": "assets/teams/helmets/GB-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/GB-left.png"
+        "wordmark": "assets/teams/wordmarks/GB.png"
       }
     },
     "HOU": {
@@ -952,9 +928,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/HOU.png",
-        "wordmark": "assets/teams/wordmarks/HOU.png",
-        "helmetFacingRight": "assets/teams/helmets/HOU-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/HOU-left.png"
+        "wordmark": "assets/teams/wordmarks/HOU.png"
       },
       "notes": [
         "New uniform set in 2024. Uniform colours are derived from 2015-2020 observations snapped to the current palette, so the colours are right and the design details may not be."
@@ -1018,9 +992,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/IND.png",
-        "wordmark": "assets/teams/wordmarks/IND.png",
-        "helmetFacingRight": "assets/teams/helmets/IND-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/IND-left.png"
+        "wordmark": "assets/teams/wordmarks/IND.png"
       }
     },
     "JAC": {
@@ -1094,9 +1066,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/JAC.png",
-        "wordmark": "assets/teams/wordmarks/JAC.png",
-        "helmetFacingRight": "assets/teams/helmets/JAC-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/JAC-left.png"
+        "wordmark": "assets/teams/wordmarks/JAC.png"
       }
     },
     "KC": {
@@ -1164,9 +1134,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/KC.png",
-        "wordmark": "assets/teams/wordmarks/KC.png",
-        "helmetFacingRight": "assets/teams/helmets/KC-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/KC-left.png"
+        "wordmark": "assets/teams/wordmarks/KC.png"
       }
     },
     "LAC": {
@@ -1244,9 +1212,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/LAC.png",
-        "wordmark": "assets/teams/wordmarks/LAC.png",
-        "helmetFacingRight": "assets/teams/helmets/LAC-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/LAC-left.png"
+        "wordmark": "assets/teams/wordmarks/LAC.png"
       },
       "notes": [
         "Palette audited 2026-08-13 against the club's current brand colours; primary #007BC7 -> #0080C6. Sunshine Gold #FFC20E (PMS 1235 C) was already correct. The mirror's #0073CF is the pre-2020 value; neither source held the current hex. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
@@ -1322,9 +1288,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/LAR.png",
-        "wordmark": "assets/teams/wordmarks/LAR.png",
-        "helmetFacingRight": "assets/teams/helmets/LAR-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/LAR-left.png"
+        "wordmark": "assets/teams/wordmarks/LAR.png"
       },
       "notes": [
         "Palette audited 2026-08-13; the installed screen values are current. Confirmed: Rams Royal #003594 (PMS 661 C), Sol #FFD100 (PMS 109 C). The mirror's #002244/#B3995D is the pre-2020 navy-and-gold. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
@@ -1388,9 +1352,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/LV.png",
-        "wordmark": "assets/teams/wordmarks/LV.png",
-        "helmetFacingRight": "assets/teams/helmets/LV-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/LV-left.png"
+        "wordmark": "assets/teams/wordmarks/LV.png"
       }
     },
     "MIA": {
@@ -1458,9 +1420,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/MIA.png",
-        "wordmark": "assets/teams/wordmarks/MIA.png",
-        "helmetFacingRight": "assets/teams/helmets/MIA-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/MIA-left.png"
+        "wordmark": "assets/teams/wordmarks/MIA.png"
       }
     },
     "MIN": {
@@ -1534,9 +1494,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/MIN.png",
-        "wordmark": "assets/teams/wordmarks/MIN.png",
-        "helmetFacingRight": "assets/teams/helmets/MIN-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/MIN-left.png"
+        "wordmark": "assets/teams/wordmarks/MIN.png"
       }
     },
     "NE": {
@@ -1604,9 +1562,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/NE.png",
-        "wordmark": "assets/teams/wordmarks/NE.png",
-        "helmetFacingRight": "assets/teams/helmets/NE-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/NE-left.png"
+        "wordmark": "assets/teams/wordmarks/NE.png"
       }
     },
     "NO": {
@@ -1679,9 +1635,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/NO.png",
-        "wordmark": "assets/teams/wordmarks/NO.png",
-        "helmetFacingRight": "assets/teams/helmets/NO-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/NO-left.png"
+        "wordmark": "assets/teams/wordmarks/NO.png"
       },
       "notes": [
         "Palette audited 2026-08-13; the installed screen values are current. Confirmed: Old Gold #D3BC8D (PMS 8383 C). The mirror's #9F8958 is the pre-2000s gold. Left as-is: the club's black is #101820 rather than pure #000000, a simplification not worth churning the kit for. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
@@ -1752,9 +1706,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/NYG.png",
-        "wordmark": "assets/teams/wordmarks/NYG.png",
-        "helmetFacingRight": "assets/teams/helmets/NYG-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/NYG-left.png"
+        "wordmark": "assets/teams/wordmarks/NYG.png"
       }
     },
     "NYJ": {
@@ -1830,9 +1782,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/NYJ.png",
-        "wordmark": "assets/teams/wordmarks/NYJ.png",
-        "helmetFacingRight": "assets/teams/helmets/NYJ-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/NYJ-left.png"
+        "wordmark": "assets/teams/wordmarks/NYJ.png"
       },
       "notes": [
         "New uniform set in 2024. Uniform colours are derived from 2015-2020 observations snapped to the current palette, so the colours are right and the design details may not be.",
@@ -1912,9 +1862,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/PHI.png",
-        "wordmark": "assets/teams/wordmarks/PHI.png",
-        "helmetFacingRight": "assets/teams/helmets/PHI-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/PHI-left.png"
+        "wordmark": "assets/teams/wordmarks/PHI.png"
       },
       "notes": [
         "Palette audited 2026-08-13; the installed screen values are current. Confirmed: Midnight Green #004C54 (PMS 316 C), Silver #A5ACAF. The mirror's #004953 is a near-miss variant of the same green. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
@@ -1997,9 +1945,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/PIT.png",
-        "wordmark": "assets/teams/wordmarks/PIT.png",
-        "helmetFacingRight": "assets/teams/helmets/PIT-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/PIT-left.png"
+        "wordmark": "assets/teams/wordmarks/PIT.png"
       }
     },
     "SEA": {
@@ -2067,9 +2013,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/SEA.png",
-        "wordmark": "assets/teams/wordmarks/SEA.png",
-        "helmetFacingRight": "assets/teams/helmets/SEA-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/SEA-left.png"
+        "wordmark": "assets/teams/wordmarks/SEA.png"
       }
     },
     "SF": {
@@ -2143,9 +2087,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/SF.png",
-        "wordmark": "assets/teams/wordmarks/SF.png",
-        "helmetFacingRight": "assets/teams/helmets/SF-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/SF-left.png"
+        "wordmark": "assets/teams/wordmarks/SF.png"
       }
     },
     "TB": {
@@ -2225,9 +2167,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/TB.png",
-        "wordmark": "assets/teams/wordmarks/TB.png",
-        "helmetFacingRight": "assets/teams/helmets/TB-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/TB-left.png"
+        "wordmark": "assets/teams/wordmarks/TB.png"
       },
       "notes": [
         "Palette audited 2026-08-13 against the club's current brand colours; primary #A71930 -> #D50A0A. Pewter #322F2B remains; the club's own pewter is #34302B. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
@@ -2325,9 +2265,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/TEN.png",
-        "wordmark": "assets/teams/wordmarks/TEN.png",
-        "helmetFacingRight": "assets/teams/helmets/TEN-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/TEN-left.png"
+        "wordmark": "assets/teams/wordmarks/TEN.png"
       },
       "notes": [
         "Palette audited 2026-08-13 against the club's current brand colours; primary #4495D2 -> #4B92DB, secondary #D50A0A -> #C8102E. Superseded by the 2026 rebrand. Titans Blue #4B92DB is the identifying colour and is the one value both prior sources agreed on; Titans Navy #0C2340 (PMS 289 C) is now a background colour rather than the primary. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart.",
@@ -2405,9 +2343,7 @@
       },
       "assets": {
         "logo": "assets/teams/logos/WAS.png",
-        "wordmark": "assets/teams/wordmarks/WAS.png",
-        "helmetFacingRight": "assets/teams/helmets/WAS-right.png",
-        "helmetFacingLeft": "assets/teams/helmets/WAS-left.png"
+        "wordmark": "assets/teams/wordmarks/WAS.png"
       },
       "notes": [
         "Rebranded to Commanders in 2022. Uniform colours are derived from 2015-2020 observations snapped to the current palette, so the colours are right and the design details may not be."

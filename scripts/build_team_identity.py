@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-"""Build the team identity backbone: logos, helmets, wordmarks, palettes, uniforms.
+"""Build the team identity backbone: logos, wordmarks, palettes, uniforms.
 
 Writes
   assets/teams/logos/<ABBR>.png            500x500 primary logo
-  assets/teams/helmets/<ABBR>-right.png    helmet facing right (left side of a matchup)
-  assets/teams/helmets/<ABBR>-left.png     helmet facing left  (right side of a matchup)
   assets/teams/wordmarks/<ABBR>.png        team wordmark
   data/teams/team-identity.json            palettes + home/away uniforms + asset paths
 
@@ -78,10 +76,11 @@ DIVISIONS = {
 # teamcolors keys on full name and still carries some pre-relocation ones.
 TEAMCOLORS_NAMES = {"LV": "Oakland Raiders"}
 
-# Which folder of the nfl-images mirror the helmets come from. Named so that
-# refreshing to a newer vintage is a one-line change, and so the pointer in
-# scripts/fetch_team_assets.py resolves to something real.
-HELMET_DIR = "2023_helm"
+# Helmets are deliberately not built. The 2023 upstream renders were dropped on
+# 2026-08-13 -- at the ~28px this site shows a team mark at, they read as grey
+# blobs, and the two that were rebuilt to the current designs did not change
+# that. `uniforms.<side>.helmet` is a COLOUR and still comes from the uniform
+# observations; only the images are gone. Git history has them.
 
 # Uniform observations run 1999-2020. Anything earlier is a different era of
 # uniform design; anything later doesn't exist in the feed.
@@ -168,14 +167,13 @@ def ensure_sources(cache: Path, clone: bool):
 # extraction
 # --------------------------------------------------------------------------- #
 def extract_images(cache: Path, out: Path):
-    """Logos + wordmarks out of nflplotR's R blob, helmets out of nfl-images."""
+    """Logos + wordmarks out of nflplotR's R blob."""
     sysdata = read_rda(cache / "nflplotR" / "R" / "sysdata.rda")
     logos, wordmarks = sysdata["logo_list"], sysdata["wordmark_list"]
 
-    helm_dir = cache / "nfl-images" / HELMET_DIR
     written = defaultdict(dict)
 
-    for kind in ("logos", "helmets", "wordmarks"):
+    for kind in ("logos", "wordmarks"):
         (out / kind).mkdir(parents=True, exist_ok=True)
 
     for abbr in TEAMS:
@@ -189,23 +187,6 @@ def extract_images(cache: Path, out: Path):
         if mark and mark[:4] == b"\x89PNG":
             (out / "wordmarks" / f"{abbr}.png").write_bytes(mark)
             written[abbr]["wordmark"] = png_size(mark)
-
-        # Upstream's _L/_R suffix is which side of a graphic the helmet sits on,
-        # so _L is the one facing right. Name by facing direction instead --
-        # the caller knows which way it wants the helmet pointed, not which
-        # column of someone else's chart it came from.
-        for suffix, facing in (("_L", "right"), ("_R", "left")):
-            src = next(
-                (helm_dir / f"{key}{suffix}.png"
-                 for key in alias(abbr)
-                 if (helm_dir / f"{key}{suffix}.png").exists()),
-                None,
-            )
-            if src is None:
-                sys.exit(f"{abbr}: no helmet {suffix} in {helm_dir}")
-            blob = src.read_bytes()
-            (out / "helmets" / f"{abbr}-{facing}.png").write_bytes(blob)
-            written[abbr][f"helmet-{facing}"] = png_size(blob)
 
     return written
 
@@ -453,7 +434,7 @@ def main():
     print("Images")
     assets = REPO / "assets" / "teams"
     written = extract_images(cache, assets)
-    print(f"  {len(written)} teams: logos, helmets (both facings), wordmarks")
+    print(f"  {len(written)} teams: logos, wordmarks")
 
     print("Names")
     names, name_year = load_names(cache, season)
@@ -492,8 +473,6 @@ def main():
             "assets": {
                 "logo": f"{rel}/logos/{abbr}.png",
                 "wordmark": f"{rel}/wordmarks/{abbr}.png",
-                "helmetFacingRight": f"{rel}/helmets/{abbr}-right.png",
-                "helmetFacingLeft": f"{rel}/helmets/{abbr}-left.png",
             },
         }
         notes = []
@@ -521,8 +500,6 @@ def main():
                                "per-team wherever it disagrees on primary or "
                                "secondary",
             "logos": "nflverse/nflplotR embedded 500x500 PNGs",
-            "helmets": "ajreinhard/data-viz 2023_helm, official helmets, "
-                       "transparent background, 350x320",
             "wordmarks": "nflverse/nflplotR embedded PNGs",
             "uniforms": f"ajreinhard/data-viz per-game uniform observations, "
                         f"{lo}-{hi}, modal kit per side, snapped to palette",

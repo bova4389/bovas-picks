@@ -226,9 +226,11 @@ function summaryLine() {
  * disagree about which team is which.
  *
  * The outermost element on each side is an empty `.schedteam-badge` slot,
- * reserved for team colours / helmets / mascots. It collapses to nothing while
- * empty (`:empty` in the CSS), so it costs no space until it is filled. Putting
- * the teams on opposite edges is the whole reason that slot can exist.
+ * reserved for the team logo. It collapses to nothing while empty (`:empty` in
+ * the CSS), so it costs no space until it is filled. Putting the teams on
+ * opposite edges is the whole reason that slot can exist. See
+ * assets-review.html for what the filled slot looks like at 28px, and why the
+ * helmet images that used to be the plan were dropped.
  */
 function gameCard(g) {
   const cls = [
