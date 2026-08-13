@@ -110,5 +110,19 @@
   "vig": 0.0418,
   "bucket": 15,
   "fetchedAt": "2026-08-13T17:45:53.814956+00:00"
+ },
+ {
+  "id": "e9da808e36e1b7475698a57465ad4519",
+  "commenceTime": "2026-11-29T18:00:00Z",
+  "home": "Indianapolis Colts",
+  "away": "New York Giants",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "bucket": 15,
+  "fetchedAt": "2026-08-13T20:27:00.730907+00:00"
  }
 ]

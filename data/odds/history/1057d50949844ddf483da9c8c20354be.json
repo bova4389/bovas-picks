@@ -110,5 +110,19 @@
   "vig": 0.043,
   "bucket": 13,
   "fetchedAt": "2026-08-13T17:45:53.814956+00:00"
+ },
+ {
+  "id": "1057d50949844ddf483da9c8c20354be",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "New York Jets",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2703,
+  "rawAwayProb": 0.7727,
+  "homeWinProb": 0.2591,
+  "awayWinProb": 0.7409,
+  "vig": 0.043,
+  "bucket": 13,
+  "fetchedAt": "2026-08-13T20:27:00.730907+00:00"
  }
 ]

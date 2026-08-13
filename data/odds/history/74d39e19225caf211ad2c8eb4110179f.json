@@ -110,5 +110,19 @@
   "vig": 0.0434,
   "bucket": 13,
   "fetchedAt": "2026-08-13T17:45:53.814956+00:00"
+ },
+ {
+  "id": "74d39e19225caf211ad2c8eb4110179f",
+  "commenceTime": "2026-11-13T01:15:00Z",
+  "home": "New York Giants",
+  "away": "Washington Commanders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 13,
+  "fetchedAt": "2026-08-13T20:27:00.730907+00:00"
  }
 ]
