@@ -8,11 +8,13 @@
    ========================================================================== */
 
 import {
-  SEASON, getNumberMap, weekNumbers, gamesForWeek, scoredGames,
+  SEASON, tryNumberMap, weekNumbers, gamesForWeek, scoredGames,
   loadPicks, savePicks, loadProfile, saveProfile, getOddsSnapshot,
+  getSeasonAudit,
 } from './data.js';
 import { buildOddsIndex } from './oddsMatch.js';
 import { favoriteLine } from './oddsBadge.js';
+import { seasonBanner } from './seasonBanner.js';
 
 const DAY_ORDER = ['Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday'];
 
@@ -27,18 +29,16 @@ const el = (id) => document.getElementById(id);
 /* ── Boot ─────────────────────────────────────────────────────────────── */
 
 export async function initPickSheet(root) {
-  try {
-    map = await getNumberMap();
-  } catch (err) {
-    root.innerHTML = `
-      <div class="notice">
-        <strong>Couldn't load the number map.</strong><br />
-        Expected <code>data/number-map-${SEASON}.json</code> — ${escape(err.message)}.
-        <br /><br />
-        Opening <code>index.html</code> straight off the disk blocks
-        <code>fetch()</code>. Serve the folder instead:
-        <br /><code>python -m http.server 8000</code>
-      </div>`;
+  map = await tryNumberMap();
+
+  // No sheet for the active season is the *normal* state until the workbook
+  // arrives — not an error, and specifically not a reason to fall back to
+  // last season's sheet. Rendering the previous year's games here is what
+  // made the whole site quietly wrong; see js/season.js.
+  if (!map || map.year !== SEASON) {
+    root.innerHTML = header() + seasonBanner(await getSeasonAudit(), {
+      context: 'the pick sheet',
+    }) + missingSheetHint();
     return;
   }
 
@@ -56,14 +56,37 @@ export async function initPickSheet(root) {
   render();
 }
 
-function shell(weeks) {
+function header() {
   return `
     <div class="section-head">
       <div>
         <p class="eyebrow">Weekly submission</p>
         <h2>Pick sheet</h2>
       </div>
-    </div>
+    </div>`;
+}
+
+/** What to actually do about it. The banner says the sheet is missing; this
+ *  says how it stops being missing, since that step is a person emailing a
+ *  spreadsheet rather than anything the site can do for itself. */
+function missingSheetHint() {
+  return `
+    <div class="notice">
+      <strong>What unblocks this.</strong><br />
+      The pick sheet is a mirror of the commissioner's numbered weekly sheet,
+      so it can't be built from ESPN data — the numbers are his. Once the
+      <em>Weekly Sheets</em> workbook for ${escape(SEASON)} arrives:
+      <br /><br />
+      <code>python scripts/parse_weekly_sheets.py "Weekly Sheets.xlsx" ${escape(SEASON)}</code>
+      <br /><br />
+      Meanwhile the <strong>Schedule</strong> tab has every ${escape(SEASON)}
+      matchup and kickoff, and <strong>Odds</strong> has the market lines.
+    </div>`;
+}
+
+function shell(weeks) {
+  return `
+    ${header()}
 
     <div class="card controls">
       <div class="field">

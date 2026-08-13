@@ -167,6 +167,55 @@ python -m http.server 8765 -d "NFL Pickems"
 
 `.claude/launch.json` at the workspace root defines this as the `pickem` preview server.
 
+## Season Handling — Read Before Touching Any Tab
+
+**The season is derived from the calendar, never hardcoded.** `js/data.js` sets
+`SEASON = activeSeason()`, and `js/season.js` owns the rule: a season is named for the year it
+kicks off in, so January and February belong to the *previous* season (2027-01-10 is a 2026 game).
+March is the cut point.
+
+This exists because of a real, silent failure. `SEASON` was pinned to `2025` and stayed correct
+right up until the odds feed rolled over to 2026 on its own. Nothing threw. The Pick Sheet
+rendered last season's games with next season's odds badges attached, and Recommend joined
+**2025 Week 1 field popularity to 2026 preseason moneylines** and printed a confident, fully
+plausible, completely meaningless leverage ranking. A tool that fails loudly costs nothing; one
+that fails quietly costs the week.
+
+The guard has three parts:
+
+- **`js/season.js`** — pure, imports nothing (data.js imports *it*, so any import back would be a
+  cycle). `auditSeason({season, schedule, numberMap, odds, popularity})` takes already-loaded
+  feeds and returns `{problems, ok, blocking}`.
+- **`data.getSeasonAudit(week)`** — loads the feeds and runs the audit. Cheap to call from
+  anywhere; every feed is memoised by `loadJSON`.
+- **`js/seasonBanner.js`** — renders the verdict. Returns `''` when everything agrees, so callers
+  treat it exactly like `oddsBadge`'s `favoriteLine()`.
+
+**The schedule feed is the authority.** It comes from ESPN, covers all 18 weeks, and refreshes
+weekly, so it is the one source that always knows what season it actually is. Everything else is
+checked against it.
+
+Rules for new code:
+
+- A tab that combines two feeds **must** call `getSeasonAudit(week)` and refuse to render numbers
+  when `isBlocked(audit)`. Single-feed tabs (Schedule, Odds) are unaffected and stay accurate.
+- Recommend re-audits **per week**, not just at boot — popularity files are per-week, so week 3
+  can be clean while week 1 still holds last season's parse.
+- Missing ≠ mismatched. A file that doesn't exist yet is a `warn` ("waiting on 2026 data", amber);
+  a file from the wrong season is an `error` ("not showing this", red). Never render them the same
+  way, or the one that matters gets skimmed past.
+- **Never fall back to last season's file.** That fallback is the original bug.
+
+**Seasonal rollover checklist** (the thing whose absence caused all of the above):
+
+1. `python scripts/fetch_schedule.py <year>` — the backbone the Schedule tab and the audit need.
+2. `python scripts/build_projections.py <year>` — needs the prior season's completed schedule.
+3. When the commissioner's workbook arrives:
+   `python scripts/parse_weekly_sheets.py "Weekly Sheets.xlsx" <year>`
+4. Confirm the site: the masthead year (written by `app.js` from `SEASON`, not hardcoded) should
+   already read the new season, and Pick Sheet / Recommend should un-gate on their own.
+5. `SEASON` needs no edit. If you find yourself editing a year literal anywhere, that is the bug.
+
 ## Data Pipeline
 
 The commissioner mails two Excel workbooks. Both are parsed into `data/`; neither is committed.

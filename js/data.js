@@ -12,8 +12,20 @@
    That exact mistake took the Majors site down on U.S. Open launch day.
    ========================================================================== */
 
-/** Bump when the new season's "Weekly Sheets" workbook has been parsed. */
-export const SEASON = 2025;
+import { activeSeason, auditSeason } from './season.js';
+
+/**
+ * The season everything defaults to.
+ *
+ * DERIVED, NOT PINNED — and that is the whole point. This used to be a
+ * hardcoded `2025`, which stayed correct right up until the odds feed rolled
+ * over to 2026 on its own. Nothing complained; the tabs just started joining
+ * two different seasons together and printing confident nonsense. A constant
+ * that has to be remembered is a constant that gets forgotten, so the season
+ * now comes from the calendar and is cross-checked against the feeds by
+ * getSeasonAudit() below.
+ */
+export const SEASON = activeSeason();
 
 const cache = new Map();
 
@@ -35,6 +47,17 @@ async function loadJSON(path) {
  */
 export async function getNumberMap(season = SEASON) {
   return loadJSON(`data/number-map-${season}.json`);
+}
+
+/** getNumberMap that reports absence as null instead of throwing. The audit
+ *  needs "is it there" without treating a missing file as a failure — before
+ *  the commissioner mails the workbook, missing is the normal state. */
+export async function tryNumberMap(season = SEASON) {
+  try {
+    return await getNumberMap(season);
+  } catch {
+    return null;
+  }
 }
 
 /** Week numbers present in the map, ascending. */
@@ -129,6 +152,28 @@ export async function getProjections(season = SEASON) {
   } catch {
     return null;
   }
+}
+
+/**
+ * Cross-check every loaded feed against the active season.
+ *
+ * The guard that stops the tabs combining two seasons — see js/season.js for
+ * what went wrong without it. Pass `week` to also validate that week's
+ * popularity file, which is the pairing that matters most: field popularity
+ * from one season joined to market odds from another is the combination that
+ * produces a plausible, confident, completely meaningless leverage ranking.
+ *
+ * Cheap to call from every tab — each feed is memoised by loadJSON().
+ */
+export async function getSeasonAudit(week = null, season = SEASON) {
+  const [schedule, numberMap, odds, popularity] = await Promise.all([
+    getSchedule(season),
+    tryNumberMap(season),
+    getOddsSnapshot(),
+    week == null ? Promise.resolve(null) : getPopularity(week, season),
+  ]);
+
+  return auditSeason({ season, schedule, numberMap, odds, popularity });
 }
 
 /** The Odds API's last-reported request budget, or null. */

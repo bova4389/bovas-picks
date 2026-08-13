@@ -1,0 +1,55 @@
+name: Refresh schedule
+
+# The committed schedule is the backbone the Schedule tab renders from — all
+# 18 weeks, kickoff times, and final scores once played. Live in-game scores
+# do NOT come from here; the browser pulls those straight from ESPN (see
+# js/espn.js). This job only has to keep the skeleton current, which means
+# catching flex-scheduling moves and filling in final scores.
+#
+# Tuesday 15:00 UTC = after Monday night is over everywhere, and before the
+# week's flex decisions land. No secret needed; the endpoint is keyless.
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "Season to fetch (defaults to the current one)"
+        required: false
+        type: string
+  schedule:
+    - cron: "0 15 * * 2"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Work out the season
+        id: season
+        # A season is named for the year it starts in, so Jan/Feb still belong
+        # to the previous one. Same rule as js/season.js seasonOf() — if you
+        # change one, change the other.
+        run: |
+          if [ -n "${{ inputs.year }}" ]; then
+            echo "year=${{ inputs.year }}" >> "$GITHUB_OUTPUT"
+          else
+            m=$(date -u +%m); y=$(date -u +%Y)
+            [ "$m" -lt 3 ] && y=$((y - 1))
+            echo "year=$y" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fetch schedule
+        run: python3 scripts/fetch_schedule.py "${{ steps.season.outputs.year }}"
+
+      - name: Commit schedule
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/schedule-*.json
+          git diff --cached --quiet && exit 0
+          git commit -m "chore(bot): refresh ${{ steps.season.outputs.year }} schedule [automated]"
+          git push

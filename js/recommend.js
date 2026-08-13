@@ -12,9 +12,11 @@
    ========================================================================== */
 
 import {
-  SEASON, getNumberMap, weekNumbers, scoredGames, getPopularity, getOddsSnapshot,
+  SEASON, tryNumberMap, weekNumbers, scoredGames, getPopularity, getOddsSnapshot,
+  getSeasonAudit,
 } from './data.js';
 import { buildOddsIndex, matchOdds, orientProbs } from './oddsMatch.js';
+import { seasonBanner, isBlocked } from './seasonBanner.js';
 
 // STRATEGY.md §4 Step 4.
 const FLOOR = 0.38;
@@ -28,13 +30,16 @@ let snapshot = null;
 const el = (id) => document.getElementById(id);
 
 export async function initRecommend(root) {
-  try {
-    map = await getNumberMap();
-  } catch (err) {
-    root.innerHTML = notice(`
-      <strong>Couldn't load the number map.</strong><br />
-      ${escape(err.message)}.
-    `);
+  map = await tryNumberMap();
+
+  // This tab is the one that produced confident, meaningless numbers by
+  // joining one season's field popularity to another season's odds. It gets
+  // the strictest gate in the project: no sheet for the active season, no
+  // leverage at all. See js/season.js.
+  if (!map || map.year !== SEASON) {
+    root.innerHTML = shellHead() + seasonBanner(await getSeasonAudit(), {
+      context: 'a leverage ranking',
+    });
     return;
   }
   snapshot = await getOddsSnapshot();
@@ -50,14 +55,19 @@ export async function initRecommend(root) {
   await render();
 }
 
-function shell(weeks) {
+function shellHead() {
   return `
     <div class="section-head">
       <div>
         <p class="eyebrow">Leverage</p>
         <h2>Recommend</h2>
       </div>
-    </div>
+    </div>`;
+}
+
+function shell(weeks) {
+  return `
+    ${shellHead()}
     <div class="card controls">
       <div class="field">
         <label for="rec-week-select">Week</label>
@@ -72,6 +82,15 @@ function shell(weeks) {
 async function render() {
   el('rec-week-select').value = week;
   const body = el('rec-body');
+
+  // Re-audited per week, not just at boot: the popularity file is per-week,
+  // so week 3 can be clean while week 1 still holds last season's parse. This
+  // is the check that actually stops the wrong-answer case.
+  const audit = await getSeasonAudit(week);
+  if (isBlocked(audit)) {
+    body.innerHTML = seasonBanner(audit, { context: 'a leverage ranking' });
+    return;
+  }
 
   if (!snapshot) {
     body.innerHTML = notice(`

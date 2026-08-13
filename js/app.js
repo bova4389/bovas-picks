@@ -5,6 +5,8 @@
    index.html is the cautionary tale — keep these small and separate.
    ========================================================================== */
 
+import { SEASON } from './data.js';
+import { initSchedule } from './schedule.js';
 import { initPickSheet } from './picksheet.js';
 import { initOdds } from './odds.js';
 import { initRecommend } from './recommend.js';
@@ -41,6 +43,11 @@ tabs.forEach((tab) => {
 const fromHash = document.getElementById(`tab-${location.hash.slice(1)}`);
 if (fromHash) select(fromHash);
 
+document.getElementById('brand-season').innerHTML = `&nbsp;/&nbsp; ${SEASON}`;
+
+// Schedule first: it owns the live-score polling every other tab reads from,
+// and it is the landing tab.
+initSchedule(document.getElementById('schedule-root'), SEASON);
 initPickSheet(document.getElementById('picksheet-root'));
 initOdds(document.getElementById('odds-root'));
 initRecommend(document.getElementById('recommend-root'));

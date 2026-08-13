@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260811d" />
+  <link rel="stylesheet" href="css/styles.css?v=20260811i" />
 </head>
 <body>
 
@@ -19,7 +19,9 @@
     <div class="wrap">
       <div class="brand">
         <div class="brand-mark" aria-hidden="true">B</div>
-        <div class="brand-name">Bova's Picks <span>&nbsp;/&nbsp; 2025</span></div>
+        <!-- Year is written by app.js from the derived season — hardcoding it
+             here is how the whole site ended up a season behind. -->
+        <div class="brand-name">Bova's Picks <span id="brand-season">&nbsp;</span></div>
       </div>
 
       <h1>Make the pick,<br />not the guess.</h1>
@@ -28,7 +30,8 @@
       </p>
 
       <nav class="tabs" role="tablist" aria-label="Sections">
-        <button class="tab" role="tab" id="tab-picksheet"  aria-controls="panel-picksheet"  aria-selected="true">Pick Sheet</button>
+        <button class="tab" role="tab" id="tab-schedule"   aria-controls="panel-schedule"   aria-selected="true">Schedule</button>
+        <button class="tab" role="tab" id="tab-picksheet"  aria-controls="panel-picksheet"  aria-selected="false">Pick Sheet</button>
         <button class="tab" role="tab" id="tab-odds"       aria-controls="panel-odds"       aria-selected="false">Odds</button>
         <button class="tab" role="tab" id="tab-recommend"  aria-controls="panel-recommend"  aria-selected="false">Recommend</button>
         <button class="tab" role="tab" id="tab-lookback"   aria-controls="panel-lookback"   aria-selected="false">Lookback<span class="tab-soon">Soon</span></button>
@@ -39,8 +42,15 @@
 
   <main class="wrap">
 
+    <!-- ── Schedule ───────────────────────────────────────────────────── -->
+    <section class="panel" id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule">
+      <div id="schedule-root">
+        <p class="eyebrow">Loading</p>
+      </div>
+    </section>
+
     <!-- ── Pick Sheet ─────────────────────────────────────────────────── -->
-    <section class="panel" id="panel-picksheet" role="tabpanel" aria-labelledby="tab-picksheet">
+    <section class="panel" id="panel-picksheet" role="tabpanel" aria-labelledby="tab-picksheet" hidden>
       <div id="picksheet-root">
         <p class="eyebrow">Loading</p>
       </div>
@@ -91,6 +101,6 @@
     Personal tool. Picks are emailed manually — this only builds and checks the message.
   </footer>
 
-  <script type="module" src="js/app.js?v=20260811b"></script>
+  <script type="module" src="js/app.js?v=20260811c"></script>
 </body>
 </html>
