@@ -6,11 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Site name**: Bova's Picks (renamed from "NFL Pickem Analyzer" 2026-08-11; the local folder is
   still `NFL Pickems/` — see the note at the end of this section for why).
-- **GitHub repo**: local `git init` done (2026-08-11), own nested repo per the workspace convention
-  (see workspace `CLAUDE.md` Git Setup). Not yet pushed — no remote created (`gh` isn't installed
-  in this environment; create `bova4389/bovas-picks` on github.com and
-  `git remote add origin` when ready).
-- **Hosting**: TBD — likely GitHub Pages if it becomes a live site, otherwise a local tool
+- **GitHub repo**: [`bova4389/bovas-picks`](https://github.com/bova4389/bovas-picks) — own nested
+  repo per the workspace convention (see workspace `CLAUDE.md` Git Setup). Pushed since 2026-08-11.
+- **Hosting**: **GitHub Pages, live** at `https://bova4389.github.io/bovas-picks/` (enabled
+  2026-08-11), deploying from `main`. See GitHub Setup below.
 - **Status**: Pick Sheet, Odds, and Recommend tabs are functional. Lookback and Survivor still "Soon".
 
 **Folder left as `NFL Pickems/`, not renamed to match.** The rename request was for *displayed*
@@ -68,6 +67,30 @@ The Saturday deadline is a hard constraint on the tool: it must produce a recomm
 Saturday-morning information, never assume Sunday inactives are available, and handle
 questionable-status players probabilistically. Thanksgiving and Christmas weeks need a separate
 Thursday-kickoff deadline.
+
+## Real-Money Betting — Settled, Do Not Re-Litigate
+
+[`DFS-BETTING-ROI.md`](DFS-BETTING-ROI.md) researched expanding into DraftKings/FanDuel. **The
+answer was no**, and the reason is structural rather than a matter of model quality: Indiana allows
+**no** deduction for wagering losses and taxes **gross** winnings, while OBBBA capped the federal
+loss deduction at **90%** of losses for tax years beginning after 2025. Together those put the
+break-even edge on sportsbook handle at **~4.5%–6.0% ROI**, against a documented professional
+benchmark of 3%–7%.
+
+Consequences for anything built here:
+
+- **"Sportsbook" means the fixed-odds product, not the company.** DraftKings and FanDuel each run
+  several separately-licensed products under one login that file different tax forms: their
+  **Sportsbook** tabs report GROSS on W-2G, their **DFS** tabs report NET on 1099-MISC. Playing
+  DK/FD is fine; the fixed-odds tab is what the research rules out.
+- **Do not build fixed-odds integrations or bet-placement features.** That vehicle is unprofitable
+  after tax before a single pick is made. DFS-side tooling is not ruled out.
+- **The private pools are the best-returning vehicle in the research** — no rake, ~268 recreational
+  entrants, net tax treatment, no account-limiting risk. Extending this tool to more pools beats
+  every DK/FD strategy evaluated.
+- **Closing line value, not win rate, is the edge metric** if any wagering analysis is ever added.
+- Figures are reproducible: `python scripts/betting_roi_model.py --help` takes county rate,
+  marginal bracket, and handle as parameters.
 
 ## Site Architecture
 
@@ -156,7 +179,7 @@ so this is both the source of the pick form and the validator for outgoing picks
 python scripts/parse_weekly_sheets.py "path/to/Weekly Sheets 26.xlsx" 2026
 ```
 
-→ `data/number-map-<year>.json` (teams, numbers, byes — **no PII, safe to commit**)
+→ `data/number-map-<year>.json` (teams, numbers, byes — **tracked**)
 
 Layout notes that cost time to work out: away = odd number, home = even, sequential down the page.
 Unnumbered games are excluded from scoring — normally the Thursday game, but **Week 13
@@ -174,9 +197,8 @@ a week total.
 python scripts/parse_pool_picks.py "path/to/Weekly picks 26.xlsx" 2026 [week]
 ```
 
-→ `data/raw/entries-<year>-w<NN>.json` — names + individual cards, **tracked** (see Data & Privacy
-  below — this project doesn't follow the Majors PII rule)
-→ `data/popularity/pop-<year>-w<NN>.json` — aggregate percentages only, **safe to commit**
+→ `data/raw/entries-<year>-w<NN>.json` — names + individual cards, **tracked**
+→ `data/popularity/pop-<year>-w<NN>.json` — aggregate percentages only, **tracked**
 
 **3. Odds — on a schedule, not mailed.** `scripts/fetch_odds.py` pulls NFL moneylines from
 [The Odds API](https://the-odds-api.com/) (free tier, 500 requests/month), de-vigs them, and
@@ -189,7 +211,7 @@ top Thursday–Saturday, all inside budget.
 ODDS_API_KEY=xxxxx python scripts/fetch_odds.py
 ```
 
-→ `data/odds/current.json` — latest snapshot, **safe to commit** (no PII, just market prices)
+→ `data/odds/current.json` — latest snapshot, **tracked** (market prices only)
 → `data/odds/history/<event-id>.json` — every snapshot ever taken of that specific game, oldest
   first, keyed by the Odds API's event id rather than by week bucket. This is deliberate: a bucket
   is only where a game sits *today*, and it drifts forward as weeks roll over, so bucket-keyed
@@ -205,29 +227,18 @@ this script's. **Needs `ODDS_API_KEY` as a repo secret before the GitHub Action 
 up at the-odds-api.com (an account Claude cannot create on your behalf) and add the secret once the
 repo has a remote.
 
-## Data & Privacy
+## Which Data File Feeds Which View
 
-**Entrant names are fine to commit and display.** This is a personal site, and the pool's own
-weekly mailing already circulates every name to all ~270 entrants. `data/raw/` is tracked, and the
-lookback "who picks well" analysis can name people freely. This project does **not** follow the
-stricter Majors Golf Pool rule, and no PII hook is needed here.
+`data/raw/` (per-entrant cards) and `data/popularity/` (aggregate percentages) are both tracked and
+both fair game. Pick the one whose *shape* matches the calculation:
 
-Two narrow exclusions, both about contact details rather than names:
+- **Pick-leverage views read `data/popularity/`** — `leverage = win_probability ÷ pick_share` needs
+  the aggregate percentage, not individual cards.
+- **Lookback / "who picks well" views read `data/raw/`** — per-entrant analysis needs the cards, and
+  can name entrants freely.
 
-- **The source workbooks are gitignored** (`*.xlsx`/`*.xls`/`*.xlsm`). Every sheet footer carries
-  the commissioner's personal email and cell number. The parsers extract only games, numbers, and
-  picks, so nothing downstream needs the raw files — and the derived JSON is verified clean of both.
-- **Entry 79's name field is an email address**, not a name — one entrant filled the form in
-  wrong. It is a third party's address rather than the user's or the commissioner's. Harmless in a
-  private/personal context; scrub it if this site ever becomes publicly reachable.
-
-`data/popularity/` (percentages, no names) is still the right thing for the *pick-leverage* views
-to read — not for privacy reasons, but because that is the shape those calculations need. The
-lookback views read `data/raw/`.
-
-**The one thing that would change this policy:** if the site is ever deployed to a public URL
-rather than opened locally, ~270 real names become search-indexable. That is the moment to revisit,
-not before.
+The source `.xlsx` workbooks are gitignored, so every parser takes a path argument rather than
+reading a committed file.
 
 ## Features
 
@@ -290,13 +301,80 @@ guessing the shape now.
 
 ## GitHub Setup
 
-`git init` and the initial commit are done locally (2026-08-11) — own nested repo per the
-workspace convention, no remote yet. To finish:
+**Complete as of 2026-08-11.** All four setup steps are done:
 
-1. Create `bova4389/bovas-picks` on github.com (public by default unless told otherwise —
-   `gh repo create` isn't available since `gh` isn't installed in this environment) and
-   `git remote add origin <url>`, run from inside `NFL Pickems/`.
-2. `git push -u origin main`
-3. Repo Settings → Secrets → Actions → add `ODDS_API_KEY` (sign up at the-odds-api.com first —
-   that account creation is a step only you can do) so `.github/workflows/fetch-odds.yml` can run.
-4. When ready to deploy: repo Settings → Pages → deploy from `main`.
+| Step | Status | Evidence |
+|---|---|---|
+| Remote created + `git remote add origin` | Done | `origin` → `https://github.com/bova4389/bovas-picks` |
+| `git push -u origin main` | Done | Root commit `fe0e6d4` onward on `origin/main` |
+| `ODDS_API_KEY` repo secret | Done | `github-actions[bot]` odds commits land daily; the workflow cannot commit without it |
+| **GitHub Pages enabled** | **Done 2026-08-11 23:11 UTC** | 5 successful `pages build and deployment` runs from `main`, latest 2026-08-12 14:48 UTC |
+
+**The site is live at `https://bova4389.github.io/bovas-picks/`.** Pages serves the repository root,
+so every tracked file is fetchable at its repo path — `data/odds/current.json` and the rest of
+`data/` included. That is by design: the tabs fetch those paths directly.
+
+## Syncing Local ↔ GitHub
+
+Work reaches this repo from two places that never see each other: **a local machine**, and
+**Claude Code on the web**, which runs in an ephemeral container that clones from GitHub and pushes
+back. GitHub is the only shared ground. Nothing written in a web session exists anywhere else until
+it is pushed, and nothing on the local drive is visible to a web session until it is pushed.
+
+**A third writer moves `main` on its own:** `.github/workflows/fetch-odds.yml` commits to `main`
+eight times a day Thursday–Saturday and once daily Sunday–Wednesday. **`origin/main` will almost
+always be ahead of a local checkout that has sat overnight.** This is the single most likely source
+of a surprising push rejection, and it is expected behavior rather than a problem.
+
+### Start every local session with a pull
+
+```bash
+cd "path/to/NFL Pickems"
+git fetch origin
+git status -sb                    # shows how far behind main is
+git pull --ff-only origin main    # refuses to invent a merge if histories diverged
+```
+
+`--ff-only` is deliberate: it fails loudly on divergence instead of silently creating a tangled
+merge commit. If it fails, use `git pull --rebase origin main` to replay local commits on top.
+
+### Pulling a branch pushed from a web session
+
+```bash
+git fetch origin <branch-name>
+git checkout <branch-name>
+```
+
+To fold it into `main` (docs-only branches need no PR):
+
+```bash
+git checkout main
+git pull --ff-only origin main
+git merge --no-ff <branch-name>
+git push origin main
+```
+
+### Why a local push cannot destroy web-session work
+
+Three independent protections, worth knowing so the fear doesn't drive bad workarounds:
+
+1. **Single root commit** (`fe0e6d4`, 2026-08-11). Local and GitHub share one lineage — there is no
+   "unrelated histories" hazard, which is the failure mode where two repos silently overwrite.
+2. **Branches are independent refs.** Pushing `main` cannot alter, remove, or ignore a branch like
+   `claude/*`. Only an explicit push to that branch name touches it.
+3. **Git refuses non-fast-forward pushes by default.** A local `main` behind `origin/main` gets a
+   *rejection*, never a silent overwrite. The rejection is the safety net working.
+
+**The one thing that does destroy remote work: `git push --force` (or `-f`, or
+`--force-with-lease`).** Never use it here. A rejected push is solved with `git pull --rebase`, not
+with force.
+
+### Odds data conflicts
+
+`data/odds/` is bot-owned. Do not hand-edit it locally. On a conflict there, take the remote copy —
+the next scheduled run regenerates it anyway:
+
+```bash
+git checkout origin/main -- data/odds/
+git add data/odds/
+```
