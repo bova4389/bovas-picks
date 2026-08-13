@@ -250,11 +250,23 @@ transcriptions from a club-published chart. That is a genuinely weaker claim
 than "read off the style guide", and it is the reason nothing here has been
 written into `team-identity.json` automatically.
 
-**Nothing in this table has been applied.** `palette.disagreement` blocks are
-untouched; this is a finding, not a migration. Applying it means deciding
-whether `team-identity.json` should record the club's *brand* colour or the
-*screen* colour it currently carries — they are not the same question, and the
-uniform derivation in `build_team_identity.py` snaps to the existing values.
+**Applied 2026-08-13.** Every `palette.disagreement` block is gone, replaced by
+a `palette.resolution` block recording the outcome (`corrected` for CHI, LAC,
+NYJ, TB, TEN; `confirmed` for CLE, DET, LAR, NO, PHI), the prior values from
+both sources, the basis, and the provenance caveat above. Seven hex values moved
+in total.
+
+One coupling worth knowing about, because it will bite anyone editing this file
+by hand: **kit colours are snapped to the palette**, so a corrected palette
+value has to move with its kit. Chicago's home socks were `#E64100` — the old
+palette secondary — and are now `#C83803`. That was the only such case among the
+five corrections. `uniforms.*.sampled` is *raw per-game observation* and was
+deliberately left alone; it is evidence, not derived output, and overwriting it
+would destroy the thing that lets the derivation be checked.
+
+Not applied: New Orleans' black. The club's is `#101820` rather than the pure
+`#000000` recorded here. It is a simplification rather than an error, and moving
+it would churn kit fields across both sides for no visible gain.
 
 ## 4. Uniforms — optional, and lower value than it looks
 
