@@ -282,6 +282,27 @@ per-team per-season at
 `.../controller.php?action=teams-season&team_id=DAL&year=<year>`. Read the
 combinations, don't take the images.
 
+### TEN is the one hand-set kit (2026-08-13)
+
+Tennessee's March 2026 rebrand invalidated its derivation outright — the club
+now wears a **white helmet with every jersey combination**, Titans Blue at home
+and white on the road, where the 2015–20 window had it in navy throughout. Six
+colour fields were set by hand.
+
+The pattern used there is the one to copy if another team ever needs it:
+
+- the four colour fields hold the override;
+- `uniforms.<side>.derived` keeps the values that were replaced;
+- `uniforms.<side>.sampled` is **raw per-game observation and is never touched**
+  — it is the evidence the derivation is checked against, not derived output;
+- `observations`, `modalShare` and `whiteJerseyRate` still describe `derived`,
+  **not** the override, which is why `source` is recorded alongside.
+
+The club's own brand board corroborates the palette choice independently of
+this: its colour-proportions panel gives Titans Blue the dominant field with
+navy and red as thin accents, which is why `#4B92DB` is the primary here rather
+than Titans Navy `#0C2340`.
+
 ---
 
 ## Paste this into a local Claude Code session

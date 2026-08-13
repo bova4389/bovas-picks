@@ -11,7 +11,8 @@
     "uniforms": "ajreinhard/data-viz per-game uniform observations, 2015-2020, modal kit per side, snapped to palette",
     "names": "nflverse/nfldata 2026 team table",
     "trademarkNotice": "assets/teams/NOTICE.md",
-    "paletteAudit": "2026-08-13 local session: all 10 palette.disagreement blocks resolved against the clubs' current brand colours. 5 corrected (CHI, LAC, NYJ, TB, TEN), 5 confirmed (CLE, DET, LAR, NO, PHI). Kit colours snapped from a corrected value were moved with it; `uniforms.*.sampled` is raw observation and was not. See docs/REFRESH-TEAM-ASSETS.md section 3."
+    "paletteAudit": "2026-08-13 local session: all 10 palette.disagreement blocks resolved against the clubs' current brand colours. 5 corrected (CHI, LAC, NYJ, TB, TEN), 5 confirmed (CLE, DET, LAR, NO, PHI). Kit colours snapped from a corrected value were moved with it; `uniforms.*.sampled` is raw observation and was not. See docs/REFRESH-TEAM-ASSETS.md section 3.",
+    "uniformOverrides": "TEN only: kit set from the March 2026 rebrand, not derived. Every other team's kit is still the 2015-2020 derivation described under `uniforms`. See uniforms.<side>.derived for the values replaced."
   },
   "uniformWindow": {
     "from": 2015,
@@ -2276,10 +2277,17 @@
       },
       "uniforms": {
         "home": {
-          "jersey": "#002244",
-          "pants": "#002244",
+          "jersey": "#4B92DB",
+          "pants": "#FFFFFF",
           "helmet": "#FFFFFF",
-          "socks": "#002244",
+          "socks": "#4B92DB",
+          "source": "2026 rebrand, set by hand 2026-08-13",
+          "derived": {
+            "jersey": "#002244",
+            "pants": "#002244",
+            "helmet": "#FFFFFF",
+            "socks": "#002244"
+          },
           "sampled": {
             "jersey": "#03182F",
             "pants": "#03182F",
@@ -2293,9 +2301,16 @@
         },
         "away": {
           "jersey": "#FFFFFF",
-          "pants": "#002244",
-          "helmet": "#002244",
-          "socks": "#002244",
+          "pants": "#4B92DB",
+          "helmet": "#FFFFFF",
+          "socks": "#4B92DB",
+          "source": "2026 rebrand, set by hand 2026-08-13",
+          "derived": {
+            "jersey": "#FFFFFF",
+            "pants": "#002244",
+            "helmet": "#002244",
+            "socks": "#002244"
+          },
           "sampled": {
             "jersey": "#FEFEFE",
             "pants": "#0C2340",
@@ -2315,7 +2330,8 @@
         "helmetFacingLeft": "assets/teams/helmets/TEN-left.png"
       },
       "notes": [
-        "Palette audited 2026-08-13 against the club's current brand colours; primary #4495D2 -> #4B92DB, secondary #D50A0A -> #C8102E. Superseded by the 2026 rebrand. Titans Blue #4B92DB is the identifying colour and is the one value both prior sources agreed on; Titans Navy #0C2340 (PMS 289 C) is now a background colour rather than the primary. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
+        "Palette audited 2026-08-13 against the club's current brand colours; primary #4495D2 -> #4B92DB, secondary #D50A0A -> #C8102E. Superseded by the 2026 rebrand. Titans Blue #4B92DB is the identifying colour and is the one value both prior sources agreed on; Titans Navy #0C2340 (PMS 289 C) is now a background colour rather than the primary. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart.",
+        "Kit set from the March 2026 rebrand rather than derived: the club now wears a white helmet with every jersey combination, Titans Blue at home and white on the road. The previous values sit in uniforms.<side>.derived, and the observation statistics beside them (observations, modalShare, whiteJerseyRate) describe that derived kit from the 2015-2020 window, not this override."
       ]
     },
     "WAS": {
