@@ -40,16 +40,20 @@ to license either. Treat their availability as convenience, not permission.
 
 ## Currency
 
-The helmet set is the `2023_helm` vintage. Audited 2026-08-13 against current
-club designs: **NYJ and TEN are the only two whose primary helmet is genuinely
-wrong** (New York's 2024 "JETS" wordmark decal, Tennessee's 2026 white shell).
-The other 30 are still accurate — Denver's and Houston's 2024 redesigns kept
-their primary shell colour and side decal, Detroit's and Atlanta's changes are
+The helmet set is the `2023_helm` vintage. Audited 2026-08-13: **NYJ and TEN
+were the only two whose primary helmet had genuinely changed**, and both have
+been **rebuilt in-repo** rather than sourced. Every file in `helmets/` is the
+same drawing — silhouette IoU between any two is exactly 1.0000 — so a helmet is
+just shell colour, shared linework, facemask and decal. `scripts/rebuild_helmet.py`
+composes the two current designs from parts already here: the white shell from
+the Colts' instance of the template, and the decals from `logos/TEN.png` and
+`logos/NYJ.png`, which the mirror already carries at the current design. No
+third-party photograph or artwork was used, and none is in this repository.
+
+The other 30 remain accurate: Denver's and Houston's 2024 redesigns kept their
+primary shell colour and side decal, Detroit's and Atlanta's changes are
 facemask/front-bumper only, and everything else since 2023 is an alternate or
-throwback rather than a primary. Both replacements are **unsourced**: no CDN
-publishes helmet renders, club sites publish video rather than transparent
-artwork, and the Gridiron Uniform Database's templates are its author's own
-drawings. See `docs/REFRESH-TEAM-ASSETS.md` §2 for what was tried.
+throwback rather than a primary.
 
 Logos were verified team-by-team on the same date and are current; `LAR` was
 corrected to the club's blue-and-gold primary, which only the league CDN

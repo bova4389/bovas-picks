@@ -20,7 +20,7 @@ hand), and the results get committed and pushed like any other change.
 | **Pantone / CMYK** | 15 teams have it; 10 withheld where sources disagree | optional, §3 |
 | **Logos** | Current — verified team-by-team 2026-08-13 | §1, done |
 | **Wordmarks** | Current, but **no working refresh endpoint exists** | §1, unfixable for now |
-| **Helmets** | **2023 vintage; NYJ and TEN are genuinely wrong** | §2, needs hands, unsourced |
+| **Helmets** | Current — NYJ and TEN rebuilt from the template | §2, `scripts/rebuild_helmet.py` |
 | **Uniforms** (home/away) | Derived from 2015–2020 observations | §4, optional |
 
 > **Audit of 2026-08-13 (local session, full network).** The three assumptions
@@ -132,12 +132,12 @@ So: download the helmets you need, name them, and let the script install them.
 
 ### Which helmets actually need replacing (audited 2026-08-13)
 
-Only **two**. Both remain **unsourced** — see the note below.
+Only **two**, and both have now been rebuilt — see below.
 
 | Team | Installed (2023) | Current primary | Verdict |
 |---|---|---|---|
-| **NYJ** | green shell, 2019 "Jets" oval mark | green shell, 1978–89-style **"JETS" wordmark with a jet off the "J"**, white facemask (2024 Legacy Collection) | **wrong — replace** |
-| **TEN** | navy shell, flaming-thumbtack "T" | **white shell**, new block-"T"-in-red-circle mark, guitar-string centre stripe, white facemask (2026 rebrand) | **wrong — replace** |
+| **NYJ** | green shell, 2019 "Jets" oval mark | green shell, 1978–89-style **"JETS" wordmark with a jet off the "J"**, white facemask (2024 Legacy Collection) | **was wrong — rebuilt** |
+| **TEN** | navy shell, flaming-thumbtack "T" | **white shell**, new block-"T"-in-red-circle mark, guitar-string centre stripe, white facemask (2026 rebrand) | **was wrong — rebuilt** |
 
 Left alone, with the reason:
 
@@ -154,29 +154,62 @@ Note that NYJ's replacement decal is **strongly directional** — the jet flies
 out of the "J" toward the rear of the helmet — so `--mirror` is invalid for it
 and the script correctly refuses. Both facings must be sourced separately.
 
-### Why NYJ and TEN are still unsourced
+### Both were rebuilt, from the set itself — `scripts/rebuild_helmet.py`
 
-There is no legitimate source for this artwork, which is the same conclusion the
-top of this section reaches — restated here with what was actually tried on
-2026-08-13, so nobody re-runs the search from scratch:
+**Sourcing helmet artwork turned out to be the wrong problem.** Confirmed first
+that no source exists: seven CDN paths across `static.www.nfl.com` and
+`a.espncdn.com` all 404; club sites publish `.mp4` turntables and poster `.jpg`s
+rather than transparent artwork; GUD's templates are its author's drawings; and
+retailer product photography is a third party's copyright, three-quarter angle
+against a set drawn in flat side profile, and only ever one facing.
 
-- **No CDN helmet endpoint exists.** Seven candidate paths across
-  `static.www.nfl.com` and `a.espncdn.com` (`/clubs/helmets/`, `/clubs/helmet/`,
-  `/teamlogos/nfl/500/helmet/`, `/i/helmets/nfl/500/`, `/clubs/uniforms/`, …)
-  all 404. The league CDN serves logos and wordmarks, never helmets.
-- **Club sites publish marketing media, not assets.** The Falcons' own uniform
-  microsite, for instance, carries an `.mp4` helmet turntable and a poster
-  `.jpg` — no transparent PNG, and no second facing.
-- **The Gridiron Uniform Database is accurate but off-limits**, for the reason
-  already given above: those helmet templates are its author's own drawings.
+Then the measurement that mattered: **silhouette IoU between any two helmets in
+this set is exactly 1.0000.** They are all the same drawing. A helmet here is
+only
 
-The remaining options all mean shipping something worse than what is installed —
-a screenshot off a news photo, a mirrored decal that reads backwards, or someone
-else's artwork taken without permission. None of those is an improvement on a
-correct-but-stale 2023 render, so nothing was substituted. Until a real source
-turns up, NYJ and TEN render as their 2023 helmets, and `check_team_assets.py`
-still passes at 128/128 because the files are present and valid — the check
-verifies presence and artwork, not currency.
+    shell colour + shared linework + facemask + decal
+
+so a changed helmet can be *composed* from pieces already in the repo. The
+facemask confirms it independently — `(149,149,149)` covers 0.12177 of every
+single helmet, to five decimal places.
+
+| Team | Built from | Edits |
+|---|---|---|
+| **TEN** | `IND` (the template's white-shelled instance) | Colts horseshoe cleared, 2026 Shield decal from `logos/TEN.png`, six-string crown stripe |
+| **NYJ** | its own 2023 render (green shell kept) | 2019 decal removed and inpainted, 2024 "JETS with a jet" glyph from `logos/NYJ.png`, facemask black → light |
+
+```bash
+python scripts/rebuild_helmet.py TEN NYJ --out ~/helmets
+python scripts/fetch_team_assets.py ingest-helmets ~/helmets
+python scripts/check_team_assets.py
+```
+
+Four things that were not obvious, all now handled in the script:
+
+- **Inpaint by diffusion, not by row median.** The shells carry a
+  two-dimensional gradient, so one colour per row leaves the removed decal
+  legible as letter-shaped banding. This produced a visible ghost twice before
+  the cause was clear.
+- **Define a decal by what it is *not*.** The 2019 Jets mark is white lettering
+  over a dark keyline, so removing "white pixels" strips the fill and leaves the
+  outline behind. Removing "anything in the panel that is not shell green"
+  takes both.
+- **Lift a wordmark without its keyline.** Several logos are a coloured field
+  with a white keyline outside and white lettering inside; "all white pixels"
+  grabs the ring too and composites an ellipse onto the helmet. The ring touches
+  the outside and the lettering does not, so a flood inward separates them.
+- **Clip the decal to the shell.** At the decal's height the mark can be wider
+  than the flat part of the shell, and without clipping it runs over the crown
+  edge into transparency on one facing.
+
+The decal is composited **unmirrored onto both facings**, which is the point of
+the whole exercise and the thing `--mirror` cannot do.
+
+Note the recipes differ in one important way: **TEN is reproducible, NYJ is
+not.** TEN composes from IND every run and reproduces byte-for-byte; NYJ edits
+the Jets' own render in place and must start from the 2023 artwork. Running it
+against its own output would inpaint the new decal away and paste a second one
+on top, so the script refuses when it sees an already-lightened facemask.
 
 **Two facings per team, named by the direction the helmet points:**
 
