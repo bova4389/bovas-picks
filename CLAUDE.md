@@ -399,8 +399,18 @@ Three things about the data that are load-bearing:
 ```bash
 python scripts/build_team_identity.py     # clones upstream mirrors, writes data + 128 images
 python scripts/check_team_assets.py       # decodes all 128, fails on blank/missing artwork
-python scripts/fetch_team_assets.py --dry-run   # refresh logos from league/ESPN CDNs
+python scripts/fetch_team_assets.py logos --dry-run          # refresh from official CDNs
+python scripts/fetch_team_assets.py ingest-helmets <folder>   # install helmets grabbed by hand
 ```
+
+**The helmet set is 2023 vintage** — the Jets, Broncos and Texans redesigned in 2024, so those
+three render a season behind (palettes are current; only the artwork lags). There is no free
+programmatic source for current helmet renders, so closing that gap needs a local session with
+open network plus some manual sourcing: see
+[`docs/REFRESH-TEAM-ASSETS.md`](docs/REFRESH-TEAM-ASSETS.md), which carries the runbook and a
+paste-in prompt. Do not fill a missing facing by mirroring a team with a directional decal —
+helmet decals face forward on both sides, so a flip yields backwards lettering; `fetch_team_assets.py`
+enforces this and only mirrors the handful of symmetric marks.
 
 `build_team_identity.py` reads **GitHub mirrors, not nfl.com or espncdn.com** — a Claude Code web
 session in this repo has a GitHub-only egress allowlist, and those hosts answer 403 there. That is
