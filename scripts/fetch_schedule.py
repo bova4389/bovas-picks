@@ -87,18 +87,39 @@ def parse_week(payload, week):
                 except (TypeError, ValueError):
                     return None
 
-            games.append(
-                {
-                    "id": g["id"],
-                    "week": week,
-                    "date": g.get("date"),
-                    "home": norm(home["team"]["abbreviation"]),
-                    "away": norm(away["team"]["abbreviation"]),
-                    "homeScore": score(home) if completed else None,
-                    "awayScore": score(away) if completed else None,
-                    "completed": completed,
+            # "Home" in this feed means the team that owns the fixture, not the
+            # team whose stadium it is played in. The league sends nine 2026
+            # games abroad -- Melbourne, Rio, London x3, Paris, Madrid, Munich,
+            # Mexico City -- and each still has a nominal home side. Record the
+            # flag explicitly rather than leaving it implied, so the Schedule tab
+            # can say "not at their place" instead of quietly lying.
+            #
+            # `neutral` is always written, so its ABSENCE means the file predates
+            # this field rather than "played at home". The venue block is only
+            # carried for neutral games, since for the other 263 it is just the
+            # home team's own stadium and would trebble the file for nothing.
+            record = {
+                "id": g["id"],
+                "week": week,
+                "date": g.get("date"),
+                "home": norm(home["team"]["abbreviation"]),
+                "away": norm(away["team"]["abbreviation"]),
+                "homeScore": score(home) if completed else None,
+                "awayScore": score(away) if completed else None,
+                "completed": completed,
+                "neutral": bool(comp.get("neutralSite")),
+            }
+
+            if record["neutral"]:
+                venue = comp.get("venue") or {}
+                address = venue.get("address") or {}
+                record["venue"] = {
+                    "name": venue.get("fullName"),
+                    "city": address.get("city"),
+                    "country": address.get("country"),
                 }
-            )
+
+            games.append(record)
     return games
 
 

@@ -9,7 +9,8 @@
    "away": "NE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872657",
@@ -19,7 +20,13 @@
    "away": "SF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": true,
+   "venue": {
+    "name": "Melbourne Cricket Ground",
+    "city": "Melbourne",
+    "country": "Australia"
+   }
   },
   {
    "id": "401872925",
@@ -29,7 +36,8 @@
    "away": "TB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872923",
@@ -39,7 +47,8 @@
    "away": "NO",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872924",
@@ -49,7 +58,8 @@
    "away": "NYJ",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872659",
@@ -59,7 +69,8 @@
    "away": "BAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872658",
@@ -69,7 +80,8 @@
    "away": "ATL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872661",
@@ -79,7 +91,8 @@
    "away": "CHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872922",
@@ -89,7 +102,8 @@
    "away": "CLE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872660",
@@ -99,7 +113,8 @@
    "away": "BUF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872928",
@@ -109,7 +124,8 @@
    "away": "MIA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872927",
@@ -119,7 +135,8 @@
    "away": "GB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872929",
@@ -129,7 +146,8 @@
    "away": "WAS",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872926",
@@ -139,7 +157,8 @@
    "away": "ARI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872930",
@@ -149,7 +168,8 @@
    "away": "DAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872931",
@@ -159,7 +179,8 @@
    "away": "DEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872932",
@@ -169,7 +190,8 @@
    "away": "DET",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872933",
@@ -179,7 +201,8 @@
    "away": "CAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872937",
@@ -189,7 +212,8 @@
    "away": "MIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872939",
@@ -199,7 +223,8 @@
    "away": "PHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872946",
@@ -209,7 +234,8 @@
    "away": "PIT",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872936",
@@ -219,7 +245,8 @@
    "away": "GB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872935",
@@ -229,7 +256,8 @@
    "away": "CLE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872938",
@@ -239,7 +267,8 @@
    "away": "NO",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872934",
@@ -249,7 +278,8 @@
    "away": "CIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872940",
@@ -259,7 +289,8 @@
    "away": "JAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872941",
@@ -269,7 +300,8 @@
    "away": "LV",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872944",
@@ -279,7 +311,8 @@
    "away": "WAS",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872943",
@@ -289,7 +322,8 @@
    "away": "SEA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872942",
@@ -299,7 +333,8 @@
    "away": "MIA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872945",
@@ -309,7 +344,8 @@
    "away": "IND",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872947",
@@ -319,7 +355,8 @@
    "away": "NYG",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872948",
@@ -329,7 +366,8 @@
    "away": "ATL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872953",
@@ -339,7 +377,8 @@
    "away": "LAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872949",
@@ -349,7 +388,8 @@
    "away": "CAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872954",
@@ -359,7 +399,8 @@
    "away": "NYJ",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872951",
@@ -369,7 +410,8 @@
    "away": "HOU",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872952",
@@ -379,7 +421,8 @@
    "away": "KC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872956",
@@ -389,7 +432,8 @@
    "away": "TEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872950",
@@ -399,7 +443,8 @@
    "away": "CIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872955",
@@ -409,7 +454,8 @@
    "away": "SEA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872957",
@@ -419,7 +465,8 @@
    "away": "NE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872958",
@@ -429,7 +476,8 @@
    "away": "ARI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872959",
@@ -439,7 +487,8 @@
    "away": "MIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872960",
@@ -449,7 +498,13 @@
    "away": "BAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": true,
+   "venue": {
+    "name": "Maracan\u00e3 Stadium",
+    "city": "Rio De Janeiro",
+    "country": "Brazil"
+   }
   },
   {
    "id": "401872961",
@@ -459,7 +514,8 @@
    "away": "LV",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872962",
@@ -469,7 +525,8 @@
    "away": "LAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872963",
@@ -479,7 +536,8 @@
    "away": "PHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872964",
@@ -489,7 +547,8 @@
    "away": "PIT",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872965",
@@ -499,7 +558,13 @@
    "away": "IND",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": true,
+   "venue": {
+    "name": "Tottenham Hotspur Stadium",
+    "city": "London",
+    "country": "England"
+   }
   },
   {
    "id": "401872971",
@@ -509,7 +574,8 @@
    "away": "NE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872972",
@@ -519,7 +585,8 @@
    "away": "NYJ",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872969",
@@ -529,7 +596,8 @@
    "away": "JAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872966",
@@ -539,7 +607,8 @@
    "away": "ARI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872970",
@@ -549,7 +618,8 @@
    "away": "LAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872968",
@@ -559,7 +629,8 @@
    "away": "GB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872973",
@@ -569,7 +640,8 @@
    "away": "TEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872967",
@@ -579,7 +651,8 @@
    "away": "DAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872974",
@@ -589,7 +662,8 @@
    "away": "MIA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872976",
@@ -599,7 +673,8 @@
    "away": "KC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872975",
@@ -609,7 +684,8 @@
    "away": "DEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872977",
@@ -619,7 +695,8 @@
    "away": "LAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872978",
@@ -629,7 +706,8 @@
    "away": "DET",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872979",
@@ -639,7 +717,8 @@
    "away": "ATL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872980",
@@ -649,7 +728,8 @@
    "away": "TB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872981",
@@ -659,7 +739,13 @@
    "away": "PHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": true,
+   "venue": {
+    "name": "Tottenham Hotspur Stadium",
+    "city": "London",
+    "country": "England"
+   }
   },
   {
    "id": "401872984",
@@ -669,7 +755,8 @@
    "away": "HOU",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872982",
@@ -679,7 +766,8 @@
    "away": "CIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872986",
@@ -689,7 +777,8 @@
    "away": "LV",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872987",
@@ -699,7 +788,8 @@
    "away": "MIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872983",
@@ -709,7 +799,8 @@
    "away": "CLE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872985",
@@ -719,7 +810,8 @@
    "away": "IND",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872988",
@@ -729,7 +821,8 @@
    "away": "NYG",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872989",
@@ -739,7 +832,8 @@
    "away": "DEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872990",
@@ -749,7 +843,8 @@
    "away": "CHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872991",
@@ -759,7 +854,8 @@
    "away": "DET",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872992",
@@ -769,7 +865,8 @@
    "away": "SF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872993",
@@ -779,7 +876,8 @@
    "away": "BAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872994",
@@ -789,7 +887,8 @@
    "away": "BUF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872995",
@@ -799,7 +898,8 @@
    "away": "SEA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872996",
@@ -809,7 +909,13 @@
    "away": "HOU",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": true,
+   "venue": {
+    "name": "Wembley Stadium",
+    "city": "London",
+    "country": "England"
+   }
   },
   {
    "id": "401872999",
@@ -819,7 +925,8 @@
    "away": "CHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872997",
@@ -829,7 +936,8 @@
    "away": "BAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873003",
@@ -839,7 +947,8 @@
    "away": "TEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873001",
@@ -849,7 +958,8 @@
    "away": "NYJ",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873000",
@@ -859,7 +969,8 @@
    "away": "NO",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401872998",
@@ -869,7 +980,8 @@
    "away": "CAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873002",
@@ -879,7 +991,8 @@
    "away": "PIT",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873004",
@@ -889,7 +1002,8 @@
    "away": "ARI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873006",
@@ -899,7 +1013,8 @@
    "away": "LAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873005",
@@ -909,7 +1024,8 @@
    "away": "BUF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873007",
@@ -919,7 +1035,8 @@
    "away": "DAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873008",
@@ -929,7 +1046,8 @@
    "away": "WAS",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873010",
@@ -939,7 +1057,8 @@
    "away": "NE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873011",
@@ -949,7 +1068,13 @@
    "away": "PIT",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": true,
+   "venue": {
+    "name": "Stade de France",
+    "city": "Saint-Denis",
+    "country": "France"
+   }
   },
   {
    "id": "401873017",
@@ -959,7 +1084,8 @@
    "away": "SF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873013",
@@ -969,7 +1095,8 @@
    "away": "CLE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873014",
@@ -979,7 +1106,8 @@
    "away": "IND",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873015",
@@ -989,7 +1117,8 @@
    "away": "MIA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873018",
@@ -999,7 +1128,8 @@
    "away": "TB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873012",
@@ -1009,7 +1139,8 @@
    "away": "CIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873016",
@@ -1019,7 +1150,8 @@
    "away": "NYG",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873019",
@@ -1029,7 +1161,8 @@
    "away": "DEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873020",
@@ -1039,7 +1172,8 @@
    "away": "GB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873021",
@@ -1049,7 +1183,8 @@
    "away": "LAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873022",
@@ -1059,7 +1194,8 @@
    "away": "KC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873009",
@@ -1069,7 +1205,8 @@
    "away": "DAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873023",
@@ -1079,7 +1216,8 @@
    "away": "CAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873026",
@@ -1089,7 +1227,8 @@
    "away": "BAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873031",
@@ -1099,7 +1238,8 @@
    "away": "TEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873024",
@@ -1109,7 +1249,8 @@
    "away": "ARI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873030",
@@ -1119,7 +1260,8 @@
    "away": "MIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873029",
@@ -1129,7 +1271,8 @@
    "away": "LV",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873027",
@@ -1139,7 +1282,8 @@
    "away": "CLE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873025",
@@ -1149,7 +1293,8 @@
    "away": "ATL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873028",
@@ -1159,7 +1304,8 @@
    "away": "IND",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873032",
@@ -1169,7 +1315,8 @@
    "away": "LAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873033",
@@ -1179,7 +1326,8 @@
    "away": "KC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873034",
@@ -1189,7 +1337,8 @@
    "away": "NE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873035",
@@ -1199,7 +1348,8 @@
    "away": "PHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873036",
@@ -1209,7 +1359,8 @@
    "away": "CHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873037",
@@ -1219,7 +1370,8 @@
    "away": "JAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873038",
@@ -1229,7 +1381,13 @@
    "away": "CIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": true,
+   "venue": {
+    "name": "Santiago Bernab\u00e9u",
+    "city": "Madrid",
+    "country": "Spain"
+   }
   },
   {
    "id": "401873040",
@@ -1239,7 +1397,8 @@
    "away": "DAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873045",
@@ -1249,7 +1408,8 @@
    "away": "NYJ",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873042",
@@ -1259,7 +1419,8 @@
    "away": "DET",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873039",
@@ -1269,7 +1430,8 @@
    "away": "CLE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873044",
@@ -1279,7 +1441,8 @@
    "away": "NYG",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873043",
@@ -1289,7 +1452,8 @@
    "away": "LAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873041",
@@ -1299,7 +1463,8 @@
    "away": "DEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873046",
@@ -1309,7 +1474,8 @@
    "away": "HOU",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873047",
@@ -1319,7 +1485,8 @@
    "away": "LV",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873049",
@@ -1329,7 +1496,8 @@
    "away": "GB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873048",
@@ -1339,7 +1507,8 @@
    "away": "ARI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873050",
@@ -1349,7 +1518,8 @@
    "away": "TB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873051",
@@ -1359,7 +1529,8 @@
    "away": "BUF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873052",
@@ -1369,7 +1540,8 @@
    "away": "WAS",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873053",
@@ -1379,7 +1551,13 @@
    "away": "NE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": true,
+   "venue": {
+    "name": "FC Bayern Munich Stadium",
+    "city": "Munich",
+    "country": "Germany"
+   }
   },
   {
    "id": "401873058",
@@ -1389,7 +1567,8 @@
    "away": "KC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873056",
@@ -1399,7 +1578,8 @@
    "away": "HOU",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873060",
@@ -1409,7 +1589,8 @@
    "away": "MIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873057",
@@ -1419,7 +1600,8 @@
    "away": "JAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873059",
@@ -1429,7 +1611,8 @@
    "away": "MIA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873055",
@@ -1439,7 +1622,8 @@
    "away": "CAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873054",
@@ -1449,7 +1633,8 @@
    "away": "BUF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873062",
@@ -1459,7 +1644,8 @@
    "away": "SEA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873061",
@@ -1469,7 +1655,8 @@
    "away": "LAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873063",
@@ -1479,7 +1666,8 @@
    "away": "SF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873064",
@@ -1489,7 +1677,8 @@
    "away": "PIT",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873065",
@@ -1499,7 +1688,8 @@
    "away": "LAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873066",
@@ -1509,7 +1699,8 @@
    "away": "IND",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873070",
@@ -1519,7 +1710,8 @@
    "away": "MIA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873071",
@@ -1529,7 +1721,8 @@
    "away": "NO",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873073",
@@ -1539,7 +1732,8 @@
    "away": "TEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873072",
@@ -1549,7 +1743,8 @@
    "away": "TB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873067",
@@ -1559,7 +1754,8 @@
    "away": "ARI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873069",
@@ -1569,7 +1765,8 @@
    "away": "JAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873068",
@@ -1579,7 +1776,8 @@
    "away": "BAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873074",
@@ -1589,7 +1787,8 @@
    "away": "NYJ",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873075",
@@ -1599,7 +1798,8 @@
    "away": "LV",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873076",
@@ -1609,7 +1809,8 @@
    "away": "PIT",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873077",
@@ -1619,7 +1820,13 @@
    "away": "MIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": true,
+   "venue": {
+    "name": "Estadio Banorte",
+    "city": "Mexico City",
+    "country": "Mexico"
+   }
   },
   {
    "id": "401873078",
@@ -1629,7 +1836,8 @@
    "away": "CIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873079",
@@ -1639,7 +1847,8 @@
    "away": "GB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873081",
@@ -1649,7 +1858,8 @@
    "away": "CHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873080",
@@ -1659,7 +1869,8 @@
    "away": "PHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873082",
@@ -1669,7 +1880,8 @@
    "away": "KC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873083",
@@ -1679,7 +1891,8 @@
    "away": "DEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873087",
@@ -1689,7 +1902,8 @@
    "away": "NO",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873086",
@@ -1699,7 +1913,8 @@
    "away": "LV",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873088",
@@ -1709,7 +1924,8 @@
    "away": "NYG",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873089",
@@ -1719,7 +1935,8 @@
    "away": "NYJ",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873084",
@@ -1729,7 +1946,8 @@
    "away": "ATL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873085",
@@ -1739,7 +1957,8 @@
    "away": "BAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873090",
@@ -1749,7 +1968,8 @@
    "away": "TEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873092",
@@ -1759,7 +1979,8 @@
    "away": "WAS",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873091",
@@ -1769,7 +1990,8 @@
    "away": "SEA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873093",
@@ -1779,7 +2001,8 @@
    "away": "NE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873094",
@@ -1789,7 +2012,8 @@
    "away": "CAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873096",
@@ -1799,7 +2023,8 @@
    "away": "KC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873098",
@@ -1809,7 +2034,8 @@
    "away": "DET",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873100",
@@ -1819,7 +2045,8 @@
    "away": "JAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873097",
@@ -1829,7 +2056,8 @@
    "away": "CIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873102",
@@ -1839,7 +2067,8 @@
    "away": "WAS",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873099",
@@ -1849,7 +2078,8 @@
    "away": "GB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873095",
@@ -1859,7 +2089,8 @@
    "away": "SF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873101",
@@ -1869,7 +2100,8 @@
    "away": "LAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873103",
@@ -1879,7 +2111,8 @@
    "away": "MIA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873104",
@@ -1889,7 +2122,8 @@
    "away": "PHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873106",
@@ -1899,7 +2133,8 @@
    "away": "CAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873105",
@@ -1909,7 +2144,8 @@
    "away": "BUF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873107",
@@ -1919,7 +2155,8 @@
    "away": "HOU",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873108",
@@ -1929,7 +2166,8 @@
    "away": "DAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873109",
@@ -1939,7 +2177,8 @@
    "away": "MIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873110",
@@ -1949,7 +2188,8 @@
    "away": "ATL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873117",
@@ -1959,7 +2199,8 @@
    "away": "TEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873111",
@@ -1969,7 +2210,8 @@
    "away": "CHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873112",
@@ -1979,7 +2221,8 @@
    "away": "DEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873114",
@@ -1989,7 +2232,8 @@
    "away": "IND",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873113",
@@ -1999,7 +2243,8 @@
    "away": "HOU",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873115",
@@ -2009,7 +2254,8 @@
    "away": "NO",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873116",
@@ -2019,7 +2265,8 @@
    "away": "TB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873118",
@@ -2029,7 +2276,8 @@
    "away": "LAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873119",
@@ -2039,7 +2287,8 @@
    "away": "KC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873120",
@@ -2049,7 +2298,8 @@
    "away": "LAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873121",
@@ -2059,7 +2309,8 @@
    "away": "NYG",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873122",
@@ -2069,7 +2320,8 @@
    "away": "BUF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873123",
@@ -2079,7 +2331,8 @@
    "away": "PIT",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873124",
@@ -2089,7 +2342,8 @@
    "away": "SF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873125",
@@ -2099,7 +2353,8 @@
    "away": "SEA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873126",
@@ -2109,7 +2364,8 @@
    "away": "CHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873133",
@@ -2119,7 +2375,8 @@
    "away": "MIA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873131",
@@ -2129,7 +2386,8 @@
    "away": "IND",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873130",
@@ -2139,7 +2397,8 @@
    "away": "CLE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873128",
@@ -2149,7 +2408,8 @@
    "away": "BAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873134",
@@ -2159,7 +2419,8 @@
    "away": "NO",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873127",
@@ -2169,7 +2430,8 @@
    "away": "ATL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873129",
@@ -2179,7 +2441,8 @@
    "away": "CIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873132",
@@ -2189,7 +2452,8 @@
    "away": "JAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873135",
@@ -2199,7 +2463,8 @@
    "away": "NYJ",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873137",
@@ -2209,7 +2474,8 @@
    "away": "DEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873136",
@@ -2219,7 +2485,8 @@
    "away": "DAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873138",
@@ -2229,7 +2496,8 @@
    "away": "DET",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873139",
@@ -2239,7 +2507,8 @@
    "away": "NE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873140",
@@ -2249,7 +2518,8 @@
    "away": "HOU",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873141",
@@ -2259,7 +2529,8 @@
    "away": "GB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873142",
@@ -2269,7 +2540,8 @@
    "away": "BUF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873143",
@@ -2279,7 +2551,8 @@
    "away": "LAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873146",
@@ -2289,7 +2562,8 @@
    "away": "TB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873145",
@@ -2299,7 +2573,8 @@
    "away": "CIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873147",
@@ -2309,7 +2584,8 @@
    "away": "WAS",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873144",
@@ -2319,7 +2595,8 @@
    "away": "CAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873150",
@@ -2329,7 +2606,8 @@
    "away": "LAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873148",
@@ -2339,7 +2617,8 @@
    "away": "ARI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873151",
@@ -2349,7 +2628,8 @@
    "away": "NE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873149",
@@ -2359,7 +2639,8 @@
    "away": "CLE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873152",
@@ -2369,7 +2650,8 @@
    "away": "TEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873153",
@@ -2379,7 +2661,8 @@
    "away": "SF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873154",
@@ -2389,7 +2672,8 @@
    "away": "JAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873155",
@@ -2399,7 +2683,8 @@
    "away": "NYG",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873156",
@@ -2409,7 +2694,8 @@
    "away": "BAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873157",
@@ -2419,7 +2705,8 @@
    "away": "DEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873158",
@@ -2429,7 +2716,8 @@
    "away": "KC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873159",
@@ -2439,7 +2727,8 @@
    "away": "LAR",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873160",
@@ -2449,7 +2738,8 @@
    "away": "WAS",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873164",
@@ -2459,7 +2749,8 @@
    "away": "NO",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873162",
@@ -2469,7 +2760,8 @@
    "away": "IND",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873165",
@@ -2479,7 +2771,8 @@
    "away": "NYG",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873166",
@@ -2489,7 +2782,8 @@
    "away": "PIT",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873161",
@@ -2499,7 +2793,8 @@
    "away": "BUF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873163",
@@ -2509,7 +2804,8 @@
    "away": "MIN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873167",
@@ -2519,7 +2815,8 @@
    "away": "SEA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873168",
@@ -2529,7 +2826,8 @@
    "away": "LV",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873169",
@@ -2539,7 +2837,8 @@
    "away": "DET",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873170",
@@ -2549,7 +2848,8 @@
    "away": "PHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873171",
@@ -2559,7 +2859,8 @@
    "away": "HOU",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873181",
@@ -2569,7 +2870,8 @@
    "away": "NYJ",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873174",
@@ -2579,7 +2881,8 @@
    "away": "CLE",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873179",
@@ -2589,7 +2892,8 @@
    "away": "LAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873176",
@@ -2599,7 +2903,8 @@
    "away": "DET",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873177",
@@ -2609,7 +2914,8 @@
    "away": "JAC",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873178",
@@ -2619,7 +2925,8 @@
    "away": "LV",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873185",
@@ -2629,7 +2936,8 @@
    "away": "SEA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873173",
@@ -2639,7 +2947,8 @@
    "away": "CHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873180",
@@ -2649,7 +2958,8 @@
    "away": "MIA",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873186",
@@ -2659,7 +2969,8 @@
    "away": "TB",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873182",
@@ -2669,7 +2980,8 @@
    "away": "PHI",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873184",
@@ -2679,7 +2991,8 @@
    "away": "SF",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873175",
@@ -2689,7 +3002,8 @@
    "away": "DAL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873172",
@@ -2699,7 +3013,8 @@
    "away": "ATL",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873183",
@@ -2709,7 +3024,8 @@
    "away": "PIT",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   },
   {
    "id": "401873187",
@@ -2719,7 +3035,8 @@
    "away": "TEN",
    "homeScore": null,
    "awayScore": null,
-   "completed": false
+   "completed": false,
+   "neutral": false
   }
  ],
  "byes": {

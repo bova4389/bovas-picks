@@ -79,7 +79,7 @@ TEAMCOLORS_NAMES = {"LV": "Oakland Raiders"}
 # Helmets are deliberately not built. The 2023 upstream renders were dropped on
 # 2026-08-13 -- at the ~28px this site shows a team mark at, they read as grey
 # blobs, and the two that were rebuilt to the current designs did not change
-# that. `uniforms.<side>.helmet` is a COLOUR and still comes from the uniform
+# that. `uniforms.<side>.helmet` is a COLOR and still comes from the uniform
 # observations; only the images are gone. Git history has them.
 
 # Uniform observations run 1999-2020. Anything earlier is a different era of
@@ -130,11 +130,11 @@ def rgb(hex_value):
 
 
 def snap(sampled, palette):
-    """Snap a colour sampled off a broadcast still to the nearest official one.
+    """Snap a color sampled off a broadcast still to the nearest official one.
 
     The uniform feed's values come from images, so a white jersey reads as
     #FEFEFE and a red one lands a few points off the style-guide red. Snapping
-    keeps the JSON to real palette colours instead of near-miss noise.
+    keeps the JSON to real palette colors instead of near-miss noise.
     """
     if not sampled:
         return None
@@ -212,7 +212,7 @@ def load_names(cache: Path, season: int):
 def load_palettes(cache: Path):
     """nflverse primary/secondary, enriched with style-guide depth where it agrees.
 
-    These are two different colour authorities, not a good one and a bad one:
+    These are two different color authorities, not a good one and a bad one:
 
     - nflverse mirrors ESPN's team feed. It tracks rebrands promptly, and the
       values are screen-tuned -- often a more saturated take on the same ink.
@@ -221,9 +221,9 @@ def load_palettes(cache: Path):
 
     Web design wants the screen values, so nflverse sets primary/secondary.
     Pantone/CMYK is attached only when the style guide agrees on those exact
-    hexes -- a print reference bound to the wrong colour is worse than none.
+    hexes -- a print reference bound to the wrong color is worse than none.
     Sampling the logo artwork to break ties was tried and abandoned: ESPN
-    re-renders the marks with their own colour treatment (the Bears logo ships
+    re-renders the marks with their own color treatment (the Bears logo ships
     as #FF3F00 against an official #C83803), so it is a third opinion rather
     than a tiebreaker.
     """
@@ -238,7 +238,7 @@ def load_palettes(cache: Path):
     for abbr in TEAMS:
         prim, sec = pick(primary, abbr), pick(secondary, abbr)
         if not prim:
-            sys.exit(f"{abbr}: no primary colour in sysdata.rda")
+            sys.exit(f"{abbr}: no primary color in sysdata.rda")
 
         entry = {
             "primary": {"hex": prim, "source": "nflverse"},
@@ -265,7 +265,7 @@ def load_palettes(cache: Path):
             }
             # Agreement is tested as a set, not in order. Several teams'
             # style guides lead with black (Bengals, Jaguars, Raiders) while the
-            # maintained feed leads with the colour you'd actually paint a card
+            # maintained feed leads with the color you'd actually paint a card
             # in, and that ordering difference is not staleness.
             present = {h for h in hexes}
             agrees = prim in present and (sec is None or sec in present)
@@ -292,7 +292,7 @@ def load_palettes(cache: Path):
                     "styleGuideMirror": hexes,
                 }
                 notes[abbr] = (
-                    "Colour authorities disagree, so Pantone/CMYK is withheld. "
+                    "Color authorities disagree, so Pantone/CMYK is withheld. "
                     f"Screen feed: {prim}" + (f" / {sec}" if sec else "")
                     + f". Style-guide mirror: {', '.join(h for h in hexes if h)}. "
                     "The primary/secondary here are the screen values, correct "
@@ -366,9 +366,9 @@ def load_uniforms(cache: Path, palettes):
 
     out = {}
     for abbr in TEAMS:
-        # Snap against every colour known for the team, including the
+        # Snap against every color known for the team, including the
         # style-guide hexes withheld from the published palette. Those are still
-        # real team colours, and without them a navy jersey snaps to black:
+        # real team colors, and without them a navy jersey snaps to black:
         # the Chargers publish only powder blue and yellow, so their navy had
         # nowhere nearer to land.
         palette = [c["hex"] for c in _palette_colors(palettes[abbr])]
@@ -389,7 +389,7 @@ def load_uniforms(cache: Path, palettes):
                 "helmet": snap(helmet, snap_targets),
                 "socks": snap(socks, snap_targets),
                 # What was actually observed, before snapping. Kept so a
-                # surprising colour can be traced to either the sample or the
+                # surprising color can be traced to either the sample or the
                 # snap rather than guessed at.
                 "sampled": {"jersey": jersey, "pants": pants,
                             "helmet": helmet, "socks": socks},
@@ -480,9 +480,9 @@ def main():
             notes.append(palette_notes[abbr])
         if abbr in REDESIGNED_SINCE:
             notes.append(
-                f"{REDESIGNED_SINCE[abbr]} Uniform colours are derived from "
+                f"{REDESIGNED_SINCE[abbr]} Uniform colors are derived from "
                 f"{lo}-{hi} observations snapped to the current palette, so the "
-                "colours are right and the design details may not be."
+                "colors are right and the design details may not be."
             )
         if notes:
             entry["notes"] = notes

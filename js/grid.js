@@ -6,7 +6,7 @@
    serves both pools. The straight-up pool reads it for this week's favourable
    spots; survivor reads it for which weeks a team can still be spent in.
 
-   THE COLOURS MEAN ONE THING AT A TIME. A cell has one background, so exactly
+   THE COLORS MEAN ONE THING AT A TIME. A cell has one background, so exactly
    one "paint" is active -- win probability, survivor usability, or matchup
    type. Everything else (divisional, Thursday, primetime, rest, my tags) is a
    MARK: a border, a corner, a glyph. That separation is why the layers can be
@@ -188,12 +188,12 @@ function controls() {
   return `
     <div class="card controls gridctl">
       <div class="field">
-        <label for="g-paint">Colour</label>
+        <label for="g-paint">Color</label>
         <select id="g-paint">
           ${opt('prob', 'Win probability', p.paint)}
           ${opt('surv', 'Survivor usable', p.paint)}
           ${opt('type', 'Matchup type', p.paint)}
-          ${opt('none', 'No colour', p.paint)}
+          ${opt('none', 'No color', p.paint)}
         </select>
       </div>
 
@@ -287,7 +287,7 @@ function tableShell() {
 function legend() {
   return `
     <details class="card glegend">
-      <summary>What the colours and marks mean</summary>
+      <summary>What the colors and marks mean</summary>
       <div class="glegend-body">
         <div>
           <h3>Win probability</h3>
@@ -466,7 +466,7 @@ function cell(team, week) {
   if (week === S.now) cls.push('is-now');
 
   // A blocked audit withholds every computed number rather than painting a
-  // grid whose colours were mixed from two different seasons. The opponent
+  // grid whose colors were mixed from two different seasons. The opponent
   // and the bye weeks come from the schedule alone, so those still render.
   if (!S.audit.blocking && c.winProb != null) {
     cls.push(probClass(c.winProb), survClass(c.winProb));

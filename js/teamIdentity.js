@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Team identity — colours, uniforms, and mark paths for all 32 teams.
+   Team identity — colors, uniforms, and mark paths for all 32 teams.
 
    The design backbone. Anything that renders a team (pick buttons, the
-   Survivor grid, Lookback rows, matchup cards) reads its colours and its logo
+   Survivor grid, Lookback rows, matchup cards) reads its colors and its logo
    or helmet path from here rather than hardcoding a hex or an image path, so a
    rebrand is one rebuild of data/teams/team-identity.json and not a sweep
    through every tab.
@@ -39,7 +39,7 @@ let identityPromise = null;
 
 /**
  * The whole identity document, memoised. Null on failure rather than throwing —
- * a missing palette should cost a team its colour, not blank the tab, same
+ * a missing palette should cost a team its color, not blank the tab, same
  * contract as data.js getOddsSnapshot.
  */
 export async function getIdentity() {
@@ -81,9 +81,9 @@ export async function getTeam(team) {
 }
 
 /**
- * A team's colours, flattened for styling: `{ primary, secondary, ink }`.
+ * A team's colors, flattened for styling: `{ primary, secondary, ink }`.
  *
- * `ink` is the colour to set text in when it sits on `primary`, chosen by
+ * `ink` is the color to set text in when it sits on `primary`, chosen by
  * contrast rather than by eye — several teams' primaries (Chargers powder blue,
  * Vikings gold, Saints old gold) are light enough that white-on-brand fails
  * the 4.5:1 floor this site holds itself to. Returns null if unknown so callers
@@ -124,6 +124,32 @@ export async function markPath(team, kind = 'logo') {
   const record = await getTeam(team);
   if (!record) return '';
   return record.assets?.[kind] ?? '';
+}
+
+/**
+ * `hex` mixed into `background` at `amount` (0–1), as a solid hex.
+ *
+ * Solid rather than `rgba()` on purpose. A translucent team color over an
+ * unknown backdrop makes the resulting contrast unknowable, and this site
+ * verifies contrast rather than assuming it — mixing to an opaque value means
+ * the text sitting on top can be checked once and stay checked. Measured at
+ * the 0.08 the Schedule tab uses, on white: the worst of the 32 is 8.40:1 for
+ * --ink and 17.62:1 for pure black, both far above the 4.5:1 floor. Raising
+ * the amount is what would put that at risk, so re-measure if you do.
+ */
+export function tintOn(hex, background = '#FFFFFF', amount = 0.08) {
+  const parse = (v) => {
+    const h = String(v).replace('#', '');
+    return h.length === 6 ? [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16)) : null;
+  };
+  const fg = parse(hex);
+  const bg = parse(background);
+  if (!fg || !bg) return background;
+
+  return `#${fg
+    .map((c, i) => Math.round(c * amount + bg[i] * (1 - amount)))
+    .map((c) => c.toString(16).padStart(2, '0'))
+    .join('')}`;
 }
 
 /**

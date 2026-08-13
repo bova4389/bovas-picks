@@ -3,7 +3,7 @@
 
    Pure data: takes already-loaded feeds and returns one cell per team-week,
    with every fact the grid can paint or mark. No DOM, no fetching, no
-   colours. js/grid.js decides what any of it should look like.
+   colors. js/grid.js decides what any of it should look like.
 
    Splitting it out is not tidiness for its own sake. The same matrix answers
    "which weeks can this team be spent" for survivor and "who is favoured this

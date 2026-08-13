@@ -49,9 +49,9 @@ SOURCES = {
         # The path segment is a Cloudinary transform, and the choice of
         # transform decides the ENCODING, not just the byte size. `t_q-best`
         # -- what this used to request -- returns an 8-bit *palette* PNG:
-        # 79-256 colours and ~27 partial-alpha pixels per mark, which flattens
+        # 79-256 colors and ~27 partial-alpha pixels per mark, which flattens
         # the antialiasing on every curved edge. `f_png` returns 8-bit RGBA
-        # with ~800-1100 colours and the alpha ramp intact, for roughly twice
+        # with ~800-1100 colors and the alpha ramp intact, for roughly twice
         # the bytes. Always fetch `f_png`; a palette-quantised mark looks
         # visibly ragged against a dark cell background.
         #

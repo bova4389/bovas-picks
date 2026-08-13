@@ -18,7 +18,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent / "lib"))
-from pngstat import significant_colours, colour_counts  # noqa: E402
+from pngstat import significant_colors, color_counts  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 IDENTITY = REPO / "data" / "teams" / "team-identity.json"
@@ -26,7 +26,7 @@ IDENTITY = REPO / "data" / "teams" / "team-identity.json"
 MIN_EDGE = 64        # smallest sane dimension for any of these assets
 MIN_VISIBLE = 0.02   # fraction of the frame that must be non-transparent
 
-# Colour count is reported but never failed on. Wordmarks are a single ink by
+# Color count is reported but never failed on. Wordmarks are a single ink by
 # design, and so are some primary logos -- the Giants' "ny" is one navy. An
 # earlier version of this check treated monochrome as a broken extraction and
 # flagged 13 perfectly good files.
@@ -44,12 +44,12 @@ def main():
 
     for abbr, team in sorted(teams.items()):
         # Data completeness, not just images. A null uniform side renders as a
-        # colourless team rather than an error, and the abbreviation-alias bug
+        # colorless team rather than an error, and the abbreviation-alias bug
         # that first produced one hit only the four teams the upstream feeds
         # spell differently -- so all 32 get checked on every field that
         # something downstream will style from.
         if not team.get("palette", {}).get("primary", {}).get("hex"):
-            problems.append(f"{abbr}: no primary colour")
+            problems.append(f"{abbr}: no primary color")
         for side in ("home", "away"):
             if not (team.get("uniforms") or {}).get(side):
                 problems.append(f"{abbr}: no {side} uniform")
@@ -61,8 +61,8 @@ def main():
                 continue
 
             try:
-                counts = colour_counts(path)
-                colours = significant_colours(path)
+                counts = color_counts(path)
+                colors = significant_colors(path)
             except Exception as exc:  # noqa: BLE001 - report, don't crash the sweep
                 problems.append(f"{abbr} {label}: undecodable ({exc})")
                 continue
@@ -79,7 +79,7 @@ def main():
                 problems.append(
                     f"{abbr} {label}: only {visible / (width * height):.1%} of the "
                     "frame is opaque -- looks blank")
-            mono.append(f"{abbr} {label}") if len(colours) < 2 else None
+            mono.append(f"{abbr} {label}") if len(colors) < 2 else None
 
     print(f"Checked {checked} images across {len(teams)} teams")
     if mono:

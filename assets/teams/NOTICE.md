@@ -10,7 +10,7 @@ personal pick'em tool.
 | `logos/` | 32 | 500×500 PNG, transparent | [nflverse/nflplotR](https://github.com/nflverse/nflplotR) embedded assets, mirroring ESPN's team feed |
 | `wordmarks/` | 32 | ~1500×260 PNG, transparent, single ink | [nflverse/nflplotR](https://github.com/nflverse/nflplotR) embedded assets |
 
-Colour and uniform data derived from these and other sources lives in
+Color and uniform data derived from these and other sources lives in
 `data/teams/team-identity.json`; every field there carries its own
 `provenance` entry. Both are produced by `scripts/build_team_identity.py`
 and checked by `scripts/check_team_assets.py`.
@@ -18,7 +18,7 @@ and checked by `scripts/check_team_assets.py`.
 ## Trademark
 
 **These are not our marks and they are not licensed to us.** Team names, logos,
-helmet designs, wordmarks and colour schemes are trademarks of the individual
+helmet designs, wordmarks and color schemes are trademarks of the individual
 clubs and of the National Football League. They are reproduced here to identify
 teams in a personal, non-commercial analysis tool — nominative use — and nothing
 about their presence in this repository grants any right to use them.
@@ -44,7 +44,7 @@ site actually shows a team mark — the Schedule tab's slot is 28x28px, and at
 that size a side-profile helmet is a grey blob regardless of how current its
 decal is. Rebuilding two of them to the 2024/2026 designs first confirmed that
 currency was not the problem; the form was. The set is now logos and wordmarks
-only. `uniforms.<side>.helmet` in `team-identity.json` is a *colour* and is
+only. `uniforms.<side>.helmet` in `team-identity.json` is a *color* and is
 unaffected. Git history has the images if they are ever wanted back.
 
 Logos were verified team-by-team on the same date and are current; `LAR` was

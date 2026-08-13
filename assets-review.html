@@ -157,11 +157,11 @@
   <div id="variants"></div>
 
   <div class="variant">
-    <h2>Why some names cannot simply be the team colour</h2>
+    <h2>Why some names cannot simply be the team color</h2>
     <p class="why">
       This project holds a <b>4.5:1</b> contrast floor for text. Measured against white,
       <b id="nFail">…</b> of 32 primaries fail it outright and two more sit within a rounding error.
-      Variant D therefore does not use the raw hex — it darkens each colour just far enough to pass,
+      Variant D therefore does not use the raw hex — it darkens each color just far enough to pass,
       which keeps the team recognisable without breaking the floor. The column below shows the
       original, the ratio it scores, and the adjusted value actually rendered.
     </p>
@@ -194,7 +194,7 @@ const NAMES = {ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Panth
 const GAMES_ALL = [["NO","TEN"],["CIN","CLE"],["MIA","CAR"],["LAC","KC"],["PIT","BAL"],["GB","MIN"]];
 const GAMES_TRICKY = [["NO","TEN"],["CIN","CLE"],["MIA","CAR"],["LAC","KC"]];
 
-// ---- colour maths --------------------------------------------------------
+// ---- color maths --------------------------------------------------------
 const lum = (hex) => {
   const h = String(hex).replace('#','');
   const ch = (p) => { const c = parseInt(p,16)/255;
@@ -206,7 +206,7 @@ const ratio = (a,b) => { const x=lum(a), y=lum(b);
 const readableInkOn = (bg) => lum(bg) > 0.179 ? '#000000' : '#FFFFFF';
 
 /** Darken `hex` just far enough to clear `target` against `bg`.
- *  Scaling RGB toward black keeps hue and reads as the same team colour; the
+ *  Scaling RGB toward black keeps hue and reads as the same team color; the
  *  alternative — swapping to black — throws the identity away entirely, which
  *  is the whole point of this variant. */
 function ensureContrast(hex, bg = '#FFFFFF', target = 4.5) {
@@ -237,7 +237,7 @@ try {
   const box = document.getElementById('fail');
   box.hidden = false;
   box.innerHTML = `<b>Could not load <code>data/teams/team-identity.json</code></b> (${e.message}).
-    Colours come from that file, so the variants below need this page served over http —
+    Colors come from that file, so the variants below need this page served over http —
     open it through the dev server or the live site rather than as a <code>file://</code> path.`;
 }
 const primary = (t) => TEAMS[t]?.palette?.primary?.hex ?? '#666666';
@@ -249,9 +249,9 @@ const wmSrc = (t) => TEAMS[t]?.assets?.wordmark ?? `assets/teams/wordmarks/${t}.
 // Each returns the inline style + content decisions for one side of a bar.
 const VARIANTS = [
   {
-    id:'a', tag:'Baseline', cls:'rec',
+    id:'a', tag:'Baseline', cls:'',
     title:'Logo + name, black on white',
-    why:`Your instinct, and it holds up: the logo carries the colour, the type stays out of its
+    why:`Your instinct, and it holds up: the logo carries the color, the type stays out of its
          way. Nothing here can fail contrast, and it is the only variant that looks identical for
          all 32 teams — so no team gets accidentally louder than another.`,
     stage:'on-white',
@@ -267,30 +267,34 @@ const VARIANTS = [
     side:(t) => ({ nameColor:'#111111' })
   },
   {
-    id:'c', tag:'Tinted', cls:'',
-    title:'Team-colour wash behind each side',
-    why:`An 8% tint of the team colour behind its half of the bar. Enough to read as "this side is
-         theirs" without competing with the logo. The tint is mixed against the card rather than
-         set with opacity, so the text contrast underneath stays predictable.`,
-    stage:'on-white',
+    id:'c', tag:'Chosen — now live', cls:'rec',
+    title:'Team-color wash behind each side, black name, on the site’s paper',
+    why:`<b>This is the one, and it is now the real Schedule tab.</b> An 8% tint of the team color
+         behind its half of the bar — enough to read as "this side is theirs" without competing
+         with the logo, and shown here on <code>--paper</code> because that is what the tab actually
+         sits on. The tint is mixed to a solid hex against the card rather than set with opacity, so
+         the contrast of the name on top is a fixed number rather than a guess: the worst of the 32
+         measures 8.40:1 for <code>--ink</code>, against this project’s 4.5:1 floor. The live
+         version adds the AWAY/HOME labels and the neutral-site pill below.`,
+    stage:'on-paper',
     side:(t) => ({ nameColor:'#111111', bg:mix(primary(t),'#FFFFFF',0.08) })
   },
   {
-    id:'d', tag:'Team colour', cls:'warn',
-    title:'Team name in the team’s own colour, darkened to pass 4.5:1',
+    id:'d', tag:'Team color', cls:'warn',
+    title:'Team name in the team’s own color, darkened to pass 4.5:1',
     why:`What you asked for, with the floor enforced. Seven primaries fail 4.5:1 on white outright
-         — Saints, Titans, Bengals, Browns, Dolphins, Panthers, Chargers — so each colour is
+         — Saints, Titans, Bengals, Browns, Dolphins, Panthers, Chargers — so each color is
          darkened only as far as it must be. Compare the Bengals and Browns rows against variant A:
-         at this size the coloured name reads as fussier, and the two orange teams stop being
+         at this size the colored name reads as fussier, and the two orange teams stop being
          distinguishable from one another.`,
     stage:'on-white',
     side:(t) => ({ nameColor:ensureContrast(primary(t),'#FFFFFF',4.5) })
   },
   {
-    id:'e', tag:'Team colour', cls:'',
-    title:'Colour carried by an edge bar, not the type',
-    why:`The team colour appears as a 4px rule on the outer edge of each side, with the name left
-         black. This gets team colour into the row without putting it anywhere it has to pass a
+    id:'e', tag:'Team color', cls:'',
+    title:'Color carried by an edge bar, not the type',
+    why:`The team color appears as a 4px rule on the outer edge of each side, with the name left
+         black. This gets team color into the row without putting it anywhere it has to pass a
          contrast test — a bar is not text, so the full-strength hex is usable.`,
     stage:'on-white',
     side:(t,which) => ({ nameColor:'#111111', edge:primary(t), which })

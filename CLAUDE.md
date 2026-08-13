@@ -113,7 +113,7 @@ js/espn.js          SHARED — live scoreboard fetch, cached                   [
 js/gameState.js     SHARED — canonical "what happened in this game"          [NEVER versioned]
 js/gridModel.js     SHARED — the 32 x 18 team-week matrix, pure data         [NEVER versioned]
 js/survivorLeagues.js SHARED — per-pool used teams + field scarcity          [NEVER versioned]
-js/teamIdentity.js  SHARED — team colours, uniforms, logo/wordmark paths     [NEVER versioned]
+js/teamIdentity.js  SHARED — team colors, uniforms, logo/wordmark paths     [NEVER versioned]
 js/schedule.js      Schedule tab — one week, live scores
 js/grid.js          Grid tab — the whole season as one table
 js/picksheet.js     Pick Sheet tab
@@ -225,7 +225,7 @@ Rules for new code:
    `python scripts/parse_weekly_sheets.py "Weekly Sheets.xlsx" <year>`
 4. `python scripts/build_team_identity.py && python scripts/check_team_assets.py` — picks up any
    offseason rebrand, relocation, or uniform change. Cheap, and skipping it is how a renamed team
-   renders in last year's colours.
+   renders in last year's colors.
 5. Confirm the site: the masthead year (written by `app.js` from `SEASON`, not hardcoded) should
    already read the new season, and Pick Sheet / Recommend should un-gate on their own.
 6. `SEASON` needs no edit. If you find yourself editing a year literal anywhere, that is the bug.
@@ -380,7 +380,7 @@ reading a committed file.
 ### Survivor pool tracker
 - **Teams already used (built)** — tracked per pool on the Grid tab, struck through in the team
   column with the week they were spent. See the Grid Tab section for the storage keys.
-- **Remaining eligible teams (built)** — the Grid's "Survivor usable" paint colours only the weeks
+- **Remaining eligible teams (built)** — the Grid's "Survivor usable" paint colors only the weeks
   clearing the ~70% floor, so what is left to spend, and when, is the shape of the grid itself.
   "Only unused" hides spent teams entirely.
 - **Field scarcity (built, Mike's pool only)** — what share of surviving entries still holds each
@@ -439,7 +439,7 @@ guessing the shape now.
 
 ## Team Identity — the design backbone
 
-Colours, uniforms, and club marks for all 32 teams. **Anything that renders a team reads from
+Colors, uniforms, and club marks for all 32 teams. **Anything that renders a team reads from
 `js/teamIdentity.js`** — never a hardcoded hex or image path, so a rebrand is one rebuild instead of
 a sweep through every tab. Same null-safe contract as the odds helpers: `teamColors()` returns
 `null` and `markPath()` returns `''` when a team is unknown, and `''` means "render nothing."
@@ -464,19 +464,19 @@ with an eyeballed value.
 
 Three things about the data that are load-bearing:
 
-- **Two colour authorities, deliberately.** `primary`/`secondary` come from the nflverse/ESPN feed —
+- **Two color authorities, deliberately.** `primary`/`secondary` come from the nflverse/ESPN feed —
   screen-tuned, tracks rebrands promptly. Pantone/CMYK comes from a style-guide mirror that lags
   rebrands, so it's attached **only** where both sources agree on the exact hexes; 15 teams have it.
   The other 10 carry a `palette.disagreement` block naming both candidates instead of silently
   picking one. Web work should use the screen values; **confirm against the club style guide before
   any print or apparel use.** Sampling the logo art to break ties does not work — ESPN re-renders
-  the marks with its own colour treatment (the Bears logo ships `#FF3F00` against an official
+  the marks with its own color treatment (the Bears logo ships `#FF3F00` against an official
   `#C83803`), so it's a third opinion, not a tiebreaker.
 - **Uniforms are derived, not asserted.** Modal jersey/pants/helmet per side from per-game
   observations (2015–2020), snapped to the team's official palette. The derivation independently
   reproduces the known conventions — Dallas and Miami are the only white-at-home teams — which is
   the check that it works. Teams with post-2020 redesigns (`WAS`, `NYJ`, `DEN`, `HOU`) carry a
-  `notes` entry: colours current, design details may lag.
+  `notes` entry: colors current, design details may lag.
 - **The marks are not ours and are not licensed.** Nominative use in a personal tool. See
   [`assets/teams/NOTICE.md`](assets/teams/NOTICE.md) before putting them anywhere else — and don't
   put them on anything sold, sponsored, or advertised.
@@ -488,10 +488,22 @@ python scripts/fetch_team_assets.py logos --dry-run          # refresh from offi
 python scripts/fetch_team_assets.py wordmarks --dry-run      # (no endpoint today — see the doc)
 ```
 
+**The Schedule row carries the team logo on an 8% wash of the team's own color**, with the name in
+`--ink` and an explicit `AWAY` / `HOME` label on each side. The wash is mixed to a solid hex by
+`tintOn()` in `js/teamIdentity.js` rather than set with opacity, so the text contrast on top is a
+fixed measured number (worst of the 32 is 8.40:1) instead of depending on whatever is behind it.
+`assets-review.html` carries the seven variants this was chosen from.
+
+**Games not at the home team's stadium are flagged.** "Home" in every upstream feed means the team
+that owns the fixture, not whose building it is — nine 2026 games are abroad. `fetch_schedule.py`
+now records `neutral` on every game (its *absence* means the file predates the field, which is not
+the same as "played at home") plus a `venue` block for the neutral ones, and the card shows an amber
+city pill with a dotted underline under the displaced team's HOME label.
+
 **There are no helmet images.** They were removed on 2026-08-13. The Schedule tab shows a team
 mark at 28×28px, and a side-profile helmet is a grey blob at that size — two were first rebuilt
 to their current 2024/2026 designs, which proved the problem was the form rather than the
-currency. The set is logos and wordmarks only; `uniforms.<side>.helmet` is a *colour* and is
+currency. The set is logos and wordmarks only; `uniforms.<side>.helmet` is a *color* and is
 unaffected. See [`assets-review.html`](assets-review.html) for how the marks read at real size,
 and [`docs/REFRESH-TEAM-ASSETS.md`](docs/REFRESH-TEAM-ASSETS.md) for the refresh runbook.
 

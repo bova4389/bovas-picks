@@ -25,6 +25,7 @@ import { clearScoreboardCache } from './espn.js';
 import {
   loadWeek, weeksIn, currentWeek, anyLive, msToNextKickoff,
 } from './gameState.js';
+import { getIdentity, tintOn } from './teamIdentity.js';
 
 const POLL_MS = 25_000;
 /** How close to kickoff we start polling, so the first snap isn't missed. */
@@ -35,6 +36,11 @@ let season = null;
 let schedule = null;
 let week = null;
 let view = null;      // last loadWeek() result
+/* The identity document, resolved once at boot. render() is synchronous and
+   runs on every poll tick, so the colors and logo paths have to be sitting in
+   memory by then rather than awaited per card. Null if it failed to load, in
+   which case every team just renders without a tint or a logo. */
+let identity = null;
 let timer = null;
 let agoTimer = null;
 let refreshing = false;
@@ -46,7 +52,10 @@ const el = (id) => document.getElementById(id);
 export async function initSchedule(root, activeSeason) {
   panel = root.closest('.panel');
   season = activeSeason;
-  schedule = await getSchedule(season);
+  // Fetched alongside the schedule rather than after it: both are needed for
+  // the first paint, and getIdentity() resolves null on failure instead of
+  // throwing, so a missing identity file costs the tint and logos, not the tab.
+  [schedule, identity] = await Promise.all([getSchedule(season), getIdentity()]);
 
   if (!schedule || !schedule.games?.length) {
     root.innerHTML = emptyState(season);
@@ -243,14 +252,64 @@ function gameCard(g) {
   const meta = metaText(g);
 
   return `
-    <div class="${cls}">
+    <div class="${cls}${g.neutral ? ' is-neutral' : ''}">
       ${teamSide(g, 'away')}
       <div class="schedgame-center">
         <div class="schedgame-status">${statusText(g)}</div>
+        ${venueHtml(g)}
         ${meta ? `<div class="schedgame-meta">${meta}</div>` : ''}
       </div>
       ${teamSide(g, 'home')}
     </div>`;
+}
+
+/** One team's record from the identity doc, or null. */
+function identityOf(abbr) {
+  return (abbr && identity?.teams?.[abbr]) || null;
+}
+
+/**
+ * Where the game is played, as a short label — or '' for the 263 games of a
+ * season played at the home team's own stadium.
+ *
+ * Worth stating because "home" in every upstream feed means the team that owns
+ * the fixture, not whose building it is. Nine 2026 games are abroad, and on
+ * those the home side has no crowd, no travel advantage and none of what the
+ * word implies. The city is the useful half — "London" tells you more than
+ * "Tottenham Hotspur Stadium" in a 104px column.
+ */
+function venueLabel(g) {
+  if (!g.neutral) return '';
+  const city = g.venue?.city;
+  const country = g.venue?.country;
+  // US neutral sites do exist (a displaced game, a Super Bowl); naming the
+  // country only helps when it is not the usual one.
+  if (city && country && country !== 'USA') return `${city}, ${country}`;
+  return city || g.venue?.name || 'Neutral site';
+}
+
+/**
+ * The venue pill's markup, city and country in separate spans.
+ *
+ * Split so the country can be dropped at phone widths by CSS alone. The centre
+ * grid track is `auto`, so it sizes to its widest child — "Mexico City, Mexico"
+ * grew that column and took the width straight off the two team names, which
+ * ellipsised "49ers". The city alone is the part that carries the meaning.
+ */
+function venueHtml(g) {
+  if (!g.neutral) return '';
+  const city = g.venue?.city;
+  const country = g.venue?.country;
+  const title = `Neutral site — not the home team's stadium${
+    g.venue?.name ? ` (${g.venue.name})` : ''}`;
+
+  const inner = city
+    ? `${escape(city)}${
+        country && country !== 'USA' ? `<span class="venue-country">, ${escape(country)}</span>` : ''
+      }`
+    : escape(g.venue?.name || 'Neutral site');
+
+  return `<div class="schedgame-venue" title="${escape(title)}">${inner}</div>`;
 }
 
 function teamSide(g, side) {
@@ -273,15 +332,40 @@ function teamSide(g, side) {
 
   const hasPossession = g.state === 'in' && g.possession === side;
 
+  const team = identityOf(abbr);
+  const logo = team?.assets?.logo || '';
+  const primary = team?.palette?.primary?.hex || '';
+
+  // An 8% wash of the team's own color behind its half of the bar. Mixed to a
+  // solid rather than set with rgba() so the black name on top has a knowable
+  // contrast — see tintOn(). Every team lands above 19:1 at this strength, so
+  // the name stays plain black for all 32 and no team reads louder than another.
+  const tint = primary ? tintOn(primary, '#FFFFFF', 0.08) : '';
+
+  // "AWAY" / "HOME" spelled out rather than implied by position. Position alone
+  // works only if you already know the convention, and it silently misleads on
+  // a neutral-site game, where the home team is not at home at all. Matches the
+  // Pick Sheet's existing .pick-side label so the two tabs agree.
+  const roleLabel = side === 'away' ? 'Away' : 'Home';
+  const roleTitle = side === 'home' && g.neutral
+    ? `Home team, but this game is at a neutral site${venueLabel(g) ? ` — ${venueLabel(g)}` : ''}`
+    : `${roleLabel} team`;
+
   // DOM order is the same for both sides — badge, name, possession, score —
   // and the home side is mirrored with `flex-direction: row-reverse` in CSS.
   // That keeps the markup semantic (and the reading order away-then-home for a
   // screen reader) while putting badges on the outer edges and scores inward,
   // flanking the clock.
   return `
-    <div class="schedteam schedteam-${side} ${mark}" data-abbr="${escape(abbr || '')}">
-      <span class="schedteam-badge" aria-hidden="true"></span>
-      <span class="schedteam-name">${escape(name)}</span>
+    <div class="schedteam schedteam-${side} ${mark}${g.neutral && side === 'home' ? ' is-displaced' : ''}"
+         data-abbr="${escape(abbr || '')}"${tint ? ` style="background:${tint}"` : ''}>
+      <span class="schedteam-badge" aria-hidden="true">${
+        logo ? `<img src="${escape(logo)}" alt="" loading="lazy" decoding="async">` : ''
+      }</span>
+      <span class="schedteam-text">
+        <span class="schedteam-side" title="${escape(roleTitle)}">${roleLabel}</span>
+        <span class="schedteam-name">${escape(name)}</span>
+      </span>
       ${hasPossession ? '<span class="poss-dot" title="Has possession" aria-label="Has possession"></span>' : ''}
       <span class="schedteam-score">${score == null ? '' : score}</span>
     </div>`;

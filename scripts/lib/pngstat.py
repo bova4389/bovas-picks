@@ -1,11 +1,11 @@
-"""Just enough PNG decoding to count the colours in an image.
+"""Just enough PNG decoding to count the colors in an image.
 
 Pillow isn't available in this repo's toolchain (no build step anywhere, by
 convention), and the only question being asked of these images is "which
-colours are actually in the artwork, and how much of each" -- so a scanline
+colors are actually in the artwork, and how much of each" -- so a scanline
 unfilter and a Counter is the whole requirement.
 
-Handles 8-bit non-interlaced truecolour, truecolour+alpha, greyscale and
+Handles 8-bit non-interlaced truecolor, truecolor+alpha, greyscale and
 palette PNGs, which covers every asset in assets/teams/.
 """
 from __future__ import annotations
@@ -66,7 +66,7 @@ def _unfilter(raw, width, height, bpp):
     return bytes(out)
 
 
-def colour_counts(path, min_alpha=200):
+def color_counts(path, min_alpha=200):
     """Counter of (r, g, b) -> pixel count, skipping transparent pixels."""
     blob = open(path, "rb").read()
     width = height = depth = ctype = interlace = None
@@ -139,13 +139,13 @@ def colour_counts(path, min_alpha=200):
     return counts
 
 
-def significant_colours(path, min_share=0.005, cap=40):
-    """The colours making up at least `min_share` of the visible pixels.
+def significant_colors(path, min_share=0.005, cap=40):
+    """The colors making up at least `min_share` of the visible pixels.
 
     Anti-aliased edges produce thousands of one-off blends, so a share floor is
     what separates real ink from the gradient between two inks.
     """
-    counts = colour_counts(path)
+    counts = color_counts(path)
     total = sum(counts.values()) or 1
     keep = [(c, n / total) for c, n in counts.most_common(cap) if n / total >= min_share]
     return keep

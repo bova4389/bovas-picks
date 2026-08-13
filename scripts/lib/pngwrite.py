@@ -8,7 +8,7 @@ images instead of 64.
 Still no Pillow and still no build step, per the workspace convention, so this
 encodes by hand: raw scanlines with filter 0, deflated, wrapped in the three
 chunks that matter. Output is always 8-bit RGBA, which normalises whatever mix
-of colour types the sources hand us.
+of color types the sources hand us.
 """
 from __future__ import annotations
 

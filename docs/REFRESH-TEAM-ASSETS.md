@@ -34,11 +34,11 @@ The helmet gap is smaller than it sounds, but it is **not** the set named in the
 2024 reporting. "New uniforms" is not the same claim as "new primary helmet":
 
 - **NYJ** and **TEN** are the only two whose primary helmet genuinely differs
-  from the installed 2023 artwork (new decal / new shell colour).
+  from the installed 2023 artwork (new decal / new shell color).
 - **DEN** and **HOU** got new uniform *sets* in 2024, but their primary helmet
-  kept its shell colour and side decal — Denver changed finish and striping,
+  kept its shell color and side decal — Denver changed finish and striping,
   Houston's new "H" mark went on an **alternate** helmet.
-- **DET** (2024) and **ATL** (2026) changed only the facemask colour and, for
+- **DET** (2024) and **ATL** (2026) changed only the facemask color and, for
   Atlanta, the front bumper — neither is visible in a flat side-profile render.
 - Everything else since 2023 — Ravens "Purple Rising"/"Darkness", Commanders
   "Hail Raiser", Browns "Alpha Dawg", Bills "The Charge", Jets "White Out",
@@ -75,7 +75,7 @@ the comparison is immune to the different padding each CDN applies). 31 of 32
 were already the current design. Refreshing them all replaces good assets with
 worse ones:
 
-| Source | Encoding | Colours per mark | Verdict |
+| Source | Encoding | Colors per mark | Verdict |
 |---|---|---|---|
 | Installed (nflplotR/ESPN mirror) | 8-bit RGBA | 1294–3227 | **best** |
 | `nfl` CDN via `f_png` | 8-bit RGBA | 804–1092 | acceptable |
@@ -98,7 +98,7 @@ python scripts/fetch_team_assets.py logos --only LAR
 ```
 
 Two near-misses worth not re-litigating: **NYG** differs because the league CDN
-serves a white-and-red *alternate colourway* of the "ny" — the installed navy
+serves a white-and-red *alternate colorway* of the "ny" — the installed navy
 one is correct, do not "fix" it. **DAL** differs only by antialiasing on the
 star's edge; the designs are identical.
 
@@ -167,7 +167,7 @@ Then the measurement that mattered: **silhouette IoU between any two helmets in
 this set is exactly 1.0000.** They are all the same drawing. A helmet here is
 only
 
-    shell colour + shared linework + facemask + decal
+    shell color + shared linework + facemask + decal
 
 so a changed helmet can be *composed* from pieces already in the repo. The
 facemask confirms it independently — `(149,149,149)` covers 0.12177 of every
@@ -187,14 +187,14 @@ python scripts/check_team_assets.py
 Four things that were not obvious, all now handled in the script:
 
 - **Inpaint by diffusion, not by row median.** The shells carry a
-  two-dimensional gradient, so one colour per row leaves the removed decal
+  two-dimensional gradient, so one color per row leaves the removed decal
   legible as letter-shaped banding. This produced a visible ghost twice before
   the cause was clear.
 - **Define a decal by what it is *not*.** The 2019 Jets mark is white lettering
   over a dark keyline, so removing "white pixels" strips the fill and leaves the
   outline behind. Removing "anything in the panel that is not shell green"
   takes both.
-- **Lift a wordmark without its keyline.** Several logos are a coloured field
+- **Lift a wordmark without its keyline.** Several logos are a colored field
   with a white keyline outside and white lettering inside; "all white pixels"
   grabs the ring too and composites an ellipse onto the helmet. The ring touches
   the outside and the lettering does not, so a flood inward separates them.
@@ -278,7 +278,7 @@ wrong in a hundred places, a PMS number generally is not.
 publish a public style guide. The Bears are the closest — they have a real
 brand-guidelines page — but it puts the actual values behind a PDF/asset
 download rather than on the page. So the values above are the consensus of
-independent colour references that all cite the same Pantone numbers, not
+independent color references that all cite the same Pantone numbers, not
 transcriptions from a club-published chart. That is a genuinely weaker claim
 than "read off the style guide", and it is the reason nothing here has been
 written into `team-identity.json` automatically.
@@ -290,7 +290,7 @@ both sources, the basis, and the provenance caveat above. Seven hex values moved
 in total.
 
 One coupling worth knowing about, because it will bite anyone editing this file
-by hand: **kit colours are snapped to the palette**, so a corrected palette
+by hand: **kit colors are snapped to the palette**, so a corrected palette
 value has to move with its kit. Chicago's home socks were `#E64100` — the old
 palette secondary — and are now `#C83803`. That was the only such case among the
 five corrections. `uniforms.*.sampled` is *raw per-game observation* and was
@@ -304,10 +304,10 @@ it would churn kit fields across both sides for no visible gain.
 ## 4. Uniforms — optional, and lower value than it looks
 
 The home/away kits are derived from per-game observations that stop in 2020, then
-snapped to each team's current palette — so the *colours* are right and the
+snapped to each team's current palette — so the *colors* are right and the
 design details may lag. The derivation independently reproduces the known
 convention (Dallas and Miami as the only white-at-home teams), which is the
-check that it works, and home/away colour conventions are among the most stable
+check that it works, and home/away color conventions are among the most stable
 things in the league.
 
 If you do want current-season kits, the Gridiron Uniform Database has them
@@ -320,11 +320,11 @@ combinations, don't take the images.
 Tennessee's March 2026 rebrand invalidated its derivation outright — the club
 now wears a **white helmet with every jersey combination**, Titans Blue at home
 and white on the road, where the 2015–20 window had it in navy throughout. Six
-colour fields were set by hand.
+color fields were set by hand.
 
 The pattern used there is the one to copy if another team ever needs it:
 
-- the four colour fields hold the override;
+- the four color fields hold the override;
 - `uniforms.<side>.derived` keeps the values that were replaced;
 - `uniforms.<side>.sampled` is **raw per-game observation and is never touched**
   — it is the evidence the derivation is checked against, not derived output;
@@ -332,7 +332,7 @@ The pattern used there is the one to copy if another team ever needs it:
   **not** the override, which is why `source` is recorded alongside.
 
 The club's own brand board corroborates the palette choice independently of
-this: its colour-proportions panel gives Titans Blue the dominant field with
+this: its color-proportions panel gives Titans Blue the dominant field with
 navy and red as thin accents, which is why `#4B92DB` is the primary here rather
 than Titans Navy `#0C2340`.
 
@@ -362,7 +362,7 @@ than Titans Navy `#0C2340`.
 > 3. For the 10 teams with a `palette.disagreement` block in
 >    `data/teams/team-identity.json`, check each club's official brand/style guide
 >    and tell me which hex is current. Don't guess from logo artwork — ESPN
->    re-renders the marks with its own colour treatment, so it's a third opinion.
+>    re-renders the marks with its own color treatment, so it's a third opinion.
 > 4. Re-run `scripts/build_team_identity.py` and `scripts/check_team_assets.py`,
 >    confirm all 128 assets pass, commit, and push to the same branch.
 >

@@ -503,7 +503,7 @@ main { padding: 28px 0 96px; }
   font-size: .875em;
 }
 /* Red variant: a tab refusing to show numbers, not merely waiting on a file.
-   The colour difference is the point — "waiting" and "wrong" must not look
+   The color difference is the point — "waiting" and "wrong" must not look
    the same, or the one that matters gets skimmed past. */
 .notice-bad {
   background: var(--bad-bg); border-left-color: var(--bad); color: #7A1A15;
@@ -544,13 +544,18 @@ main { padding: 28px 0 96px; }
    16 games stops lining up. */
 .schedgame {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  /* Fixed centre track, not `auto`. With `auto` the column sizes to its own
+     card's content, so the one card a week carrying a venue pill got a wider
+     centre and narrower teams — which slid its scores 18px out of line with
+     the fifteen above it. A fixed track means every card in a column shares
+     one geometry and the scores stack. The pill ellipsises inside it. */
+  grid-template-columns: minmax(0, 1fr) 104px minmax(0, 1fr);
   align-items: center;
   gap: 14px;
   padding: 10px 16px; margin-bottom: 8px;
 }
 .schedgame.is-live { border-color: var(--violet); box-shadow: var(--shadow-md); }
-/* Red zone reads at a glance without colour alone carrying it — the LIVE
+/* Red zone reads at a glance without color alone carrying it — the LIVE
    clock and possession dot are still there for anyone who can't see the tint. */
 .schedgame.is-redzone { background: linear-gradient(90deg, #FDF1F0, var(--white) 40%); }
 
@@ -559,7 +564,7 @@ main { padding: 28px 0 96px; }
    card the same shape as games flip state mid-Sunday. */
 .schedgame-center {
   display: flex; flex-direction: column; align-items: center; gap: 1px;
-  min-width: 104px; text-align: center;
+  min-width: 0; text-align: center;
 }
 .schedgame-status {
   display: flex; align-items: center; justify-content: center; gap: 6px;
@@ -576,9 +581,41 @@ main { padding: 28px 0 96px; }
   letter-spacing: .02em; line-height: 1.3;
 }
 
+/* Neutral site. Nine 2026 games are played abroad, where the nominal home team
+   has no stadium, no crowd and no travel edge — so the card says where it is
+   rather than letting the away/home labels imply something untrue.
+
+   Warm amber rather than a red: this is information, not a problem with the
+   game. Color is not the only carrier — the text names the city, and the home
+   side gets a dotted underline besides. */
+.schedgame-venue {
+  font-size: .625rem; font-weight: 700;
+  letter-spacing: .05em; text-transform: uppercase;
+  color: var(--warn); background: var(--warn-bg);
+  border-radius: 999px; padding: 1px 8px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  /* The centre grid track is `auto`, so it sizes to its widest child and a long
+     venue name takes that width straight off the two team names. Capping the
+     pill caps the column. */
+  max-width: 100%;
+}
+
+/* The home team of a neutral-site game: labelled HOME, but not at home. */
+.schedteam.is-displaced .schedteam-side {
+  text-decoration: underline dotted currentColor 1px;
+  text-underline-offset: 2px;
+}
+
 .schedteam {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 8px;
   min-width: 0; min-height: 34px;
+  /* Padding and a radius so the team-color wash set inline by schedule.js
+     reads as a panel rather than a full-bleed stripe. The wash is an 8% mix
+     computed to a solid hex (teamIdentity tintOn) precisely so the name on top
+     has a fixed, checkable contrast — measured worst case across the 32 is
+     8.40:1 for --ink, against this project's 4.5:1 floor. */
+  padding: 5px 8px; border-radius: 9px;
+  background: transparent;
 }
 /* Home is the same DOM order, mirrored — badge ends up on the outer edge and
    the score inward, so both scores flank the clock. In row-reverse the main
@@ -586,19 +623,40 @@ main { padding: 28px 0 96px; }
 .schedteam-away { justify-content: flex-start; }
 .schedteam-home { flex-direction: row-reverse; justify-content: flex-start; }
 
+/* The name now sits under an AWAY/HOME label, so this wrapper is what carries
+   the flex behaviour the name used to.
+
+   flex:1 is what pins the score to the INNER edge of each side rather than
+   letting it trail the name. Without it the score's x-position follows the
+   name's width, so "Jets" and "Buccaneers" put their scores 50px apart and a
+   column of 16 games never lines up. Works under row-reverse for free — this
+   block absorbs the slack whichever way the row runs. */
+.schedteam-text {
+  display: flex; flex-direction: column; gap: 0;
+  flex: 1; min-width: 0;
+}
+.schedteam-home .schedteam-text { align-items: flex-end; }
+
+/* Spelled out rather than implied by which side of the card a team sits on.
+   Position alone only works if you already know the convention, and on the nine
+   neutral-site games a year it is actively wrong — the "home" team is not home.
+   Same size, weight and bespoke #5F5C58 as .pick-side on the Pick Sheet: at
+   10px uppercase the obvious greys measure 2.65:1, this lands at 5.8:1. */
+.schedteam-side {
+  font-size: .625rem; font-weight: 700;
+  letter-spacing: .09em; text-transform: uppercase;
+  color: #5F5C58;
+  line-height: 1.35;
+}
+
 .schedteam-name {
   font-size: 1rem; font-weight: 400; color: var(--ink);
   /* nowrap is the fix for the old stacked layout wrapping "Commanders" onto a
      second line; min-width:0 lets it ellipsis instead of forcing the grid
      column wider than its share. */
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  min-width: 0;
-  /* flex:1 is what pins the score to the INNER edge of each side rather than
-     letting it trail the name. Without it the score's x-position follows the
-     name's width, so "Jets" and "Buccaneers" put their scores 50px apart and a
-     column of 16 games never lines up. Works under row-reverse for free — the
-     name absorbs the slack whichever way the row runs. */
-  flex: 1;
+  min-width: 0; max-width: 100%;
+  line-height: 1.2;
 }
 .schedteam-home .schedteam-name { text-align: right; }
 
@@ -610,11 +668,14 @@ main { padding: 28px 0 96px; }
 .schedteam-away .schedteam-score { text-align: right; }
 .schedteam-home .schedteam-score { text-align: left; }
 
-/* Reserved for team colours / helmets / mascots. Collapses to nothing until
-   something is put in it, so it costs no space today. */
+/* The team logo. Still collapses to nothing when there is no mark to show, so
+   a team missing from the identity file costs its logo and nothing else. */
 .schedteam-badge {
-  width: 28px; height: 28px; border-radius: 7px; flex: none;
-  background: var(--paper-2);
+  width: 28px; height: 28px; flex: none;
+  display: grid; place-items: center;
+}
+.schedteam-badge img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
 }
 .schedteam-badge:empty { display: none; }
 
@@ -675,18 +736,29 @@ footer {
      of each other. Budget at 375px: 351px of content, minus a 88px centre and
      two 8px gaps, leaves ~123px a side — "Buccaneers" at .9375rem is ~82px
      plus a 22px score, so it fits without ellipsis. */
-  .schedgame { gap: 8px; padding: 9px 12px; }
-  .schedteam { gap: 7px; min-height: 30px; }
-  .schedteam-name { font-size: .875rem; }
-  .schedteam-score { font-size: 1.0625rem; min-width: 20px; }
+  .schedgame { gap: 6px; padding: 9px 10px; }
+  /* Re-budgeted when the logo and the AWAY/HOME label were added. Both cost
+     width the old layout did not spend: the badge used to be `:empty` and so
+     `display:none`, and the wash needs padding to read as a panel. Measured at
+     375px, the name had 48.3px and "Buccaneers" wants 71.7px at 14px — so the
+     4px/5px/20px trims below and the smaller type are what buy that back
+     rather than letting nine teams ellipsis. Re-measure if any of them grow. */
+  .schedteam { gap: 3px; min-height: 30px; padding: 3px 3px; border-radius: 7px; }
+  .schedteam-badge { width: 18px; height: 18px; }
+  .schedteam-side { font-size: .5625rem; letter-spacing: .06em; line-height: 1.25; }
+  .schedgame-venue { font-size: .5625rem; padding: 1px 5px; letter-spacing: .03em; }
+  /* City alone at phone widths — ", Australia" is the part that pushes the
+     centre column wide, and the city is what carries the meaning. */
+  .schedgame-venue .venue-country { display: none; }
+  .schedteam-name { font-size: .75rem; }
+  .schedteam-score { font-size: 1.0625rem; min-width: 18px; }
   /* The zone label costs ~26px out of the centre column, and that width comes
      straight off the two team columns. Dropping it is what lets "Commanders"
      render in full at 375px instead of ellipsing. */
   .kick-tz { display: none; }
-  .schedgame-center { min-width: 56px; }
+  .schedgame { grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr); }
   .schedgame-status { font-size: .75rem; }
   .schedgame-meta { font-size: .625rem; }
-  .schedteam-badge { width: 24px; height: 24px; border-radius: 6px; }
   .sched-legend { float: none; display: block; margin-top: 4px; }
 }
 
@@ -703,7 +775,13 @@ footer {
    holding two team names and a clock is mostly empty space, and a 16-game
    Sunday runs well past one screen. Two ~530px bars is a comfortable
    scoreboard width and nearly halves the scrolling. */
-@media (min-width: 860px) {
+/* Two cards a row, but only once a row is genuinely wide enough for one.
+   Raised from 860px when the team logo and the AWAY/HOME label went in: at
+   860px each card is ~450px, which left the name 52px against the 82px
+   "Buccaneers" wants, so seventeen of the thirty-two names ellipsised. At
+   1080px a card is ~534px and the longest name clears with room. Below this
+   the cards run full width, where nothing is tight at all. */
+@media (min-width: 1080px) {
   .daygroup {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -717,7 +795,7 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
   /* The live dot still has to read as "live" without pulsing, so it keeps its
-     colour and just stops moving. */
+     color and just stops moving. */
   .live-dot { animation: none !important; }
 }
 
@@ -730,7 +808,7 @@ footer {
       .paint-<mode> container class, so exactly one family can ever apply.
       Marks (divisional edge, slot label, tag corner) are borders, text and
       pseudo-elements instead — that is what lets them stack on top of any
-      paint without a combinatorial explosion of colours.
+      paint without a combinatorial explosion of colors.
    2. TOGGLES ARE CONTAINER CLASSES. Paint, marks, zoom and selection are all
       switched by classes on .gridwrap, never by re-rendering. 576 cells
       re-render fine, but it would drop the scroll position and the focused
@@ -755,7 +833,7 @@ footer {
 
   /* Text tones for the painted cells.
 
-     THE EXISTING GREYS DO NOT SURVIVE A COLOURED BACKGROUND. --ink-soft
+     THE EXISTING GREYS DO NOT SURVIVE A COLORED BACKGROUND. --ink-soft
      measures 5.30:1 on white but only 3.76:1 on the strongest teal step and
      3.55:1 on the strongest warm one, and --ink-faint fails everywhere. Same
      trap the AWAY/HOME label hit, one layer deeper: a tone chosen against
@@ -931,7 +1009,7 @@ footer {
 .z3.mk-rest .is-rested .gc-rest { color: var(--teal-ink); font-weight: 700; }
 
 /* Modelled, not priced. A dotted underline reads as provisional at any zoom
-   and survives being photographed off a screen, which a colour shift alone
+   and survives being photographed off a screen, which a color shift alone
    does not. */
 .z1 .gc.is-proj .gc-prob,
 .z2 .gc.is-proj .gc-prob,

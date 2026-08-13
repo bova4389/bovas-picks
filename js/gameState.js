@@ -106,6 +106,16 @@ function merge(base, live) {
     downDistance: live?.downDistance ?? null,
     redZone: Boolean(live?.redZone),
 
+    // Where it is actually played. "Home" upstream means the team that owns the
+    // fixture, not whose stadium it is — nine 2026 games are abroad. Comes from
+    // the committed schedule rather than the live overlay because it is known
+    // months ahead and must render before any live layer exists.
+    //
+    // `neutral` absent from the file means that file predates the field, which
+    // is not the same as "played at home" — so only an explicit true flags it.
+    neutral: base.neutral === true,
+    venue: base.venue ?? null,
+
     isLive: state === 'in',
     hasLiveData: Boolean(live),
   };
