@@ -10,7 +10,8 @@
     "wordmarks": "nflverse/nflplotR embedded PNGs",
     "uniforms": "ajreinhard/data-viz per-game uniform observations, 2015-2020, modal kit per side, snapped to palette",
     "names": "nflverse/nfldata 2026 team table",
-    "trademarkNotice": "assets/teams/NOTICE.md"
+    "trademarkNotice": "assets/teams/NOTICE.md",
+    "paletteAudit": "2026-08-13 local session: all 10 palette.disagreement blocks resolved against the clubs' current brand colours. 5 corrected (CHI, LAC, NYJ, TB, TEN), 5 confirmed (CLE, DET, LAR, NO, PHI). Kit colours snapped from a corrected value were moved with it; `uniforms.*.sampled` is raw observation and was not. See docs/REFRESH-TEAM-ASSETS.md section 3."
   },
   "uniformWindow": {
     "from": 2015,
@@ -385,19 +386,29 @@
           "source": "nflverse"
         },
         "secondary": {
-          "hex": "#E64100",
-          "source": "nflverse"
+          "hex": "#C83803",
+          "source": "club brand palette, audited 2026-08-13",
+          "pantone": "PMS 1665 C"
         },
         "additional": [],
-        "disagreement": {
-          "screen": {
-            "primary": "#0B162A",
-            "secondary": "#E64100"
+        "resolution": {
+          "resolvedOn": "2026-08-13",
+          "outcome": "corrected",
+          "applied": {
+            "secondary": "#C83803"
           },
-          "styleGuideMirror": [
-            "#0B162A",
-            "#C83803"
-          ]
+          "priorSources": {
+            "screen": {
+              "primary": "#0B162A",
+              "secondary": "#E64100"
+            },
+            "styleGuideMirror": [
+              "#0B162A",
+              "#C83803"
+            ]
+          },
+          "basis": "Navy #0B162A is PMS 5395 C and was already correct.",
+          "caveat": "NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
         }
       },
       "uniforms": {
@@ -405,7 +416,7 @@
           "jersey": "#0B162A",
           "pants": "#FFFFFF",
           "helmet": "#0B162A",
-          "socks": "#E64100",
+          "socks": "#C83803",
           "sampled": {
             "jersey": "#03182F",
             "pants": "#FEFEFE",
@@ -441,7 +452,7 @@
         "helmetFacingLeft": "assets/teams/helmets/CHI-left.png"
       },
       "notes": [
-        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #0B162A / #E64100. Style-guide mirror: #0B162A, #C83803. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+        "Palette audited 2026-08-13 against the club's current brand colours; secondary #E64100 -> #C83803. Navy #0B162A is PMS 5395 C and was already correct. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
       ]
     },
     "CIN": {
@@ -524,16 +535,22 @@
           "source": "nflverse"
         },
         "additional": [],
-        "disagreement": {
-          "screen": {
-            "primary": "#FF3C00",
-            "secondary": "#311D00"
+        "resolution": {
+          "resolvedOn": "2026-08-13",
+          "outcome": "confirmed",
+          "priorSources": {
+            "screen": {
+              "primary": "#FF3C00",
+              "secondary": "#311D00"
+            },
+            "styleGuideMirror": [
+              "#FB4F14",
+              "#22150C",
+              "#A5ACAF"
+            ]
           },
-          "styleGuideMirror": [
-            "#FB4F14",
-            "#22150C",
-            "#A5ACAF"
-          ]
+          "basis": "Confirmed: Orange #FF3C00 (PMS 2028 C), Seal Brown #311D00 (PMS Black 4 C). The mirror's #FB4F14 is Cincinnati's orange.",
+          "caveat": "NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
         }
       },
       "uniforms": {
@@ -577,7 +594,7 @@
         "helmetFacingLeft": "assets/teams/helmets/CLE-left.png"
       },
       "notes": [
-        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #FF3C00 / #311D00. Style-guide mirror: #FB4F14, #22150C, #A5ACAF. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+        "Palette audited 2026-08-13; the installed screen values are current. Confirmed: Orange #FF3C00 (PMS 2028 C), Seal Brown #311D00 (PMS Black 4 C). The mirror's #FB4F14 is Cincinnati's orange. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
       ]
     },
     "DAL": {
@@ -751,16 +768,22 @@
           "source": "nflverse"
         },
         "additional": [],
-        "disagreement": {
-          "screen": {
-            "primary": "#0076B6",
-            "secondary": "#B0B7BC"
+        "resolution": {
+          "resolvedOn": "2026-08-13",
+          "outcome": "confirmed",
+          "priorSources": {
+            "screen": {
+              "primary": "#0076B6",
+              "secondary": "#B0B7BC"
+            },
+            "styleGuideMirror": [
+              "#005A8B",
+              "#B0B7BC",
+              "#000000"
+            ]
           },
-          "styleGuideMirror": [
-            "#005A8B",
-            "#B0B7BC",
-            "#000000"
-          ]
+          "basis": "Confirmed: Honolulu Blue #0076B6 (PMS 7462 C), Silver #B0B7BC (PMS 8180 C). The mirror's #005A8B is the pre-2017 blue.",
+          "caveat": "NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
         }
       },
       "uniforms": {
@@ -804,7 +827,7 @@
         "helmetFacingLeft": "assets/teams/helmets/DET-left.png"
       },
       "notes": [
-        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #0076B6 / #B0B7BC. Style-guide mirror: #005A8B, #B0B7BC, #000000. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+        "Palette audited 2026-08-13; the installed screen values are current. Confirmed: Honolulu Blue #0076B6 (PMS 7462 C), Silver #B0B7BC (PMS 8180 C). The mirror's #005A8B is the pre-2017 blue. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
       ]
     },
     "GB": {
@@ -1154,24 +1177,34 @@
       "division": "West",
       "palette": {
         "primary": {
-          "hex": "#007BC7",
-          "source": "nflverse"
+          "hex": "#0080C6",
+          "source": "club brand palette, audited 2026-08-13",
+          "pantone": "PMS 285 C"
         },
         "secondary": {
           "hex": "#FFC20E",
           "source": "nflverse"
         },
         "additional": [],
-        "disagreement": {
-          "screen": {
-            "primary": "#007BC7",
-            "secondary": "#FFC20E"
+        "resolution": {
+          "resolvedOn": "2026-08-13",
+          "outcome": "corrected",
+          "applied": {
+            "primary": "#0080C6"
           },
-          "styleGuideMirror": [
-            "#002244",
-            "#0073CF",
-            "#FFB612"
-          ]
+          "priorSources": {
+            "screen": {
+              "primary": "#007BC7",
+              "secondary": "#FFC20E"
+            },
+            "styleGuideMirror": [
+              "#002244",
+              "#0073CF",
+              "#FFB612"
+            ]
+          },
+          "basis": "Sunshine Gold #FFC20E (PMS 1235 C) was already correct. The mirror's #0073CF is the pre-2020 value; neither source held the current hex.",
+          "caveat": "NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
         }
       },
       "uniforms": {
@@ -1215,7 +1248,7 @@
         "helmetFacingLeft": "assets/teams/helmets/LAC-left.png"
       },
       "notes": [
-        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #007BC7 / #FFC20E. Style-guide mirror: #002244, #0073CF, #FFB612. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+        "Palette audited 2026-08-13 against the club's current brand colours; primary #007BC7 -> #0080C6. Sunshine Gold #FFC20E (PMS 1235 C) was already correct. The mirror's #0073CF is the pre-2020 value; neither source held the current hex. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
       ]
     },
     "LAR": {
@@ -1235,15 +1268,21 @@
           "source": "nflverse"
         },
         "additional": [],
-        "disagreement": {
-          "screen": {
-            "primary": "#003594",
-            "secondary": "#FFD100"
+        "resolution": {
+          "resolvedOn": "2026-08-13",
+          "outcome": "confirmed",
+          "priorSources": {
+            "screen": {
+              "primary": "#003594",
+              "secondary": "#FFD100"
+            },
+            "styleGuideMirror": [
+              "#002244",
+              "#B3995D"
+            ]
           },
-          "styleGuideMirror": [
-            "#002244",
-            "#B3995D"
-          ]
+          "basis": "Confirmed: Rams Royal #003594 (PMS 661 C), Sol #FFD100 (PMS 109 C). The mirror's #002244/#B3995D is the pre-2020 navy-and-gold.",
+          "caveat": "NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
         }
       },
       "uniforms": {
@@ -1287,7 +1326,7 @@
         "helmetFacingLeft": "assets/teams/helmets/LAR-left.png"
       },
       "notes": [
-        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #003594 / #FFD100. Style-guide mirror: #002244, #B3995D. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+        "Palette audited 2026-08-13; the installed screen values are current. Confirmed: Rams Royal #003594 (PMS 661 C), Sol #FFD100 (PMS 109 C). The mirror's #002244/#B3995D is the pre-2020 navy-and-gold. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
       ]
     },
     "LV": {
@@ -1586,15 +1625,21 @@
           "source": "nflverse"
         },
         "additional": [],
-        "disagreement": {
-          "screen": {
-            "primary": "#D3BC8D",
-            "secondary": "#000000"
+        "resolution": {
+          "resolvedOn": "2026-08-13",
+          "outcome": "confirmed",
+          "priorSources": {
+            "screen": {
+              "primary": "#D3BC8D",
+              "secondary": "#000000"
+            },
+            "styleGuideMirror": [
+              "#9F8958",
+              "#000000"
+            ]
           },
-          "styleGuideMirror": [
-            "#9F8958",
-            "#000000"
-          ]
+          "basis": "Confirmed: Old Gold #D3BC8D (PMS 8383 C). The mirror's #9F8958 is the pre-2000s gold. Left as-is: the club's black is #101820 rather than pure #000000, a simplification not worth churning the kit for.",
+          "caveat": "NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
         }
       },
       "uniforms": {
@@ -1638,7 +1683,7 @@
         "helmetFacingLeft": "assets/teams/helmets/NO-left.png"
       },
       "notes": [
-        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #D3BC8D / #000000. Style-guide mirror: #9F8958, #000000. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+        "Palette audited 2026-08-13; the installed screen values are current. Confirmed: Old Gold #D3BC8D (PMS 8383 C). The mirror's #9F8958 is the pre-2000s gold. Left as-is: the club's black is #101820 rather than pure #000000, a simplification not worth churning the kit for. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
       ]
     },
     "NYG": {
@@ -1720,22 +1765,32 @@
       "division": "East",
       "palette": {
         "primary": {
-          "hex": "#003F2D",
-          "source": "nflverse"
+          "hex": "#125740",
+          "source": "club brand palette, audited 2026-08-13",
+          "pantone": "PMS 7484 C"
         },
         "secondary": {
           "hex": "#000000",
           "source": "nflverse"
         },
         "additional": [],
-        "disagreement": {
-          "screen": {
-            "primary": "#003F2D",
-            "secondary": "#000000"
+        "resolution": {
+          "resolvedOn": "2026-08-13",
+          "outcome": "corrected",
+          "applied": {
+            "primary": "#125740"
           },
-          "styleGuideMirror": [
-            "#203731"
-          ]
+          "priorSources": {
+            "screen": {
+              "primary": "#003F2D",
+              "secondary": "#000000"
+            },
+            "styleGuideMirror": [
+              "#203731"
+            ]
+          },
+          "basis": "Gotham Green. The style-guide mirror's #203731 for this team is Green Bay's green -- an outright bad entry, not a stale one.",
+          "caveat": "NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
         }
       },
       "uniforms": {
@@ -1779,8 +1834,8 @@
         "helmetFacingLeft": "assets/teams/helmets/NYJ-left.png"
       },
       "notes": [
-        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #003F2D / #000000. Style-guide mirror: #203731. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use.",
-        "New uniform set in 2024. Uniform colours are derived from 2015-2020 observations snapped to the current palette, so the colours are right and the design details may not be."
+        "New uniform set in 2024. Uniform colours are derived from 2015-2020 observations snapped to the current palette, so the colours are right and the design details may not be.",
+        "Palette audited 2026-08-13 against the club's current brand colours; primary #003F2D -> #125740. Gotham Green. The style-guide mirror's #203731 for this team is Green Bay's green -- an outright bad entry, not a stale one. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
       ]
     },
     "PHI": {
@@ -1800,18 +1855,24 @@
           "source": "nflverse"
         },
         "additional": [],
-        "disagreement": {
-          "screen": {
-            "primary": "#004C54",
-            "secondary": "#A5ACAF"
+        "resolution": {
+          "resolvedOn": "2026-08-13",
+          "outcome": "confirmed",
+          "priorSources": {
+            "screen": {
+              "primary": "#004C54",
+              "secondary": "#A5ACAF"
+            },
+            "styleGuideMirror": [
+              "#004953",
+              "#A5ACAF",
+              "#ACC0C6",
+              "#000000",
+              "#565A5C"
+            ]
           },
-          "styleGuideMirror": [
-            "#004953",
-            "#A5ACAF",
-            "#ACC0C6",
-            "#000000",
-            "#565A5C"
-          ]
+          "basis": "Confirmed: Midnight Green #004C54 (PMS 316 C), Silver #A5ACAF. The mirror's #004953 is a near-miss variant of the same green.",
+          "caveat": "NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
         }
       },
       "uniforms": {
@@ -1855,7 +1916,7 @@
         "helmetFacingLeft": "assets/teams/helmets/PHI-left.png"
       },
       "notes": [
-        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #004C54 / #A5ACAF. Style-guide mirror: #004953, #A5ACAF, #ACC0C6, #000000, #565A5C. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+        "Palette audited 2026-08-13; the installed screen values are current. Confirmed: Midnight Green #004C54 (PMS 316 C), Silver #A5ACAF. The mirror's #004953 is a near-miss variant of the same green. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
       ]
     },
     "PIT": {
@@ -2095,26 +2156,36 @@
       "division": "South",
       "palette": {
         "primary": {
-          "hex": "#A71930",
-          "source": "nflverse"
+          "hex": "#D50A0A",
+          "source": "club brand palette, audited 2026-08-13",
+          "pantone": "PMS 186 C"
         },
         "secondary": {
           "hex": "#322F2B",
           "source": "nflverse"
         },
         "additional": [],
-        "disagreement": {
-          "screen": {
-            "primary": "#A71930",
-            "secondary": "#322F2B"
+        "resolution": {
+          "resolvedOn": "2026-08-13",
+          "outcome": "corrected",
+          "applied": {
+            "primary": "#D50A0A"
           },
-          "styleGuideMirror": [
-            "#D50A0A",
-            "#34302B",
-            "#000000",
-            "#FF7900",
-            "#B1BABF"
-          ]
+          "priorSources": {
+            "screen": {
+              "primary": "#A71930",
+              "secondary": "#322F2B"
+            },
+            "styleGuideMirror": [
+              "#D50A0A",
+              "#34302B",
+              "#000000",
+              "#FF7900",
+              "#B1BABF"
+            ]
+          },
+          "basis": "Pewter #322F2B remains; the club's own pewter is #34302B.",
+          "caveat": "NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
         }
       },
       "uniforms": {
@@ -2158,7 +2229,7 @@
         "helmetFacingLeft": "assets/teams/helmets/TB-left.png"
       },
       "notes": [
-        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #A71930 / #322F2B. Style-guide mirror: #D50A0A, #34302B, #000000, #FF7900, #B1BABF. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+        "Palette audited 2026-08-13 against the club's current brand colours; primary #A71930 -> #D50A0A. Pewter #322F2B remains; the club's own pewter is #34302B. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
       ]
     },
     "TEN": {
@@ -2170,25 +2241,37 @@
       "division": "South",
       "palette": {
         "primary": {
-          "hex": "#4495D2",
-          "source": "nflverse"
+          "hex": "#4B92DB",
+          "source": "club brand palette, audited 2026-08-13",
+          "pantone": "PMS 279 C"
         },
         "secondary": {
-          "hex": "#D50A0A",
-          "source": "nflverse"
+          "hex": "#C8102E",
+          "source": "club brand palette, audited 2026-08-13",
+          "pantone": "PMS 186 C"
         },
         "additional": [],
-        "disagreement": {
-          "screen": {
-            "primary": "#4495D2",
-            "secondary": "#D50A0A"
+        "resolution": {
+          "resolvedOn": "2026-08-13",
+          "outcome": "corrected",
+          "applied": {
+            "primary": "#4B92DB",
+            "secondary": "#C8102E"
           },
-          "styleGuideMirror": [
-            "#002244",
-            "#4B92DB",
-            "#C60C30",
-            "#A5ACAF"
-          ]
+          "priorSources": {
+            "screen": {
+              "primary": "#4495D2",
+              "secondary": "#D50A0A"
+            },
+            "styleGuideMirror": [
+              "#002244",
+              "#4B92DB",
+              "#C60C30",
+              "#A5ACAF"
+            ]
+          },
+          "basis": "Superseded by the 2026 rebrand. Titans Blue #4B92DB is the identifying colour and is the one value both prior sources agreed on; Titans Navy #0C2340 (PMS 289 C) is now a background colour rather than the primary.",
+          "caveat": "NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
         }
       },
       "uniforms": {
@@ -2232,7 +2315,7 @@
         "helmetFacingLeft": "assets/teams/helmets/TEN-left.png"
       },
       "notes": [
-        "Colour authorities disagree, so Pantone/CMYK is withheld. Screen feed: #4495D2 / #D50A0A. Style-guide mirror: #002244, #4B92DB, #C60C30, #A5ACAF. The primary/secondary here are the screen values, correct for web use; confirm against the club style guide before any print or apparel use."
+        "Palette audited 2026-08-13 against the club's current brand colours; primary #4495D2 -> #4B92DB, secondary #D50A0A -> #C8102E. Superseded by the 2026 rebrand. Titans Blue #4B92DB is the identifying colour and is the one value both prior sources agreed on; Titans Navy #0C2340 (PMS 289 C) is now a background colour rather than the primary. NFL clubs do not publish public style guides, so this is the consensus of independent Pantone-citing colour references, not a transcription from a club-published chart."
       ]
     },
     "WAS": {
