@@ -633,6 +633,86 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
   font-weight: 700; color: var(--ink-faint);
 }
 .leverage-score.ok { color: var(--good); }
+/* --amber-ink, not a red: a trap is a rule violation to explain, not an error
+   to alarm about, and it is measured at 4.86:1 on paper. */
+.leverage-score.bad { color: var(--amber-ink); }
+
+/* A trap card is dimmed rather than outlined. An outline competes with
+   .is-candidate for the same attention, and these are the rows the strategy
+   wants you to skip past, not study. */
+.oddsgame.is-trap { opacity: .72; }
+.oddsgame.is-trap:hover { opacity: 1; }
+
+/* The explainer. Open on first visit, and its state is remembered — the whole
+   complaint was "I don't know what a leverage pick is", which a collapsed
+   panel answers only for someone who already suspects it is there. */
+.rec-explain { margin-bottom: 14px; }
+.rec-explain > summary {
+  cursor: pointer; padding: 4px 0; font-size: 1rem;
+  list-style: none;
+}
+.rec-explain > summary::-webkit-details-marker { display: none; }
+.rec-explain > summary::before { content: '▸ '; color: var(--violet); }
+.rec-explain[open] > summary::before { content: '▾ '; }
+.rec-explain[open] > summary { margin-bottom: 10px; border-bottom: 1px solid var(--line); }
+.rec-rules { margin: 12px 0 0; padding-left: 20px; }
+.rec-rules li { margin-bottom: 8px; color: var(--ink-soft); font-size: .9375rem; line-height: 1.55; }
+.rec-rules strong { color: var(--ink); }
+.rec-explain-foot { margin-top: 12px; font-size: .8125rem; }
+
+/* The plan card — the answer to "so what do I actually do". Violet edge, the
+   same accent .is-candidate uses, because it is the same claim at slate scale. */
+.rec-plan { margin-bottom: 14px; border-left: 3px solid var(--violet); }
+.rec-plan-line { font-size: 1.0625rem; margin: 4px 0 8px; line-height: 1.5; }
+.rec-plan-why { color: var(--ink-soft); font-size: .875rem; }
+.rec-plan-caveat {
+  margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line);
+  font-size: .8125rem; color: var(--amber-ink);
+}
+
+.rec-sources {
+  margin: 0 0 10px; font-size: .8125rem; color: var(--ink-quiet);
+}
+.rec-prior { margin-bottom: 12px; }
+.rec-prior-note { display: block; margin-top: 6px; color: var(--ink-quiet); font-size: .8125rem; }
+
+.rec-news-line {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
+  margin: 0 0 14px; font-size: .8125rem; color: var(--ink-quiet);
+}
+.rec-refresh { min-height: 46px; margin-left: auto; }
+.rec-refresh[disabled] { opacity: .6; cursor: progress; }
+
+.rec-group-lede { margin: -4px 0 12px; font-size: .875rem; }
+
+/* The one-line reason §4 Step 4 requires. --ink-soft clears 4.5:1 on paper;
+   it is the card background here, not a paint step, so the grid's stricter
+   --ink-quiet is not needed. */
+.rec-why {
+  margin: 8px 0 0; font-size: .875rem; color: var(--ink-soft); line-height: 1.5;
+}
+/* The movement slot is always in the markup -- it is filled in after the
+   histories load, so it cannot be conditionally rendered. `:empty` must
+   therefore be display:none, not merely unstyled: a bare <p> keeps the UA's
+   16px margin even at zero height, which put a band of dead space under every
+   card that had not moved. Today that is every card. */
+.rec-move:empty { display: none; }
+.rec-move:not(:empty) {
+  margin: 6px 0 0; font-size: .8125rem; font-weight: 600; color: var(--teal-ink);
+}
+
+.rec-inj:not(:empty) {
+  margin: 8px 0 0; padding-top: 8px; border-top: 1px dashed var(--line);
+  font-size: .8125rem; color: var(--ink-soft);
+  display: flex; flex-wrap: wrap; gap: 4px 14px;
+}
+.rec-inj.is-qb { color: var(--amber-ink); }
+.rec-inj em { display: block; flex-basis: 100%; color: var(--ink-quiet); font-style: normal; }
+
+.oddsteam-num {
+  font-variant-numeric: tabular-nums; font-size: .75rem; font-weight: 700;
+  color: var(--ink-quiet); min-width: 2ch;
+}
 
 /* ── Placeholder panels ───────────────────────────────────────────────── */
 

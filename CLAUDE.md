@@ -114,6 +114,8 @@ js/gameState.js     SHARED — canonical "what happened in this game"          [
 js/gridModel.js     SHARED — the 32 x 18 team-week matrix, pure data         [NEVER versioned]
 js/survivorLeagues.js SHARED — per-pool used teams + field scarcity          [NEVER versioned]
 js/sleeperSurvivor.js SHARED — live Sleeper pool fetch, normalised           [NEVER versioned]
+js/pickShare.js     SHARED — modelled pick share + k calibration            [NEVER versioned]
+js/injuries.js      SHARED — ESPN injury report, live from the browser      [NEVER versioned]
 js/teamIdentity.js  SHARED — team colors, uniforms, logo/wordmark paths     [NEVER versioned]
 js/schedule.js      Schedule tab — one week, live scores
 js/grid.js          Grid tab — the whole season as one table
@@ -410,6 +412,90 @@ which would need `scripts/fetch_schedule.py` to capture `competitions[0].venue` 
 — today the international slate is inferred from the 9:30am Eastern Sunday window, which catches
 all six of 2026's but would miss a Friday or Saturday game abroad.
 
+## Recommend Tab — Read Before Changing Any Threshold
+
+`leverage = win_probability ÷ pick_share`, per STRATEGY.md §4. **Every threshold in
+`js/recommend.js` is quoted from that document, not tuned here** — 38% floor, 40–47% sweet spot,
+15% longshot cutoff, 40% thin-share cutoff, the 4–5 dog count. If one needs to change, change
+STRATEGY.md first; the doc is the authority and the tab is its implementation.
+
+**The tab used to be gated on the number map, and that was wrong.** It refused to render without
+`data/number-map-<year>.json` — the commissioner's workbook, which arrives days before the season
+— so for the entire offseason it showed one line of "waiting on 2026 data" while sitting on a
+complete 272-game schedule and a 271-event odds snapshot. Everything needed to rank underdogs was
+already present. The guard that matters is `getSeasonAudit()`'s **blocking** verdict, which stops
+a genuine cross-season join; a missing workbook costs only the pool's pick numbers, which are a
+submission detail, not a calculation input. **Do not reinstate a hard gate on the number map.**
+
+**Three inputs, three provenances, always labelled:**
+
+| Input | Source | Fallback |
+|---|---|---|
+| Slate | number map when present (pool-specific) | schedule feed, all games |
+| Win probability | odds snapshot, de-vigged, `matchSeasonOdds` | nothing — the game renders "no market line" |
+| Pick share | `data/popularity/` when measured | `js/pickShare.js` model, labelled **modelled** |
+
+**Use `matchSeasonOdds`, never `buildOddsIndex`.** The snapshot holds all 272 games at once, so
+the pair-only join collapses both meetings of a division rivalry — measured: it returned **21
+matches for a 16-game week**. Pair *and* kickoff is the only correct join here, same as the Grid.
+
+### The pick-share model
+
+`share(p) = p^k / (p^k + (1-p)^k)`. One parameter. `k = 1` would mean the field picks exactly in
+proportion to win probability; `k > 1` means it piles onto favourites harder than probability
+warrants, which is why cheap dogs exist. Symmetric, so one call answers both sides.
+
+**`k` defaults to 2.0 and that is a documented default, not a fit.** Fitting needs (win
+probability, observed share) *pairs*, and we have one prior popularity file (2025 Week 1) with no
+odds snapshot from that week to pair with it. Distribution-matching against the prior year was
+tried and **rejected**: 2026 Week 1 is a genuinely flatter slate than 2025 Week 1 (best favourite
+82% vs 93%), so forcing the share distributions to match pushes k to 2.41 and blames a more
+decisive field for what is actually an easier schedule. The residual was visibly poor at both
+tails. At k=2.0 a 55/70/85% favourite draws 60/84/97%, which brackets the real 2025 spread of
+58–93%.
+
+**It self-corrects.** `calibrate()` fits k from real pairs across every week of the *current*
+season that has both a popularity file and a priced slate, and runs **once at boot** — doing it
+per render meant ~18 popularity lookups on every week switch, and the answer cannot change between
+renders anyway. Measured share always beats modelled for any week that has a file.
+
+**Prior-season data is shown but never joined.** `priorProfile()` reports last season's real
+entrant count and concentration spread as context for a first-week entrant ("how many people am I
+beating, and how hard does this pool lean"). It is not an input to any number on the page — that
+join is precisely the failure `js/season.js` exists to prevent.
+
+### Injuries and line movement
+
+STRATEGY.md §4 Step 3 is blunt: injuries are "the one piece of news that reliably moves a game and
+the one place a Saturday deadline can still be exploited," and a starting QB is worth 3–7 points
+of spread. `js/injuries.js` reads ESPN's public injury endpoint **from the browser**, for the same
+reason `js/espn.js` reads scores that way — and here it is the entire point. What makes injuries
+worth tracking is *timeliness*; a snapshot committed by a cron job is only as fresh as the last
+run, and a Wednesday practice report reprices Sunday. Keyless, public, permissive CORS, verified
+2026-08-14.
+
+Three rules that keep it honest:
+
+- **Injury status is displayed, never folded into the win probability.** By the time a status is
+  official the line has usually already moved, so adding STRATEGY.md's point values on top would
+  double-count. §4 Step 1 says trust the market. That is also why injuries render *next to* line
+  movement — the market says how much, the report says why.
+- **QBs sort above everyone regardless of severity.** §4 Step 3 rates non-QB stars as "fractional,
+  and almost always already priced", so a questionable QB outranks a receiver who is out.
+- **The ranking never waits on it.** `loadInjuries()` runs after first paint and a failure costs
+  the injury notes, not the tab.
+
+Line movement is fetched per visible week from `data/odds/history/` and shown only past **2
+percentage points** — below that it is preseason drift. As of 2026-08-14 no game qualifies (the
+largest move all season is 1.3 points), so the slot renders empty, which is correct rather than
+broken. `.rec-move:empty` **must** stay `display: none`: the slot is always in the markup because
+it fills in asynchronously, and a bare `<p>` keeps the UA's 16px margin even at zero height.
+
+**Not built:** the season-standings rows of §4 Step 5's dog-count table ("behind after Week 14",
+"contending late") need a standings feed that does not exist yet. Guessing at whether we are
+contending would be worse than saying nothing, so `dogCount()` implements only the slate-shape
+rows.
+
 ## Sleeper Survivor Pool — Live Feed
 
 The Sleeper pool ("Poop 2026", 12 entries) is fetched straight from Sleeper by a **Refresh from
@@ -627,12 +713,7 @@ reading a committed file.
   engine across pools.
 
 ### Analysis / decision support
-- **Recommend tab (built)** — `js/recommend.js` computes `leverage = win_probability ÷ pick_share`
-  per STRATEGY.md §4 Step 4 for every game in the selected week, joining the Odds tab's snapshot to
-  `data/popularity/`. Ranks candidates clearing the 38% floor by leverage descending; if that
-  week's popularity file doesn't exist yet (the normal case before Sunday), falls back to ranking
-  live underdogs by win probability alone rather than hiding the tab. Full slate always shown below
-  the ranked list, including games below the floor or missing a market line.
+- **Recommend tab (built)** — see the Recommend Tab section below.
 - Survivor strategy view — highlight strong remaining teams by upcoming schedule difficulty, so a team isn't wasted on an easy week too early.
 
 ## Candidate Tech (no build step, CDN-only — matches workspace convention)
