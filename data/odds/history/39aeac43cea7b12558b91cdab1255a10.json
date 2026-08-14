@@ -152,5 +152,19 @@
   "vig": 0.0413,
   "bucket": 12,
   "fetchedAt": "2026-08-14T03:53:16.976851+00:00"
+ },
+ {
+  "id": "39aeac43cea7b12558b91cdab1255a10",
+  "commenceTime": "2026-11-08T21:05:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "Houston Texans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "bucket": 12,
+  "fetchedAt": "2026-08-14T06:06:37.406800+00:00"
  }
 ]

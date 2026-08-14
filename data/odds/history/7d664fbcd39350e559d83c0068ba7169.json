@@ -152,5 +152,19 @@
   "vig": 0.0427,
   "bucket": 11,
   "fetchedAt": "2026-08-14T03:53:16.976851+00:00"
+ },
+ {
+  "id": "7d664fbcd39350e559d83c0068ba7169",
+  "commenceTime": "2026-11-03T01:20:00Z",
+  "home": "Seattle Seahawks",
+  "away": "Chicago Bears",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6855,
+  "rawAwayProb": 0.3571,
+  "homeWinProb": 0.6575,
+  "awayWinProb": 0.3425,
+  "vig": 0.0427,
+  "bucket": 11,
+  "fetchedAt": "2026-08-14T06:06:37.406800+00:00"
  }
 ]
