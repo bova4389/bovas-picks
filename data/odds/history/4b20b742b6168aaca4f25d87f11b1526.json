@@ -180,5 +180,19 @@
   "vig": 0.0421,
   "bucket": 14,
   "fetchedAt": "2026-08-14T08:54:27.167806+00:00"
+ },
+ {
+  "id": "4b20b742b6168aaca4f25d87f11b1526",
+  "commenceTime": "2026-11-22T21:05:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "New York Jets",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8148,
+  "rawAwayProb": 0.2273,
+  "homeWinProb": 0.7819,
+  "awayWinProb": 0.2181,
+  "vig": 0.0421,
+  "bucket": 14,
+  "fetchedAt": "2026-08-14T11:34:35.664173+00:00"
  }
 ]

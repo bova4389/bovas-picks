@@ -180,5 +180,19 @@
   "vig": 0.0407,
   "bucket": 9,
   "fetchedAt": "2026-08-14T08:54:27.167806+00:00"
+ },
+ {
+  "id": "82fd5a159fa130e67abab93a9537f70b",
+  "commenceTime": "2026-10-19T00:20:00Z",
+  "home": "Green Bay Packers",
+  "away": "Dallas Cowboys",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6241,
+  "rawAwayProb": 0.4167,
+  "homeWinProb": 0.5996,
+  "awayWinProb": 0.4004,
+  "vig": 0.0407,
+  "bucket": 9,
+  "fetchedAt": "2026-08-14T11:34:35.664173+00:00"
  }
 ]

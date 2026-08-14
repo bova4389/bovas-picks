@@ -180,5 +180,19 @@
   "vig": 0.0427,
   "bucket": 16,
   "fetchedAt": "2026-08-14T08:54:27.167806+00:00"
+ },
+ {
+  "id": "1ccb61b811b7aae4270df22a67e6459f",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "New Orleans Saints",
+  "away": "Green Bay Packers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3571,
+  "rawAwayProb": 0.6855,
+  "homeWinProb": 0.3425,
+  "awayWinProb": 0.6575,
+  "vig": 0.0427,
+  "bucket": 16,
+  "fetchedAt": "2026-08-14T11:34:35.664173+00:00"
  }
 ]

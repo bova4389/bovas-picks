@@ -180,5 +180,19 @@
   "vig": 0.0413,
   "bucket": 7,
   "fetchedAt": "2026-08-14T08:54:27.167806+00:00"
+ },
+ {
+  "id": "a7e7efb75a9792ac63480ae6328dca18",
+  "commenceTime": "2026-10-04T20:25:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Denver Broncos",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 7,
+  "fetchedAt": "2026-08-14T11:34:35.664173+00:00"
  }
 ]

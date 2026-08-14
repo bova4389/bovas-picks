@@ -180,5 +180,19 @@
   "vig": 0.0434,
   "bucket": 17,
   "fetchedAt": "2026-08-14T08:54:27.167806+00:00"
+ },
+ {
+  "id": "c4877c048defcb80e0ab37c0688f37f6",
+  "commenceTime": "2026-12-14T01:20:00Z",
+  "home": "Green Bay Packers",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 17,
+  "fetchedAt": "2026-08-14T11:34:35.664173+00:00"
  }
 ]
