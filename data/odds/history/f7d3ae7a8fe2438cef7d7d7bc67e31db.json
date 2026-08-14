@@ -138,5 +138,19 @@
   "vig": 0.0431,
   "bucket": 15,
   "fetchedAt": "2026-08-13T23:28:42.234191+00:00"
+ },
+ {
+  "id": "f7d3ae7a8fe2438cef7d7d7bc67e31db",
+  "commenceTime": "2026-11-29T18:00:00Z",
+  "home": "Cincinnati Bengals",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7354,
+  "rawAwayProb": 0.3077,
+  "homeWinProb": 0.705,
+  "awayWinProb": 0.295,
+  "vig": 0.0431,
+  "bucket": 15,
+  "fetchedAt": "2026-08-14T03:53:16.976851+00:00"
  }
 ]
