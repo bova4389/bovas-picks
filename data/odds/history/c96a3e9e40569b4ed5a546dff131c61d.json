@@ -222,5 +222,19 @@
   "vig": 0.0428,
   "bucket": 20,
   "fetchedAt": "2026-08-14T17:42:10.845062+00:00"
+ },
+ {
+  "id": "c96a3e9e40569b4ed5a546dff131c61d",
+  "commenceTime": "2027-01-03T18:00:00Z",
+  "home": "Jacksonville Jaguars",
+  "away": "Washington Commanders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6491,
+  "rawAwayProb": 0.3937,
+  "homeWinProb": 0.6225,
+  "awayWinProb": 0.3775,
+  "vig": 0.0428,
+  "bucket": 20,
+  "fetchedAt": "2026-08-14T20:19:01.066938+00:00"
  }
 ]
