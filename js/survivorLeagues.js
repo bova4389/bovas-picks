@@ -9,17 +9,23 @@
 
    Where the state lives:
 
-     MINE       localStorage, per season per league. There is no backend and
-                no entry form in either app pool, so what I have spent is
-                something only I can tell the tool.
-     THE FIELD  data/survivor-<year>.json, Mike's pool only, from
-                scripts/parse_survivor.py. 235 entries with their used lists,
-                which is enough to answer the question that actually moves a
-                pick: not "have I used this team" but "how much of the field
-                still holds it". Yahoo and Sleeper have no such feed and are
-                not going to get one -- both are new leagues of 15-20 people,
-                and SURVIVOR-STRATEGY.md concludes pick popularity is not
-                worth acting on at that size anyway.
+     MINE       localStorage, per season per league. Yahoo has no backend and
+                no entry form, so there what I have spent is something only I
+                can tell the tool. Sleeper now fills its own in on refresh --
+                see `sleeper` on the pool below.
+     THE FIELD  Two sources, one shape. Mike's pool comes from a mailed
+                workbook via scripts/parse_survivor.py into
+                data/survivor-<year>.json; the Sleeper pool is fetched live by
+                js/sleeperSurvivor.js, which normalises it into THAT SAME
+                SHAPE. Everything below operates on either without knowing
+                which. Both answer the question that actually moves a pick:
+                not "have I used this team" but "how much of the field still
+                holds it".
+
+                This file used to state that Yahoo and Sleeper would never get
+                a field feed. That was true of Yahoo and wrong about Sleeper --
+                Sleeper serves the whole pool unauthenticated (2026-08-14).
+                Yahoo still has none.
 
    NEVER add a ?v= to this file -- see data.js's note on module identity.
    ========================================================================== */
@@ -42,13 +48,27 @@ export const LEAGUES = [
     note: 'Three lives (2 buy-backs).',
   },
   {
-    id: 'sleeper', name: 'Sleeper pool', short: 'Sleeper',
-    entrants: 18, lives: 3, hasField: false,
-    note: 'Three lives (2 buy-backs).',
+    id: 'sleeper', name: 'Poop 2026', short: 'Sleeper',
+    entrants: 12, lives: 3, hasField: true, live: true,
+    note: 'Three lives (2 buy-backs). Refreshes from Sleeper.',
+
+    // Read live by js/sleeperSurvivor.js. `userId` is which entry is mine --
+    // there is no authenticated call here, so the pool cannot tell us on its
+    // own and it has to be stated.
+    sleeper: {
+      leagueId: '1392226517005635584',
+      userId: '721908735856967680',
+    },
   },
 ];
 
 export const leagueById = (id) => LEAGUES.find((l) => l.id === id) || null;
+
+/* Pools whose field arrives over the wire rather than from a parsed file.
+   `hasField` says a field number can be shown; `live` says a Refresh button
+   can go and get one. They are not the same thing -- Mike's pool has the
+   first and not the second. */
+export const isLive = (id) => Boolean(leagueById(id)?.live);
 
 /* ── My state ─────────────────────────────────────────────────────────────
    Keyed per season AND per league. Picks are stored week -> team rather than

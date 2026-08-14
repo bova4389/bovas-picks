@@ -38,9 +38,13 @@ import { getIdentity, tintOn } from './teamIdentity.js';
 import { ABBR_TO_MASCOT, DIVISION_OF, DIVISION_ORDER } from './teams.js';
 import { buildGrid, key, windowStrength } from './gridModel.js';
 import {
-  LEAGUES, leagueById, loadLeagueState, saveLeagueState,
+  LEAGUES, leagueById, isLive, loadLeagueState, saveLeagueState,
   setPick, usedTeams, weekUsed, fieldAvailability, scarcityFor,
 } from './survivorLeagues.js';
+import {
+  fetchSleeperSurvivor, loadCachedFeed, saveCachedFeed,
+  mergeMyPicks, freshness, coverageNote,
+} from './sleeperSurvivor.js';
 
 /* ── Preferences ──────────────────────────────────────────────────────────
    Everything the user has bent to their liking survives a refresh. The grid
@@ -144,8 +148,13 @@ export async function initGrid(root, season = SEASON) {
   S.schedule = schedule;
   S.survivor = survivor;
   S.identity = identity;
-  S.field = fieldAvailability(survivor, season);
   S.audit = gridAudit({ season, schedule, odds, projections });
+
+  // One field feed per pool, both in survivor-<year>.json's shape, so nothing
+  // downstream branches on which pool it is painting. Mike's is a parsed file
+  // shipped with the site; Sleeper's is whatever the last Refresh cached, and
+  // null until the button has been pressed once.
+  S.feeds = { mike: survivor, sleeper: loadCachedFeed(season) };
 
   if (!schedule?.games?.length) {
     root.innerHTML = shellHead() + missingSchedule(season);
@@ -155,11 +164,18 @@ export async function initGrid(root, season = SEASON) {
   S.model = buildGrid({ schedule, projections, odds });
   S.now = currentWeekOf(schedule);
   S.league = loadLeagueState(S.prefs.league, season);
+  applyField();
 
   root.innerHTML = shellHead() + banner() + controls() + detailShell() + tableShell() + legend();
   wire();
   renderTable();
   scrollToCurrentWeek();
+}
+
+/** Point S.field at the active pool's feed. Called on boot and on every pool
+ *  switch -- scarcity is a property of the pool, not of the grid. */
+function applyField() {
+  S.field = fieldAvailability(S.feeds?.[S.prefs.league] || null, S.season);
 }
 
 /**
@@ -311,6 +327,8 @@ function controls() {
         </div>
       </div>
 
+      ${liveRow()}
+
       <div class="gridctl-row">
         <span class="gridctl-label" id="g-marks-label">Marks</span>
         <div class="gmarks" role="group" aria-labelledby="g-marks-label">
@@ -353,6 +371,99 @@ const picker = (id, label, options) => `
     <label for="${id}">${esc(label)}</label>
     <select id="${id}">${options}</select>
   </span>`;
+
+/* ── The live-pool row ────────────────────────────────────────────────────
+   Only Sleeper can be fetched, so this row is present for every pool and
+   hidden for the ones it cannot serve, rather than being added and removed
+   from the DOM on each switch. Toggling `hidden` keeps the button's identity
+   stable, which matters because a refresh in flight has to survive the user
+   changing pool and changing back.
+   ------------------------------------------------------------------------ */
+
+function liveRow() {
+  return `
+    <div class="gridctl-row glive" id="g-live-row" ${isLive(S.prefs.league) ? '' : 'hidden'}>
+      <span class="gridctl-label">Pool data</span>
+      <button type="button" class="btn btn-ghost glive-btn" id="g-refresh">Refresh from Sleeper</button>
+      <span class="glive-status" id="g-live-status" role="status" aria-live="polite">${liveStatus()}</span>
+    </div>`;
+}
+
+/**
+ * What the row says between refreshes.
+ *
+ * Deliberately leads with coverage rather than with the timestamp. Picks are
+ * withheld until their game kicks off (see the kickoff gate in
+ * sleeperSurvivor.js), so "updated 2 min ago" on its own reads as "this is the
+ * whole pool" when it may be three entries out of twelve. How much is in the
+ * number outranks how recently it was asked for.
+ */
+function liveStatus() {
+  const feed = S.feeds?.[S.prefs.league];
+  if (!feed) return 'Not fetched yet — Refresh pulls every entry’s picks from Sleeper.';
+
+  const bits = [`${feed.entries?.length ?? 0} entries`];
+  const cover = coverageNote(feed);
+  if (cover) bits.push(cover);
+  bits.push(freshness(feed));
+  return esc(bits.join(' · '));
+}
+
+function paintLiveRow() {
+  const row = document.getElementById('g-live-row');
+  if (row) row.hidden = !isLive(S.prefs.league);
+
+  const status = document.getElementById('g-live-status');
+  if (status) status.innerHTML = liveStatus();
+}
+
+/**
+ * Go and get the pool.
+ *
+ * On failure the cached feed is left exactly as it was. An undocumented
+ * endpoint that changes shape must degrade to "yesterday's numbers, and it
+ * said why" -- never to a half-filled pool, which would understate scarcity
+ * without looking wrong.
+ */
+async function refreshLivePool() {
+  const league = leagueById(S.prefs.league);
+  const btn = document.getElementById('g-refresh');
+  const status = document.getElementById('g-live-status');
+  if (!league?.sleeper || !btn) return;
+
+  btn.disabled = true;
+  btn.textContent = 'Refreshing…';
+  if (status) status.innerHTML = 'Asking Sleeper…';
+
+  try {
+    const feed = await fetchSleeperSurvivor(league.sleeper, S.season);
+
+    S.feeds[league.id] = feed;
+    saveCachedFeed(S.season, feed);
+
+    // My own picks come back with everyone else's, so the ledger that used to
+    // be hand-typed fills itself in. Merged, not replaced: a week the feed has
+    // not reached yet keeps whatever was entered by hand.
+    S.league = mergeMyPicks(S.league, feed);
+    saveLeagueState(league.id, S.season, S.league);
+
+    applyField();
+    renderTable();
+  } catch (err) {
+    if (status) {
+      const had = S.feeds?.[league.id];
+      status.innerHTML = esc(
+        `Couldn’t refresh — ${err.message}. ${had ? 'Showing the last good copy.' : 'Nothing cached yet.'}`
+      );
+    }
+    return;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Refresh from Sleeper';
+  }
+
+  paintLiveRow();
+}
 
 /**
  * The week window, including the "hide everything before week N" half.
@@ -447,9 +558,12 @@ function legend() {
           <h3>Survivor pool</h3>
           <p class="lede">
             Used teams are struck through for the selected pool only -- the three pools are
-            different games and their used lists are never merged. Where a parsed field file
-            exists, the team column also shows what share of surviving entries still holds that
-            team.
+            different games and their used lists are never merged. Where a field is available the
+            team column also shows what share of surviving entries still holds that team: Mike's
+            pool from the weekly workbook, the Sleeper pool live from Sleeper itself. Other
+            entrants' Sleeper picks stay hidden until their game kicks off, the same rule the
+            Sleeper app plays by, so mid-week that share is partial -- the Pool data row says how
+            partial, including how many picks are in but still locked.
           </p>
         </div>
       </div>
@@ -996,6 +1110,8 @@ function wire() {
       // release it rather than leave a dead checkbox hiding rows.
       const box = document.getElementById('g-hideused');
       if (box) box.disabled = t.value === 'none';
+      applyField();
+      paintLiveRow();
       renderTable();
       return;
     }
@@ -1031,6 +1147,7 @@ function wire() {
     if (btn?.id === 'g-zoom-in') return setZoom(S.prefs.zoom + 1);
     if (btn?.id === 'g-zoom-out') return setZoom(S.prefs.zoom - 1);
     if (btn?.id === 'g-detail-close') { S.sel = null; applyDisplay(); renderDetail(); return; }
+    if (btn?.id === 'g-refresh') { refreshLivePool(); return; }
     if (btn?.id === 'g-use') return spendPick();
     if (btn?.dataset.tag) return setTag(btn.dataset.tag);
     if (btn?.dataset.teams) return bulkTeams(btn.dataset.teams);

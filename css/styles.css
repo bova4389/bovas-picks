@@ -1041,6 +1041,21 @@ footer {
   color: var(--ink-soft);
 }
 
+/* The live-pool row. `[hidden]` needs the explicit `display: none` because the
+   flex rule above would otherwise win on specificity and show the row for the
+   pools that cannot be fetched. */
+.glive[hidden] { display: none; }
+.glive-btn { min-height: 46px; }
+.glive-btn[disabled] { opacity: .6; cursor: progress; }
+
+/* --ink-quiet, not --ink-soft: this line sits on --paper-2 inside the card,
+   where --ink-soft measures below the site's 4.5:1 floor. Same trap the grid's
+   in-cell text hit. */
+.glive-status {
+  font-size: .8125rem; color: var(--ink-quiet);
+  flex: 1 1 14ch; min-width: 0;
+}
+
 /* 46px minimums throughout, as everywhere else on the site — picks get made on
    a phone and a 40px target is a missed tap. The height saved here comes from
    flattening the rows, never from shrinking what has to be hit. */

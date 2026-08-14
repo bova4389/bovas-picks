@@ -113,6 +113,7 @@ js/espn.js          SHARED — live scoreboard fetch, cached                   [
 js/gameState.js     SHARED — canonical "what happened in this game"          [NEVER versioned]
 js/gridModel.js     SHARED — the 32 x 18 team-week matrix, pure data         [NEVER versioned]
 js/survivorLeagues.js SHARED — per-pool used teams + field scarcity          [NEVER versioned]
+js/sleeperSurvivor.js SHARED — live Sleeper pool fetch, normalised           [NEVER versioned]
 js/teamIdentity.js  SHARED — team colors, uniforms, logo/wordmark paths     [NEVER versioned]
 js/schedule.js      Schedule tab — one week, live scores
 js/grid.js          Grid tab — the whole season as one table
@@ -380,19 +381,107 @@ Any new text in a `.gc` uses one of those.
 | `grid:prefs` | paint, marks, fit, zoom, sort, week window, active pool, hidden teams, `hideUsed` |
 | `grid:tags:<year>` | per-cell target / avoid / watch flags, keyed `TEAM\|WEEK` |
 | `survivor:<year>:<pool>` | my used teams for one pool, as `week -> team` |
+| `survivor:feed:sleeper:<year>` | the last fetched copy of the Sleeper pool (everyone's picks) |
 
 Used teams are stored **per pool and never merged** — SURVIVOR-STRATEGY.md's three pools are
 different games, and a pick that is right in the Yahoo pool can be wrong in Mike's the same
-Sunday. Field scarcity ("what share of surviving entries still holds this team") comes from
-`data/survivor-<year>.json` and is Mike's pool only; the two app pools have no such feed and are
-not getting one, because that document concludes pick popularity is not worth acting on at 15-20
-entrants.
+Sunday. The two keys above are separate for the same reason in miniature: one is mine and must
+survive a failed fetch, the other is a copy of someone else's data that a refresh may replace
+whole.
+
+**Field scarcity now has two sources, in one shape.** Mike's pool comes from the mailed workbook
+via `parse_survivor.py` into `data/survivor-<year>.json`; the Sleeper pool is fetched live by
+`js/sleeperSurvivor.js`, which normalises Sleeper's answer into *that same shape* so
+`fieldAvailability()` / `scarcityFor()` / `weekPickShare()` work on either without branching.
+`S.feeds` in `grid.js` holds one per pool and `applyField()` points `S.field` at the active one.
+Yahoo still has no feed. See the Sleeper section below.
 
 **Not built yet, in rough priority order:** free-text notes per cell (the tags are the flag half
 of that feature); ESPN team news and injury links in the detail strip; venue/neutral-site data,
 which would need `scripts/fetch_schedule.py` to capture `competitions[0].venue` and `neutralSite`
 — today the international slate is inferred from the 9:30am Eastern Sunday window, which catches
 all six of 2026's but would miss a Friday or Saturday game abroad.
+
+## Sleeper Survivor Pool — Live Feed
+
+The Sleeper pool ("Poop 2026", 12 entries) is fetched straight from Sleeper by a **Refresh from
+Sleeper** button on the Grid tab, which appears only when a pool with `live: true` is selected.
+No script, no workflow, no committed file — `js/sleeperSurvivor.js` calls Sleeper from the
+browser and caches the answer in localStorage.
+
+**Survivor pools are not fantasy leagues in Sleeper's data model.** The pool's `sport` is
+`pickem:nfl`, so it never appears in the documented `/v1/user/<id>/leagues/nfl/<year>` endpoint,
+and [docs.sleeper.com](https://docs.sleeper.com/) has no pick'em section at all. Don't go looking
+for it there again. Two surfaces carry it, both unauthenticated, both sending
+`access-control-allow-origin: *` (verified 2026-08-14 — the CORS header is the only reason this
+can be a browser button rather than a server job):
+
+| Surface | Gives |
+|---|---|
+| `GET /v1/league/<id>` | name, settings, `metadata.current_pickem_leg_id` |
+| `GET /v1/league/<id>/users` | `user_id` → display name |
+| `GET /v1/league/<id>/rosters` | `roster_id` → owner, `metadata.is_eliminated` |
+| `GET api.sleeper.app/schedule/nfl/regular/<yr>` | `game_id` → week + matchup |
+| `POST api.sleeper.app/graphql` | `get_pickem_picks_for_league(league_id, leg_id, include_tiebreaker)` |
+
+**The GraphQL endpoint is undocumented and may change without notice.** Every failure path leaves
+the last good cached feed in place and says why, rather than writing a partial pool over a
+complete one — a stale field number is recoverable, a half-parsed one silently understates
+scarcity and looks fine. Introspection is currently open (`query { __schema { query_type { fields
+{ name } } } }`), which is how these queries were found; that is the tool to reach for if the
+shape changes.
+
+Four details that each cost time to work out:
+
+- **`include_tiebreaker` changes the response *shape*, not just its contents.** `true` gives
+  `{"<roster_id>": {picks: {...}, tiebreaker: {}}}`; `false` hoists the picks to the top of the
+  roster object and there is no `picks` key at all. Reading `.picks` after passing `false` returns
+  undefined — **HTTP 200, no error, and a pool that looks empty.** We ask for `true`; `picksOf()`
+  reads either.
+- **`leg_id` is `"v1:regular:<week>"`, not the bare week number.** Passing `"1"` also returns
+  `{}` with a 200.
+- **`metadata.is_eliminated` is the string `'true'`/`'false'`.** Compared as a boolean, the whole
+  pool reads alive and scarcity is measured against the wrong denominator.
+- **Sleeper spells Jacksonville `JAX`; this project and `js/teams.js` use `JAC`.** One team, one
+  direction, handled by `TEAM_FIX` — don't build a second crosswalk.
+
+### The kickoff gate — do not remove
+
+**Sleeper's app hides a pick until its game kicks off. Sleeper's API does not.** It handed over a
+Week 1 pick on 2026-08-14, four weeks before the September 13 kickoff. This is a real money pool,
+so **this project enforces the lock that the API doesn't**: `hasKickedOff()` in
+`js/sleeperSurvivor.js` withholds any pick whose game has not started.
+
+Four decisions in it, each of which would be easy to undo by accident:
+
+- **Withheld picks are dropped during the fetch, never stored and hidden at render time.** A pick
+  that never enters the cache cannot leak out of it later — not through localStorage, not through
+  a future feature that reads the feed for something else. Verified: the cached blob does not
+  contain the withheld team's abbreviation anywhere.
+- **My own pick is exempt.** I already know it, and withholding it would leave the used-teams
+  ledger this feed exists to maintain permanently a week behind.
+- **The gate keys on the schedule feed's `status`, not on a clock.** That feed carries a *date
+  only* (`"2026-09-13"`) with no kickoff time, so a date comparison would reveal the 8:20pm game
+  at midnight.
+- **It is a hide-list (`pre_game`, `canceled`, `postponed`), not a reveal-list.** The only
+  statuses ever observed are `pre_game`, `complete` and `canceled`, so the string for a game in
+  progress is unknown; a reveal-list would keep picks hidden right through the game they were
+  meant to be revealed for — a failure that looks exactly like the gate working. An unknown or
+  missing game is still hidden: missing data must never open the gate.
+
+Each week therefore carries three counts, and collapsing them would hide the gate: `submitted`
+(how many have picked at all), `revealed` (how many of those are ours to see yet), `expected`
+(the pool). The status line reads `Week 1 — 0 of 12 shown, 1 locked until kickoff` — a bare
+"0 of 12" would imply nobody has picked. Percentages are over `revealed`, not the pool, or a week
+with two games kicked off reports every share at a sixth of its real value.
+
+**My own picks come back with everyone else's**, so `survivor:<year>:sleeper` fills itself in on
+refresh instead of being hand-typed. `mergeMyPicks()` merges rather than replaces — a week the
+feed has not reached keeps whatever was entered by hand.
+
+**Unresolved:** Sleeper's own settings report `num_revives_allowed: 0`, while
+`SURVIVOR-STRATEGY.md` records this pool as three lives / two buy-backs. Both are recorded; do not
+"fix" one from the other without checking the pool itself.
 
 ## Odds Tab
 
@@ -517,8 +606,9 @@ reading a committed file.
 - **Remaining eligible teams (built)** — the Grid's "Survivor usable" paint colors only the weeks
   clearing the ~70% floor, so what is left to spend, and when, is the shape of the grid itself.
   **"Exclude my picks"** removes spent teams' rows entirely, and keeps doing so as more are spent.
-- **Field scarcity (built, Mike's pool only)** — what share of surviving entries still holds each
-  team, from `data/survivor-<year>.json`.
+- **Field scarcity (built — Mike's pool and Sleeper)** — what share of surviving entries still
+  holds each team. Mike's from `data/survivor-<year>.json`; Sleeper live from the pool itself, on
+  demand. See the Sleeper Survivor Pool section. Yahoo has no feed.
 - Buy-back tracking (elimination date, re-entry date, new pick history restarting after buy-back)
   — **not built.** `survivorLeagues.js` carries a `buybacks` counter in each pool's state and
   nothing reads it yet.

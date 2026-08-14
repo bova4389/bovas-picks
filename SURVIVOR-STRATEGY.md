@@ -10,14 +10,29 @@ this week, given I can never spend it again?"* Almost nothing transfers between 
 
 ## The Three Pools
 
-| | **Mike's pool** | **Yahoo pool** | **Sleeper pool** |
+| | **Mike's pool** | **Yahoo pool** | **Sleeper pool** ("Poop 2026") |
 |---|---|---|---|
-| Entries | **235** (2025 Wk 1) | 15–20 | 15–20 |
-| Lives | **1 — one loss and out** | 3 (2 buy-backs) | 3 (2 buy-backs) |
+| Entries | **235** (2025 Wk 1) | 15–20 | **12** (2026, from the API) |
+| Lives | **1 — one loss and out** | 3 (2 buy-backs) | 3 (2 buy-backs) — but see note |
 | Submission | Same email as the pickem | In-app | In-app |
 | Entry / buy-back | — (one life) | $30–50 / $15–25 | $30–50 / $15–25 |
-| Field data | Full weekly spreadsheet | None — new league | None — new league |
+| Field data | Full weekly spreadsheet | None | **Live from Sleeper, on demand** |
 | Strategy driver | **Leverage + future value** | **Survival + future value** | same |
+
+**The Sleeper pool's field is now readable** (built 2026-08-14). Sleeper serves the whole pool
+unauthenticated, so the Grid tab's "Refresh from Sleeper" button pulls every entry's used teams
+and scarcity paints for that pool exactly as it does for Mike's. See the Sleeper Survivor Pool
+section of `CLAUDE.md`. **This does not change how the pool is played** — the conclusion below
+that pick popularity is not worth acting on at 12–20 entrants still stands, and the value of the
+feed is the used-teams ledger maintaining itself rather than a new leverage input.
+
+**Other entrants' picks are withheld until their game kicks off, by us.** Sleeper's API will hand
+them over weeks early; the app's own UI will not, and the pool plays by the UI's rule. The tool
+enforces that rule rather than taking the edge — see "The kickoff gate" in `CLAUDE.md`. A
+mid-week read is therefore partial by design, and the pool data row says how partial.
+
+**Unresolved:** Sleeper's own settings report `num_revives_allowed: 0`, contradicting the three
+lives recorded above. Check the pool before relying on either.
 
 **These three require different play, and the difference is not a matter of taste.** A pick that
 is correct in the Yahoo pool can be actively wrong in Mike's on the same Sunday. Do not submit one
