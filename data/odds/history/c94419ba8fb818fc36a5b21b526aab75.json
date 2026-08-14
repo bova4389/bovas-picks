@@ -208,5 +208,19 @@
   "vig": 0.0428,
   "bucket": 16,
   "fetchedAt": "2026-08-14T14:43:37.878838+00:00"
+ },
+ {
+  "id": "c94419ba8fb818fc36a5b21b526aab75",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Detroit Lions",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3846,
+  "rawAwayProb": 0.6575,
+  "homeWinProb": 0.3691,
+  "awayWinProb": 0.6309,
+  "vig": 0.0421,
+  "bucket": 16,
+  "fetchedAt": "2026-08-14T17:42:10.845062+00:00"
  }
 ]

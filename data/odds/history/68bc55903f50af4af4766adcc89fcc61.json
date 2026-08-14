@@ -208,5 +208,19 @@
   "vig": 0.0423,
   "bucket": 5,
   "fetchedAt": "2026-08-14T14:43:37.878838+00:00"
+ },
+ {
+  "id": "68bc55903f50af4af4766adcc89fcc61",
+  "commenceTime": "2026-09-20T20:25:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8462,
+  "rawAwayProb": 0.1961,
+  "homeWinProb": 0.8119,
+  "awayWinProb": 0.1881,
+  "vig": 0.0422,
+  "bucket": 5,
+  "fetchedAt": "2026-08-14T17:42:10.845062+00:00"
  }
 ]

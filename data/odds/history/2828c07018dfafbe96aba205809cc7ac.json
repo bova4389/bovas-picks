@@ -208,5 +208,19 @@
   "vig": 0.0438,
   "bucket": 19,
   "fetchedAt": "2026-08-14T14:43:37.878838+00:00"
+ },
+ {
+  "id": "2828c07018dfafbe96aba205809cc7ac",
+  "commenceTime": "2026-12-25T18:00:00Z",
+  "home": "Chicago Bears",
+  "away": "Green Bay Packers",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.5413,
+  "rawAwayProb": 0.5025,
+  "homeWinProb": 0.5186,
+  "awayWinProb": 0.4814,
+  "vig": 0.0438,
+  "bucket": 19,
+  "fetchedAt": "2026-08-14T17:42:10.845062+00:00"
  }
 ]
