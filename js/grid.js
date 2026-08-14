@@ -110,10 +110,27 @@ function loadPrefs() {
       ...DEFAULTS, ...raw,
       marks: { ...DEFAULTS.marks, ...(raw.marks || {}) },
       hidden: Array.isArray(raw.hidden) ? raw.hidden : [],
+      league: knownLeague(raw.league),
     };
   } catch {
     return { ...DEFAULTS };
   }
+}
+
+/**
+ * A stored pool that no longer exists resolves to the default, not to itself.
+ *
+ * Pools are added and removed from LEAGUES as they are created and wound up,
+ * and the selection outlives them in localStorage. Without this, a pref left
+ * pointing at a removed pool survives the spread above while the <select> --
+ * having no matching <option> -- displays its FIRST one instead. The grid then
+ * strikes through one pool's used teams under another pool's name, with no
+ * error anywhere. Anything read from storage and rendered as a choice needs
+ * this check; `paint` and `sort` get it free by being validated in CSS.
+ */
+function knownLeague(id) {
+  if (id === 'none') return 'none';
+  return leagueById(id) ? id : DEFAULTS.league;
 }
 
 function savePrefs() {
@@ -135,6 +152,12 @@ export async function initGrid(root, season = SEASON) {
   S.season = season;
   S.prefs = loadPrefs();
   S.tags = loadTags();
+
+  // Write the validated prefs straight back, so a value knownLeague() had to
+  // correct is repaired in storage rather than re-corrected on every boot for
+  // the rest of the season. loadPrefs() is lossless -- unknown keys survive
+  // the round trip -- so this is idempotent for prefs that needed nothing.
+  savePrefs();
 
   // Identity rides along with the rest: the team column paints each row with
   // that team's own color and mark, the same way the Schedule card does, and
@@ -315,8 +338,12 @@ function controls() {
           ${opt('division', 'By division', p.sort)}
           ${opt('ahead', 'Best spots first', p.sort)}`)}
 
+        ${/* Full names here, `short` only where a name sits inside a sentence
+             (the detail panel's Spend button). The dropdown is where you pick
+             which real pool you are looking at, and "Mike's" vs "Poop" is not
+             enough to be sure. */''}
         ${picker('g-league', 'Pool', `
-          ${LEAGUES.map((l) => opt(l.id, l.short, p.league)).join('')}
+          ${LEAGUES.map((l) => opt(l.id, l.name, p.league)).join('')}
           ${opt('none', 'Off', p.league)}`)}
 
         <div class="gzoom" role="group" aria-label="Size">

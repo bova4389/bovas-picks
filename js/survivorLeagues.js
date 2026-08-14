@@ -1,18 +1,25 @@
 /* ==========================================================================
    Survivor leagues — which teams are spent, in which pool.
 
-   Three pools, three different games (see SURVIVOR-STRATEGY.md "The Three
-   Pools"). A pick that is right in the Yahoo pool can be actively wrong in
-   Mike's on the same Sunday, so used-team state is stored PER LEAGUE and the
-   grid never merges them. Switching leagues re-strikes the rows; it does not
-   union them.
+   Every pool here is a different game (see SURVIVOR-STRATEGY.md "The Three
+   Pools"). A pick that is right in a three-life pool can be actively wrong in
+   a one-life pool on the same Sunday, so used-team state is stored PER LEAGUE
+   and the grid never merges them. Switching leagues re-strikes the rows; it
+   does not union them.
+
+   LEAGUES is the list of pools that ACTUALLY EXIST, and it is the dropdown
+   in pool order. Pools get added here as they are created -- SURVIVOR-
+   STRATEGY.md may analyse one before it exists, which is not a reason to list
+   it. A pool nobody has entered is a dead option that still has to be scrolled
+   past every time, and it invites picks being logged against a pool that
+   cannot receive them.
 
    Where the state lives:
 
-     MINE       localStorage, per season per league. Yahoo has no backend and
-                no entry form, so there what I have spent is something only I
-                can tell the tool. Sleeper now fills its own in on refresh --
-                see `sleeper` on the pool below.
+     MINE       localStorage, per season per league. For a pool with no feed,
+                what I have spent is something only I can tell the tool.
+                Sleeper fills its own in on refresh -- see `sleeper` on the
+                pool below.
      THE FIELD  Two sources, one shape. Mike's pool comes from a mailed
                 workbook via scripts/parse_survivor.py into
                 data/survivor-<year>.json; the Sleeper pool is fetched live by
@@ -22,10 +29,10 @@
                 not "have I used this team" but "how much of the field still
                 holds it".
 
-                This file used to state that Yahoo and Sleeper would never get
-                a field feed. That was true of Yahoo and wrong about Sleeper --
-                Sleeper serves the whole pool unauthenticated (2026-08-14).
-                Yahoo still has none.
+                This file used to state that the app pools would never get a
+                field feed. Wrong about Sleeper, which serves the whole pool
+                unauthenticated (2026-08-14). Assume a new pool has no feed
+                until its provider is checked, not that it cannot have one.
 
    NEVER add a ?v= to this file -- see data.js's note on module identity.
    ========================================================================== */
@@ -38,17 +45,7 @@
  */
 export const LEAGUES = [
   {
-    id: 'mike', name: "Mike's pool", short: "Mike's",
-    entrants: 235, lives: 1, hasField: true,
-    note: 'One life. No buy-back.',
-  },
-  {
-    id: 'yahoo', name: 'Yahoo pool', short: 'Yahoo',
-    entrants: 18, lives: 3, hasField: false,
-    note: 'Three lives (2 buy-backs).',
-  },
-  {
-    id: 'sleeper', name: 'Poop 2026', short: 'Sleeper',
+    id: 'sleeper', name: '2026 Poop', short: 'Poop',
     entrants: 12, lives: 3, hasField: true, live: true,
     note: 'Three lives (2 buy-backs). Refreshes from Sleeper.',
 
@@ -59,6 +56,11 @@ export const LEAGUES = [
       leagueId: '1392226517005635584',
       userId: '721908735856967680',
     },
+  },
+  {
+    id: 'mike', name: "Mike's Suicide League", short: "Mike's",
+    entrants: 235, lives: 1, hasField: true,
+    note: 'One life. No buy-back.',
   },
 ];
 

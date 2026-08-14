@@ -10,7 +10,13 @@ this week, given I can never spend it again?"* Almost nothing transfers between 
 
 ## The Three Pools
 
-| | **Mike's pool** | **Yahoo pool** | **Sleeper pool** ("Poop 2026") |
+**Only two of these exist today.** The Sleeper pool ("2026 Poop") and Mike's pool are live and
+are the two entries in the Grid tab's pool dropdown; the Yahoo pool is analysis of a pool type
+that has not been created. Pools are added to `js/survivorLeagues.js` as they are created — a
+listed pool nobody has entered is a dead dropdown option that invites picks being logged against
+a pool that cannot receive them.
+
+| | **Mike's Suicide League** | **Yahoo pool** *(not created)* | **2026 Poop** (Sleeper) |
 |---|---|---|---|
 | Entries | **235** (2025 Wk 1) | 15–20 | **12** (2026, from the API) |
 | Lives | **1 — one loss and out** | 3 (2 buy-backs) | 3 (2 buy-backs) — but see note |

@@ -383,18 +383,26 @@ Any new text in a `.gc` uses one of those.
 | `survivor:<year>:<pool>` | my used teams for one pool, as `week -> team` |
 | `survivor:feed:sleeper:<year>` | the last fetched copy of the Sleeper pool (everyone's picks) |
 
-Used teams are stored **per pool and never merged** — SURVIVOR-STRATEGY.md's three pools are
-different games, and a pick that is right in the Yahoo pool can be wrong in Mike's the same
-Sunday. The two keys above are separate for the same reason in miniature: one is mine and must
-survive a failed fetch, the other is a copy of someone else's data that a refresh may replace
-whole.
+Used teams are stored **per pool and never merged** — each pool is a different game, and a pick
+that is right in a three-life pool can be wrong in a one-life pool the same Sunday. The two keys
+above are separate for the same reason in miniature: one is mine and must survive a failed fetch,
+the other is a copy of someone else's data that a refresh may replace whole.
+
+**`LEAGUES` in `js/survivorLeagues.js` lists the pools that actually exist, in dropdown order** —
+`2026 Poop`, then `Mike's Suicide League`, then `Off`. Pools are added as they are created;
+SURVIVOR-STRATEGY.md may analyse one before it exists, which is not a reason to list it. The
+Yahoo pool was listed for months without existing and was removed 2026-08-14. When a pool is
+added or removed, note that `grid:prefs` outlives it: `knownLeague()` in `grid.js` resolves a
+stored pool that is no longer in `LEAGUES` back to the default, because otherwise the pref
+survives while the `<select>` — having no matching `<option>` — silently displays its first one,
+and the grid strikes through one pool's used teams under another pool's name.
 
 **Field scarcity now has two sources, in one shape.** Mike's pool comes from the mailed workbook
 via `parse_survivor.py` into `data/survivor-<year>.json`; the Sleeper pool is fetched live by
 `js/sleeperSurvivor.js`, which normalises Sleeper's answer into *that same shape* so
 `fieldAvailability()` / `scarcityFor()` / `weekPickShare()` work on either without branching.
 `S.feeds` in `grid.js` holds one per pool and `applyField()` points `S.field` at the active one.
-Yahoo still has no feed. See the Sleeper section below.
+A pool with no feed simply shows no share. See the Sleeper section below.
 
 **Not built yet, in rough priority order:** free-text notes per cell (the tags are the flag half
 of that feature); ESPN team news and injury links in the detail strip; venue/neutral-site data,
@@ -608,7 +616,7 @@ reading a committed file.
   **"Exclude my picks"** removes spent teams' rows entirely, and keeps doing so as more are spent.
 - **Field scarcity (built — Mike's pool and Sleeper)** — what share of surviving entries still
   holds each team. Mike's from `data/survivor-<year>.json`; Sleeper live from the pool itself, on
-  demand. See the Sleeper Survivor Pool section. Yahoo has no feed.
+  demand. See the Sleeper Survivor Pool section.
 - Buy-back tracking (elimination date, re-entry date, new pick history restarting after buy-back)
   — **not built.** `survivorLeagues.js` carries a `buybacks` counter in each pool's state and
   nothing reads it yet.
