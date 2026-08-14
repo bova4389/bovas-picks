@@ -80,10 +80,12 @@ export async function initSchedule(root, activeSeason) {
 
   // Coming back to a backgrounded tab, or to this panel from another one,
   // should never show a stale score — refresh first, then resume the loop.
+  //
+  // The panel half comes from app.js's 'panelchange' event, NOT from binding
+  // to the nav buttons. Both nav rows are re-rendered on every selection, so
+  // listeners bound to them at boot survive exactly one click.
   document.addEventListener('visibilitychange', onVisibilityChange);
-  for (const tab of document.querySelectorAll('.tab')) {
-    tab.addEventListener('click', () => queueMicrotask(onVisibilityChange));
-  }
+  document.addEventListener('panelchange', onVisibilityChange);
 
   agoTimer = setInterval(paintFreshness, 5_000);
   await refresh({ force: true });

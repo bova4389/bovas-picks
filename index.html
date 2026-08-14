@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260813b" />
+  <link rel="stylesheet" href="css/styles.css?v=20260813c" />
 </head>
 <body>
 
@@ -21,65 +21,60 @@
         <div class="brand-mark" aria-hidden="true">B</div>
         <!-- Year is written by app.js from the derived season — hardcoding it
              here is how the whole site ended up a season behind. -->
-        <div class="brand-name">Bova's Picks <span id="brand-season">&nbsp;</span></div>
+        <h1 class="brand-name">Bova&rsquo;s Picks <span id="brand-season">&nbsp;</span></h1>
       </div>
 
-      <h1>Make the pick,<br />not the guess.</h1>
-      <p class="tagline">
-        Weekly sheet, field leverage, and line movement for a 268-entry straight-up pool.
-      </p>
-
-      <nav class="tabs" role="tablist" aria-label="Sections">
-        <button class="tab" role="tab" id="tab-schedule"   aria-controls="panel-schedule"   aria-selected="true">Schedule</button>
-        <button class="tab" role="tab" id="tab-grid"       aria-controls="panel-grid"       aria-selected="false">Grid</button>
-        <button class="tab" role="tab" id="tab-picksheet"  aria-controls="panel-picksheet"  aria-selected="false">Pick Sheet</button>
-        <button class="tab" role="tab" id="tab-odds"       aria-controls="panel-odds"       aria-selected="false">Odds</button>
-        <button class="tab" role="tab" id="tab-recommend"  aria-controls="panel-recommend"  aria-selected="false">Recommend</button>
-        <button class="tab" role="tab" id="tab-lookback"   aria-controls="panel-lookback"   aria-selected="false">Lookback<span class="tab-soon">Soon</span></button>
-        <button class="tab" role="tab" id="tab-survivor"   aria-controls="panel-survivor"   aria-selected="false">Survivor<span class="tab-soon">Soon</span></button>
-      </nav>
+      <!-- Both nav rows are written by js/app.js from its NAV model. The
+           second row's contents depend on the first row's selection, and
+           Grid/Odds sit under two pool types, so hand-written markup here
+           would be two sources of truth that drift. -->
+      <nav class="mainnav" id="mainnav" role="tablist" aria-label="Pools"></nav>
     </div>
   </header>
+
+  <div class="subnav-bar" id="subnav-bar">
+    <nav class="wrap subnav" id="subnav" role="tablist" aria-label="Views"></nav>
+  </div>
 
   <main class="wrap">
 
     <!-- ── Schedule ───────────────────────────────────────────────────── -->
-    <section class="panel" id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule">
+    <section class="panel" id="panel-schedule" role="tabpanel">
       <div id="schedule-root">
         <p class="eyebrow">Loading</p>
       </div>
     </section>
 
     <!-- ── Grid ───────────────────────────────────────────────────────── -->
-    <section class="panel" id="panel-grid" role="tabpanel" aria-labelledby="tab-grid" hidden>
+    <section class="panel" id="panel-grid" role="tabpanel" hidden>
       <div id="grid-root">
         <p class="eyebrow">Loading</p>
       </div>
     </section>
 
     <!-- ── Pick Sheet ─────────────────────────────────────────────────── -->
-    <section class="panel" id="panel-picksheet" role="tabpanel" aria-labelledby="tab-picksheet" hidden>
+    <section class="panel" id="panel-picksheet" role="tabpanel" hidden>
       <div id="picksheet-root">
         <p class="eyebrow">Loading</p>
       </div>
     </section>
 
     <!-- ── Odds ───────────────────────────────────────────────────────── -->
-    <section class="panel" id="panel-odds" role="tabpanel" aria-labelledby="tab-odds" hidden>
+    <section class="panel" id="panel-odds" role="tabpanel" hidden>
       <div id="odds-root">
         <p class="eyebrow">Loading</p>
       </div>
     </section>
 
     <!-- ── Recommend ──────────────────────────────────────────────────── -->
-    <section class="panel" id="panel-recommend" role="tabpanel" aria-labelledby="tab-recommend" hidden>
+    <section class="panel" id="panel-recommend" role="tabpanel" hidden>
       <div id="recommend-root">
         <p class="eyebrow">Loading</p>
       </div>
     </section>
 
     <!-- ── Placeholders ───────────────────────────────────────────────── -->
-    <section class="panel card soon" id="panel-lookback" role="tabpanel" aria-labelledby="tab-lookback" hidden>
+    <section class="panel card soon" id="panel-lookback" role="tabpanel" hidden>
       <p class="eyebrow">Needs more weekly files</p>
       <h2>Field lookback</h2>
       <p>Who in the pool actually picks well, and who quietly burns their week on longshots.</p>
@@ -91,7 +86,7 @@
       </ul>
     </section>
 
-    <section class="panel card soon" id="panel-survivor" role="tabpanel" aria-labelledby="tab-survivor" hidden>
+    <section class="panel card soon" id="panel-survivor" role="tabpanel" hidden>
       <p class="eyebrow">Different math entirely</p>
       <h2>Survivor planning</h2>
       <p>One team a week, no reuse, a loss ends it. Planning matters more than any single pick.</p>
@@ -109,6 +104,6 @@
     Personal tool. Picks are emailed manually — this only builds and checks the message.
   </footer>
 
-  <script type="module" src="js/app.js?v=20260813b"></script>
+  <script type="module" src="js/app.js?v=20260813c"></script>
 </body>
 </html>

@@ -79,7 +79,7 @@ a { color: var(--purple); }
 .masthead {
   background: var(--purple);
   color: var(--white);
-  padding: 28px 0 0;
+  padding: 26px 0 0;
   position: relative;
   overflow: hidden;
 }
@@ -93,59 +93,102 @@ a { color: var(--purple); }
 }
 .masthead .wrap { position: relative; z-index: 1; }
 
-.brand { display: flex; align-items: center; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 14px; margin: 0 0 26px; }
 .brand-mark {
-  width: 34px; height: 34px; flex: none;
-  border-radius: 10px 10px 10px 2px;
+  width: 46px; height: 46px; flex: none;
+  border-radius: 14px 14px 14px 3px;
   background: var(--violet);
   display: grid; place-items: center;
-  font-weight: 700; font-size: 15px; color: var(--purple-deep);
+  font-weight: 700; font-size: 21px; color: var(--purple-deep);
 }
-.brand-name { font-size: 1rem; font-weight: 500; letter-spacing: .01em; }
-.brand-name span { opacity: .62; font-weight: 300; }
-
-.masthead h1 { margin: 20px 0 6px; color: var(--white); }
-.masthead .tagline {
-  margin: 0 0 26px;
-  font-weight: 200;
-  font-size: clamp(1rem, 2.4vw, 1.25rem);
-  color: rgba(255,255,255,.72);
-  max-width: 46ch;
+/* The wordmark now carries the masthead on its own -- the display headline
+   and tagline that used to sit under it were pure decoration above every
+   tab, so the brand grew to fill the space they left. */
+.brand-name {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(1.75rem, 5.5vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -.025em;
 }
+.brand-name span { opacity: .55; font-weight: 200; }
+.brand-name span::before { content: "/ "; }
 
-/* ── Tabs ─────────────────────────────────────────────────────────────── */
+/* ── Nav: two rows, two levels ────────────────────────────────────────────
+   Row one is the pool type and lives on the purple field as pills. Row two is
+   the views inside that pool and lives on the paper below the masthead as
+   underline tabs. The two rows deliberately look nothing alike: an earlier
+   single row of seven peers gave no clue which game any tab belonged to.
 
-.tabs {
+   Neither row uses the old "active tab merges into the page" seam. That trick
+   only works when every group has a second row to hang the seam on, and
+   Schedule has none.
+   ------------------------------------------------------------------------ */
+
+.mainnav, .subnav {
   display: flex;
-  gap: 4px;
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
-.tabs::-webkit-scrollbar { display: none; }
+.mainnav::-webkit-scrollbar, .subnav::-webkit-scrollbar { display: none; }
 
-.tab {
+.mainnav { gap: 6px; padding-bottom: 22px; }
+
+.maintab {
   flex: none;
   appearance: none;
   border: 0;
-  background: transparent;
-  color: rgba(255,255,255,.66);
+  background: rgba(255,255,255,.10);
+  color: rgba(255,255,255,.78);
   font: inherit;
   font-size: .9375rem;
   font-weight: 500;
-  padding: 13px 18px;
-  border-radius: var(--r-md) var(--r-md) 0 0;
+  min-height: 46px;
+  padding: 12px 20px;
+  border-radius: 999px;
   cursor: pointer;
   white-space: nowrap;
   transition: background .15s, color .15s;
 }
-.tab:hover { color: #fff; background: rgba(255,255,255,.09); }
-.tab[aria-selected="true"] {
-  background: var(--paper);
+.maintab:hover { color: #fff; background: rgba(255,255,255,.18); }
+.maintab[aria-selected="true"] {
+  background: var(--white);
   color: var(--purple-deep);
   font-weight: 600;
 }
-.tab .tab-soon {
+
+.subnav-bar {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.subnav-bar[hidden] { display: none; }
+.subnav { gap: 22px; }
+
+.subtab {
+  flex: none;
+  appearance: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: .9375rem;
+  font-weight: 500;
+  min-height: 46px;
+  padding: 12px 2px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .15s, border-color .15s;
+}
+.subtab:hover { color: var(--purple); }
+.subtab[aria-selected="true"] {
+  color: var(--purple);
+  border-bottom-color: var(--purple);
+  font-weight: 600;
+}
+.tab-soon {
   display: inline-block;
   margin-left: 7px;
   font-size: .625rem;
@@ -154,14 +197,20 @@ a { color: var(--purple); }
   text-transform: uppercase;
   padding: 2px 6px;
   border-radius: 20px;
-  background: rgba(255,255,255,.16);
+  background: var(--paper-2);
+  color: var(--ink-soft);
   vertical-align: 1px;
 }
-.tab[aria-selected="true"] .tab-soon { background: var(--purple-soft); color: var(--purple); }
+.subtab[aria-selected="true"] .tab-soon { background: var(--purple-soft); color: var(--purple); }
 
 /* ── Layout ───────────────────────────────────────────────────────────── */
 
-main { padding: 28px 0 96px; }
+/* MUST be `main.wrap`, not `main`. <main> carries the .wrap class, and
+   `.wrap { padding: 0 20px }` outranks a bare element selector on
+   specificity regardless of source order -- so the old `main { padding: 28px
+   0 96px }` was silently overridden and the tabs had NO top gap at all. That
+   is the whole of why every heading sat jammed against the nav. */
+main.wrap { padding-top: 34px; padding-bottom: 96px; }
 .panel[hidden] { display: none; }
 
 .card {
@@ -171,11 +220,20 @@ main { padding: 28px 0 96px; }
   box-shadow: var(--shadow-sm);
 }
 
+/* flex-start, not baseline. With `baseline`, a .pill in the right-hand slot
+   aligns its own baseline to the eyebrow's and shoves the whole left block
+   down ~7px -- so Grid and Odds (which carry a pill) sat lower than Pick
+   Sheet and Recommend (which do not). Same markup, different heading height,
+   for no reason a reader could see. */
 .section-head {
-  display: flex; align-items: baseline; justify-content: space-between;
+  display: flex; align-items: flex-start; justify-content: space-between;
   gap: 16px; flex-wrap: wrap;
-  margin: 0 0 14px;
+  margin: 0 0 18px;
 }
+/* Belt and braces on the rule above: whatever a tab renders first, it starts
+   flush with main's padding rather than adding its own leading margin. */
+.panel > :first-child,
+.panel > div > :first-child { margin-top: 0; }
 .eyebrow {
   font-size: .6875rem; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
@@ -209,9 +267,15 @@ main { padding: 28px 0 96px; }
 .field select:focus-visible,
 .field input:focus-visible,
 .pick:focus-visible,
-.tab:focus-visible,
+.subtab:focus-visible,
 .btn:focus-visible {
   outline: 3px solid var(--violet);
+  outline-offset: 2px;
+}
+/* The main row sits on purple, where --violet has nothing like enough
+   separation from the field to read as a focus ring. */
+.maintab:focus-visible {
+  outline: 3px solid var(--white);
   outline-offset: 2px;
 }
 .field input[type="number"] { width: 110px; }
@@ -416,22 +480,119 @@ main { padding: 28px 0 96px; }
 
 .lede { margin: 0 0 20px; color: var(--ink-soft); font-size: .9375rem; }
 
-/* ── Odds tab ─────────────────────────────────────────────────────────── */
+/* ── Odds tab ─────────────────────────────────────────────────────────────
+   .oddsgame below is the Recommend tab's row and is left alone. The Odds tab
+   itself now uses .oddsline, a flatter one-line-per-game shape: it shows a
+   single week rather than the whole season, so the card no longer has to
+   carry a kickoff date of its own and can lose most of its height.
+   ------------------------------------------------------------------------ */
 
-.bucket { margin: 0 0 30px; }
-.bucket-title {
-  font-size: 1.0625rem; font-weight: 700;
-  color: var(--purple-deep);
-  padding-bottom: 8px; margin-bottom: 14px;
-  border-bottom: 2px solid var(--purple-soft);
+/* The answer to "what is this tab telling me", above the rows that detail it */
+.oddsum {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin: 0 0 26px;
+}
+.oddsum-cell { background: var(--white); padding: 16px 18px; }
+.oddsum-value {
+  margin: 0;
+  font-size: 1.0625rem; font-weight: 300; line-height: 1.35;
+  letter-spacing: -.01em;
+}
+.oddsum-value strong { font-weight: 600; }
+.oddsum-quiet { color: var(--ink-soft); font-size: .9375rem; }
+/* The movers cell stacks up to three lines, so it reads as a list rather than
+   a single statistic and needs the tighter type to match the others' height */
+.oddsum-movers .oddsum-value { display: flex; flex-direction: column; gap: 3px; }
+.oddsum-movers .odds-move { font-size: .9375rem; }
+
+.oddsline {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  grid-template-areas:
+    "kick teams"
+    "kick bar"
+    "kick meta";
+  align-items: center;
+  gap: 6px 14px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+}
+.oddsline-kick {
+  grid-area: kick;
+  align-self: center;
+  font-size: .8125rem; font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+}
+/* Named areas rather than source order, because the phone layout stacks the
+   two teams and the wide layout mirrors them around "at" -- same five spans,
+   two completely different arrangements, no duplicated markup. */
+.oddsline-teams {
+  grid-area: teams;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "awayname awaypct"
+    "homename homepct";
+  align-items: baseline;
+  gap: 2px 8px;
+}
+.ol-away     { grid-area: awayname; }
+.ol-pct-away { grid-area: awaypct; }
+.ol-at       { grid-area: at; display: none; }
+.ol-pct-home { grid-area: homepct; text-align: right; }
+.ol-home     { grid-area: homename; }
+
+.oddsline .prob-bar { grid-area: bar; height: 6px; }
+.oddsline-meta {
+  grid-area: meta;
+  display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+  font-size: .75rem; color: var(--ink-soft);
+}
+
+.ol-team { font-weight: 400; font-size: .9375rem; color: var(--ink-soft); }
+/* The favourite is the one fact a glance should land on, so it is carried by
+   weight and ink rather than by a badge that would add another row. */
+.ol-team.is-fav { font-weight: 700; color: var(--ink); }
+.ol-pct {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600; font-size: .9375rem;
+  color: var(--purple-mid);
+}
+.ol-pct-home { color: var(--teal); }
+.ol-pct.is-fav { font-weight: 700; }
+.ol-at {
+  text-align: center;
+  font-size: .625rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  /* Not --ink-faint: it measures 2.9:1 on white, the same trap the AWAY/HOME
+     label hit on the Schedule card. */
+  color: var(--ink-soft);
+}
+.oddsline.is-unpriced { background: var(--paper); box-shadow: none; }
+.oddsline.is-unpriced .oddsline-teams {
+  grid-template-areas: "awayname awaypct" "homename homepct";
+}
+
+/* Wide enough to mirror the two teams around a centre marker. */
+@media (min-width: 560px) {
+  .oddsline-teams {
+    grid-template-columns: minmax(0, 1fr) auto 30px auto minmax(0, 1fr);
+    grid-template-areas: "awayname awaypct at homepct homename";
+    gap: 8px;
+  }
+  .ol-at { display: block; }
+  .ol-home { text-align: right; }
+  .ol-pct-home { text-align: left; }
 }
 
 .oddsgame { padding: 14px 16px; margin-bottom: 10px; }
-.oddsgame-time {
-  font-size: .75rem; font-weight: 600;
-  letter-spacing: .04em; color: var(--ink-faint);
-  margin-bottom: 10px;
-}
 .oddsgame-teams {
   display: flex; justify-content: space-between; align-items: baseline;
   gap: 12px; margin-bottom: 8px;

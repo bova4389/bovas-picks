@@ -100,9 +100,9 @@ Tabbed single page. Each tab's logic is its own ES module under `js/` — delibe
 large `index.html`, which is the pain point Sleeper FF has grown into.
 
 ```
-index.html          shell + tab markup + placeholder panels
+index.html          shell + panels (the two nav rows are written by app.js)
 css/styles.css      design system (see below)
-js/app.js           tab navigation, deep links (#odds), boots the active tab   [versioned]
+js/app.js           two-level nav, deep links (#season/odds), boots every tab  [versioned]
 js/data.js          SHARED data layer — fetch + cache + localStorage           [NEVER versioned]
 js/teams.js         team-name crosswalk (mascot ↔ full name ↔ abbreviation)    [NEVER versioned]
 js/oddsMatch.js      SHARED — join a {away,home} game to an odds event         [NEVER versioned]
@@ -117,9 +117,37 @@ js/teamIdentity.js  SHARED — team colors, uniforms, logo/wordmark paths     [N
 js/schedule.js      Schedule tab — one week, live scores
 js/grid.js          Grid tab — the whole season as one table
 js/picksheet.js     Pick Sheet tab
-js/odds.js          Odds tab — reads data/odds/, no fetching of its own
+js/odds.js          Odds tab — one week of market prices, reads data/odds/
 js/recommend.js     Recommend tab — leverage = win prob ÷ pick share, per STRATEGY.md §4
 ```
+
+## Navigation — Two Levels, One Model
+
+The site covers **two different games**, so the nav says so. `js/app.js` holds a `GROUPS` /
+`PANELS` model and writes **both** rows from it; `index.html` holds only the panels.
+
+| Row 1 (the pool) | Row 2 (views inside it) |
+|---|---|
+| **Schedule** | *(none — it belongs to neither pool and is read from both)* |
+| **Season Long** | Grid · Pick Sheet · Odds · Recommend · Lookback |
+| **Survivor** | Grid · Odds · Planning |
+
+Rules that keep this from rotting:
+
+- **Grid and Odds are one panel each, reached from two rows — not two copies.** Every panel is
+  booted once at load and shown or hidden after that, so crossing rows never re-renders and never
+  drops the Grid's scroll position or a half-filled pick sheet. Adding a third route to a panel is
+  one line in `GROUPS`.
+- **The rows must not look alike.** Row 1 is pills on the purple field, row 2 is underline tabs on
+  the paper below it. The old single row of seven peers gave no clue which game any tab belonged
+  to, which is the whole reason this exists.
+- **Neither row uses the old "active tab merges into the page" seam.** That only works when every
+  group has a second row to hang the seam on, and Schedule has none.
+- **A new season-long league (e.g. the confidence pool) is a control inside its views, not a new
+  top-level tab** — the same way the three survivor pools are a switcher inside the Grid, per
+  `js/survivorLeagues.js`. Row 1 stays the size of the *kinds* of game, not the count of leagues.
+- **Hashes carry both levels** (`#survivor/grid`), so a reload returns to the row you were using.
+  The bare legacy form (`#recommend`) still resolves, to the first group that carries that panel.
 
 **Odds are not siloed in the Odds tab.** Any tab that lists matchups shows the favorite inline —
 Pick Sheet does this now, and it's a requirement (not a nice-to-have) for the Survivor grid and
@@ -169,6 +197,13 @@ Design constraints that are load-bearing, not preference:
 - **Contrast is verified, not eyeballed.** All text ≥4.5:1. The AWAY/HOME label needed a bespoke
   `#5F5C58` because `--ink-faint` measured 2.65:1 there.
 - Game rows use `minmax(0,1fr)` not `1fr`, or the two team buttons render unequal widths.
+- **Page padding is written as `main.wrap`, never bare `main`.** `<main>` carries the `.wrap`
+  class, and `.wrap { padding: 0 20px }` outranks an element selector on specificity no matter
+  where it sits in the file — so a bare `main { padding: 28px 0 96px }` was silently overridden
+  and every tab's heading sat flush against the nav for months. Same trap applies to `footer.wrap`.
+- **`.section-head` aligns `flex-start`, not `baseline`.** With `baseline`, a `.pill` in the
+  right-hand slot aligns its own baseline to the eyebrow's and pushes the whole left block down
+  ~7px, so the tabs that carry a pill (Grid, Odds) sat lower than the ones that don't.
 
 **Local dev** (fetch is blocked on `file://`, so it must be served):
 
@@ -298,6 +333,31 @@ which would need `scripts/fetch_schedule.py` to capture `competitions[0].venue` 
 — today the international slate is inferred from the 9:30am Eastern Sunday window, which catches
 all six of 2026's but would miss a Friday or Saturday game abroad.
 
+## Odds Tab
+
+One week of market prices at a time, chosen with the same week selector Schedule and Recommend
+use. Three things about it are corrections rather than preferences, so don't undo them:
+
+- **It is scoped to a week, and the week comes from the schedule feed.** See the `bucket` note
+  under Data Pipeline for what it did before. `matchSeasonOdds` (pair **and** kickoff) does the
+  join, not `buildOddsIndex` — all 272 games are in the snapshot at once here, so the pair-only
+  index would collapse both meetings of every division rivalry.
+- **It fetches ~16 history files, not 272.** The old version pulled every game's full snapshot
+  trail at boot to compute line movement for rows nobody had scrolled to. Histories are fetched
+  per selected week, and `loadJSON` memoises them across week switches.
+- **The tab leads with what it is telling you.** A summary strip (biggest mismatch, toss-up count,
+  which lines have moved most) sits above the rows, because "I have no idea what this tab is for"
+  was the actual complaint and a wall of percentages did not answer it. Movement is expressed as
+  `Bears 57% → 58%` from the current favourite's side; an unmoved game says "Unchanged since open"
+  and deliberately does **not** repeat its own percentage, or all 16 rows shout equally and the two
+  that moved disappear.
+
+Line movement, not win rate, is the metric STRATEGY.md §3 cares about — that is why movement gets
+its own summary cell rather than being one more number in the meta line.
+
+**Not built:** closing line vs. actual result for completed weeks. The data is there (the schedule
+carries final scores) and it is the natural next addition.
+
 ## Data Pipeline
 
 The commissioner mails two Excel workbooks. Both are parsed into `data/`; neither is committed.
@@ -354,7 +414,13 @@ ODDS_API_KEY=xxxxx python scripts/fetch_odds.py
 The `bucket` field on each event in `current.json` is a *display* grouping only (0 = this
 game-week, +1 = next, recomputed fresh every run) — not Mike's week numbers, and not a storage
 key. Reconciling odds to a specific pool week is the Recommend tab's job, matched by team pair, not
-this script's. **Needs `ODDS_API_KEY` as a repo secret before the GitHub Action will run** — sign
+this script's.
+
+**Nothing in `js/` reads `bucket`, and nothing new should.** The Odds tab used to group all 272
+games by it, which in August opened the page on a heading reading "4 weeks out" directly above a
+Week 1 September game — accurate, useless, and renumbering itself every Tuesday. Week numbers come
+from the schedule feed, joined per game through `oddsMatch.js`'s season-wide index. See the Odds
+Tab section. **Needs `ODDS_API_KEY` as a repo secret before the GitHub Action will run** — sign
 up at the-odds-api.com (an account Claude cannot create on your behalf) and add the secret once the
 repo has a remote.
 
