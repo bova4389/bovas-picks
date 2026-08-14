@@ -166,5 +166,19 @@
   "vig": 0.0421,
   "bucket": 16,
   "fetchedAt": "2026-08-14T06:06:37.406800+00:00"
+ },
+ {
+  "id": "c186c605febd6370b292469c9151cfb3",
+  "commenceTime": "2026-12-06T21:25:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6575,
+  "rawAwayProb": 0.3846,
+  "homeWinProb": 0.6309,
+  "awayWinProb": 0.3691,
+  "vig": 0.0421,
+  "bucket": 16,
+  "fetchedAt": "2026-08-14T08:54:27.167806+00:00"
  }
 ]

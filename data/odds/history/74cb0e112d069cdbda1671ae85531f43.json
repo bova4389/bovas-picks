@@ -166,5 +166,19 @@
   "vig": 0.0428,
   "bucket": 19,
   "fetchedAt": "2026-08-14T06:06:37.406800+00:00"
+ },
+ {
+  "id": "74cb0e112d069cdbda1671ae85531f43",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "Pittsburgh Steelers",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6491,
+  "rawAwayProb": 0.3937,
+  "homeWinProb": 0.6225,
+  "awayWinProb": 0.3775,
+  "vig": 0.0428,
+  "bucket": 19,
+  "fetchedAt": "2026-08-14T08:54:27.167806+00:00"
  }
 ]

@@ -166,5 +166,19 @@
   "vig": 0.0434,
   "bucket": 15,
   "fetchedAt": "2026-08-14T06:06:37.406800+00:00"
+ },
+ {
+  "id": "eaa993c3d62d6b5aeb6142cdd7862fd5",
+  "commenceTime": "2026-11-29T18:00:00Z",
+  "home": "Cleveland Browns",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 15,
+  "fetchedAt": "2026-08-14T08:54:27.167806+00:00"
  }
 ]

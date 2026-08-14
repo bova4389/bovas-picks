@@ -166,5 +166,19 @@
   "vig": 0.0431,
   "bucket": 13,
   "fetchedAt": "2026-08-14T06:06:37.406800+00:00"
+ },
+ {
+  "id": "b5700b4d938fd94429f60d4622cc9c0a",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "Indianapolis Colts",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7354,
+  "rawAwayProb": 0.3077,
+  "homeWinProb": 0.705,
+  "awayWinProb": 0.295,
+  "vig": 0.0431,
+  "bucket": 13,
+  "fetchedAt": "2026-08-14T08:54:27.167806+00:00"
  }
 ]
