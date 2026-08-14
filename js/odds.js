@@ -350,9 +350,27 @@ function formatTimestamp(iso) {
   });
 }
 
+/**
+ * The remaining Odds API budget — shown ONLY when it is low enough to be a
+ * decision.
+ *
+ * The free tier is 500 requests a month and the workflow spends about 200, so
+ * for three weeks out of four this pill read "486 API credits left", which is
+ * a number nobody can act on sitting in the same eyeline as the numbers the
+ * tab exists for. A permanently-green status light trains you to stop reading
+ * the spot it occupies, which is exactly the spot the warning needs.
+ *
+ * Below the floor it comes back, and it comes back looking like a warning.
+ * Returns '' otherwise — same "'' means render nothing" contract as
+ * oddsBadge's favoriteLine().
+ */
+const BUDGET_WARN_AT = 100;
+
 function budgetNote(quota) {
-  if (quota.requestsRemaining == null) return '';
-  return `<span class="pill" title="Odds API requests left this month">${escape(quota.requestsRemaining)} API credits left</span>`;
+  const left = Number(quota.requestsRemaining);
+  if (!Number.isFinite(left) || left >= BUDGET_WARN_AT) return '';
+  return `<span class="pill" title="Odds API requests left this month — the free tier resets monthly">${
+    escape(String(left))} API credits left</span>`;
 }
 
 function escape(s) {

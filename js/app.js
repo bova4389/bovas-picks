@@ -8,10 +8,19 @@
    row is the views available inside that pool. Schedule sits at the top level
    on its own because it belongs to neither and is read from both.
 
-   Grid and Odds appear under BOTH pool types on purpose. They are one panel
-   each, reached from two places -- not two copies. Every panel is booted once
-   at load and simply shown or hidden, so switching rows never re-renders and
-   never drops scroll position or in-progress state.
+   Odds appears under BOTH pool types on purpose. It is one panel reached from
+   two places -- not two copies. Every panel is booted once at load and simply
+   shown or hidden, so switching rows never re-renders and never drops scroll
+   position or in-progress state.
+
+   THE GRID IS SURVIVOR-ONLY. It used to sit under Season Long as well, but
+   everything it actually answers -- which weeks a team can still be spent in,
+   what is left after the teams already used, how far ahead a run of good spots
+   runs -- is a survivor question. The straight-up pool is a one-week-at-a-time
+   game served by Pick Sheet, Odds and Recommend. Listing the Grid under both
+   implied it was two tools; it is one, and it belongs to the pool that reads
+   it. `fromHash()` still resolves the old "#season/grid" link to the Survivor
+   row rather than dumping a bookmarked deep link on the Schedule tab.
 
    Each tab's logic lives in its own module. Sleeper FF's single 10k-line
    index.html is the cautionary tale -- keep these small and separate.
@@ -52,7 +61,9 @@ const GROUPS = [
   {
     id: 'season',
     label: 'Season Long',
-    panels: ['grid', 'picksheet', 'odds', 'recommend', 'lookback'],
+    // No Grid here -- see the header note. The straight-up pool is played one
+    // week at a time and these three are the week's tools.
+    panels: ['picksheet', 'odds', 'recommend', 'lookback'],
   },
   {
     id: 'survivor',
@@ -192,9 +203,10 @@ arrowNav(subNav, '.subtab', () => groupById(active.group).panels,
   (id) => show(active.group, id));
 
 /* ── Deep links ───────────────────────────────────────────────────────────
-   Both forms are accepted: "#season/recommend" is what this writes, and the
-   bare "#recommend" the site used to write still resolves -- to the first
-   group that carries that panel.
+   Three forms are accepted: "#season/recommend" is what this writes, the bare
+   "#recommend" the site used to write still resolves, and a two-level link
+   whose panel has since moved out of that group -- "#season/grid" -- is
+   re-homed to a group that still carries it rather than being thrown away.
    ------------------------------------------------------------------------ */
 
 function fromHash(hash) {
@@ -204,8 +216,11 @@ function fromHash(hash) {
   if (b && groupById(a)?.panels.includes(b)) return { group: a, panel: b };
   if (groupById(a) && !b) return { group: a, panel: lastPanel.get(a) };
 
-  const group = GROUPS.find((g) => g.panels.includes(a));
-  return group ? { group: group.id, panel: a } : null;
+  // The panel half is the part worth keeping: a saved "#season/grid" means
+  // "show me the grid", and the grid now lives one row over.
+  const wanted = groupById(a) && b ? b : a;
+  const group = GROUPS.find((g) => g.panels.includes(wanted));
+  return group ? { group: group.id, panel: wanted } : null;
 }
 
 const start = fromHash(location.hash) || active;

@@ -34,6 +34,7 @@ import {
 import { auditSeason } from './season.js';
 import { seasonBanner } from './seasonBanner.js';
 import { currentWeek as currentWeekOf } from './gameState.js';
+import { getIdentity, tintOn } from './teamIdentity.js';
 import { ABBR_TO_MASCOT, DIVISION_OF, DIVISION_ORDER } from './teams.js';
 import { buildGrid, key, windowStrength } from './gridModel.js';
 import {
@@ -53,19 +54,46 @@ const TAGS_KEY = (season) => `grid:tags:${season}`;
 const DEFAULTS = {
   paint: 'prob',
   marks: { div: true, thu: true, prime: false, rest: false, tags: true },
-  zoom: 2,              // index into ZOOMS
+  fit: true,            // size the table to the page instead of scrolling it
+  zoom: 2,              // index into ZOOMS -- only consulted when fit is off
   sort: 'abbr',
-  weeks: 'all',         // 'all' | 'ahead3' | 'ahead6' | 'rest'
+  weeks: 'all',         // 'all' | 'rest' | 'ahead3' | 'ahead6' | 'from:<week>'
   league: 'mike',
-  hidden: [],           // team abbrs switched off
+  hidden: [],           // team abbrs switched off by hand
+  hideUsed: false,      // and, separately, every team already spent in the pool
 };
 
 const ZOOMS = ['z0', 'z1', 'z2', 'z3'];
 
+/* The row height and team-column width each zoom step produces. Duplicated
+   from styles.css on purpose: what fits inside a cell has to be decided from a
+   NUMBER, and fit mode's sizes are computed rather than named, so the reveal
+   rules cannot key off the zoom class the way they used to. Keep in step with
+   the .gridwrap.zN blocks in styles.css. */
+const ZOOM_CH = [24, 32, 40, 54];
+const ZOOM_TW = [64, 80, 96, 118];
+
+/* How tall a cell has to be before another line of text is worth showing.
+   Reveal order is the order of usefulness: opponent, then the number, then the
+   slot, then rest days. Nothing is ever truncated to squeeze one more in. */
+const ROOM = { prob: 30, slot: 38, rest: 50 };
+
+/* Fit-mode geometry. The floor is the point below which shrinking stops being
+   "fit on the page" and starts being "unreadable" -- at 18 weeks on a phone
+   the arithmetic asks for ~17px a cell, which is a grey smear. Below the floor
+   the grid keeps its own scrollbar and says so by not claiming to fit; hiding
+   past weeks is what makes it fit there. */
+const FIT = {
+  minCell: 30,          // px -- narrower than this and fit is abandoned
+  minTeamCol: 72,
+  maxTeamCol: 118,
+  metaTeamCol: 96,      // team column has to be at least this wide to show meta
+};
+
 const S = {
   root: null, season: SEASON,
   schedule: null, model: null, audit: null, now: 1,
-  survivor: null, field: null,
+  survivor: null, field: null, identity: null,
   league: null, tags: {},
   prefs: { ...DEFAULTS },
   sel: null,            // {team, week}
@@ -104,12 +132,18 @@ export async function initGrid(root, season = SEASON) {
   S.prefs = loadPrefs();
   S.tags = loadTags();
 
-  const [schedule, projections, odds, survivor] = await Promise.all([
+  // Identity rides along with the rest: the team column paints each row with
+  // that team's own color and mark, the same way the Schedule card does, and
+  // getIdentity() resolves null on failure rather than throwing -- a missing
+  // file costs the wash and the logos, not the tab.
+  const [schedule, projections, odds, survivor, identity] = await Promise.all([
     getSchedule(season), getProjections(season), getOddsSnapshot(), getSurvivor(season),
+    getIdentity(),
   ]);
 
   S.schedule = schedule;
   S.survivor = survivor;
+  S.identity = identity;
   S.field = fieldAvailability(survivor, season);
   S.audit = gridAudit({ season, schedule, odds, projections });
 
@@ -126,6 +160,50 @@ export async function initGrid(root, season = SEASON) {
   wire();
   renderTable();
   scrollToCurrentWeek();
+}
+
+/**
+ * Fit is measured, so it has to be re-measured whenever the measurement could
+ * have changed.
+ *
+ * A ResizeObserver on the container rather than a window `resize` listener:
+ * the container's width changes for reasons the window's never does -- the
+ * page gaining a vertical scrollbar as rows are unhidden takes ~15px off it,
+ * and a browser zoom does not always fire `resize` at all. Observing the thing
+ * actually being measured means the size can never disagree with the space.
+ *
+ * The panelchange half is still needed, and is not redundant: a hidden panel
+ * measures zero, the grid boots hidden unless the hash points straight at it,
+ * and a zero measurement is skipped rather than acted on -- so without this,
+ * the first visit would show whatever geometry the last render happened to
+ * leave behind.
+ */
+function watchGeometry() {
+  const wrap = document.getElementById('g-wrap');
+
+  document.addEventListener('panelchange', (e) => {
+    if (e.detail?.panel === 'grid') applyFit();
+  });
+
+  // Kept alongside the observer, not instead of it. ResizeObserver callbacks
+  // are delivered at a rendering step, so a backgrounded or non-compositing
+  // tab can bank them until it is next painted; `resize` fires regardless.
+  // Both land on the same idempotent function, so a double fire costs nothing.
+  window.addEventListener('resize', applyFit);
+
+  if (!wrap || typeof ResizeObserver === 'undefined') return;
+
+  // Guarded against re-entry: applyFit only writes custom properties, and the
+  // table it sizes never widens its own container, so this cannot loop -- but
+  // an observer that fires on its own writes is a nasty enough bug to be worth
+  // making structurally impossible rather than merely unlikely.
+  let last = 0;
+  new ResizeObserver(() => {
+    const w = wrap.clientWidth;
+    if (w === last) return;
+    last = w;
+    applyFit();
+  }).observe(wrap);
 }
 
 /**
@@ -159,6 +237,13 @@ function gridAudit({ season, schedule, odds, projections }) {
 
 /* ── Chrome ───────────────────────────────────────────────────────────────*/
 
+/* NO SOURCE PILL HERE. This used to carry "271 priced · 1 modelled", a count
+   of which cells came from the market and which from the projection model —
+   true, and unreadable without knowing the vocabulary, on a tab whose header
+   should say what the tab is. The distinction still matters and is still made,
+   but at the only place it can be acted on: the cell itself, where a modelled
+   number wears a dotted underline, with the legend below explaining it. A
+   season-wide tally of the two was never a number to do anything with. */
 function shellHead() {
   return `
     <div class="section-head">
@@ -166,7 +251,6 @@ function shellHead() {
         <p class="eyebrow">The whole season, one screen</p>
         <h2>Grid</h2>
       </div>
-      <span class="pill" id="grid-source"></span>
     </div>`;
 }
 
@@ -183,58 +267,53 @@ function missingSchedule(season) {
     </div>`;
 }
 
+/**
+ * Three flat rows, not a wrapping field of stacked label-over-control blocks.
+ *
+ * The old layout used the site's standard `.field` (label above input) for
+ * eight controls in one wrapping flex row, which on a laptop came out four
+ * rows tall and pushed the table itself below the fold -- on the one tab whose
+ * entire value is seeing everything at once. The rows are now grouped by what
+ * they do rather than laid out by what they are: pickers, then marks, then the
+ * row filter. Labels sit inline to the left of each row so a row is one line
+ * high, and the whole card is capped to the table's width so it stops looking
+ * like a banner.
+ */
 function controls() {
   const p = S.prefs;
+  const canUsePool = p.league !== 'none';
+
   return `
-    <div class="card controls gridctl">
-      <div class="field">
-        <label for="g-paint">Color</label>
-        <select id="g-paint">
+    <div class="card gridctl">
+      <div class="gridctl-row">
+        ${picker('g-paint', 'Color', `
           ${opt('prob', 'Win probability', p.paint)}
           ${opt('surv', 'Survivor usable', p.paint)}
           ${opt('type', 'Matchup type', p.paint)}
-          ${opt('none', 'No color', p.paint)}
-        </select>
-      </div>
+          ${opt('none', 'No color', p.paint)}`)}
 
-      <div class="field">
-        <label for="g-weeks">Weeks</label>
-        <select id="g-weeks">
-          ${opt('all', 'All 18', p.weeks)}
-          ${opt('rest', `Week ${S.now} on`, p.weeks)}
-          ${opt('ahead3', `Next 3 (${S.now}-${Math.min(18, S.now + 2)})`, p.weeks)}
-          ${opt('ahead6', `Next 6 (${S.now}-${Math.min(18, S.now + 5)})`, p.weeks)}
-        </select>
-      </div>
+        ${picker('g-weeks', 'Weeks', weekOptions())}
 
-      <div class="field">
-        <label for="g-sort">Rows</label>
-        <select id="g-sort">
+        ${picker('g-sort', 'Rows', `
           ${opt('abbr', 'A to Z', p.sort)}
           ${opt('division', 'By division', p.sort)}
-          ${opt('ahead', 'Best spots first', p.sort)}
-        </select>
-      </div>
+          ${opt('ahead', 'Best spots first', p.sort)}`)}
 
-      <div class="field">
-        <label for="g-league">Survivor pool</label>
-        <select id="g-league">
+        ${picker('g-league', 'Pool', `
           ${LEAGUES.map((l) => opt(l.id, l.short, p.league)).join('')}
-          ${opt('none', 'Off', p.league)}
-        </select>
-      </div>
+          ${opt('none', 'Off', p.league)}`)}
 
-      <div class="field">
-        <label>Zoom</label>
-        <div class="gzoom">
-          <button type="button" class="btn btn-ghost" id="g-zoom-out" aria-label="Zoom out">&minus;</button>
-          <button type="button" class="btn btn-ghost" id="g-zoom-in" aria-label="Zoom in">+</button>
+        <div class="gzoom" role="group" aria-label="Size">
+          <button type="button" class="gzoom-fit ${p.fit ? 'is-on' : ''}"
+                  id="g-fit" aria-pressed="${p.fit}">Fit</button>
+          <button type="button" class="gzoom-btn" id="g-zoom-out" aria-label="Zoom out">&minus;</button>
+          <button type="button" class="gzoom-btn" id="g-zoom-in" aria-label="Zoom in">+</button>
         </div>
       </div>
 
-      <div class="field field-grow">
-        <label>Marks</label>
-        <div class="gmarks">
+      <div class="gridctl-row">
+        <span class="gridctl-label" id="g-marks-label">Marks</span>
+        <div class="gmarks" role="group" aria-labelledby="g-marks-label">
           ${mark('div', 'Div + conf')}
           ${mark('thu', 'Thursday')}
           ${mark('prime', 'Primetime')}
@@ -243,20 +322,59 @@ function controls() {
         </div>
       </div>
 
-      <div class="field field-grow gteams-field">
-        <label>Teams shown <span id="g-teamcount" class="gcount"></span></label>
+      <div class="gridctl-row">
+        <span class="gridctl-label">Teams <span id="g-teamcount" class="gcount"></span></span>
+
+        <label class="gmark" title="${canUsePool
+          ? 'Hides every team already spent in this pool, and keeps hiding them as you spend more'
+          : 'Pick a survivor pool first — there are no spent teams to exclude with the pool off'}">
+          <input type="checkbox" id="g-hideused"
+                 ${p.hideUsed ? 'checked' : ''}${canUsePool ? '' : ' disabled'} />
+          <span>Exclude my picks</span>
+        </label>
+
         <details class="gteams">
-          <summary>Show, hide, isolate</summary>
-          <div class="gteams-actions">
-            <button type="button" class="btn btn-ghost" data-teams="all">All 32</button>
-            <button type="button" class="btn btn-ghost" data-teams="none">None</button>
-            <button type="button" class="btn btn-ghost" data-teams="invert">Invert</button>
-            <button type="button" class="btn btn-ghost" data-teams="unused">Only unused</button>
+          <summary>Choose teams</summary>
+          <div class="gteams-body">
+            <div class="gteams-actions">
+              <button type="button" class="btn btn-ghost" data-teams="all">All 32</button>
+              <button type="button" class="btn btn-ghost" data-teams="none">None</button>
+              <button type="button" class="btn btn-ghost" data-teams="invert">Invert</button>
+            </div>
+            <div class="gteams-list" id="g-teams-list"></div>
           </div>
-          <div class="gteams-list" id="g-teams-list"></div>
         </details>
       </div>
     </div>`;
+}
+
+const picker = (id, label, options) => `
+  <span class="gpick">
+    <label for="${id}">${esc(label)}</label>
+    <select id="${id}">${options}</select>
+  </span>`;
+
+/**
+ * The week window, including the "hide everything before week N" half.
+ *
+ * One select rather than a select plus a separate "hide past weeks" checkbox,
+ * because the two would contradict each other the moment you set a range and
+ * then a floor. The named ranges track the current week automatically; the
+ * `from:` group is the manual floor, and picking the current week there is the
+ * plain-language version of "hide the weeks that are already played".
+ */
+function weekOptions() {
+  const p = S.prefs.weeks;
+  const last = S.model.weeks[S.model.weeks.length - 1] ?? 18;
+
+  return `
+    ${opt('all', `All ${S.model.weeks.length}`, p)}
+    ${opt('rest', `Week ${S.now} on — hide past`, p)}
+    ${opt('ahead3', `Next 3 (${S.now}-${Math.min(last, S.now + 2)})`, p)}
+    ${opt('ahead6', `Next 6 (${S.now}-${Math.min(last, S.now + 5)})`, p)}
+    <optgroup label="Hide weeks before">
+      ${S.model.weeks.map((w) => opt(`from:${w}`, `Week ${w} on`, p)).join('')}
+    </optgroup>`;
 }
 
 const opt = (value, label, current) =>
@@ -344,17 +462,33 @@ function visibleWeeks() {
   const all = S.model.weeks;
   const { weeks } = S.prefs;
   if (weeks === 'all') return all;
+
+  if (String(weeks).startsWith('from:')) {
+    const from = Number(String(weeks).slice(5));
+    return Number.isFinite(from) ? all.filter((w) => w >= from) : all;
+  }
+
   const span = weeks === 'ahead3' ? 3 : weeks === 'ahead6' ? 6 : 99;
   return all.filter((w) => w >= S.now && w < S.now + span);
 }
 
 function visibleTeams() {
-  // Used teams are struck through, not removed. Hiding them is one click away
-  // ("Only unused"), but it is a choice: a team you have already spent is
-  // still the thing you compare an available team's week against.
+  // Two independent filters, deliberately not merged into one list.
+  //
+  // `hidden` is a manual choice and survives everything. "Exclude my picks" is
+  // a standing rule read off the pool state, so a team spent after the box was
+  // ticked disappears on its own -- which the old one-shot "Only unused"
+  // button could not do, since it wrote the used set into `hidden` once and
+  // then went stale. Keeping them separate also means unticking the box gives
+  // back exactly the teams it took, not everything.
   const hidden = new Set(S.prefs.hidden);
-  const teams = S.model.teams.filter((t) => !hidden.has(t));
+  let teams = S.model.teams.filter((t) => !hidden.has(t));
   const weeks = visibleWeeks();
+
+  if (S.prefs.hideUsed && S.prefs.league !== 'none') {
+    const used = usedTeams(S.league);
+    teams = teams.filter((t) => !used.has(t));
+  }
 
   if (S.prefs.sort === 'division') {
     return teams.sort((a, b) => {
@@ -388,7 +522,6 @@ function renderTable() {
   document.getElementById('g-body').innerHTML = teams.map((t) => row(t, weeks)).join('');
 
   renderTeamList();
-  renderSourcePill();
   applyDisplay();
   renderDetail();
 
@@ -437,6 +570,21 @@ function row(team, weeks) {
     </tr>`;
 }
 
+/**
+ * The row header: the team's mark on an 8% wash of its own color, exactly the
+ * treatment the Schedule card uses, so the same team reads the same way on
+ * both tabs and the eye can find a row by color before it reads the letters.
+ *
+ * The wash is mixed to a solid by tintOn() rather than set with opacity, so
+ * the text contrast on top is a fixed measured number. It is delivered as a
+ * custom property rather than `background:` because the selection crosshair
+ * and the sticky header both need to paint over it, and an inline background
+ * would outrank every stylesheet rule that tries.
+ *
+ * The inner span is what carries the flexbox: `display:flex` on the <th>
+ * itself would take it out of the table's internal layout, and with it the
+ * sticky column and the fixed width.
+ */
 function teamCell(team) {
   const rec = S.model.records.get(team);
   const played = rec.w + rec.l + rec.t;
@@ -444,13 +592,25 @@ function teamCell(team) {
   const scarce = S.prefs.league !== 'none' && leagueById(S.prefs.league)?.hasField
     ? scarcityFor(S.field, team) : null;
 
+  const ident = S.identity?.teams?.[team] || null;
+  const logo = ident?.assets?.logo || '';
+  const primary = ident?.palette?.primary?.hex || '';
+  const tint = primary ? tintOn(primary, '#FFFFFF', 0.08) : '';
+
   return `
-    <th scope="row" class="gteam ${usedWeek ? 'is-used' : ''}" data-team="${team}">
-      <span class="gteam-abbr">${team}</span>
-      <span class="gteam-meta">
-        ${played ? `<span class="grec">${rec.w}-${rec.l}${rec.t ? `-${rec.t}` : ''}</span>` : ''}
-        ${usedWeek ? `<span class="gused" title="Spent in Week ${usedWeek}">W${usedWeek}</span>` : ''}
-        ${scarce ? `<span class="gscarce" title="${Math.round(scarce.availablePct * 100)}% of surviving entries still hold ${team}">${Math.round(scarce.availablePct * 100)}%</span>` : ''}
+    <th scope="row" class="gteam ${usedWeek ? 'is-used' : ''}" data-team="${team}"${
+      tint ? ` style="--team-tint:${tint}"` : ''
+    }>
+      <span class="gteam-in">
+        <span class="gteam-badge" aria-hidden="true">${
+          logo ? `<img src="${esc(logo)}" alt="" loading="lazy" decoding="async">` : ''
+        }</span>
+        <span class="gteam-abbr">${team}</span>
+        <span class="gteam-meta">
+          ${played ? `<span class="grec">${rec.w}-${rec.l}${rec.t ? `-${rec.t}` : ''}</span>` : ''}
+          ${usedWeek ? `<span class="gused" title="Spent in Week ${usedWeek}">W${usedWeek}</span>` : ''}
+          ${scarce ? `<span class="gscarce" title="${Math.round(scarce.availablePct * 100)}% of surviving entries still hold ${team}">${Math.round(scarce.availablePct * 100)}%</span>` : ''}
+        </span>
       </span>
     </th>`;
 }
@@ -542,17 +702,6 @@ function renderTeamList() {
     </label>`).join('');
 }
 
-function renderSourcePill() {
-  const pill = document.getElementById('grid-source');
-  if (!pill) return;
-  const { market, projected, none } = S.model.counts;
-  const bits = [];
-  if (market) bits.push(`${market} priced`);
-  if (projected) bits.push(`${projected} modelled`);
-  if (none) bits.push(`${none} unpriced`);
-  pill.textContent = bits.join(' · ');
-}
-
 /** Paint, marks, zoom and selection are all container classes, so changing any
  *  of them never rebuilds 576 cells or loses the scroll position. */
 function applyDisplay() {
@@ -564,12 +713,92 @@ function applyDisplay() {
     'gridwrap',
     `paint-${p.paint}`,
     ZOOMS[clampZoom(p.zoom)],
+    p.fit ? 'is-fit' : '',
     ...Object.entries(p.marks).filter(([, on]) => on).map(([k]) => `mk-${k}`),
     p.league === 'none' ? '' : 'has-league',
   ].filter(Boolean).join(' ');
 
+  applyFit();
   paintSelection();
 }
+
+/**
+ * Size the table to the page rather than giving it a scrollbar of its own.
+ *
+ * A nested scroller was the wrong default here. The grid's whole claim is
+ * "the season, one screen", and a 62px fixed cell width meant the season was
+ * actually behind a horizontal scrollbar you had to drag to compare Week 4
+ * with Week 12 -- and a vertical one that fought the page's own. So the cell
+ * geometry is now DERIVED from the space available: measure the container,
+ * divide by the number of weeks on screen, and write the result into the same
+ * custom properties the zoom classes set. Inline properties outrank the class,
+ * so zooming is simply fit switched off.
+ *
+ * Two honest failure modes, both handled rather than papered over:
+ *
+ *  - Below FIT.minCell there is no fit worth having (18 weeks on a 375px phone
+ *    wants 17px a cell). The grid keeps its scrollbar and drops `fit-ok`, so
+ *    the CSS knows not to claim otherwise. Narrowing the week window is what
+ *    fixes it, which is exactly what the Weeks control is now for.
+ *  - 32 rows never fit a viewport vertically, and pretending otherwise would
+ *    mean 12px rows. Vertical overflow goes to the PAGE, not to a box inside
+ *    it: one scrollbar, and the sticky header sticks to the top of the window
+ *    instead of to the top of a box that is itself scrolled off.
+ */
+function applyFit() {
+  const wrap = document.getElementById('g-wrap');
+  if (!wrap) return;
+
+  if (!S.prefs.fit) {
+    const z = clampZoom(S.prefs.zoom);
+    for (const v of ['--cw', '--ch', '--fs', '--tw']) wrap.style.removeProperty(v);
+    wrap.classList.remove('fit-ok');
+    applyDensity(wrap, ZOOM_CH[z], ZOOM_TW[z]);
+    return;
+  }
+
+  // A hidden panel measures zero. Leave the last good geometry in place and
+  // wait for the panelchange that makes it measurable.
+  const avail = wrap.clientWidth;
+  if (avail < 200) return;
+
+  const n = visibleWeeks().length;
+  if (!n) return;
+
+  const tw = Math.max(FIT.minTeamCol, Math.min(FIT.maxTeamCol, Math.round(avail * 0.12)));
+
+  // Fractional, not floored. Flooring 18 columns throws away up to 18px on the
+  // right, which reads as the table failing to reach the edge of its own card;
+  // sub-pixel cell widths sum back to the measured space instead.
+  const cw = (avail - tw - 2) / n;
+  const ok = cw >= FIT.minCell;
+  const cell = Math.max(FIT.minCell, Math.round(cw * 100) / 100);
+
+  // Height and type follow width, so a squeezed grid stays in proportion
+  // instead of turning into tall thin slivers. The clamps are the z0 and z3
+  // extremes -- fit is allowed to land anywhere inside the zoom range, never
+  // outside it.
+  const ch = clamp(Math.round(cell * 0.62), 24, 54);
+
+  wrap.style.setProperty('--cw', `${cell}px`);
+  wrap.style.setProperty('--ch', `${ch}px`);
+  wrap.style.setProperty('--fs', `${clamp(+(cell / 5.2).toFixed(1), 10, 13.5)}px`);
+  wrap.style.setProperty('--tw', `${tw}px`);
+
+  wrap.classList.toggle('fit-ok', ok);
+  applyDensity(wrap, ch, tw);
+}
+
+/** What there is room to render, decided from the geometry rather than from
+ *  the zoom step — fit mode has no zoom step to read. */
+function applyDensity(wrap, ch, tw) {
+  wrap.classList.toggle('d-prob', ch >= ROOM.prob);
+  wrap.classList.toggle('d-slot', ch >= ROOM.slot);
+  wrap.classList.toggle('d-rest', ch >= ROOM.rest);
+  wrap.classList.toggle('tw-wide', tw >= FIT.metaTeamCol);
+}
+
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 
 /**
  * The crosshair. Applied by toggling classes rather than by re-rendering,
@@ -595,9 +824,11 @@ function paintSelection() {
 const clampZoom = (z) => Math.max(0, Math.min(ZOOMS.length - 1, Number(z) || 0));
 
 /** Puts the current week under the eye on open. A season grid that opens
- *  showing Week 1 in November is a grid you have to scroll before you can use. */
+ *  showing Week 1 in November is a grid you have to scroll before you can use.
+ *  A no-op once the table fits — there is nothing to scroll to. */
 function scrollToCurrentWeek() {
   const scroll = document.getElementById('g-scroll');
+  if (document.getElementById('g-wrap')?.classList.contains('fit-ok')) return;
   const th = scroll?.querySelector('.gweeks th.is-now');
   if (!scroll || !th) return;
   const teamColW = scroll.querySelector('.gcorner')?.offsetWidth || 0;
@@ -748,6 +979,8 @@ async function loadMovement(c) {
 function wire() {
   const root = S.root;
 
+  watchGeometry();
+
   root.addEventListener('change', (e) => {
     const t = e.target;
 
@@ -758,6 +991,17 @@ function wire() {
     if (t.id === 'g-league') {
       S.prefs.league = t.value;
       S.league = t.value === 'none' ? loadLeagueState('none', S.season) : loadLeagueState(t.value, S.season);
+      savePrefs();
+      // "Exclude my picks" reads the pool, so turning the pool off has to
+      // release it rather than leave a dead checkbox hiding rows.
+      const box = document.getElementById('g-hideused');
+      if (box) box.disabled = t.value === 'none';
+      renderTable();
+      return;
+    }
+
+    if (t.id === 'g-hideused') {
+      S.prefs.hideUsed = t.checked;
       savePrefs();
       renderTable();
       return;
@@ -783,6 +1027,7 @@ function wire() {
   root.addEventListener('click', (e) => {
     const btn = e.target.closest('button');
 
+    if (btn?.id === 'g-fit') return setFit(true);
     if (btn?.id === 'g-zoom-in') return setZoom(S.prefs.zoom + 1);
     if (btn?.id === 'g-zoom-out') return setZoom(S.prefs.zoom - 1);
     if (btn?.id === 'g-detail-close') { S.sel = null; applyDisplay(); renderDetail(); return; }
@@ -827,10 +1072,31 @@ function wire() {
   });
 }
 
+/** Zooming IS leaving fit — the two are the same control, and a "+" that left
+ *  the table fitted would do nothing visible. Stepping from the stored zoom
+ *  rather than from wherever fit happened to land keeps the buttons
+ *  predictable: they always move one notch on the same four-stop scale. */
 function setZoom(z) {
+  S.prefs.fit = false;
   S.prefs.zoom = clampZoom(z);
   savePrefs();
+  syncSizeButtons();
   applyDisplay();
+  scrollToCurrentWeek();
+}
+
+function setFit(on) {
+  S.prefs.fit = on;
+  savePrefs();
+  syncSizeButtons();
+  applyDisplay();
+}
+
+function syncSizeButtons() {
+  const btn = document.getElementById('g-fit');
+  if (!btn) return;
+  btn.classList.toggle('is-on', S.prefs.fit);
+  btn.setAttribute('aria-pressed', String(S.prefs.fit));
 }
 
 function spendPick() {
@@ -849,6 +1115,9 @@ function setTag(tag) {
   renderTable();
 }
 
+/* No "Only unused" here any more: it wrote the used set into `hidden` once and
+   then went stale the next time a team was spent. "Exclude my picks" is the
+   live version of it and lives on the checkbox instead. */
 function bulkTeams(action) {
   const all = S.model.teams;
   const hidden = new Set(S.prefs.hidden);
@@ -856,11 +1125,6 @@ function bulkTeams(action) {
   if (action === 'all') hidden.clear();
   else if (action === 'none') all.forEach((t) => hidden.add(t));
   else if (action === 'invert') all.forEach((t) => (hidden.has(t) ? hidden.delete(t) : hidden.add(t)));
-  else if (action === 'unused') {
-    const used = S.prefs.league === 'none' ? new Set() : usedTeams(S.league);
-    hidden.clear();
-    used.forEach((t) => hidden.add(t));
-  }
 
   S.prefs.hidden = [...hidden];
   savePrefs();

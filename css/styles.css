@@ -1012,31 +1012,95 @@ footer {
   --amber-ink:  #7E4B00;
 }
 
-/* ── Controls ─────────────────────────────────────────────────────────── */
+/* ── Controls ─────────────────────────────────────────────────────────────
+   THREE FLAT ROWS, NOT A WRAPPING FIELD OF STACKED BLOCKS.
 
-.gridctl { row-gap: 14px; }
-.gridctl select { min-width: 132px; }
+   This used to be the site's standard `.controls` — eight `.field`s, each a
+   label stacked over its input, in one wrapping flex row. On a laptop that
+   came out four rows tall and pushed the table below the fold, on the one tab
+   whose entire value is seeing the season at once. Labels are inline now, so a
+   row is one line high: pickers, then marks, then the team filter.
 
-.gzoom { display: flex; gap: 6px; }
-.gzoom .btn { min-width: 46px; min-height: 46px; padding: 0; font-size: 1.125rem; }
+   Each row is its own flex line rather than one big wrapping row, so the
+   grouping survives a narrow window instead of reflowing into an arbitrary
+   order. `align-items: center` (not flex-end) is what lets an inline label sit
+   with its control.
+   ───────────────────────────────────────────────────────────────────────── */
 
-.gmarks { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.gridctl { padding: 12px 14px; margin-bottom: 14px; }
+.gridctl-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+  padding: 6px 0;
+}
+.gridctl-row + .gridctl-row { border-top: 1px solid var(--line); }
+
+.gridctl-label,
+.gpick label {
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* 46px minimums throughout, as everywhere else on the site — picks get made on
+   a phone and a 40px target is a missed tap. The height saved here comes from
+   flattening the rows, never from shrinking what has to be hit. */
+.gpick { display: inline-flex; align-items: center; gap: 7px; }
+.gpick select {
+  font: inherit; font-weight: 500; font-size: .875rem;
+  padding: 10px 12px; min-height: 46px; max-width: 190px;
+  border: 1.5px solid var(--line); border-radius: var(--r-sm);
+  background: var(--white); color: var(--ink);
+}
+.gpick select:focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; }
+
+/* Fit and the two steppers are one segmented control: they are the same
+   setting, and "+" means "stop fitting" as much as it means "bigger". */
+.gzoom { display: inline-flex; margin-left: auto; }
+.gzoom > * {
+  font: inherit; font-size: .8125rem; font-weight: 600;
+  min-height: 46px; min-width: 46px; padding: 0 12px;
+  border: 1.5px solid var(--line); background: var(--white); color: var(--purple);
+  cursor: pointer;
+}
+.gzoom > :first-child { border-radius: var(--r-sm) 0 0 var(--r-sm); }
+.gzoom > :last-child { border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.gzoom > * + * { border-left-width: 0; }
+.gzoom > :hover { background: var(--purple-soft); }
+.gzoom > :focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; z-index: 1; }
+.gzoom-btn { font-size: 1.0625rem; }
+.gzoom-fit.is-on {
+  background: var(--purple); border-color: var(--purple); color: var(--white);
+}
+.gzoom-fit.is-on:hover { background: var(--purple-deep); }
+
+.gmarks { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
 .gmark {
   display: inline-flex; align-items: center; gap: 6px;
   min-height: 46px; font-size: .875rem; color: var(--ink); cursor: pointer;
 }
 .gmark input { width: 17px; height: 17px; accent-color: var(--purple); }
+.gmark:has(input:disabled) { color: var(--ink-faint); cursor: not-allowed; }
 
 .gcount { color: var(--ink-quiet); font-weight: 400; text-transform: none; letter-spacing: 0; }
 
+/* The chip list opens as a popover rather than in flow. Thirty-two checkboxes
+   expanding inline would undo the flattening the moment they were opened. */
+.gteams { position: relative; }
 .gteams summary {
   cursor: pointer; padding: 10px 12px; min-height: 46px;
   border: 1px solid var(--line); border-radius: var(--r-sm);
-  background: var(--white); font-size: .875rem; display: flex; align-items: center;
+  background: var(--white); font-size: .8125rem; font-weight: 600;
+  color: var(--purple); display: flex; align-items: center;
 }
-.gteams[open] summary { border-color: var(--purple-mid); }
-.gteams-actions { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
-.gteams-actions .btn { padding: 10px 12px; font-size: .8125rem; }
+.gteams[open] summary { border-color: var(--purple-mid); background: var(--purple-soft); }
+.gteams-body {
+  position: absolute; z-index: 12; top: calc(100% + 6px); left: 0;
+  width: min(540px, 84vw); padding: 12px 14px;
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--r-md); box-shadow: var(--shadow-md);
+}
+.gteams-actions { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+.gteams-actions .btn { padding: 10px 12px; min-height: 46px; font-size: .8125rem; }
 .gteams-list {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(74px, 1fr)); gap: 4px;
 }
@@ -1063,6 +1127,22 @@ footer {
 .gridwrap.z2 { --cw: 62px; --ch: 40px; --fs: 12px;   --tw: 96px;  --mh: 20px; }
 .gridwrap.z3 { --cw: 84px; --ch: 54px; --fs: 13.5px; --tw: 118px; --mh: 22px; }
 
+/* FIT MODE IS THE DEFAULT, AND IT MEANS NO SCROLLER OF ITS OWN.
+
+   `.is-fit` says the user asked for it; `.fit-ok` says js/grid.js measured the
+   space and the cells came out wide enough to be worth reading. Both are
+   required, so a window too narrow to fit 18 weeks keeps its scrollbar rather
+   than rendering a grid of 17px smears and calling it fitted.
+
+   Vertical overflow goes to the page. Thirty-two rows never fit a viewport,
+   and a nested vertical scroller meant two scrollbars fighting plus a sticky
+   header that stuck to the top of a box already scrolled off screen. With
+   `overflow: visible` the sticky header's containing scroller becomes the
+   window, so the week numbers pin to the top of the screen instead.
+
+   Square corners in fit mode on purpose: a rounded, clipped box would need
+   `overflow` to hide the table's own corners, and any overflow value other
+   than `visible` re-creates the scroll container this is trying to remove. */
 .gridscroll {
   overflow: auto;
   max-height: 76vh;
@@ -1071,6 +1151,11 @@ footer {
   background: var(--white);
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+}
+.gridwrap.is-fit.fit-ok .gridscroll {
+  overflow: visible;
+  max-height: none;
+  border-radius: 0;
 }
 
 .gtable {
@@ -1109,19 +1194,42 @@ footer {
 
 /* ── Team column ──────────────────────────────────────────────────────── */
 
+/* Each row is washed with 8% of its own team's color and carries that team's
+   mark, matching the Schedule card exactly — same tintOn() strength, same
+   badge size, so a team looks like itself on both tabs and a row can be found
+   by color before it is read.
+
+   The wash arrives as `--team-tint` rather than an inline `background`,
+   because an inline background is unbeatable by a stylesheet and both the
+   selection crosshair and the used-team state need to paint over it. */
 .gteam {
   position: sticky; left: 0; z-index: 2;
-  width: var(--tw); min-width: var(--tw); height: var(--ch);
-  padding: 0 8px;
-  background: var(--white);
+  width: var(--tw); min-width: var(--tw); max-width: var(--tw); height: var(--ch);
+  padding: 0 6px;
+  background: var(--team-tint, var(--white));
   border-right: 2px solid var(--line);
   border-bottom: 1px solid var(--line);
   text-align: left; vertical-align: middle;
 }
+/* The inner span carries the flexbox. `display: flex` on the <th> itself would
+   take it out of the table's internal layout and with it the sticky column. */
+.gteam-in { display: flex; align-items: center; gap: 5px; min-width: 0; }
+.gteam-badge {
+  flex: 0 0 auto; display: grid; place-items: center;
+  width: calc(var(--ch) * .52); height: calc(var(--ch) * .52);
+  max-width: 22px; max-height: 22px;
+}
+.gteam-badge img { width: 100%; height: 100%; object-fit: contain; }
+.gteam-badge:empty { display: none; }
+
 .gteam-abbr { font-size: calc(var(--fs) + 1px); font-weight: 700; letter-spacing: -.01em; }
 .gteam.is-used .gteam-abbr { text-decoration: line-through; color: var(--ink-quiet); }
-.gteam-meta { display: none; gap: 5px; align-items: center; margin-left: 6px; }
-.z2 .gteam-meta, .z3 .gteam-meta { display: inline-flex; }
+.gteam.is-used .gteam-badge { opacity: .45; }
+/* Meta needs a team column wide enough to hold it. `.tw-wide` is set by
+   js/grid.js from the column's actual width, so it works for the fitted sizes
+   as well as the four fixed zoom steps. */
+.gteam-meta { display: none; gap: 5px; align-items: center; margin-left: auto; }
+.tw-wide .gteam-meta { display: inline-flex; }
 .grec { font-size: 10px; color: var(--ink-soft); }
 .gused {
   font-size: 9.5px; font-weight: 700; color: var(--violet-ink);
@@ -1131,9 +1239,12 @@ footer {
 
 /* ── Cells ────────────────────────────────────────────────────────────── */
 
+/* max-width as well as width: in auto table layout a cell's min-content width
+   can push a column wider than asked, and at the fitted sizes one long
+   opponent string doing that would knock every other column out of true. */
 .gc {
   position: relative;
-  width: var(--cw); min-width: var(--cw); height: var(--ch);
+  width: var(--cw); min-width: var(--cw); max-width: var(--cw); height: var(--ch);
   padding: 1px 2px;
   text-align: center; line-height: 1.12;
   font-size: var(--fs);
@@ -1152,29 +1263,30 @@ footer {
 
 /* What fits in a cell is a function of how tall it is, so the reveal order is
    the order of usefulness: opponent, then the number, then the slot, then
-   rest. Nothing is ever truncated to squeeze in one more field. */
-.z1 .gc-prob, .z2 .gc-prob, .z3 .gc-prob {
+   rest. Nothing is ever truncated to squeeze in one more field.
+
+   KEYED ON MEASURED HEIGHT, NOT ON THE ZOOM STEP. These used to read
+   `.z1 .gc-prob` and so on, which stopped meaning anything once fit mode
+   started computing cell heights instead of picking one of four. js/grid.js
+   sets .d-prob / .d-slot / .d-rest from the height actually in force, so the
+   same thresholds now govern both fitted and zoomed sizes. */
+.d-prob .gc-prob {
   display: block; font-size: .85em; color: var(--ink-quiet); font-weight: 500;
 }
-.z2.mk-thu .is-thu .gc-slot,
-.z3.mk-thu .is-thu .gc-slot,
-.z2.mk-prime .is-prime .gc-slot,
-.z3.mk-prime .is-prime .gc-slot,
-.z2 .is-intl .gc-slot,
-.z3 .is-intl .gc-slot {
+.d-slot.mk-thu .is-thu .gc-slot,
+.d-slot.mk-prime .is-prime .gc-slot,
+.d-slot .is-intl .gc-slot {
   display: block; font-size: 8.5px; letter-spacing: .06em;
   color: var(--violet-ink); font-weight: 700;
 }
-.z3.mk-rest .gc-rest { display: block; font-size: 8.5px; color: var(--ink-quiet); }
-.z3.mk-rest .is-short .gc-rest { color: var(--amber-ink); font-weight: 700; }
-.z3.mk-rest .is-rested .gc-rest { color: var(--teal-ink); font-weight: 700; }
+.d-rest.mk-rest .gc-rest { display: block; font-size: 8.5px; color: var(--ink-quiet); }
+.d-rest.mk-rest .is-short .gc-rest { color: var(--amber-ink); font-weight: 700; }
+.d-rest.mk-rest .is-rested .gc-rest { color: var(--teal-ink); font-weight: 700; }
 
 /* Modelled, not priced. A dotted underline reads as provisional at any zoom
    and survives being photographed off a screen, which a color shift alone
    does not. */
-.z1 .gc.is-proj .gc-prob,
-.z2 .gc.is-proj .gc-prob,
-.z3 .gc.is-proj .gc-prob {
+.d-prob .gc.is-proj .gc-prob {
   display: inline-block;
   color: var(--ink-quiet);
   border-bottom: 1px dotted currentColor;
@@ -1299,9 +1411,24 @@ footer {
 
 @media (max-width: 640px) {
   .gridscroll { max-height: 68vh; }
-  .gridctl select { min-width: 120px; }
+  .gridctl { padding: 10px 12px; }
+  .gridctl-row { gap: 6px 10px; }
+  /* Two pickers to a line, label still inline. One per line is what a plain
+     `flex: 1 1 auto` gives at this width, and four stacked pickers plus the
+     size control turned the card into most of a screen — on the tab whose
+     whole point is the table underneath it. */
+  .gpick { flex: 1 1 calc(50% - 10px); min-width: 0; }
+  .gpick select { flex: 1 1 auto; min-width: 0; max-width: none; padding: 10px 8px; }
+  /* The size control takes its own line rather than being squeezed to nothing
+     beside them — `margin-left: auto` only helps a line with room to spare. */
+  .gzoom { margin-left: 0; flex: 1 1 100%; }
+  .gzoom > * { flex: 1; min-width: 0; }
+  .gmarks { gap: 2px 10px; }
+  .gmark { font-size: .8125rem; }
+  .gteams-body { left: auto; right: 0; }
   /* The team column is the anchor for horizontal scrolling, so it keeps its
-     legibility at the cost of one fewer week on screen. */
+     legibility at the cost of one fewer week on screen. Fit mode computes its
+     own --tw and overrides both of these inline. */
   .gridwrap { --tw: 62px; }
   .gridwrap.z3 { --tw: 80px; }
 }

@@ -129,15 +129,24 @@ The site covers **two different games**, so the nav says so. `js/app.js` holds a
 | Row 1 (the pool) | Row 2 (views inside it) |
 |---|---|
 | **Schedule** | *(none — it belongs to neither pool and is read from both)* |
-| **Season Long** | Grid · Pick Sheet · Odds · Recommend · Lookback |
+| **Season Long** | Pick Sheet · Odds · Recommend · Lookback |
 | **Survivor** | Grid · Odds · Planning |
 
 Rules that keep this from rotting:
 
-- **Grid and Odds are one panel each, reached from two rows — not two copies.** Every panel is
-  booted once at load and shown or hidden after that, so crossing rows never re-renders and never
-  drops the Grid's scroll position or a half-filled pick sheet. Adding a third route to a panel is
-  one line in `GROUPS`.
+- **Odds is one panel reached from two rows — not two copies.** Every panel is booted once at load
+  and shown or hidden after that, so crossing rows never re-renders and never drops a half-filled
+  pick sheet. Adding a third route to a panel is one line in `GROUPS`.
+- **The Grid is Survivor-only** (changed 2026-08-14). It sat under both rows until then. Everything
+  it actually answers — which weeks a team can still be spent in, what is left after the teams
+  already used, how far ahead a run of good spots runs — is a survivor question; the straight-up
+  pool is played one week at a time and is served by Pick Sheet, Odds and Recommend. Listing it
+  twice implied two tools. Don't add it back to `season` without a reason that isn't "it's useful
+  there too".
+- **A two-level hash whose panel has since moved is re-homed, not discarded.** `fromHash()` keeps
+  the panel half and finds a group that still carries it, so a bookmarked `#season/grid` lands on
+  `#survivor/grid` rather than dumping the user on Schedule. That is what makes moving a panel
+  between rows a safe edit.
 - **The rows must not look alike.** Row 1 is pills on the purple field, row 2 is underline tabs on
   the paper below it. The old single row of seven peers gave no clue which game any tab belonged
   to, which is the whole reason this exists.
@@ -283,6 +292,58 @@ crosshair are all switched by editing the class list on `.gridwrap`. Re-renderin
 fast enough, but it drops the scroll position and the focused cell, and this grid is navigated
 with the arrow keys. `renderTable()` is only for changes that alter *which* rows or columns exist.
 
+**The table fits the page; it does not get a scrollbar of its own.** `applyFit()` measures
+`.gridwrap`, divides by the number of weeks on screen, and writes `--cw` / `--ch` / `--fs` / `--tw`
+as inline custom properties — which outrank the `.z0`–`.z3` classes, so *zooming is simply fit
+switched off*. Rules that follow from that, all of them corrections rather than taste:
+
+- **Two classes, not one.** `.is-fit` is what the user asked for; `.fit-ok` is whether the measured
+  cells came out at least `FIT.minCell` wide. Only both together drop the scroller. 18 weeks on a
+  375px phone wants 17px a cell, so there the grid keeps its scrollbar and honestly does not claim
+  to fit — narrowing the week window is the fix, which is what the Weeks control is for.
+- **Vertical overflow belongs to the page.** 32 rows never fit a viewport, and the old nested
+  scroller meant two scrollbars fighting plus a sticky header pinned to the top of a box that was
+  itself scrolled off. With `overflow: visible` the sticky header's scroll container becomes the
+  window, so the week numbers pin to the top of the *screen*. Verified pinned at `top: 0`.
+- **What a cell shows is keyed on measured height, not on the zoom step.** `.d-prob` / `.d-slot` /
+  `.d-rest` (and `.tw-wide` for the team column's meta) are set from the geometry actually in
+  force. The old `.z1 .gc-prob` selectors stopped meaning anything the moment heights were computed
+  rather than picked from four. Thresholds live in `ROOM` in `js/grid.js`.
+- **`ZOOM_CH` / `ZOOM_TW` in `js/grid.js` duplicate the `.gridwrap.zN` blocks in `styles.css`.**
+  Deliberate — the density rules need a *number*, and a class name isn't one. Keep them in step.
+- **Re-measure on a `ResizeObserver`, plus a `resize` listener, plus `panelchange`.** All three
+  earn their place: the container's width changes without the window's (a page scrollbar appearing
+  costs ~15px), observer callbacks are delivered at a rendering step so a non-compositing tab banks
+  them, and a hidden panel measures zero — the grid boots hidden unless the hash points at it.
+- **Cell widths are fractional, not floored.** Flooring 18 columns throws away up to 18px, which
+  reads as the table failing to reach the edge of its own card.
+
+**Weeks and rows are filtered by two different mechanisms, on purpose.** The Weeks select carries
+both named ranges (`all`, `rest`, `ahead3`, `ahead6`) and a `from:<week>` group — one control, so a
+range and a floor can never contradict each other. On the rows side, the hand-picked `hidden` list
+and the standing **"Exclude my picks"** (`hideUsed`) are kept separate: the checkbox reads the pool
+live, so a team spent *after* it was ticked disappears on its own. The old "Only unused" button
+wrote the used set into `hidden` once and went stale on the next pick; it is gone, and reinstating
+anything that copies pool state into `hidden` reinstates the bug.
+
+**The team column carries the team's mark on an 8% wash of its own color**, the same `tintOn()`
+treatment and badge size as the Schedule card, so a team looks like itself on both tabs. The wash
+arrives as `--team-tint` rather than an inline `background`, because an inline background cannot be
+beaten by a stylesheet and both the selection crosshair and the used-team state need to paint over
+it. The flexbox lives on an inner `.gteam-in` span — `display: flex` on the `<th>` itself would
+take it out of the table's internal layout and take the sticky column with it.
+
+**The controls are three flat rows** (pickers · marks · team filter), inline labels, capped at one
+line each — not the site's standard `.controls`, whose stacked label-over-input `.field`s came out
+four rows tall and pushed the table below the fold on the one tab whose value is seeing everything
+at once. Height came from flattening, never from shrinking tap targets: everything in there is
+still ≥46px, and it is 202px on a 1280px desktop against ~300px before.
+
+**No source pill in the header** (removed 2026-08-14). It read `271 priced · 1 modelled` — true,
+unreadable without the vocabulary, and a season-wide tally nobody could act on. The market/model
+distinction still matters and is still made in the only place it can be acted on: the cell, where a
+modelled number wears a dotted underline, with the legend explaining it.
+
 **The odds join is the season-wide one.** `js/oddsMatch.js`'s `buildOddsIndex` keys purely on the
 team pair, which silently collapses both meetings of a division rivalry — harmless for one week's
 slate, fatal here, where all 272 games are on screen and 96 of them share a pair with another
@@ -316,7 +377,7 @@ Any new text in a `.gc` uses one of those.
 
 | Key | Holds |
 |---|---|
-| `grid:prefs` | paint, marks, zoom, sort, week window, active pool, hidden teams |
+| `grid:prefs` | paint, marks, fit, zoom, sort, week window, active pool, hidden teams, `hideUsed` |
 | `grid:tags:<year>` | per-cell target / avoid / watch flags, keyed `TEAM\|WEEK` |
 | `survivor:<year>:<pool>` | my used teams for one pool, as `week -> team` |
 
@@ -354,6 +415,13 @@ use. Three things about it are corrections rather than preferences, so don't und
 
 Line movement, not win rate, is the metric STRATEGY.md §3 cares about — that is why movement gets
 its own summary cell rather than being one more number in the meta line.
+
+**The API budget pill only appears below 100 credits** (`BUDGET_WARN_AT` in `js/odds.js`, changed
+2026-08-14). The free tier is 500 a month and the workflow spends ~200, so for three weeks in four
+it read `486 API credits left` — a number nobody can act on, sitting in the same eyeline as the
+numbers the tab exists for. A permanently-green status light trains you to stop reading the spot it
+occupies, which is the spot the warning needs. `budgetNote()` returns `''` above the floor, same
+"`''` means render nothing" contract as `favoriteLine()`.
 
 **Not built:** closing line vs. actual result for completed weeks. The data is there (the schedule
 carries final scores) and it is the natural next addition.
@@ -448,7 +516,7 @@ reading a committed file.
   column with the week they were spent. See the Grid Tab section for the storage keys.
 - **Remaining eligible teams (built)** — the Grid's "Survivor usable" paint colors only the weeks
   clearing the ~70% floor, so what is left to spend, and when, is the shape of the grid itself.
-  "Only unused" hides spent teams entirely.
+  **"Exclude my picks"** removes spent teams' rows entirely, and keeps doing so as more are spent.
 - **Field scarcity (built, Mike's pool only)** — what share of surviving entries still holds each
   team, from `data/survivor-<year>.json`.
 - Buy-back tracking (elimination date, re-entry date, new pick history restarting after buy-back)
