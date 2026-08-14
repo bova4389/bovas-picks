@@ -194,5 +194,19 @@
   "vig": 0.0434,
   "bucket": 10,
   "fetchedAt": "2026-08-14T11:34:35.664173+00:00"
+ },
+ {
+  "id": "ffebea881c1d7b2dfb85b3e590c35985",
+  "commenceTime": "2026-10-23T00:15:00Z",
+  "home": "Chicago Bears",
+  "away": "New England Patriots",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 10,
+  "fetchedAt": "2026-08-14T14:43:37.878838+00:00"
  }
 ]

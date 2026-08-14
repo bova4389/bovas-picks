@@ -194,5 +194,19 @@
   "vig": 0.0407,
   "bucket": 12,
   "fetchedAt": "2026-08-14T11:34:35.664173+00:00"
+ },
+ {
+  "id": "17ad7eff2f7875e20a8109abe40470e3",
+  "commenceTime": "2026-11-10T01:15:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4167,
+  "rawAwayProb": 0.6241,
+  "homeWinProb": 0.4004,
+  "awayWinProb": 0.5996,
+  "vig": 0.0407,
+  "bucket": 12,
+  "fetchedAt": "2026-08-14T14:43:37.878838+00:00"
  }
 ]

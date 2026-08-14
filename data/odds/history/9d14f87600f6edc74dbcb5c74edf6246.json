@@ -194,5 +194,19 @@
   "vig": 0.0418,
   "bucket": 5,
   "fetchedAt": "2026-08-14T11:34:35.664173+00:00"
+ },
+ {
+  "id": "9d14f87600f6edc74dbcb5c74edf6246",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "New England Patriots",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.697,
+  "rawAwayProb": 0.3448,
+  "homeWinProb": 0.669,
+  "awayWinProb": 0.331,
+  "vig": 0.0418,
+  "bucket": 5,
+  "fetchedAt": "2026-08-14T14:43:37.878838+00:00"
  }
 ]

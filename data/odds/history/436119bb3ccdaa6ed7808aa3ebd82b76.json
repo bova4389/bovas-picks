@@ -194,5 +194,19 @@
   "vig": 0.0423,
   "bucket": 10,
   "fetchedAt": "2026-08-14T11:34:35.664173+00:00"
+ },
+ {
+  "id": "436119bb3ccdaa6ed7808aa3ebd82b76",
+  "commenceTime": "2026-10-25T20:05:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Denver Broncos",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2597,
+  "rawAwayProb": 0.7826,
+  "homeWinProb": 0.2492,
+  "awayWinProb": 0.7508,
+  "vig": 0.0423,
+  "bucket": 10,
+  "fetchedAt": "2026-08-14T14:43:37.878838+00:00"
  }
 ]

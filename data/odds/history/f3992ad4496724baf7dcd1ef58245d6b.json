@@ -194,5 +194,19 @@
   "vig": 0.0413,
   "bucket": 10,
   "fetchedAt": "2026-08-14T11:34:35.664173+00:00"
+ },
+ {
+  "id": "f3992ad4496724baf7dcd1ef58245d6b",
+  "commenceTime": "2026-10-25T17:00:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 10,
+  "fetchedAt": "2026-08-14T14:43:37.878838+00:00"
  }
 ]
