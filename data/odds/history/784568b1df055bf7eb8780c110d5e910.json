@@ -320,5 +320,19 @@
   "vig": 0.0432,
   "bucket": 18,
   "fetchedAt": "2026-08-15T14:09:41.046024+00:00"
+ },
+ {
+  "id": "784568b1df055bf7eb8780c110d5e910",
+  "commenceTime": "2026-12-20T01:20:00Z",
+  "home": "Buffalo Bills",
+  "away": "Chicago Bears",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6644,
+  "rawAwayProb": 0.3788,
+  "homeWinProb": 0.6369,
+  "awayWinProb": 0.3631,
+  "vig": 0.0432,
+  "bucket": 18,
+  "fetchedAt": "2026-08-15T17:10:22.923636+00:00"
  }
 ]
