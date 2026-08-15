@@ -348,5 +348,19 @@
   "vig": 0.042,
   "bucket": 10,
   "fetchedAt": "2026-08-15T20:07:50.240875+00:00"
+ },
+ {
+  "id": "176d474ed8b2bbf1eb4d7e9c56b4bf22",
+  "commenceTime": "2026-10-26T00:20:00Z",
+  "home": "Seattle Seahawks",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6183,
+  "rawAwayProb": 0.4237,
+  "homeWinProb": 0.5934,
+  "awayWinProb": 0.4066,
+  "vig": 0.042,
+  "bucket": 10,
+  "fetchedAt": "2026-08-15T23:08:22.852561+00:00"
  }
 ]

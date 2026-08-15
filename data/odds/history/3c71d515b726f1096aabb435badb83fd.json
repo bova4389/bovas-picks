@@ -348,5 +348,19 @@
   "vig": 0.0427,
   "bucket": 13,
   "fetchedAt": "2026-08-15T20:07:50.240875+00:00"
+ },
+ {
+  "id": "3c71d515b726f1096aabb435badb83fd",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3571,
+  "rawAwayProb": 0.6855,
+  "homeWinProb": 0.3425,
+  "awayWinProb": 0.6575,
+  "vig": 0.0427,
+  "bucket": 13,
+  "fetchedAt": "2026-08-15T23:08:22.852561+00:00"
  }
 ]

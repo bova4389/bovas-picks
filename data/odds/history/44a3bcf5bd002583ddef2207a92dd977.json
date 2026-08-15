@@ -348,5 +348,19 @@
   "vig": 0.042,
   "bucket": 15,
   "fetchedAt": "2026-08-15T20:07:50.240875+00:00"
+ },
+ {
+  "id": "44a3bcf5bd002583ddef2207a92dd977",
+  "commenceTime": "2026-11-27T20:00:00Z",
+  "home": "Pittsburgh Steelers",
+  "away": "Denver Broncos",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.4798,
+  "rawAwayProb": 0.5623,
+  "homeWinProb": 0.4604,
+  "awayWinProb": 0.5396,
+  "vig": 0.042,
+  "bucket": 15,
+  "fetchedAt": "2026-08-15T23:08:22.852561+00:00"
  }
 ]
