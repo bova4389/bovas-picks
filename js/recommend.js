@@ -56,6 +56,7 @@ import {
   DEFAULT_K, shareFor, leverageFor, fitK, pairsFrom, priorProfile,
 } from './pickShare.js';
 import { fetchInjuries, forGame, isQB } from './injuries.js';
+import { getIdentity } from './teamIdentity.js';
 
 /* ── The rulebook, straight from STRATEGY.md §4 ───────────────────────────
    Every threshold below is quoted from that document rather than tuned here.
@@ -72,7 +73,7 @@ const THIN_SHARE = 0.40;     // Step 5: above this the minority side buys little
 let state = {
   map: null, schedule: null, snapshot: null, seasonIndex: null,
   week: null, weeks: [], k: DEFAULT_K, kSource: 'default', prior: null,
-  injuries: null, movement: new Map(),
+  injuries: null, movement: new Map(), identity: null,
 };
 
 const el = (id) => document.getElementById(id);
@@ -80,10 +81,17 @@ const el = (id) => document.getElementById(id);
 /* ── Boot ─────────────────────────────────────────────────────────────────*/
 
 export async function initRecommend(root) {
-  const [map, schedule, snapshot, prior] = await Promise.all([
+  // Identity rides along with the feeds the tab already blocks on rather than
+  // being awaited per row: recRow() is synchronous and must stay that way, so
+  // the doc has to be in hand before the first row is built. getIdentity()
+  // resolves null on failure rather than throwing, which costs the logos and
+  // nothing else -- the same contract markPath() states with its '' return.
+  const [map, schedule, snapshot, prior, identity] = await Promise.all([
     tryNumberMap(), getSchedule(SEASON), getOddsSnapshot(), priorPopularity(),
+    getIdentity(),
   ]);
 
+  state.identity = identity;
   state.map = map && map.year === SEASON ? map : null;
   state.schedule = schedule;
   state.snapshot = snapshot;
@@ -202,10 +210,16 @@ async function render() {
   const rows = slateFor(state.week).map((g) => buildRow(g, pop));
   const priced = rows.filter((r) => r.awayProb != null);
 
+  // Before anything renders, not inside plan(). Every row below repeats this
+  // verdict, and a template literal's left-to-right evaluation is not a
+  // contract worth resting that on -- reordering two lines of markup would
+  // silently unmark the slate.
+  const picks = markPicks(priced);
+
   body.innerHTML = `
     ${explainer()}
     ${sourceStrip(pop, rows.length, priced.length)}
-    ${plan(priced, pop)}
+    ${plan(picks, pop)}
     ${tiers(priced, pop)}
     <div class="daygroup"><h3>Full slate</h3></div>
     ${rows.map(recRow).join('')}`;
@@ -319,13 +333,45 @@ function dogCount(takeable) {
   return { lo: 4, hi: 5, why: 'Normal slate.' };
 }
 
-function plan(priced, pop) {
-  if (!priced.length) return '';
-
+/**
+ * Which SIDE of each game the tab is recommending — set on the row itself so
+ * the plan card and the row that repeats it can never disagree.
+ *
+ * Every game gets an answer, including the boring ones. The rows used to print
+ * two teams, two percentages and a leverage score and leave "so which one am I
+ * emailing in" unanswered on all 16 — the dog was named in the prose, and the
+ * favourite was never named at all even though it is the pick on most of the
+ * slate. §4 Step 6 is explicit that chalk is a real answer rather than a gap.
+ *
+ *   take   the dog, and inside this week's quota
+ *   next   a dog that clears every rule but sits below the quota cut
+ *   chalk  the favourite — every other game
+ *
+ * The quota is why `take` and `next` are different states rather than one.
+ * §4 Step 5's whole point is that composition beats volume, so marking all
+ * eight qualifying dogs "take" on a loaded slate would recommend eight picks
+ * on a week that calls for five.
+ */
+function markPicks(priced) {
   const take = priced.filter((r) => r.tier === 'take')
     .sort((a, b) => b.leverage - a.leverage);
-  const { lo, hi, why } = dogCount(take);
-  const picked = take.slice(0, hi);
+  const counts = dogCount(take);
+
+  for (const r of priced) r.pick = 'chalk';
+  take.forEach((r, i) => { r.pick = i < counts.hi ? 'take' : 'next'; });
+
+  return { priced, take, picked: take.slice(0, counts.hi), ...counts };
+}
+
+/** The team this tab is telling you to pick, and which side of the row it is on. */
+function pickSideOf(r) {
+  if (!r.dogSide) return null;
+  if (r.pick === 'chalk') return r.dogSide === 'away' ? 'home' : 'away';
+  return r.dogSide;
+}
+
+function plan({ priced, take, picked, lo, hi, why }, pop) {
+  if (!priced.length) return '';
 
   return `
     <div class="card rec-plan">
@@ -335,10 +381,20 @@ function plan(priced, pop) {
         <span class="rec-plan-why">${escape(why)}</span>
       </p>
       ${picked.length ? `
-        <p class="lede">
-          In leverage order: ${picked.map((r) => `<strong>${escape(r.dogTeam)}</strong>`).join(', ')}.
-          ${take.length > hi ? `${take.length - hi} more qualify below.` : ''}
-        </p>` : `
+        <p class="lede">In leverage order:</p>
+        <ol class="rec-plan-picks">
+          ${picked.map((r) => `
+            <li>
+              ${badge(r.dogAbbr, 'rec-plan-mark')}
+              <strong>${escape(r.dogTeam)}</strong>
+              <span class="rec-plan-vs">v ${escape(oppOf(r))}</span>
+              <span class="rec-plan-lev">${r.leverage.toFixed(2)}×</span>
+            </li>`).join('')}
+        </ol>
+        ${take.length > hi
+          ? `<p class="lede">${take.length - hi} more qualify below, marked
+             <span class="pick-tag is-next">next up</span>.</p>`
+          : ''}` : `
         <p class="lede">
           Nothing on this slate clears the floor at usable pick share — that is a
           real answer, not a gap. Take the chalk (§4 Step 6).
@@ -588,8 +644,8 @@ function recRow(r, extraClass = '') {
     return `
       <div class="card oddsgame">
         <div class="oddsgame-teams">
-          <div class="oddsteam"><span class="oddsteam-name">${escape(g.away)}</span></div>
-          <div class="oddsteam oddsteam-home"><span class="oddsteam-name">${escape(g.home)}</span></div>
+          ${teamChip(r, 'away')}
+          ${teamChip(r, 'home')}
         </div>
         <div class="oddsgame-meta"><span>No market line yet</span></div>
       </div>`;
@@ -599,21 +655,22 @@ function recRow(r, extraClass = '') {
   const homePct = 100 - awayPct;
   const sweet = r.dogProb >= SWEET_LO && r.dogProb <= SWEET_HI;
 
+  // The bar keeps away on the left to match the chips above it, but the two
+  // segments are coloured by favourite/underdog like everything else on the
+  // row -- so which segment is which class flips with the dog, and the wide
+  // segment is always the same colour on every card.
+  const awaySeg = r.dogSide === 'away' ? 'prob-dog' : 'prob-fav';
+  const homeSeg = r.dogSide === 'home' ? 'prob-dog' : 'prob-fav';
+
   return `
-    <div class="card oddsgame ${r.tier === 'take' ? 'is-candidate' : ''} ${extraClass}">
+    <div class="card oddsgame is-pick-${r.pick || 'chalk'} ${extraClass}">
       <div class="oddsgame-teams">
-        <div class="oddsteam">
-          ${num(g.awayNum)}<span class="oddsteam-name">${escape(g.away)}</span>
-          <span class="oddsteam-pct">${awayPct}%</span>
-        </div>
-        <div class="oddsteam oddsteam-home">
-          ${num(g.homeNum)}<span class="oddsteam-name">${escape(g.home)}</span>
-          <span class="oddsteam-pct">${homePct}%</span>
-        </div>
+        ${teamChip(r, 'away', awayPct)}
+        ${teamChip(r, 'home', homePct)}
       </div>
       <div class="prob-bar" role="img" aria-label="${escape(g.away)} ${awayPct}%, ${escape(g.home)} ${homePct}%">
-        <div class="prob-seg prob-away" style="width:${awayPct}%"></div>
-        <div class="prob-seg prob-home" style="width:${homePct}%"></div>
+        <div class="prob-seg ${awaySeg}" style="width:${awayPct}%"></div>
+        <div class="prob-seg ${homeSeg}" style="width:${homePct}%"></div>
       </div>
 
       <div class="oddsgame-meta">
@@ -627,6 +684,86 @@ function recRow(r, extraClass = '') {
       ${injuryLine(r)}
     </div>`;
 }
+
+/**
+ * One team, with its mark, its price, its pool number and — on exactly one of
+ * the two — the tag saying this is the one to pick.
+ *
+ * The pick tag is what the row was missing. Colour alone could not carry it:
+ * favourite/underdog is already a colour axis, and the recommendation crosses
+ * that axis (the dog on five games a week, the favourite on the other eleven),
+ * so a chip tinted "recommended" and a chip tinted "favourite" would be the
+ * same chip most of the time and different chips exactly when it mattered.
+ * The ring plus the word is a separate channel that survives that.
+ *
+ * Price sits UNDER the name rather than beside it. Beside it, the chip needs
+ * ~90px of furniture before the name starts, which left 57px for the name in
+ * the 147px a phone can give each side — eight mascots ellipsised at 375px,
+ * against a standing rule that none may even wrap there. Stacked, the name
+ * gets the chip's full width and the number it belongs to is directly beneath.
+ */
+function teamChip(r, side, pctValue = null) {
+  const g = r.game;
+  const name = side === 'away' ? g.away : g.home;
+  const abbr = side === 'away' ? g.awayAbbr : g.homeAbbr;
+  const poolNum = side === 'away' ? g.awayNum : g.homeNum;
+
+  const isDog = r.dogSide === side;
+  const isPick = pickSideOf(r) === side;
+  const cls = [
+    'oddsteam',
+    side === 'home' ? 'oddsteam-home' : '',
+    r.dogSide ? (isDog ? 'is-dog' : 'is-fav') : '',
+    isPick ? `is-pick is-pick-${r.pick}` : '',
+  ].filter(Boolean).join(' ');
+
+  // Built as one string with no whitespace between the parts, so that a team
+  // with no price, no pool number and no tag leaves the span genuinely empty
+  // and `.oddsteam-sub:empty` can collapse it. A newline would count as a
+  // child text node and the row would carry a blank second line instead.
+  const sub = [
+    pctValue == null ? '' : `<span class="oddsteam-pct">${pctValue}%</span>`,
+    num(poolNum),
+    isPick ? pickTag(r.pick) : '',
+  ].join('');
+
+  return `
+    <div class="${cls}">
+      ${badge(abbr)}
+      <span class="oddsteam-text">
+        <span class="oddsteam-name">${escape(name)}</span>
+        <span class="oddsteam-sub">${sub}</span>
+      </span>
+    </div>`;
+}
+
+/**
+ * The team's mark, or an empty slot.
+ *
+ * `:empty` collapses the slot in CSS, so a team with no artwork costs no
+ * layout rather than leaving a hole where the logo would be — the same
+ * reserved-slot pattern the Schedule card uses.
+ */
+function badge(abbr, cls = 'oddsteam-badge') {
+  const logo = abbr ? state.identity?.teams?.[abbr]?.assets?.logo : '';
+  return `<span class="${cls}" aria-hidden="true">${
+    logo ? `<img src="${escape(logo)}" alt="" loading="lazy" decoding="async">` : ''
+  }</span>`;
+}
+
+const PICK_TAG = {
+  take: { text: 'Take', title: 'A dog inside this week\'s quota — the pick' },
+  next: { text: 'Next up', title: 'Clears every rule but sits below the quota cut' },
+  chalk: { text: 'Chalk', title: 'No dog worth taking here — pick the favourite' },
+};
+
+function pickTag(kind) {
+  const t = PICK_TAG[kind] || PICK_TAG.chalk;
+  return `<span class="pick-tag is-${kind}" title="${escape(t.title)}">${t.text}</span>`;
+}
+
+/** The other team in the row, for the plan card's one-line "v Opponent". */
+const oppOf = (r) => (r.dogSide === 'away' ? r.game.home : r.game.away);
 
 const num = (n) => (n == null ? '' : `<span class="oddsteam-num">${n}</span>`);
 

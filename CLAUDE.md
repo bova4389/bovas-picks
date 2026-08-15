@@ -439,6 +439,59 @@ submission detail, not a calculation input. **Do not reinstate a hard gate on th
 the pair-only join collapses both meetings of a division rivalry — measured: it returned **21
 matches for a 16-game week**. Pair *and* kickoff is the only correct join here, same as the Grid.
 
+### The row — two channels, and neither may carry the other
+
+A row answers two different questions and they are **not** the same question, which is the
+mistake the old row made by having only one channel to answer with.
+
+**Channel 1, colour: which side of the price.** `--fav` / `--fav-ink` (purple) is always the
+higher percentage, `--dog` / `--dog-ink` (rust) always the lower — on every card, every week.
+This replaced an `away = purple` / `home = teal` pairing that was wrong twice over. It keyed on
+which side of the *row* a team sat rather than which side of the *price*, so the same 58% was
+purple on one card and teal on the next and nothing could be read down a column; and the two hues
+were only ~80° apart and equally dark, so they were hard to tell apart even once you knew the
+convention. Purple to rust is ~110°, warm against cool. **A new colour on this tab must not be
+teal, green or violet** — those are the three the purple was already being confused with.
+
+The `.prob-bar` segments keep away on the left to match the chips above them, so *which segment
+gets which class flips with the dog*. The wide segment is `prob-fav` on all sixteen cards.
+`.prob-away` / `.prob-home` still exist and still mean side — the **Odds** tab uses them, and
+that tab is a price list rather than a recommendation, so side is the right key there. Don't
+unify them.
+
+**Channel 2, the pick tag: which team to actually email in.** Exactly one of the two chips on
+every row carries a tag, set by `markPicks()`:
+
+| Tag | Side | Meaning |
+|---|---|---|
+| `Take` | the dog | Clears every §4 rule *and* is inside this week's quota |
+| `Next up` | the dog | Clears every rule but sits below the quota cut |
+| `Chalk` | the favourite | No dog worth taking here — §4 Step 6's real answer |
+
+**`take` and `next` must stay separate states.** §4 Step 5's whole point is that composition
+beats volume, so marking all eight qualifying dogs "take" on a loaded slate would recommend eight
+picks in a week that calls for five. `markPicks()` runs **in `render()`, before any markup is
+built** — not inside `plan()`. The plan card and the rows below it are the same verdict rendered
+twice, and resting that on a template literal's left-to-right evaluation meant reordering two
+lines of markup would silently unmark the slate.
+
+The pick cannot be carried by colour, because it *crosses* the colour axis — it is the dog on
+five games a week and the favourite on the other eleven. A ring plus a word is a second channel
+that survives that; a "recommended" tint would be the same as the "favourite" tint most of the
+time and different exactly when it mattered.
+
+**Chalk rows are marked too, and that is the point.** Eleven of sixteen games are chalk, and the
+old row named the dog in prose and never named the favourite at all — so on most of the slate
+"which of these two am I picking" had no answer anywhere on the card.
+
+**Logos come from `js/teamIdentity.js`, fetched once at boot**, not per row: `recRow()` is
+synchronous and must stay that way. `getIdentity()` resolves `null` on failure rather than
+throwing, and `.oddsteam-badge:empty` collapses, so a missing mark costs its own 22px and nothing
+else. The name sizing is measured, not chosen — a phone gives each chip 147px, the badge and
+furniture spend 48 of it, and "Commanders" needs 99px at 1rem. That is why the price sits *under*
+the name rather than beside it and why the name steps up to 1rem only at 560px. All 18 weeks are
+verified clip-free at 375px; re-check that sweep before changing any width in `.oddsteam`.
+
 ### The pick-share model
 
 `share(p) = p^k / (p^k + (1-p)^k)`. One parameter. `k = 1` would mean the field picks exactly in

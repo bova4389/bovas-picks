@@ -22,6 +22,21 @@
   --violet-ink:    #5B2BA8;
   --teal:          #00838F;   /* secondary accent — positive / confirmed */
 
+  /* Favourite vs. underdog — the Recommend tab's one colour axis.
+     These replaced an away=purple / home=teal pairing that failed twice over.
+     It keyed on the wrong thing (which side of the row a team sat on, not
+     which side of the price), so the same 58% was purple in one card and teal
+     in the next and nothing could be read down a column; and the two hues were
+     only ~80deg apart and equally dark, so they were hard to tell apart even
+     when you knew which was which. Purple to rust is ~110deg, warm against
+     cool, and reads as two colours at a glance. Higher percentage is ALWAYS
+     --fav, on every card, every week. */
+  --fav:           #725799;   /* = --purple-mid. The market's side. */
+  --fav-ink:       #4F2D7F;   /* 10.43:1 on white */
+  --dog:           #C2410C;   /* rust. 5.18:1 on white, so safe as type too. */
+  --dog-ink:       #9A3412;   /* 7.31:1 on white, 6.25:1 on --dog-soft */
+  --dog-soft:      #FBEAE1;   /* the take chip's fill. --ink on it is 8.56:1. */
+
   /* Warm neutrals (never pure grey — this is what reads as "designed") */
   --ink:           #44423F;
   --ink-soft:      #6E6B67;
@@ -594,25 +609,99 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 
 .oddsgame { padding: 14px 16px; margin-bottom: 10px; }
 .oddsgame-teams {
-  display: flex; justify-content: space-between; align-items: baseline;
-  gap: 12px; margin-bottom: 8px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px; margin-bottom: 10px;
 }
-.oddsteam { display: flex; align-items: baseline; gap: 8px; }
-.oddsteam-name { font-weight: 600; font-size: 1rem; }
+
+/* A chip, not a text run. It has to hold a 24px mark, a name, a pool number,
+   a price and sometimes a pick tag, and `align-items: baseline` on a flex row
+   put the logo's baseline on the text's and hung it below the line. */
+.oddsteam {
+  display: flex; align-items: center; gap: 8px;
+  min-width: 0; max-width: 100%; padding: 6px 8px;
+  border: 2px solid transparent; border-radius: var(--r-md);
+  /* Sized to its own content, not stretched to fill half the card. The pick
+     ring has to read as "this team", and a ring around 519px of mostly empty
+     card reads as "this half of the row". */
+  justify-self: start;
+}
+.oddsteam-home { justify-self: end; }
+.oddsteam-text { display: flex; flex-direction: column; min-width: 0; }
+/* Mobile-first, and the size is measured rather than chosen. A phone can give
+   each chip 147px; badge, gap, padding and border spend 48 of it, and
+   "Commanders" — the longest mascot on the slate — needs 99px at 1rem and 93px
+   at .9375rem. So the full size fits everywhere except the one width it has to
+   fit, and the site's standing rule is that no team name wraps at 375px. */
+.oddsteam-name {
+  font-weight: 600; font-size: .9375rem; line-height: 1.25;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+/* Directly under its own team. Beside the name it cost the name ~90px of
+   furniture it does not have on a phone; on a 1120px card an `auto` margin put
+   430px of nothing between "Falcons" and the 40% that belongs to it. */
 .oddsteam-pct {
+  flex: none;
   font-variant-numeric: tabular-nums;
-  font-weight: 700; color: var(--purple);
+  font-weight: 700; font-size: .9375rem; color: var(--ink-soft);
 }
-.oddsteam-home { flex-direction: row-reverse; text-align: right; }
-.oddsteam-home .oddsteam-pct { color: var(--teal); }
+/* Home is mirrored so both marks sit on the card's outer edges and the two
+   names read inward — the same away-left / home-right order the Schedule card
+   and the Pick Sheet already use. */
+.oddsteam-home { flex-direction: row-reverse; }
+.oddsteam-home .oddsteam-text { align-items: flex-end; }
+
+/* The one colour axis: which side of the PRICE a team is on, never which side
+   of the row. See --fav / --dog. */
+.oddsteam.is-fav .oddsteam-pct { color: var(--fav-ink); }
+.oddsteam.is-dog .oddsteam-pct { color: var(--dog-ink); }
+
+.oddsteam-badge {
+  width: 22px; height: 22px; flex: none;
+  display: grid; place-items: center;
+}
+.oddsteam-badge img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.oddsteam-badge:empty { display: none; }
+
+/* Past the width where the name is under pressure, both go up a step. */
+@media (min-width: 560px) {
+  .oddsteam-name { font-size: 1rem; }
+  .oddsteam-badge { width: 26px; height: 26px; }
+}
+
+/* The recommendation, on a channel of its own — a ring and a word, because the
+   colour axis is already spent on favourite/underdog and the pick crosses it. */
+.oddsteam.is-pick { background: var(--paper); }
+.oddsteam.is-pick-take { border-color: var(--dog); background: var(--dog-soft); }
+.oddsteam.is-pick-next { border-color: var(--dog); background: var(--white); border-style: dashed; }
+.oddsteam.is-pick-chalk { border-color: var(--purple-soft); }
+
+/* Second line of the chip: the price, the pool number to email in, and the
+   pick tag. Collapses entirely on a game with no market line and no workbook
+   number — see the note on `sub` in recommend.js for why it can. */
+.oddsteam-sub {
+  display: flex; align-items: baseline; gap: 6px;
+  min-height: 0;
+}
+.oddsteam-sub:empty { display: none; }
+.oddsteam-home .oddsteam-sub { flex-direction: row-reverse; }
+
+.pick-tag {
+  font-size: .625rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  line-height: 1.4; white-space: nowrap;
+}
+.pick-tag.is-take { color: var(--dog-ink); }
+.pick-tag.is-next { color: var(--dog-ink); opacity: .85; }
+.pick-tag.is-chalk { color: var(--fav-ink); }
 
 .prob-bar {
   display: flex; height: 10px; border-radius: 20px; overflow: hidden;
   background: var(--paper-2);
 }
 .prob-seg { height: 100%; }
-.prob-away { background: var(--purple-mid); }
+.prob-away, .prob-fav { background: var(--purple-mid); }
 .prob-home { background: var(--teal); }
+.prob-dog { background: var(--dog); }
 
 .oddsgame-meta {
   display: flex; justify-content: space-between; align-items: center;
@@ -628,7 +717,12 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 
 /* ── Recommend tab ────────────────────────────────────────────────────── */
 
-.oddsgame.is-candidate { border-color: var(--violet); box-shadow: var(--shadow-sm); }
+/* The card echoes its own pick tag, so a scan down the column finds the five
+   dogs without reading a word. Chalk cards stay plain -- eleven of sixteen
+   games are chalk, and outlining them all would outline nothing. */
+.oddsgame.is-pick-take { border-color: var(--dog); box-shadow: var(--shadow-sm); }
+.oddsgame.is-pick-next { border-color: var(--dog-soft); }
+
 .leverage-score {
   font-weight: 700; color: var(--ink-faint);
 }
@@ -638,7 +732,7 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 .leverage-score.bad { color: var(--amber-ink); }
 
 /* A trap card is dimmed rather than outlined. An outline competes with
-   .is-candidate for the same attention, and these are the rows the strategy
+   .is-pick-take for the same attention, and these are the rows the strategy
    wants you to skip past, not study. */
 .oddsgame.is-trap { opacity: .72; }
 .oddsgame.is-trap:hover { opacity: 1; }
@@ -646,7 +740,11 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 /* The explainer. Open on first visit, and its state is remembered — the whole
    complaint was "I don't know what a leverage pick is", which a collapsed
    panel answers only for someone who already suspects it is there. */
-.rec-explain { margin-bottom: 14px; }
+/* .card carries no padding of its own -- every card declares it (see
+   .oddsgame, .notice, .gridctl). These two never did, so their text sat flush
+   against the border. */
+.rec-explain { padding: 14px 18px 16px; margin-bottom: 14px; }
+.rec-explain > :last-child { margin-bottom: 0; }
 .rec-explain > summary {
   cursor: pointer; padding: 4px 0; font-size: 1rem;
   list-style: none;
@@ -660,11 +758,42 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 .rec-rules strong { color: var(--ink); }
 .rec-explain-foot { margin-top: 12px; font-size: .8125rem; }
 
-/* The plan card — the answer to "so what do I actually do". Violet edge, the
-   same accent .is-candidate uses, because it is the same claim at slate scale. */
-.rec-plan { margin-bottom: 14px; border-left: 3px solid var(--violet); }
+/* The plan card — the answer to "so what do I actually do". Rust edge, the
+   same colour .is-pick-take rings each of the five teams it names, because it
+   is the same claim at slate scale. It used to be violet, which matched
+   nothing once the take colour was settled. */
+.rec-plan {
+  padding: 14px 16px; margin-bottom: 14px;
+  border-left: 3px solid var(--dog);
+}
+.rec-plan > :last-child { margin-bottom: 0; }
 .rec-plan-line { font-size: 1.0625rem; margin: 4px 0 8px; line-height: 1.5; }
 .rec-plan-why { color: var(--ink-soft); font-size: .875rem; }
+
+/* The picks as a list with their marks, not a comma-separated sentence. The
+   sentence form was the tab's actual answer to "who do I take" and it read as
+   prose -- five team names in a run of text, indistinguishable from the three
+   other runs of text on the card. */
+.rec-plan-picks {
+  list-style: none; margin: 4px 0 12px; padding: 0;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.rec-plan-picks li {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 0;
+}
+.rec-plan-mark { width: 22px; height: 22px; flex: none; display: grid; place-items: center; }
+.rec-plan-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.rec-plan-mark:empty { display: none; }
+.rec-plan-vs {
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--ink-soft); font-size: .8125rem;
+}
+.rec-plan-lev {
+  margin-left: auto; flex: none;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700; font-size: .875rem; color: var(--dog-ink);
+}
 .rec-plan-caveat {
   margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line);
   font-size: .8125rem; color: var(--amber-ink);
