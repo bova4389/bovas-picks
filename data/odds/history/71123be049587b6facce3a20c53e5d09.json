@@ -306,5 +306,19 @@
   "vig": 0.0434,
   "bucket": 6,
   "fetchedAt": "2026-08-15T11:07:55.021440+00:00"
+ },
+ {
+  "id": "71123be049587b6facce3a20c53e5d09",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Pittsburgh Steelers",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4878,
+  "rawAwayProb": 0.5556,
+  "homeWinProb": 0.4675,
+  "awayWinProb": 0.5325,
+  "vig": 0.0434,
+  "bucket": 6,
+  "fetchedAt": "2026-08-15T14:09:41.046024+00:00"
  }
 ]

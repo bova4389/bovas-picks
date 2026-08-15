@@ -306,5 +306,19 @@
   "vig": 0.0431,
   "bucket": 20,
   "fetchedAt": "2026-08-15T11:07:55.021440+00:00"
+ },
+ {
+  "id": "b009f04b4f61b264a5163157c3439dc1",
+  "commenceTime": "2027-01-03T18:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "Seattle Seahawks",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.339,
+  "rawAwayProb": 0.7041,
+  "homeWinProb": 0.325,
+  "awayWinProb": 0.675,
+  "vig": 0.0431,
+  "bucket": 20,
+  "fetchedAt": "2026-08-15T14:09:41.046024+00:00"
  }
 ]
