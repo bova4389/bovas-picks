@@ -520,7 +520,11 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
   letter-spacing: -.01em;
 }
 .oddsum-value strong { font-weight: 600; }
+.oddsum-value strong.is-fav { color: var(--fav-ink); }
 .oddsum-quiet { color: var(--ink-soft); font-size: .9375rem; }
+/* The one summary cell that names a single team carries that team's mark, so
+   the headline number is identified by the same badge the rows below use. */
+.oddsum-team { display: flex; align-items: center; gap: 8px; }
 /* The movers cell stacks up to three lines, so it reads as a list rather than
    a single statistic and needs the tighter type to match the others' height */
 .oddsum-movers .oddsum-value { display: flex; flex-direction: column; gap: 3px; }
@@ -551,18 +555,32 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 .oddsline-teams {
   grid-area: teams;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   grid-template-areas:
-    "awayname awaypct"
-    "homename homepct";
-  align-items: baseline;
+    "awaybadge awayname awaypct"
+    "homebadge homename homepct";
+  /* The marks are boxes, not glyphs, so `baseline` would hang them below the
+     text line -- the same trap the Recommend chip hit. */
+  align-items: center;
   gap: 2px 8px;
 }
-.ol-away     { grid-area: awayname; }
-.ol-pct-away { grid-area: awaypct; }
-.ol-at       { grid-area: at; display: none; }
-.ol-pct-home { grid-area: homepct; text-align: right; }
-.ol-home     { grid-area: homename; }
+.ol-badge-away { grid-area: awaybadge; }
+.ol-away       { grid-area: awayname; }
+.ol-pct-away   { grid-area: awaypct; }
+.ol-at         { grid-area: at; display: none; }
+.ol-pct-home   { grid-area: homepct; text-align: right; }
+.ol-home       { grid-area: homename; }
+.ol-badge-home { grid-area: homebadge; }
+
+/* Reserved slot, collapsed when there is no artwork -- so a failed identity
+   fetch (which takes all 32 marks at once) loses the column rather than
+   leaving 32 rows of holes. See badge() in js/odds.js. */
+.ol-badge {
+  width: 22px; height: 22px; flex: none;
+  display: grid; place-items: center;
+}
+.ol-badge img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.ol-badge:empty { display: none; }
 
 .oddsline .prob-bar { grid-area: bar; height: 6px; }
 .oddsline-meta {
@@ -573,15 +591,21 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 
 .ol-team { font-weight: 400; font-size: .9375rem; color: var(--ink-soft); }
 /* The favourite is the one fact a glance should land on, so it is carried by
-   weight and ink rather than by a badge that would add another row. */
+   weight and ink. The name stays --ink rather than taking the price colour,
+   exactly as .oddsteam-name does on Recommend -- the colour axis lives on the
+   number, where it can be read down a column. */
 .ol-team.is-fav { font-weight: 700; color: var(--ink); }
 .ol-pct {
   font-variant-numeric: tabular-nums;
   font-weight: 600; font-size: .9375rem;
-  color: var(--purple-mid);
+  color: var(--ink-soft);
 }
-.ol-pct-home { color: var(--teal); }
-.ol-pct.is-fav { font-weight: 700; }
+/* The one colour axis, shared with Recommend: --fav-ink is always the higher
+   percentage, --dog-ink always the lower, on every row and every week. This
+   used to key on side (away purple, home teal), which meant the same 58% was
+   one colour on one row and another on the next. See --fav / --dog. */
+.ol-pct.is-fav { font-weight: 700; color: var(--fav-ink); }
+.ol-pct.is-dog { color: var(--dog-ink); }
 .ol-at {
   text-align: center;
   font-size: .625rem; font-weight: 700;
@@ -592,19 +616,32 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 }
 .oddsline.is-unpriced { background: var(--paper); box-shadow: none; }
 .oddsline.is-unpriced .oddsline-teams {
-  grid-template-areas: "awayname awaypct" "homename homepct";
+  grid-template-areas:
+    "awaybadge awayname awaypct"
+    "homebadge homename homepct";
 }
 
-/* Wide enough to mirror the two teams around a centre marker. */
+/* Wide enough to mirror the two teams around a centre marker. Each mark sits
+   on the card's outer edge with the two names reading inward -- the same
+   away-left / home-right order the Schedule card and Recommend chip use. */
 @media (min-width: 560px) {
   .oddsline-teams {
-    grid-template-columns: minmax(0, 1fr) auto 30px auto minmax(0, 1fr);
-    grid-template-areas: "awayname awaypct at homepct homename";
+    grid-template-columns: auto minmax(0, 1fr) auto 30px auto minmax(0, 1fr) auto;
+    grid-template-areas: "awaybadge awayname awaypct at homepct homename homebadge";
     gap: 8px;
+  }
+  /* An unpriced row has no percentages to mirror AROUND, so it keeps the
+     stacked form at every width -- spreading two bare team names to the card's
+     outer edges would leave ~400px of nothing between them. Columns are
+     restated as well as areas: overriding the areas alone left the five extra
+     tracks from the mirrored template hanging as empty columns. */
+  .oddsline.is-unpriced .oddsline-teams {
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
   .ol-at { display: block; }
   .ol-home { text-align: right; }
   .ol-pct-home { text-align: left; }
+  .ol-badge { width: 26px; height: 26px; }
 }
 
 .oddsgame { padding: 14px 16px; margin-bottom: 10px; }
@@ -699,8 +736,10 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
   background: var(--paper-2);
 }
 .prob-seg { height: 100%; }
-.prob-away, .prob-fav { background: var(--purple-mid); }
-.prob-home { background: var(--teal); }
+/* One axis for both tabs: the favourite's segment is purple and the dog's is
+   rust, wherever each of them sits in the row. The old side-keyed
+   .prob-away / .prob-home pair is gone -- nothing renders them any more. */
+.prob-fav { background: var(--fav); }
 .prob-dog { background: var(--dog); }
 
 .oddsgame-meta {
@@ -709,11 +748,14 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
   margin-top: 10px;
   font-size: .8125rem; color: var(--ink-soft);
 }
-/* up = home team gained ground, down = away did — a side, not a verdict,
-   so these echo the home/away bar colors rather than good/bad semantics. */
+/* movementFor() measures from the CURRENT FAVOURITE's side, so up = money has
+   arrived on the favourite and down = it has drifted toward the dog. Not a
+   verdict, so these echo the same fav/dog axis the row does rather than
+   good/bad semantics. (They read teal/purple before, echoing a home/away axis
+   this tab no longer has — and the delta was never home-oriented anyway.) */
 .odds-move { font-weight: 600; color: var(--ink-faint); }
-.odds-move.up   { color: var(--teal); }
-.odds-move.down { color: var(--purple-mid); }
+.odds-move.up   { color: var(--fav-ink); }
+.odds-move.down { color: var(--dog-ink); }
 
 /* ── Recommend tab ────────────────────────────────────────────────────── */
 
@@ -1630,6 +1672,127 @@ footer {
 .gswatch.p-2 { background: var(--p2); } .gswatch.p-1 { background: var(--p1); }
 .gswatch.p-0 { background: var(--p0); }
 .gproj-demo { border-bottom: 1px dotted var(--ink-quiet); color: var(--ink-quiet); }
+
+/* ── Survivor pick board ──────────────────────────────────────────────────
+   Under the grid: which teams the pool spent this week, how many entries took
+   each, and the shape of that as a bar. See js/survivorPicks.js for the three
+   rules it holds -- in particular that the bar is scaled to the week's biggest
+   pick rather than to 100%, because a 12-entry pool spread over 8 teams tops
+   out around 25% and share-scaled bars would all be stubs.
+   ------------------------------------------------------------------------ */
+
+.pboard { margin-top: 22px; padding: 18px 20px 20px; }
+.pboard-title { margin: 0; font-size: 1.25rem; font-weight: 300; letter-spacing: -.01em; }
+.pboard-week { min-height: 46px; }
+
+.pboard-note {
+  margin: 0 0 4px;
+  font-size: .9375rem; color: var(--ink-soft);
+}
+.pboard-note strong { font-weight: 700; color: var(--ink); }
+/* Amber, not red: picks still under the kickoff gate are the system working,
+   not a fault. --warn measures 4.63:1 on white. */
+.pboard-locked { color: var(--warn); font-weight: 600; }
+.pboard-partial {
+  margin: 0 0 14px;
+  font-size: .8125rem; color: var(--ink-soft);
+}
+.pboard-note:last-child { margin-bottom: 14px; }
+
+.pboard-empty {
+  margin: 6px 0 0;
+  font-size: .9375rem; color: var(--ink-soft);
+}
+
+.pboard-list { list-style: none; margin: 0; padding: 0; }
+
+/* Two rows on a phone so the bar gets the card's full width: at 375px the
+   badge, name, count and percentage already spend ~240px of ~343px, which
+   would leave the bar about 100px and no ability to tell 60% from 75%. */
+.pboard-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    "badge team count pct"
+    "bar   bar  bar   bar";
+  align-items: center;
+  gap: 4px 10px;
+  /* Inset by the card's own padding and pulled back out, so the is-mine tint
+     reads as a full-width band rather than a rectangle floating inside one. */
+  padding: 8px 10px;
+  margin: 0 -10px;
+  border-radius: var(--r-sm);
+  border-top: 1px solid var(--line);
+}
+.pboard-row:first-child { border-top: 0; }
+
+.pboard-badge {
+  grid-area: badge;
+  width: 24px; height: 24px; flex: none;
+  display: grid; place-items: center;
+}
+.pboard-badge img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.pboard-badge:empty { display: none; }
+
+.pboard-team {
+  grid-area: team;
+  display: flex; align-items: baseline; gap: 6px; min-width: 0;
+  font-weight: 600; font-size: .9375rem;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.pboard-count {
+  grid-area: count;
+  font-variant-numeric: tabular-nums;
+  font-size: .9375rem; color: var(--ink-soft);
+}
+.pboard-count strong { font-weight: 700; color: var(--ink); }
+.pboard-pct {
+  grid-area: pct;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700; font-size: .9375rem; color: var(--ink);
+  text-align: right; min-width: 46px;
+}
+
+.pboard-bar {
+  grid-area: bar;
+  display: block; height: 8px;
+  background: var(--paper-2);
+  border-radius: 20px; overflow: hidden;
+}
+/* The team's own colour, from js/teamIdentity.js -- never a hardcoded hex, so
+   a rebrand is one rebuild. --pb-bar is set inline per row; the fallback keeps
+   a bar visible for a team whose identity did not load. */
+.pboard-fill {
+  display: block; height: 100%;
+  background: var(--pb-bar, var(--purple-mid));
+  border-radius: 20px;
+}
+
+/* My own pick, marked on a channel of its own -- the bars are already spoken
+   for by team colour, so this is a tint plus a word rather than a fifth hue. */
+.pboard-row.is-mine { background: var(--pb-tint, var(--purple-soft)); }
+.pboard-mine {
+  flex: none;
+  font-size: .625rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  color: var(--violet-ink);
+}
+
+/* Room for a single line: bar between the count and the percentage.
+
+   The count column is a FIXED width, not `auto`. Sized to content it is
+   narrower on a row reading "1 entry" than on one reading "12 entries", which
+   pushes that row's bar track a few px left and makes it a few px wider — so
+   two teams on the same count could draw visibly different bars. A chart whose
+   bars do not share an origin and a scale is not a chart. 82px clears
+   "12 entries" at this size with room to spare. */
+@media (min-width: 560px) {
+  .pboard-row {
+    grid-template-columns: auto minmax(0, 1fr) 82px minmax(90px, 1.1fr) auto;
+    grid-template-areas: "badge team count bar pct";
+    gap: 12px;
+  }
+}
 
 /* ── Phone ────────────────────────────────────────────────────────────── */
 

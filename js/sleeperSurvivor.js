@@ -5,9 +5,10 @@
    turns into data/survivor-<year>.json. The Sleeper pool needs no workbook and
    no script: Sleeper will hand over the whole pool on request, so this module
    fetches it in the browser and normalises it into THE SAME SHAPE the parser
-   emits. That is the point of the file -- fieldAvailability(), scarcityFor()
-   and weekPickShare() in survivorLeagues.js work on the result untouched, and
-   the Grid tab cannot tell which pool's field it is painting.
+   emits. That is the point of the file -- fieldAvailability(), scarcityFor(),
+   weekDistribution() and weeksWithPicks() in survivorLeagues.js work on the
+   result untouched, and neither the Grid tab nor the pick board below it can
+   tell which pool's field it is painting.
 
    ── How this reaches the data, and why it is not the documented API ───────
 

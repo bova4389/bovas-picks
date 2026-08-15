@@ -118,6 +118,7 @@ js/pickShare.js     SHARED — modelled pick share + k calibration            [N
 js/injuries.js      SHARED — ESPN injury report, live from the browser      [NEVER versioned]
 js/teamIdentity.js  SHARED — team colors, uniforms, logo/wordmark paths     [NEVER versioned]
 js/schedule.js      Schedule tab — one week, live scores
+js/survivorPicks.js SHARED — the weekly pick board, pure render            [NEVER versioned]
 js/grid.js          Grid tab — the whole season as one table
 js/picksheet.js     Pick Sheet tab
 js/odds.js          Odds tab — one week of market prices, reads data/odds/
@@ -406,6 +407,42 @@ via `parse_survivor.py` into `data/survivor-<year>.json`; the Sleeper pool is fe
 `S.feeds` in `grid.js` holds one per pool and `applyField()` points `S.field` at the active one.
 A pool with no feed simply shows no share. See the Sleeper section below.
 
+### The pick board — under the grid
+
+`js/survivorPicks.js`, mounted at the bottom of the Grid by `paintPickBoard()`. The grid above it
+answers "what can I spend, and when"; the board answers "what did everyone else just spend",
+which is the other half of a survivor decision and the half the tool could not show at all.
+
+- **Only teams somebody picked are listed.** Filtered in `weekDistribution()`. In a 12-entry pool
+  20+ of the 32 teams have no takers, and listing them buries the eight that carry the week.
+- **The bar is scaled to the week's biggest pick, not to 100%.** A 12-entry pool spread over eight
+  teams tops out near 25%, so share-scaled bars would all be stubs carrying no information the
+  percentage text does not already. Longest bar = most-picked team, every week. The percent is
+  printed beside it so the absolute figure is never inferred from bar length.
+- **The count column is a fixed 82px, not `auto`.** Sized to content it is narrower on a row
+  reading `1 entry` than on `12 entries`, which shifts that row's bar origin and widens its track
+   — so two teams on the same count could draw visibly different bars. Bars that do not share an
+  origin and a scale are not a chart.
+- **It renders the kickoff gate rather than working around it.** Percentages are of the picks
+  *visible*, which mid-week is not the pool, so the count line carries all three of `revealed` /
+  `expected` / `locked` and a caveat line appears while the week is partial — and disappears once
+  it is complete, because a disclaimer that never goes away is one nobody reads on the week it
+  matters.
+- **The week selector offers only weeks with at least one visible pick** (`weeksWithPicks()`), and
+  defaults to the latest of them. `S.pickWeek` is deliberately **not** in `grid:prefs`: it is a
+  glance at the week in play, not a view you set up and live in, and a remembered Week 3 would
+  still be on screen in December.
+- **Bar colour comes from `js/teamIdentity.js`**, never a hardcoded hex, per the Team Identity
+  rule. `--pb-bar` is set inline per row with a `--purple-mid` fallback for an identity that did
+  not load.
+- Pure render, no state and no fetching — the Grid owns the feed, pool and week. That is what
+  makes moving it to the Survivor **Planning** panel later a change of mount point and nothing
+  else.
+
+`weekDistribution()` / `weeksWithPicks()` **replaced `weekPickShare()`**, which returned
+`team -> pct` and nothing else. It was exported, never called anywhere, and could not answer the
+question the board is asked first — *how many people* — so it was widened rather than duplicated.
+
 **Not built yet, in rough priority order:** free-text notes per cell (the tags are the flag half
 of that feature); ESPN team news and injury links in the detail strip; venue/neutral-site data,
 which would need `scripts/fetch_schedule.py` to capture `competitions[0].venue` and `neutralSite`
@@ -455,9 +492,16 @@ teal, green or violet** — those are the three the purple was already being con
 
 The `.prob-bar` segments keep away on the left to match the chips above them, so *which segment
 gets which class flips with the dog*. The wide segment is `prob-fav` on all sixteen cards.
-`.prob-away` / `.prob-home` still exist and still mean side — the **Odds** tab uses them, and
-that tab is a price list rather than a recommendation, so side is the right key there. Don't
-unify them.
+
+**The fav/dog axis is now the site's only price colouring, and the Odds tab reads on it too**
+(changed 2026-08-15). This paragraph previously ruled the opposite way — it kept `.prob-away`
+(purple) / `.prob-home` (teal) alive for the Odds tab on the grounds that a price list is not a
+recommendation, so side was the right key there. That reasoning did not survive contact with the
+two tabs side by side: they show the same sixteen games from the same snapshot, so a 64% that is
+purple-because-favourite on Recommend and teal-because-home on Odds is one number wearing two
+unrelated colour systems a tab-switch apart. **`.prob-away` / `.prob-home` are deleted, not
+merely unused** — nothing renders them, and re-adding a side-keyed colour anywhere would
+reintroduce exactly the ambiguity `--fav` / `--dog` exists to remove.
 
 **Channel 2, the pick tag: which team to actually email in.** Exactly one of the two chips on
 every row carries a tag, set by `markPicks()`:
@@ -649,6 +693,24 @@ use. Three things about it are corrections rather than preferences, so don't und
   and deliberately does **not** repeat its own percentage, or all 16 rows shout equally and the two
   that moved disappear.
 
+- **The row is coloured by price, not by side, and carries both teams' marks** (added
+  2026-08-15). `.ol-pct.is-fav` is `--fav-ink` and `.ol-pct.is-dog` is `--dog-ink`, the same axis
+  and the same two tokens the Recommend chip uses, so a percentage means the same thing on both
+  tabs. See the reversal note under Recommend's "Channel 1" for what this replaced. Three details
+  carried over deliberately: the **team name** stays `--ink` and signals the favourite by *weight*
+  rather than taking the price colour (the colour belongs on the number, which is what reads down
+  a column); the `.prob-bar` keeps away on the left, so which segment gets `prob-fav` flips with
+  the favourite; and `.odds-move.up` / `.down` now use the same two inks, which also corrected a
+  stale comment — `movementFor()` measures from the *current favourite's* side and never was
+  home-oriented.
+- **Marks come from `js/teamIdentity.js`, fetched once at boot** alongside the snapshot and the
+  schedule, never per row. It is the only one of the three feeds allowed to fail: `getIdentity()`
+  resolves `null`, and `.ol-badge:empty` collapses, so a failed fetch costs the marks and nothing
+  else. `.ol-badge` is its own class rather than a reuse of `.oddsteam-badge` — the flat
+  `.oddsline` grid needs the badge as a *named grid area* on both layouts (stacked on a phone,
+  mirrored to the card's outer edges past 560px), which is the "reuse the function, not the
+  wrapper markup" rule from Site Architecture applied one layer down.
+
 Line movement, not win rate, is the metric STRATEGY.md §3 cares about — that is why movement gets
 its own summary cell rather than being one more number in the meta line.
 
@@ -756,6 +818,9 @@ reading a committed file.
 - **Field scarcity (built — Mike's pool and Sleeper)** — what share of surviving entries still
   holds each team. Mike's from `data/survivor-<year>.json`; Sleeper live from the pool itself, on
   demand. See the Sleeper Survivor Pool section.
+- **Weekly pick distribution (built)** — which teams the pool took this week, how many entries
+  took each, and the shape of that as a bar chart. Bottom of the Grid tab; see "The pick board"
+  under Grid Tab. Fills in through the Sunday as the kickoff gate releases each pick.
 - Buy-back tracking (elimination date, re-entry date, new pick history restarting after buy-back)
   — **not built.** `survivorLeagues.js` carries a `buybacks` counter in each pool's state and
   nothing reads it yet.

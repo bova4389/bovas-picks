@@ -189,10 +189,83 @@ export function scarcityFor(field, team) {
   };
 }
 
-/** That week's field pick distribution, as team -> percent. Empty when the
- *  week has not been played (and so has not been parsed) yet. */
-export function weekPickShare(survivor, week, season) {
-  if (!survivor || Number(survivor.year) !== Number(season)) return new Map();
-  const picks = survivor.weeks?.[String(week)]?.picks || [];
-  return new Map(picks.map((p) => [p.team, p.pct]));
+/**
+ * One week's field pick distribution: which teams the pool actually picked,
+ * how many entries took each, and what share of the visible picks that is.
+ *
+ * Replaces an earlier `weekPickShare()` that returned team -> pct and nothing
+ * else. It was exported, never called, and could not answer the question the
+ * board below it is asked first — "how many people" — so it has been widened
+ * rather than duplicated.
+ *
+ * ONLY TEAMS SOMEBODY PICKED APPEAR. A team with no takers is absent from the
+ * feed's `picks` array to begin with, and a zero row is filtered here as well,
+ * because "0 entries took the Jets" is not a fact about the week — 20 of the
+ * 32 teams are unpicked in a small pool and listing them buries the eight that
+ * carry the week.
+ *
+ * Works on either feed untouched: Mike's parsed workbook and the live Sleeper
+ * pool are normalised to the same shape (see js/sleeperSurvivor.js). Where
+ * they differ is the kickoff gate — Sleeper carries `submitted` / `revealed` /
+ * `expected` because its picks unlock one game at a time, and Mike's file,
+ * parsed after the week is over, carries only a total. The fallbacks below are
+ * what let one renderer serve both without branching on the source.
+ *
+ * Returns null for a feed from another season rather than a partial answer:
+ * joining last season's pool to this season's grid is exactly the confident,
+ * plausible, meaningless number js/season.js exists to prevent.
+ */
+export function weekDistribution(survivor, week, season) {
+  if (!survivor || Number(survivor.year) !== Number(season)) return null;
+
+  const w = survivor.weeks?.[String(week)];
+  if (!w) return null;
+
+  const rows = (w.picks || [])
+    .filter((p) => p?.team && Number(p.count) > 0)
+    .map((p) => ({
+      team: String(p.team),
+      count: Number(p.count),
+      pct: Number(p.pct),
+    }))
+    .sort((a, b) => b.count - a.count || a.team.localeCompare(b.team));
+
+  const shown = rows.reduce((n, r) => n + r.count, 0);
+  const revealed = Number.isFinite(w.revealed) ? w.revealed : shown;
+  const submitted = Number.isFinite(w.submitted) ? w.submitted : shown;
+  const expected = Number.isFinite(w.expected) ? w.expected : (Number(w.entrants) || shown);
+
+  return {
+    week: Number(week),
+    rows,
+    shown,
+    revealed,
+    submitted,
+    expected,
+    // How many picks are in but still held back by the kickoff gate. Always 0
+    // for a parsed workbook, which is only ever written after the fact.
+    locked: Math.max(0, submitted - revealed),
+    distinctTeams: rows.length,
+    topCount: rows.length ? rows[0].count : 0,
+    complete: Boolean(w.complete) || (expected > 0 && revealed >= expected),
+  };
+}
+
+/**
+ * The weeks this feed can actually show a distribution for, ascending.
+ *
+ * A week only qualifies once at least one pick is VISIBLE, which for the
+ * Sleeper pool means at least one game has kicked off. That is what makes the
+ * board's week selector honest: a week nobody can see into yet is not offered
+ * as if it were empty.
+ */
+export function weeksWithPicks(survivor, season) {
+  if (!survivor || Number(survivor.year) !== Number(season)) return [];
+
+  return Object.keys(survivor.weeks || {})
+    .map(Number)
+    .filter(Number.isFinite)
+    .filter((w) => (survivor.weeks[String(w)]?.picks || [])
+      .some((p) => Number(p?.count) > 0))
+    .sort((a, b) => a - b);
 }

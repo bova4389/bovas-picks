@@ -45,6 +45,7 @@ import {
   fetchSleeperSurvivor, loadCachedFeed, saveCachedFeed,
   mergeMyPicks, freshness, coverageNote,
 } from './sleeperSurvivor.js';
+import { pickBoardShell, renderPickBoard } from './survivorPicks.js';
 
 /* ── Preferences ──────────────────────────────────────────────────────────
    Everything the user has bent to their liking survives a refresh. The grid
@@ -101,6 +102,10 @@ const S = {
   league: null, tags: {},
   prefs: { ...DEFAULTS },
   sel: null,            // {team, week}
+  // Which week the pick board is showing. Deliberately NOT in prefs: it is a
+  // glance at the week in play, not a view you set up and live in, and a
+  // remembered Week 3 would still be on screen in December.
+  pickWeek: null,
 };
 
 function loadPrefs() {
@@ -189,10 +194,33 @@ export async function initGrid(root, season = SEASON) {
   S.league = loadLeagueState(S.prefs.league, season);
   applyField();
 
-  root.innerHTML = shellHead() + banner() + controls() + detailShell() + tableShell() + legend();
+  root.innerHTML = shellHead() + banner() + controls() + detailShell() + tableShell()
+    + legend() + pickBoardShell();
   wire();
   renderTable();
+  paintPickBoard();
   scrollToCurrentWeek();
+}
+
+/**
+ * The field's week, under the grid. Re-rendered rather than re-mounted, so the
+ * board follows the pool switcher and the Refresh button without the grid
+ * having to know what is inside it.
+ *
+ * S.pickWeek is left null until the user picks one: the board then shows the
+ * latest week that has any visible picks, which is the week being decided.
+ * Pinning it to a week at boot would leave it stranded there once the next
+ * Sunday's picks unlock.
+ */
+function paintPickBoard() {
+  renderPickBoard(document.getElementById('g-pickboard'), {
+    feed: S.feeds?.[S.prefs.league] || null,
+    season: S.season,
+    league: leagueById(S.prefs.league),
+    identity: S.identity,
+    week: S.pickWeek,
+    mine: S.league,
+  });
 }
 
 /** Point S.field at the active pool's feed. Called on boot and on every pool
@@ -476,6 +504,9 @@ async function refreshLivePool() {
 
     applyField();
     renderTable();
+    // A refresh is the one action that can turn the board's empty state into
+    // a chart, so it has to repaint with the rest.
+    paintPickBoard();
   } catch (err) {
     if (status) {
       const had = S.feeds?.[league.id];
@@ -1140,6 +1171,16 @@ function wire() {
       applyField();
       paintLiveRow();
       renderTable();
+      // Each pool is a different game played over different weeks, so a week
+      // chosen in one has no meaning in the next. Cleared rather than carried.
+      S.pickWeek = null;
+      paintPickBoard();
+      return;
+    }
+
+    if (t.id === 'g-pickboard-week') {
+      S.pickWeek = Number(t.value);
+      paintPickBoard();
       return;
     }
 
