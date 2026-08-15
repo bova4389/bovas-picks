@@ -264,5 +264,19 @@
   "vig": 0.0423,
   "bucket": 7,
   "fetchedAt": "2026-08-15T02:42:49.316779+00:00"
+ },
+ {
+  "id": "c327223d76a3b7b0db8c6c104442f44b",
+  "commenceTime": "2026-10-04T20:05:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7826,
+  "rawAwayProb": 0.2597,
+  "homeWinProb": 0.7508,
+  "awayWinProb": 0.2492,
+  "vig": 0.0423,
+  "bucket": 7,
+  "fetchedAt": "2026-08-15T05:13:45.783224+00:00"
  }
 ]

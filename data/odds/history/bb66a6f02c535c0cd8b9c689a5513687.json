@@ -264,5 +264,19 @@
   "vig": 0.0417,
   "bucket": 21,
   "fetchedAt": "2026-08-15T02:42:49.316779+00:00"
+ },
+ {
+  "id": "bb66a6f02c535c0cd8b9c689a5513687",
+  "commenceTime": "2027-01-10T18:00:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7917,
+  "rawAwayProb": 0.25,
+  "homeWinProb": 0.76,
+  "awayWinProb": 0.24,
+  "vig": 0.0417,
+  "bucket": 21,
+  "fetchedAt": "2026-08-15T05:13:45.783224+00:00"
  }
 ]
