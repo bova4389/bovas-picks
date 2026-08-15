@@ -334,5 +334,19 @@
   "vig": 0.0421,
   "bucket": 16,
   "fetchedAt": "2026-08-15T17:10:22.923636+00:00"
+ },
+ {
+  "id": "9a55467e1cd6310ae2af20d8154612e1",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "Denver Broncos",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8148,
+  "rawAwayProb": 0.2273,
+  "homeWinProb": 0.7819,
+  "awayWinProb": 0.2181,
+  "vig": 0.0421,
+  "bucket": 16,
+  "fetchedAt": "2026-08-15T20:07:50.240875+00:00"
  }
 ]

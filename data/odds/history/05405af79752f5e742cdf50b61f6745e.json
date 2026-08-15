@@ -334,5 +334,19 @@
   "vig": 0.0425,
   "bucket": 11,
   "fetchedAt": "2026-08-15T17:10:22.923636+00:00"
+ },
+ {
+  "id": "05405af79752f5e742cdf50b61f6745e",
+  "commenceTime": "2026-11-01T21:25:00Z",
+  "home": "Miami Dolphins",
+  "away": "New England Patriots",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2778,
+  "rawAwayProb": 0.7647,
+  "homeWinProb": 0.2665,
+  "awayWinProb": 0.7335,
+  "vig": 0.0425,
+  "bucket": 11,
+  "fetchedAt": "2026-08-15T20:07:50.240875+00:00"
  }
 ]

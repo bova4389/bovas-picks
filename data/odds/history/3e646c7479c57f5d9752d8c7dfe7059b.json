@@ -334,5 +334,19 @@
   "vig": 0.0452,
   "bucket": 4,
   "fetchedAt": "2026-08-15T17:10:22.923636+00:00"
+ },
+ {
+  "id": "3e646c7479c57f5d9752d8c7dfe7059b",
+  "commenceTime": "2026-09-14T00:20:00Z",
+  "home": "New York Giants",
+  "away": "Dallas Cowboys",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.4453,
+  "rawAwayProb": 0.5999,
+  "homeWinProb": 0.4261,
+  "awayWinProb": 0.5739,
+  "vig": 0.0452,
+  "bucket": 4,
+  "fetchedAt": "2026-08-15T20:07:50.240875+00:00"
  }
 ]
