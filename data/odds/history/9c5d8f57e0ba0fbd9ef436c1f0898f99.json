@@ -250,5 +250,19 @@
   "vig": 0.0431,
   "bucket": 11,
   "fetchedAt": "2026-08-14T23:09:39.364000+00:00"
+ },
+ {
+  "id": "9c5d8f57e0ba0fbd9ef436c1f0898f99",
+  "commenceTime": "2026-11-01T18:00:00Z",
+  "home": "Cincinnati Bengals",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7354,
+  "rawAwayProb": 0.3077,
+  "homeWinProb": 0.705,
+  "awayWinProb": 0.295,
+  "vig": 0.0431,
+  "bucket": 11,
+  "fetchedAt": "2026-08-15T02:42:49.316779+00:00"
  }
 ]
