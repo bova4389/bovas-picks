@@ -26,6 +26,7 @@ import {
 } from './data.js';
 import { buildSeasonOddsIndex, matchSeasonOdds, orientProbs } from './oddsMatch.js';
 import { loadWeek, weeksIn, currentWeek } from './gameState.js';
+import { getIdentity } from './teamIdentity.js';
 
 /** Inside this band of the market's own numbers, the game is a toss-up. */
 const COINFLIP_LO = 0.45;
@@ -38,6 +39,8 @@ let root = null;
 let snapshot = null;
 let seasonIndex = null;
 let week = null;
+/** The team-identity doc, fetched once at boot. Null on failure — see badge(). */
+let identity = null;
 
 const el = (id) => document.getElementById(id);
 
@@ -46,8 +49,15 @@ const el = (id) => document.getElementById(id);
 export async function initOdds(node) {
   root = node;
 
-  const [snap, schedule] = await Promise.all([getOddsSnapshot(), getSchedule(SEASON)]);
+  // Identity rides along with the two feeds this tab cannot render without.
+  // It is the only one of the three that is allowed to fail: getIdentity()
+  // resolves null rather than throwing, and a null doc costs the marks and
+  // nothing else — the same contract markPath() states with its '' return.
+  const [snap, schedule, ident] = await Promise.all([
+    getOddsSnapshot(), getSchedule(SEASON), getIdentity(),
+  ]);
   snapshot = snap;
+  identity = ident;
 
   if (!snapshot || !snapshot.events.length) {
     root.innerHTML = shellHead() + emptyState();
@@ -151,6 +161,7 @@ function buildRow(g) {
   return {
     game: g, ev, awayProb, homeProb, favSide,
     favName: favSide === 'home' ? g.home : favSide === 'away' ? g.away : null,
+    favAbbr: favSide === 'home' ? g.homeAbbr : favSide === 'away' ? g.awayAbbr : null,
     favProb: favSide === 'home' ? homeProb : favSide === 'away' ? awayProb : null,
     move: null,
   };
@@ -206,7 +217,10 @@ function summary(rows, priced) {
     <div class="oddsum">
       <div class="oddsum-cell">
         <p class="eyebrow">Biggest mismatch</p>
-        <p class="oddsum-value">${escape(biggest.favName)} <strong>${pct(biggest.favProb)}%</strong></p>
+        <p class="oddsum-value oddsum-team">
+          ${badge(biggest.favAbbr, 'ol-badge')}
+          <span>${escape(biggest.favName)} <strong class="is-fav">${pct(biggest.favProb)}%</strong></span>
+        </p>
       </div>
       <div class="oddsum-cell">
         <p class="eyebrow">Toss-ups</p>
@@ -253,7 +267,9 @@ function oddsRow(r) {
       <div class="card oddsline is-unpriced">
         <div class="oddsline-kick">${escape(kickTime(g.kickoff))}</div>
         <div class="oddsline-teams">
+          ${badge(g.awayAbbr, 'ol-badge ol-badge-away')}
           <span class="ol-team ol-away">${escape(g.away)}</span>
+          ${badge(g.homeAbbr, 'ol-badge ol-badge-home')}
           <span class="ol-team ol-home">${escape(g.home)}</span>
         </div>
         <div class="oddsline-meta"><span>No market line yet</span></div>
@@ -263,19 +279,34 @@ function oddsRow(r) {
   const awayPct = pct(r.awayProb);
   const homePct = 100 - awayPct;
 
+  // Which side of the PRICE, never which side of the row -- the same one
+  // colour axis the Recommend tab reads on, so a 62% is the same purple on
+  // both tabs and the dog is the same rust. Before this, away was purple and
+  // home was teal, which meant nothing could be read down a column.
+  const sideCls = (side) => (
+    r.favSide == null ? '' : (r.favSide === side ? ' is-fav' : ' is-dog')
+  );
+  // The bar keeps away on the left to match the names beside it, so WHICH
+  // segment carries which class flips with the favourite. The wide segment is
+  // prob-fav on every row.
+  const awaySeg = r.favSide === 'away' ? 'prob-fav' : 'prob-dog';
+  const homeSeg = r.favSide === 'home' ? 'prob-fav' : 'prob-dog';
+
   return `
     <div class="card oddsline">
       <div class="oddsline-kick">${escape(kickTime(g.kickoff))}</div>
       <div class="oddsline-teams">
-        <span class="ol-team ol-away${r.favSide === 'away' ? ' is-fav' : ''}">${escape(g.away)}</span>
-        <span class="ol-pct ol-pct-away${r.favSide === 'away' ? ' is-fav' : ''}">${awayPct}%</span>
+        ${badge(g.awayAbbr, 'ol-badge ol-badge-away')}
+        <span class="ol-team ol-away${sideCls('away')}">${escape(g.away)}</span>
+        <span class="ol-pct ol-pct-away${sideCls('away')}">${awayPct}%</span>
         <span class="ol-at">at</span>
-        <span class="ol-pct ol-pct-home${r.favSide === 'home' ? ' is-fav' : ''}">${homePct}%</span>
-        <span class="ol-team ol-home${r.favSide === 'home' ? ' is-fav' : ''}">${escape(g.home)}</span>
+        <span class="ol-pct ol-pct-home${sideCls('home')}">${homePct}%</span>
+        <span class="ol-team ol-home${sideCls('home')}">${escape(g.home)}</span>
+        ${badge(g.homeAbbr, 'ol-badge ol-badge-home')}
       </div>
       <div class="prob-bar" role="img" aria-label="${escape(g.away)} ${awayPct}%, ${escape(g.home)} ${homePct}%">
-        <div class="prob-seg prob-away" style="width:${awayPct}%"></div>
-        <div class="prob-seg prob-home" style="width:${homePct}%"></div>
+        <div class="prob-seg ${awaySeg}" style="width:${awayPct}%"></div>
+        <div class="prob-seg ${homeSeg}" style="width:${homePct}%"></div>
       </div>
       <div class="oddsline-meta">
         <span>${r.ev.bookmakerCount} book${r.ev.bookmakerCount === 1 ? '' : 's'} &middot; ${(r.ev.vig * 100).toFixed(1)}% hold</span>
@@ -284,6 +315,21 @@ function oddsRow(r) {
           : '<span class="odds-move">Opening line</span>'}
       </div>
     </div>`;
+}
+
+/**
+ * The team's mark, or an empty slot.
+ *
+ * `:empty` collapses the slot in CSS, so a team with no artwork -- or a failed
+ * identity fetch, which takes all 32 at once -- costs its own 22px and nothing
+ * else, rather than leaving a hole where the logo would be. Same reserved-slot
+ * pattern the Schedule card and the Recommend chip use.
+ */
+function badge(abbr, cls) {
+  const logo = abbr ? identity?.teams?.[abbr]?.assets?.logo : '';
+  return `<span class="${cls}" aria-hidden="true">${
+    logo ? `<img src="${escape(logo)}" alt="" loading="lazy" decoding="async">` : ''
+  }</span>`;
 }
 
 /* ── Empty and degraded states ────────────────────────────────────────── */
