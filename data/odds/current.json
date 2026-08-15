@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-15T08:12:28.463098+00:00",
+ "fetchedAt": "2026-08-15T11:07:55.021440+00:00",
  "events": [
   {
    "id": "8c94552d022acec4a0458d70c19d3da9",
@@ -202,11 +202,11 @@
    "home": "Kansas City Chiefs",
    "away": "Denver Broncos",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.5998,
+   "rawHomeProb": 0.599,
    "rawAwayProb": 0.4456,
-   "homeWinProb": 0.5737,
-   "awayWinProb": 0.4263,
-   "vig": 0.0455,
+   "homeWinProb": 0.5734,
+   "awayWinProb": 0.4266,
+   "vig": 0.0446,
    "bucket": 4
   },
   {

@@ -292,5 +292,19 @@
   "vig": 0.0425,
   "bucket": 12,
   "fetchedAt": "2026-08-15T08:12:28.463098+00:00"
+ },
+ {
+  "id": "c75744790b7acf6260c78ba5e739c0e5",
+  "commenceTime": "2026-11-06T01:15:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6721,
+  "rawAwayProb": 0.3704,
+  "homeWinProb": 0.6447,
+  "awayWinProb": 0.3553,
+  "vig": 0.0425,
+  "bucket": 12,
+  "fetchedAt": "2026-08-15T11:07:55.021440+00:00"
  }
 ]

@@ -292,5 +292,19 @@
   "vig": 0.0428,
   "bucket": 20,
   "fetchedAt": "2026-08-15T08:12:28.463098+00:00"
+ },
+ {
+  "id": "bfe51fa0034c9d22a69ffd80e2d717f5",
+  "commenceTime": "2027-01-03T18:00:00Z",
+  "home": "New York Jets",
+  "away": "Minnesota Vikings",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3937,
+  "rawAwayProb": 0.6491,
+  "homeWinProb": 0.3775,
+  "awayWinProb": 0.6225,
+  "vig": 0.0428,
+  "bucket": 20,
+  "fetchedAt": "2026-08-15T11:07:55.021440+00:00"
  }
 ]

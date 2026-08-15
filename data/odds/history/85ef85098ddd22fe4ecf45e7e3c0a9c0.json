@@ -292,5 +292,19 @@
   "vig": 0.0421,
   "bucket": 5,
   "fetchedAt": "2026-08-15T08:12:28.463098+00:00"
+ },
+ {
+  "id": "85ef85098ddd22fe4ecf45e7e3c0a9c0",
+  "commenceTime": "2026-09-20T20:25:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Washington Commanders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6575,
+  "rawAwayProb": 0.3846,
+  "homeWinProb": 0.6309,
+  "awayWinProb": 0.3691,
+  "vig": 0.0421,
+  "bucket": 5,
+  "fetchedAt": "2026-08-15T11:07:55.021440+00:00"
  }
 ]
