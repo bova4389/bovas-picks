@@ -278,5 +278,19 @@
   "vig": 0.0427,
   "bucket": 10,
   "fetchedAt": "2026-08-15T05:13:45.783224+00:00"
+ },
+ {
+  "id": "b1be064fb52a198a62109c279e7ab24c",
+  "commenceTime": "2026-10-25T17:00:00Z",
+  "home": "Atlanta Falcons",
+  "away": "San Francisco 49ers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3571,
+  "rawAwayProb": 0.6855,
+  "homeWinProb": 0.3425,
+  "awayWinProb": 0.6575,
+  "vig": 0.0427,
+  "bucket": 10,
+  "fetchedAt": "2026-08-15T08:12:28.463098+00:00"
  }
 ]

@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-15T05:13:45.783224+00:00",
+ "fetchedAt": "2026-08-15T08:12:28.463098+00:00",
  "events": [
   {
    "id": "8c94552d022acec4a0458d70c19d3da9",
@@ -202,10 +202,10 @@
    "home": "Kansas City Chiefs",
    "away": "Denver Broncos",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6014,
-   "rawAwayProb": 0.4441,
-   "homeWinProb": 0.5752,
-   "awayWinProb": 0.4248,
+   "rawHomeProb": 0.5998,
+   "rawAwayProb": 0.4456,
+   "homeWinProb": 0.5737,
+   "awayWinProb": 0.4263,
    "vig": 0.0455,
    "bucket": 4
   },
@@ -2347,11 +2347,11 @@
    "home": "Atlanta Falcons",
    "away": "Detroit Lions",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.3846,
-   "rawAwayProb": 0.6575,
-   "homeWinProb": 0.3691,
-   "awayWinProb": 0.6309,
-   "vig": 0.0421,
+   "rawHomeProb": 0.3937,
+   "rawAwayProb": 0.6491,
+   "homeWinProb": 0.3775,
+   "awayWinProb": 0.6225,
+   "vig": 0.0428,
    "bucket": 16
   },
   {

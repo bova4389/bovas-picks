@@ -278,5 +278,19 @@
   "vig": 0.0413,
   "bucket": 5,
   "fetchedAt": "2026-08-15T05:13:45.783224+00:00"
+ },
+ {
+  "id": "1fd6628c781f556a7a19638e97d7107f",
+  "commenceTime": "2026-09-20T20:05:00Z",
+  "home": "Denver Broncos",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 5,
+  "fetchedAt": "2026-08-15T08:12:28.463098+00:00"
  }
 ]
