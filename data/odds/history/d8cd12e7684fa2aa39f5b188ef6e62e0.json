@@ -376,5 +376,19 @@
   "vig": 0.0476,
   "bucket": 18,
   "fetchedAt": "2026-08-16T14:09:53.992716+00:00"
+ },
+ {
+  "id": "d8cd12e7684fa2aa39f5b188ef6e62e0",
+  "commenceTime": "2026-12-20T21:05:00Z",
+  "home": "Arizona Cardinals",
+  "away": "New York Jets",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5238,
+  "rawAwayProb": 0.5238,
+  "homeWinProb": 0.5,
+  "awayWinProb": 0.5,
+  "vig": 0.0476,
+  "bucket": 18,
+  "fetchedAt": "2026-08-17T14:14:45.508366+00:00"
  }
 ]

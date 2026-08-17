@@ -376,5 +376,19 @@
   "vig": 0.0407,
   "bucket": 16,
   "fetchedAt": "2026-08-16T14:09:53.992716+00:00"
+ },
+ {
+  "id": "a5495c3360b3bb13da76ba23a675c9ef",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "New York Giants",
+  "away": "San Francisco 49ers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4167,
+  "rawAwayProb": 0.6241,
+  "homeWinProb": 0.4004,
+  "awayWinProb": 0.5996,
+  "vig": 0.0407,
+  "bucket": 16,
+  "fetchedAt": "2026-08-17T14:14:45.508366+00:00"
  }
 ]

@@ -376,5 +376,19 @@
   "vig": 0.0418,
   "bucket": 7,
   "fetchedAt": "2026-08-16T14:09:53.992716+00:00"
+ },
+ {
+  "id": "2ea94ddf20f66432b9024fe2e2eaba5f",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "Cincinnati Bengals",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "bucket": 7,
+  "fetchedAt": "2026-08-17T14:14:45.508366+00:00"
  }
 ]

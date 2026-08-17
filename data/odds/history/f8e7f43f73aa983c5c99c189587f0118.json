@@ -376,5 +376,19 @@
   "vig": 0.0423,
   "bucket": 8,
   "fetchedAt": "2026-08-16T14:09:53.992716+00:00"
+ },
+ {
+  "id": "f8e7f43f73aa983c5c99c189587f0118",
+  "commenceTime": "2026-10-11T20:25:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Detroit Lions",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2532,
+  "rawAwayProb": 0.7895,
+  "homeWinProb": 0.2428,
+  "awayWinProb": 0.7572,
+  "vig": 0.0426,
+  "bucket": 8,
+  "fetchedAt": "2026-08-17T14:14:45.508366+00:00"
  }
 ]

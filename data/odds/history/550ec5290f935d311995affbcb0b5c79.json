@@ -376,5 +376,19 @@
   "vig": 0.0421,
   "bucket": 10,
   "fetchedAt": "2026-08-16T14:09:53.992716+00:00"
+ },
+ {
+  "id": "550ec5290f935d311995affbcb0b5c79",
+  "commenceTime": "2026-10-25T17:00:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6575,
+  "rawAwayProb": 0.3846,
+  "homeWinProb": 0.6309,
+  "awayWinProb": 0.3691,
+  "vig": 0.0421,
+  "bucket": 10,
+  "fetchedAt": "2026-08-17T14:14:45.508366+00:00"
  }
 ]
