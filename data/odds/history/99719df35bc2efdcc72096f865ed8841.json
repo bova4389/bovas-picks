@@ -390,5 +390,19 @@
   "vig": 0.0425,
   "bucket": 18,
   "fetchedAt": "2026-08-17T14:14:45.508366+00:00"
+ },
+ {
+  "id": "99719df35bc2efdcc72096f865ed8841",
+  "commenceTime": "2026-12-20T18:00:00Z",
+  "home": "Green Bay Packers",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8571,
+  "rawAwayProb": 0.1852,
+  "homeWinProb": 0.8223,
+  "awayWinProb": 0.1777,
+  "vig": 0.0423,
+  "bucket": 18,
+  "fetchedAt": "2026-08-18T14:19:43.217976+00:00"
  }
 ]

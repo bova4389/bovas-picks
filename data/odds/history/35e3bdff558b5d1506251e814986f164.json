@@ -390,5 +390,19 @@
   "vig": 0.0421,
   "bucket": 13,
   "fetchedAt": "2026-08-17T14:14:45.508366+00:00"
+ },
+ {
+  "id": "35e3bdff558b5d1506251e814986f164",
+  "commenceTime": "2026-11-17T01:15:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6575,
+  "rawAwayProb": 0.3846,
+  "homeWinProb": 0.6309,
+  "awayWinProb": 0.3691,
+  "vig": 0.0421,
+  "bucket": 13,
+  "fetchedAt": "2026-08-18T14:19:43.217976+00:00"
  }
 ]

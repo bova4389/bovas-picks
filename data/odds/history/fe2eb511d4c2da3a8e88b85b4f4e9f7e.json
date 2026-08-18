@@ -390,5 +390,19 @@
   "vig": 0.043,
   "bucket": 19,
   "fetchedAt": "2026-08-17T14:14:45.508366+00:00"
+ },
+ {
+  "id": "fe2eb511d4c2da3a8e88b85b4f4e9f7e",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "Miami Dolphins",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2632,
+  "rawAwayProb": 0.7802,
+  "homeWinProb": 0.2522,
+  "awayWinProb": 0.7478,
+  "vig": 0.0434,
+  "bucket": 19,
+  "fetchedAt": "2026-08-18T14:19:43.217976+00:00"
  }
 ]
