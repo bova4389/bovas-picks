@@ -404,5 +404,19 @@
   "vig": 0.0419,
   "bucket": 7,
   "fetchedAt": "2026-08-18T14:19:43.217976+00:00"
+ },
+ {
+  "id": "f01589b0e7e6dd4f4ac1220a1db81f53",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8039,
+  "rawAwayProb": 0.2381,
+  "homeWinProb": 0.7715,
+  "awayWinProb": 0.2285,
+  "vig": 0.042,
+  "bucket": 6,
+  "fetchedAt": "2026-08-19T14:20:17.275120+00:00"
  }
 ]

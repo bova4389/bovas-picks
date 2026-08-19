@@ -404,5 +404,19 @@
   "vig": 0.0419,
   "bucket": 6,
   "fetchedAt": "2026-08-18T14:19:43.217976+00:00"
+ },
+ {
+  "id": "07f552badfa8a565d1be22123713e4da",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Detroit Lions",
+  "away": "New York Jets",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.798,
+  "rawAwayProb": 0.2439,
+  "homeWinProb": 0.7659,
+  "awayWinProb": 0.2341,
+  "vig": 0.0419,
+  "bucket": 5,
+  "fetchedAt": "2026-08-19T14:20:17.275120+00:00"
  }
 ]

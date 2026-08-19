@@ -404,5 +404,19 @@
   "vig": 0.0422,
   "bucket": 6,
   "fetchedAt": "2026-08-18T14:19:43.217976+00:00"
+ },
+ {
+  "id": "9d2b09e0f9b6dd5ce0d985894f4f98fa",
+  "commenceTime": "2026-09-27T20:05:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8621,
+  "rawAwayProb": 0.1802,
+  "homeWinProb": 0.8271,
+  "awayWinProb": 0.1729,
+  "vig": 0.0422,
+  "bucket": 5,
+  "fetchedAt": "2026-08-19T14:20:17.275120+00:00"
  }
 ]

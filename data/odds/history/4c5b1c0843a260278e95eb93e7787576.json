@@ -404,5 +404,19 @@
   "vig": 0.0423,
   "bucket": 14,
   "fetchedAt": "2026-08-18T14:19:43.217976+00:00"
+ },
+ {
+  "id": "4c5b1c0843a260278e95eb93e7787576",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Buffalo Bills",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8571,
+  "rawAwayProb": 0.1852,
+  "homeWinProb": 0.8223,
+  "awayWinProb": 0.1777,
+  "vig": 0.0423,
+  "bucket": 13,
+  "fetchedAt": "2026-08-19T14:20:17.275120+00:00"
  }
 ]
