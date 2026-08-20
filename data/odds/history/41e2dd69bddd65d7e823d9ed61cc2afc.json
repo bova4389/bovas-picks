@@ -474,5 +474,19 @@
   "vig": 0.0432,
   "bucket": 13,
   "fetchedAt": "2026-08-20T11:14:47.542197+00:00"
+ },
+ {
+  "id": "41e2dd69bddd65d7e823d9ed61cc2afc",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Detroit Lions",
+  "away": "Tampa Bay Buccaneers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6923,
+  "rawAwayProb": 0.3509,
+  "homeWinProb": 0.6636,
+  "awayWinProb": 0.3364,
+  "vig": 0.0432,
+  "bucket": 13,
+  "fetchedAt": "2026-08-20T14:22:56.898511+00:00"
  }
 ]
