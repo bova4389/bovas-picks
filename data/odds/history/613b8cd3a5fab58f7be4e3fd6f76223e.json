@@ -418,5 +418,19 @@
   "vig": 0.0434,
   "bucket": 5,
   "fetchedAt": "2026-08-19T14:20:17.275120+00:00"
+ },
+ {
+  "id": "613b8cd3a5fab58f7be4e3fd6f76223e",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Cleveland Browns",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4878,
+  "rawAwayProb": 0.5556,
+  "homeWinProb": 0.4675,
+  "awayWinProb": 0.5325,
+  "vig": 0.0434,
+  "bucket": 5,
+  "fetchedAt": "2026-08-20T02:45:44.291587+00:00"
  }
 ]
