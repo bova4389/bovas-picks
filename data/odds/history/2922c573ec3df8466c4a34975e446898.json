@@ -446,5 +446,19 @@
   "vig": 0.0434,
   "bucket": 11,
   "fetchedAt": "2026-08-20T05:19:33.212653+00:00"
+ },
+ {
+  "id": "2922c573ec3df8466c4a34975e446898",
+  "commenceTime": "2026-11-08T21:25:00Z",
+  "home": "New England Patriots",
+  "away": "Green Bay Packers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 11,
+  "fetchedAt": "2026-08-20T08:21:54.978433+00:00"
  }
 ]

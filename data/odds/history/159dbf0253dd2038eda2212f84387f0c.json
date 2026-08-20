@@ -446,5 +446,19 @@
   "vig": 0.0418,
   "bucket": 10,
   "fetchedAt": "2026-08-20T05:19:33.212653+00:00"
+ },
+ {
+  "id": "159dbf0253dd2038eda2212f84387f0c",
+  "commenceTime": "2026-11-01T18:00:00Z",
+  "home": "Jacksonville Jaguars",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.697,
+  "rawAwayProb": 0.3448,
+  "homeWinProb": 0.669,
+  "awayWinProb": 0.331,
+  "vig": 0.0418,
+  "bucket": 10,
+  "fetchedAt": "2026-08-20T08:21:54.978433+00:00"
  }
 ]
