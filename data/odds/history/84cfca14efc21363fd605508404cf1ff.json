@@ -488,5 +488,19 @@
   "vig": 0.0418,
   "bucket": 5,
   "fetchedAt": "2026-08-20T14:22:56.898511+00:00"
+ },
+ {
+  "id": "84cfca14efc21363fd605508404cf1ff",
+  "commenceTime": "2026-09-27T20:25:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4673,
+  "rawAwayProb": 0.5745,
+  "homeWinProb": 0.4486,
+  "awayWinProb": 0.5514,
+  "vig": 0.0418,
+  "bucket": 5,
+  "fetchedAt": "2026-08-20T17:17:02.477972+00:00"
  }
 ]

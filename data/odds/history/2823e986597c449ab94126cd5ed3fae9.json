@@ -488,5 +488,19 @@
   "vig": 0.0434,
   "bucket": 9,
   "fetchedAt": "2026-08-20T14:22:56.898511+00:00"
+ },
+ {
+  "id": "2823e986597c449ab94126cd5ed3fae9",
+  "commenceTime": "2026-10-25T17:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "Tampa Bay Buccaneers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4878,
+  "rawAwayProb": 0.5556,
+  "homeWinProb": 0.4675,
+  "awayWinProb": 0.5325,
+  "vig": 0.0434,
+  "bucket": 9,
+  "fetchedAt": "2026-08-20T17:17:02.477972+00:00"
  }
 ]

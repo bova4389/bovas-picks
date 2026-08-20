@@ -488,5 +488,19 @@
   "vig": 0.042,
   "bucket": 12,
   "fetchedAt": "2026-08-20T14:22:56.898511+00:00"
+ },
+ {
+  "id": "6c932a965110f3f89ec4a5f1a6ac256e",
+  "commenceTime": "2026-11-15T21:05:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Los Angeles Rams",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2174,
+  "rawAwayProb": 0.8246,
+  "homeWinProb": 0.2086,
+  "awayWinProb": 0.7914,
+  "vig": 0.042,
+  "bucket": 12,
+  "fetchedAt": "2026-08-20T17:17:02.477972+00:00"
  }
 ]
