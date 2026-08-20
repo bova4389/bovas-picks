@@ -516,5 +516,19 @@
   "vig": 0.0419,
   "bucket": 5,
   "fetchedAt": "2026-08-20T20:14:32.956075+00:00"
+ },
+ {
+  "id": "0339a0e41bcee12820eb3e64bb5fadb4",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Miami Dolphins",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2439,
+  "rawAwayProb": 0.798,
+  "homeWinProb": 0.2341,
+  "awayWinProb": 0.7659,
+  "vig": 0.0419,
+  "bucket": 5,
+  "fetchedAt": "2026-08-20T23:13:57.028204+00:00"
  }
 ]
