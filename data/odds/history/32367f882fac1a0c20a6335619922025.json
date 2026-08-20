@@ -432,5 +432,19 @@
   "vig": 0.0419,
   "bucket": 4,
   "fetchedAt": "2026-08-20T02:45:44.291587+00:00"
+ },
+ {
+  "id": "32367f882fac1a0c20a6335619922025",
+  "commenceTime": "2026-09-22T00:15:00Z",
+  "home": "Los Angeles Rams",
+  "away": "New York Giants",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.798,
+  "rawAwayProb": 0.2439,
+  "homeWinProb": 0.7659,
+  "awayWinProb": 0.2341,
+  "vig": 0.0419,
+  "bucket": 4,
+  "fetchedAt": "2026-08-20T05:19:33.212653+00:00"
  }
 ]

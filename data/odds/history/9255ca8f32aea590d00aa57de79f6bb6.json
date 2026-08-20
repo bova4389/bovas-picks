@@ -432,5 +432,19 @@
   "vig": 0.0425,
   "bucket": 10,
   "fetchedAt": "2026-08-20T02:45:44.291587+00:00"
+ },
+ {
+  "id": "9255ca8f32aea590d00aa57de79f6bb6",
+  "commenceTime": "2026-11-01T18:00:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8425,
+  "rawAwayProb": 0.2,
+  "homeWinProb": 0.8082,
+  "awayWinProb": 0.1918,
+  "vig": 0.0425,
+  "bucket": 10,
+  "fetchedAt": "2026-08-20T05:19:33.212653+00:00"
  }
 ]

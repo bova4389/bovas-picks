@@ -432,5 +432,19 @@
   "vig": 0.0422,
   "bucket": 17,
   "fetchedAt": "2026-08-20T02:45:44.291587+00:00"
+ },
+ {
+  "id": "77396e9d565860fbfd05779028223a8a",
+  "commenceTime": "2026-12-20T21:25:00Z",
+  "home": "Los Angeles Rams",
+  "away": "Dallas Cowboys",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7143,
+  "rawAwayProb": 0.3279,
+  "homeWinProb": 0.6854,
+  "awayWinProb": 0.3146,
+  "vig": 0.0422,
+  "bucket": 17,
+  "fetchedAt": "2026-08-20T05:19:33.212653+00:00"
  }
 ]
