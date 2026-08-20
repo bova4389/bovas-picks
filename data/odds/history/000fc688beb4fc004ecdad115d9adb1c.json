@@ -502,5 +502,19 @@
   "vig": 0.0432,
   "bucket": 17,
   "fetchedAt": "2026-08-20T17:17:02.477972+00:00"
+ },
+ {
+  "id": "000fc688beb4fc004ecdad115d9adb1c",
+  "commenceTime": "2026-12-20T18:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4464,
+  "rawAwayProb": 0.5968,
+  "homeWinProb": 0.4279,
+  "awayWinProb": 0.5721,
+  "vig": 0.0432,
+  "bucket": 17,
+  "fetchedAt": "2026-08-20T20:14:32.956075+00:00"
  }
 ]

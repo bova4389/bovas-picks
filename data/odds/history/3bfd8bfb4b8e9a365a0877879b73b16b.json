@@ -502,5 +502,19 @@
   "vig": 0.042,
   "bucket": 5,
   "fetchedAt": "2026-08-20T17:17:02.477972+00:00"
+ },
+ {
+  "id": "3bfd8bfb4b8e9a365a0877879b73b16b",
+  "commenceTime": "2026-09-28T00:20:00Z",
+  "home": "Denver Broncos",
+  "away": "Los Angeles Rams",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4237,
+  "rawAwayProb": 0.6183,
+  "homeWinProb": 0.4066,
+  "awayWinProb": 0.5934,
+  "vig": 0.042,
+  "bucket": 5,
+  "fetchedAt": "2026-08-20T20:14:32.956075+00:00"
  }
 ]
