@@ -460,5 +460,19 @@
   "vig": 0.0434,
   "bucket": 19,
   "fetchedAt": "2026-08-20T08:21:54.978433+00:00"
+ },
+ {
+  "id": "e5dd9cc3fd5452d55c250949e946743d",
+  "commenceTime": "2027-01-03T18:00:00Z",
+  "home": "Atlanta Falcons",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 19,
+  "fetchedAt": "2026-08-20T11:14:47.542197+00:00"
  }
 ]

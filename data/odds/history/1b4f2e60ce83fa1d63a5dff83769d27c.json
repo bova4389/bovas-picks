@@ -460,5 +460,19 @@
   "vig": 0.0434,
   "bucket": 6,
   "fetchedAt": "2026-08-20T08:21:54.978433+00:00"
+ },
+ {
+  "id": "1b4f2e60ce83fa1d63a5dff83769d27c",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "Philadelphia Eagles",
+  "away": "Los Angeles Rams",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4878,
+  "rawAwayProb": 0.5556,
+  "homeWinProb": 0.4675,
+  "awayWinProb": 0.5325,
+  "vig": 0.0434,
+  "bucket": 6,
+  "fetchedAt": "2026-08-20T11:14:47.542197+00:00"
  }
 ]

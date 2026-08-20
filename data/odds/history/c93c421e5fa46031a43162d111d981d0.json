@@ -460,5 +460,19 @@
   "vig": 0.0413,
   "bucket": 10,
   "fetchedAt": "2026-08-20T08:21:54.978433+00:00"
+ },
+ {
+  "id": "c93c421e5fa46031a43162d111d981d0",
+  "commenceTime": "2026-11-01T18:00:00Z",
+  "home": "Buffalo Bills",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 10,
+  "fetchedAt": "2026-08-20T11:14:47.542197+00:00"
  }
 ]
