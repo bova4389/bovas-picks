@@ -558,5 +558,19 @@
   "vig": 0.0426,
   "bucket": 4,
   "fetchedAt": "2026-08-21T05:20:57.611910+00:00"
+ },
+ {
+  "id": "71b3b83747589efdc5baef2c5cf811bf",
+  "commenceTime": "2026-09-20T20:05:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7895,
+  "rawAwayProb": 0.2532,
+  "homeWinProb": 0.7572,
+  "awayWinProb": 0.2428,
+  "vig": 0.0426,
+  "bucket": 4,
+  "fetchedAt": "2026-08-21T08:23:05.460723+00:00"
  }
 ]

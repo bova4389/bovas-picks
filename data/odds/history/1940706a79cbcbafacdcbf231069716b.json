@@ -558,5 +558,19 @@
   "vig": 0.0419,
   "bucket": 13,
   "fetchedAt": "2026-08-21T05:20:57.611910+00:00"
+ },
+ {
+  "id": "1940706a79cbcbafacdcbf231069716b",
+  "commenceTime": "2026-11-22T21:25:00Z",
+  "home": "Denver Broncos",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7753,
+  "rawAwayProb": 0.2667,
+  "homeWinProb": 0.7441,
+  "awayWinProb": 0.2559,
+  "vig": 0.0419,
+  "bucket": 13,
+  "fetchedAt": "2026-08-21T08:23:05.460723+00:00"
  }
 ]

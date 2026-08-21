@@ -558,5 +558,19 @@
   "vig": 0.0419,
   "bucket": 15,
   "fetchedAt": "2026-08-21T05:20:57.611910+00:00"
+ },
+ {
+  "id": "f4897f48a5351881280f7598bd826408",
+  "commenceTime": "2026-12-06T21:05:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Philadelphia Eagles",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2439,
+  "rawAwayProb": 0.798,
+  "homeWinProb": 0.2341,
+  "awayWinProb": 0.7659,
+  "vig": 0.0419,
+  "bucket": 15,
+  "fetchedAt": "2026-08-21T08:23:05.460723+00:00"
  }
 ]

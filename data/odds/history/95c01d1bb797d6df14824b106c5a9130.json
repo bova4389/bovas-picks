@@ -558,5 +558,19 @@
   "vig": 0.0416,
   "bucket": 3,
   "fetchedAt": "2026-08-21T05:20:57.611910+00:00"
+ },
+ {
+  "id": "95c01d1bb797d6df14824b106c5a9130",
+  "commenceTime": "2026-09-13T17:00:00Z",
+  "home": "Pittsburgh Steelers",
+  "away": "Atlanta Falcons",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.6227,
+  "rawAwayProb": 0.4194,
+  "homeWinProb": 0.5975,
+  "awayWinProb": 0.4025,
+  "vig": 0.042,
+  "bucket": 3,
+  "fetchedAt": "2026-08-21T08:23:05.460723+00:00"
  }
 ]
