@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-21T02:52:36.900030+00:00",
+ "fetchedAt": "2026-08-21T05:20:57.611910+00:00",
  "events": [
   {
    "id": "8c94552d022acec4a0458d70c19d3da9",
@@ -19,12 +19,12 @@
    "commenceTime": "2026-09-11T00:35:00Z",
    "home": "Los Angeles Rams",
    "away": "San Francisco 49ers",
-   "bookmakerCount": 9,
-   "rawHomeProb": 0.663,
-   "rawAwayProb": 0.379,
-   "homeWinProb": 0.6363,
-   "awayWinProb": 0.3637,
-   "vig": 0.0419,
+   "bookmakerCount": 8,
+   "rawHomeProb": 0.6628,
+   "rawAwayProb": 0.3793,
+   "homeWinProb": 0.636,
+   "awayWinProb": 0.364,
+   "vig": 0.0421,
    "bucket": 3
   },
   {
@@ -1294,11 +1294,11 @@
    "home": "Houston Texans",
    "away": "New York Giants",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7101,
-   "rawAwayProb": 0.3333,
-   "homeWinProb": 0.6806,
-   "awayWinProb": 0.3194,
-   "vig": 0.0435,
+   "rawHomeProb": 0.7041,
+   "rawAwayProb": 0.339,
+   "homeWinProb": 0.675,
+   "awayWinProb": 0.325,
+   "vig": 0.0431,
    "bucket": 9
   },
   {
@@ -2490,11 +2490,11 @@
    "home": "Pittsburgh Steelers",
    "away": "Houston Texans",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.4878,
-   "rawAwayProb": 0.5556,
-   "homeWinProb": 0.4675,
-   "awayWinProb": 0.5325,
-   "vig": 0.0434,
+   "rawHomeProb": 0.495,
+   "rawAwayProb": 0.5495,
+   "homeWinProb": 0.4739,
+   "awayWinProb": 0.5261,
+   "vig": 0.0446,
    "bucket": 15
   },
   {
@@ -3439,10 +3439,10 @@
    "home": "Houston Texans",
    "away": "Tennessee Titans",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7487,
-   "rawAwayProb": 0.2941,
-   "homeWinProb": 0.718,
-   "awayWinProb": 0.282,
+   "rawHomeProb": 0.7531,
+   "rawAwayProb": 0.2899,
+   "homeWinProb": 0.7221,
+   "awayWinProb": 0.2779,
    "vig": 0.0429,
    "bucket": 20
   },
