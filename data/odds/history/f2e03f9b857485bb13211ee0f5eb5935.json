@@ -614,5 +614,19 @@
   "vig": 0.0418,
   "bucket": 19,
   "fetchedAt": "2026-08-21T17:17:23.447977+00:00"
+ },
+ {
+  "id": "f2e03f9b857485bb13211ee0f5eb5935",
+  "commenceTime": "2027-01-03T18:00:00Z",
+  "home": "Cleveland Browns",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4673,
+  "rawAwayProb": 0.5745,
+  "homeWinProb": 0.4486,
+  "awayWinProb": 0.5514,
+  "vig": 0.0418,
+  "bucket": 19,
+  "fetchedAt": "2026-08-21T20:10:56.872455+00:00"
  }
 ]

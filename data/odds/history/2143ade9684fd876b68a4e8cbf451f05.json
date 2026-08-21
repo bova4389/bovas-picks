@@ -614,5 +614,19 @@
   "vig": 0.0423,
   "bucket": 4,
   "fetchedAt": "2026-08-21T17:17:23.447977+00:00"
+ },
+ {
+  "id": "2143ade9684fd876b68a4e8cbf451f05",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "Baltimore Ravens",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7826,
+  "rawAwayProb": 0.2597,
+  "homeWinProb": 0.7508,
+  "awayWinProb": 0.2492,
+  "vig": 0.0423,
+  "bucket": 4,
+  "fetchedAt": "2026-08-21T20:10:56.872455+00:00"
  }
 ]

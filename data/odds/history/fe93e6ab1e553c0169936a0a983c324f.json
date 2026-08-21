@@ -614,5 +614,19 @@
   "vig": 0.0431,
   "bucket": 11,
   "fetchedAt": "2026-08-21T17:17:23.447977+00:00"
+ },
+ {
+  "id": "fe93e6ab1e553c0169936a0a983c324f",
+  "commenceTime": "2026-11-08T18:00:00Z",
+  "home": "Philadelphia Eagles",
+  "away": "New York Giants",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7041,
+  "rawAwayProb": 0.339,
+  "homeWinProb": 0.675,
+  "awayWinProb": 0.325,
+  "vig": 0.0431,
+  "bucket": 11,
+  "fetchedAt": "2026-08-21T20:10:56.872455+00:00"
  }
 ]

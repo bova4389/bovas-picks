@@ -614,5 +614,19 @@
   "vig": 0.043,
   "bucket": 9,
   "fetchedAt": "2026-08-21T17:17:23.447977+00:00"
+ },
+ {
+  "id": "f7679cf18454e4d88a8f2b990c3f08ac",
+  "commenceTime": "2026-10-25T20:25:00Z",
+  "home": "Las Vegas Raiders",
+  "away": "Los Angeles Rams",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2703,
+  "rawAwayProb": 0.7727,
+  "homeWinProb": 0.2591,
+  "awayWinProb": 0.7409,
+  "vig": 0.043,
+  "bucket": 9,
+  "fetchedAt": "2026-08-21T20:10:56.872455+00:00"
  }
 ]
