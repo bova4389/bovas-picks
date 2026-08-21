@@ -586,5 +586,19 @@
   "vig": 0.0418,
   "bucket": 4,
   "fetchedAt": "2026-08-21T11:14:45.085974+00:00"
+ },
+ {
+  "id": "36ad2fa722f4915ef23d2c81351261de",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "Houston Texans",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "bucket": 4,
+  "fetchedAt": "2026-08-21T14:21:52.416447+00:00"
  }
 ]

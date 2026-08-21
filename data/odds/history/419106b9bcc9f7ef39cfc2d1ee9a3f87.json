@@ -586,5 +586,19 @@
   "vig": 0.0427,
   "bucket": 19,
   "fetchedAt": "2026-08-21T11:14:45.085974+00:00"
+ },
+ {
+  "id": "419106b9bcc9f7ef39cfc2d1ee9a3f87",
+  "commenceTime": "2027-01-03T18:00:00Z",
+  "home": "Tampa Bay Buccaneers",
+  "away": "Los Angeles Rams",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3571,
+  "rawAwayProb": 0.6855,
+  "homeWinProb": 0.3425,
+  "awayWinProb": 0.6575,
+  "vig": 0.0427,
+  "bucket": 19,
+  "fetchedAt": "2026-08-21T14:21:52.416447+00:00"
  }
 ]

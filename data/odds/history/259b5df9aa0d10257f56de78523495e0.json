@@ -586,5 +586,19 @@
   "vig": 0.0425,
   "bucket": 7,
   "fetchedAt": "2026-08-21T11:14:45.085974+00:00"
+ },
+ {
+  "id": "259b5df9aa0d10257f56de78523495e0",
+  "commenceTime": "2026-10-09T00:15:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Tampa Bay Buccaneers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6721,
+  "rawAwayProb": 0.3704,
+  "homeWinProb": 0.6447,
+  "awayWinProb": 0.3553,
+  "vig": 0.0425,
+  "bucket": 7,
+  "fetchedAt": "2026-08-21T14:21:52.416447+00:00"
  }
 ]

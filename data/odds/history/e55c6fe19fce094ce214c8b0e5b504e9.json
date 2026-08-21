@@ -586,5 +586,19 @@
   "vig": 0.045,
   "bucket": 3,
   "fetchedAt": "2026-08-21T11:14:45.085974+00:00"
+ },
+ {
+  "id": "e55c6fe19fce094ce214c8b0e5b504e9",
+  "commenceTime": "2026-09-13T17:00:00Z",
+  "home": "Jacksonville Jaguars",
+  "away": "Cleveland Browns",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.7945,
+  "rawAwayProb": 0.2504,
+  "homeWinProb": 0.7604,
+  "awayWinProb": 0.2396,
+  "vig": 0.045,
+  "bucket": 3,
+  "fetchedAt": "2026-08-21T14:21:52.416447+00:00"
  }
 ]
