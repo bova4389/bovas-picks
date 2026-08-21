@@ -572,5 +572,19 @@
   "vig": 0.0435,
   "bucket": 18,
   "fetchedAt": "2026-08-21T08:23:05.460723+00:00"
+ },
+ {
+  "id": "669a7b568c2a64f9a136dadb0eda1da8",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "New York Jets",
+  "away": "New England Patriots",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3175,
+  "rawAwayProb": 0.726,
+  "homeWinProb": 0.3042,
+  "awayWinProb": 0.6958,
+  "vig": 0.0435,
+  "bucket": 18,
+  "fetchedAt": "2026-08-21T11:14:45.085974+00:00"
  }
 ]
