@@ -628,5 +628,19 @@
   "vig": 0.0446,
   "bucket": 15,
   "fetchedAt": "2026-08-21T20:10:56.872455+00:00"
+ },
+ {
+  "id": "26bf8e165d2d273ed0772a355f07ab16",
+  "commenceTime": "2026-12-07T01:20:00Z",
+  "home": "Pittsburgh Steelers",
+  "away": "Houston Texans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.495,
+  "rawAwayProb": 0.5495,
+  "homeWinProb": 0.4739,
+  "awayWinProb": 0.5261,
+  "vig": 0.0446,
+  "bucket": 15,
+  "fetchedAt": "2026-08-21T23:11:22.957507+00:00"
  }
 ]

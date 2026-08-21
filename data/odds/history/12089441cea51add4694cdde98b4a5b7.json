@@ -628,5 +628,19 @@
   "vig": 0.0434,
   "bucket": 19,
   "fetchedAt": "2026-08-21T20:10:56.872455+00:00"
+ },
+ {
+  "id": "12089441cea51add4694cdde98b4a5b7",
+  "commenceTime": "2027-01-03T21:25:00Z",
+  "home": "Chicago Bears",
+  "away": "Detroit Lions",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 19,
+  "fetchedAt": "2026-08-21T23:11:22.957507+00:00"
  }
 ]

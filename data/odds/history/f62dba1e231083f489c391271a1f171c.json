@@ -628,5 +628,19 @@
   "vig": 0.0418,
   "bucket": 19,
   "fetchedAt": "2026-08-21T20:10:56.872455+00:00"
+ },
+ {
+  "id": "f62dba1e231083f489c391271a1f171c",
+  "commenceTime": "2027-01-03T18:00:00Z",
+  "home": "New England Patriots",
+  "away": "Denver Broncos",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "bucket": 19,
+  "fetchedAt": "2026-08-21T23:11:22.957507+00:00"
  }
 ]

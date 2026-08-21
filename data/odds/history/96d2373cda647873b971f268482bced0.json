@@ -628,5 +628,19 @@
   "vig": 0.0445,
   "bucket": 6,
   "fetchedAt": "2026-08-21T20:10:56.872455+00:00"
+ },
+ {
+  "id": "96d2373cda647873b971f268482bced0",
+  "commenceTime": "2026-10-04T20:25:00Z",
+  "home": "Seattle Seahawks",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6364,
+  "rawAwayProb": 0.4082,
+  "homeWinProb": 0.6092,
+  "awayWinProb": 0.3908,
+  "vig": 0.0445,
+  "bucket": 6,
+  "fetchedAt": "2026-08-21T23:11:22.957507+00:00"
  }
 ]

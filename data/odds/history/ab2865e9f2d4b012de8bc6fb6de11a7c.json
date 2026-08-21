@@ -628,5 +628,19 @@
   "vig": 0.043,
   "bucket": 10,
   "fetchedAt": "2026-08-21T20:10:56.872455+00:00"
+ },
+ {
+  "id": "ab2865e9f2d4b012de8bc6fb6de11a7c",
+  "commenceTime": "2026-10-30T00:15:00Z",
+  "home": "Green Bay Packers",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7753,
+  "rawAwayProb": 0.2667,
+  "homeWinProb": 0.7441,
+  "awayWinProb": 0.2559,
+  "vig": 0.0419,
+  "bucket": 10,
+  "fetchedAt": "2026-08-21T23:11:22.957507+00:00"
  }
 ]
