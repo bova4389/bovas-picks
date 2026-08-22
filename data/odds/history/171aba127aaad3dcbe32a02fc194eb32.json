@@ -712,5 +712,19 @@
   "vig": 0.0434,
   "bucket": 17,
   "fetchedAt": "2026-08-22T14:09:11.900132+00:00"
+ },
+ {
+  "id": "171aba127aaad3dcbe32a02fc194eb32",
+  "commenceTime": "2026-12-19T22:00:00Z",
+  "home": "Philadelphia Eagles",
+  "away": "Seattle Seahawks",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 17,
+  "fetchedAt": "2026-08-22T17:09:26.355331+00:00"
  }
 ]

@@ -712,5 +712,19 @@
   "vig": 0.0422,
   "bucket": 13,
   "fetchedAt": "2026-08-22T14:09:11.900132+00:00"
+ },
+ {
+  "id": "66f9e83cf025d58acee12bce18661fb3",
+  "commenceTime": "2026-11-20T01:15:00Z",
+  "home": "Houston Texans",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7143,
+  "rawAwayProb": 0.3279,
+  "homeWinProb": 0.6854,
+  "awayWinProb": 0.3146,
+  "vig": 0.0422,
+  "bucket": 13,
+  "fetchedAt": "2026-08-22T17:09:26.355331+00:00"
  }
 ]
