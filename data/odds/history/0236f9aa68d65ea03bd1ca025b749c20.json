@@ -740,5 +740,19 @@
   "vig": 0.0426,
   "bucket": 15,
   "fetchedAt": "2026-08-22T20:08:53.005342+00:00"
+ },
+ {
+  "id": "0236f9aa68d65ea03bd1ca025b749c20",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "Chicago Bears",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6078,
+  "rawAwayProb": 0.4348,
+  "homeWinProb": 0.583,
+  "awayWinProb": 0.417,
+  "vig": 0.0426,
+  "bucket": 15,
+  "fetchedAt": "2026-08-22T23:08:35.918056+00:00"
  }
 ]
