@@ -670,5 +670,19 @@
   "vig": 0.0418,
   "bucket": 19,
   "fetchedAt": "2026-08-22T05:15:20.174242+00:00"
+ },
+ {
+  "id": "37bc346543da471e067b695b862ccfe9",
+  "commenceTime": "2027-01-05T01:15:00Z",
+  "home": "Green Bay Packers",
+  "away": "Houston Texans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "bucket": 19,
+  "fetchedAt": "2026-08-22T08:14:29.230194+00:00"
  }
 ]

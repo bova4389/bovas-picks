@@ -670,5 +670,19 @@
   "vig": 0.0428,
   "bucket": 17,
   "fetchedAt": "2026-08-22T05:15:20.174242+00:00"
+ },
+ {
+  "id": "5931eee49f5f2656a5344e1388a68816",
+  "commenceTime": "2026-12-20T18:00:00Z",
+  "home": "Washington Commanders",
+  "away": "Atlanta Falcons",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6491,
+  "rawAwayProb": 0.3937,
+  "homeWinProb": 0.6225,
+  "awayWinProb": 0.3775,
+  "vig": 0.0428,
+  "bucket": 17,
+  "fetchedAt": "2026-08-22T08:14:29.230194+00:00"
  }
 ]

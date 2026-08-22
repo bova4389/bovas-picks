@@ -670,5 +670,19 @@
   "vig": 0.0435,
   "bucket": 18,
   "fetchedAt": "2026-08-22T05:15:20.174242+00:00"
+ },
+ {
+  "id": "8fd00347b6d77ce384d83cba814430d7",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "New Orleans Saints",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7101,
+  "rawAwayProb": 0.3333,
+  "homeWinProb": 0.6806,
+  "awayWinProb": 0.3194,
+  "vig": 0.0435,
+  "bucket": 18,
+  "fetchedAt": "2026-08-22T08:14:29.230194+00:00"
  }
 ]
