@@ -698,5 +698,19 @@
   "vig": 0.0455,
   "bucket": 12,
   "fetchedAt": "2026-08-22T11:09:47.900659+00:00"
+ },
+ {
+  "id": "7627192fd89b05120ab6c712aa23fd81",
+  "commenceTime": "2026-11-15T21:25:00Z",
+  "home": "Dallas Cowboys",
+  "away": "San Francisco 49ers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5455,
+  "rawAwayProb": 0.5,
+  "homeWinProb": 0.5217,
+  "awayWinProb": 0.4783,
+  "vig": 0.0455,
+  "bucket": 12,
+  "fetchedAt": "2026-08-22T14:09:11.900132+00:00"
  }
 ]

@@ -698,5 +698,19 @@
   "vig": 0.0446,
   "bucket": 14,
   "fetchedAt": "2026-08-22T11:09:47.900659+00:00"
+ },
+ {
+  "id": "60d0c074801985c1062795362a24200e",
+  "commenceTime": "2026-11-29T18:00:00Z",
+  "home": "Houston Texans",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5495,
+  "rawAwayProb": 0.495,
+  "homeWinProb": 0.5261,
+  "awayWinProb": 0.4739,
+  "vig": 0.0446,
+  "bucket": 14,
+  "fetchedAt": "2026-08-22T14:09:11.900132+00:00"
  }
 ]

@@ -698,5 +698,19 @@
   "vig": 0.0417,
   "bucket": 16,
   "fetchedAt": "2026-08-22T11:09:47.900659+00:00"
+ },
+ {
+  "id": "f5ab9d8455daf9e2a6c4c443fe0cd19f",
+  "commenceTime": "2026-12-13T21:25:00Z",
+  "home": "Seattle Seahawks",
+  "away": "New York Giants",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7917,
+  "rawAwayProb": 0.25,
+  "homeWinProb": 0.76,
+  "awayWinProb": 0.24,
+  "vig": 0.0417,
+  "bucket": 16,
+  "fetchedAt": "2026-08-22T14:09:11.900132+00:00"
  }
 ]
