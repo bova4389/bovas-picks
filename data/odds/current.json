@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-21T23:11:22.957507+00:00",
+ "fetchedAt": "2026-08-22T02:44:13.918814+00:00",
  "events": [
   {
    "id": "8c94552d022acec4a0458d70c19d3da9",
@@ -85,11 +85,11 @@
    "home": "Cincinnati Bengals",
    "away": "Tampa Bay Buccaneers",
    "bookmakerCount": 8,
-   "rawHomeProb": 0.6676,
-   "rawAwayProb": 0.3734,
-   "homeWinProb": 0.6413,
-   "awayWinProb": 0.3587,
-   "vig": 0.0409,
+   "rawHomeProb": 0.6666,
+   "rawAwayProb": 0.3744,
+   "homeWinProb": 0.6403,
+   "awayWinProb": 0.3597,
+   "vig": 0.041,
    "bucket": 3
   },
   {
@@ -137,11 +137,11 @@
    "home": "Los Angeles Chargers",
    "away": "Arizona Cardinals",
    "bookmakerCount": 8,
-   "rawHomeProb": 0.8519,
-   "rawAwayProb": 0.1935,
-   "homeWinProb": 0.8149,
-   "awayWinProb": 0.1851,
-   "vig": 0.0454,
+   "rawHomeProb": 0.8528,
+   "rawAwayProb": 0.1923,
+   "homeWinProb": 0.816,
+   "awayWinProb": 0.184,
+   "vig": 0.0451,
    "bucket": 3
   },
   {
@@ -423,11 +423,11 @@
    "home": "Green Bay Packers",
    "away": "Atlanta Falcons",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7895,
-   "rawAwayProb": 0.2532,
-   "homeWinProb": 0.7572,
-   "awayWinProb": 0.2428,
-   "vig": 0.0426,
+   "rawHomeProb": 0.7826,
+   "rawAwayProb": 0.2597,
+   "homeWinProb": 0.7508,
+   "awayWinProb": 0.2492,
+   "vig": 0.0423,
    "bucket": 5
   },
   {
@@ -3387,11 +3387,11 @@
    "home": "Cincinnati Bengals",
    "away": "Cleveland Browns",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7826,
-   "rawAwayProb": 0.2597,
-   "homeWinProb": 0.7508,
-   "awayWinProb": 0.2492,
-   "vig": 0.0423,
+   "rawHomeProb": 0.7802,
+   "rawAwayProb": 0.2632,
+   "homeWinProb": 0.7478,
+   "awayWinProb": 0.2522,
+   "vig": 0.0434,
    "bucket": 20
   },
   {
