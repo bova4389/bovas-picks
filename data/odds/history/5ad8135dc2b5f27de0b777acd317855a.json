@@ -656,5 +656,19 @@
   "vig": 0.0443,
   "bucket": 3,
   "fetchedAt": "2026-08-22T02:44:13.918814+00:00"
+ },
+ {
+  "id": "5ad8135dc2b5f27de0b777acd317855a",
+  "commenceTime": "2026-09-15T00:15:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "Denver Broncos",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6004,
+  "rawAwayProb": 0.4439,
+  "homeWinProb": 0.5749,
+  "awayWinProb": 0.4251,
+  "vig": 0.0444,
+  "bucket": 3,
+  "fetchedAt": "2026-08-22T05:15:20.174242+00:00"
  }
 ]
