@@ -754,5 +754,19 @@
   "vig": 0.042,
   "bucket": 11,
   "fetchedAt": "2026-08-22T23:08:35.918056+00:00"
+ },
+ {
+  "id": "014282b888c741b7d70c857c09f40aa7",
+  "commenceTime": "2026-11-08T18:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "Denver Broncos",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4237,
+  "rawAwayProb": 0.6183,
+  "homeWinProb": 0.4066,
+  "awayWinProb": 0.5934,
+  "vig": 0.042,
+  "bucket": 11,
+  "fetchedAt": "2026-08-23T14:10:54.369589+00:00"
  }
 ]

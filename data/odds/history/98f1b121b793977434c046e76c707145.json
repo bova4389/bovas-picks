@@ -754,5 +754,19 @@
   "vig": 0.0434,
   "bucket": 10,
   "fetchedAt": "2026-08-22T23:08:35.918056+00:00"
+ },
+ {
+  "id": "98f1b121b793977434c046e76c707145",
+  "commenceTime": "2026-11-01T18:00:00Z",
+  "home": "New York Jets",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 10,
+  "fetchedAt": "2026-08-23T14:10:54.369589+00:00"
  }
 ]

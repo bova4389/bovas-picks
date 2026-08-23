@@ -754,5 +754,19 @@
   "vig": 0.042,
   "bucket": 6,
   "fetchedAt": "2026-08-22T23:08:35.918056+00:00"
+ },
+ {
+  "id": "573cc0ef39631a4f6673ec843a8bedd4",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "Buffalo Bills",
+  "away": "New England Patriots",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6183,
+  "rawAwayProb": 0.4237,
+  "homeWinProb": 0.5934,
+  "awayWinProb": 0.4066,
+  "vig": 0.042,
+  "bucket": 6,
+  "fetchedAt": "2026-08-23T14:10:54.369589+00:00"
  }
 ]

@@ -754,5 +754,19 @@
   "vig": 0.0413,
   "bucket": 17,
   "fetchedAt": "2026-08-22T23:08:35.918056+00:00"
+ },
+ {
+  "id": "790af233087803c297861901ffa271d7",
+  "commenceTime": "2026-12-18T01:15:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "San Francisco 49ers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 17,
+  "fetchedAt": "2026-08-23T14:10:54.369589+00:00"
  }
 ]
