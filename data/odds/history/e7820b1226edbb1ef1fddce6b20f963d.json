@@ -768,5 +768,19 @@
   "vig": 0.0434,
   "bucket": 19,
   "fetchedAt": "2026-08-23T14:10:54.369589+00:00"
+ },
+ {
+  "id": "e7820b1226edbb1ef1fddce6b20f963d",
+  "commenceTime": "2027-01-04T01:20:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Philadelphia Eagles",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 19,
+  "fetchedAt": "2026-08-24T14:29:01.312341+00:00"
  }
 ]

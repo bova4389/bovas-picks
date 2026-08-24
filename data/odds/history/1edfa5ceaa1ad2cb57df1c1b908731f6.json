@@ -768,5 +768,19 @@
   "vig": 0.0444,
   "bucket": 3,
   "fetchedAt": "2026-08-23T14:10:54.369589+00:00"
+ },
+ {
+  "id": "1edfa5ceaa1ad2cb57df1c1b908731f6",
+  "commenceTime": "2026-09-13T20:25:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.8526,
+  "rawAwayProb": 0.1918,
+  "homeWinProb": 0.8163,
+  "awayWinProb": 0.1837,
+  "vig": 0.0445,
+  "bucket": 3,
+  "fetchedAt": "2026-08-24T14:29:01.312341+00:00"
  }
 ]
