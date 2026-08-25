@@ -782,5 +782,19 @@
   "vig": 0.042,
   "bucket": 6,
   "fetchedAt": "2026-08-24T14:29:01.312341+00:00"
+ },
+ {
+  "id": "a73a76599a4f3422803e57bd8f61b626",
+  "commenceTime": "2026-10-05T00:20:00Z",
+  "home": "Carolina Panthers",
+  "away": "Detroit Lions",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4348,
+  "rawAwayProb": 0.6078,
+  "homeWinProb": 0.417,
+  "awayWinProb": 0.583,
+  "vig": 0.0426,
+  "bucket": 6,
+  "fetchedAt": "2026-08-25T14:31:56.921468+00:00"
  }
 ]
