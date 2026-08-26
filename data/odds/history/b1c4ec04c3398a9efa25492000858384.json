@@ -796,5 +796,19 @@
   "vig": 0.042,
   "bucket": 18,
   "fetchedAt": "2026-08-25T14:31:56.921468+00:00"
+ },
+ {
+  "id": "b1c4ec04c3398a9efa25492000858384",
+  "commenceTime": "2026-12-28T01:20:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6183,
+  "rawAwayProb": 0.4237,
+  "homeWinProb": 0.5934,
+  "awayWinProb": 0.4066,
+  "vig": 0.042,
+  "bucket": 17,
+  "fetchedAt": "2026-08-26T14:31:38.722686+00:00"
  }
 ]

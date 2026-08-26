@@ -796,5 +796,19 @@
   "vig": 0.0413,
   "bucket": 15,
   "fetchedAt": "2026-08-25T14:31:56.921468+00:00"
+ },
+ {
+  "id": "f8a92363386bd337975650879086cca6",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "Tampa Bay Buccaneers",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4673,
+  "rawAwayProb": 0.5745,
+  "homeWinProb": 0.4486,
+  "awayWinProb": 0.5514,
+  "vig": 0.0418,
+  "bucket": 14,
+  "fetchedAt": "2026-08-26T14:31:38.722686+00:00"
  }
 ]

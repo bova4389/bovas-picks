@@ -796,5 +796,19 @@
   "vig": 0.0433,
   "bucket": 8,
   "fetchedAt": "2026-08-25T14:31:56.921468+00:00"
+ },
+ {
+  "id": "caca2d752fe1a1779029082e95332fcc",
+  "commenceTime": "2026-10-18T17:00:00Z",
+  "home": "Philadelphia Eagles",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7403,
+  "rawAwayProb": 0.303,
+  "homeWinProb": 0.7095,
+  "awayWinProb": 0.2905,
+  "vig": 0.0433,
+  "bucket": 7,
+  "fetchedAt": "2026-08-26T14:31:38.722686+00:00"
  }
 ]
