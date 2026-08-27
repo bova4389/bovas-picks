@@ -810,5 +810,19 @@
   "vig": 0.0412,
   "bucket": 17,
   "fetchedAt": "2026-08-26T14:31:38.722686+00:00"
+ },
+ {
+  "id": "3f226ec5402c6ec4d84a59be80c2fa67",
+  "commenceTime": "2026-12-25T01:15:00Z",
+  "home": "Philadelphia Eagles",
+  "away": "Houston Texans",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.5744,
+  "rawAwayProb": 0.4733,
+  "homeWinProb": 0.5483,
+  "awayWinProb": 0.4517,
+  "vig": 0.0477,
+  "bucket": 17,
+  "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
  }
 ]

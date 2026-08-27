@@ -810,5 +810,19 @@
   "vig": 0.0446,
   "bucket": 9,
   "fetchedAt": "2026-08-26T14:31:38.722686+00:00"
+ },
+ {
+  "id": "b9c60db63b1a19ad319f24b33c0defe8",
+  "commenceTime": "2026-11-02T01:20:00Z",
+  "home": "Washington Commanders",
+  "away": "Philadelphia Eagles",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.495,
+  "rawAwayProb": 0.5495,
+  "homeWinProb": 0.4739,
+  "awayWinProb": 0.5261,
+  "vig": 0.0446,
+  "bucket": 9,
+  "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
  }
 ]

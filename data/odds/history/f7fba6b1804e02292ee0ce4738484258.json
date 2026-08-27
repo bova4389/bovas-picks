@@ -810,5 +810,19 @@
   "vig": 0.0434,
   "bucket": 15,
   "fetchedAt": "2026-08-26T14:31:38.722686+00:00"
+ },
+ {
+  "id": "f7fba6b1804e02292ee0ce4738484258",
+  "commenceTime": "2026-12-13T18:00:00Z",
+  "home": "Cleveland Browns",
+  "away": "Atlanta Falcons",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 15,
+  "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
  }
 ]

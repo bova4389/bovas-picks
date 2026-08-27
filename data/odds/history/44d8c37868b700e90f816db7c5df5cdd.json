@@ -810,5 +810,19 @@
   "vig": 0.0433,
   "bucket": 10,
   "fetchedAt": "2026-08-26T14:31:38.722686+00:00"
+ },
+ {
+  "id": "44d8c37868b700e90f816db7c5df5cdd",
+  "commenceTime": "2026-11-08T18:00:00Z",
+  "home": "Miami Dolphins",
+  "away": "Detroit Lions",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2985,
+  "rawAwayProb": 0.7436,
+  "homeWinProb": 0.2864,
+  "awayWinProb": 0.7136,
+  "vig": 0.0421,
+  "bucket": 10,
+  "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
  }
 ]

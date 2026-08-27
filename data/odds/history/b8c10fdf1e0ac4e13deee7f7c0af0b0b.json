@@ -810,5 +810,19 @@
   "vig": 0.0427,
   "bucket": 11,
   "fetchedAt": "2026-08-26T14:31:38.722686+00:00"
+ },
+ {
+  "id": "b8c10fdf1e0ac4e13deee7f7c0af0b0b",
+  "commenceTime": "2026-11-15T14:30:00Z",
+  "home": "Detroit Lions",
+  "away": "New England Patriots",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.5463,
+  "rawAwayProb": 0.4964,
+  "homeWinProb": 0.5239,
+  "awayWinProb": 0.4761,
+  "vig": 0.0427,
+  "bucket": 11,
+  "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
  }
 ]
