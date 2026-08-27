@@ -824,5 +824,19 @@
   "vig": 0.0428,
   "bucket": 4,
   "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
+ },
+ {
+  "id": "2e523fcb0497aa689473e290eb2b97de",
+  "commenceTime": "2026-09-27T20:25:00Z",
+  "home": "New Orleans Saints",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6491,
+  "rawAwayProb": 0.3937,
+  "homeWinProb": 0.6225,
+  "awayWinProb": 0.3775,
+  "vig": 0.0428,
+  "bucket": 4,
+  "fetchedAt": "2026-08-27T23:16:36.831210+00:00"
  }
 ]

@@ -782,5 +782,19 @@
   "vig": 0.0446,
   "bucket": 15,
   "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
+ },
+ {
+  "id": "5dc9cb8fba610d682dc670ae4e7d59f3",
+  "commenceTime": "2026-12-13T18:00:00Z",
+  "home": "Washington Commanders",
+  "away": "Houston Texans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.495,
+  "rawAwayProb": 0.5495,
+  "homeWinProb": 0.4739,
+  "awayWinProb": 0.5261,
+  "vig": 0.0446,
+  "bucket": 15,
+  "fetchedAt": "2026-08-27T23:16:36.831210+00:00"
  }
 ]

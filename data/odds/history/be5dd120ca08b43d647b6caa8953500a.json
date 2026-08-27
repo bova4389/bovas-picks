@@ -824,5 +824,19 @@
   "vig": 0.0413,
   "bucket": 8,
   "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
+ },
+ {
+  "id": "be5dd120ca08b43d647b6caa8953500a",
+  "commenceTime": "2026-10-25T17:00:00Z",
+  "home": "New York Jets",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 8,
+  "fetchedAt": "2026-08-27T23:16:36.831210+00:00"
  }
 ]

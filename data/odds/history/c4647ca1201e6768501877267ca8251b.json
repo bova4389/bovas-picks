@@ -824,5 +824,19 @@
   "vig": 0.0422,
   "bucket": 6,
   "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
+ },
+ {
+  "id": "c4647ca1201e6768501877267ca8251b",
+  "commenceTime": "2026-10-11T17:00:00Z",
+  "home": "Miami Dolphins",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3175,
+  "rawAwayProb": 0.726,
+  "homeWinProb": 0.3042,
+  "awayWinProb": 0.6958,
+  "vig": 0.0435,
+  "bucket": 6,
+  "fetchedAt": "2026-08-27T23:16:36.831210+00:00"
  }
 ]

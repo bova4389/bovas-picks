@@ -824,5 +824,19 @@
   "vig": 0.041,
   "bucket": 17,
   "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
+ },
+ {
+  "id": "126f27c71e8130ef87de0d137e833d9b",
+  "commenceTime": "2026-12-25T21:30:00Z",
+  "home": "Denver Broncos",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.4762,
+  "rawAwayProb": 0.5713,
+  "homeWinProb": 0.4546,
+  "awayWinProb": 0.5454,
+  "vig": 0.0476,
+  "bucket": 17,
+  "fetchedAt": "2026-08-27T23:16:36.831210+00:00"
  }
 ]

@@ -824,5 +824,19 @@
   "vig": 0.0435,
   "bucket": 8,
   "fetchedAt": "2026-08-27T12:04:17.111556+00:00"
+ },
+ {
+  "id": "2bba7fde6f97d0e54403d53676e4ab63",
+  "commenceTime": "2026-10-25T17:00:00Z",
+  "home": "Houston Texans",
+  "away": "New York Giants",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7101,
+  "rawAwayProb": 0.3333,
+  "homeWinProb": 0.6806,
+  "awayWinProb": 0.3194,
+  "vig": 0.0435,
+  "bucket": 8,
+  "fetchedAt": "2026-08-27T23:16:36.831210+00:00"
  }
 ]
