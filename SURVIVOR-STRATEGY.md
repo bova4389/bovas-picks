@@ -196,19 +196,48 @@ elimination from ~10% to ~30% — that is only `0.20 × $20 ≈ $4` of extra exp
 by a wide margin.** Play aggressive in both the Yahoo and Sleeper pools, and commit to actually
 buying back — that commitment is the strategy, not an afterthought.
 
-Two things that would change this answer, neither yet confirmed:
+### The buy-back rules — CONFIRMED 2026-08-28, no longer open
 
-- **Does a buy-back reset the used-teams list?** This is the single most important unknown in
-  either pool. If a re-entry starts clean, the aggressive line gets *dramatically* stronger — you
-  re-enter holding every elite team while the survivors have spent theirs. If a buy-back is merely
-  an extra life carrying the same used list, it is still worth it at these prices, just less so.
-- **The buy-back cutoff week.** If buy-backs close around Week 4, aggression is only correct
-  *inside* that window; after it, both pools revert to one life and should be played like Mike's
-  minus the leverage. Aggression past the cutoff is just recklessness.
+Both open questions were answered by the commissioner's own account of the pool, 2026-08-28.
+They are recorded as facts, not inferences, and neither should be re-derived from Sleeper's
+settings — see the contradiction note at the end.
 
-Cheap buy-backs also have a second-order effect worth noting: at ~half an entry, most of the field
-will re-enter, so these pools will run long. That reinforces §2's conclusion that future value
-matters here as much as in the 235-entry pool.
+- **A buy-back does NOT reset the used-teams list. Confirmed.** A team you have picked is spent
+  permanently, *whether it won or lost for you.* Re-entering does not hand back the teams that
+  eliminated you.
+
+  **This is the single most consequential fact in this document, and it reverses part of the
+  case above.** The aggressive line was argued partly on "re-enter holding elite teams nobody
+  else has" — that payoff does not exist here. Burning mid-tier teams early and losing means
+  re-entering with those teams *already gone* and the elite ones still unspent, which is simply
+  a shorter run at the same schedule. Aggression is still cheap (a buy-back is ~2% of the pot),
+  but it now buys only extra attempts, not a stronger board. **Hoarding the elite teams is the
+  part that survives; treating elimination as a cheap reset is the part that does not.**
+
+  It also makes the Planning tab's elite budget strictly more important, not less: with no reset,
+  the used-teams list is monotonic for the whole season across every life you buy.
+
+- **Buy-backs do not close on a cutoff WEEK. The deadline is weekly.** Re-entry closes just
+  before the Sunday 1:00 PM ET kickoffs of the week being bought into. So the earlier worry —
+  "aggression is only correct inside the window, and reckless after it" — does not apply: there
+  is no window to fall out of. The correct read is the opposite one, that a buy-back is available
+  all season at the same price, which is what keeps these pools running long.
+
+- **Most of the field buys back twice; a few lose and walk.** Observed, not modelled. This
+  confirms the second-order effect predicted above — the pools run long — and it means the
+  surviving field late in the season is *not* thinned the way a one-life pool's is. Scarcity
+  numbers should be read with that in mind.
+
+- **Buy-back state is tracked by hand, and cannot be read from any feed.** There is no
+  elimination or re-entry flag to fetch: the only signal that someone bought back is that they
+  keep submitting picks. Any tooling here must therefore be **manual entry with an override**,
+  never an inference — a derived "they must be out" that is wrong once is worse than no number,
+  because it silently understates the field for the rest of the season.
+
+**Sleeper's `num_revives_allowed: 0` remains contradicted and remains unresolved.** The pool
+plainly runs buy-backs, so that setting describes Sleeper's own bookkeeping rather than the
+pool's rules — the commissioner administers re-entry outside the app. Do not "fix" this
+document from the API, and do not let the API value gate any buy-back feature.
 
 ---
 

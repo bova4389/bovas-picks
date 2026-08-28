@@ -10,9 +10,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   repo per the workspace convention (see workspace `CLAUDE.md` Git Setup). Pushed since 2026-08-11.
 - **Hosting**: **GitHub Pages, live** at `https://bova4389.github.io/bovas-picks/` (enabled
   2026-08-11), deploying from `main`. See GitHub Setup below.
-- **Status**: Schedule, Grid, Pick Sheet, Odds and Recommend tabs are functional. Lookback and
-  Survivor still "Soon" — though the Grid tab already carries the survivor used-team tracking that
-  the Survivor tab was going to open with.
+- **Status**: Schedule, Grid, Pick Sheet, Odds, Recommend and Planning tabs are functional.
+  **Lookback is the only "Soon" panel left**, and it is genuinely blocked rather than unstarted:
+  it needs per-entrant weekly cards and the only ones parsed are 2025 Week 1. It un-stubs when the
+  commissioner's workbooks start arriving, not before.
 
 **Folder left as `NFL Pickems/`, not renamed to match.** The rename request was for *displayed*
 branding — title, header, docs — not the repo's on-disk path. Renaming the folder now would touch
@@ -123,6 +124,8 @@ js/grid.js          Grid tab — the whole season as one table
 js/picksheet.js     Pick Sheet tab
 js/odds.js          Odds tab — one week of market prices, reads data/odds/
 js/recommend.js     Recommend tab — leverage = win prob ÷ pick share, per STRATEGY.md §4
+js/planModel.js     SHARED — survivor planning math, pure data              [NEVER versioned]
+js/planning.js      Planning tab — spend now or hold, per SURVIVOR-STRATEGY.md §1
 ```
 
 ## Navigation — Two Levels, One Model
@@ -385,6 +388,7 @@ Any new text in a `.gc` uses one of those.
 | `grid:tags:<year>` | per-cell target / avoid / watch flags, keyed `TEAM\|WEEK` |
 | `survivor:<year>:<pool>` | my used teams for one pool, as `week -> team` |
 | `survivor:feed:sleeper:<year>` | the last fetched copy of the Sleeper pool (everyone's picks) |
+| `survivor:pool` | which pool is in play, shared with the Planning tab (see its section) |
 
 Used teams are stored **per pool and never merged** — each pool is a different game, and a pick
 that is right in a three-life pool can be wrong in a one-life pool the same Sunday. The two keys
@@ -593,6 +597,105 @@ it fills in asynchronously, and a bare `<p>` keeps the UA's 16px margin even at 
 contending would be worse than saying nothing, so `dogCount()` implements only the slate-shape
 rows.
 
+## Planning Tab — Read Before Adding Any Number
+
+Built 2026-08-28. `js/planning.js` (render) over `js/planModel.js` (pure math), the same split as
+`grid.js` / `gridModel.js`. It reads the **same** 32 × 18 matrix from `buildGrid()` that the Grid
+paints, so the two survivor tabs can never disagree about a game.
+
+The Grid answers "what can I spend, and when", a cell at a time. Planning answers the question
+SURVIVOR-STRATEGY.md §1 says is the real one: *is this the best week I will ever get to spend this
+team?* Three blocks, each straight out of §1 "Future value":
+
+| Block | Answers | §1 line it implements |
+|---|---|---|
+| **What this week costs** | which available team is cheapest to spend now | "spend teams at or near their best spot, not before it" |
+| **The wall ahead** | is a week coming where I have nothing left | "look 3–4 weeks ahead"; "bye weeks silently remove options" |
+| **The elite budget** | where each team's one best spot falls | "the elite teams are a budget, not a menu — map them before Week 1" |
+
+### The source rule — the thing to not break
+
+**Two probability scales are on screen at once and they are not interchangeable.** §4's compression
+limit: the 2026 projections top out at 75% and only ~16 of 272 games clear 70%, against a market
+pricing 10 games at 80%+ and 58 at 70%+. So:
+
+- **The market number is this week's price.** It is the only figure on the tab anyone should read
+  as a real probability, and the only one the 70% floor is tested against.
+- **The projection is an ordering device.** It says Week 11 is a better Seattle spot than Week 6.
+  It does not say either is 61%.
+
+**Every "cost to spend now" is projection *minus* projection**, both ends read off the same team's
+`teamOutlook.games` series so the subtraction means something. The market price sits beside it and
+never enters the arithmetic. Mixing the two would produce a confident, plausible, meaningless
+number — the exact failure `js/season.js` exists to prevent, one layer up. Worked example: in Week
+1 the Chargers show **81% market** and a cost of **+5 pts**, because that 5 points is `0.6978`
+(their projected Week 11 peak) minus `0.6499` (their projected Week 1) — the 81% is nowhere in it.
+
+Three consequences, all of them corrections waiting to happen:
+
+- **`clearsFloor` is `null`, not `false`, when there is no market price.** Absent evidence is not
+  evidence of absence, and a team with no line must not sort or render as one that failed the bar.
+  The shortlist sorts cleared → unknown → failed for this reason.
+- **The floor is never applied to a projection.** Against projections it rejects the entire season.
+- **The wall's `credible` count is meaningless without `priced` beside it.** Past the market's
+  lookahead there are no prices, so the count is 0 — which must render as "not priced yet", never
+  as "no options". Those two states look identical in a bare number and mean opposite things.
+
+### Smaller decisions that each have a reason
+
+- **Cost is banded, not printed raw.** `free` / `cheap` / `mid` / `dear` as a left border colour.
+  Three decimals of a compressed number is false precision; what is real is cheap versus expensive.
+  The band is an **edge**, not a fill — a filled row would be a fourth background competing with
+  the Grid's paint vocabulary, and this is a list, not a heat map.
+- **A modelled percentage wears the Grid's dotted underline**, so "modelled" looks the same on both
+  survivor tabs. Colour is spent on cost, which is the one thing this tab ranks.
+- **Spent teams stay on the elite budget, struck through**, on the week their best spot *was* —
+  removing them would hide whether they were spent well, which is the entire discipline §1 is
+  about. `spentEarly` (used strictly before its best week) gets a rust border. Spending a team
+  *after* its best week is not flagged: the earlier week may have been needed elsewhere.
+- **`bestRemaining()` is recomputed, not read from `teamOutlook.bestWeek`.** That field is the best
+  week of the whole season, which is the wrong answer the moment a week has passed or a team's peak
+  sits behind us. Spent teams are the one exception and are mapped over the whole season, because
+  the question they answer is "did I spend this well", not "what is left".
+- **No field feed is loaded.** Blocks A–C are about *my* remaining teams; what the rest of the pool
+  holds is a different question, answered by the pick board and Recommend. Loading it would be a
+  feed this tab never reads and a second chance to render a stale one.
+- **Planning never fetches from Sleeper.** The Grid owns that button. Two tabs racing the same
+  undocumented endpoint is how a half-written feed lands on top of a complete one.
+- **It re-reads pool state on `panelchange`.** The Grid can change the pool or pull a fresh feed
+  while Planning is hidden, and a used team this tab did not notice is a team it would offer twice.
+
+### Two things this shares with the Grid, deliberately
+
+- **`survivor:pool` (localStorage) is the pool in play, sitewide.** Added 2026-08-28 with
+  `activePool()` / `setActivePool()` in `survivorLeagues.js`. It seeds from `grid:prefs.league` on
+  first read, so an existing user does not open Planning on the wrong pool. It is deliberately
+  **not** `grid:prefs.league` itself: that pref carries an extra `none` meaning "stop striking
+  rows", which is a display choice about the grid, not a statement about which pool I am in — so
+  turning the striking off must not blank Planning. `setActivePool()` ignores anything that is not
+  a real pool.
+- **`auditSurvivorFeeds()` in `js/season.js`** is the schedule + odds + projections cross-check,
+  used by both tabs. It was `gridAudit()`, private to `grid.js`, and was moved rather than copied:
+  two tabs deciding independently whether the feeds agree is two chances to decide differently, and
+  the one that says yes is the one that prints the nonsense.
+
+### Not built
+
+- **Buy-back tracking.** `survivorLeagues.js` still carries a `buybacks` counter nothing reads.
+  The pool's rules were confirmed 2026-08-28 and are in SURVIVOR-STRATEGY.md §2 "The buy-back
+  rules"; three of them constrain any implementation:
+  **(a) a buy-back does not reset the used-teams list**, so `usedTeams()` stays monotonic across
+  every life and nothing may ever clear it on re-entry;
+  **(b) there is no cutoff week** — re-entry closes weekly at Sunday 1:00 PM ET, so do not build a
+  season-wide window;
+  **(c) buy-back state cannot be read from any feed** and must be hand-entered. The only signal
+  that someone re-entered is that they keep picking, so a *derived* "they must be eliminated" is
+  forbidden: wrong once, it understates the surviving field for the rest of the season.
+- **Field scarcity inside the shortlist.** §1's EV formula divides by pick share, and a team 34% of
+  the pool holds is worth less than its win probability suggests. The data exists
+  (`fieldAvailability()` / `scarcityFor()`), so this is the natural next addition — but it needs a
+  live field, which in preseason is empty.
+
 ## Sleeper Survivor Pool — Live Feed
 
 The Sleeper pool ("Poop 2026", 12 entries) is fetched straight from Sleeper by a **Refresh from
@@ -670,9 +773,13 @@ with two games kicked off reports every share at a sixth of its real value.
 refresh instead of being hand-typed. `mergeMyPicks()` merges rather than replaces — a week the
 feed has not reached keeps whatever was entered by hand.
 
-**Unresolved:** Sleeper's own settings report `num_revives_allowed: 0`, while
-`SURVIVOR-STRATEGY.md` records this pool as three lives / two buy-backs. Both are recorded; do not
-"fix" one from the other without checking the pool itself.
+**Explained 2026-08-28, still do not "fix" it.** Sleeper's settings report
+`num_revives_allowed: 0` while the pool plainly runs buy-backs — because the commissioner
+administers re-entry **outside the app**, by hand. So that field describes Sleeper's own
+bookkeeping, not the pool's rules. Treat the API value as inert: never let it gate a buy-back
+feature, and never edit SURVIVOR-STRATEGY.md to agree with it. Corollary — `metadata.is_eliminated`
+is Sleeper's opinion too, so an entry it calls eliminated may have bought back and still be
+playing.
 
 ## Odds Tab
 
@@ -821,9 +928,11 @@ reading a committed file.
 - **Weekly pick distribution (built)** — which teams the pool took this week, how many entries
   took each, and the shape of that as a bar chart. Bottom of the Grid tab; see "The pick board"
   under Grid Tab. Fills in through the Sunday as the kickoff gate releases each pick.
-- Buy-back tracking (elimination date, re-entry date, new pick history restarting after buy-back)
-  — **not built.** `survivorLeagues.js` carries a `buybacks` counter in each pool's state and
-  nothing reads it yet.
+- Buy-back tracking — **not built.** `survivorLeagues.js` carries a `buybacks` counter in each
+  pool's state and nothing reads it yet. Note the shape this feature must NOT take: "new pick
+  history restarting after buy-back" was the original sketch and it is **wrong for this pool** —
+  re-entry does not reset the used-teams list (SURVIVOR-STRATEGY.md §2). Lives are what restart;
+  the spent teams never do.
 - **Whichever row lists remaining/available teams must show the favorite inline** (win %, from
   `js/oddsBadge.js`'s `favoriteLine()` — see "Odds are not siloed" under Site Architecture). Not
   optional: this is what lets a glance at the grid answer "which of my remaining teams has a good
@@ -832,17 +941,23 @@ reading a committed file.
 
 ### Analysis / decision support
 - **Recommend tab (built)** — see the Recommend Tab section below.
-- Survivor strategy view — highlight strong remaining teams by upcoming schedule difficulty, so a team isn't wasted on an easy week too early.
+- **Planning tab (built 2026-08-28)** — the survivor strategy view: what spending a team this week
+  costs against its best remaining week, the four-week bye/option wall, and each team's single best
+  spot mapped across the season. See the Planning Tab section below.
 
 ## Candidate Tech (no build step, CDN-only — matches workspace convention)
 
 - **Odds/spreads**: [The Odds API](https://the-odds-api.com/) — **decided, implemented.** Free
   tier, fetched on a schedule per the Data Pipeline section above. Needs `ODDS_API_KEY`.
 - **Schedule/scores data**: ESPN's public site API, e.g. `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard` — same API family already used for tournament data in `Majors Golf Pool`. Not yet wired up; the commissioner's own workbook covers the pool's schedule for now, and Odds API events carry their own schedule too.
-- **Future-week power ratings (for the lookahead window beyond ~10-12 days)**: undecided. nfelo is
-  named in `SURVIVOR-STRATEGY.md` §4 as the source, but it has no public API — would mean scraping
-  a Tier 2 model site (not a banned tout, but still adds a dependency). Not built; the Odds tab
-  labels weeks it can't cover rather than guessing.
+- **Future-week power ratings (for the lookahead window beyond ~10-12 days)**: **resolved in-house,
+  no new dependency.** `scripts/build_projections.py` already produces a win probability for every
+  unplayed game plus a per-team best week, and the Planning tab reads it. nfelo is still named in
+  `SURVIVOR-STRATEGY.md` §4 and still has no public API; scraping it was considered and rejected
+  2026-08-28 because the in-house series is enough for *ordering*, which is the only thing a
+  future-week number is allowed to be used for (see the Planning Tab section). RotoWire stays the
+  manual cross-check §4 describes, not an integration. The Odds tab still labels weeks it cannot
+  cover rather than guessing.
 
 ## Data Model
 
