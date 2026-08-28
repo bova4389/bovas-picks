@@ -138,3 +138,38 @@ export function auditSeason({
     blocking: problems.some((p) => p.level === 'error'),
   };
 }
+
+/**
+ * The cross-check for the two survivor tabs — Grid and Planning.
+ *
+ * Both read the same three feeds and neither touches the commissioner's number
+ * map, so auditSeason()'s report on that map would hang a permanent "waiting
+ * on data" banner over tables that are completely fine without it. Filtered
+ * out here rather than ignored by each caller.
+ *
+ * Projections are checked here instead of inside auditSeason() because they
+ * are the feed these two tabs introduced: a projections file from the wrong
+ * season would fill 576 grid cells and every planning number with plausible
+ * nonsense, which is the exact failure this module exists to catch.
+ *
+ * Shared rather than copied. Two tabs deciding independently whether the feeds
+ * agree is two chances to decide differently, and the one that says yes is the
+ * one that prints the nonsense.
+ */
+export function auditSurvivorFeeds({ season, schedule, odds, projections }) {
+  const base = auditSeason({ season, schedule, odds });
+  const problems = base.problems.filter((p) => p.feed !== 'numberMap');
+
+  if (projections && Number(projections.year) !== Number(season)) {
+    problems.push({
+      level: 'error', feed: 'projections',
+      message: `The projections file is ${projections.year} data, but the ${season} season is active.`,
+    });
+  }
+
+  return {
+    ...base, problems,
+    ok: problems.length === 0,
+    blocking: problems.some((p) => p.level === 'error'),
+  };
+}

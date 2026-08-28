@@ -269,3 +269,41 @@ export function weeksWithPicks(survivor, season) {
       .some((p) => Number(p?.count) > 0))
     .sort((a, b) => a - b);
 }
+
+/* ── Which pool I am playing, shared across tabs ──────────────────────────
+   The Grid and Planning both have to know which pool is in front of me, and
+   two switchers that can disagree is a bug with a long fuse: the Grid strikes
+   one pool's used teams while Planning maps what is left of another, and both
+   look right.
+
+   This is deliberately NOT the Grid's `grid:prefs.league`, even though it
+   seeds from it. That pref carries an extra 'none' value meaning "don't strike
+   anything", which is a display choice about the grid rather than a statement
+   about which pool I am in -- so turning the striking off must not blank
+   Planning. `setActivePool` ignores anything that is not a real pool.
+   ------------------------------------------------------------------------ */
+
+const POOL_KEY = 'survivor:pool';
+
+/** The pool in play, falling back to the Grid's stored choice and then to the
+ *  first real pool. Seeding from `grid:prefs` matters once: without it, an
+ *  existing user who has been working in Mike's pool opens Planning on the
+ *  Sleeper pool and sees a map of the wrong game. */
+export function activePool() {
+  try {
+    const stored = localStorage.getItem(POOL_KEY);
+    if (stored && leagueById(stored)) return stored;
+
+    const grid = JSON.parse(localStorage.getItem('grid:prefs'));
+    if (grid?.league && leagueById(grid.league)) return grid.league;
+  } catch { /* unreadable storage -- fall through to the default */ }
+
+  return LEAGUES[0].id;
+}
+
+export function setActivePool(id) {
+  if (!leagueById(id)) return;
+  try {
+    localStorage.setItem(POOL_KEY, id);
+  } catch { /* private browsing -- the tab still works, it just won't persist */ }
+}

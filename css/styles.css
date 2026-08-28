@@ -1819,3 +1819,269 @@ footer {
   .gridwrap { --tw: 62px; }
   .gridwrap.z3 { --tw: 80px; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SURVIVOR PLANNING  (js/planning.js)
+
+   Three blocks stacked in one panel. The design problem this solves is that
+   two DIFFERENT probability scales are on screen at once -- market prices and
+   compressed model projections -- and a reader who takes them for the same
+   number will draw the wrong conclusion (see the header of js/planning.js).
+
+   So the scales are separated typographically rather than by colour:
+     .planrow-pct.is-market   solid, full weight -- a real probability
+     .planrow-pct.is-proj     dotted underline, the same treatment the Grid
+                              gives a modelled cell, so "modelled" looks the
+                              same on both survivor tabs
+   Colour is reserved for COST, which is the one thing the tab is ranking.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.planblock { padding: 22px; margin-bottom: 18px; }
+.planblock h3 { font-size: 1.15rem; font-weight: 400; margin: 0; }
+.planblock .lede { margin-bottom: 16px; font-size: .9rem; }
+
+/* ── Controls ─────────────────────────────────────────────────────────────
+   Flat inline rows, not the site's stacked .field -- same reasoning as the
+   Grid's controls: this tab's value is seeing three blocks at once, and a
+   four-row control stack pushes the first one below the fold on a phone. */
+.planctl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-bottom: 18px;
+}
+.planctl-item { display: flex; align-items: center; gap: 8px; }
+.planctl-item > span {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.planctl-item select {
+  min-height: 46px;              /* tap target floor -- see Design constraints */
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: .9375rem;
+}
+.planctl-note {
+  margin: 0;
+  font-size: .8125rem;
+  color: var(--ink-soft);
+}
+.planctl-spent {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--purple-soft);
+  color: var(--violet-ink);
+  font-weight: 600;
+}
+
+/* ── Block A: the shortlist ───────────────────────────────────────────────*/
+
+.planlist { list-style: none; margin: 0; padding: 0; }
+
+.planrow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 8px 0 8px 12px;
+  border-bottom: 1px solid var(--line);
+  /* The cost band is a left edge rather than a fill: a filled row would be a
+     fourth background competing with the Grid's paint vocabulary, and this is
+     a list, not a heat map. */
+  border-left: 3px solid transparent;
+}
+.planrow:last-child { border-bottom: 0; }
+
+.cost-free { border-left-color: var(--teal); }
+.cost-cheap { border-left-color: var(--purple-mid); }
+.cost-mid { border-left-color: var(--line); }
+.cost-dear { border-left-color: var(--dog); }
+.cost-unknown { border-left-color: transparent; }
+
+.planrow-team { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.planrow-team strong { font-weight: 600; font-size: .9375rem; }
+.planrow-opp { font-size: .8125rem; color: var(--ink-soft); }
+.planrow-div {
+  padding: 0 5px;
+  border-radius: 4px;
+  background: var(--purple-soft);
+  color: var(--violet-ink);
+  font-size: .6875rem;
+  font-weight: 600;
+}
+
+.planrow-price,
+.planrow-cost {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  text-align: right;
+}
+.planrow-price { min-width: 66px; }
+.planrow-cost { min-width: 92px; }
+
+.planrow-pct { font-size: 1.0625rem; font-weight: 600; }
+/* Market: a real probability, and the only number here that is one. */
+.planrow-pct.is-market { color: var(--fav-ink); }
+/* Modelled: same dotted underline the Grid uses, because it is the same
+   claim -- softer, and never to be read as a price. */
+.planrow-pct.is-proj {
+  color: var(--ink-soft);
+  border-bottom: 1px dotted var(--ink-faint);
+}
+.planrow-cost-v { font-size: .9375rem; font-weight: 600; color: var(--ink); }
+.cost-free .planrow-cost-v { color: var(--teal-ink); }
+.cost-dear .planrow-cost-v { color: var(--dog-ink); }
+
+.planrow-src {
+  font-size: .6875rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+.planrow-none { font-size: .8125rem; color: var(--ink-quiet); }
+
+.plannote {
+  margin: 14px 0 0;
+  font-size: .8125rem;
+  color: var(--ink-soft);
+}
+
+/* ── Block B: the wall ────────────────────────────────────────────────────*/
+
+.planwall {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+.planwall-col {
+  padding: 14px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  text-align: center;
+}
+.planwall-col.is-now { border-color: var(--violet); }
+/* Amber, not red. A thin week is a thing to plan around, not a failure --
+   and red here would rank it alongside the season-mismatch banner, which is
+   an actual fault. */
+.planwall-col.is-tight { background: var(--warn-bg); border-color: #E8D5AE; }
+
+.planwall-wk {
+  margin: 0;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.planwall-wk span { color: var(--violet-ink); }
+.planwall-big {
+  margin: 4px 0 0;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.planwall-col.is-tight .planwall-big { color: var(--amber-ink); }
+.planwall-lbl { margin: 0; font-size: .75rem; color: var(--ink-soft); }
+.planwall-meta {
+  margin: 6px 0 0;
+  font-size: .75rem;
+  color: var(--ink-quiet);
+}
+
+/* ── Block C: the elite budget ────────────────────────────────────────────*/
+
+.planbudget { display: flex; flex-direction: column; gap: 2px; }
+
+.planbudget-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+}
+.planbudget-row:last-child { border-bottom: 0; }
+.planbudget-row.is-now .planbudget-wk { color: var(--violet-ink); font-weight: 700; }
+
+.planbudget-wk {
+  margin: 0;
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.planbudget-teams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.planchip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  font-size: .8125rem;
+}
+.planchip-team { font-weight: 600; color: var(--ink); }
+.planchip-pct { color: var(--ink-soft); font-size: .75rem; }
+
+/* A spent team stays on the map -- struck, not removed. Seeing WHERE it was
+   spent against where its best week was is the whole point of the block. */
+.planchip.is-used { background: var(--paper); border-style: dashed; }
+.planchip.is-used .planchip-team {
+  text-decoration: line-through;
+  color: var(--ink-quiet);
+}
+.planchip.is-used .planchip-pct { color: var(--ink-quiet); }
+.planchip-note {
+  font-size: .6875rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--ink-quiet);
+}
+/* Spent strictly before its best week -- value left on the table. */
+.planchip.is-early { border-color: var(--dog); }
+.planchip.is-early .planchip-note { color: var(--dog-ink); }
+
+/* ── Phone ────────────────────────────────────────────────────────────────
+   Picks get made on a phone on Saturday, so the shortlist has to survive
+   375px. The price and cost columns stop competing for width by dropping the
+   cost under the price rather than shrinking either. */
+@media (max-width: 520px) {
+  .planblock { padding: 18px 14px; }
+
+  .planrow {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 4px;
+  }
+  .planrow-team { grid-column: 1; grid-row: 1 / span 2; }
+  .planrow-price { grid-column: 2; grid-row: 1; }
+  .planrow-cost {
+    grid-column: 2;
+    grid-row: 2;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .planbudget-row { grid-template-columns: 44px minmax(0, 1fr); }
+}

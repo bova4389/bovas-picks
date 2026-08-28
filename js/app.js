@@ -32,6 +32,7 @@ import { initGrid } from './grid.js';
 import { initPickSheet } from './picksheet.js';
 import { initOdds } from './odds.js';
 import { initRecommend } from './recommend.js';
+import { initPlanning } from './planning.js';
 
 /* ── The nav model ────────────────────────────────────────────────────────
    The single source of truth for both rows. index.html holds the panels; the
@@ -47,7 +48,7 @@ const PANELS = {
   odds:      { label: 'Odds' },
   recommend: { label: 'Recommend' },
   lookback:  { label: 'Lookback', soon: true },
-  survivor:  { label: 'Planning', soon: true },
+  survivor:  { label: 'Planning' },
 };
 
 const GROUPS = [
@@ -68,8 +69,9 @@ const GROUPS = [
   {
     id: 'survivor',
     label: 'Survivor',
-    // Grid leads rather than Planning: Planning is still a placeholder, and
-    // landing a whole pool on a "Soon" panel reads as a broken tab.
+    // Grid still leads, now that Planning is real: the Grid is the reference
+    // -- the whole season at a glance -- and Planning is what you open once
+    // you have a question about a specific week. Reference before answer.
     panels: ['grid', 'odds', 'survivor'],
   },
 ];
@@ -237,3 +239,4 @@ initGrid(document.getElementById('grid-root'), SEASON);
 initPickSheet(document.getElementById('picksheet-root'));
 initOdds(document.getElementById('odds-root'));
 initRecommend(document.getElementById('recommend-root'));
+initPlanning(document.getElementById('survivor-root'), SEASON);

@@ -31,14 +31,14 @@
 import {
   SEASON, getSchedule, getProjections, getOddsSnapshot, getOddsHistory, getSurvivor,
 } from './data.js';
-import { auditSeason } from './season.js';
+import { auditSurvivorFeeds } from './season.js';
 import { seasonBanner } from './seasonBanner.js';
 import { currentWeek as currentWeekOf } from './gameState.js';
 import { getIdentity, tintOn } from './teamIdentity.js';
 import { ABBR_TO_MASCOT, DIVISION_OF, DIVISION_ORDER } from './teams.js';
 import { buildGrid, key, windowStrength } from './gridModel.js';
 import {
-  LEAGUES, leagueById, isLive, loadLeagueState, saveLeagueState,
+  LEAGUES, leagueById, isLive, loadLeagueState, saveLeagueState, setActivePool,
   setPick, usedTeams, weekUsed, fieldAvailability, scarcityFor,
 } from './survivorLeagues.js';
 import {
@@ -176,7 +176,7 @@ export async function initGrid(root, season = SEASON) {
   S.schedule = schedule;
   S.survivor = survivor;
   S.identity = identity;
-  S.audit = gridAudit({ season, schedule, odds, projections });
+  S.audit = auditSurvivorFeeds({ season, schedule, odds, projections });
 
   // One field feed per pool, both in survivor-<year>.json's shape, so nothing
   // downstream branches on which pool it is painting. Mike's is a parsed file
@@ -271,35 +271,6 @@ function watchGeometry() {
     last = w;
     applyFit();
   }).observe(wrap);
-}
-
-/**
- * The season cross-check, narrowed to the feeds this tab actually reads.
- *
- * auditSeason() also reports on the commissioner's number map, which the grid
- * never touches -- leaving that in would put a permanent "waiting on data"
- * banner above a table that is completely fine without it. Projections are
- * checked here instead of in season.js because they are the one feed this tab
- * introduced; a projections file from the wrong season would fill 272 cells
- * with plausible nonsense, which is exactly the failure that module exists to
- * catch.
- */
-function gridAudit({ season, schedule, odds, projections }) {
-  const base = auditSeason({ season, schedule, odds });
-  const problems = base.problems.filter((p) => p.feed !== 'numberMap');
-
-  if (projections && Number(projections.year) !== Number(season)) {
-    problems.push({
-      level: 'error', feed: 'projections',
-      message: `The projections file is ${projections.year} data, but the ${season} season is active.`,
-    });
-  }
-
-  return {
-    ...base, problems,
-    ok: problems.length === 0,
-    blocking: problems.some((p) => p.level === 'error'),
-  };
 }
 
 /* ── Chrome ───────────────────────────────────────────────────────────────*/
@@ -1164,6 +1135,10 @@ function wire() {
       S.prefs.league = t.value;
       S.league = t.value === 'none' ? loadLeagueState('none', S.season) : loadLeagueState(t.value, S.season);
       savePrefs();
+      // Planning reads the same pool. 'none' is the grid's own "stop striking
+      // rows" switch, not a pool, so it is deliberately not shared -- see
+      // activePool() in survivorLeagues.js.
+      setActivePool(t.value);
       // "Exclude my picks" reads the pool, so turning the pool off has to
       // release it rather than leave a dead checkbox hiding rows.
       const box = document.getElementById('g-hideused');

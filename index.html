@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260815b" />
+  <link rel="stylesheet" href="css/styles.css?v=20260828" />
 </head>
 <body>
 
@@ -86,16 +86,10 @@
       </ul>
     </section>
 
-    <section class="panel card soon" id="panel-survivor" role="tabpanel" hidden>
-      <p class="eyebrow">Different math entirely</p>
-      <h2>Survivor planning</h2>
-      <p>One team a week, no reuse, a loss ends it. Planning matters more than any single pick.</p>
-      <ul>
-        <li>Teams already used, and what that leaves for the weeks ahead</li>
-        <li>Future-week schedule strength so a good team isn't spent early</li>
-        <li>Buy-back state tracked separately from the original run</li>
-        <li>Shares the same schedule and odds engine — no parallel system</li>
-      </ul>
+    <section class="panel" id="panel-survivor" role="tabpanel" hidden>
+      <div id="survivor-root">
+        <p class="eyebrow">Loading</p>
+      </div>
     </section>
 
   </main>
@@ -104,6 +98,6 @@
     Personal tool. Picks are emailed manually — this only builds and checks the message.
   </footer>
 
-  <script type="module" src="js/app.js?v=20260815b"></script>
+  <script type="module" src="js/app.js?v=20260828"></script>
 </body>
 </html>
