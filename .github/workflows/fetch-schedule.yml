@@ -6,8 +6,14 @@ name: Refresh schedule
 # js/espn.js). This job only has to keep the skeleton current, which means
 # catching flex-scheduling moves and filling in final scores.
 #
-# Tuesday 15:00 UTC = after Monday night is over everywhere, and before the
+# Tuesday 15:23 UTC = after Monday night is over everywhere, and before the
 # week's flex decisions land. No secret needed; the endpoint is keyless.
+#
+# Minute :23 for the same reason fetch-odds.yml uses :17 — GitHub drops
+# scheduled runs under load and the contention peak is on the hour. This job
+# fires once a WEEK, so a dropped run costs seven days of stale scores AND,
+# since 2026-08-28, seven days of un-rebuilt projections. Off-the-hour matters
+# more here than on the odds job, not less.
 
 on:
   workflow_dispatch:
@@ -17,7 +23,7 @@ on:
         required: false
         type: string
   schedule:
-    - cron: "0 15 * * 2"
+    - cron: "23 15 * * 2"
 
 permissions:
   contents: write
@@ -45,11 +51,28 @@ jobs:
       - name: Fetch schedule
         run: python3 scripts/fetch_schedule.py "${{ steps.season.outputs.year }}"
 
-      - name: Commit schedule
+      # MUST follow the schedule fetch, and must not be split into its own
+      # workflow. The model trains on completed games, and the step above is
+      # what fills in Sunday's and Monday's final scores -- so a rebuild that
+      # ran on any other trigger would re-train on the same games it saw last
+      # week and quietly write an identical file.
+      #
+      # Without this step the projections stay frozen at their PRESEASON state
+      # (`trainedOnThisSeason: 0`), which is the state the script itself warns
+      # is the most compressed: nothing reaches 80%, only ~16 of 272 games
+      # reach 70%, because every rating is last season's regressed 0.40 toward
+      # average. The spread widens as real results displace that prior, so
+      # these sharpen from roughly week 4 -- but only if something re-runs
+      # them. Nothing did until 2026-08-28, and the Planning tab's whole
+      # week-against-week ordering reads this file.
+      - name: Rebuild projections
+        run: python3 scripts/build_projections.py "${{ steps.season.outputs.year }}"
+
+      - name: Commit schedule and projections
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/schedule-*.json
+          git add data/schedule-*.json data/projections-*.json
           git diff --cached --quiet && exit 0
-          git commit -m "chore(bot): refresh ${{ steps.season.outputs.year }} schedule [automated]"
+          git commit -m "chore(bot): refresh ${{ steps.season.outputs.year }} schedule + projections [automated]"
           git push

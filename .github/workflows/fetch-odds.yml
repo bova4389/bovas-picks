@@ -3,17 +3,33 @@ name: Fetch odds snapshot
 on:
   workflow_dispatch: {}
   schedule:
+    # ── MINUTE :17 IS DELIBERATE. DO NOT ROUND IT TO :00. ──────────────────
+    # GitHub runs scheduled workflows on a best-effort queue and drops them
+    # under load, and the heaviest contention by far is on the hour, when
+    # every cron in every public repo fires at once. At minute 0 this job was
+    # measurably losing runs: Thursday 2026-08-27 delivered 2 of its 8 slots,
+    # and Friday 2026-08-28 had delivered 0 of the 5 due by 13:25 UTC — while
+    # the same crons ran all 8, three days running, the week before. An
+    # off-the-hour minute is the documented mitigation.
+    #
+    # A missed run is not cosmetic here: the Odds tab measures movement from
+    # history[0] to the latest snapshot, so a dropped Thu–Sat sample is a hole
+    # in exactly the window where lines move.
+    #
+    # Both crons carry the SAME minute, which is the point — see the anchor
+    # note below. If one moves, the other moves with it.
+
     # Dense: every 3 hours, Thursday–Saturday (UTC dow 4,5,6) — the window
     # where lines actually move as injury news lands and money comes in.
-    # Deliberately includes 14:00 UTC so it lines up with the daily anchor
-    # below rather than sampling on a different clock each day.
-    - cron: "0 2,5,8,11,14,17,20,23 * * 4,5,6"
-    # Anchor: once a day at 14:00 UTC, every day (Sunday–Wednesday here;
-    # Thu–Sat get their 14:00 run from the dense schedule above). Together
+    # Deliberately includes the 14:17 slot so it lines up with the daily
+    # anchor below rather than sampling on a different clock each day.
+    - cron: "17 2,5,8,11,14,17,20,23 * * 4,5,6"
+    # Anchor: once a day at 14:17 UTC, every day (Sunday–Wednesday here;
+    # Thu–Sat get their 14:17 run from the dense schedule above). Together
     # these give a same-time snapshot on all seven days, so "Monday's
     # opening line vs. Saturday's closing line" is a clean same-clock
     # comparison, not just whatever the dense window happened to catch.
-    - cron: "0 14 * * 0,1,2,3"
+    - cron: "17 14 * * 0,1,2,3"
 
 permissions:
   contents: write
