@@ -838,5 +838,19 @@
   "vig": 0.0422,
   "bucket": 7,
   "fetchedAt": "2026-08-27T23:16:36.831210+00:00"
+ },
+ {
+  "id": "45b2690b350ed45145c7a716b18e8e66",
+  "commenceTime": "2026-10-18T20:25:00Z",
+  "home": "Las Vegas Raiders",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3125,
+  "rawAwayProb": 0.7297,
+  "homeWinProb": 0.2998,
+  "awayWinProb": 0.7002,
+  "vig": 0.0422,
+  "bucket": 7,
+  "fetchedAt": "2026-08-28T13:26:07.059648+00:00"
  }
 ]

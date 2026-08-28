@@ -838,5 +838,19 @@
   "vig": 0.0431,
   "bucket": 13,
   "fetchedAt": "2026-08-27T23:16:36.831210+00:00"
+ },
+ {
+  "id": "81a8fee5b649a3ad5ad59e9528f2f376",
+  "commenceTime": "2026-11-29T18:00:00Z",
+  "home": "Jacksonville Jaguars",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7041,
+  "rawAwayProb": 0.339,
+  "homeWinProb": 0.675,
+  "awayWinProb": 0.325,
+  "vig": 0.0431,
+  "bucket": 13,
+  "fetchedAt": "2026-08-28T13:26:07.059648+00:00"
  }
 ]

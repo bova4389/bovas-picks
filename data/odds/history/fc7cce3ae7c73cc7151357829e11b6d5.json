@@ -838,5 +838,19 @@
   "vig": 0.042,
   "bucket": 17,
   "fetchedAt": "2026-08-27T23:16:36.831210+00:00"
+ },
+ {
+  "id": "fc7cce3ae7c73cc7151357829e11b6d5",
+  "commenceTime": "2026-12-27T21:25:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "San Francisco 49ers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6183,
+  "rawAwayProb": 0.4237,
+  "homeWinProb": 0.5934,
+  "awayWinProb": 0.4066,
+  "vig": 0.042,
+  "bucket": 17,
+  "fetchedAt": "2026-08-28T13:26:07.059648+00:00"
  }
 ]

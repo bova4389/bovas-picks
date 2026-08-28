@@ -838,5 +838,19 @@
   "vig": 0.0434,
   "bucket": 18,
   "fetchedAt": "2026-08-27T23:16:36.831210+00:00"
+ },
+ {
+  "id": "67d842cb73300ef923959105698b63bb",
+  "commenceTime": "2027-01-03T21:25:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 18,
+  "fetchedAt": "2026-08-28T13:26:07.059648+00:00"
  }
 ]
