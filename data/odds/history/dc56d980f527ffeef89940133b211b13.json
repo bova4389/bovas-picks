@@ -852,5 +852,19 @@
   "vig": 0.0407,
   "bucket": 10,
   "fetchedAt": "2026-08-28T13:26:07.059648+00:00"
+ },
+ {
+  "id": "dc56d980f527ffeef89940133b211b13",
+  "commenceTime": "2026-11-08T14:30:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.351,
+  "rawAwayProb": 0.6898,
+  "homeWinProb": 0.3372,
+  "awayWinProb": 0.6628,
+  "vig": 0.0407,
+  "bucket": 10,
+  "fetchedAt": "2026-08-29T00:59:05.562649+00:00"
  }
 ]

@@ -852,5 +852,19 @@
   "vig": 0.0413,
   "bucket": 7,
   "fetchedAt": "2026-08-28T13:26:07.059648+00:00"
+ },
+ {
+  "id": "20fefae8c296247460ba5773caa42218",
+  "commenceTime": "2026-10-18T20:25:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 7,
+  "fetchedAt": "2026-08-29T00:59:05.562649+00:00"
  }
 ]

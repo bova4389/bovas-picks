@@ -852,5 +852,19 @@
   "vig": 0.0425,
   "bucket": 3,
   "fetchedAt": "2026-08-28T13:26:07.059648+00:00"
+ },
+ {
+  "id": "50bc247030707d823b9c3581d7eb5760",
+  "commenceTime": "2026-09-21T00:20:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7647,
+  "rawAwayProb": 0.2778,
+  "homeWinProb": 0.7335,
+  "awayWinProb": 0.2665,
+  "vig": 0.0425,
+  "bucket": 3,
+  "fetchedAt": "2026-08-29T00:59:05.562649+00:00"
  }
 ]

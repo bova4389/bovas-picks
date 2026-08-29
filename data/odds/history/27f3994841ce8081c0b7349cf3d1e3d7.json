@@ -852,5 +852,19 @@
   "vig": 0.0434,
   "bucket": 7,
   "fetchedAt": "2026-08-28T13:26:07.059648+00:00"
+ },
+ {
+  "id": "27f3994841ce8081c0b7349cf3d1e3d7",
+  "commenceTime": "2026-10-18T17:00:00Z",
+  "home": "Tampa Bay Buccaneers",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 7,
+  "fetchedAt": "2026-08-29T00:59:05.562649+00:00"
  }
 ]

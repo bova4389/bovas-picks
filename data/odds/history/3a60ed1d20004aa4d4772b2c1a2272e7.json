@@ -852,5 +852,19 @@
   "vig": 0.0434,
   "bucket": 12,
   "fetchedAt": "2026-08-28T13:26:07.059648+00:00"
+ },
+ {
+  "id": "3a60ed1d20004aa4d4772b2c1a2272e7",
+  "commenceTime": "2026-11-24T01:15:00Z",
+  "home": "Washington Commanders",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4878,
+  "rawAwayProb": 0.5556,
+  "homeWinProb": 0.4675,
+  "awayWinProb": 0.5325,
+  "vig": 0.0434,
+  "bucket": 12,
+  "fetchedAt": "2026-08-29T00:59:05.562649+00:00"
  }
 ]
