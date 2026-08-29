@@ -908,5 +908,19 @@
   "vig": 0.0434,
   "bucket": 19,
   "fetchedAt": "2026-08-29T19:47:11.594218+00:00"
+ },
+ {
+  "id": "d190fb7ea85c33b96a495041dad22142",
+  "commenceTime": "2027-01-10T18:00:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Chicago Bears",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 19,
+  "fetchedAt": "2026-08-29T22:41:09.663552+00:00"
  }
 ]

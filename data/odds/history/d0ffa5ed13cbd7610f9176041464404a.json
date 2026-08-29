@@ -908,5 +908,19 @@
   "vig": 0.0446,
   "bucket": 18,
   "fetchedAt": "2026-08-29T19:47:11.594218+00:00"
+ },
+ {
+  "id": "d0ffa5ed13cbd7610f9176041464404a",
+  "commenceTime": "2027-01-03T18:00:00Z",
+  "home": "Tennessee Titans",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.495,
+  "rawAwayProb": 0.5495,
+  "homeWinProb": 0.4739,
+  "awayWinProb": 0.5261,
+  "vig": 0.0446,
+  "bucket": 18,
+  "fetchedAt": "2026-08-29T22:41:09.663552+00:00"
  }
 ]

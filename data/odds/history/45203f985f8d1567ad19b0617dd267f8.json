@@ -908,5 +908,19 @@
   "vig": 0.0422,
   "bucket": 15,
   "fetchedAt": "2026-08-29T19:47:11.594218+00:00"
+ },
+ {
+  "id": "45203f985f8d1567ad19b0617dd267f8",
+  "commenceTime": "2026-12-13T18:00:00Z",
+  "home": "Philadelphia Eagles",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7101,
+  "rawAwayProb": 0.3333,
+  "homeWinProb": 0.6806,
+  "awayWinProb": 0.3194,
+  "vig": 0.0435,
+  "bucket": 15,
+  "fetchedAt": "2026-08-29T22:41:09.663552+00:00"
  }
 ]

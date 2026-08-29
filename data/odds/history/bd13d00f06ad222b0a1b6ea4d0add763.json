@@ -908,5 +908,19 @@
   "vig": 0.0434,
   "bucket": 17,
   "fetchedAt": "2026-08-29T19:47:11.594218+00:00"
+ },
+ {
+  "id": "bd13d00f06ad222b0a1b6ea4d0add763",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Tampa Bay Buccaneers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.495,
+  "rawAwayProb": 0.5495,
+  "homeWinProb": 0.4739,
+  "awayWinProb": 0.5261,
+  "vig": 0.0446,
+  "bucket": 17,
+  "fetchedAt": "2026-08-29T22:41:09.663552+00:00"
  }
 ]

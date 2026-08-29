@@ -908,5 +908,19 @@
   "vig": 0.0413,
   "bucket": 17,
   "fetchedAt": "2026-08-29T19:47:11.594218+00:00"
+ },
+ {
+  "id": "f1af9705dbd2bbe4f1555f080ad06ba2",
+  "commenceTime": "2026-12-26T01:15:00Z",
+  "home": "Seattle Seahawks",
+  "away": "Los Angeles Rams",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.5326,
+  "rawAwayProb": 0.5087,
+  "homeWinProb": 0.5115,
+  "awayWinProb": 0.4885,
+  "vig": 0.0413,
+  "bucket": 17,
+  "fetchedAt": "2026-08-29T22:41:09.663552+00:00"
  }
 ]
