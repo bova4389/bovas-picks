@@ -894,5 +894,19 @@
   "vig": 0.0425,
   "bucket": 6,
   "fetchedAt": "2026-08-29T15:39:51.382667+00:00"
+ },
+ {
+  "id": "86457f91112732f21ad4bb7d37bd291c",
+  "commenceTime": "2026-10-12T00:20:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3704,
+  "rawAwayProb": 0.6721,
+  "homeWinProb": 0.3553,
+  "awayWinProb": 0.6447,
+  "vig": 0.0425,
+  "bucket": 6,
+  "fetchedAt": "2026-08-29T19:47:11.594218+00:00"
  }
 ]

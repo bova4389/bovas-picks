@@ -894,5 +894,19 @@
   "vig": 0.0427,
   "bucket": 12,
   "fetchedAt": "2026-08-29T15:39:51.382667+00:00"
+ },
+ {
+  "id": "4527f57f5bc32742d8194af1ccf7da7e",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3571,
+  "rawAwayProb": 0.6855,
+  "homeWinProb": 0.3425,
+  "awayWinProb": 0.6575,
+  "vig": 0.0427,
+  "bucket": 12,
+  "fetchedAt": "2026-08-29T19:47:11.594218+00:00"
  }
 ]

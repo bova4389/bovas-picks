@@ -894,5 +894,19 @@
   "vig": 0.0421,
   "bucket": 12,
   "fetchedAt": "2026-08-29T15:39:51.382667+00:00"
+ },
+ {
+  "id": "5e63079b678f8c13419adc169fff02d3",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7436,
+  "rawAwayProb": 0.2985,
+  "homeWinProb": 0.7136,
+  "awayWinProb": 0.2864,
+  "vig": 0.0421,
+  "bucket": 12,
+  "fetchedAt": "2026-08-29T19:47:11.594218+00:00"
  }
 ]

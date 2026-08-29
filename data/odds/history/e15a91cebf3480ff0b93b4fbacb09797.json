@@ -894,5 +894,19 @@
   "vig": 0.0432,
   "bucket": 16,
   "fetchedAt": "2026-08-29T15:39:51.382667+00:00"
+ },
+ {
+  "id": "e15a91cebf3480ff0b93b4fbacb09797",
+  "commenceTime": "2026-12-20T18:00:00Z",
+  "home": "Tampa Bay Buccaneers",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6644,
+  "rawAwayProb": 0.3788,
+  "homeWinProb": 0.6369,
+  "awayWinProb": 0.3631,
+  "vig": 0.0432,
+  "bucket": 16,
+  "fetchedAt": "2026-08-29T19:47:11.594218+00:00"
  }
 ]
