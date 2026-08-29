@@ -880,5 +880,19 @@
   "vig": 0.0425,
   "bucket": 6,
   "fetchedAt": "2026-08-29T09:07:53.010786+00:00"
+ },
+ {
+  "id": "8e5d515b10d8a5ffb324640ed60bcc55",
+  "commenceTime": "2026-10-11T20:25:00Z",
+  "home": "Seattle Seahawks",
+  "away": "San Francisco 49ers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6721,
+  "rawAwayProb": 0.3704,
+  "homeWinProb": 0.6447,
+  "awayWinProb": 0.3553,
+  "vig": 0.0425,
+  "bucket": 6,
+  "fetchedAt": "2026-08-29T15:39:51.382667+00:00"
  }
 ]

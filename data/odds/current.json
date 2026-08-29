@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-29T09:07:53.010786+00:00",
+ "fetchedAt": "2026-08-29T15:39:51.382667+00:00",
  "events": [
   {
    "id": "8c94552d022acec4a0458d70c19d3da9",
@@ -59,11 +59,11 @@
    "home": "Houston Texans",
    "away": "Buffalo Bills",
    "bookmakerCount": 6,
-   "rawHomeProb": 0.5162,
-   "rawAwayProb": 0.5332,
-   "homeWinProb": 0.4919,
-   "awayWinProb": 0.5081,
-   "vig": 0.0494,
+   "rawHomeProb": 0.5174,
+   "rawAwayProb": 0.5318,
+   "homeWinProb": 0.4931,
+   "awayWinProb": 0.5069,
+   "vig": 0.0493,
    "bucket": 2
   },
   {
@@ -98,11 +98,11 @@
    "home": "Jacksonville Jaguars",
    "away": "Cleveland Browns",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.7973,
-   "rawAwayProb": 0.2479,
-   "homeWinProb": 0.7628,
-   "awayWinProb": 0.2372,
-   "vig": 0.0452,
+   "rawHomeProb": 0.799,
+   "rawAwayProb": 0.2459,
+   "homeWinProb": 0.7646,
+   "awayWinProb": 0.2354,
+   "vig": 0.0449,
    "bucket": 2
   },
   {
@@ -202,11 +202,11 @@
    "home": "Kansas City Chiefs",
    "away": "Denver Broncos",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.5939,
-   "rawAwayProb": 0.4506,
-   "homeWinProb": 0.5686,
-   "awayWinProb": 0.4314,
-   "vig": 0.0444,
+   "rawHomeProb": 0.5915,
+   "rawAwayProb": 0.4517,
+   "homeWinProb": 0.567,
+   "awayWinProb": 0.433,
+   "vig": 0.0433,
    "bucket": 2
   },
   {
@@ -215,11 +215,11 @@
    "home": "Buffalo Bills",
    "away": "Detroit Lions",
    "bookmakerCount": 2,
-   "rawHomeProb": 0.6205,
-   "rawAwayProb": 0.4265,
-   "homeWinProb": 0.5927,
-   "awayWinProb": 0.4073,
-   "vig": 0.0469,
+   "rawHomeProb": 0.6152,
+   "rawAwayProb": 0.432,
+   "homeWinProb": 0.5875,
+   "awayWinProb": 0.4125,
+   "vig": 0.0472,
    "bucket": 3
   },
   {
@@ -1164,11 +1164,11 @@
    "home": "Las Vegas Raiders",
    "away": "Buffalo Bills",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.3125,
-   "rawAwayProb": 0.7297,
-   "homeWinProb": 0.2998,
-   "awayWinProb": 0.7002,
-   "vig": 0.0422,
+   "rawHomeProb": 0.3077,
+   "rawAwayProb": 0.7354,
+   "homeWinProb": 0.295,
+   "awayWinProb": 0.705,
+   "vig": 0.0431,
    "bucket": 7
   },
   {
@@ -2035,11 +2035,11 @@
    "home": "Detroit Lions",
    "away": "Tampa Bay Buccaneers",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.6923,
-   "rawAwayProb": 0.3509,
-   "homeWinProb": 0.6636,
-   "awayWinProb": 0.3364,
-   "vig": 0.0432,
+   "rawHomeProb": 0.6855,
+   "rawAwayProb": 0.3571,
+   "homeWinProb": 0.6575,
+   "awayWinProb": 0.3425,
+   "vig": 0.0427,
    "bucket": 12
   },
   {
