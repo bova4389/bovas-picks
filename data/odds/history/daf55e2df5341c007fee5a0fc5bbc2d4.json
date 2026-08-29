@@ -866,5 +866,19 @@
   "vig": 0.0418,
   "bucket": 5,
   "fetchedAt": "2026-08-29T00:59:05.562649+00:00"
+ },
+ {
+  "id": "daf55e2df5341c007fee5a0fc5bbc2d4",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "Houston Texans",
+  "away": "Dallas Cowboys",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "bucket": 5,
+  "fetchedAt": "2026-08-29T09:07:53.010786+00:00"
  }
 ]
