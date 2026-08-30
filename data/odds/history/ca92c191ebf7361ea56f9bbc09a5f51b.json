@@ -936,5 +936,19 @@
   "vig": 0.0425,
   "bucket": 17,
   "fetchedAt": "2026-08-30T01:18:02.636691+00:00"
+ },
+ {
+  "id": "ca92c191ebf7361ea56f9bbc09a5f51b",
+  "commenceTime": "2026-12-29T01:15:00Z",
+  "home": "Detroit Lions",
+  "away": "New York Giants",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6721,
+  "rawAwayProb": 0.3704,
+  "homeWinProb": 0.6447,
+  "awayWinProb": 0.3553,
+  "vig": 0.0425,
+  "bucket": 17,
+  "fetchedAt": "2026-08-30T18:04:14.197963+00:00"
  }
 ]

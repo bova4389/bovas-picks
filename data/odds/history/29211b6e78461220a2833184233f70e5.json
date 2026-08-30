@@ -936,5 +936,19 @@
   "vig": 0.0426,
   "bucket": 16,
   "fetchedAt": "2026-08-30T01:18:02.636691+00:00"
+ },
+ {
+  "id": "29211b6e78461220a2833184233f70e5",
+  "commenceTime": "2026-12-20T18:00:00Z",
+  "home": "Houston Texans",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6078,
+  "rawAwayProb": 0.4348,
+  "homeWinProb": 0.583,
+  "awayWinProb": 0.417,
+  "vig": 0.0426,
+  "bucket": 16,
+  "fetchedAt": "2026-08-30T18:04:14.197963+00:00"
  }
 ]

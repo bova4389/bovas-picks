@@ -936,5 +936,19 @@
   "vig": 0.0425,
   "bucket": 3,
   "fetchedAt": "2026-08-30T01:18:02.636691+00:00"
+ },
+ {
+  "id": "4dd8020192a544385db42374e5555303",
+  "commenceTime": "2026-09-20T20:25:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Seattle Seahawks",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.1961,
+  "rawAwayProb": 0.8462,
+  "homeWinProb": 0.1881,
+  "awayWinProb": 0.8119,
+  "vig": 0.0422,
+  "bucket": 3,
+  "fetchedAt": "2026-08-30T18:04:14.197963+00:00"
  }
 ]
