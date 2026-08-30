@@ -922,5 +922,19 @@
   "vig": 0.0418,
   "bucket": 12,
   "fetchedAt": "2026-08-29T22:41:09.663552+00:00"
+ },
+ {
+  "id": "cbe45bafcc2615fc1d96cbc12840377a",
+  "commenceTime": "2026-11-22T21:25:00Z",
+  "home": "Philadelphia Eagles",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.697,
+  "rawAwayProb": 0.3448,
+  "homeWinProb": 0.669,
+  "awayWinProb": 0.331,
+  "vig": 0.0418,
+  "bucket": 12,
+  "fetchedAt": "2026-08-30T01:18:02.636691+00:00"
  }
 ]

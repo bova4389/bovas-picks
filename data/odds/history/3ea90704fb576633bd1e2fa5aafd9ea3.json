@@ -922,5 +922,19 @@
   "vig": 0.0421,
   "bucket": 12,
   "fetchedAt": "2026-08-29T22:41:09.663552+00:00"
+ },
+ {
+  "id": "3ea90704fb576633bd1e2fa5aafd9ea3",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Chicago Bears",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7354,
+  "rawAwayProb": 0.3077,
+  "homeWinProb": 0.705,
+  "awayWinProb": 0.295,
+  "vig": 0.0431,
+  "bucket": 12,
+  "fetchedAt": "2026-08-30T01:18:02.636691+00:00"
  }
 ]
