@@ -950,5 +950,19 @@
   "vig": 0.0493,
   "bucket": 2,
   "fetchedAt": "2026-08-30T18:04:14.197963+00:00"
+ },
+ {
+  "id": "7e09efed7e12c659b82740b67ce2f9a1",
+  "commenceTime": "2026-09-13T17:00:00Z",
+  "home": "Houston Texans",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 6,
+  "rawHomeProb": 0.5148,
+  "rawAwayProb": 0.5345,
+  "homeWinProb": 0.4906,
+  "awayWinProb": 0.5094,
+  "vig": 0.0493,
+  "bucket": 2,
+  "fetchedAt": "2026-08-31T20:04:44.708948+00:00"
  }
 ]

@@ -950,5 +950,19 @@
   "vig": 0.0414,
   "bucket": 8,
   "fetchedAt": "2026-08-30T18:04:14.197963+00:00"
+ },
+ {
+  "id": "2e710ea5a306b614f0f966e3d78732f8",
+  "commenceTime": "2026-10-25T13:30:00Z",
+  "home": "New Orleans Saints",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.4654,
+  "rawAwayProb": 0.576,
+  "homeWinProb": 0.4469,
+  "awayWinProb": 0.5531,
+  "vig": 0.0414,
+  "bucket": 8,
+  "fetchedAt": "2026-08-31T20:04:44.708948+00:00"
  }
 ]

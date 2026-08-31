@@ -950,5 +950,19 @@
   "vig": 0.0441,
   "bucket": 2,
   "fetchedAt": "2026-08-30T18:04:14.197963+00:00"
+ },
+ {
+  "id": "c5d95f48a16849ab6bebc68fbbfcb74a",
+  "commenceTime": "2026-09-13T20:25:00Z",
+  "home": "Las Vegas Raiders",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6613,
+  "rawAwayProb": 0.3834,
+  "homeWinProb": 0.633,
+  "awayWinProb": 0.367,
+  "vig": 0.0447,
+  "bucket": 2,
+  "fetchedAt": "2026-08-31T20:04:44.708948+00:00"
  }
 ]
