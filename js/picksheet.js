@@ -8,15 +8,19 @@
    ========================================================================== */
 
 import {
-  SEASON, tryNumberMap, weekNumbers, gamesForWeek, scoredGames,
+  SEASON, tryNumberMap, weekNumbers, scoredGames, tiebreakerGame,
   loadPicks, savePicks, loadProfile, saveProfile, getOddsSnapshot,
   getSeasonAudit,
 } from './data.js';
 import { buildOddsIndex } from './oddsMatch.js';
+import { loadLeagueState } from './survivorLeagues.js';
+import { ABBR_TO_MASCOT } from './teams.js';
 import { favoriteLine } from './oddsBadge.js';
 import { seasonBanner } from './seasonBanner.js';
 
-const DAY_ORDER = ['Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday'];
+const DAY_ORDER = [
+  'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday',
+];
 
 let map = null;
 let week = null;
@@ -98,7 +102,8 @@ function shell(weeks) {
       <div class="field">
         <label for="mnf-points">Monday night points</label>
         <input id="mnf-points" type="number" inputmode="numeric" min="0" max="120"
-               placeholder="44" value="" />
+               placeholder="44" value="" aria-describedby="mnf-game" />
+        <span class="hint" id="mnf-game"></span>
       </div>
       <div class="field" style="flex:1 1 190px">
         <label for="entry-name">Name on the entry</label>
@@ -189,7 +194,11 @@ function render() {
 }
 
 function renderGames() {
-  const games = gamesForWeek(map, week);
+  // Scored games only. The sheet prints the excluded Thursday (and any
+  // Wednesday/Friday) game for reference, but there is nothing to pick on it
+  // and a row you cannot act on is one more thing to read past on the way to
+  // the twenty-eight numbers that matter.
+  const games = scoredGames(map, week);
   const byDay = new Map();
   for (const g of games) {
     const day = g.day || 'Sunday';
@@ -207,6 +216,11 @@ function renderGames() {
       ${byDay.get(day).map(gameRow).join('')}
     </div>`).join('');
 
+  const tb = tiebreakerGame(map, week);
+  el('mnf-game').textContent = tb
+    ? `Total points in ${tb.away} at ${tb.home}`
+    : 'Tiebreaker game not marked on this sheet';
+
   el('games').querySelectorAll('.pick').forEach((btn) => {
     btn.addEventListener('click', () => {
       const away = Number(btn.dataset.away);
@@ -222,18 +236,11 @@ function renderGames() {
 }
 
 function gameRow(g) {
-  if (!g.counts) {
-    return `
-      <div class="game excluded">
-        <div class="matchup">${escape(g.away)} at ${escape(g.home)}</div>
-        <div class="why">Does not count this week</div>
-      </div>`;
-  }
-
   const chosen = picks[g.awayNum];
   const fav = favoriteLine(g, oddsIndex);
   return `
-    <div class="game${chosen ? ' is-picked' : ''}">
+    <div class="game${chosen ? ' is-picked' : ''}${g.tiebreaker ? ' is-tiebreak' : ''}">
+      ${g.tiebreaker ? '<div class="game-tb">Tiebreaker &mdash; total points</div>' : ''}
       ${fav ? `<div class="game-odds">${fav} favored</div>` : ''}
       ${side(g, g.awayNum, g.away, 'Away', chosen)}
       <div class="game-at">at</div>
@@ -314,6 +321,15 @@ function validate() {
     problems.push('No name on the entry');
   }
 
+  // Both pools go in one email and share the midnight-Saturday deadline, so a
+  // missing suicide pick is a half-sent entry, not a separate errand. Warned
+  // rather than blocked: the pick'em card is still valid on its own, and some
+  // weeks the suicide entry is already out (a Wednesday or Thursday team has
+  // to be in by 6pm before that game, which is days earlier).
+  if (!survivorPickName()) {
+    problems.push(`No suicide pick recorded for Week ${week} — set it on the Survivor grid`);
+  }
+
   return problems;
 }
 
@@ -341,25 +357,58 @@ function renderOutput() {
   el('email-box').value = buildMessage();
 }
 
+/**
+ * The message to send, in the exact shape the commissioner asked for
+ * (2026-09-01 email, "Please put your picks in like this"):
+ *
+ *     2,4,5,7,10,11,14,15,17,20,22,24,26,28
+ *     points 50
+ *     Suicide KC
+ *
+ * Three details from that email that this format is not free to drift from:
+ *
+ *   * Numbers are comma-separated with NO spaces, ascending.
+ *   * The suicide pick is a CITY OR TEAM NAME, never a number — "do not give
+ *     me a number off the sheets". The two pools are submitted in one email
+ *     and are the one place where a number and a name mean different things,
+ *     so the suicide line deliberately does not go anywhere near `picks`.
+ *   * Both pools are due midnight Saturday.
+ *
+ * The name/number readback below the divider is ours, not Mike's. The numbers
+ * are what he scores, but a human reading them back is how a transposition
+ * actually gets caught, and it costs him one glance to ignore.
+ */
 function buildMessage() {
   const games = scoredGames(map, week);
-  const lines = [`Week ${week} picks`, ''];
+  const lines = [];
 
-  lines.push(pickedNumbers().join(', ') || '(no picks yet)');
+  lines.push(pickedNumbers().join(',') || '(no picks yet)');
+  lines.push(`points ${picks.__mnf ?? '—'}`);
+  lines.push(`Suicide ${survivorPickName() ?? '—'}`);
   lines.push('');
+  lines.push(profile.name || '(name)');
 
-  // Team names alongside the numbers: the numbers are what count, but a human
-  // reading it back is how a transposition actually gets caught.
+  lines.push('');
+  lines.push(`--- Week ${week} check ---`);
+  const tb = tiebreakerGame(map, week);
+  if (tb) lines.push(`points = total in ${tb.away} at ${tb.home}`);
   for (const g of games) {
     const p = picks[g.awayNum];
     if (!p) continue;
     lines.push(`${String(p).padStart(2, ' ')}  ${p === g.awayNum ? g.away : g.home}`);
   }
 
-  lines.push('');
-  lines.push(`Monday night points: ${picks.__mnf ?? '—'}`);
-  lines.push(`Name: ${profile.name || '—'}`);
   return lines.join('\n');
+}
+
+/**
+ * My suicide pick for this week, as a team name — or null if I have not made
+ * one. Read from Mike's pool specifically: the Sleeper pool is a different
+ * game and its pick has no business in this email.
+ */
+function survivorPickName() {
+  const abbr = loadLeagueState('mike', SEASON).picks[String(week)];
+  return abbr ? (ABBR_TO_MASCOT[abbr] || abbr) : null;
 }
 
 function escape(s) {

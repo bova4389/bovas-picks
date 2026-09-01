@@ -20,7 +20,8 @@ a pool that cannot receive them.
 |---|---|---|---|
 | Entries | **235** (2025 Wk 1) | 15–20 | **12** (2026, from the API) |
 | Lives | **1 — one loss and out** | 3 (2 buy-backs) | 3 (2 buy-backs) — but see note |
-| Submission | Same email as the pickem | In-app | In-app |
+| Submission | Same email as the pickem, **as a team name** | In-app | In-app |
+| Deadline | **Midnight Sat** (6pm before a Wed/Thu game) | In-app | In-app |
 | Entry / buy-back | — (one life) | $30–50 / $15–25 | $30–50 / $15–25 |
 | Field data | Full weekly spreadsheet | None | **Live from Sleeper, on demand** |
 | Strategy driver | **Leverage + future value** | **Survival + future value** | same |
@@ -133,10 +134,19 @@ The pool will run deep. With 235 entries, expect it to reach Week 10+ before it 
   under 10%.** That is the single most repeatable edge in this pool.
 - **Do not fade for the sake of fading.** If the chalk is 92% and the next option is 78%, take the
   chalk. The formula says so and so does common sense.
-- **No late-information edge in this pool.** Picks share the pickem's Saturday deadline — same as
-  the straight-up pool, locked before Sunday inactives post. Price a questionable-tag game as a
-  coin-flip per STRATEGY.md's Saturday-deadline caveat; don't plan around information that won't
-  exist yet.
+- **No late-information edge in this pool. CONFIRMED 2026-09-01.** Picks share the pickem's
+  deadline — **midnight Saturday**, locked before Sunday inactives post. Price a questionable-tag
+  game as a coin-flip per STRATEGY.md's Saturday-deadline caveat; don't plan around information
+  that won't exist yet.
+- **A Wednesday or Thursday team is legal here, and costs information. CONFIRMED 2026-09-01.**
+  Unlike the pickem — where those games are unnumbered and excluded outright — the suicide pool
+  accepts them, but the pick **must be in by 6pm before that game**, two to three days ahead of the
+  Saturday deadline. A Thursday pick is therefore not free: it buys nothing and spends the rest of
+  the week's injury news. Take one only when the spot is clearly better than anything Sunday
+  offers, never when it is merely equal.
+- **The pick is submitted as a team name, never a sheet number** — *"do not give me a number off
+  the sheets, just a City or team name."* The numbers belong to the pickem pool alone. Both pools
+  go out in one email; the format is in CLAUDE.md's Submission Format section.
 
 ### Yahoo and Sleeper pools — 15–20 entries, three lives
 

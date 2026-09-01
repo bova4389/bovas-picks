@@ -447,20 +447,30 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 }
 .pick[aria-pressed="true"] .pick-side { color: rgba(255,255,255,.82); }
 
-/* Excluded games — visibly inert, never mistakable for a pickable row */
-.game.excluded {
-  background: repeating-linear-gradient(
-    -45deg, var(--paper) 0 8px, var(--paper-2) 8px 16px);
-  border-style: dashed;
-  grid-template-columns: 1fr;
-  gap: 4px;
-  padding: 14px 16px;
+/* The Monday-night tiebreaker — the game the points guess is scored against.
+   Marked on the row itself because the sheet is read top to bottom on a phone,
+   and the points box sits far above it, out of view by the time you reach
+   Monday. A left edge rather than a fill: `is-picked` already owns the border
+   colour, and two competing background states on one row is one too many. */
+.game.is-tiebreak {
+  border-left: 3px solid var(--purple-mid);
+  padding-left: 6px;   /* 8px pad, less the 2px the thicker border adds */
 }
-.game.excluded .matchup { font-weight: 500; color: var(--ink-soft); }
-.game.excluded .why {
-  font-size: .75rem; font-weight: 600;
+.game-tb {
+  grid-column: 1 / -1;
+  padding: 0 4px;
+  font-size: .6875rem; font-weight: 700;
   letter-spacing: .04em; text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--purple);
+}
+
+/* The same fact restated beside the points input. `.hint` was scoped to
+   .output, so this needs its own rule rather than inheriting that one. */
+.field .hint {
+  display: block;
+  margin-top: 3px;
+  font-size: .75rem;
+  color: var(--ink-soft);
 }
 
 /* ── Output ───────────────────────────────────────────────────────────── */

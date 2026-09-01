@@ -78,6 +78,17 @@ export function scoredGames(map, week) {
 }
 
 /**
+ * The game the Monday-night points guess is scored against, or null.
+ *
+ * Derived once, in scripts/parse_weekly_sheets.py, and only read here — never
+ * re-derived as "the last Monday game", because the entire reason the flag
+ * exists is the week where that heuristic picks the wrong one of two.
+ */
+export function tiebreakerGame(map, week) {
+  return scoredGames(map, week).find((g) => g.tiebreaker) || null;
+}
+
+/**
  * Field pick popularity for a week, or null if that week's workbook has not
  * been parsed yet. Produced by scripts/parse_pool_picks.py.
  */

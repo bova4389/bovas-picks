@@ -843,14 +843,27 @@ so this is both the source of the pick form and the validator for outgoing picks
 python scripts/parse_weekly_sheets.py "path/to/Weekly Sheets 26.xlsx" 2026
 ```
 
-→ `data/number-map-<year>.json` (teams, numbers, byes — **tracked**)
+→ `data/number-map-<year>.json` (teams, numbers, byes, tiebreaker — **tracked**)
 
 Layout notes that cost time to work out: away = odd number, home = even, sequential down the page.
-Unnumbered games are excluded from scoring — normally the Thursday game, but **Week 13
-(Thanksgiving) numbered everything including the Black Friday game**. Each sheet ends with a "Bye
-Week" block listing bye teams in the same columns games use; only real games have `at` in column D,
-which is the only reliable discriminator. The parser validates that every week's numbers form a
-clean `1..2N` run with home = away + 1, and exits non-zero if not.
+Unnumbered games are excluded from scoring — normally the Thursday game, but **the Thanksgiving
+sheet numbers everything**, including the Wednesday and Friday games (2025 Week 13, 2026 Week 12).
+Some weeks open on a Wednesday, so `DAYS` carries all six day names, not just Thursday–Monday.
+Each sheet ends with a "Bye Week" block listing bye teams in the same columns games use; only real
+games have `at` in column D, which is the only reliable discriminator. The parser validates that
+every week's numbers form a clean `1..2N` run with home = away + 1, and exits non-zero if not.
+
+**The Monday-night tiebreaker is derived here, not guessed at render time.** The sheet prints a
+"Monday Night Points" box but never says which game it refers to, because in a week with one
+Monday game there is nothing to say. `mark_tiebreaker()` sets `tiebreaker: true` on that game, and
+`tiebreakerGame()` in `data.js` is the only way anything reads it.
+
+A week with **two Monday games** is the case that cannot be derived, and it is a **hard validation
+failure** until the answer is recorded in `TIEBREAKERS[<year>][<week>]` by away number. Do not
+soften this into "take the later game" or "take the last one on the sheet": the whole reason the
+flag exists is the week where that heuristic picks the wrong one of two, and a wrong tiebreaker
+loses the week silently, in the one week the tiebreaker mattered. 2026 weeks 1–15 all have exactly
+one Monday game, so the override table is empty; weeks 16–18 arrive later.
 
 **2. "Weekly picks" — every Sunday once games kick off.** Every entrant's card for the week: entry
 number, real name, nickname, their picked numbers, and their Monday-night tiebreaker guess. Row 2
@@ -896,6 +909,61 @@ from the schedule feed, joined per game through `oddsMatch.js`'s season-wide ind
 Tab section. **Needs `ODDS_API_KEY` as a repo secret before the GitHub Action will run** — sign
 up at the-odds-api.com (an account Claude cannot create on your behalf) and add the secret once the
 repo has a remote.
+
+## Submission Format — Quoted From The Commissioner, Do Not Invent
+
+Confirmed by Mike's 2026-09-01 email to the pool ("Please put your picks in like this"). **Both
+pools go out in ONE email**, and `buildMessage()` in `js/picksheet.js` produces exactly this:
+
+```
+2,4,5,7,10,11,14,15,17,20,22,24,26,28
+points 50
+Suicide KC
+```
+
+- **Numbers are the pick'em pool only**, comma-separated with **no spaces**, ascending.
+- **`points` is the Monday-night tiebreaker total** for the one Monday game (see Data Pipeline).
+- **The suicide pick is a CITY OR TEAM NAME, never a number** — Mike's words: *"do not give me a
+  number off the sheets, just a City or team name."* This is the one place a number and a name mean
+  different things, so `survivorPickName()` reads the survivor state and never touches `picks`.
+  **Do not "helpfully" add the sheet number to the suicide line.**
+- **Everything below the `--- Week N check ---` divider is ours, not Mike's** — the name/number
+  readback that catches a transposition. Safe to drop if it ever bothers him; the three lines above
+  it are not.
+
+**Deadlines, also from that email:**
+
+| | |
+|---|---|
+| Both pools | **Midnight Saturday** |
+| Suicide pick on a Wed/Thurs game | **6pm before that game** — days earlier |
+| New entrants | Until Saturday the 12th |
+
+The Wed/Thurs rule is a *strategy* fact, not just an operational one: taking a Thursday team in the
+suicide pool costs you two days of injury news for no compensating edge, so it needs a genuinely
+better spot to justify. It does not change SURVIVOR-STRATEGY.md §2's "no late-information edge" —
+the deadline moves earlier, never later.
+
+**Thursday games are excluded from the pick'em but ARE usable in the suicide pool.** These are not
+in conflict: the Pick Sheet renders the number map (scored games only) and the Survivor grid renders
+the schedule feed (all games). A change to one must not be propagated to the other on the assumption
+they should agree.
+
+## Pick Sheet — What It Renders
+
+**Scored games only.** `renderGames()` reads `scoredGames()`, not `gamesForWeek()`. The workbook
+prints the excluded Thursday (and any Wednesday/Friday) game for reference, and the tab used to
+mirror that with a hatched `.game.excluded` row reading "Does not count this week". Those rows were
+removed 2026-09-01 at the pool's request: there is nothing to pick on them, and a row you cannot
+act on is one more thing to read past on the way to the twenty-eight numbers that matter. The
+excluded games **stay in `number-map-<year>.json`** — `counts: false` is the record of why a game
+is absent, and dropping them at parse time would make the sheet and the file disagree. If they are
+ever wanted back, it is a render change, not a re-parse.
+
+**The tiebreaker is marked in three places, from one flag.** `tiebreakerGame()` feeds the row badge
+(`.game.is-tiebreak`), the hint under the Monday-night points input, and the game name appended to
+the outgoing email line. All three read the parser's `tiebreaker` flag — none of them re-derives
+it. See the Data Pipeline section for why that matters.
 
 ## Which Data File Feeds Which View
 
