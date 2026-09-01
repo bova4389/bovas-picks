@@ -964,5 +964,19 @@
   "vig": 0.0434,
   "bucket": 15,
   "fetchedAt": "2026-08-31T20:04:44.708948+00:00"
+ },
+ {
+  "id": "a31f461ccd92e1072f23ccfae281ae9a",
+  "commenceTime": "2026-12-13T18:00:00Z",
+  "home": "Detroit Lions",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7826,
+  "rawAwayProb": 0.2597,
+  "homeWinProb": 0.7508,
+  "awayWinProb": 0.2492,
+  "vig": 0.0423,
+  "bucket": 15,
+  "fetchedAt": "2026-09-01T17:49:17.061940+00:00"
  }
 ]

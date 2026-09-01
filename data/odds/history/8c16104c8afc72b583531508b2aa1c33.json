@@ -964,5 +964,19 @@
   "vig": 0.0423,
   "bucket": 19,
   "fetchedAt": "2026-08-31T20:04:44.708948+00:00"
+ },
+ {
+  "id": "8c16104c8afc72b583531508b2aa1c33",
+  "commenceTime": "2027-01-10T18:00:00Z",
+  "home": "Cincinnati Bengals",
+  "away": "Cleveland Browns",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7802,
+  "rawAwayProb": 0.2632,
+  "homeWinProb": 0.7478,
+  "awayWinProb": 0.2522,
+  "vig": 0.0434,
+  "bucket": 19,
+  "fetchedAt": "2026-09-01T17:49:17.061940+00:00"
  }
 ]

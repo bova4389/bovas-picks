@@ -964,5 +964,19 @@
   "vig": 0.0418,
   "bucket": 6,
   "fetchedAt": "2026-08-31T20:04:44.708948+00:00"
+ },
+ {
+  "id": "d1d408fdfd272046fb517fe992a1c5a0",
+  "commenceTime": "2026-10-11T20:05:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "Denver Broncos",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 6,
+  "fetchedAt": "2026-09-01T17:49:17.061940+00:00"
  }
 ]

@@ -964,5 +964,19 @@
   "vig": 0.0413,
   "bucket": 7,
   "fetchedAt": "2026-08-31T20:04:44.708948+00:00"
+ },
+ {
+  "id": "1cf74afd313e9fd300e1462012b174cb",
+  "commenceTime": "2026-10-18T17:00:00Z",
+  "home": "New York Giants",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 7,
+  "fetchedAt": "2026-09-01T17:49:17.061940+00:00"
  }
 ]
