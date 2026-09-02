@@ -978,5 +978,19 @@
   "vig": 0.0422,
   "bucket": 7,
   "fetchedAt": "2026-09-01T17:49:17.061940+00:00"
+ },
+ {
+  "id": "f122527f003276d3bca19efa48c902c1",
+  "commenceTime": "2026-10-20T00:15:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Washington Commanders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7143,
+  "rawAwayProb": 0.3279,
+  "homeWinProb": 0.6854,
+  "awayWinProb": 0.3146,
+  "vig": 0.0422,
+  "bucket": 6,
+  "fetchedAt": "2026-09-02T17:54:01.135272+00:00"
  }
 ]
