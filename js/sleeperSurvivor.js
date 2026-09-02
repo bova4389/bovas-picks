@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Sleeper survivor pool — live feed.
+   Sleeper survivor pool — the survivor-shaped read.
 
    Mike's pool arrives as a mailed workbook that scripts/parse_survivor.py
-   turns into data/survivor-<year>.json. The Sleeper pool needs no workbook and
+   turns into data/survivor-<year>.json. A Sleeper pool needs no workbook and
    no script: Sleeper will hand over the whole pool on request, so this module
    fetches it in the browser and normalises it into THE SAME SHAPE the parser
    emits. That is the point of the file -- fieldAvailability(), scarcityFor(),
@@ -10,133 +10,25 @@
    result untouched, and neither the Grid tab nor the pick board below it can
    tell which pool's field it is painting.
 
-   ── How this reaches the data, and why it is not the documented API ───────
+   THE TRANSPORT LIVES IN js/sleeperApi.js, not here. Endpoints, the leg id
+   format, the JAX/JAC fix and above all THE KICKOFF GATE are shared with
+   js/infinityWar.js, which reads a classic pick'em off the same endpoints.
+   Anything in this file is survivor-specific by definition; if it is not,
+   it belongs one file over. See that file's header for how the API works and
+   why none of it is documented.
 
-   Survivor pools are NOT fantasy leagues in Sleeper's data model. The pool's
-   `sport` is "pickem:nfl", so it never appears in the documented
-   /v1/user/<id>/leagues/nfl/<year> endpoint and docs.sleeper.com has no
-   pick'em section at all. Two surfaces do carry it:
+   What makes this file survivor-shaped, and what a pick'em must not inherit:
 
-     REST  api.sleeper.app/v1/league/<id>            name, settings, metadata
-           api.sleeper.app/v1/league/<id>/users      user_id -> display name
-           api.sleeper.app/v1/league/<id>/rosters    roster_id -> owner, alive
-           api.sleeper.app/schedule/nfl/regular/<yr> game_id -> week + matchup
-
-     GQL   api.sleeper.app/graphql
-           get_pickem_picks_for_league(league_id, leg_id, include_tiebreaker)
-
-   Both answer unauthenticated and both send `access-control-allow-origin: *`,
-   which is the only reason the Refresh button can be a plain browser fetch
-   instead of a server-side job. Verified 2026-08-14.
-
-   THE GRAPHQL ENDPOINT IS UNDOCUMENTED. It can change or start demanding a
-   token without notice, so every failure path here leaves the last good cached
-   feed in place and reports the problem, rather than writing a partial file
-   over a complete one. A stale field number is recoverable; a half-parsed one
-   silently understates scarcity, which is exactly the failure js/season.js
-   exists to prevent one layer up.
-
-   ── Two formats worth knowing before editing ─────────────────────────────
-
-     leg_id    "v1:regular:<week>" -- NOT the bare week number. Passing "1"
-               returns {} with a 200 and no error, which reads exactly like an
-               empty week. league.metadata.current_pickem_leg_id holds the
-               current one.
-     game_id   "202610129" -- Sleeper's own id, not ESPN's. Only the schedule
-               feed resolves it, which is why that request is made at all.
+     * exactly one pick per roster per week, so `used` is a flat team list
+     * a roster is alive or eliminated, and scarcity counts ALIVE ONLY
+     * a team is spent permanently -- the ledger is monotonic for the season
 
    NEVER add a ?v= to this file -- see data.js's note on module identity.
    ========================================================================== */
 
-const REST = 'https://api.sleeper.app/v1';
-const GQL = 'https://api.sleeper.app/graphql';
-
-/** Sleeper spells Jacksonville JAX; every other feed in this project, and
- *  js/teams.js, spells it JAC. One team, one direction, no crosswalk needed. */
-const TEAM_FIX = { JAX: 'JAC' };
-const team = (code) => TEAM_FIX[code] || code;
-
-const legId = (week) => `v1:regular:${week}`;
-const weekOfLeg = (id) => Number(String(id).split(':').pop()) || null;
-
-/* ── Transport ────────────────────────────────────────────────────────────*/
-
-async function getJSON(url) {
-  const res = await fetch(url, { headers: { Accept: 'application/json' } });
-  if (!res.ok) throw new Error(`Sleeper ${res.status} on ${url.replace(REST, '')}`);
-  return res.json();
-}
-
-/**
- * One GraphQL query. Sleeper answers a bad field with HTTP 200 and an `errors`
- * array, so the status code alone proves nothing -- both have to be checked or
- * a schema change lands as an empty pool rather than as an error.
- */
-async function gql(query, variables) {
-  const res = await fetch(GQL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ query, variables }),
-  });
-  if (!res.ok) throw new Error(`Sleeper GraphQL ${res.status}`);
-
-  const body = await res.json();
-  if (body.errors?.length) throw new Error(`Sleeper GraphQL: ${body.errors[0].message}`);
-  return body.data;
-}
-
-/**
- * `include_tiebreaker` changes the response SHAPE, not just whether a
- * tiebreaker rides along. This is the single most expensive thing to
- * rediscover about this endpoint, so it is asserted here rather than left to
- * the next reader:
- *
- *   true   { "<roster_id>": { picks: { "<game_id>": {...} }, tiebreaker: {} } }
- *   false  { "<roster_id>": {          "<game_id>": {...}                   } }
- *
- * With `false` the picks are hoisted to the top of the roster object and the
- * `picks` wrapper does not exist -- so reading `.picks` returns undefined and
- * the pool comes back looking empty, with a 200 and no error anywhere. We ask
- * for `true` because the wrapped form is self-describing, and picksOf() below
- * still reads either, because an undocumented endpoint is entitled to change
- * its mind.
- */
-const PICKS_QUERY = `
-  query Picks($league_id: Snowflake!, $leg_id: String!) {
-    get_pickem_picks_for_league(
-      league_id: $league_id, leg_id: $leg_id, include_tiebreaker: true
-    )
-  }`;
-
-/** The pick map for one roster, from either shape above. Game ids are numeric
- *  strings, so a `picks` key can only ever be the wrapper. */
-function picksOf(payload) {
-  if (!payload || typeof payload !== 'object') return {};
-  const inner = payload.picks;
-  return inner && typeof inner === 'object' ? inner : payload;
-}
-
-/* ── The kickoff gate ─────────────────────────────────────────────────────
-   Sleeper's app hides a pick until its game kicks off. Sleeper's API does
-   NOT -- it will hand over a pick weeks before the game (verified 2026-08-14
-   against a Sept 13 kickoff). This project enforces the lock itself, so the
-   tool never shows something the pool intends to be secret.
-
-   Keyed on the schedule feed's `status` rather than on a clock, because the
-   feed carries a DATE ONLY ("2026-09-13") with no kickoff time -- a
-   date comparison would reveal the 8:20pm game at midnight.
-
-   Written as "hide these" rather than "reveal these" on purpose. The only
-   statuses observed are `pre_game`, `complete` and `canceled`, so the string
-   for a game in progress is unknown; an allowlist would keep picks hidden
-   through the game they were meant to be revealed for, which is the failure
-   that would look like the gate working. An unknown game is still hidden --
-   missing data must never open the gate.
-   ------------------------------------------------------------------------ */
-
-const HIDE_WHILE = new Set(['pre_game', 'canceled', 'postponed']);
-
-const hasKickedOff = (game) => Boolean(game) && !HIDE_WHILE.has(String(game.status));
+import {
+  REST, team, weekOfLeg, getJSON, fetchWeekPicks, picksOf, hasKickedOff,
+} from './sleeperApi.js';
 
 /* ── Fetch + normalise ────────────────────────────────────────────────────*/
 
@@ -197,8 +89,7 @@ export async function fetchSleeperSurvivor(pool, season) {
   const legs = await Promise.all(
     range(1, currentWeek).map(async (week) => ({
       week,
-      data: (await gql(PICKS_QUERY, { league_id: leagueId, leg_id: legId(week) }))
-        ?.get_pickem_picks_for_league || {},
+      data: await fetchWeekPicks(leagueId, week),
     }))
   );
 
@@ -297,23 +188,40 @@ const range = (from, to) =>
 
 /* ── Cache ────────────────────────────────────────────────────────────────*/
 
-/* Per season, and separate from `survivor:<season>:<pool>` (which holds MY
-   picks). One is a copy of someone else's data that a refresh may replace
-   wholesale; the other is mine and must never be dropped by a failed fetch. */
-const feedKey = (season) => `survivor:feed:sleeper:${season}`;
+/* Per season AND PER POOL, and separate from `survivor:<season>:<pool>`
+   (which holds MY picks). One is a copy of someone else's data that a refresh
+   may replace wholesale; the other is mine and must never be dropped by a
+   failed fetch.
 
-export function loadCachedFeed(season) {
+   THE POOL HALF OF THE KEY IS LICENSED BY BLOOD. This was keyed on the season
+   alone while exactly one Sleeper pool existed, which was indistinguishable
+   from correct. The moment a second one was added (2026-09-01: Deadpool and
+   East Orange Squeeze) that key meant refreshing either pool overwrote the
+   other's cached field, and the next reload handed Poop whichever pool was
+   fetched last -- painting one pool's scarcity onto another's grid with no
+   error and no visible seam. Used-team state is per league, and the field
+   behind it has to be too.
+
+   `pool` is the app's own id ('sleeper', 'deadpool', 'eastorange'), not the
+   Sleeper snowflake, so it matches the keys `S.feeds` uses in the Grid. The
+   Poop pool's id is still 'sleeper', so its existing cache key is unchanged
+   and survives this migration untouched. */
+const feedKey = (season, pool) => `survivor:feed:${pool}:${season}`;
+
+export function loadCachedFeed(season, pool) {
+  if (!pool) return null;
   try {
-    const raw = JSON.parse(localStorage.getItem(feedKey(season)));
+    const raw = JSON.parse(localStorage.getItem(feedKey(season, pool)));
     return Number(raw?.year) === Number(season) ? raw : null;
   } catch {
     return null;
   }
 }
 
-export function saveCachedFeed(season, feed) {
+export function saveCachedFeed(season, pool, feed) {
+  if (!pool) return;
   try {
-    localStorage.setItem(feedKey(season), JSON.stringify(feed));
+    localStorage.setItem(feedKey(season, pool), JSON.stringify(feed));
   } catch {
     /* private browsing / quota -- the feed still works for this session */
   }

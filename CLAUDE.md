@@ -10,7 +10,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   repo per the workspace convention (see workspace `CLAUDE.md` Git Setup). Pushed since 2026-08-11.
 - **Hosting**: **GitHub Pages, live** at `https://bova4389.github.io/bovas-picks/` (enabled
   2026-08-11), deploying from `main`. See GitHub Setup below.
-- **Status**: Schedule, Grid, Pick Sheet, Odds, Recommend and Planning tabs are functional.
+- **Status**: Schedule, Grid, Pick Sheet, Odds, Recommend, Planning and Infinity War tabs are
+  functional.
   **Lookback is the only "Soon" panel left**, and it is genuinely blocked rather than unstarted:
   it needs per-entrant weekly cards and the only ones parsed are 2025 Week 1. It un-stubs when the
   commissioner's workbooks start arriving, not before.
@@ -114,7 +115,8 @@ js/espn.js          SHARED — live scoreboard fetch, cached                   [
 js/gameState.js     SHARED — canonical "what happened in this game"          [NEVER versioned]
 js/gridModel.js     SHARED — the 32 x 18 team-week matrix, pure data         [NEVER versioned]
 js/survivorLeagues.js SHARED — per-pool used teams + field scarcity          [NEVER versioned]
-js/sleeperSurvivor.js SHARED — live Sleeper pool fetch, normalised           [NEVER versioned]
+js/sleeperApi.js    SHARED — Sleeper transport + THE KICKOFF GATE           [NEVER versioned]
+js/sleeperSurvivor.js SHARED — survivor-shaped Sleeper read, normalised     [NEVER versioned]
 js/pickShare.js     SHARED — modelled pick share + k calibration            [NEVER versioned]
 js/injuries.js      SHARED — ESPN injury report, live from the browser      [NEVER versioned]
 js/teamIdentity.js  SHARED — team colors, uniforms, logo/wordmark paths     [NEVER versioned]
@@ -126,6 +128,9 @@ js/odds.js          Odds tab — one week of market prices, reads data/odds/
 js/recommend.js     Recommend tab — leverage = win prob ÷ pick share, per STRATEGY.md §4
 js/planModel.js     SHARED — survivor planning math, pure data              [NEVER versioned]
 js/planning.js      Planning tab — spend now or hold, per SURVIVOR-STRATEGY.md §1
+js/infinityModel.js SHARED — the pick-eight math, pure data                 [NEVER versioned]
+js/infinityFeed.js  SHARED — pick'em-shaped Sleeper read                    [NEVER versioned]
+js/infinityWar.js   Infinity War tab — pick 8 of the slate, small field
 ```
 
 ## Navigation — Two Levels, One Model
@@ -136,7 +141,7 @@ The site covers **two different games**, so the nav says so. `js/app.js` holds a
 | Row 1 (the pool) | Row 2 (views inside it) |
 |---|---|
 | **Schedule** | *(none — it belongs to neither pool and is read from both)* |
-| **Season Long** | Pick Sheet · Odds · Recommend · Lookback |
+| **Season Long** | Pick Sheet · Odds · Recommend · Infinity War · Lookback |
 | **Survivor** | Grid · Odds · Planning |
 
 Rules that keep this from rotting:
@@ -387,7 +392,10 @@ Any new text in a `.gc` uses one of those.
 | `grid:prefs` | paint, marks, fit, zoom, sort, week window, active pool, hidden teams, `hideUsed` |
 | `grid:tags:<year>` | per-cell target / avoid / watch flags, keyed `TEAM\|WEEK` |
 | `survivor:<year>:<pool>` | my used teams for one pool, as `week -> team` |
-| `survivor:feed:sleeper:<year>` | the last fetched copy of the Sleeper pool (everyone's picks) |
+| `survivor:feed:<pool>:<year>` | the last fetched copy of ONE Sleeper pool (everyone's picks) |
+| `infinity:<year>:<week>` | my eight picks for one Infinity War week |
+| `infinity:prefs` | Infinity War's field size and spread |
+| `infinity:feed:<pool>:<year>` | the last fetched copy of the Infinity War pool |
 | `survivor:pool` | which pool is in play, shared with the Planning tab (see its section) |
 
 Used teams are stored **per pool and never merged** — each pool is a different game, and a pick
@@ -396,7 +404,8 @@ above are separate for the same reason in miniature: one is mine and must surviv
 the other is a copy of someone else's data that a refresh may replace whole.
 
 **`LEAGUES` in `js/survivorLeagues.js` lists the pools that actually exist, in dropdown order** —
-`2026 Poop`, then `Mike's Suicide League`, then `Off`. Pools are added as they are created;
+`Poop 2026`, `Deadpool`, `Mike's Suicide League`, `East Orange Squeeze`, then `Off`. The order is
+the two played hardest, then the big one-life pool, then the charity pool. Pools are added as they are created;
 SURVIVOR-STRATEGY.md may analyse one before it exists, which is not a reason to list it. The
 Yahoo pool was listed for months without existing and was removed 2026-08-14. When a pool is
 added or removed, note that `grid:prefs` outlives it: `knownLeague()` in `grid.js` resolves a
@@ -696,19 +705,37 @@ Three consequences, all of them corrections waiting to happen:
   (`fieldAvailability()` / `scarcityFor()`), so this is the natural next addition — but it needs a
   live field, which in preseason is empty.
 
-## Sleeper Survivor Pool — Live Feed
+## Sleeper Pools — Live Feed
 
-The Sleeper pool ("Poop 2026", 12 entries) is fetched straight from Sleeper by a **Refresh from
-Sleeper** button on the Grid tab, which appears only when a pool with `live: true` is selected.
-No script, no workflow, no committed file — `js/sleeperSurvivor.js` calls Sleeper from the
-browser and caches the answer in localStorage.
+**Three survivor pools** (`Poop 2026` 18 entries, `Deadpool`, `East Orange Squeeze` 8) plus the
+**Infinity War** pick'em are fetched straight from Sleeper by a **Refresh from Sleeper** button —
+on the Grid tab for the survivor pools, in the tab itself for Infinity War. No script, no
+workflow, no committed file: the browser calls Sleeper and caches the answer in localStorage.
 
-**Survivor pools are not fantasy leagues in Sleeper's data model.** The pool's `sport` is
-`pickem:nfl`, so it never appears in the documented `/v1/user/<id>/leagues/nfl/<year>` endpoint,
-and [docs.sleeper.com](https://docs.sleeper.com/) has no pick'em section at all. Don't go looking
-for it there again. Two surfaces carry it, both unauthenticated, both sending
-`access-control-allow-origin: *` (verified 2026-08-14 — the CORS header is the only reason this
-can be a browser button rather than a server job):
+**The transport lives in `js/sleeperApi.js`.** Endpoints, the leg-id format, the JAX/JAC fix and
+**the kickoff gate** are shared by every pool the site reads. `js/sleeperSurvivor.js` and
+`js/infinityFeed.js` are the two shapes on top of it — see the Infinity War section for why they
+are separate files rather than one with a flag.
+
+**Pick'em pools are not fantasy leagues in Sleeper's data model.** Their `sport` is `pickem:nfl`
+and [docs.sleeper.com](https://docs.sleeper.com/) has no pick'em section at all.
+
+**This file used to say they "never appear" on the documented user-leagues endpoint. That was
+wrong, and it cost a session.** The route works — it just needs the right sport:
+
+```
+GET /v1/user/<user_id>/leagues/pickem:nfl/<year>     ← every pool, with settings
+GET /v1/user/<user_id>/leagues/nfl/<year>            ← fantasy only, which is what misled us
+```
+
+That is how all four 2026 league ids were found on 2026-09-01, rather than copied out of a
+browser URL bar, and it is how the next one should be. `listPickemLeagues()` in `sleeperApi.js`
+wraps it. The settings it returns are also worth reading — `weekly_pick_limit`, `use_confidence`,
+`use_spread` and `pickem_type` independently confirmed Infinity War's rules.
+
+The other surfaces, all unauthenticated, all sending `access-control-allow-origin: *` (verified
+2026-09-01 — the CORS header is the only reason this can be a browser button rather than a server
+job):
 
 | Surface | Gives |
 |---|---|
@@ -769,17 +796,112 @@ Each week therefore carries three counts, and collapsing them would hide the gat
 "0 of 12" would imply nobody has picked. Percentages are over `revealed`, not the pool, or a week
 with two games kicked off reports every share at a sixth of its real value.
 
+**The feed cache is keyed per pool, and that is load-bearing.** `survivor:feed:<pool>:<year>` was
+`survivor:feed:sleeper:<year>` while exactly one Sleeper pool existed, which was indistinguishable
+from correct. Adding Deadpool and East Orange on 2026-09-01 made it a live bug: refreshing either
+overwrote the other's cached field, and the next reload handed Poop whichever pool was fetched
+last — one pool's scarcity painted onto another's grid, no error, no visible seam. `S.feeds` in
+`grid.js` is likewise built by iterating `LEAGUES`, not from a hand-written list, so a fourth pool
+cannot silently get no cache. **Do not collapse either back.** Poop's pool id is still `sleeper`,
+so its existing key was unchanged and no migration was needed.
+
 **My own picks come back with everyone else's**, so `survivor:<year>:sleeper` fills itself in on
 refresh instead of being hand-typed. `mergeMyPicks()` merges rather than replaces — a week the
 feed has not reached keeps whatever was entered by hand.
 
-**Explained 2026-08-28, still do not "fix" it.** Sleeper's settings report
-`num_revives_allowed: 0` while the pool plainly runs buy-backs — because the commissioner
+**Explained 2026-08-28, still do not "fix" it — and now contradicted in three directions at
+once.** Poop reports `num_revives_allowed: 0`, Deadpool `2`, East Orange `10`; all three pools
+run two buy-backs by their commissioners' accounts. Sleeper's settings report
+`num_revives_allowed: 0` for Poop while the pool plainly runs buy-backs — because the commissioner
 administers re-entry **outside the app**, by hand. So that field describes Sleeper's own
 bookkeeping, not the pool's rules. Treat the API value as inert: never let it gate a buy-back
 feature, and never edit SURVIVOR-STRATEGY.md to agree with it. Corollary — `metadata.is_eliminated`
 is Sleeper's opinion too, so an entry it calls eliminated may have bought back and still be
 playing.
+
+## Infinity War — Read Before Changing Any Number
+
+Built 2026-09-01. A Sleeper **classic pick'em** (`pickem_type: 0`, `weekly_pick_limit: 8`),
+10–15 entrants, **$50 in**. **$20 a week to the most correct**; the remainder to the top one or
+two at the end of the season. Sits on the Season Long row — row 1 is the size of the *kinds* of
+game, not the count of leagues.
+
+`js/infinityWar.js` (render) over `js/infinityModel.js` (pure math), the same split as
+`grid.js` / `gridModel.js`. It reads the **same** matrix from `buildGrid()` that the Grid paints.
+
+### The two prizes want opposite things — this is the whole tab
+
+- **The season prize wants maximum expected correct.** That is the chalk eight — the eight most
+  lopsided games — every week, with no cleverness at all. `chalkSet()` does it in one line.
+- **The weekly $20 wants the highest chance of beating 10–15 people.** Different objective, and
+  in a small pool it actively conflicts with the first.
+
+**If everyone picks chalk, everyone picks the same eight and everyone scores identically.** The
+week is an n-way tie and the $20 splits n ways. Verified in the model: at `spread = 0` the tab
+reports 0% outright, 100% tie, and a share of exactly 1/12 against 11 opponents. **Picking well
+does not win the weekly prize; picking differently and being right does.** The tab shows both
+numbers and refuses to blend them into one recommendation, because they are separate money and
+the trade is the user's call.
+
+### Why the field is simulated rather than computed
+
+Scores here are **not independent draws** — every entrant who picked a game shares that game's
+single outcome. A model treating opponents' scores as independent shows chalk winning outright far
+more often than it can, and the error is invisible because the number still looks sensible. So
+`simulateField()` draws the outcomes once per trial and scores everyone on the same draws.
+
+Four things about it that are decisions, not details:
+
+- **One simulation serves the whole render, and is cached across pick toggles.** The field does
+  not depend on my picks, so re-simulating on every click spent ~400ms reproducing a result
+  already in memory. Rebuilt only when week, field size or spread changes. Toggling a game is
+  ~80ms.
+- **Every swap candidate is scored against that same simulation.** This is what took the swap
+  search from minutes to 71ms — but it is also *more correct*: comparing cards against the same
+  simulated weeks is a paired comparison, so a swap worth half a percent is not buried in
+  sampling noise. Scored against independent draws it would be indistinguishable from nothing.
+- **The RNG is seeded.** Same card, same numbers, every render. A figure that drifts each repaint
+  reads as noise, and a number nobody trusts is worse than no number.
+- **`spread` — how far the field strays from chalk — IS A GUESS AND IS NOT CALIBRATED.** It is a
+  visible control rather than a buried constant precisely so it can be argued with. **Re-fit it
+  against real picks once the pool has played a few weeks**; until then the *ordering* of the
+  outputs is the useful part and the absolute percentages are soft.
+
+### The source rule, sharpened
+
+`planModel.js` obeys SURVIVOR-STRATEGY.md §4's compression limit by never comparing a market
+number to a projected one **across weeks**. Here the trap is closer, because this file ranks games
+**within** one week: if eleven games are market-priced and three are projection-only, ranking all
+fourteen together silently buries the three — their compressed numbers cannot compete, so they are
+never in the eight, and nothing looks wrong. `sourceWarning()` says so out loud and the ordering
+is labelled advisory. As of 2026-09-01 the odds snapshot covers all 272 games, so the warning
+never fires in practice; it is there for when the feed lapses or a week runs past the market's
+lookahead.
+
+### Not shared with the Pick Sheet, on purpose
+
+The Pick Sheet renders Mike's **number map** — scored games only, every game picked, numbers
+emailed. This tab renders the **schedule feed** — all games, eight of them chosen. Different
+pools, different rules, different sources. **A change to one must not be propagated to the other
+on the assumption they should agree**, the same trap as the Thursday-games note above.
+
+`js/infinityFeed.js` is likewise separate from `js/sleeperSurvivor.js` rather than a flag on it.
+A survivor week is one pick per roster, teams spent permanently, rosters that die; a pick'em week
+is up to eight picks, teams reusable, nobody eliminated. `used` would be meaningless and scarcity
+does not exist. One normaliser serving both means a shape where half the keys are null for half
+the callers — and the survivor grid's scarcity paint would read a pick'em's reused teams as a pool
+that had spent everything. **The kickoff gate is imported from `sleeperApi.js`, not
+reimplemented** — this pool leaks eight picks at a time rather than one, so it matters more here,
+not less.
+
+### Open
+
+- **The pool had one entry — mine — when this was built.** Field-based numbers use the modelled
+  default (11 opponents) until it fills; the live count overrides it only once there is more than
+  just me, because a one-entry pool is a pool that has not filled, not a pool of one.
+- **Payout split between 1st and 2nd at season's end is undecided** ("top 1 or 2"). Nothing models
+  the season prize yet, so nothing depends on it — but a season-long standings view would.
+- **`spread` wants calibrating** against real picks. See above.
 
 ## Odds Tab
 

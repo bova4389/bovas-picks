@@ -178,11 +178,18 @@ export async function initGrid(root, season = SEASON) {
   S.identity = identity;
   S.audit = auditSurvivorFeeds({ season, schedule, odds, projections });
 
-  // One field feed per pool, both in survivor-<year>.json's shape, so nothing
+  // One field feed per pool, all in survivor-<year>.json's shape, so nothing
   // downstream branches on which pool it is painting. Mike's is a parsed file
-  // shipped with the site; Sleeper's is whatever the last Refresh cached, and
-  // null until the button has been pressed once.
-  S.feeds = { mike: survivor, sleeper: loadCachedFeed(season) };
+  // shipped with the site; every live pool's is whatever that pool's last
+  // Refresh cached, and null until its button has been pressed once.
+  //
+  // Built from LEAGUES rather than listed by hand: there are three Sleeper
+  // pools now, and a hand-written list is how the fourth one silently gets no
+  // cache at all.
+  S.feeds = { mike: survivor };
+  for (const l of LEAGUES) {
+    if (l.live) S.feeds[l.id] = loadCachedFeed(season, l.id);
+  }
 
   if (!schedule?.games?.length) {
     root.innerHTML = shellHead() + missingSchedule(season);
@@ -428,7 +435,10 @@ function liveStatus() {
   const feed = S.feeds?.[S.prefs.league];
   if (!feed) return 'Not fetched yet — Refresh pulls every entry’s picks from Sleeper.';
 
-  const bits = [`${feed.entries?.length ?? 0} entries`];
+  // Deadpool sat at one entry for its first weeks, so the plural is not
+  // cosmetic here -- "1 entries" is the line that makes a new pool look broken.
+  const n = feed.entries?.length ?? 0;
+  const bits = [`${n} ${n === 1 ? 'entry' : 'entries'}`];
   const cover = coverageNote(feed);
   if (cover) bits.push(cover);
   bits.push(freshness(feed));
@@ -465,7 +475,7 @@ async function refreshLivePool() {
     const feed = await fetchSleeperSurvivor(league.sleeper, S.season);
 
     S.feeds[league.id] = feed;
-    saveCachedFeed(S.season, feed);
+    saveCachedFeed(S.season, league.id, feed);
 
     // My own picks come back with everyone else's, so the ledger that used to
     // be hand-typed fills itself in. Merged, not replaced: a week the feed has

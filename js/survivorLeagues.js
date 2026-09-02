@@ -38,15 +38,32 @@
    ========================================================================== */
 
 /**
- * The pools, in the order they matter. `lives` and `entrants` are display
- * facts from SURVIVOR-STRATEGY.md, not calculation inputs -- nothing here
- * infers strategy from them, it just labels the switcher honestly so the
- * one-life pool is never mistaken for a three-life one at a glance.
+ * The pools, in the order they matter: the two played hardest first, then the
+ * 235-entry one-life pool, then the charity pool.
+ *
+ * `lives`, `entrants` and `economics` are DISPLAY FACTS, not calculation
+ * inputs -- nothing here infers strategy from them. They label the switcher
+ * honestly, so the one-life pool is never mistaken for a three-life one at a
+ * glance and the half-pot pool is never read as a full-pot one.
+ *
+ * `entrants` is a SNAPSHOT, taken the day the pool was added. A live pool's
+ * real count comes back with the field on every refresh and is what the Grid
+ * paints; this number only fills the gap before the first fetch. Do not treat
+ * it as current -- the Poop count sat at 12 here for a fortnight while the
+ * pool grew to 18.
+ *
+ * `economics.potShare` is the fraction of the pot actually played for, and it
+ * exists for East Orange, where half goes to charity. A buy-back there costs
+ * the same dollars as anywhere else and buys half as much pot, so anything
+ * that ever prices a buy-back must multiply by this rather than assume 1.
+ * Recorded from the commissioner, never from Sleeper -- see the
+ * `num_revives_allowed` note in SURVIVOR-STRATEGY.md, which all three Sleeper
+ * pools now contradict in three different directions.
  */
 export const LEAGUES = [
   {
-    id: 'sleeper', name: '2026 Poop', short: 'Poop',
-    entrants: 12, lives: 3, hasField: true, live: true,
+    id: 'sleeper', name: 'Poop 2026', short: 'Poop',
+    entrants: 18, lives: 3, hasField: true, live: true,
     note: 'Three lives (2 buy-backs). Refreshes from Sleeper.',
 
     // Read live by js/sleeperSurvivor.js. `userId` is which entry is mine --
@@ -58,9 +75,31 @@ export const LEAGUES = [
     },
   },
   {
+    id: 'deadpool', name: 'Deadpool', short: 'Deadpool',
+    entrants: 1, lives: 3, hasField: true, live: true,
+    note: 'Three lives (2 buy-backs). $30 in, $15 a buy-back. Refreshes from Sleeper.',
+    economics: { entry: 30, buyback: 15, buybacks: 2, potShare: 1 },
+
+    sleeper: {
+      leagueId: '1400514368084451328',
+      userId: '721908735856967680',
+    },
+  },
+  {
     id: 'mike', name: "Mike's Suicide League", short: "Mike's",
     entrants: 235, lives: 1, hasField: true,
     note: 'One life. No buy-back.',
+  },
+  {
+    id: 'eastorange', name: 'East Orange Squeeze', short: 'East Orange',
+    entrants: 8, lives: 3, hasField: true, live: true,
+    note: 'Charity pool — half the pot is played for. $25 in, $15 a buy-back.',
+    economics: { entry: 25, buyback: 15, buybacks: 2, potShare: 0.5 },
+
+    sleeper: {
+      leagueId: '1398146363136483328',
+      userId: '721908735856967680',
+    },
   },
 ];
 

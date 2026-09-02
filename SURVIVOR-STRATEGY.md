@@ -8,42 +8,67 @@ this week, given I can never spend it again?"* Almost nothing transfers between 
 
 ---
 
-## The Three Pools
+## The Four Pools
 
-**Only two of these exist today.** The Sleeper pool ("2026 Poop") and Mike's pool are live and
-are the two entries in the Grid tab's pool dropdown; the Yahoo pool is analysis of a pool type
-that has not been created. Pools are added to `js/survivorLeagues.js` as they are created — a
-listed pool nobody has entered is a dead dropdown option that invites picks being logged against
-a pool that cannot receive them.
+**All four exist and all four are in the Grid tab's dropdown.** Pools are added to
+`js/survivorLeagues.js` as they are created — a listed pool nobody has entered is a dead dropdown
+option that invites picks being logged against a pool that cannot receive them. The Yahoo pool
+this document once analysed was never created and was removed 2026-08-14; Deadpool and East
+Orange Squeeze were added 2026-09-01 and are real.
 
-| | **Mike's Suicide League** | **Yahoo pool** *(not created)* | **2026 Poop** (Sleeper) |
-|---|---|---|---|
-| Entries | **235** (2025 Wk 1) | 15–20 | **12** (2026, from the API) |
-| Lives | **1 — one loss and out** | 3 (2 buy-backs) | 3 (2 buy-backs) — but see note |
-| Submission | Same email as the pickem, **as a team name** | In-app | In-app |
-| Deadline | **Midnight Sat** (6pm before a Wed/Thu game) | In-app | In-app |
-| Entry / buy-back | — (one life) | $30–50 / $15–25 | $30–50 / $15–25 |
-| Field data | Full weekly spreadsheet | None | **Live from Sleeper, on demand** |
-| Strategy driver | **Leverage + future value** | **Survival + future value** | same |
+| | **Mike's Suicide League** | **Poop 2026** | **Deadpool** | **East Orange Squeeze** |
+|---|---|---|---|---|
+| Entries | **235** (2025 Wk 1) | **18** | **1 so far** | **8 so far** |
+| Lives | **1 — one loss and out** | 3 (2 buy-backs) | 3 (2 buy-backs) | 3 (2 buy-backs) |
+| Submission | Same email as the pickem, **as a team name** | In-app | In-app | In-app |
+| Deadline | **Midnight Sat** (6pm before a Wed/Thu game) | In-app | In-app | In-app |
+| Entry / buy-back | — (one life) | $30–50 / $15–25 | **$30 / $15** | **$25 / $15** |
+| Pot played for | all | all | all | **half — the rest to charity** |
+| Field data | Full weekly spreadsheet | **Live from Sleeper** | **Live from Sleeper** | **Live from Sleeper** |
+| Strategy driver | **Leverage + future value** | Survival + future value | same | **see the half-pot note** |
 
-**The Sleeper pool's field is now readable** (built 2026-08-14). Sleeper serves the whole pool
-unauthenticated, so the Grid tab's "Refresh from Sleeper" button pulls every entry's used teams
-and scarcity paints for that pool exactly as it does for Mike's. See the Sleeper Survivor Pool
-section of `CLAUDE.md`. **This does not change how the pool is played** — the conclusion below
-that pick popularity is not worth acting on at 12–20 entrants still stands, and the value of the
-feed is the used-teams ledger maintaining itself rather than a new leverage input.
+**Deadpool and Poop are the two played hardest**, and they are the same game at different sizes.
+East Orange is a charity pool and is the odd one out on economics, below. Entry counts are
+snapshots — the live pools report their real size on every refresh, and Deadpool had only my
+entry in it the day it was added.
+
+### East Orange's half pot changes its buy-back maths, and not by a little
+
+§2 "Settled: play the aggressive line" rests on a buy-back costing **~2% of the pot**, which makes
+aggression a rounding error. That arithmetic does not survive contact with a pool that only plays
+for half its money.
+
+At 8 entries and $25 in, the pot is ~$200 and **~$100 of it is actually winnable**. A $15
+buy-back is therefore **~15% of the playable pot** — not 2%. It is roughly *seven times* more
+expensive in real terms than the same buy-back in Deadpool, and it is 60% of a fresh entry rather
+than the "half an entry" the aggressive case assumes.
+
+**So play East Orange straighter than the other two.** Not conservatively for its own sake, but
+because the specific thing aggression buys — cheap extra attempts — is not cheap here. Hoarding
+elite teams still survives (that part never depended on the fee); treating elimination as a
+low-cost reset does not. If the pool fills out to 15–20 entries the ratio improves and this note
+should be recomputed rather than trusted.
+
+**`num_revives_allowed` from Sleeper is wrong in three different directions and gates nothing.**
+Poop reports 0, Deadpool reports 2, East Orange reports 10; the commissioners run re-entry by hand
+outside the app, so the field describes Sleeper's own bookkeeping rather than the pool's rules.
+The numbers in the table above are the commissioners', which is the only authority. Do not "fix"
+this document from the API, and do not let the API value gate any buy-back feature. Corollary —
+`metadata.is_eliminated` is Sleeper's opinion too.
 
 **Other entrants' picks are withheld until their game kicks off, by us.** Sleeper's API will hand
-them over weeks early; the app's own UI will not, and the pool plays by the UI's rule. The tool
-enforces that rule rather than taking the edge — see "The kickoff gate" in `CLAUDE.md`. A
-mid-week read is therefore partial by design, and the pool data row says how partial.
+them over weeks early; the app's own UI will not, and the pools play by the UI's rule. The tool
+enforces that rule rather than taking the edge — see "The kickoff gate" in `CLAUDE.md`, which now
+lives in `js/sleeperApi.js` and is shared by every pool the site reads, survivor and pick'em
+alike. A mid-week read is therefore partial by design, and the pool data row says how partial.
 
-**Unresolved:** Sleeper's own settings report `num_revives_allowed: 0`, contradicting the three
-lives recorded above. Check the pool before relying on either.
+**These pools require different play, and the difference is not a matter of taste.** A pick that
+is correct in a three-life pool can be actively wrong in Mike's on the same Sunday. Do not submit
+one set of picks across all four.
 
-**These three require different play, and the difference is not a matter of taste.** A pick that
-is correct in the Yahoo pool can be actively wrong in Mike's on the same Sunday. Do not submit one
-set of picks across all three.
+**Infinity War is not in this document.** It is a season-long pick'em — eight games a week,
+straight up, no elimination — so none of the survivor maths below applies to it. Its own analysis
+lives in the Infinity War section of `CLAUDE.md` and in `js/infinityModel.js`.
 
 ---
 
@@ -148,7 +173,7 @@ The pool will run deep. With 235 entries, expect it to reach Week 10+ before it 
   the sheets, just a City or team name."* The numbers belong to the pickem pool alone. Both pools
   go out in one email; the format is in CLAUDE.md's Submission Format section.
 
-### Yahoo and Sleeper pools — 15–20 entries, three lives
+### The three app pools — Poop, Deadpool, East Orange — 8–20 entries, three lives
 
 Genuinely different, in two ways that pull in opposite directions.
 
@@ -184,7 +209,11 @@ supports one of two coherent strategies, and the failure mode is drifting betwee
 **Pick one before Week 1 and write it down.** The expensive mistake is playing aggressive, losing,
 and then declining to buy back — you paid the cost of the strategy and refused its payoff.
 
-### Settled: play the aggressive line in both pools
+### Settled: play the aggressive line in Poop and Deadpool
+
+**This settles Poop and Deadpool. East Orange is excluded** — its half pot makes a buy-back
+~15% of the winnable money rather than 2%, which is the one thing this argument rests on. See
+"East Orange's half pot" above.
 
 The fees make this one-sided. Entry is **$30–50**, a buy-back is **$15–25** — roughly *half* an
 entry. Run it at midpoints with ~18 entrants:
@@ -203,7 +232,7 @@ already spent.
 The expected-cost side is smaller still. Suppose aggression raises the chance of an early
 elimination from ~10% to ~30% — that is only `0.20 × $20 ≈ $4` of extra expected spend. Against a
 ~$1,000 pot, moving win probability by even one percentage point is worth $10. **The trade clears
-by a wide margin.** Play aggressive in both the Yahoo and Sleeper pools, and commit to actually
+by a wide margin.** Play aggressive in Poop and Deadpool, and commit to actually
 buying back — that commitment is the strategy, not an afterthought.
 
 ### The buy-back rules — CONFIRMED 2026-08-28, no longer open
@@ -321,7 +350,8 @@ this early** — 58 games clear it — and remains unusable against projections.
 - **SurvivorGrid.com** — win %, **pick %**, and EV. Win probability from consensus money lines via
   SportsCrunch; pick percentages aggregated from Yahoo and OFP. Carries a future-value rating
   across remaining games. Updates Tuesdays. The pick-percentage data is the part we cannot generate
-  ourselves for the Yahoo and Sleeper pools.
+  ourselves for the app pools — though as of 2026-09-01 we can, for all three of them, straight
+  from Sleeper. See the pool table above.
 
 **Paid, best documented record:**
 
@@ -431,16 +461,16 @@ never use them, not to spend a week proving it.
   aggressive line is settled; see §2.
 - **Does Mike's pool allow team reuse after a certain point?** Some large pools reset in the back
   half. Confirm before planning an elite budget around 18 weeks.
-- *(Low priority)* **Exact pick-lock mechanism for Yahoo and Sleeper** — per-game kickoff or one
+- *(Low priority)* **Exact pick-lock mechanism for the app pools** — per-game kickoff or one
   shared weekly cutoff like Mike's pool. Would matter for a competitive edge; doesn't for solo
   analysis with no rival racing the deadline, so no need to go confirm this deliberately.
 - **Tie/rollover rules** — what happens if everyone remaining loses in the same week, and whether
   the pot splits or rolls.
 
-**Not needed: field history for Yahoo and Sleeper.** Both are brand-new leagues with no past
+**Not needed: field history for the app pools.** All three are brand-new leagues with no past
 seasons, so there is nothing to look back at. This costs us essentially nothing, because §2 already
 concludes that pick popularity is not worth acting on at 15–20 entries — the leverage term is too
-small to pay for any win probability given up. The strategy for those two pools was never going to
+small to pay for any win probability given up. The strategy for those pools was never going to
 consume field data.
 
 Two things follow from them being new, though, and both point the same way:

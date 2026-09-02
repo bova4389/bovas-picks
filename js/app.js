@@ -33,6 +33,7 @@ import { initPickSheet } from './picksheet.js';
 import { initOdds } from './odds.js';
 import { initRecommend } from './recommend.js';
 import { initPlanning } from './planning.js';
+import { initInfinityWar } from './infinityWar.js';
 
 /* ── The nav model ────────────────────────────────────────────────────────
    The single source of truth for both rows. index.html holds the panels; the
@@ -47,6 +48,7 @@ const PANELS = {
   picksheet: { label: 'Pick Sheet' },
   odds:      { label: 'Odds' },
   recommend: { label: 'Recommend' },
+  infinity:  { label: 'Infinity War' },
   lookback:  { label: 'Lookback', soon: true },
   survivor:  { label: 'Planning' },
 };
@@ -64,7 +66,12 @@ const GROUPS = [
     label: 'Season Long',
     // No Grid here -- see the header note. The straight-up pool is played one
     // week at a time and these three are the week's tools.
-    panels: ['picksheet', 'odds', 'recommend', 'lookback'],
+    // Infinity War sits here rather than getting a row of its own: row 1 is
+    // the size of the KINDS of game, not the count of leagues (see the nav
+    // note in CLAUDE.md). It is a season-long pick'em, same as the Pick
+    // Sheet's pool, and it goes after Recommend because it is a whole
+    // decision rather than one input to one.
+    panels: ['picksheet', 'odds', 'recommend', 'infinity', 'lookback'],
   },
   {
     id: 'survivor',
@@ -240,3 +247,4 @@ initPickSheet(document.getElementById('picksheet-root'));
 initOdds(document.getElementById('odds-root'));
 initRecommend(document.getElementById('recommend-root'));
 initPlanning(document.getElementById('survivor-root'), SEASON);
+initInfinityWar(document.getElementById('infinity-root'), SEASON);
