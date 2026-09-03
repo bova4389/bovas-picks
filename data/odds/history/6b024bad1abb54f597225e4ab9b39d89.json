@@ -1034,5 +1034,19 @@
   "vig": 0.0419,
   "bucket": 5,
   "fetchedAt": "2026-09-03T17:53:32.663240+00:00"
+ },
+ {
+  "id": "6b024bad1abb54f597225e4ab9b39d89",
+  "commenceTime": "2026-10-11T17:00:00Z",
+  "home": "New England Patriots",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.798,
+  "rawAwayProb": 0.2439,
+  "homeWinProb": 0.7659,
+  "awayWinProb": 0.2341,
+  "vig": 0.0419,
+  "bucket": 5,
+  "fetchedAt": "2026-09-03T22:38:10.824864+00:00"
  }
 ]

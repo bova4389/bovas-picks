@@ -1034,5 +1034,19 @@
   "vig": 0.0427,
   "bucket": 14,
   "fetchedAt": "2026-09-03T17:53:32.663240+00:00"
+ },
+ {
+  "id": "01548e41e7ba5318bb25c9bc2a32f73d",
+  "commenceTime": "2026-12-11T01:15:00Z",
+  "home": "New England Patriots",
+  "away": "Minnesota Vikings",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6855,
+  "rawAwayProb": 0.3571,
+  "homeWinProb": 0.6575,
+  "awayWinProb": 0.3425,
+  "vig": 0.0427,
+  "bucket": 14,
+  "fetchedAt": "2026-09-03T22:38:10.824864+00:00"
  }
 ]
