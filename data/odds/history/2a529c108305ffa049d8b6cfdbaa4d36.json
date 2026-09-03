@@ -1020,5 +1020,19 @@
   "vig": 0.0428,
   "bucket": 3,
   "fetchedAt": "2026-09-03T12:52:01.766943+00:00"
+ },
+ {
+  "id": "2a529c108305ffa049d8b6cfdbaa4d36",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Washington Commanders",
+  "away": "Seattle Seahawks",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3937,
+  "rawAwayProb": 0.6491,
+  "homeWinProb": 0.3775,
+  "awayWinProb": 0.6225,
+  "vig": 0.0428,
+  "bucket": 3,
+  "fetchedAt": "2026-09-03T17:53:32.663240+00:00"
  }
 ]

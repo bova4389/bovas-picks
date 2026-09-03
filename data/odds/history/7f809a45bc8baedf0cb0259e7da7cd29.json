@@ -1020,5 +1020,19 @@
   "vig": 0.0418,
   "bucket": 18,
   "fetchedAt": "2026-09-03T12:52:01.766943+00:00"
+ },
+ {
+  "id": "7f809a45bc8baedf0cb0259e7da7cd29",
+  "commenceTime": "2027-01-10T18:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "Atlanta Falcons",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "bucket": 18,
+  "fetchedAt": "2026-09-03T17:53:32.663240+00:00"
  }
 ]
