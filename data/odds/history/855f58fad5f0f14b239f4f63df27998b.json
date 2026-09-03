@@ -1006,5 +1006,19 @@
   "vig": 0.0414,
   "bucket": 6,
   "fetchedAt": "2026-09-03T07:13:29.174167+00:00"
+ },
+ {
+  "id": "855f58fad5f0f14b239f4f63df27998b",
+  "commenceTime": "2026-10-16T00:15:00Z",
+  "home": "Denver Broncos",
+  "away": "Seattle Seahawks",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4762,
+  "rawAwayProb": 0.5652,
+  "homeWinProb": 0.4573,
+  "awayWinProb": 0.5427,
+  "vig": 0.0414,
+  "bucket": 6,
+  "fetchedAt": "2026-09-03T12:52:01.766943+00:00"
  }
 ]

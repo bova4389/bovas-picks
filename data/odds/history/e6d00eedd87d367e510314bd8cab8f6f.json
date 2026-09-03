@@ -1006,5 +1006,19 @@
   "vig": 0.0407,
   "bucket": 5,
   "fetchedAt": "2026-09-03T07:13:29.174167+00:00"
+ },
+ {
+  "id": "e6d00eedd87d367e510314bd8cab8f6f",
+  "commenceTime": "2026-10-13T00:15:00Z",
+  "home": "Los Angeles Rams",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6241,
+  "rawAwayProb": 0.4167,
+  "homeWinProb": 0.5996,
+  "awayWinProb": 0.4004,
+  "vig": 0.0407,
+  "bucket": 5,
+  "fetchedAt": "2026-09-03T12:52:01.766943+00:00"
  }
 ]

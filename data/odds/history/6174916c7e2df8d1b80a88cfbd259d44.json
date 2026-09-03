@@ -1006,5 +1006,19 @@
   "vig": 0.0414,
   "bucket": 14,
   "fetchedAt": "2026-09-03T07:13:29.174167+00:00"
+ },
+ {
+  "id": "6174916c7e2df8d1b80a88cfbd259d44",
+  "commenceTime": "2026-12-13T21:25:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Los Angeles Rams",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4762,
+  "rawAwayProb": 0.5652,
+  "homeWinProb": 0.4573,
+  "awayWinProb": 0.5427,
+  "vig": 0.0414,
+  "bucket": 14,
+  "fetchedAt": "2026-09-03T12:52:01.766943+00:00"
  }
 ]
