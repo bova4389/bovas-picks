@@ -6,7 +6,7 @@
    colors. js/grid.js decides what any of it should look like.
 
    Splitting it out is not tidiness for its own sake. The same matrix answers
-   "which weeks can this team be spent" for survivor and "who is favoured this
+   "which weeks can this team be spent" for survivor and "who is favored this
    week" for the straight-up pool, and those two views must never disagree
    about a game. One builder, two readers.
 

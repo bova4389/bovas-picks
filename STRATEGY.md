@@ -232,7 +232,7 @@ Used to stress-test a disagreement with the market, never to generate a pick alo
 
 ### Banned Outright
 
-Excluded by rule, not by judgement call, because each has a documented history of being noise
+Excluded by rule, not by judgment call, because each has a documented history of being noise
 dressed as signal:
 
 - ❌ Any tout, capper, or handicapping service selling picks. Records are self-reported and
@@ -375,7 +375,7 @@ guesses in 2025 Week 1:
 - **I was wrong to assume round-number clustering** — only 16% picked a multiple of 5, and 50 drew
   just 4 guesses against 30 on 42. Do not waste the deviation avoiding 45 and 50; avoid the *band*.
 - **Exploit the holes inside the band.** Density is spiky, not smooth: **46 drew 11 guesses while
-  its neighbours 45 and 47 drew 26 and 24**, and 39 drew 3 against 14 on 38. If the honest estimate
+  its neighbors 45 and 47 drew 26 and 24**, and 39 drew 3 against 14 on 38. If the honest estimate
   lands mid-band, take the local minimum — same accuracy, a third of the competition.
 - **The tails are wide open.** Nothing at all on 29, 30, 57, 58; single digits across 33–36 and
   49–56. If the market total is genuinely low or high, the tails cost little and win outright.
@@ -428,7 +428,7 @@ Answer these before Week 1:
 **Answered:** the pool *does* publish full pick distribution — the commissioner mails every
 entrant's card each Sunday. This is the best possible version of that unknown and it is already
 wired into `data/popularity/`. The one limitation: it arrives **after** our Saturday deadline, so
-each week we are picking against *last* week's measured behaviour, not this week's. That is fine —
+each week we are picking against *last* week's measured behavior, not this week's. That is fine —
 the field's habits (76% mean concentration, ~3.3 minority picks, the 41–48 tiebreaker band) are
 stable tendencies, not week-specific facts. Track them for drift; don't expect precision.
 

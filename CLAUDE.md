@@ -116,8 +116,8 @@ js/gameState.js     SHARED — canonical "what happened in this game"          [
 js/gridModel.js     SHARED — the 32 x 18 team-week matrix, pure data         [NEVER versioned]
 js/survivorLeagues.js SHARED — per-pool used teams + field scarcity          [NEVER versioned]
 js/sleeperApi.js    SHARED — Sleeper transport + THE KICKOFF GATE           [NEVER versioned]
-js/sleeperSurvivor.js SHARED — survivor-shaped Sleeper read, normalised     [NEVER versioned]
-js/pickShare.js     SHARED — modelled pick share + k calibration            [NEVER versioned]
+js/sleeperSurvivor.js SHARED — survivor-shaped Sleeper read, normalized     [NEVER versioned]
+js/pickShare.js     SHARED — modeled pick share + k calibration            [NEVER versioned]
 js/injuries.js      SHARED — ESPN injury report, live from the browser      [NEVER versioned]
 js/teamIdentity.js  SHARED — team colors, uniforms, logo/wordmark paths     [NEVER versioned]
 js/schedule.js      Schedule tab — one week, live scores
@@ -254,7 +254,7 @@ The guard has three parts:
   cycle). `auditSeason({season, schedule, numberMap, odds, popularity})` takes already-loaded
   feeds and returns `{problems, ok, blocking}`.
 - **`data.getSeasonAudit(week)`** — loads the feeds and runs the audit. Cheap to call from
-  anywhere; every feed is memoised by `loadJSON`.
+  anywhere; every feed is memoized by `loadJSON`.
 - **`js/seasonBanner.js`** — renders the verdict. Returns `''` when everything agrees, so callers
   treat it exactly like `oddsBadge`'s `favoriteLine()`.
 
@@ -351,10 +351,10 @@ four rows tall and pushed the table below the fold on the one tab whose value is
 at once. Height came from flattening, never from shrinking tap targets: everything in there is
 still ≥46px, and it is 202px on a 1280px desktop against ~300px before.
 
-**No source pill in the header** (removed 2026-08-14). It read `271 priced · 1 modelled` — true,
+**No source pill in the header** (removed 2026-08-14). It read `271 priced · 1 modeled` — true,
 unreadable without the vocabulary, and a season-wide tally nobody could act on. The market/model
 distinction still matters and is still made in the only place it can be acted on: the cell, where a
-modelled number wears a dotted underline, with the legend explaining it.
+modeled number wears a dotted underline, with the legend explaining it.
 
 **The odds join is the season-wide one.** `js/oddsMatch.js`'s `buildOddsIndex` keys purely on the
 team pair, which silently collapses both meetings of a division rivalry — harmless for one week's
@@ -406,7 +406,7 @@ the other is a copy of someone else's data that a refresh may replace whole.
 **`LEAGUES` in `js/survivorLeagues.js` lists the pools that actually exist, in dropdown order** —
 `Poop 2026`, `Deadpool`, `Mike's Suicide League`, `East Orange Squeeze`, then `Off`. The order is
 the two played hardest, then the big one-life pool, then the charity pool. Pools are added as they are created;
-SURVIVOR-STRATEGY.md may analyse one before it exists, which is not a reason to list it. The
+SURVIVOR-STRATEGY.md may analyze one before it exists, which is not a reason to list it. The
 Yahoo pool was listed for months without existing and was removed 2026-08-14. When a pool is
 added or removed, note that `grid:prefs` outlives it: `knownLeague()` in `grid.js` resolves a
 stored pool that is no longer in `LEAGUES` back to the default, because otherwise the pref
@@ -445,7 +445,7 @@ which is the other half of a survivor decision and the half the tool could not s
   defaults to the latest of them. `S.pickWeek` is deliberately **not** in `grid:prefs`: it is a
   glance at the week in play, not a view you set up and live in, and a remembered Week 3 would
   still be on screen in December.
-- **Bar colour comes from `js/teamIdentity.js`**, never a hardcoded hex, per the Team Identity
+- **Bar color comes from `js/teamIdentity.js`**, never a hardcoded hex, per the Team Identity
   rule. `--pb-bar` is set inline per row with a `--purple-mid` fallback for an identity that did
   not load.
 - Pure render, no state and no fetching — the Grid owns the feed, pool and week. That is what
@@ -477,13 +477,13 @@ already present. The guard that matters is `getSeasonAudit()`'s **blocking** ver
 a genuine cross-season join; a missing workbook costs only the pool's pick numbers, which are a
 submission detail, not a calculation input. **Do not reinstate a hard gate on the number map.**
 
-**Three inputs, three provenances, always labelled:**
+**Three inputs, three provenances, always labeled:**
 
 | Input | Source | Fallback |
 |---|---|---|
 | Slate | number map when present (pool-specific) | schedule feed, all games |
 | Win probability | odds snapshot, de-vigged, `matchSeasonOdds` | nothing — the game renders "no market line" |
-| Pick share | `data/popularity/` when measured | `js/pickShare.js` model, labelled **modelled** |
+| Pick share | `data/popularity/` when measured | `js/pickShare.js` model, labeled **modeled** |
 
 **Use `matchSeasonOdds`, never `buildOddsIndex`.** The snapshot holds all 272 games at once, so
 the pair-only join collapses both meetings of a division rivalry — measured: it returned **21
@@ -494,26 +494,26 @@ matches for a 16-game week**. Pair *and* kickoff is the only correct join here, 
 A row answers two different questions and they are **not** the same question, which is the
 mistake the old row made by having only one channel to answer with.
 
-**Channel 1, colour: which side of the price.** `--fav` / `--fav-ink` (purple) is always the
+**Channel 1, color: which side of the price.** `--fav` / `--fav-ink` (purple) is always the
 higher percentage, `--dog` / `--dog-ink` (rust) always the lower — on every card, every week.
 This replaced an `away = purple` / `home = teal` pairing that was wrong twice over. It keyed on
 which side of the *row* a team sat rather than which side of the *price*, so the same 58% was
 purple on one card and teal on the next and nothing could be read down a column; and the two hues
 were only ~80° apart and equally dark, so they were hard to tell apart even once you knew the
-convention. Purple to rust is ~110°, warm against cool. **A new colour on this tab must not be
+convention. Purple to rust is ~110°, warm against cool. **A new color on this tab must not be
 teal, green or violet** — those are the three the purple was already being confused with.
 
 The `.prob-bar` segments keep away on the left to match the chips above them, so *which segment
 gets which class flips with the dog*. The wide segment is `prob-fav` on all sixteen cards.
 
-**The fav/dog axis is now the site's only price colouring, and the Odds tab reads on it too**
+**The fav/dog axis is now the site's only price coloring, and the Odds tab reads on it too**
 (changed 2026-08-15). This paragraph previously ruled the opposite way — it kept `.prob-away`
 (purple) / `.prob-home` (teal) alive for the Odds tab on the grounds that a price list is not a
 recommendation, so side was the right key there. That reasoning did not survive contact with the
 two tabs side by side: they show the same sixteen games from the same snapshot, so a 64% that is
-purple-because-favourite on Recommend and teal-because-home on Odds is one number wearing two
-unrelated colour systems a tab-switch apart. **`.prob-away` / `.prob-home` are deleted, not
-merely unused** — nothing renders them, and re-adding a side-keyed colour anywhere would
+purple-because-favorite on Recommend and teal-because-home on Odds is one number wearing two
+unrelated color systems a tab-switch apart. **`.prob-away` / `.prob-home` are deleted, not
+merely unused** — nothing renders them, and re-adding a side-keyed color anywhere would
 reintroduce exactly the ambiguity `--fav` / `--dog` exists to remove.
 
 **Channel 2, the pick tag: which team to actually email in.** Exactly one of the two chips on
@@ -523,7 +523,7 @@ every row carries a tag, set by `markPicks()`:
 |---|---|---|
 | `Take` | the dog | Clears every §4 rule *and* is inside this week's quota |
 | `Next up` | the dog | Clears every rule but sits below the quota cut |
-| `Chalk` | the favourite | No dog worth taking here — §4 Step 6's real answer |
+| `Chalk` | the favorite | No dog worth taking here — §4 Step 6's real answer |
 
 **`take` and `next` must stay separate states.** §4 Step 5's whole point is that composition
 beats volume, so marking all eight qualifying dogs "take" on a loaded slate would recommend eight
@@ -532,13 +532,13 @@ built** — not inside `plan()`. The plan card and the rows below it are the sam
 twice, and resting that on a template literal's left-to-right evaluation meant reordering two
 lines of markup would silently unmark the slate.
 
-The pick cannot be carried by colour, because it *crosses* the colour axis — it is the dog on
-five games a week and the favourite on the other eleven. A ring plus a word is a second channel
-that survives that; a "recommended" tint would be the same as the "favourite" tint most of the
+The pick cannot be carried by color, because it *crosses* the color axis — it is the dog on
+five games a week and the favorite on the other eleven. A ring plus a word is a second channel
+that survives that; a "recommended" tint would be the same as the "favorite" tint most of the
 time and different exactly when it mattered.
 
 **Chalk rows are marked too, and that is the point.** Eleven of sixteen games are chalk, and the
-old row named the dog in prose and never named the favourite at all — so on most of the slate
+old row named the dog in prose and never named the favorite at all — so on most of the slate
 "which of these two am I picking" had no answer anywhere on the card.
 
 **Logos come from `js/teamIdentity.js`, fetched once at boot**, not per row: `recRow()` is
@@ -552,22 +552,22 @@ verified clip-free at 375px; re-check that sweep before changing any width in `.
 ### The pick-share model
 
 `share(p) = p^k / (p^k + (1-p)^k)`. One parameter. `k = 1` would mean the field picks exactly in
-proportion to win probability; `k > 1` means it piles onto favourites harder than probability
+proportion to win probability; `k > 1` means it piles onto favorites harder than probability
 warrants, which is why cheap dogs exist. Symmetric, so one call answers both sides.
 
 **`k` defaults to 2.0 and that is a documented default, not a fit.** Fitting needs (win
 probability, observed share) *pairs*, and we have one prior popularity file (2025 Week 1) with no
 odds snapshot from that week to pair with it. Distribution-matching against the prior year was
-tried and **rejected**: 2026 Week 1 is a genuinely flatter slate than 2025 Week 1 (best favourite
+tried and **rejected**: 2026 Week 1 is a genuinely flatter slate than 2025 Week 1 (best favorite
 82% vs 93%), so forcing the share distributions to match pushes k to 2.41 and blames a more
 decisive field for what is actually an easier schedule. The residual was visibly poor at both
-tails. At k=2.0 a 55/70/85% favourite draws 60/84/97%, which brackets the real 2025 spread of
+tails. At k=2.0 a 55/70/85% favorite draws 60/84/97%, which brackets the real 2025 spread of
 58–93%.
 
 **It self-corrects.** `calibrate()` fits k from real pairs across every week of the *current*
 season that has both a popularity file and a priced slate, and runs **once at boot** — doing it
 per render meant ~18 popularity lookups on every week switch, and the answer cannot change between
-renders anyway. Measured share always beats modelled for any week that has a file.
+renders anyway. Measured share always beats modeled for any week that has a file.
 
 **Prior-season data is shown but never joined.** `priorProfile()` reports last season's real
 entrant count and concentration spread as context for a first-week entrant ("how many people am I
@@ -652,12 +652,12 @@ Three consequences, all of them corrections waiting to happen:
 
 ### Smaller decisions that each have a reason
 
-- **Cost is banded, not printed raw.** `free` / `cheap` / `mid` / `dear` as a left border colour.
+- **Cost is banded, not printed raw.** `free` / `cheap` / `mid` / `dear` as a left border color.
   Three decimals of a compressed number is false precision; what is real is cheap versus expensive.
   The band is an **edge**, not a fill — a filled row would be a fourth background competing with
   the Grid's paint vocabulary, and this is a list, not a heat map.
-- **A modelled percentage wears the Grid's dotted underline**, so "modelled" looks the same on both
-  survivor tabs. Colour is spent on cost, which is the one thing this tab ranks.
+- **A modeled percentage wears the Grid's dotted underline**, so "modeled" looks the same on both
+  survivor tabs. Color is spent on cost, which is the one thing this tab ranks.
 - **Spent teams stay on the elite budget, struck through**, on the week their best spot *was* —
   removing them would hide whether they were spent well, which is the entire discipline §1 is
   about. `spentEarly` (used strictly before its best week) gets a rust border. Spending a team
@@ -874,7 +874,7 @@ number to a projected one **across weeks**. Here the trap is closer, because thi
 **within** one week: if eleven games are market-priced and three are projection-only, ranking all
 fourteen together silently buries the three — their compressed numbers cannot compete, so they are
 never in the eight, and nothing looks wrong. `sourceWarning()` says so out loud and the ordering
-is labelled advisory. As of 2026-09-01 the odds snapshot covers all 272 games, so the warning
+is labeled advisory. As of 2026-09-01 the odds snapshot covers all 272 games, so the warning
 never fires in practice; it is there for when the feed lapses or a week runs past the market's
 lookahead.
 
@@ -896,7 +896,7 @@ not less.
 
 ### Open
 
-- **The pool had one entry — mine — when this was built.** Field-based numbers use the modelled
+- **The pool had one entry — mine — when this was built.** Field-based numbers use the modeled
   default (11 opponents) until it fills; the live count overrides it only once there is more than
   just me, because a one-entry pool is a pool that has not filled, not a pool of one.
 - **Payout split between 1st and 2nd at season's end is undecided** ("top 1 or 2"). Nothing models
@@ -918,19 +918,19 @@ use. Three things about it are corrections rather than preferences, so don't und
 - **The tab leads with what it is telling you.** A summary strip (biggest mismatch, toss-up count,
   which lines have moved most) sits above the rows, because "I have no idea what this tab is for"
   was the actual complaint and a wall of percentages did not answer it. Movement is expressed as
-  `Bears 57% → 58%` from the current favourite's side; an unmoved game says "Unchanged since open"
+  `Bears 57% → 58%` from the current favorite's side; an unmoved game says "Unchanged since open"
   and deliberately does **not** repeat its own percentage, or all 16 rows shout equally and the two
   that moved disappear.
 
-- **The row is coloured by price, not by side, and carries both teams' marks** (added
+- **The row is colored by price, not by side, and carries both teams' marks** (added
   2026-08-15). `.ol-pct.is-fav` is `--fav-ink` and `.ol-pct.is-dog` is `--dog-ink`, the same axis
   and the same two tokens the Recommend chip uses, so a percentage means the same thing on both
   tabs. See the reversal note under Recommend's "Channel 1" for what this replaced. Three details
-  carried over deliberately: the **team name** stays `--ink` and signals the favourite by *weight*
-  rather than taking the price colour (the colour belongs on the number, which is what reads down
+  carried over deliberately: the **team name** stays `--ink` and signals the favorite by *weight*
+  rather than taking the price color (the color belongs on the number, which is what reads down
   a column); the `.prob-bar` keeps away on the left, so which segment gets `prob-fav` flips with
-  the favourite; and `.odds-move.up` / `.down` now use the same two inks, which also corrected a
-  stale comment — `movementFor()` measures from the *current favourite's* side and never was
+  the favorite; and `.odds-move.up` / `.down` now use the same two inks, which also corrected a
+  stale comment — `movementFor()` measures from the *current favorite's* side and never was
   home-oriented.
 - **Marks come from `js/teamIdentity.js`, fetched once at boot** alongside the snapshot and the
   schedule, never per row. It is the only one of the three feeds allowed to fail: `getIdentity()`

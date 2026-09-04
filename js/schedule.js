@@ -293,10 +293,10 @@ function venueLabel(g) {
 /**
  * The venue pill's markup, city and country in separate spans.
  *
- * Split so the country can be dropped at phone widths by CSS alone. The centre
+ * Split so the country can be dropped at phone widths by CSS alone. The center
  * grid track is `auto`, so it sizes to its widest child — "Mexico City, Mexico"
  * grew that column and took the width straight off the two team names, which
- * ellipsised "49ers". The city alone is the part that carries the meaning.
+ * ellipsized "49ers". The city alone is the part that carries the meaning.
  */
 function venueHtml(g) {
   if (!g.neutral) return '';
@@ -392,7 +392,7 @@ function statusText(g) {
 function metaText(g) {
   if (g.state === 'in') {
     // Broadcast is dropped once a game is live: down-and-distance is what you
-    // are looking at the card for, and the narrow centre column can't carry
+    // are looking at the card for, and the narrow center column can't carry
     // both without wrapping.
     const bits = [g.downDistance, g.redZone ? 'Red zone' : null];
     return escape(bits.filter(Boolean).join(' · '));
@@ -495,7 +495,7 @@ function dayDateSuffix(games) {
  * Kickoff time with the zone in its own span.
  *
  * Split so CSS can drop the zone at phone widths. It costs ~26px, and the
- * centre column's width comes straight out of the two team columns either side
+ * center column's width comes straight out of the two team columns either side
  * of it — with "EDT" showing, "Commanders" (91px at 15px) doesn't fit the ~82px
  * left for a name at 375px, and CLAUDE.md's rule is that no team name
  * truncates on a phone. The date is already on the day header, and the time is

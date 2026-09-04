@@ -13,7 +13,7 @@ this week, given I can never spend it again?"* Almost nothing transfers between 
 **All four exist and all four are in the Grid tab's dropdown.** Pools are added to
 `js/survivorLeagues.js` as they are created — a listed pool nobody has entered is a dead dropdown
 option that invites picks being logged against a pool that cannot receive them. The Yahoo pool
-this document once analysed was never created and was removed 2026-08-14; Deadpool and East
+this document once analyzed was never created and was removed 2026-08-14; Deadpool and East
 Orange Squeeze were added 2026-09-01 and are real.
 
 | | **Mike's Suicide League** | **Poop 2026** | **Deadpool** | **East Orange Squeeze** |
@@ -77,7 +77,7 @@ lives in the Infinity War section of `CLAUDE.md` and in `js/infinityModel.js`.
 ### Expected value, and why win probability alone is the wrong target
 
 The naive play is "pick whoever is most likely to win." That is wrong for a reason worth
-internalising: **you don't win a survivor pool by surviving. You win it by surviving weeks that
+internalizing: **you don't win a survivor pool by surviving. You win it by surviving weeks that
 other people don't.**
 
 If 34% of the pool picks the same team you do, then in the world where that team wins, 34% of the
@@ -127,7 +127,7 @@ team below ~70% to win.** Cute survivor picks are how people go out in Week 3.
 Each team can be used once. So the real question is never "who wins this week" but "**is this the
 best week I will ever get to spend this team?**"
 
-A 92% favourite is a *bad* pick if that team is also the only credible option in Week 11 when the
+A 92% favorite is a *bad* pick if that team is also the only credible option in Week 11 when the
 slate is thin. Spending it now means arriving at Week 11 with nothing. RotoWire's grid frames this
 well by starring each team's single best matchup of the season — the discipline is to **spend
 teams at or near their best spot, not before it.**
@@ -262,7 +262,7 @@ settings — see the contradiction note at the end.
   is no window to fall out of. The correct read is the opposite one, that a buy-back is available
   all season at the same price, which is what keeps these pools running long.
 
-- **Most of the field buys back twice; a few lose and walk.** Observed, not modelled. This
+- **Most of the field buys back twice; a few lose and walk.** Observed, not modeled. This
   confirms the second-order effect predicted above — the pools run long — and it means the
   surviving field late in the season is *not* thinned the way a one-life pool's is. Scarcity
   numbers should be read with that in mind.
@@ -363,7 +363,7 @@ this early** — 58 games clear it — and remains unusable against projections.
 `scripts/build_projections.py` (power ratings → projected win probability for every unplayed game,
 including a per-team "best remaining week"). Constants were grid-searched on 2021–24 and checked
 against 2025 as a held-out season. Two sources, two trust levels, never blended silently: market
-odds for this week and next, projections beyond, always labelled.
+odds for this week and next, projections beyond, always labeled.
 
 **Measured performance** (`python scripts/build_projections.py 2025 --backtest`):
 

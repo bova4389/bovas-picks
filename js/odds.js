@@ -169,7 +169,7 @@ function buildRow(g) {
 
 /**
  * How far this game's price has travelled, expressed from the CURRENT
- * favourite's point of view -- "Seahawks 60% to 63%" reads as a line, where a
+ * favorite's point of view -- "Seahawks 60% to 63%" reads as a line, where a
  * signed delta on a fixed side reads as arithmetic.
  *
  * The now-side is taken from the live snapshot rather than the tail of the
@@ -280,14 +280,14 @@ function oddsRow(r) {
   const homePct = 100 - awayPct;
 
   // Which side of the PRICE, never which side of the row -- the same one
-  // colour axis the Recommend tab reads on, so a 62% is the same purple on
+  // color axis the Recommend tab reads on, so a 62% is the same purple on
   // both tabs and the dog is the same rust. Before this, away was purple and
   // home was teal, which meant nothing could be read down a column.
   const sideCls = (side) => (
     r.favSide == null ? '' : (r.favSide === side ? ' is-fav' : ' is-dog')
   );
   // The bar keeps away on the left to match the names beside it, so WHICH
-  // segment carries which class flips with the favourite. The wide segment is
+  // segment carries which class flips with the favorite. The wide segment is
   // prob-fav on every row.
   const awaySeg = r.favSide === 'away' ? 'prob-fav' : 'prob-dog';
   const homeSeg = r.favSide === 'home' ? 'prob-fav' : 'prob-dog';

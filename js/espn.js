@@ -32,7 +32,7 @@ const BASE = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scorebo
 const cache = new Map();
 
 /**
- * One week's games from ESPN, normalised — or null if ESPN is unreachable.
+ * One week's games from ESPN, normalized — or null if ESPN is unreachable.
  *
  * NEVER THROWS. Every caller treats a null as "no live layer available" and
  * falls back to the committed schedule, so an ESPN outage or an offline phone
@@ -70,7 +70,7 @@ export function clearScoreboardCache() {
   cache.clear();
 }
 
-/* ── Normalisation ────────────────────────────────────────────────────────
+/* ── Normalization ────────────────────────────────────────────────────────
    ESPN's payload is deeply nested and every level is optional in practice
    (postponed games, TBD kickoffs, the odd malformed preseason entry). Pull
    out a flat shape and let anything unrecognisable fall out via null.

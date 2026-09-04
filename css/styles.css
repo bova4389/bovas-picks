@@ -1,7 +1,7 @@
 /* ==========================================================================
    Bova's Picks — design system
 
-   Visual language modelled on Grant Thornton's site: a deep purple brand
+   Visual language modeled on Grant Thornton's site: a deep purple brand
    field, LIGHT display weights at large sizes (their h1 runs weight 200 at
    70px), warm neutrals instead of cold greys, and generous 20px card radii.
 
@@ -22,14 +22,14 @@
   --violet-ink:    #5B2BA8;
   --teal:          #00838F;   /* secondary accent — positive / confirmed */
 
-  /* Favourite vs. underdog — the Recommend tab's one colour axis.
+  /* Favorite vs. underdog — the Recommend tab's one color axis.
      These replaced an away=purple / home=teal pairing that failed twice over.
      It keyed on the wrong thing (which side of the row a team sat on, not
      which side of the price), so the same 58% was purple in one card and teal
      in the next and nothing could be read down a column; and the two hues were
      only ~80deg apart and equally dark, so they were hard to tell apart even
      when you knew which was which. Purple to rust is ~110deg, warm against
-     cool, and reads as two colours at a glance. Higher percentage is ALWAYS
+     cool, and reads as two colors at a glance. Higher percentage is ALWAYS
      --fav, on every card, every week. */
   --fav:           #725799;   /* = --purple-mid. The market's side. */
   --fav-ink:       #4F2D7F;   /* 10.43:1 on white */
@@ -451,7 +451,7 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
    Marked on the row itself because the sheet is read top to bottom on a phone,
    and the points box sits far above it, out of view by the time you reach
    Monday. A left edge rather than a fill: `is-picked` already owns the border
-   colour, and two competing background states on one row is one too many. */
+   color, and two competing background states on one row is one too many. */
 .game.is-tiebreak {
   border-left: 3px solid var(--purple-mid);
   padding-left: 6px;   /* 8px pad, less the 2px the thicker border adds */
@@ -600,9 +600,9 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 }
 
 .ol-team { font-weight: 400; font-size: .9375rem; color: var(--ink-soft); }
-/* The favourite is the one fact a glance should land on, so it is carried by
-   weight and ink. The name stays --ink rather than taking the price colour,
-   exactly as .oddsteam-name does on Recommend -- the colour axis lives on the
+/* The favorite is the one fact a glance should land on, so it is carried by
+   weight and ink. The name stays --ink rather than taking the price color,
+   exactly as .oddsteam-name does on Recommend -- the color axis lives on the
    number, where it can be read down a column. */
 .ol-team.is-fav { font-weight: 700; color: var(--ink); }
 .ol-pct {
@@ -610,10 +610,10 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
   font-weight: 600; font-size: .9375rem;
   color: var(--ink-soft);
 }
-/* The one colour axis, shared with Recommend: --fav-ink is always the higher
+/* The one color axis, shared with Recommend: --fav-ink is always the higher
    percentage, --dog-ink always the lower, on every row and every week. This
    used to key on side (away purple, home teal), which meant the same 58% was
-   one colour on one row and another on the next. See --fav / --dog. */
+   one color on one row and another on the next. See --fav / --dog. */
 .ol-pct.is-fav { font-weight: 700; color: var(--fav-ink); }
 .ol-pct.is-dog { color: var(--dog-ink); }
 .ol-at {
@@ -631,7 +631,7 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
     "homebadge homename homepct";
 }
 
-/* Wide enough to mirror the two teams around a centre marker. Each mark sits
+/* Wide enough to mirror the two teams around a center marker. Each mark sits
    on the card's outer edge with the two names reading inward -- the same
    away-left / home-right order the Schedule card and Recommend chip use. */
 @media (min-width: 560px) {
@@ -697,7 +697,7 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 .oddsteam-home { flex-direction: row-reverse; }
 .oddsteam-home .oddsteam-text { align-items: flex-end; }
 
-/* The one colour axis: which side of the PRICE a team is on, never which side
+/* The one color axis: which side of the PRICE a team is on, never which side
    of the row. See --fav / --dog. */
 .oddsteam.is-fav .oddsteam-pct { color: var(--fav-ink); }
 .oddsteam.is-dog .oddsteam-pct { color: var(--dog-ink); }
@@ -716,7 +716,7 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 }
 
 /* The recommendation, on a channel of its own — a ring and a word, because the
-   colour axis is already spent on favourite/underdog and the pick crosses it. */
+   color axis is already spent on favorite/underdog and the pick crosses it. */
 .oddsteam.is-pick { background: var(--paper); }
 .oddsteam.is-pick-take { border-color: var(--dog); background: var(--dog-soft); }
 .oddsteam.is-pick-next { border-color: var(--dog); background: var(--white); border-style: dashed; }
@@ -746,7 +746,7 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
   background: var(--paper-2);
 }
 .prob-seg { height: 100%; }
-/* One axis for both tabs: the favourite's segment is purple and the dog's is
+/* One axis for both tabs: the favorite's segment is purple and the dog's is
    rust, wherever each of them sits in the row. The old side-keyed
    .prob-away / .prob-home pair is gone -- nothing renders them any more. */
 .prob-fav { background: var(--fav); }
@@ -758,8 +758,8 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
   margin-top: 10px;
   font-size: .8125rem; color: var(--ink-soft);
 }
-/* movementFor() measures from the CURRENT FAVOURITE's side, so up = money has
-   arrived on the favourite and down = it has drifted toward the dog. Not a
+/* movementFor() measures from the CURRENT FAVORITE's side, so up = money has
+   arrived on the favorite and down = it has drifted toward the dog. Not a
    verdict, so these echo the same fav/dog axis the row does rather than
    good/bad semantics. (They read teal/purple before, echoing a home/away axis
    this tab no longer has — and the delta was never home-oriented anyway.) */
@@ -811,9 +811,9 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 .rec-explain-foot { margin-top: 12px; font-size: .8125rem; }
 
 /* The plan card — the answer to "so what do I actually do". Rust edge, the
-   same colour .is-pick-take rings each of the five teams it names, because it
+   same color .is-pick-take rings each of the five teams it names, because it
    is the same claim at slate scale. It used to be violet, which matched
-   nothing once the take colour was settled. */
+   nothing once the take color was settled. */
 .rec-plan {
   padding: 14px 16px; margin-bottom: 14px;
   border-left: 3px solid var(--dog);
@@ -966,9 +966,9 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
    16 games stops lining up. */
 .schedgame {
   display: grid;
-  /* Fixed centre track, not `auto`. With `auto` the column sizes to its own
+  /* Fixed center track, not `auto`. With `auto` the column sizes to its own
      card's content, so the one card a week carrying a venue pill got a wider
-     centre and narrower teams — which slid its scores 18px out of line with
+     center and narrower teams — which slid its scores 18px out of line with
      the fifteen above it. A fixed track means every card in a column shares
      one geometry and the scores stack. The pill ellipsises inside it. */
   grid-template-columns: minmax(0, 1fr) 104px minmax(0, 1fr);
@@ -981,7 +981,7 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
    clock and possession dot are still there for anyone who can't see the tint. */
 .schedgame.is-redzone { background: linear-gradient(90deg, #FDF1F0, var(--white) 40%); }
 
-/* Centre column is `auto`-width, so it takes only what the clock needs and
+/* Center column is `auto`-width, so it takes only what the clock needs and
    hands the rest to the teams. min-width keeps a 1:00 PM card and a Q3 8:42
    card the same shape as games flip state mid-Sunday. */
 .schedgame-center {
@@ -1016,13 +1016,13 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
   color: var(--warn); background: var(--warn-bg);
   border-radius: 999px; padding: 1px 8px;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  /* The centre grid track is `auto`, so it sizes to its widest child and a long
+  /* The center grid track is `auto`, so it sizes to its widest child and a long
      venue name takes that width straight off the two team names. Capping the
      pill caps the column. */
   max-width: 100%;
 }
 
-/* The home team of a neutral-site game: labelled HOME, but not at home. */
+/* The home team of a neutral-site game: labeled HOME, but not at home. */
 .schedteam.is-displaced .schedteam-side {
   text-decoration: underline dotted currentColor 1px;
   text-underline-offset: 2px;
@@ -1046,7 +1046,7 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 .schedteam-home { flex-direction: row-reverse; justify-content: flex-start; }
 
 /* The name now sits under an AWAY/HOME label, so this wrapper is what carries
-   the flex behaviour the name used to.
+   the flex behavior the name used to.
 
    flex:1 is what pins the score to the INNER edge of each side rather than
    letting it trail the name. Without it the score's x-position follows the
@@ -1105,7 +1105,7 @@ main.wrap { padding-top: 34px; padding-bottom: 96px; }
 .schedteam.is-winner .schedteam-score { font-weight: 700; color: var(--purple-deep); }
 .schedteam.is-leading .schedteam-name,
 .schedteam.is-leading .schedteam-score { font-weight: 700; color: var(--violet-ink); }
-/* Loser is de-emphasised, never faded out. The hierarchy is carried by weight
+/* Loser is de-emphasized, never faded out. The hierarchy is carried by weight
    (700 winner vs 400 here), not by dropping contrast — --ink-faint at 300
    measured 3.01:1, under this project's 4.5:1 floor. --ink-soft is 5.30:1. */
 .schedteam.is-loser .schedteam-name,
@@ -1153,9 +1153,9 @@ footer {
   .game-at { font-size: .625rem; padding: 0; }
 
   /* Keep the away | status | home shape at 375px — the whole point of the bar
-     is that a team always sits on the same edge. Tighten the centre column and
+     is that a team always sits on the same edge. Tighten the center column and
      the gaps rather than restacking, which would put the two teams back on top
-     of each other. Budget at 375px: 351px of content, minus a 88px centre and
+     of each other. Budget at 375px: 351px of content, minus a 88px center and
      two 8px gaps, leaves ~123px a side — "Buccaneers" at .9375rem is ~82px
      plus a 22px score, so it fits without ellipsis. */
   .schedgame { gap: 6px; padding: 9px 10px; }
@@ -1170,11 +1170,11 @@ footer {
   .schedteam-side { font-size: .5625rem; letter-spacing: .06em; line-height: 1.25; }
   .schedgame-venue { font-size: .5625rem; padding: 1px 5px; letter-spacing: .03em; }
   /* City alone at phone widths — ", Australia" is the part that pushes the
-     centre column wide, and the city is what carries the meaning. */
+     center column wide, and the city is what carries the meaning. */
   .schedgame-venue .venue-country { display: none; }
   .schedteam-name { font-size: .75rem; }
   .schedteam-score { font-size: 1.0625rem; min-width: 18px; }
-  /* The zone label costs ~26px out of the centre column, and that width comes
+  /* The zone label costs ~26px out of the center column, and that width comes
      straight off the two team columns. Dropping it is what lets "Commanders"
      render in full at 375px instead of ellipsing. */
   .kick-tz { display: none; }
@@ -1200,7 +1200,7 @@ footer {
 /* Two cards a row, but only once a row is genuinely wide enough for one.
    Raised from 860px when the team logo and the AWAY/HOME label went in: at
    860px each card is ~450px, which left the name 52px against the 82px
-   "Buccaneers" wants, so seventeen of the thirty-two names ellipsised. At
+   "Buccaneers" wants, so seventeen of the thirty-two names ellipsized. At
    1080px a card is ~534px and the longest name clears with room. Below this
    the cards run full width, where nothing is tight at all. */
 @media (min-width: 1080px) {
@@ -1241,7 +1241,7 @@ footer {
    ══════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* Win-probability ramp. The teal end is "this row's team is favoured", the
+  /* Win-probability ramp. The teal end is "this row's team is favored", the
      warm end is "this row's team is the dog", and the middle is deliberately
      plain white — a coin flip should not look like information. All are light
      enough that --ink clears 4.5:1 on top of them (measured, not eyeballed). */
@@ -1559,7 +1559,7 @@ footer {
 .d-rest.mk-rest .is-short .gc-rest { color: var(--amber-ink); font-weight: 700; }
 .d-rest.mk-rest .is-rested .gc-rest { color: var(--teal-ink); font-weight: 700; }
 
-/* Modelled, not priced. A dotted underline reads as provisional at any zoom
+/* Modeled, not priced. A dotted underline reads as provisional at any zoom
    and survives being photographed off a screen, which a color shift alone
    does not. */
 .d-prob .gc.is-proj .gc-prob {
@@ -1769,7 +1769,7 @@ footer {
   background: var(--paper-2);
   border-radius: 20px; overflow: hidden;
 }
-/* The team's own colour, from js/teamIdentity.js -- never a hardcoded hex, so
+/* The team's own color, from js/teamIdentity.js -- never a hardcoded hex, so
    a rebrand is one rebuild. --pb-bar is set inline per row; the fallback keeps
    a bar visible for a team whose identity did not load. */
 .pboard-fill {
@@ -1779,7 +1779,7 @@ footer {
 }
 
 /* My own pick, marked on a channel of its own -- the bars are already spoken
-   for by team colour, so this is a tint plus a word rather than a fifth hue. */
+   for by team color, so this is a tint plus a word rather than a fifth hue. */
 .pboard-row.is-mine { background: var(--pb-tint, var(--purple-soft)); }
 .pboard-mine {
   flex: none;
@@ -1838,12 +1838,12 @@ footer {
    compressed model projections -- and a reader who takes them for the same
    number will draw the wrong conclusion (see the header of js/planning.js).
 
-   So the scales are separated typographically rather than by colour:
+   So the scales are separated typographically rather than by color:
      .planrow-pct.is-market   solid, full weight -- a real probability
      .planrow-pct.is-proj     dotted underline, the same treatment the Grid
-                              gives a modelled cell, so "modelled" looks the
+                              gives a modeled cell, so "modeled" looks the
                               same on both survivor tabs
-   Colour is reserved for COST, which is the one thing the tab is ranking.
+   Color is reserved for COST, which is the one thing the tab is ranking.
    ══════════════════════════════════════════════════════════════════════════ */
 
 .planblock { padding: 22px; margin-bottom: 18px; }
@@ -1944,7 +1944,7 @@ footer {
 .planrow-pct { font-size: 1.0625rem; font-weight: 600; }
 /* Market: a real probability, and the only number here that is one. */
 .planrow-pct.is-market { color: var(--fav-ink); }
-/* Modelled: same dotted underline the Grid uses, because it is the same
+/* Modeled: same dotted underline the Grid uses, because it is the same
    claim -- softer, and never to be read as a price. */
 .planrow-pct.is-proj {
   color: var(--ink-soft);
@@ -2198,7 +2198,7 @@ footer {
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-/* Modelled numbers wear the Grid's dotted underline, so "modelled" looks the
+/* Modeled numbers wear the Grid's dotted underline, so "modeled" looks the
    same on every tab that shows one. */
 .iw-src.projection { border-bottom: 1px dotted var(--ink-faint); }
 .iw-src.none { color: var(--dog-ink); }

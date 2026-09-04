@@ -282,11 +282,11 @@ function watchGeometry() {
 
 /* ── Chrome ───────────────────────────────────────────────────────────────*/
 
-/* NO SOURCE PILL HERE. This used to carry "271 priced · 1 modelled", a count
+/* NO SOURCE PILL HERE. This used to carry "271 priced · 1 modeled", a count
    of which cells came from the market and which from the projection model —
    true, and unreadable without knowing the vocabulary, on a tab whose header
    should say what the tab is. The distinction still matters and is still made,
-   but at the only place it can be acted on: the cell itself, where a modelled
+   but at the only place it can be acted on: the cell itself, where a modeled
    number wears a dotted underline, with the legend below explaining it. A
    season-wide tally of the two was never a number to do anything with. */
 function shellHead() {
@@ -570,7 +570,7 @@ function legend() {
             <span class="gswatch p-0"></span> under 25%
           </p>
           <p class="lede">
-            A <span class="gproj-demo">dotted number</span> is modelled, not priced. Market odds
+            A <span class="gproj-demo">dotted number</span> is modeled, not priced. Market odds
             always win where both exist -- a 78% projection weeks out is a much softer claim
             than a 78% moneyline on Saturday, and the two are never averaged.
           </p>
@@ -589,7 +589,7 @@ function legend() {
             Divisional games get a purple edge and conference games a lighter one -- the tightest
             games on the board and the ones a season-long model reads worst. THU, SNF and MNF flag
             the standalone windows. Rest days are shown as a fact, not an edge: STRATEGY.md bans
-            situational angles, so a short week is labelled and left for the market number beside
+            situational angles, so a short week is labeled and left for the market number beside
             it to price.
           </p>
         </div>
@@ -818,7 +818,7 @@ const TYPE_CLASS = {
   division: 't-div', conference: 't-conf', interconference: 't-inter',
 };
 
-/** Seven buckets, centred on a coin flip. Even steps of 10 points either side
+/** Seven buckets, centered on a coin flip. Even steps of 10 points either side
  *  of 45-55, so the eye reads distance from even rather than absolute value. */
 function probClass(p) {
   if (p >= 0.75) return 'p-6';
@@ -1060,7 +1060,7 @@ function detailFacts(c) {
     const pct = Math.round(c.winProb * 100);
     bits.push(c.probSource === 'market'
       ? `<strong>${c.team} ${pct}%</strong> to win (de-vigged market)`
-      : `<strong>${c.team} ${pct}%</strong> to win (modelled — no market line)`);
+      : `<strong>${c.team} ${pct}%</strong> to win (modeled — no market line)`);
   }
 
   if (c.projMargin != null) {

@@ -8,7 +8,7 @@
    kickoff, i.e. after every decision it would have informed.
 
    So for the week you are actually picking, the honest options are: no
-   leverage ranking at all, or a modelled share that is labelled as modelled.
+   leverage ranking at all, or a modeled share that is labeled as modeled.
    This file is the second option. Nothing here ever overwrites a measured
    number; getPopularity() wins wherever it exists.
 
@@ -17,8 +17,8 @@
        share(p) = p^k / (p^k + (1-p)^k)
 
    One parameter. k = 1 would mean the field picks exactly in proportion to
-   win probability; k > 1 means it piles onto favourites harder than the
-   probability warrants, which is the well-documented behaviour of public
+   win probability; k > 1 means it piles onto favorites harder than the
+   probability warrants, which is the well-documented behavior of public
    pools and the whole reason cheap underdogs exist. The curve is symmetric --
    share(p) + share(1-p) = 1 -- so one call answers both sides of a game.
 
@@ -28,10 +28,10 @@
    one prior popularity file (2025 Week 1) and no odds snapshot from that week
    to pair it with, so those pairs do not exist yet.
 
-   Distribution-matching was tried instead -- choose k so the modelled shares
+   Distribution-matching was tried instead -- choose k so the modeled shares
    for this week land on the same spread as last year's observed shares -- and
    it is NOT used, because it conflates two different things. 2026 Week 1 is a
-   genuinely flatter slate than 2025 Week 1 was (best favourite 82% against
+   genuinely flatter slate than 2025 Week 1 was (best favorite 82% against
    93%), so forcing the share distributions to match pushes k to 2.41 and
    attributes the difference to a more decisive field rather than to an easier
    schedule. The residual said so: the fit was visibly poor at both tails.
@@ -45,18 +45,18 @@
    fitK() takes real pairs and returns a fitted k. The moment ONE week of this
    season has both a popularity file and an odds snapshot, the caller can fit
    against that and every later week's estimate improves. That is the intended
-   life cycle: modelled at first, self-correcting after Week 1, and replaced
+   life cycle: modeled at first, self-correcting after Week 1, and replaced
    outright by the measured file for any week that has one.
 
    NEVER add a ?v= to this file -- see data.js's note on module identity.
    ========================================================================== */
 
-/** The public over-picks favourites. See the header for why this number. */
+/** The public over-picks favorites. See the header for why this number. */
 export const DEFAULT_K = 2.0;
 
 /** Plausible range for a fitted k. Outside this, something is wrong with the
  *  inputs rather than interesting about the field -- k < 1 would mean the
- *  field systematically fades favourites, which no pool does. */
+ *  field systematically fades favorites, which no pool does. */
 const K_MIN = 1.0;
 const K_MAX = 4.0;
 

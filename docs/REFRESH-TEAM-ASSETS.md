@@ -70,7 +70,7 @@ changes its CDN paths, that dict is the only thing to edit.
 ### What the 2026-08-13 audit found — read before bulk-refreshing
 
 **Do not run a blanket `fetch_team_assets.py logos`.** All 32 logos were
-compared against the league's current artwork (bounding-box normalised, so
+compared against the league's current artwork (bounding-box normalized, so
 the comparison is immune to the different padding each CDN applies). 31 of 32
 were already the current design. Refreshing them all replaces good assets with
 worse ones:
@@ -137,7 +137,7 @@ Only **two**, and both have now been rebuilt — see below.
 | Team | Installed (2023) | Current primary | Verdict |
 |---|---|---|---|
 | **NYJ** | green shell, 2019 "Jets" oval mark | green shell, 1978–89-style **"JETS" wordmark with a jet off the "J"**, white facemask (2024 Legacy Collection) | **was wrong — rebuilt** |
-| **TEN** | navy shell, flaming-thumbtack "T" | **white shell**, new block-"T"-in-red-circle mark, guitar-string centre stripe, white facemask (2026 rebrand) | **was wrong — rebuilt** |
+| **TEN** | navy shell, flaming-thumbtack "T" | **white shell**, new block-"T"-in-red-circle mark, guitar-string center stripe, white facemask (2026 rebrand) | **was wrong — rebuilt** |
 
 Left alone, with the reason:
 
@@ -232,7 +232,7 @@ existing 350×320 is nice but not required.
 
 **Why both facings, rather than one flipped?** A helmet decal faces forward on
 *both* sides of the real helmet, so the two views are drawn separately. Mirroring
-one reverses the decal and gives you backwards lettering — measured against the
+one reverses the decal and gives you backward lettering — measured against the
 hand-drawn pair, a flip matches the shell to ~2% but the decal region differs by
 7–12%. `--mirror` exists for the handful of teams whose mark survives it (the
 Cowboys star, Colts horseshoe, Packers G, Browns blank shell — see `MIRROR_SAFE`

@@ -52,7 +52,7 @@ SOURCES = {
         # 79-256 colors and ~27 partial-alpha pixels per mark, which flattens
         # the antialiasing on every curved edge. `f_png` returns 8-bit RGBA
         # with ~800-1100 colors and the alpha ramp intact, for roughly twice
-        # the bytes. Always fetch `f_png`; a palette-quantised mark looks
+        # the bytes. Always fetch `f_png`; a palette-quantized mark looks
         # visibly ragged against a dark cell background.
         #
         # Do not use `t_lazy` as a quality reference when comparing: it is

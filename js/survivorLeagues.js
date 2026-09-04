@@ -9,7 +9,7 @@
 
    LEAGUES is the list of pools that ACTUALLY EXIST, and it is the dropdown
    in pool order. Pools get added here as they are created -- SURVIVOR-
-   STRATEGY.md may analyse one before it exists, which is not a reason to list
+   STRATEGY.md may analyze one before it exists, which is not a reason to list
    it. A pool nobody has entered is a dead option that still has to be scrolled
    past every time, and it invites picks being logged against a pool that
    cannot receive them.
@@ -186,7 +186,7 @@ export function weekUsed(state, team) {
  * `available` is the number that matters, and it is deliberately measured
  * against ALIVE entries only. An eliminated entry's used teams tell you
  * nothing about the competition ahead of you -- counting them would inflate
- * scarcity every week as the pool thins, which is exactly backwards.
+ * scarcity every week as the pool thins, which is exactly backward.
  *
  * Returns null rather than a partial answer when the feed is for a different
  * season. Joining last season's field to this season's schedule is the
@@ -244,7 +244,7 @@ export function scarcityFor(field, team) {
  * carry the week.
  *
  * Works on either feed untouched: Mike's parsed workbook and the live Sleeper
- * pool are normalised to the same shape (see js/sleeperSurvivor.js). Where
+ * pool are normalized to the same shape (see js/sleeperSurvivor.js). Where
  * they differ is the kickoff gate — Sleeper carries `submitted` / `revealed` /
  * `expected` because its picks unlock one game at a time, and Mike's file,
  * parsed after the week is over, carries only a total. The fallbacks below are

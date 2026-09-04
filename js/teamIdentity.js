@@ -38,7 +38,7 @@ const FOREIGN_ABBR = {
 let identityPromise = null;
 
 /**
- * The whole identity document, memoised. Null on failure rather than throwing —
+ * The whole identity document, memoized. Null on failure rather than throwing —
  * a missing palette should cost a team its color, not blank the tab, same
  * contract as data.js getOddsSnapshot.
  */
@@ -57,7 +57,7 @@ export async function getIdentity() {
 
 /**
  * Resolve any of the three upstream spellings to an abbreviation.
- * Returns null for anything unrecognised — callers fall back to neutral styling.
+ * Returns null for anything unrecognized — callers fall back to neutral styling.
  */
 export function toAbbr(team) {
   if (!team) return null;

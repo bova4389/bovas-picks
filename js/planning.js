@@ -142,7 +142,7 @@ function head() {
     <p class="lede">
       One team a week, never twice, and a loss ends the run &mdash; so the question is not who
       wins on Sunday but whether this is the best week you will ever get to spend a team.
-      Prices are the market's. The week-against-week comparisons are modelled, and are an
+      Prices are the market's. The week-against-week comparisons are modeled, and are an
       <strong>ordering</strong>: they say Week&nbsp;11 is a better spot than Week&nbsp;6, not
       that either is 61%.
     </p>`;
@@ -251,7 +251,7 @@ function priceCell(r) {
 
   return `
     <span class="planrow-pct ${cls}" title="${esc(floor)}">${pct(r.winProb)}</span>
-    <span class="planrow-src">${market ? 'market' : 'modelled'}</span>`;
+    <span class="planrow-src">${market ? 'market' : 'modeled'}</span>`;
 }
 
 function costCell(r, band) {

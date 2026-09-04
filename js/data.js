@@ -144,7 +144,7 @@ export async function getSchedule(season = SEASON) {
 }
 
 /**
- * Modelled win probabilities for unplayed games, from
+ * Modeled win probabilities for unplayed games, from
  * scripts/build_projections.py. Fills the gap past the market's ~10-12 day
  * lookahead window.
  *
@@ -189,7 +189,7 @@ export async function getSurvivor(season = SEASON) {
  * from one season joined to market odds from another is the combination that
  * produces a plausible, confident, completely meaningless leverage ranking.
  *
- * Cheap to call from every tab — each feed is memoised by loadJSON().
+ * Cheap to call from every tab — each feed is memoized by loadJSON().
  */
 export async function getSeasonAudit(week = null, season = SEASON) {
   const [schedule, numberMap, odds, popularity] = await Promise.all([

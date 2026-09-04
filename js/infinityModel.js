@@ -9,14 +9,14 @@
    ── WHY THIS IS NOT A COPY OF THE RECOMMEND TAB ──────────────────────────
 
    Mike's pool: pick every game, most correct over the season. There, the only
-   thing to maximise is expected correct picks, one game at a time, and each
+   thing to maximize is expected correct picks, one game at a time, and each
    game is a separate decision.
 
    Infinity War: pick EIGHT games out of the whole slate. That changes the
    problem twice over.
 
      1. SELECTION IS THE GAME. Which eight you sit out matters as much as
-        which side you take. Expected correct is maximised by simply taking
+        which side you take. Expected correct is maximized by simply taking
         the eight most lopsided games -- that part is easy, and `chalkSet()`
         does it in one line.
 
@@ -42,7 +42,7 @@
    win probability. Scores in this pool are not independent draws -- every
    entrant who picked the same game shares that game's single outcome. A model
    that treated opponents' scores as independent would show chalk winning
-   outright far more often than it can, which is exactly backwards, and the
+   outright far more often than it can, which is exactly backward, and the
    error would be invisible because the number would still look sensible.
 
    ── THE SOURCE RULE, INHERITED AND SHARPENED ─────────────────────────────
@@ -101,7 +101,7 @@ export function weekGames(model, week) {
     const hp = home.winProb;
     const ap = away.winProb;
 
-    // Orient to the favourite. With no numbers at all there is no favourite
+    // Orient to the favorite. With no numbers at all there is no favorite
     // to name, so the row stays unoriented and the UI has to say so.
     let pick = null;
     let prob = null;
@@ -177,7 +177,7 @@ export function sourceWarning(counts) {
     + `compare within a source, not across.`;
 }
 
-/** The n most lopsided games. Maximises expected correct, and nothing else. */
+/** The n most lopsided games. Maximizes expected correct, and nothing else. */
 export function chalkSet(games, n = PICKS_PER_WEEK) {
   return rankGames(games).ranked.filter((g) => g.prob != null).slice(0, n);
 }
@@ -253,16 +253,16 @@ function gauss(next) {
  * noise. Scored against independent draws, a swap worth half a percent would
  * be indistinguishable from one worth nothing at these trial counts.
  *
- * ── What is modelled, and what is assumed ────────────────────────────────
+ * ── What is modeled, and what is assumed ────────────────────────────────
  *
- * Outcomes: each game resolves once, with the favourite winning at its own
+ * Outcomes: each game resolves once, with the favorite winning at its own
  * probability. THE SAME DRAW IS SHARED by every entrant who picked that game.
  * This is the part a naive model gets wrong, and it is the reason chalk ties
  * instead of winning.
  *
  * Opponents: nobody's picks are known before kickoff (see the kickoff gate in
  * js/sleeperApi.js -- this tool will not read them early even though the API
- * would serve them). So the field is modelled rather than observed: each
+ * would serve them). So the field is modeled rather than observed: each
  * opponent scores every game as its probability plus Gaussian noise of width
  * `spread`, then takes their best eight. spread = 0 makes the whole field
  * pick pure chalk and hands back an n-way tie; larger values scatter them.

@@ -108,7 +108,7 @@ function loadWeek() {
   const valid = new Set(S.slate.map((g) => g.gameId));
 
   // A stored card is kept only where it still matches the schedule. A game
-  // that moved weeks or was cancelled drops out rather than sitting in the
+  // that moved weeks or was canceled drops out rather than sitting in the
   // card as an id that resolves to nothing -- the Pick Sheet learned this the
   // expensive way, where a stale number rendered as a silent blank.
   S.picks = stored.filter((id) => valid.has(id));
@@ -216,7 +216,7 @@ function controls() {
         ${live}
       </div>
       <p class="planctl-note" id="iw-status">
-        The field is modelled, not read &mdash; nobody's picks are visible before kickoff.
+        The field is modeled, not read &mdash; nobody's picks are visible before kickoff.
       </p>
     </div>`;
 }
@@ -386,7 +386,7 @@ function blockSwaps(sim) {
         POOL.economics.weekly}; <strong>expected correct</strong> is what the swap costs the
       season-long total. They are separate money and the trade is yours to make — a swap that
       buys weekly upside for a hundredth of a pick is usually worth it, one that costs half a
-      pick a week for the whole season is not. Modelled over ${out.trials.toLocaleString()}
+      pick a week for the whole season is not. Modeled over ${out.trials.toLocaleString()}
       simulated weeks against ${out.fieldSize} opponents.
     </p>`);
 }

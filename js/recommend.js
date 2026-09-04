@@ -31,7 +31,7 @@
                   both. This was measured: the pair-only join returned 21
                   matches for a 16-game week.
      pick share   the measured file where it exists, else js/pickShare.js's
-                  model, labelled as modelled everywhere it is shown.
+                  model, labeled as modeled everywhere it is shown.
 
    ── Why it teaches rather than just prints ───────────────────────────────
 
@@ -290,7 +290,7 @@ function buildRow(g, pop) {
     row.shareSource = 'measured';
   } else {
     row.share = shareFor(row.dogProb, state.k);
-    row.shareSource = 'modelled';
+    row.shareSource = 'modeled';
   }
 
   row.leverage = leverageFor(row.dogProb, row.share);
@@ -340,12 +340,12 @@ function dogCount(takeable) {
  * Every game gets an answer, including the boring ones. The rows used to print
  * two teams, two percentages and a leverage score and leave "so which one am I
  * emailing in" unanswered on all 16 — the dog was named in the prose, and the
- * favourite was never named at all even though it is the pick on most of the
+ * favorite was never named at all even though it is the pick on most of the
  * slate. §4 Step 6 is explicit that chalk is a real answer rather than a gap.
  *
  *   take   the dog, and inside this week's quota
  *   next   a dog that clears every rule but sits below the quota cut
- *   chalk  the favourite — every other game
+ *   chalk  the favorite — every other game
  *
  * The quota is why `take` and `next` are different states rather than one.
  * §4 Step 5's whole point is that composition beats volume, so marking all
@@ -401,7 +401,7 @@ function plan({ priced, take, picked, lo, hi, why }, pop) {
         </p>`}
       ${pop ? '' : `
         <p class="rec-plan-caveat">
-          Pick share is <strong>modelled</strong>, so treat the order as a shortlist to
+          Pick share is <strong>modeled</strong>, so treat the order as a shortlist to
           check rather than a verdict. ${escape(kNote())}
         </p>`}
     </div>`;
@@ -460,7 +460,7 @@ function explainer() {
 
       <p class="lede">
         You are not trying to get the most games right. In a 250-entry pool, picking
-        every favourite has a <strong>mathematically zero chance</strong> of winning a
+        every favorite has a <strong>mathematically zero chance</strong> of winning a
         week — a few hundred people do exactly that and you tie all of them. You win by
         being right where the field is wrong.
       </p>
@@ -505,7 +505,7 @@ const dismissed = () => {
 /**
  * Where every number on the page came from, in one line.
  *
- * This tab mixes a measured feed, a modelled one and a live one, and the whole
+ * This tab mixes a measured feed, a modeled one and a live one, and the whole
  * project's worst bug was a confident number whose provenance was invisible.
  */
 function sourceStrip(pop, total, priced) {
@@ -519,7 +519,7 @@ function sourceStrip(pop, total, priced) {
 
   bits.push(pop
     ? `pick share <strong>measured</strong> from ${pop.entrants} entries`
-    : `pick share <strong>modelled</strong> — ${escape(kNote())}`);
+    : `pick share <strong>modeled</strong> — ${escape(kNote())}`);
 
   return `
     <p class="rec-sources">${bits.join(' · ')}</p>
@@ -532,7 +532,7 @@ function sourceStrip(pop, total, priced) {
  * they do" question a first-week entrant is actually asking.
  *
  * Explicitly NOT an input. It is not joined to anything on this page; it is
- * shown so the modelled shares can be sanity-checked against a real field of
+ * shown so the modeled shares can be sanity-checked against a real field of
  * the same pool.
  */
 function priorNote() {
@@ -656,9 +656,9 @@ function recRow(r, extraClass = '') {
   const sweet = r.dogProb >= SWEET_LO && r.dogProb <= SWEET_HI;
 
   // The bar keeps away on the left to match the chips above it, but the two
-  // segments are coloured by favourite/underdog like everything else on the
+  // segments are colored by favorite/underdog like everything else on the
   // row -- so which segment is which class flips with the dog, and the wide
-  // segment is always the same colour on every card.
+  // segment is always the same color on every card.
   const awaySeg = r.dogSide === 'away' ? 'prob-dog' : 'prob-fav';
   const homeSeg = r.dogSide === 'home' ? 'prob-dog' : 'prob-fav';
 
@@ -689,16 +689,16 @@ function recRow(r, extraClass = '') {
  * One team, with its mark, its price, its pool number and — on exactly one of
  * the two — the tag saying this is the one to pick.
  *
- * The pick tag is what the row was missing. Colour alone could not carry it:
- * favourite/underdog is already a colour axis, and the recommendation crosses
- * that axis (the dog on five games a week, the favourite on the other eleven),
- * so a chip tinted "recommended" and a chip tinted "favourite" would be the
+ * The pick tag is what the row was missing. Color alone could not carry it:
+ * favorite/underdog is already a color axis, and the recommendation crosses
+ * that axis (the dog on five games a week, the favorite on the other eleven),
+ * so a chip tinted "recommended" and a chip tinted "favorite" would be the
  * same chip most of the time and different chips exactly when it mattered.
  * The ring plus the word is a separate channel that survives that.
  *
  * Price sits UNDER the name rather than beside it. Beside it, the chip needs
  * ~90px of furniture before the name starts, which left 57px for the name in
- * the 147px a phone can give each side — eight mascots ellipsised at 375px,
+ * the 147px a phone can give each side — eight mascots ellipsized at 375px,
  * against a standing rule that none may even wrap there. Stacked, the name
  * gets the chip's full width and the number it belongs to is directly beneath.
  */
@@ -754,7 +754,7 @@ function badge(abbr, cls = 'oddsteam-badge') {
 const PICK_TAG = {
   take: { text: 'Take', title: 'A dog inside this week\'s quota — the pick' },
   next: { text: 'Next up', title: 'Clears every rule but sits below the quota cut' },
-  chalk: { text: 'Chalk', title: 'No dog worth taking here — pick the favourite' },
+  chalk: { text: 'Chalk', title: 'No dog worth taking here — pick the favorite' },
 };
 
 function pickTag(kind) {
@@ -783,7 +783,7 @@ function verdict(r) {
  * with the badge beside it -- a hand-written rationale would drift.
  */
 function why(r) {
-  const share = `${pct(r.share)} of the field${r.shareSource === 'modelled' ? ' (est.)' : ''}`;
+  const share = `${pct(r.share)} of the field${r.shareSource === 'modeled' ? ' (est.)' : ''}`;
 
   switch (r.tier) {
     case 'take':

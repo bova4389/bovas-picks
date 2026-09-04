@@ -31,8 +31,8 @@ THE MODEL. One number per team, in points, relative to a league-average team.
 
 MARGIN_SD is 13.5, the standard deviation of NFL game margins — the same
 constant STRATEGY.md uses to convert an edge into a cover probability. Sanity
-check: a 7-point favourite gives Phi(0.52) = 70%, matching the known rate at
-which 7-point favourites win outright.
+check: a 7-point favorite gives Phi(0.52) = 70%, matching the known rate at
+which 7-point favorites win outright.
 
 Ratings are fit by walking completed games in date order:
 
@@ -71,7 +71,7 @@ Two rules follow:
 The spread widens as real results replace the carried-over prior, so these
 sharpen from roughly week 4 onward.
 
-TRUST BOUNDARY. Everything this writes is a PROJECTION and is labelled
+TRUST BOUNDARY. Everything this writes is a PROJECTION and is labeled
 `"source": "projected"`. Market odds from fetch_odds.py are authoritative and
 must override these wherever both exist. Never blend the two silently — a 78%
 projection four weeks out is a much softer number than a 78% moneyline on
@@ -263,7 +263,7 @@ def backtest(_year=None):
     print(f"\n{'MEAN':>7} {'':>9} {mean(2):7.1f} {mean(3):8.1f} {mean(4):8.1f} {mean(5):7.4f}")
     print("\n  home%   - always pick the home team")
     print("  record% - pick whoever has the better record so far")
-    print("  Reference: NFL favourites win outright ~67%; the closing moneyline is the")
+    print("  Reference: NFL favorites win outright ~67%; the closing moneyline is the")
     print("  practical ceiling. Mid-60s is a working model.")
     print("\n  Read the spread across seasons, not the mean. Seven of the eight")
     print("  completed seasons land in the low-to-mid 60s. 2025 collapses to the")
@@ -358,7 +358,7 @@ def build(year):
         best = max(spread, key=lambda p: max(p["homeWinProb"], p["awayWinProb"]))
         fav = best["home"] if best["homeWinProb"] > best["awayWinProb"] else best["away"]
         pct = 100 * max(best["homeWinProb"], best["awayWinProb"])
-        print(f"  week {wk} strongest favourite: {fav} {pct:.0f}%")
+        print(f"  week {wk} strongest favorite: {fav} {pct:.0f}%")
 
     print(f"wrote {out.relative_to(ROOT)}")
 
