@@ -1048,5 +1048,19 @@
   "vig": 0.0418,
   "bucket": 14,
   "fetchedAt": "2026-09-03T22:38:10.824864+00:00"
+ },
+ {
+  "id": "dcc7b377d3b3ec990304612bbef47d3d",
+  "commenceTime": "2026-12-13T18:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "bucket": 14,
+  "fetchedAt": "2026-09-04T01:02:37.889935+00:00"
  }
 ]

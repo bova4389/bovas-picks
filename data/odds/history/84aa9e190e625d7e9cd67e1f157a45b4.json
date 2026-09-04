@@ -1048,5 +1048,19 @@
   "vig": 0.0421,
   "bucket": 6,
   "fetchedAt": "2026-09-03T22:38:10.824864+00:00"
+ },
+ {
+  "id": "84aa9e190e625d7e9cd67e1f157a45b4",
+  "commenceTime": "2026-10-18T17:00:00Z",
+  "home": "Indianapolis Colts",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6575,
+  "rawAwayProb": 0.3846,
+  "homeWinProb": 0.6309,
+  "awayWinProb": 0.3691,
+  "vig": 0.0421,
+  "bucket": 6,
+  "fetchedAt": "2026-09-04T01:02:37.889935+00:00"
  }
 ]
