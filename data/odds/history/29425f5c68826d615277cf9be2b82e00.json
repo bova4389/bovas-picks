@@ -1062,5 +1062,19 @@
   "vig": 0.0434,
   "bucket": 16,
   "fetchedAt": "2026-09-04T01:02:37.889935+00:00"
+ },
+ {
+  "id": "29425f5c68826d615277cf9be2b82e00",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "Las Vegas Raiders",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 16,
+  "fetchedAt": "2026-09-04T07:16:52.162170+00:00"
  }
 ]

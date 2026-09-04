@@ -1062,5 +1062,19 @@
   "vig": 0.0418,
   "bucket": 16,
   "fetchedAt": "2026-09-04T01:02:37.889935+00:00"
+ },
+ {
+  "id": "cf5cefa5556bcd0156bd394171ef6c8e",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Washington Commanders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "bucket": 16,
+  "fetchedAt": "2026-09-04T07:16:52.162170+00:00"
  }
 ]

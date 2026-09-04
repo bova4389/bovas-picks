@@ -1062,5 +1062,19 @@
   "vig": 0.0421,
   "bucket": 16,
   "fetchedAt": "2026-09-04T01:02:37.889935+00:00"
+ },
+ {
+  "id": "0f23afce92c2f0af28973c0a7533763e",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Cleveland Browns",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8095,
+  "rawAwayProb": 0.2326,
+  "homeWinProb": 0.7768,
+  "awayWinProb": 0.2232,
+  "vig": 0.0421,
+  "bucket": 16,
+  "fetchedAt": "2026-09-04T07:16:52.162170+00:00"
  }
 ]

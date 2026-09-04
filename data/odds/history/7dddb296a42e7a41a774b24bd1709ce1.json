@@ -1062,5 +1062,19 @@
   "vig": 0.0445,
   "bucket": 1,
   "fetchedAt": "2026-09-04T01:02:37.889935+00:00"
+ },
+ {
+  "id": "7dddb296a42e7a41a774b24bd1709ce1",
+  "commenceTime": "2026-09-13T17:00:00Z",
+  "home": "Tennessee Titans",
+  "away": "New York Jets",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.5662,
+  "rawAwayProb": 0.4788,
+  "homeWinProb": 0.5418,
+  "awayWinProb": 0.4582,
+  "vig": 0.045,
+  "bucket": 1,
+  "fetchedAt": "2026-09-04T07:16:52.162170+00:00"
  }
 ]
