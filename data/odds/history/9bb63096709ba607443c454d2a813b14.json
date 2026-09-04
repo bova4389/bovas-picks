@@ -1090,5 +1090,19 @@
   "vig": 0.0421,
   "bucket": 18,
   "fetchedAt": "2026-09-04T12:45:59.534653+00:00"
+ },
+ {
+  "id": "9bb63096709ba607443c454d2a813b14",
+  "commenceTime": "2027-01-10T18:00:00Z",
+  "home": "Houston Texans",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7436,
+  "rawAwayProb": 0.2985,
+  "homeWinProb": 0.7136,
+  "awayWinProb": 0.2864,
+  "vig": 0.0421,
+  "bucket": 18,
+  "fetchedAt": "2026-09-04T17:38:26.593872+00:00"
  }
 ]

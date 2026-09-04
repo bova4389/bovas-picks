@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-04T12:45:59.534653+00:00",
+ "fetchedAt": "2026-09-04T17:38:26.593872+00:00",
  "events": [
   {
    "id": "8c94552d022acec4a0458d70c19d3da9",
@@ -20,11 +20,11 @@
    "home": "Los Angeles Rams",
    "away": "San Francisco 49ers",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6725,
-   "rawAwayProb": 0.372,
-   "homeWinProb": 0.6438,
-   "awayWinProb": 0.3562,
-   "vig": 0.0446,
+   "rawHomeProb": 0.6733,
+   "rawAwayProb": 0.3706,
+   "homeWinProb": 0.645,
+   "awayWinProb": 0.355,
+   "vig": 0.0439,
    "bucket": 1
   },
   {
@@ -33,11 +33,11 @@
    "home": "Pittsburgh Steelers",
    "away": "Atlanta Falcons",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6439,
-   "rawAwayProb": 0.3984,
-   "homeWinProb": 0.6178,
-   "awayWinProb": 0.3822,
-   "vig": 0.0424,
+   "rawHomeProb": 0.6422,
+   "rawAwayProb": 0.3997,
+   "homeWinProb": 0.6164,
+   "awayWinProb": 0.3836,
+   "vig": 0.0419,
    "bucket": 1
   },
   {
@@ -59,11 +59,11 @@
    "home": "Houston Texans",
    "away": "Buffalo Bills",
    "bookmakerCount": 6,
-   "rawHomeProb": 0.5167,
-   "rawAwayProb": 0.5308,
-   "homeWinProb": 0.4933,
-   "awayWinProb": 0.5067,
-   "vig": 0.0475,
+   "rawHomeProb": 0.5187,
+   "rawAwayProb": 0.53,
+   "homeWinProb": 0.4946,
+   "awayWinProb": 0.5054,
+   "vig": 0.0487,
    "bucket": 1
   },
   {
@@ -72,10 +72,10 @@
    "home": "Carolina Panthers",
    "away": "Chicago Bears",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.4381,
-   "rawAwayProb": 0.6036,
-   "homeWinProb": 0.4205,
-   "awayWinProb": 0.5795,
+   "rawHomeProb": 0.4374,
+   "rawAwayProb": 0.6043,
+   "homeWinProb": 0.4199,
+   "awayWinProb": 0.5801,
    "vig": 0.0417,
    "bucket": 1
   },
@@ -99,10 +99,10 @@
    "away": "Cleveland Browns",
    "bookmakerCount": 9,
    "rawHomeProb": 0.8001,
-   "rawAwayProb": 0.2445,
-   "homeWinProb": 0.7659,
-   "awayWinProb": 0.2341,
-   "vig": 0.0446,
+   "rawAwayProb": 0.2438,
+   "homeWinProb": 0.7664,
+   "awayWinProb": 0.2336,
+   "vig": 0.0439,
    "bucket": 1
   },
   {
@@ -111,11 +111,11 @@
    "home": "Detroit Lions",
    "away": "New Orleans Saints",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.7596,
-   "rawAwayProb": 0.2831,
-   "homeWinProb": 0.7285,
-   "awayWinProb": 0.2715,
-   "vig": 0.0427,
+   "rawHomeProb": 0.7606,
+   "rawAwayProb": 0.2822,
+   "homeWinProb": 0.7294,
+   "awayWinProb": 0.2706,
+   "vig": 0.0429,
    "bucket": 1
   },
   {
@@ -176,11 +176,11 @@
    "home": "Philadelphia Eagles",
    "away": "Washington Commanders",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6995,
-   "rawAwayProb": 0.3445,
-   "homeWinProb": 0.67,
-   "awayWinProb": 0.33,
-   "vig": 0.044,
+   "rawHomeProb": 0.698,
+   "rawAwayProb": 0.3457,
+   "homeWinProb": 0.6687,
+   "awayWinProb": 0.3313,
+   "vig": 0.0437,
    "bucket": 1
   },
   {
@@ -189,11 +189,11 @@
    "home": "New York Giants",
    "away": "Dallas Cowboys",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.4312,
-   "rawAwayProb": 0.6115,
-   "homeWinProb": 0.4135,
-   "awayWinProb": 0.5865,
-   "vig": 0.0426,
+   "rawHomeProb": 0.4301,
+   "rawAwayProb": 0.6124,
+   "homeWinProb": 0.4125,
+   "awayWinProb": 0.5875,
+   "vig": 0.0425,
    "bucket": 1
   },
   {

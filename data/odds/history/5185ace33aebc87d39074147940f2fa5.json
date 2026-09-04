@@ -1090,5 +1090,19 @@
   "vig": 0.0418,
   "bucket": 14,
   "fetchedAt": "2026-09-04T12:45:59.534653+00:00"
+ },
+ {
+  "id": "5185ace33aebc87d39074147940f2fa5",
+  "commenceTime": "2026-12-13T18:00:00Z",
+  "home": "New York Jets",
+  "away": "Denver Broncos",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3448,
+  "rawAwayProb": 0.697,
+  "homeWinProb": 0.331,
+  "awayWinProb": 0.669,
+  "vig": 0.0418,
+  "bucket": 14,
+  "fetchedAt": "2026-09-04T17:38:26.593872+00:00"
  }
 ]
