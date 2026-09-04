@@ -1104,5 +1104,19 @@
   "vig": 0.0413,
   "bucket": 5,
   "fetchedAt": "2026-09-04T17:38:26.593872+00:00"
+ },
+ {
+  "id": "448d7cf18c6db4c811ed82ded1b72867",
+  "commenceTime": "2026-10-11T17:00:00Z",
+  "home": "Pittsburgh Steelers",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 5,
+  "fetchedAt": "2026-09-04T22:23:46.251407+00:00"
  }
 ]

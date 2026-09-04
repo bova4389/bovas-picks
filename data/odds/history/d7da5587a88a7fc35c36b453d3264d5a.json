@@ -1104,5 +1104,19 @@
   "vig": 0.0431,
   "bucket": 18,
   "fetchedAt": "2026-09-04T17:38:26.593872+00:00"
+ },
+ {
+  "id": "d7da5587a88a7fc35c36b453d3264d5a",
+  "commenceTime": "2027-01-10T18:00:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7041,
+  "rawAwayProb": 0.339,
+  "homeWinProb": 0.675,
+  "awayWinProb": 0.325,
+  "vig": 0.0431,
+  "bucket": 18,
+  "fetchedAt": "2026-09-04T22:23:46.251407+00:00"
  }
 ]

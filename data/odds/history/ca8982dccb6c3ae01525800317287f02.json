@@ -1104,5 +1104,19 @@
   "vig": 0.0446,
   "bucket": 16,
   "fetchedAt": "2026-09-04T17:38:26.593872+00:00"
+ },
+ {
+  "id": "ca8982dccb6c3ae01525800317287f02",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "Indianapolis Colts",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.495,
+  "rawAwayProb": 0.5495,
+  "homeWinProb": 0.4739,
+  "awayWinProb": 0.5261,
+  "vig": 0.0446,
+  "bucket": 16,
+  "fetchedAt": "2026-09-04T22:23:46.251407+00:00"
  }
 ]

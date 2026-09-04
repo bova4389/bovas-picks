@@ -1104,5 +1104,19 @@
   "vig": 0.0426,
   "bucket": 6,
   "fetchedAt": "2026-09-04T17:38:26.593872+00:00"
+ },
+ {
+  "id": "7c312fdf24fb35f58b0e07c2932cc997",
+  "commenceTime": "2026-10-18T17:00:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Chicago Bears",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4348,
+  "rawAwayProb": 0.6078,
+  "homeWinProb": 0.417,
+  "awayWinProb": 0.583,
+  "vig": 0.0426,
+  "bucket": 6,
+  "fetchedAt": "2026-09-04T22:23:46.251407+00:00"
  }
 ]

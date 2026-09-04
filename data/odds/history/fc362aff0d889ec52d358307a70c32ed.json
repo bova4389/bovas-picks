@@ -1104,5 +1104,19 @@
   "vig": 0.0417,
   "bucket": 1,
   "fetchedAt": "2026-09-04T17:38:26.593872+00:00"
+ },
+ {
+  "id": "fc362aff0d889ec52d358307a70c32ed",
+  "commenceTime": "2026-09-13T17:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "Chicago Bears",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.437,
+  "rawAwayProb": 0.6048,
+  "homeWinProb": 0.4194,
+  "awayWinProb": 0.5806,
+  "vig": 0.0418,
+  "bucket": 1,
+  "fetchedAt": "2026-09-04T22:23:46.251407+00:00"
  }
 ]
