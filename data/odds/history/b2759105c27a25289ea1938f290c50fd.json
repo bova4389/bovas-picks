@@ -1076,5 +1076,19 @@
   "vig": 0.0413,
   "bucket": 15,
   "fetchedAt": "2026-09-04T07:16:52.162170+00:00"
+ },
+ {
+  "id": "b2759105c27a25289ea1938f290c50fd",
+  "commenceTime": "2026-12-22T01:15:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "New England Patriots",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 15,
+  "fetchedAt": "2026-09-04T12:45:59.534653+00:00"
  }
 ]

@@ -1076,5 +1076,19 @@
   "vig": 0.0434,
   "bucket": 3,
   "fetchedAt": "2026-09-04T07:16:52.162170+00:00"
+ },
+ {
+  "id": "f1724dead3eab61546033032fc782375",
+  "commenceTime": "2026-09-27T20:05:00Z",
+  "home": "Tampa Bay Buccaneers",
+  "away": "Minnesota Vikings",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "bucket": 3,
+  "fetchedAt": "2026-09-04T12:45:59.534653+00:00"
  }
 ]

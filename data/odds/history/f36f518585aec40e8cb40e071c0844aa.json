@@ -1076,5 +1076,19 @@
   "vig": 0.0421,
   "bucket": 12,
   "fetchedAt": "2026-09-04T07:16:52.162170+00:00"
+ },
+ {
+  "id": "f36f518585aec40e8cb40e071c0844aa",
+  "commenceTime": "2026-11-27T01:20:00Z",
+  "home": "Buffalo Bills",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.6015,
+  "rawAwayProb": 0.4406,
+  "homeWinProb": 0.5772,
+  "awayWinProb": 0.4228,
+  "vig": 0.0421,
+  "bucket": 12,
+  "fetchedAt": "2026-09-04T12:45:59.534653+00:00"
  }
 ]
