@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-05T01:02:34.271601+00:00",
+ "fetchedAt": "2026-09-05T06:58:08.267079+00:00",
  "events": [
   {
    "id": "8c94552d022acec4a0458d70c19d3da9",
@@ -7,11 +7,11 @@
    "home": "Seattle Seahawks",
    "away": "New England Patriots",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6558,
-   "rawAwayProb": 0.3867,
-   "homeWinProb": 0.6291,
-   "awayWinProb": 0.3709,
-   "vig": 0.0425,
+   "rawHomeProb": 0.6529,
+   "rawAwayProb": 0.3897,
+   "homeWinProb": 0.6262,
+   "awayWinProb": 0.3738,
+   "vig": 0.0426,
    "bucket": 1
   },
   {
@@ -20,11 +20,11 @@
    "home": "Los Angeles Rams",
    "away": "San Francisco 49ers",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6719,
-   "rawAwayProb": 0.372,
-   "homeWinProb": 0.6436,
-   "awayWinProb": 0.3564,
-   "vig": 0.0439,
+   "rawHomeProb": 0.6716,
+   "rawAwayProb": 0.3721,
+   "homeWinProb": 0.6435,
+   "awayWinProb": 0.3565,
+   "vig": 0.0436,
    "bucket": 1
   },
   {
@@ -33,11 +33,11 @@
    "home": "Pittsburgh Steelers",
    "away": "Atlanta Falcons",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6432,
+   "rawHomeProb": 0.6446,
    "rawAwayProb": 0.3977,
-   "homeWinProb": 0.6179,
-   "awayWinProb": 0.3821,
-   "vig": 0.0409,
+   "homeWinProb": 0.6184,
+   "awayWinProb": 0.3816,
+   "vig": 0.0423,
    "bucket": 1
   },
   {
@@ -72,11 +72,11 @@
    "home": "Carolina Panthers",
    "away": "Chicago Bears",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.437,
-   "rawAwayProb": 0.6048,
-   "homeWinProb": 0.4194,
-   "awayWinProb": 0.5806,
-   "vig": 0.0418,
+   "rawHomeProb": 0.4331,
+   "rawAwayProb": 0.6091,
+   "homeWinProb": 0.4156,
+   "awayWinProb": 0.5844,
+   "vig": 0.0422,
    "bucket": 1
   },
   {
@@ -111,11 +111,11 @@
    "home": "Detroit Lions",
    "away": "New Orleans Saints",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.7606,
-   "rawAwayProb": 0.2822,
-   "homeWinProb": 0.7294,
-   "awayWinProb": 0.2706,
-   "vig": 0.0429,
+   "rawHomeProb": 0.7623,
+   "rawAwayProb": 0.2814,
+   "homeWinProb": 0.7304,
+   "awayWinProb": 0.2696,
+   "vig": 0.0436,
    "bucket": 1
   },
   {

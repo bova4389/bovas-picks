@@ -1132,5 +1132,19 @@
   "vig": 0.0425,
   "bucket": 1,
   "fetchedAt": "2026-09-05T01:02:34.271601+00:00"
+ },
+ {
+  "id": "8c94552d022acec4a0458d70c19d3da9",
+  "commenceTime": "2026-09-10T00:20:00Z",
+  "home": "Seattle Seahawks",
+  "away": "New England Patriots",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6529,
+  "rawAwayProb": 0.3897,
+  "homeWinProb": 0.6262,
+  "awayWinProb": 0.3738,
+  "vig": 0.0426,
+  "bucket": 1,
+  "fetchedAt": "2026-09-05T06:58:08.267079+00:00"
  }
 ]

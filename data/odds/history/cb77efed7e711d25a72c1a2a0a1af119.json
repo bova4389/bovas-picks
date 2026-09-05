@@ -1132,5 +1132,19 @@
   "vig": 0.0471,
   "bucket": 1,
   "fetchedAt": "2026-09-05T01:02:34.271601+00:00"
+ },
+ {
+  "id": "cb77efed7e711d25a72c1a2a0a1af119",
+  "commenceTime": "2026-09-13T20:25:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Green Bay Packers",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.5469,
+  "rawAwayProb": 0.5002,
+  "homeWinProb": 0.5223,
+  "awayWinProb": 0.4777,
+  "vig": 0.0471,
+  "bucket": 1,
+  "fetchedAt": "2026-09-05T06:58:08.267079+00:00"
  }
 ]
