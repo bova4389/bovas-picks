@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-05T19:05:25.227740+00:00",
+ "fetchedAt": "2026-09-05T22:04:56.779441+00:00",
  "events": [
   {
    "id": "8c94552d022acec4a0458d70c19d3da9",
@@ -20,11 +20,11 @@
    "home": "Los Angeles Rams",
    "away": "San Francisco 49ers",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6609,
-   "rawAwayProb": 0.3815,
-   "homeWinProb": 0.634,
-   "awayWinProb": 0.366,
-   "vig": 0.0423,
+   "rawHomeProb": 0.66,
+   "rawAwayProb": 0.3821,
+   "homeWinProb": 0.6333,
+   "awayWinProb": 0.3667,
+   "vig": 0.0421,
    "bucket": 1
   },
   {
@@ -98,11 +98,11 @@
    "home": "Jacksonville Jaguars",
    "away": "Cleveland Browns",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.8015,
-   "rawAwayProb": 0.2425,
-   "homeWinProb": 0.7677,
-   "awayWinProb": 0.2323,
-   "vig": 0.044,
+   "rawHomeProb": 0.801,
+   "rawAwayProb": 0.2432,
+   "homeWinProb": 0.7671,
+   "awayWinProb": 0.2329,
+   "vig": 0.0442,
    "bucket": 1
   },
   {
@@ -111,11 +111,11 @@
    "home": "Detroit Lions",
    "away": "New Orleans Saints",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.7628,
-   "rawAwayProb": 0.2809,
-   "homeWinProb": 0.7308,
-   "awayWinProb": 0.2692,
-   "vig": 0.0438,
+   "rawHomeProb": 0.7623,
+   "rawAwayProb": 0.2814,
+   "homeWinProb": 0.7304,
+   "awayWinProb": 0.2696,
+   "vig": 0.0436,
    "bucket": 1
   },
   {
@@ -124,11 +124,11 @@
    "home": "Tennessee Titans",
    "away": "New York Jets",
    "bookmakerCount": 6,
-   "rawHomeProb": 0.5645,
-   "rawAwayProb": 0.4824,
-   "homeWinProb": 0.5392,
-   "awayWinProb": 0.4608,
-   "vig": 0.0469,
+   "rawHomeProb": 0.5663,
+   "rawAwayProb": 0.4805,
+   "homeWinProb": 0.541,
+   "awayWinProb": 0.459,
+   "vig": 0.0468,
    "bucket": 1
   },
   {
@@ -137,11 +137,11 @@
    "home": "Los Angeles Chargers",
    "away": "Arizona Cardinals",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.8501,
-   "rawAwayProb": 0.1946,
-   "homeWinProb": 0.8137,
-   "awayWinProb": 0.1863,
-   "vig": 0.0448,
+   "rawHomeProb": 0.8499,
+   "rawAwayProb": 0.1951,
+   "homeWinProb": 0.8133,
+   "awayWinProb": 0.1867,
+   "vig": 0.045,
    "bucket": 1
   },
   {
@@ -163,11 +163,11 @@
    "home": "Las Vegas Raiders",
    "away": "Miami Dolphins",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6486,
-   "rawAwayProb": 0.3934,
-   "homeWinProb": 0.6225,
-   "awayWinProb": 0.3775,
-   "vig": 0.0421,
+   "rawHomeProb": 0.6484,
+   "rawAwayProb": 0.3938,
+   "homeWinProb": 0.6221,
+   "awayWinProb": 0.3779,
+   "vig": 0.0422,
    "bucket": 1
   },
   {

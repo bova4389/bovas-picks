@@ -1188,5 +1188,19 @@
   "vig": 0.0413,
   "bucket": 7,
   "fetchedAt": "2026-09-05T19:05:25.227740+00:00"
+ },
+ {
+  "id": "e8e5715eefb6a9ce64765e9ddf49c0cc",
+  "commenceTime": "2026-10-25T20:25:00Z",
+  "home": "Detroit Lions",
+  "away": "Green Bay Packers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "bucket": 7,
+  "fetchedAt": "2026-09-05T22:04:56.779441+00:00"
  }
 ]
