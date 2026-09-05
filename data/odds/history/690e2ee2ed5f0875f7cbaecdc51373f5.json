@@ -1146,5 +1146,19 @@
   "vig": 0.042,
   "bucket": 14,
   "fetchedAt": "2026-09-05T06:58:08.267079+00:00"
+ },
+ {
+  "id": "690e2ee2ed5f0875f7cbaecdc51373f5",
+  "commenceTime": "2026-12-15T01:15:00Z",
+  "home": "Jacksonville Jaguars",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6183,
+  "rawAwayProb": 0.4237,
+  "homeWinProb": 0.5934,
+  "awayWinProb": 0.4066,
+  "vig": 0.042,
+  "bucket": 14,
+  "fetchedAt": "2026-09-05T11:51:19.847819+00:00"
  }
 ]

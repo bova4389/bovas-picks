@@ -1146,5 +1146,19 @@
   "vig": 0.0441,
   "bucket": 4,
   "fetchedAt": "2026-09-05T06:58:08.267079+00:00"
+ },
+ {
+  "id": "c9d8ed8aa4889486eaf10a630138ede0",
+  "commenceTime": "2026-10-04T13:30:00Z",
+  "home": "Washington Commanders",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.5231,
+  "rawAwayProb": 0.521,
+  "homeWinProb": 0.501,
+  "awayWinProb": 0.499,
+  "vig": 0.0441,
+  "bucket": 4,
+  "fetchedAt": "2026-09-05T11:51:19.847819+00:00"
  }
 ]

@@ -1146,5 +1146,19 @@
   "vig": 0.0427,
   "bucket": 12,
   "fetchedAt": "2026-09-05T06:58:08.267079+00:00"
+ },
+ {
+  "id": "69a1dbe9de3d3212c3a7a55be5d204ab",
+  "commenceTime": "2026-11-29T21:25:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Washington Commanders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3571,
+  "rawAwayProb": 0.6855,
+  "homeWinProb": 0.3425,
+  "awayWinProb": 0.6575,
+  "vig": 0.0427,
+  "bucket": 12,
+  "fetchedAt": "2026-09-05T11:51:19.847819+00:00"
  }
 ]
