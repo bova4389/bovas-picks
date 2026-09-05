@@ -1118,5 +1118,19 @@
   "vig": 0.0418,
   "bucket": 4,
   "fetchedAt": "2026-09-04T22:23:46.251407+00:00"
+ },
+ {
+  "id": "d55cb69fed50a09170560b5b75d8de86",
+  "commenceTime": "2026-10-02T00:15:00Z",
+  "home": "Cleveland Browns",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4673,
+  "rawAwayProb": 0.5745,
+  "homeWinProb": 0.4486,
+  "awayWinProb": 0.5514,
+  "vig": 0.0418,
+  "bucket": 4,
+  "fetchedAt": "2026-09-05T01:02:34.271601+00:00"
  }
 ]

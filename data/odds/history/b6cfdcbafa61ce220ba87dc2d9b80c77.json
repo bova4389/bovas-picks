@@ -1118,5 +1118,19 @@
   "vig": 0.0415,
   "bucket": 1,
   "fetchedAt": "2026-09-04T22:23:46.251407+00:00"
+ },
+ {
+  "id": "b6cfdcbafa61ce220ba87dc2d9b80c77",
+  "commenceTime": "2026-09-13T17:00:00Z",
+  "home": "Indianapolis Colts",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.4006,
+  "rawAwayProb": 0.6409,
+  "homeWinProb": 0.3846,
+  "awayWinProb": 0.6154,
+  "vig": 0.0415,
+  "bucket": 1,
+  "fetchedAt": "2026-09-05T01:02:34.271601+00:00"
  }
 ]
