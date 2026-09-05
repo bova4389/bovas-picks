@@ -1160,5 +1160,19 @@
   "vig": 0.042,
   "bucket": 3,
   "fetchedAt": "2026-09-05T11:51:19.847819+00:00"
+ },
+ {
+  "id": "b225458a282e140c44c45651255f2f6c",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Buffalo Bills",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6183,
+  "rawAwayProb": 0.4237,
+  "homeWinProb": 0.5934,
+  "awayWinProb": 0.4066,
+  "vig": 0.042,
+  "bucket": 3,
+  "fetchedAt": "2026-09-05T16:51:36.313210+00:00"
  }
 ]

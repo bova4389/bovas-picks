@@ -1160,5 +1160,19 @@
   "vig": 0.0408,
   "bucket": 12,
   "fetchedAt": "2026-09-05T11:51:19.847819+00:00"
+ },
+ {
+  "id": "ffaa06af56a7137d4b078c5c46c0b730",
+  "commenceTime": "2026-11-26T20:30:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Philadelphia Eagles",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.5565,
+  "rawAwayProb": 0.4843,
+  "homeWinProb": 0.5347,
+  "awayWinProb": 0.4653,
+  "vig": 0.0408,
+  "bucket": 12,
+  "fetchedAt": "2026-09-05T16:51:36.313210+00:00"
  }
 ]

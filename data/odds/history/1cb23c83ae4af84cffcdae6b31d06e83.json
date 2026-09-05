@@ -1160,5 +1160,19 @@
   "vig": 0.0427,
   "bucket": 15,
   "fetchedAt": "2026-09-05T11:51:19.847819+00:00"
+ },
+ {
+  "id": "1cb23c83ae4af84cffcdae6b31d06e83",
+  "commenceTime": "2026-12-20T18:00:00Z",
+  "home": "New York Giants",
+  "away": "Cleveland Browns",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6855,
+  "rawAwayProb": 0.3571,
+  "homeWinProb": 0.6575,
+  "awayWinProb": 0.3425,
+  "vig": 0.0427,
+  "bucket": 15,
+  "fetchedAt": "2026-09-05T16:51:36.313210+00:00"
  }
 ]
