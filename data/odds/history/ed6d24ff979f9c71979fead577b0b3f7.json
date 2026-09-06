@@ -1216,5 +1216,19 @@
   "vig": 0.0432,
   "bucket": 1,
   "fetchedAt": "2026-09-06T01:02:41.920915+00:00"
+ },
+ {
+  "id": "ed6d24ff979f9c71979fead577b0b3f7",
+  "commenceTime": "2026-09-13T17:00:00Z",
+  "home": "Cincinnati Bengals",
+  "away": "Tampa Bay Buccaneers",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6763,
+  "rawAwayProb": 0.3667,
+  "homeWinProb": 0.6484,
+  "awayWinProb": 0.3516,
+  "vig": 0.0429,
+  "bucket": 1,
+  "fetchedAt": "2026-09-06T17:02:28.211194+00:00"
  }
 ]
