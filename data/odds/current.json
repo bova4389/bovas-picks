@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-05T22:04:56.779441+00:00",
+ "fetchedAt": "2026-09-06T01:02:41.920915+00:00",
  "events": [
   {
    "id": "8c94552d022acec4a0458d70c19d3da9",
@@ -72,11 +72,11 @@
    "home": "Carolina Panthers",
    "away": "Chicago Bears",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.435,
-   "rawAwayProb": 0.6071,
-   "homeWinProb": 0.4174,
-   "awayWinProb": 0.5826,
-   "vig": 0.0422,
+   "rawHomeProb": 0.4324,
+   "rawAwayProb": 0.6094,
+   "homeWinProb": 0.4151,
+   "awayWinProb": 0.5849,
+   "vig": 0.0418,
    "bucket": 1
   },
   {
@@ -397,11 +397,11 @@
    "home": "Kansas City Chiefs",
    "away": "Indianapolis Colts",
    "bookmakerCount": 1,
-   "rawHomeProb": 0.7647,
-   "rawAwayProb": 0.2778,
-   "homeWinProb": 0.7335,
-   "awayWinProb": 0.2665,
-   "vig": 0.0425,
+   "rawHomeProb": 0.7727,
+   "rawAwayProb": 0.2703,
+   "homeWinProb": 0.7409,
+   "awayWinProb": 0.2591,
+   "vig": 0.043,
    "bucket": 2
   },
   {

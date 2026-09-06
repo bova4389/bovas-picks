@@ -1202,5 +1202,19 @@
   "vig": 0.0421,
   "bucket": 4,
   "fetchedAt": "2026-09-05T22:04:56.779441+00:00"
+ },
+ {
+  "id": "164e6eb68f31bac190381903c3cccd31",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "Chicago Bears",
+  "away": "New York Jets",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8148,
+  "rawAwayProb": 0.2273,
+  "homeWinProb": 0.7819,
+  "awayWinProb": 0.2181,
+  "vig": 0.0421,
+  "bucket": 4,
+  "fetchedAt": "2026-09-06T01:02:41.920915+00:00"
  }
 ]
