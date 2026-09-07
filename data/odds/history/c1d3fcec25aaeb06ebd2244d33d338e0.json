@@ -1230,5 +1230,19 @@
   "vig": 0.0436,
   "bucket": 1,
   "fetchedAt": "2026-09-06T17:02:28.211194+00:00"
+ },
+ {
+  "id": "c1d3fcec25aaeb06ebd2244d33d338e0",
+  "commenceTime": "2026-09-13T17:00:00Z",
+  "home": "Detroit Lions",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.7637,
+  "rawAwayProb": 0.2803,
+  "homeWinProb": 0.7315,
+  "awayWinProb": 0.2685,
+  "vig": 0.044,
+  "bucket": 1,
+  "fetchedAt": "2026-09-07T18:43:57.891231+00:00"
  }
 ]
