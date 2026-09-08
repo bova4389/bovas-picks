@@ -133,6 +133,7 @@ js/infinityFeed.js  SHARED — pick'em-shaped Sleeper read                    [N
 js/infinityWar.js   Infinity War tab — pick 8 of the slate, small field
 js/squaresModel.js  SHARED — squares math, pure data                       [NEVER versioned]
 js/squaresChrome.js SHARED — St. Jude banner, theme hook, footer nav       [NEVER versioned]
+js/siteGate.js      SHARED — password gate: Squares public, rest hidden    [NEVER versioned]
 js/squares.js       Squares Board tab — one week: matchup, board, payouts
 js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
 ```
@@ -937,6 +938,54 @@ not less.
 - **Payout split between 1st and 2nd at season's end is undecided** ("top 1 or 2"). Nothing models
   the season prize yet, so nothing depends on it — but a season-long standings view would.
 - **`spread` wants calibrating** against real picks. See above.
+
+## The Site Gate — Squares is public, the rest is not
+
+Added 2026-09-08 so the Squares board could be shared with the St. Jude Men's Club without
+handing a hundred people a tour of the survivor grid and the strategy docs. `js/siteGate.js`
+holds a SHA-256 of the password; `js/app.js` enforces it.
+
+**What it does, and it is more than hiding a tab:**
+
+- **`show()` is the single choke point.** Every route into a panel — the nav rows, a deep link, a
+  restored hash, the Squares footer's own buttons — goes through it, so the check lives there
+  rather than in the nav. `#season/picksheet` typed by hand lands on the Squares board.
+- **Row 1 is filtered**, so a locked visitor sees one pill, and on Squares even that is hidden by
+  `chromeOff`.
+- **The gated tabs are not booted at all.** This is the part that matters: every `init()` fetches
+  as it starts, so booting them behind a hidden panel would put `data/survivor-*.json`,
+  `data/popularity/*` and the odds snapshot in a club visitor's network tab, where "you cannot see
+  this" would be plainly untrue. Verified: a locked load requests only `squares-2026.json`,
+  `schedule-2026.json`, `team-identity.json` and `logo-trim.json`.
+- **The Squares footer nav is the gate's front door.** It listed Schedule / Season Long / Survivor
+  unconditionally, which on the one page built to be shared outside the pool was a guided tour.
+  Locked it offers a quiet **Admin** button; unlocked, the way back plus **Lock**.
+
+**What it does NOT do, and this is the part to keep saying out loud: it does not protect a file.**
+This repo is public and Pages serves it from the repo root, so `/STRATEGY.md`, `/CLAUDE.md` and
+`/data/raw/entries-2025-w01.json` stay directly fetchable by anyone who types the path. A UI gate
+cannot change that. **The real fix is the separate repo** — `bova4389/stjude-squares` at its own
+origin, which is what `.sq-theme` and `js/squaresChrome.js` were scoped for — plus excluding the
+internal docs from what Pages serves. Both are agreed and deferred, not dismissed.
+
+Two consequences of a public hash: the password is recoverable offline, and a short or purely
+numeric one falls in seconds because the search space is tiny. **Never put anything behind this
+gate that would matter if it leaked**, and never commit an API key on the strength of it.
+
+`sessionStorage`, not `localStorage` — the unlock lasts for the tab and no longer. Storage blocked
+in private browsing **fails closed**.
+
+### Titles and link previews
+
+`paintTitle()` names the document per view: Squares panels read *"Board · St. Jude Men's Club
+Squares"*, everything else *"Pick Sheet · Bova's Picks"*. The Squares group carries its own
+`title` in `GROUPS` — its link goes to people outside the pool, and this site's branding is the
+wrong name in their tab bar and their bookmarks.
+
+**Link-preview crawlers never see any of that.** iMessage, WhatsApp and Slack fetch the URL and
+read the markup without running scripts, and a `#hash` never reaches the server at all. So the
+Open Graph tags in `index.html` are named for the Squares board — correct, because a locked
+visitor lands there whatever URL they open. The static `<title>` stays this site's.
 
 ## Squares — Read Before Changing Any Color
 

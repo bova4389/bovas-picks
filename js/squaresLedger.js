@@ -61,6 +61,8 @@ export async function initSquaresLedger(node, season = SEASON) {
   // The ledger only moves when a game does, so it refreshes on becoming
   // visible rather than polling a timer of its own — the Board tab owns the
   // live loop and there is no reason for two.
+  document.addEventListener('gatechange', () => render());
+
   document.addEventListener('panelchange', (e) => {
     if (e.detail?.panel === 'squares-season') render();
   });

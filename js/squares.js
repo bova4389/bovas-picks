@@ -81,6 +81,10 @@ export async function initSquares(root, season = SEASON) {
   wire();
   await refresh({ force: true });
 
+  // The footer nav is part of this tab's markup, so it is this tab that
+  // has to repaint when the gate opens or closes.
+  document.addEventListener('gatechange', () => render());
+
   document.addEventListener('visibilitychange', onVisibility);
   document.addEventListener('panelchange', onVisibility);
 }

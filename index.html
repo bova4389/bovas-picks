@@ -6,6 +6,20 @@
   <meta name="theme-color" content="#4F2D7F" />
   <title>Bova's Picks</title>
 
+  <!-- LINK PREVIEWS SEE THIS, NOT the dynamic title js/app.js writes: the
+       crawlers behind iMessage, WhatsApp and Slack fetch the URL and read the
+       markup without running any script, and a hash never reaches the server
+       anyway. Since anyone without the site password lands on the Squares
+       board whatever URL they open, the preview is named for the board. The
+       <title> above stays this site's, so a bookmark made before the first
+       render is still labelled correctly for its owner. -->
+  <meta property="og:title" content="St. Jude Men&rsquo;s Club &mdash; Football Squares" />
+  <meta property="og:description" content="The 2026 board: each week&rsquo;s numbers, live Colts scores, and who takes the four quarterly payouts." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="St. Jude Men&rsquo;s Club &mdash; Football Squares" />
+  <meta name="twitter:description" content="The 2026 board: each week&rsquo;s numbers, live Colts scores, and who takes the four quarterly payouts." />
+
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F2D7F'/%3E%3Cpath d='M16 7c4 0 7 3.4 7 9s-3 9-7 9-7-3.4-7-9 3-9 7-9z' fill='%23A06DFF'/%3E%3Cpath d='M16 11v10M13 14h6M13 18h6' stroke='%232B144D' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,7 +28,7 @@
        because the Squares tab is deliberately not in this site's look --
        see the SQUARES block in css/styles.css. -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260908h" />
+  <link rel="stylesheet" href="css/styles.css?v=20260908j" />
 </head>
 <body>
 
@@ -120,6 +134,6 @@
     Personal tool. Picks are emailed manually — this only builds and checks the message.
   </footer>
 
-  <script type="module" src="js/app.js?v=20260908h"></script>
+  <script type="module" src="js/app.js?v=20260908j"></script>
 </body>
 </html>

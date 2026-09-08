@@ -3460,6 +3460,53 @@ footer {
   outline-offset: 2px;
 }
 
+/* Locking is a step backwards, so it looks like one — quieter than the way in. */
+.sq-nav-btn.is-lock {
+  border-color: var(--sq-line);
+  color: var(--sq-ink-soft);
+  font-weight: 700;
+}
+.sq-nav-btn.is-lock:hover {
+  background: var(--sq-paper);
+  border-color: var(--sq-ink-soft);
+  color: var(--sq-ink);
+}
+
+.sq-gate {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin-top: 10px;
+}
+.sq-gate-label {
+  font-size: .625rem; font-weight: 900;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--sq-ink-soft);
+  width: 100%;
+}
+.sq-gate-input {
+  font: inherit;
+  font-size: .875rem;
+  min-height: 46px;
+  padding: 11px 14px;
+  border: 1.5px solid var(--sq-line);
+  border-radius: var(--sq-r-sm);
+  background: var(--sq-white);
+  color: var(--sq-ink);
+  flex: 1 1 160px;
+  min-width: 0;
+}
+.sq-gate-input:focus-visible {
+  outline: 3px solid var(--sq-charcoal);
+  outline-offset: 2px;
+}
+.sq-gate-err {
+  width: 100%;
+  margin: 0;
+  font-size: .75rem; font-weight: 700;
+  color: var(--sq-crimson-deep);
+  min-height: 1em;
+}
+.sq-gate-err:empty { min-height: 0; }
+
 /* ── Phone ────────────────────────────────────────────────────────────────
    The matchup keeps its three columns down to the smallest phone — stacking
    it would put the two scores a screen apart, and a score comparison is the

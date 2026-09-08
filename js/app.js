@@ -27,6 +27,7 @@
    ========================================================================== */
 
 import { SEASON } from './data.js';
+import { isAllowed, isUnlocked, PUBLIC_GROUP } from './siteGate.js';
 import { initSchedule } from './schedule.js';
 import { initGrid } from './grid.js';
 import { initPickSheet } from './picksheet.js';
@@ -88,6 +89,11 @@ const GROUPS = [
   {
     id: 'squares',
     label: 'Squares',
+    // Its own document title, not this site's. A link to the board is shared
+    // outside the pool, so the browser tab, the bookmark and the history entry
+    // all have to name the club rather than name Bova's Picks -- the one place
+    // the site's own branding would be actively unhelpful.
+    title: "St. Jude Men's Club Squares",
     // A third KIND of game, which is what row 1 counts -- not a third league.
     // Squares shares no vocabulary with either pick'em: nothing is picked,
     // nothing is spent, and the only input is a pair of digits somebody else
@@ -125,8 +131,12 @@ const subBar = document.getElementById('subnav-bar');
 
 /* ── Rendering ────────────────────────────────────────────────────────────*/
 
+/** The groups reachable right now. Squares is always one of them; the rest
+ *  appear only once the site gate is unlocked. See js/siteGate.js. */
+const openGroups = () => GROUPS.filter((g) => isAllowed(g.id));
+
 function renderMainNav() {
-  mainNav.innerHTML = GROUPS.map((g) => `
+  mainNav.innerHTML = openGroups().map((g) => `
     <button class="maintab" role="tab" type="button"
             id="maintab-${g.id}" data-group="${g.id}"
             aria-controls="subnav-bar"
@@ -164,6 +174,28 @@ function renderPanels() {
  * selected it. Grid and Odds live under two groups, so the label cannot be
  * baked into the markup the way it can for a panel with one route in.
  */
+/**
+ * Name the document for whatever is on screen.
+ *
+ * Bookmarks, browser tabs and history entries are all fed by this, and a
+ * single-page app that never touches it labels every one of them the same.
+ * That matters most for Squares: its link goes to people outside the pool, and
+ * "Bova's Picks" is the wrong name in their tab bar and their bookmarks.
+ *
+ * The static <title> in index.html is the fallback for the instant before the
+ * first render, and is what a link-preview crawler sees, since crawlers do not
+ * run this.
+ */
+function paintTitle() {
+  const group = groupById(active.group);
+  const panel = PANELS[active.panel];
+  const site = group?.title || "Bova's Picks";
+
+  document.title = panel && panel.label !== group?.label
+    ? `${panel.label} · ${site}`
+    : site;
+}
+
 function labelPanel() {
   const el = document.getElementById(`panel-${active.panel}`);
   const group = groupById(active.group);
@@ -176,7 +208,12 @@ function labelPanel() {
 /* ── Selection ────────────────────────────────────────────────────────────*/
 
 function show(groupId, panelId) {
-  const group = groupById(groupId) || GROUPS[0];
+  // The gate is enforced HERE rather than only in the nav, because the nav is
+  // not the only way in: a deep link, a restored hash, or the footer's own
+  // buttons all land in this function. One check, at the single point every
+  // route passes through.
+  const wanted = isAllowed(groupId) ? groupId : PUBLIC_GROUP;
+  const group = groupById(wanted) || groupById(PUBLIC_GROUP) || GROUPS[0];
   const panel = group.panels.includes(panelId) ? panelId : lastPanel.get(group.id);
 
   active = { group: group.id, panel };
@@ -186,6 +223,7 @@ function show(groupId, panelId) {
   renderSubNav();
   renderPanels();
   labelPanel();
+  paintTitle();
 
   // A class on <body>, not inline styles on two elements: the masthead and the
   // subnav bar are the site's, and a tab has no business reaching up and
@@ -253,7 +291,7 @@ function arrowNav(row, selector, itemsOf, go) {
   });
 }
 
-arrowNav(mainNav, '.maintab', () => GROUPS.map((g) => g.id),
+arrowNav(mainNav, '.maintab', () => openGroups().map((g) => g.id),
   (id) => show(id, lastPanel.get(id)));
 arrowNav(subNav, '.subtab', () => groupById(active.group).panels,
   (id) => show(active.group, id));
@@ -282,18 +320,44 @@ function fromHash(hash) {
 const start = fromHash(location.hash) || active;
 show(start.group, start.panel);
 
+/* The shell re-reads the gate when it moves: the nav rows gain or lose their
+   entries, and a visitor who locks the site while sitting on a gated panel is
+   moved off it rather than left looking at something they can no longer reach. */
+document.addEventListener('gatechange', () => {
+  if (isUnlocked()) bootGatedTabs();
+  show(isAllowed(active.group) ? active.group : PUBLIC_GROUP, active.panel);
+});
+
 document.getElementById('brand-season').textContent = SEASON;
 
 /* ── Boot the tabs ────────────────────────────────────────────────────────
-   Schedule first: it owns the live-score polling every other tab reads from.
+   SQUARES BOOTS ALWAYS; THE REST BOOT ONLY ONCE UNLOCKED, and that is a
+   privacy decision rather than a performance one. Every init() below fetches
+   as it starts — the survivor field, the pool's popularity files, the odds
+   snapshot. Booting them behind a hidden panel would put all of it in a club
+   visitor's network tab, where "you cannot see this" is plainly untrue. Not
+   booting them means the requests never happen.
+
+   Schedule leads the gated set: it owns the live-score polling the other tabs
+   read from.
    ------------------------------------------------------------------------ */
 
-initSchedule(document.getElementById('schedule-root'), SEASON);
-initGrid(document.getElementById('grid-root'), SEASON);
-initPickSheet(document.getElementById('picksheet-root'));
-initOdds(document.getElementById('odds-root'));
-initRecommend(document.getElementById('recommend-root'));
-initPlanning(document.getElementById('survivor-root'), SEASON);
-initInfinityWar(document.getElementById('infinity-root'), SEASON);
+let gatedBooted = false;
+
+function bootGatedTabs() {
+  if (gatedBooted) return;
+  gatedBooted = true;
+
+  initSchedule(document.getElementById('schedule-root'), SEASON);
+  initGrid(document.getElementById('grid-root'), SEASON);
+  initPickSheet(document.getElementById('picksheet-root'));
+  initOdds(document.getElementById('odds-root'));
+  initRecommend(document.getElementById('recommend-root'));
+  initPlanning(document.getElementById('survivor-root'), SEASON);
+  initInfinityWar(document.getElementById('infinity-root'), SEASON);
+}
+
 initSquares(document.getElementById('squares-root'), SEASON);
 initSquaresLedger(document.getElementById('squares-season-root'), SEASON);
+
+if (isUnlocked()) bootGatedTabs();

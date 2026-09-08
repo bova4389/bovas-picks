@@ -22,6 +22,8 @@
    NEVER add a ?v= to this file — see js/data.js on module identity.
    ========================================================================== */
 
+import { isUnlocked, unlock, lock } from './siteGate.js';
+
 const LOGO = 'assets/stjude/saint-jude-parish.png';
 
 /**
@@ -102,6 +104,13 @@ const VIEWS = [
  *
  * `panel` is the caller's own panel id, so the active view is marked without
  * this module having to ask anything about application state.
+ *
+ * THE SECOND BLOCK IS THE GATE'S FRONT DOOR. It used to list Schedule, Season
+ * Long and Survivor unconditionally, which — on the one page built to be
+ * handed to a hundred people outside the pool — was a guided tour of
+ * everything else on the site. Locked, it offers one discreet Admin button
+ * instead; unlocked, it is the way back plus a way to lock again. A club
+ * visitor sees a board and nothing suggesting there is more.
  */
 export function clubNav(panel) {
   const views = VIEWS.map((v) => `
@@ -109,21 +118,50 @@ export function clubNav(panel) {
             type="button" data-nav-group="squares" data-nav-panel="${v.panel}"
             ${v.panel === panel ? 'aria-current="page"' : ''}>${v.label}</button>`).join('');
 
-  const host = HOST_GROUPS.map((g) => `
-    <button class="sq-nav-btn is-host" type="button"
-            data-nav-group="${g.id}">${g.label}</button>`).join('');
-
   return `
     <nav class="sq-nav" aria-label="Squares navigation">
       <div class="sq-nav-block">
         <p class="sq-nav-label">This pool</p>
         <div class="sq-nav-row">${views}</div>
       </div>
-      <div class="sq-nav-block">
-        <p class="sq-nav-label">Back to Bova&rsquo;s Picks</p>
-        <div class="sq-nav-row">${host}</div>
-      </div>
+      ${isUnlocked() ? unlockedBlock() : lockedBlock()}
     </nav>`;
+}
+
+function unlockedBlock() {
+  const host = HOST_GROUPS.map((g) => `
+    <button class="sq-nav-btn is-host" type="button"
+            data-nav-group="${g.id}">${g.label}</button>`).join('');
+
+  return `
+    <div class="sq-nav-block">
+      <p class="sq-nav-label">Back to Bova&rsquo;s Picks</p>
+      <div class="sq-nav-row">
+        ${host}
+        <button class="sq-nav-btn is-lock" type="button" data-gate="lock">Lock</button>
+      </div>
+    </div>`;
+}
+
+/**
+ * Deliberately quiet. It says "Admin", not "the rest of the site is over
+ * here" — the point of the block is that a visitor has no reason to try it.
+ */
+function lockedBlock() {
+  return `
+    <div class="sq-nav-block">
+      <p class="sq-nav-label">Site</p>
+      <div class="sq-nav-row">
+        <button class="sq-nav-btn is-host" type="button" data-gate="open">Admin</button>
+      </div>
+      <form class="sq-gate" data-gate-form hidden>
+        <label class="sq-gate-label" for="sq-gate-pw">Password</label>
+        <input class="sq-gate-input" id="sq-gate-pw" type="password"
+               autocomplete="current-password" spellcheck="false" />
+        <button class="sq-nav-btn" type="submit">Unlock</button>
+        <p class="sq-gate-err" data-gate-err role="status"></p>
+      </form>
+    </div>`;
 }
 
 /**
@@ -132,10 +170,23 @@ export function clubNav(panel) {
  * Delegated from the root rather than bound per button, because both tabs
  * rewrite their innerHTML on every render and per-button listeners would
  * survive exactly one repaint — the same trap the two nav rows in js/app.js
- * document.
+ * document. The `submit` listener is delegated for the same reason, and
+ * capture is on so it fires for a form that did not exist when this ran.
  */
 export function wireClubNav(root) {
   root.addEventListener('click', (e) => {
+    const gate = e.target.closest('[data-gate]');
+    if (gate) {
+      if (gate.dataset.gate === 'lock') { lock(); return; }
+
+      const form = root.querySelector('[data-gate-form]');
+      if (form) {
+        form.hidden = !form.hidden;
+        if (!form.hidden) form.querySelector('input')?.focus();
+      }
+      return;
+    }
+
     const btn = e.target.closest('[data-nav-group]');
     if (!btn) return;
 
@@ -143,6 +194,20 @@ export function wireClubNav(root) {
       detail: { group: btn.dataset.navGroup, panel: btn.dataset.navPanel || null },
     }));
     window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+
+  root.addEventListener('submit', async (e) => {
+    const form = e.target.closest('[data-gate-form]');
+    if (!form) return;
+    e.preventDefault();
+
+    const input = form.querySelector('input');
+    const err = form.querySelector('[data-gate-err]');
+    const result = await unlock(input?.value);
+
+    if (result.ok) return;              // gatechange repaints everything
+    if (err) err.textContent = result.reason;
+    if (input) { input.value = ''; input.focus(); }
   });
 }
 
