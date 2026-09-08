@@ -181,6 +181,22 @@ export async function getSurvivor(season = SEASON) {
 }
 
 /**
+ * Squares pools: the boards, the weekly digit draws, and the frozen results.
+ * Null before data/squares-<year>.json exists.
+ *
+ * Unlike every other feed here this file is hand-maintained rather than
+ * generated — the 100 names and each week's ten-and-ten draw arrive as an
+ * emailed sheet and a photo of a board, and there is no API for either.
+ */
+export async function getSquares(season = SEASON) {
+  try {
+    return await loadJSON(`data/squares-${season}.json`);
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Cross-check every loaded feed against the active season.
  *
  * The guard that stops the tabs combining two seasons — see js/season.js for

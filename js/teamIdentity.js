@@ -20,6 +20,7 @@
 import { MASCOT_TO_ABBR, ABBR_TO_MASCOT, mascotOf } from './teams.js';
 
 const IDENTITY_PATH = 'data/teams/team-identity.json';
+const TRIM_PATH = 'data/teams/logo-trim.json';
 
 /**
  * Abbreviations other feeds use for teams this repo spells differently.
@@ -36,6 +37,7 @@ const FOREIGN_ABBR = {
 };
 
 let identityPromise = null;
+let trimPromise = null;
 
 /**
  * The whole identity document, memoized. Null on failure rather than throwing —
@@ -150,6 +152,105 @@ export function tintOn(hex, background = '#FFFFFF', amount = 0.08) {
     .map((c, i) => Math.round(c * amount + bg[i] * (1 - amount)))
     .map((c) => c.toString(16).padStart(2, '0'))
     .join('')}`;
+}
+
+/**
+ * Per-team artwork bounds, from scripts/measure_logo_trim.py. Null if absent —
+ * callers fall back to a fixed size, which is what every tab did before this
+ * existed.
+ */
+export async function getMarkTrim() {
+  if (trimPromise) return trimPromise;
+
+  trimPromise = fetch(TRIM_PATH)
+    .then((res) => {
+      if (!res.ok) throw new Error(`${TRIM_PATH} -> HTTP ${res.status}`);
+      return res.json();
+    })
+    .catch(() => null);
+
+  return trimPromise;
+}
+
+/**
+ * The square pixel size to render a team's mark at so its VISIBLE ARTWORK
+ * occupies roughly `area` square pixels.
+ *
+ * WHY THIS IS NEEDED AT ALL, since every logo is already a 500x500 file: the
+ * artwork inside those identical canvases is not the same shape. The Steelers
+ * mark fills 462x462 of its canvas, the Seahawks 462x206. Because the canvas is
+ * square, `object-fit: contain` binds on the same dimension for all 32 no
+ * matter what box you give it — so a box cannot fix this, and the wide marks
+ * render at well under half the visual mass of the tall ones. Only sizing the
+ * image itself per team does.
+ *
+ * Area rather than height or width, because area is what "looks the same size"
+ * actually tracks: a wide mark and a tall one read as equals when they cover
+ * the same amount of ink, not when they share an edge length.
+ *
+ * Clamped, because the correction is unbounded in principle and the containers
+ * are not. Null when the trim data is unavailable.
+ */
+export async function markBox(team, area, { min = 20, max = 40 } = {}) {
+  const doc = await getMarkTrim();
+  const trim = doc?.marks?.[toAbbr(team)];
+  if (!trim?.w || !trim?.h) return null;
+
+  const size = trim.canvas * Math.sqrt(area / (trim.w * trim.h));
+  return Math.round(Math.min(max, Math.max(min, size)));
+}
+
+/**
+ * A team's own color, darkened only as far as it must be to read on `bg`.
+ *
+ * The counterpart to readableInkOn(), for the other situation. On a SATURATED
+ * team field the only safe answers are black and white, and that is what
+ * readableInkOn() picks. On a pale WASH of the team's color black is safe too —
+ * and throws the team away: on a pale blue panel the name should be Colts navy,
+ * not ink. So the primary is mixed toward black in 5% steps until it clears the
+ * contrast target and no further. Most teams need no step at all; the pale ones
+ * (Vikings gold, Chargers powder) take a few and still look like themselves.
+ *
+ * Lives here rather than in a tab because two now use it — the Squares board's
+ * axis bands and its season ledger's team chips — and a second copy is a second
+ * place for the contrast floor to be quietly lowered.
+ */
+export function readableTeamInk(primary, background, target = 4.5) {
+  for (let mix = 1; mix > 0.25; mix -= 0.05) {
+    const candidate = tintOn(primary, '#000000', mix);
+    if (contrastRatio(candidate, background) >= target) return candidate;
+  }
+  return '#1A1A1A';
+}
+
+/**
+ * WCAG contrast ratio between two hex colors, 1 to 21.
+ *
+ * Exported because "verified, not eyeballed" needs a number available to
+ * callers, not just to readableInkOn() internally. The Squares board uses it
+ * to darken a team's own primary until it is safe to set type in — black or
+ * white is the right answer on a saturated team field, but on a 10% wash of
+ * the same color it throws away the team's identity for no contrast gain.
+ */
+export function contrastRatio(a, b) {
+  const la = luminanceOf(a);
+  const lb = luminanceOf(b);
+  const hi = Math.max(la, lb);
+  const lo = Math.min(la, lb);
+  return (hi + 0.05) / (lo + 0.05);
+}
+
+function luminanceOf(hex) {
+  const h = String(hex).replace('#', '');
+  if (h.length !== 6) return 0;
+
+  const channel = (pair) => {
+    const c = parseInt(pair, 16) / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  };
+  return 0.2126 * channel(h.slice(0, 2))
+    + 0.7152 * channel(h.slice(2, 4))
+    + 0.0722 * channel(h.slice(4, 6));
 }
 
 /**

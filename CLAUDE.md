@@ -10,8 +10,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   repo per the workspace convention (see workspace `CLAUDE.md` Git Setup). Pushed since 2026-08-11.
 - **Hosting**: **GitHub Pages, live** at `https://bova4389.github.io/bovas-picks/` (enabled
   2026-08-11), deploying from `main`. See GitHub Setup below.
-- **Status**: Schedule, Grid, Pick Sheet, Odds, Recommend, Planning and Infinity War tabs are
-  functional.
+- **Status**: Schedule, Grid, Pick Sheet, Odds, Recommend, Planning, Infinity War and Squares
+  tabs are functional.
   **Lookback is the only "Soon" panel left**, and it is genuinely blocked rather than unstarted:
   it needs per-entrant weekly cards and the only ones parsed are 2025 Week 1. It un-stubs when the
   commissioner's workbooks start arriving, not before.
@@ -131,6 +131,10 @@ js/planning.js      Planning tab — spend now or hold, per SURVIVOR-STRATEGY.md
 js/infinityModel.js SHARED — the pick-eight math, pure data                 [NEVER versioned]
 js/infinityFeed.js  SHARED — pick'em-shaped Sleeper read                    [NEVER versioned]
 js/infinityWar.js   Infinity War tab — pick 8 of the slate, small field
+js/squaresModel.js  SHARED — squares math, pure data                       [NEVER versioned]
+js/squaresChrome.js SHARED — St. Jude banner, theme hook, footer nav       [NEVER versioned]
+js/squares.js       Squares Board tab — one week: matchup, board, payouts
+js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
 ```
 
 ## Navigation — Two Levels, One Model
@@ -143,8 +147,22 @@ The site covers **two different games**, so the nav says so. `js/app.js` holds a
 | **Schedule** | *(none — it belongs to neither pool and is read from both)* |
 | **Season Long** | Pick Sheet · Odds · Recommend · Infinity War · Lookback |
 | **Survivor** | Grid · Odds · Planning |
+| **Squares** | Board · Season |
 
 Rules that keep this from rotting:
+
+- **Squares hides both rows** — the only group that does. Its `chromeOff: true` flag makes
+  `show()` put `chrome-off` on `<body>`, and the stylesheet hides the masthead, the subnav bar and
+  the site footer. Those panels carry St. Jude's own banner and a club-styled footer nav instead.
+  See the Squares section for why. A panel with no nav row on screen needs a way back, which is
+  the `navigate` **event** `js/squaresChrome.js` dispatches and `app.js` listens for — an event
+  rather than an exported `show()`, because app.js imports every tab and a tab importing it back
+  would be a cycle. It is the mirror of the `panelchange` event app.js already dispatches
+  downward: one direction each way.
+- **Squares carries no Odds tab, and that is not a violation of "odds are not siloed."** That rule
+  is about never rebuilding the join. Here there is nothing to join: a moneyline prices who wins,
+  and a squares payout turns on the last digit of a score, which no market on this site quotes.
+  Showing a favorite beside a board would imply a connection that does not exist.
 
 - **Odds is one panel reached from two rows — not two copies.** Every panel is booted once at load
   and shown or hidden after that, so crossing rows never re-renders and never drops a half-filled
@@ -205,6 +223,23 @@ site down on U.S. Open launch day. Bump the CSS/app version with a letter suffix
 Hosted on **GitHub Pages** (no domain), so `.htaccess` cache headers do not apply here — the query
 strings are the only layer. If this later moves to DreamHost, add the `.htaccess` per the workspace
 CLAUDE.md.
+
+**The gap that leaves, and it is real:** an unversioned shared module can be served stale while the
+versioned entry point next to it is fresh. Bumping `app.js?v=` gives the browser a new URL, so the
+new code loads immediately — but `js/teamIdentity.js` and friends have no query string, and GitHub
+Pages serves them with its own `max-age`. **Add an export to a shared module and deploy it in the
+same push as a caller that imports it, and some visitors get the new caller against the cached
+module: `does not provide an export named 'x'`, and a blank page until the cache expires.** Hit
+during the Squares build on 2026-09-08 when `contrastRatio` was added to `teamIdentity.js`.
+
+Do **not** "fix" this by versioning the shared module — that is the module-identity outage the note
+above describes, and these files hold state. The window is bounded (Pages' max-age, ~10 minutes)
+and it self-heals. What helps:
+
+- **A new export is a two-deploy change when it matters.** Push the shared module first, let it
+  propagate, then push the caller. Only worth the ceremony for something on a live game day.
+- **Locally, a reload is not enough** — Chrome holds the module. `fetch(path, {cache:'reload'})`
+  from the console, then reload, or hard-reload with Ctrl+Shift+R.
 
 **Design language** models Grant Thornton's site: `#4F2D7F` purple as the brand field, **light
 display weights** (their h1 is weight 200 — ours matches), warm neutrals rather than cold greys
@@ -903,6 +938,344 @@ not less.
   the season prize yet, so nothing depends on it — but a season-long standings view would.
 - **`spread` wants calibrating** against real picks. See above.
 
+## Squares — Read Before Changing Any Color
+
+Built 2026-09-08 for the **St. Jude Men's Club** board: 100 squares at **$250**, **$275** to every
+quarter of every Colts game, **18 weeks**. `js/squares.js` (Board) and `js/squaresLedger.js`
+(Season) over `js/squaresModel.js` (pure math), the same split as `grid.js` / `gridModel.js`.
+
+**All 18 weeks are already wired** in `data/squares-2026.json` from the committed schedule. Week 13
+is the Colts' bye, and the pool grades that week on the Monday nighter — **DAL @ SEA, Mon Dec 7**,
+carried as `substitute: true` with the real `gameId`. Nothing about the bye is inferred at render
+time.
+
+### The redraw is the whole game — do not build strategy on top of it
+
+The names are fixed for the season; **the ten digits on each axis are redrawn before every game.**
+So every square is dealt eighteen independent pairs and **all 100 are worth exactly the same over a
+season.** There is no good square to chase and no bad one to regret. A single week is wildly
+uneven — a 7 and a 0 is a great draw, a 2 and a 5 is a dead one — but nobody owns either.
+
+Consequences that constrain the code:
+
+- **Nothing scores, ranks or projects a square.** The only honest per-square number is "here is
+  what you drew this week", and both tabs say exactly that. `ledger()` reports what *has* happened
+  and what is still in the pool; it must never grow a per-square forecast.
+- **`economics()` states the rake out loud.** $25,000 in, $19,800 out, **$5,200 (20.8%) to St.
+  Jude**; a square is worth $198 of a $250 buy-in. This is a charity board and the shortfall *is*
+  the donation — that belongs on the page, not buried.
+- **`liveOutlook()` lists ONE score by ONE team**, never multi-score sequences. With ten digits an
+  axis some combination reaches almost any square, so the full list says nothing; during a game the
+  only useful question is what the *next* score does.
+
+### Quarter scores: the one piece of new plumbing
+
+`js/espn.js` now carries `awayLine` / `homeLine` — points scored **in** each period, which is how
+ESPN sends it. The running end-of-period totals are derived in `squaresModel.js`, not baked in,
+because Squares is the only consumer.
+
+- **`periodClosed()` reads the status *text*, not just the period number.** ESPN leaves `period` at
+  2 for the whole of halftime, so the clock alone calls the half unfinished right up until the
+  second-half kickoff — which is exactly when a halftime payout is being looked up. ESPN writes
+  "Halftime" and "End of 1st" itself; that is the tiebreaker.
+- **Closed and reported are separate conditions.** The committed schedule carries final scores but
+  no period breakdown, so a week ESPN cannot serve still grades its **Final** and simply has no
+  quarters. Never collapse the two.
+- **`overtime` is a config flag**, `'final'` or `'regulation'`, because pools split on whether the
+  last payout lands on the score the game ended on or the score at the end of the fourth.
+  **Unconfirmed with the commissioner as of 2026-09-08** — ask before Week 1.
+
+**Finished weeks get frozen into `data/squares-<year>.json`** via `result`, and `frozenGame()`
+rebuilds them. That is what makes the ledger permanent and offline-capable rather than dependent on
+ESPN still serving a week from October — the same reason the Majors pool hardcodes a tournament
+once it is over. The live path stays authoritative only for the week in progress.
+
+### The board: two bands, three channels
+
+**The team banners are part of the grid, not cards above it.** `.sq-board-frame` spans them — the
+column team runs full width above the digits, the row team runs full height down the left, no gap
+and no padding anywhere, so each band's edge is the edge of the grid it names. `.sq-board-card`
+carries **no padding** for that reason; any would reopen the seam.
+
+This replaced two side-by-side cards, which was wrong rather than merely plain: it put the team
+labelled *down the side* along the top, next to the one labelled *across the top*. The board
+contradicted its own legend.
+
+**Both bands are the same thickness**, held by one `--band` custom property on the frame rather
+than two numbers that must be kept equal by eye. That also squares the corner cell, which is what
+lets the parish emblem sit in it undistorted.
+
+**The corner belongs to neither team.** The top band used to run on over the side band's column,
+which left the row team's mark jammed under the column team's slab — two teams overlapping in the
+one square that belongs to neither. Now each band starts at the corner and stops, and the corner
+goes to the house: `assets/stjude/saint-jude-emblem.png`, the cross-and-sunburst cropped out of the
+full lockup because the wordmark is illegible at 56px.
+
+Four details in the band that are not decoration:
+
+- **A mark at each end, not one in the middle.** The board scrolls sideways on a phone, so a single
+  centered logo is off screen from whichever end you did not start at — and saying whose axis this
+  is, is the band's entire job.
+- **No "across the top" / "down the side" label.** The band's position says it. The words were
+  restating the layout in the one place the layout is unambiguous.
+- **A wash, not a saturated field.** At full strength the two bands were two slabs of near-black —
+  Colts navy against Ravens purple read as one dark frame rather than as two teams. On a 10% wash
+  the logo is itself, the name is the team's color, and the saturated hex is spent on a 3px edge
+  where it works hardest.
+- **`readableTeamInk()`, not `readableInkOn()`.** Black or white is the right answer on a saturated
+  team field and is still what the digit bands use. On a 10% wash black is *safe* and also throws
+  the team away, so the primary is mixed toward black in 5% steps until it clears 4.5:1 and no
+  further. Most teams need no step; the pale ones (Vikings gold, Chargers powder) take a few and
+  still look like themselves. `contrastRatio()` was exported from `js/teamIdentity.js` for it —
+  "verified, not eyeballed" needs the number available to callers, not just internally.
+- **The team name is text, not the wordmark art.** It has to fill the band, and a fixed-aspect
+  image cannot. It takes the leftover space with `flex: 1` and a `clamp()` size; the wide
+  letter-spacing is what carries a short name like Colts across the full width. **Both bands use
+  the same clamp** — the side band having its own smaller one made the row team read as a
+  subheading of the column team rather than its equal.
+
+The corner is styled as a **cell**, not a panel: the board's own 3px gutter, the same corner
+radius, and a 2px border in **St. Jude gold** — the one color on the page belonging to neither
+team, so it cannot be misread as either one's axis. `--band` is 50px specifically so that the
+corner's inner box lands at 44px, which is exactly the width of the board's digit column. At 56px
+it read as a slab parked beside the table instead of the table's own top-left cell.
+
+**A cell has three independent states and each gets its own CSS property.** A square can be all
+three at once — yours, one that took the half, and one the live score has just come back to:
+
+| State | Channel | Color |
+|---|---|---|
+| Your square | **wash** + 1px border | crimson (the club's, because this cell is about you) |
+| Won a quarter | **3px border** | gold — the only heavy border on the board |
+| Score right now | **outline**, offset, pulsing | charcoal — the third club color, nothing else uses it |
+
+Any two of them sharing a property would mean the rarer combination silently disappears, and the
+rarest combination — your square, live, having already won a quarter — is the one anybody would
+most want to see.
+
+**The legend always renders all three keys.** It was conditional at first — the live key only
+during a game, the "your square" key only once a square was recorded, on the reasoning that a key
+for a state nothing is currently in is one more thing to read past. That was wrong in the way
+legends usually are: a key you only ever see at the moment you needed to already know it is a key
+nobody has learned. The legend describes the board's vocabulary, not its current state, and the
+quiet Tuesday is when there is time to read it. Do not make it conditional again.
+
+### Marks are sized per team — `markBox()`, not a CSS box
+
+**Every team logo is a 500×500 canvas, and the artwork inside them is not the same shape.** The
+Steelers mark fills 462×462 of its canvas; the Seahawks 462×206. Rendered at one fixed size the
+visual mass spans **2.24×** across the 32 — which is what "the Ravens logo looks smaller than the
+Colts" actually was.
+
+**A CSS box cannot fix this, and trying is the trap.** Because the canvas is square,
+`object-fit: contain` binds on the same dimension for all 32 no matter what box you give it — a
+wider box changes nothing at all. Only sizing the *image* per team does.
+
+`scripts/measure_logo_trim.py` measures each mark's visible bounding box into
+`data/teams/logo-trim.json`; `markBox(team, area)` in `js/teamIdentity.js` turns that into the
+square pixel size at which a mark's artwork covers `area` square pixels. **Area, not height or
+width** — "looks the same size" tracks how much ink is covered, not edge length. Squares asks for
+600, clamped to 20–40px, which brings the spread to **1.07×**.
+
+It is a *hint*, never a crop: nothing modifies the images, so every tab that does not read it is
+unaffected.
+
+**`readableTeamInk()` lives in `js/teamIdentity.js` alongside it**, and is the counterpart to
+`readableInkOn()` rather than a replacement. On a *saturated* team field the only safe answers are
+black and white, which is what `readableInkOn()` picks. On a pale *wash* of the team's color black
+is safe too — and throws the team away, so `readableTeamInk()` mixes the primary toward black in 5%
+steps until it clears the target and no further. Verified across all 32 at 4.5:1 on a 10% wash: 23
+teams keep their exact brand hex, and nine pale or bright ones (Chargers powder, Saints old gold,
+Dolphins teal, Browns orange, Lions, Panthers, Chiefs, Titans, Bengals) take a step or two and
+still read as themselves. The Grid, Schedule, Odds and Recommend tabs all still size marks with a fixed box and
+carry the same inconsistency; adopting `markBox()` there is a safe, self-contained improvement
+whenever those are next touched.
+
+**Re-run the script after any asset refresh** (`scripts/fetch_team_assets.py`,
+`scripts/build_team_identity.py`) — a rebrand that changes a logo's proportions changes its
+correct size, and the stale hint would size the new art wrongly.
+
+### The matchup card — short on purpose, and it carries the clock
+
+It sits between the banner and the board, so **every pixel of it is a pixel between the reader and
+the 100 squares they came for**. It runs ~132px, down from ~220px: the marks shrank, the logo and
+wordmark share one line, and the score lost a size step it did not need at that width.
+
+The middle column has **one shape and a fixed width for all three states**, so the card does not
+resize under your thumb when a live poll lands:
+
+| | badge | line 2 | line 3 |
+|---|---|---|---|
+| Before kickoff | `AT` | kickoff, day over time | network |
+| Live | `Q3` (pulsing, crimson) | **game clock**, the loud element | network |
+| Final | `F` (charcoal) | ESPN's own final text | — |
+
+**All three panels share one explicit row rhythm** (`.sq-matchup-grid > *` is a grid with fixed
+`grid-template-rows`), rather than three flex columns each centring their own contents. Flex
+centring is only equivalent while the contents are the same height, and they stopped being the same
+height the moment marks began to be sized per team: a 38px Ravens shield beside a 27px Colts
+horseshoe pushed one column's score and axis pill below the other's. The pills are what the eye
+tracks across the card, so that drift is immediately visible. Explicit rows mean the three panels
+cannot come apart again whatever goes in them.
+
+`periodLabel()` reads **Half** off the status text rather than the period number, for the same
+reason `periodClosed()` does in the model: ESPN leaves `period` at 2 for the whole break. `OT` is
+period 5+.
+
+**The network comes from the live ESPN payload only.** `scripts/fetch_schedule.py` does not capture
+`broadcasts`, so the committed file has none and the chip is blank until the scoreboard has been
+fetched at least once. Verified working 2026-09-08: Week 1 Ravens at Colts returns `CBS`.
+
+**Late-season flex games genuinely have no network assigned**, and the chip says `Network TBD` in a
+dashed outline rather than rendering nothing. That is deliberate — it is the cue to re-check, not a
+rendering failure. **Weekly routine: glance at the network chip when the week's board is set.** If
+it still reads TBD by game week, the game has not been picked up by a broadcaster yet, which is a
+fact about the schedule and not a bug to chase.
+
+**Team chips on the Season tab use the same wash**, added 2026-09-08. They were solid brand at full
+saturation, which put eighteen rows of near-black slabs down the left of the table and buried the
+abbreviations — worse the darker the team. Wash, team-colored type, team-colored 1px edge, and the
+mark sized by `markBox()` at a smaller target area. The two tabs now agree about what a team looks
+like, which they did not when one used washes and the other saturated fills.
+
+**The row header is a flex line inside the cell, and both of its fixed sizes are load-bearing.**
+Inline children align on their *baselines*, which is only the same thing as aligning them
+centre-to-centre while they are all the same height — and they stopped being the same height the
+moment chips began sizing their marks per team. A 22px Ravens shield and a 15px Colts horseshoe put
+their two chips at different heights, and the shorter "No draw" pill sat lower than both. So:
+
+- **The chip has a fixed height** (28px), so a per-team mark size cannot change its box, and the
+  mark sits in a fixed 22px slot inside it.
+- **The chip has a fixed min-width** (74px), so a two-letter abbreviation and a three-letter one
+  occupy the same space. That is what puts the `@` and every flag after it at the same x on all
+  eighteen rows — the column alignment you only notice by looking *down* the table rather than
+  across one row of it.
+- **The flex goes on an inner `<span>`, never on the `<th>`.** `display: flex` on a table cell takes
+  it out of the table's internal layout — the same trap the Grid tab documents for `.gteam-in`.
+
+Verified: every week number, chip, flag and score cell centres to within 0px of its row's centre
+line, all 36 chips render at exactly 74px, and row heights are uniform.
+
+*Known soft spot, not a defect:* the lightest artwork in the set (Steelers at 0.65 mean luminance,
+Chiefs at 0.63) reads a little quietly on a pale wash. Nothing disappears — no logo in the set is
+uniformly light, they all carry internal contrast — and it was no better on the saturated chips,
+where Pittsburgh's gold sat on Pittsburgh's gold. If it ever needs solving, the fix is a white
+plate behind the mark, not a return to saturated chips.
+
+### The week changeover — 2pm Wednesday, not the NFL's rollover
+
+`defaultWeek()` holds a week on screen **until 2pm the Wednesday after its game**, then flips to
+the next. `currentWeek()` in `gameState.js` deliberately is **not** used here: it rolls over a few
+hours after an NFL week's last game, which is right for a schedule and wrong for a pool — it would
+replace Sunday's settled board with next week's empty one before anybody had looked at what they
+won. The board turns over midweek and is ready before Thursday.
+
+**The 36-hour tail in `cutoverFor()` is what makes one rule cover every kickoff slot.** Measured
+from a Sunday afternoon game it lands early Monday, so the cutover is that same week's Wednesday;
+measured from a Monday nighter — which is exactly what the Colts' bye week grades on — it lands
+Wednesday morning, so the cutover is that afternoon rather than eight days later. Without it a
+Monday game needs a special case, and the one week that needs it is the one nobody would remember
+to test. Verified against the real 2026 file: Week 1 holds through Wed Sep 16 13:59 and flips to
+Week 2 at 14:01; Week 13 (Mon Dec 7) flips to Week 14 on Wed Dec 9.
+
+Local time throughout, deliberately: this is a pool played in one room in Indianapolis, and
+"Wednesday at 2" means the clock on the wall there — which for anyone using this is the clock on
+their own phone.
+
+### Polling — already the conservative version, do not replace it with load-once
+
+The board polls ESPN **every 30s, and only while all of these hold**: the panel is the visible one,
+the browser tab is not backgrounded, and the game is either live or within ten minutes of kickoff.
+Outside that window it makes **no requests at all** — a Tuesday visit costs one fetch. There is
+also a manual **Refresh score** button, and a freshness line beside it reading `Scores as of 3:47
+PM`, or `Committed schedule` when there is no live layer at all so an ESPN outage reads as an
+outage rather than as a stale time.
+
+Replacing this with load-once-plus-a-button was considered and **rejected**: the live square
+highlight is the feature, and a highlight that only moves when someone remembers to press a button
+is a highlight that is usually wrong. Wrong is worse than absent here, because you would act on it.
+The endpoint is keyless, public and free (see `js/espn.js`), so the cost of the poll is a few
+requests an hour on three afternoons of the week.
+
+### The theme is St. Jude's, not this site's — and the scoping is the point
+
+**Everything visual is scoped under `.sq-theme`** in `css/styles.css`, and the club's banner,
+theme hook and footer nav all live in `js/squaresChrome.js`. Nothing else in `js/` knows the parish
+exists. That is not tidiness: **these tabs are built to lift out whole and go back to the club as
+their own product**, so they must leave as St. Jude's thing rather than as a purple page with a
+logo dropped on it. Two rules enforce it — no rule in the block may match outside `.sq-theme`, and
+nothing in it may reference a token from the site's `:root`.
+
+Palette sampled from [stjudeindy.org](https://www.stjudeindy.org/), **contrast measured, not
+eyeballed**, same bar the rest of the site holds:
+
+| | |
+|---|---|
+| white on crimson `#BE1F24` | **6.16:1** — the banner bar, buttons |
+| crimson on white | **6.16:1** — headings, emphasis |
+| charcoal `#404041` on white | **10.36:1** — body copy |
+| ink `#333` on gold `#D8A941` | **5.82:1** — gold chips carry DARK text |
+| **gold on white** | **2.17:1 — FAILS** |
+
+That last row is load-bearing: **gold is never type on white.** It is a rule, a fill or a border,
+and where it must carry words the words are `--sq-ink` (or `#7A5B12`, measured at 5.68:1 on the
+gold wash). Their own site uses it exactly this way. Type is **Lato**, loaded alongside Outfit in
+`index.html` for this tab alone.
+
+Three specific decisions that look wrong until you try the alternative:
+
+- **The banner is a white logo plate over a crimson bar, not a logo on crimson.** The parish logo
+  art is crimson-and-gold on a transparent ground, so reversing it onto the bar erases the
+  wordmark. The obvious-looking layout is the wrong one.
+- **`.sq-theme .sq-banner-title`, not `.sq-banner-title`.** The theme's own `.sq-theme h2` rule
+  sets every heading charcoal and outranks a bare class, which rendered the title at 1.68:1 on the
+  crimson bar — legible enough in a thumbnail to pass a glance, and a failure everywhere else.
+- **Team color is NOT part of the theme.** The matchup card, axis bands and digit headers still
+  read from `js/teamIdentity.js`, because eighteen different opponents are the *content* while
+  crimson and gold are the *chrome*. Repainting the Colts in crimson is the one change that would
+  make every week look the same.
+
+**The board scrolls sideways rather than shrinking to fit.** Ten name cells plus an axis need
+~660px; a 375px phone would give each cell 30px, which fits the layout and loses the names — and a
+board you cannot find your own name on has failed at the only thing it does. The digit column is
+pinned with `position: sticky`, and the "your square" card above carries the answer for anyone who
+would rather not scroll at all.
+
+**The sample toggle is a design tool, not a feature.** Until the club sends the filled board every
+cell is empty, so the toggle fills the grid with obviously fake names and a seeded draw. It is
+labeled SAMPLE wherever it shows, it is deterministic per week so it does not reshuffle on a
+refresh, and it **copies** the pool rather than mutating it — the sample must never be able to leak
+into anything written back to the JSON.
+
+### What is still owed
+
+- **The 100 names and which square is mine.** Both go into `data/squares-2026.json` once the club
+  sends the filled board — `entries` is a 10 × 10 array, `mine` a list of `{row, col}`. Names only:
+  the repo is public and deploys to GitHub Pages, so strip any email or phone column first.
+- **Each week's draw**, as `digits: {cols: [...], rows: [...]}`, plus confirmation of which team is
+  on which axis. `axisConfirmed` is `false` and the page says so out loud until it is flipped.
+- **The digit-probability layer** — an offline script pulling quarter-by-quarter scores from past
+  ESPN seasons to answer "is this week's pair live or dead", including a Colts-specific table since
+  they hold an axis 17 weeks of 18. Designed, not built.
+- **Pools the user runs**, imported from a filled Google Sheet. `data/squares-<year>.json` is a
+  `pools` array from day one for exactly this, and both tabs render any pool generically, so this
+  is an import step rather than a new tab.
+
+### Marks
+
+`saint-jude-emblem.png` was cropped out of the lockup **in pure stdlib Python** — there is no
+Pillow here and no build step, so the PNG was decoded, unfiltered, sliced and re-encoded by hand.
+The cut is measured, not guessed: the emblem and the wordmark are joined by the gold rule, so the
+boundary comes from the first transparent column run in the **top third**, above that rule. If the
+parish ever reissues the logo, re-crop rather than eyeballing a new one.
+
+The parish logo is served from `assets/stjude/`, **never hotlinked** from their CDN — a hotlink
+breaks when they redeploy and reports every view of a private pool tool to their host. Parish and
+NFL marks are nominative use, identifying the pool and its games, and the banner says so in a
+permanent line. Same footing as [`assets/teams/NOTICE.md`](assets/teams/NOTICE.md): fine in a
+personal tool, not on anything sold, sponsored or advertised. **If this is ever actually handed to
+the club, get their sign-off on the logo use in writing first.**
+
 ## Odds Tab
 
 One week of market prices at a time, chosen with the same week selector Schedule and Recommend
@@ -1157,7 +1530,9 @@ data/
 ├── raw/entries-<year>-w<NN>.json   ← per-entrant cards, from parse_pool_picks.py
 ├── popularity/pop-<year>-w<NN>.json ← aggregate pick %, from parse_pool_picks.py
 ├── survivor-<year>.json            ← entries + weekly pick %, from parse_survivor.py
+├── squares-<year>.json             ← squares pools: board, weekly draws, frozen results (HAND-MAINTAINED)
 ├── teams/team-identity.json        ← palettes + uniforms + mark paths, from build_team_identity.py
+├── teams/logo-trim.json            ← visible-artwork bbox per mark, from measure_logo_trim.py
 └── odds/
     ├── current.json                ← latest snapshot, from fetch_odds.py
     ├── quota.json                  ← Odds API requests remaining
@@ -1167,7 +1542,15 @@ assets/teams/
 ├── logos/<ABBR>.png                ← 500×500 primary logo
 ├── wordmarks/<ABBR>.png            ← team name, single ink
 └── NOTICE.md                       ← provenance + trademark terms. Read before reusing.
+
+assets/stjude/
+├── saint-jude-parish.png           ← the full parish lockup, self-hosted (banner)
+└── saint-jude-emblem.png           ← cross + sunburst only, cropped from it (board corner)
 ```
+
+`data/squares-<year>.json` is the only feed here with **no generator script**, and that is not an
+omission: the 100 names arrive as an emailed sheet and each week's ten-and-ten draw arrives as a
+photo of a board. There is no API for either.
 
 Straight-up and survivor *tracking* (picks marked correct/incorrect, running totals) is still
 draft-only — no schema exists yet. Build it against real results once Week 1 is graded rather than
@@ -1220,6 +1603,7 @@ Three things about the data that are load-bearing:
 ```bash
 python scripts/build_team_identity.py     # clones upstream mirrors, writes data + 128 images
 python scripts/check_team_assets.py       # decodes all 64, fails on blank/missing artwork
+python scripts/measure_logo_trim.py       # artwork bboxes -> data/teams/logo-trim.json
 python scripts/fetch_team_assets.py logos --dry-run          # refresh from official CDNs
 python scripts/fetch_team_assets.py wordmarks --dry-run      # (no endpoint today — see the doc)
 ```

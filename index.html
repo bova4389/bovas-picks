@@ -10,8 +10,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260901b" />
+  <!-- Outfit is the site. Lato is St. Jude Indy's, and is loaded only
+       because the Squares tab is deliberately not in this site's look --
+       see the SQUARES block in css/styles.css. -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=20260908h" />
 </head>
 <body>
 
@@ -98,12 +101,25 @@
       </div>
     </section>
 
+    <!-- ── Squares ────────────────────────────────────────────────────── -->
+    <section class="panel" id="panel-squares-board" role="tabpanel" hidden>
+      <div id="squares-root">
+        <p class="eyebrow">Loading</p>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-squares-season" role="tabpanel" hidden>
+      <div id="squares-season-root">
+        <p class="eyebrow">Loading</p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="wrap">
     Personal tool. Picks are emailed manually — this only builds and checks the message.
   </footer>
 
-  <script type="module" src="js/app.js?v=20260901b"></script>
+  <script type="module" src="js/app.js?v=20260908h"></script>
 </body>
 </html>

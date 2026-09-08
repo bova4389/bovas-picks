@@ -99,6 +99,13 @@ function merge(base, live) {
 
     period: live?.period ?? 0,
     clock: live?.clock ?? null,
+
+    // Live-only, and deliberately not faked from the committed file: the
+    // schedule stores final scores with no period breakdown, so a week that
+    // ESPN can't serve has no quarter detail at all rather than a plausible
+    // guess at one. Empty arrays, never nulls, so callers can index freely.
+    awayLine: live?.awayLine ?? [],
+    homeLine: live?.homeLine ?? [],
     detail: live?.detail ?? null,
     broadcast: live?.broadcast ?? null,
 

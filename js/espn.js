@@ -101,6 +101,13 @@ function normalise(ev) {
     awayScore,
     homeScore,
 
+    // Points scored IN each period, not the running score -- ESPN sends it
+    // this way and the Squares board is the only consumer that needs it, so
+    // the cumulative end-of-quarter figures are derived there rather than
+    // baked in here. See js/squaresModel.js periodScores().
+    awayLine: lineOf(sides.away),
+    homeLine: lineOf(sides.home),
+
     period: ev.status?.period ?? 0,
     clock: ev.status?.displayClock ?? null,
     // ESPN's own phrasing — "Final/OT", "Postponed", "8:42 - 3rd Quarter".
@@ -119,6 +126,19 @@ function normalise(ev) {
 function toScore(raw) {
   const n = Number(raw);
   return Number.isFinite(n) ? n : null;
+}
+
+/**
+ * One side's per-period points, or [] when ESPN hasn't sent them.
+ *
+ * Absent before kickoff and, occasionally, for a minute or two after it --
+ * the array simply grows a fifth entry if the game goes to overtime. Callers
+ * must treat a short or empty array as "that period hasn't been reported",
+ * never as "zero points scored", which is a real score.
+ */
+function lineOf(side) {
+  if (!Array.isArray(side.linescores)) return [];
+  return side.linescores.map((q) => toScore(q?.value)).filter((n) => n != null);
 }
 
 function abbrOf(side) {

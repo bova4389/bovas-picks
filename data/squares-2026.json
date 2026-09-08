@@ -1,0 +1,271 @@
+{
+  "season": 2026,
+  "pools": [
+    {
+      "id": "st-jude-mens-club",
+      "name": "St. Jude Men's Club",
+      "team": "IND",
+      "buyIn": 250,
+      "squareCount": 100,
+      "payoutPerQuarter": 275,
+      "periods": [
+        {
+          "key": "Q1",
+          "label": "End of 1st"
+        },
+        {
+          "key": "Q2",
+          "label": "Halftime"
+        },
+        {
+          "key": "Q3",
+          "label": "End of 3rd"
+        },
+        {
+          "key": "F",
+          "label": "Final"
+        }
+      ],
+      "overtime": "final",
+      "axisConfirmed": false,
+      "mine": [],
+      "entries": null,
+      "weeks": [
+        {
+          "week": 1,
+          "gameId": "401872659",
+          "away": "BAL",
+          "home": "IND",
+          "kickoff": "2026-09-13T17:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "BAL",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 2,
+          "gameId": "401872945",
+          "away": "IND",
+          "home": "KC",
+          "kickoff": "2026-09-21T00:20Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "KC",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 3,
+          "gameId": "401872951",
+          "away": "HOU",
+          "home": "IND",
+          "kickoff": "2026-09-27T17:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "HOU",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 4,
+          "gameId": "401872965",
+          "away": "IND",
+          "home": "WAS",
+          "kickoff": "2026-10-04T13:30Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "WAS",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 5,
+          "gameId": "401872985",
+          "away": "IND",
+          "home": "PIT",
+          "kickoff": "2026-10-11T17:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "PIT",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 6,
+          "gameId": "401873003",
+          "away": "TEN",
+          "home": "IND",
+          "kickoff": "2026-10-18T17:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "TEN",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 7,
+          "gameId": "401873014",
+          "away": "IND",
+          "home": "MIN",
+          "kickoff": "2026-10-25T17:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "MIN",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 8,
+          "gameId": "401873028",
+          "away": "IND",
+          "home": "JAC",
+          "kickoff": "2026-11-01T18:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "JAC",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 9,
+          "gameId": "401873040",
+          "away": "DAL",
+          "home": "IND",
+          "kickoff": "2026-11-08T18:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "DAL",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 10,
+          "gameId": "401873059",
+          "away": "MIA",
+          "home": "IND",
+          "kickoff": "2026-11-15T18:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "MIA",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 11,
+          "gameId": "401873066",
+          "away": "IND",
+          "home": "HOU",
+          "kickoff": "2026-11-20T01:15Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "HOU",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 12,
+          "gameId": "401873088",
+          "away": "NYG",
+          "home": "IND",
+          "kickoff": "2026-11-29T18:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "NYG",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 13,
+          "gameId": "401873108",
+          "away": "DAL",
+          "home": "SEA",
+          "kickoff": "2026-12-08T01:15Z",
+          "substitute": true,
+          "note": "Colts bye \u2014 Monday night game",
+          "colsTeam": "SEA",
+          "rowsTeam": "DAL",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 14,
+          "gameId": "401873114",
+          "away": "IND",
+          "home": "PHI",
+          "kickoff": "2026-12-13T18:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "PHI",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 15,
+          "gameId": "401873131",
+          "away": "IND",
+          "home": "TEN",
+          "kickoff": "2026-12-20T18:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "TEN",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 16,
+          "gameId": "401873145",
+          "away": "CIN",
+          "home": "IND",
+          "kickoff": "2026-12-27T05:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "CIN",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 17,
+          "gameId": "401873162",
+          "away": "IND",
+          "home": "CLE",
+          "kickoff": "2027-01-03T18:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "CLE",
+          "digits": null,
+          "result": null
+        },
+        {
+          "week": 18,
+          "gameId": "401873177",
+          "away": "JAC",
+          "home": "IND",
+          "kickoff": "2027-01-10T05:00Z",
+          "substitute": false,
+          "note": null,
+          "colsTeam": "IND",
+          "rowsTeam": "JAC",
+          "digits": null,
+          "result": null
+        }
+      ]
+    }
+  ]
+}

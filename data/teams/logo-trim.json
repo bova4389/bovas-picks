@@ -1,0 +1,165 @@
+{
+  "marks": {
+    "ARI": {
+      "canvas": 500,
+      "h": 436,
+      "w": 461
+    },
+    "ATL": {
+      "canvas": 500,
+      "h": 436,
+      "w": 460
+    },
+    "BAL": {
+      "canvas": 500,
+      "h": 222,
+      "w": 461
+    },
+    "BUF": {
+      "canvas": 500,
+      "h": 308,
+      "w": 461
+    },
+    "CAR": {
+      "canvas": 500,
+      "h": 248,
+      "w": 462
+    },
+    "CHI": {
+      "canvas": 500,
+      "h": 452,
+      "w": 460
+    },
+    "CIN": {
+      "canvas": 500,
+      "h": 324,
+      "w": 460
+    },
+    "CLE": {
+      "canvas": 500,
+      "h": 356,
+      "w": 460
+    },
+    "DAL": {
+      "canvas": 500,
+      "h": 436,
+      "w": 460
+    },
+    "DEN": {
+      "canvas": 500,
+      "h": 274,
+      "w": 460
+    },
+    "DET": {
+      "canvas": 500,
+      "h": 350,
+      "w": 461
+    },
+    "GB": {
+      "canvas": 500,
+      "h": 299,
+      "w": 461
+    },
+    "HOU": {
+      "canvas": 500,
+      "h": 418,
+      "w": 461
+    },
+    "IND": {
+      "canvas": 500,
+      "h": 462,
+      "w": 436
+    },
+    "JAC": {
+      "canvas": 500,
+      "h": 342,
+      "w": 462
+    },
+    "KC": {
+      "canvas": 500,
+      "h": 300,
+      "w": 461
+    },
+    "LAC": {
+      "canvas": 500,
+      "h": 206,
+      "w": 462
+    },
+    "LAR": {
+      "canvas": 500,
+      "h": 331,
+      "w": 460
+    },
+    "LV": {
+      "canvas": 500,
+      "h": 461,
+      "w": 439
+    },
+    "MIA": {
+      "canvas": 500,
+      "h": 368,
+      "w": 462
+    },
+    "MIN": {
+      "canvas": 500,
+      "h": 454,
+      "w": 366
+    },
+    "NE": {
+      "canvas": 500,
+      "h": 222,
+      "w": 462
+    },
+    "NO": {
+      "canvas": 500,
+      "h": 460,
+      "w": 376
+    },
+    "NYG": {
+      "canvas": 500,
+      "h": 358,
+      "w": 460
+    },
+    "NYJ": {
+      "canvas": 500,
+      "h": 288,
+      "w": 480
+    },
+    "PHI": {
+      "canvas": 500,
+      "h": 316,
+      "w": 461
+    },
+    "PIT": {
+      "canvas": 500,
+      "h": 462,
+      "w": 462
+    },
+    "SEA": {
+      "canvas": 500,
+      "h": 206,
+      "w": 462
+    },
+    "SF": {
+      "canvas": 500,
+      "h": 274,
+      "w": 462
+    },
+    "TB": {
+      "canvas": 500,
+      "h": 410,
+      "w": 462
+    },
+    "TEN": {
+      "canvas": 500,
+      "h": 460,
+      "w": 460
+    },
+    "WAS": {
+      "canvas": 500,
+      "h": 256,
+      "w": 462
+    }
+  },
+  "note": "Visible-artwork bounding box per team mark, in the source image's own pixels. Consumed by markBox() in js/teamIdentity.js to render marks at a consistent optical size. Regenerate with scripts/measure_logo_trim.py after any asset refresh."
+}

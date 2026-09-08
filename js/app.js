@@ -34,6 +34,8 @@ import { initOdds } from './odds.js';
 import { initRecommend } from './recommend.js';
 import { initPlanning } from './planning.js';
 import { initInfinityWar } from './infinityWar.js';
+import { initSquares } from './squares.js';
+import { initSquaresLedger } from './squaresLedger.js';
 
 /* ── The nav model ────────────────────────────────────────────────────────
    The single source of truth for both rows. index.html holds the panels; the
@@ -51,6 +53,8 @@ const PANELS = {
   infinity:  { label: 'Infinity War' },
   lookback:  { label: 'Lookback', soon: true },
   survivor:  { label: 'Planning' },
+  'squares-board':  { label: 'Board' },
+  'squares-season': { label: 'Season' },
 };
 
 const GROUPS = [
@@ -80,6 +84,30 @@ const GROUPS = [
     // -- the whole season at a glance -- and Planning is what you open once
     // you have a question about a specific week. Reference before answer.
     panels: ['grid', 'odds', 'survivor'],
+  },
+  {
+    id: 'squares',
+    label: 'Squares',
+    // A third KIND of game, which is what row 1 counts -- not a third league.
+    // Squares shares no vocabulary with either pick'em: nothing is picked,
+    // nothing is spent, and the only input is a pair of digits somebody else
+    // drew. Folding it into Season Long would put a game with no picks under a
+    // row whose every other view is about making them.
+    //
+    // Odds are deliberately absent. A moneyline says who wins; a squares
+    // payout turns on the last digit of a score, which no market here prices.
+    // Showing a favorite beside a board would imply a connection that is not
+    // there -- the one place on this site where "odds are not siloed" does not
+    // apply, because there are no relevant odds to un-silo.
+    panels: ['squares-board', 'squares-season'],
+
+    // THE ONLY GROUP THAT HIDES THE SITE'S OWN CHROME. Squares is built to be
+    // lifted out and handed back to the club, so on its panels the purple
+    // masthead and the underline row come off entirely and the club's own
+    // banner is the top of the page. Its navigation moves to a footer that
+    // js/squaresChrome.js renders in the club's style -- see `navigate`
+    // below for how that footer gets back here.
+    chromeOff: true,
   },
 ];
 
@@ -159,6 +187,12 @@ function show(groupId, panelId) {
   renderPanels();
   labelPanel();
 
+  // A class on <body>, not inline styles on two elements: the masthead and the
+  // subnav bar are the site's, and a tab has no business reaching up and
+  // editing them. This way the rule lives in the stylesheet next to the things
+  // it hides, and turning it off is one line here.
+  document.body.classList.toggle('chrome-off', group.chromeOff === true);
+
   // Two levels, so the hash carries both -- "#survivor/grid" and
   // "#season/grid" are the same panel reached from different rows, and a
   // reload should land back on the row you were actually using.
@@ -174,6 +208,19 @@ function show(groupId, panelId) {
     detail: { group: group.id, panel },
   }));
 }
+
+/**
+ * Navigation requested by a panel rather than by the nav rows.
+ *
+ * An event rather than an exported function, deliberately. app.js imports
+ * every tab, so a tab importing app.js back would be a cycle -- and this is
+ * the mirror of the `panelchange` event app.js already dispatches downward.
+ * One direction each way, no module knowing more than it has to.
+ */
+document.addEventListener('navigate', (e) => {
+  const { group, panel } = e.detail || {};
+  if (group) show(group, panel ?? lastPanel.get(group));
+});
 
 /* Delegated, because both rows are re-written on every selection and
    per-button listeners would be re-bound each time. */
@@ -248,3 +295,5 @@ initOdds(document.getElementById('odds-root'));
 initRecommend(document.getElementById('recommend-root'));
 initPlanning(document.getElementById('survivor-root'), SEASON);
 initInfinityWar(document.getElementById('infinity-root'), SEASON);
+initSquares(document.getElementById('squares-root'), SEASON);
+initSquaresLedger(document.getElementById('squares-season-root'), SEASON);

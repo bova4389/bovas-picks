@@ -151,6 +151,19 @@ a { color: var(--purple); }
 
 .mainnav { gap: 6px; padding-bottom: 22px; }
 
+/* The row has always been a horizontal scroller, which was invisible while
+   three pills fit a phone. Squares is the fourth, and at 375px it sits
+   entirely past the right edge with nothing to suggest it exists -- a tab you
+   cannot see is a tab you do not have. The mask fades the last pill instead
+   of clipping it, which is the only cue a hidden-scrollbar row can give.
+   Scoped to `.mainnav`: the second row still fits at every width. */
+@media (max-width: 560px) {
+  .mainnav {
+    -webkit-mask-image: linear-gradient(to right, #000 82%, rgba(0, 0, 0, .12));
+    mask-image: linear-gradient(to right, #000 82%, rgba(0, 0, 0, .12));
+  }
+}
+
 .maintab {
   flex: none;
   appearance: none;
@@ -227,6 +240,20 @@ a { color: var(--purple); }
    is the whole of why every heading sat jammed against the nav. */
 main.wrap { padding-top: 34px; padding-bottom: 96px; }
 .panel[hidden] { display: none; }
+
+/* Set by js/app.js from the active group's `chromeOff` flag. Squares is the
+   only group that uses it: those panels carry St. Jude's own banner and their
+   own footer nav, and the purple masthead sitting above that would make the
+   club's page look like a page ON somebody else's site rather than the club's
+   page. The site's own footer line goes too -- it talks about emailing picks,
+   which is not what this pool does. */
+body.chrome-off .masthead,
+body.chrome-off .subnav-bar,
+body.chrome-off > footer.wrap { display: none; }
+
+/* With the masthead gone there is nothing between the viewport edge and the
+   first card, so the page needs its own breathing room back. */
+body.chrome-off main.wrap { padding-top: 24px; }
 
 .card {
   background: var(--white);
@@ -2293,4 +2320,1190 @@ footer {
   .iw-dist { height: 76px; }
   .iw-swaps { font-size: .8125rem; }
   .iw-swaps th, .iw-swaps td { padding: 6px 6px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SQUARES — a self-contained theme, deliberately not this site's
+
+   EVERYTHING BELOW IS SCOPED UNDER `.sq-theme`, and that is the point rather
+   than tidiness. The rest of Bova's Picks is Grant Thornton purple, warm
+   neutrals, 20px radii and 200-weight display type. This tab is St. Jude
+   Indy's own house style — crimson, gold and charcoal on a cool white, set in
+   Lato, with near-square corners and solid color bars. The two look nothing
+   alike on purpose: the pool belongs to the club, and if this is ever lifted
+   out and handed back to them it should leave as their product, not as a
+   purple page with their logo dropped on top. Nothing in here may reference a
+   token from the site's `:root`, and no rule here may match outside
+   `.sq-theme` — that constraint is what makes the lift a copy rather than an
+   untangling.
+
+   PALETTE SAMPLED FROM stjudeindy.org, CONTRAST MEASURED, NOT EYEBALLED —
+   same bar the rest of the site holds, applied to somebody else's colors:
+
+     white on crimson #BE1F24 ......  6.16:1   the banner bar, buttons
+     crimson on white .............   6.16:1   headings, emphasis
+     charcoal #404041 on white ....  10.36:1   body copy
+     ink #333 on gold #D8A941 .....   5.82:1   gold chips carry DARK text
+     gold on white ................   2.17:1   FAILS
+
+   That last line is the load-bearing one: **gold is never type on white.** It
+   is a rule, a fill or a border, and where it must carry words the words are
+   `--sq-ink`. Their own site uses it exactly this way.
+
+   TEAM COLOR IS NOT PART OF THE THEME. The matchup card, the axis bands and
+   the digit headers still take their color from js/teamIdentity.js, because
+   those are the content — eighteen different opponents — while crimson and
+   gold are the chrome. Repainting the Colts in crimson would be the one thing
+   that made every week look the same.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sq-theme {
+  /* Brand, from stjudeindy.org */
+  --sq-crimson:      #BE1F24;
+  --sq-crimson-deep: #A80C0E;
+  --sq-crimson-wash: #FBEEEE;
+  --sq-gold:         #D8A941;
+  --sq-gold-wash:    #FBF3E1;
+  --sq-charcoal:     #404041;
+
+  /* Neutrals — cool, where the host site's are warm */
+  --sq-ink:      #333333;
+  --sq-ink-soft: #6A6A6B;
+  --sq-ink-faint:#939394;
+  --sq-line:     #DCDDDD;
+  --sq-paper:    #F1F2F2;
+  --sq-paper-2:  #E4E5E5;
+  --sq-white:    #FFFFFF;
+
+  /* Their site is square-shouldered. The host site's 20px radii are the
+     single most recognisable thing about it, so these stay small. */
+  --sq-r-lg: 6px;
+  --sq-r-md: 5px;
+  --sq-r-sm: 3px;
+
+  --sq-shadow: 0 1px 2px rgba(64, 64, 65, .10), 0 3px 10px rgba(64, 64, 65, .07);
+
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--sq-ink);
+}
+
+/* ── The banner ───────────────────────────────────────────────────────────
+   Their masthead exactly: a white plate carrying the logo, a gold hairline,
+   then a solid crimson bar. The logo art is crimson-and-gold on transparent,
+   so it MUST sit on white — reversing it onto the crimson bar loses the
+   wordmark entirely, which is the obvious-looking arrangement and the wrong
+   one. */
+
+.sq-banner {
+  margin: 0 0 24px;
+  border: 1px solid var(--sq-line);
+  border-radius: var(--sq-r-lg);
+  overflow: hidden;
+  background: var(--sq-white);
+  box-shadow: var(--sq-shadow);
+}
+
+.sq-banner-plate {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  padding: 18px 22px;
+  border-bottom: 3px solid var(--sq-gold);
+}
+.sq-banner-logo {
+  height: 58px; width: auto; max-width: 100%;
+  object-fit: contain;
+}
+.sq-banner-org {
+  text-align: right;
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--sq-ink-soft);
+  line-height: 1.7;
+}
+
+.sq-banner-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; flex-wrap: wrap;
+  padding: 13px 22px;
+  background: var(--sq-crimson);
+  color: var(--sq-white);
+}
+/* `.sq-theme .sq-banner-title`, not `.sq-banner-title`. The theme's own
+   `.sq-theme h2` rule sets every heading to charcoal and outranks a bare
+   class, so the title rendered at 1.68:1 on the crimson bar -- legible enough
+   in a thumbnail to pass a glance, and a contrast failure everywhere else. */
+.sq-theme .sq-banner-title {
+  margin: 0;
+  font-size: 1.0625rem; font-weight: 900;
+  letter-spacing: .04em; text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--sq-white);      /* 6.16:1 on --sq-crimson */
+}
+.sq-banner-sub {
+  font-size: .75rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--sq-white);
+  opacity: .82;
+}
+
+/* The attribution line. Small, permanent, and not optional — these are the
+   parish's marks used to label the parish's own pool, which is nominative
+   use, not a licence. Same footing as assets/teams/NOTICE.md. */
+.sq-banner-note {
+  padding: 8px 22px;
+  background: var(--sq-paper);
+  border-top: 1px solid var(--sq-line);
+  font-size: .6875rem;
+  line-height: 1.5;
+  color: var(--sq-ink-soft);
+}
+
+/* ── Host components, re-skinned inside the theme ─────────────────────── */
+
+.sq-theme .section-head { margin-bottom: 16px; }
+
+.sq-theme .eyebrow {
+  font-size: .6875rem; font-weight: 900;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--sq-crimson);
+}
+.sq-theme h2 {
+  font-family: inherit;
+  font-size: clamp(1.5rem, 4vw, 2.125rem);
+  font-weight: 900;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  color: var(--sq-charcoal);
+}
+.sq-theme h3 {
+  font-family: inherit;
+  font-size: 1.0625rem; font-weight: 900;
+  letter-spacing: .02em; text-transform: uppercase;
+  color: var(--sq-charcoal);
+}
+
+.sq-theme .card {
+  background: var(--sq-white);
+  border: 1px solid var(--sq-line);
+  border-radius: var(--sq-r-lg);
+  box-shadow: var(--sq-shadow);
+}
+
+.sq-theme .pill {
+  border-radius: var(--sq-r-sm);
+  font-weight: 900;
+  letter-spacing: .1em;
+  background: var(--sq-gold-wash);
+  color: #7A5B12;                 /* 5.68:1 on the wash — gold itself is 2.17 */
+  border: 1px solid var(--sq-gold);
+}
+.sq-theme .pill.ok {
+  background: var(--sq-crimson-wash);
+  color: var(--sq-crimson-deep);
+  border-color: var(--sq-crimson);
+}
+
+.sq-theme .btn {
+  border-radius: var(--sq-r-sm);
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: .8125rem;
+  background: var(--sq-crimson);
+  border-color: var(--sq-crimson);
+  color: var(--sq-white);
+}
+.sq-theme .btn:hover {
+  background: var(--sq-crimson-deep);
+  border-color: var(--sq-crimson-deep);
+}
+.sq-theme .btn-ghost {
+  background: transparent;
+  color: var(--sq-crimson);
+}
+.sq-theme .btn-ghost:hover {
+  background: var(--sq-crimson-wash);
+  color: var(--sq-crimson-deep);
+}
+.sq-theme .btn:focus-visible,
+.sq-theme .field select:focus-visible,
+.sq-theme .field input:focus-visible {
+  outline: 3px solid var(--sq-charcoal);
+  outline-offset: 2px;
+}
+
+.sq-theme .field label {
+  font-weight: 900;
+  letter-spacing: .12em;
+  color: var(--sq-ink-soft);
+}
+.sq-theme .field select,
+.sq-theme .field input {
+  border-radius: var(--sq-r-sm);
+  border-color: var(--sq-line);
+  color: var(--sq-ink);
+  font-family: inherit;
+}
+
+.sq-theme .notice {
+  border-radius: var(--sq-r-md);
+  border-left: 4px solid var(--sq-gold);
+  background: var(--sq-gold-wash);
+  color: var(--sq-ink);
+}
+.sq-theme .notice code {
+  background: var(--sq-white);
+  border: 1px solid var(--sq-line);
+}
+
+/* ── Controls ─────────────────────────────────────────────────────────── */
+
+/* `flex-start`, not the site's `flex-end`. The week picker and the refresh
+   button are both label-over-control, but only the button carries a timestamp
+   underneath — bottom-aligned, that extra line pushed the button a row below
+   the dropdown it sits beside. Aligning the tops means the two controls line
+   up on the thing you look at, and the hint hangs off the bottom where it
+   belongs. */
+.sq-controls { align-items: flex-start; }
+
+.sq-controls #sq-week { max-width: 100%; }
+
+/* Same 46px box as the select next to it, so the pair reads as one row. */
+.sq-refresh-field .btn {
+  min-height: 46px;
+  min-width: 128px;
+  padding: 11px 18px;
+}
+.sq-updated {
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--sq-ink-soft);
+  min-height: 1em;
+}
+
+/* No label of its own, so it needs the label's height to sit level. */
+.sq-sample-toggle { margin-top: 23px; }
+
+.sq-sample-toggle {
+  display: flex; align-items: center; gap: 9px;
+  min-height: 46px; padding: 0 4px;
+  font-size: .875rem; font-weight: 700;
+  color: var(--sq-ink-soft);
+  cursor: pointer;
+}
+.sq-sample-toggle input {
+  width: 20px; height: 20px;
+  accent-color: var(--sq-crimson);
+  cursor: pointer;
+}
+.sq-sample-toggle:hover { color: var(--sq-ink); }
+
+.sq-sample-banner {
+  margin: 0 0 18px;
+  padding: 13px 16px;
+  border: 1px dashed var(--sq-charcoal);
+  border-left: 4px solid var(--sq-charcoal);
+  border-radius: var(--sq-r-md);
+  background: var(--sq-paper);
+  color: var(--sq-ink);
+  font-size: .875rem;
+  line-height: 1.5;
+}
+
+.sq-section { margin-top: 30px; }
+
+/* ── The matchup ──────────────────────────────────────────────────────────
+   DELIBERATELY SHORT. This card sits between the banner and the board, and
+   every pixel of it is a pixel between the reader and the 100 squares they
+   came for. It was ~220px tall and is now ~132px: the marks came down, the
+   wordmark and logo share one line, and the score lost a size step it did not
+   need at this width.
+
+   Each panel sits on its own wash rather than on full-saturation brand,
+   because the wordmark art is single-ink in the team's own color and a
+   saturated panel renders it invisible. The saturated hex is spent on a 4px
+   cap instead, where nothing has to be legible on top of it. */
+
+.sq-matchup { padding: 0; overflow: hidden; margin: 0 0 16px; }
+
+.sq-matchup-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+}
+
+/* ALL THREE PANELS SHARE ONE ROW RHYTHM: identity, number, label. They used to
+   be three independent flex columns that each centred their own contents, which
+   is fine only while the contents happen to be the same height -- and they stopped
+   being the same height the moment marks started being sized per team
+   (see markBox()). A 38px Ravens shield against a 27px Colts horseshoe pushed
+   one column's score and axis pill lower than the other's, and the pills are
+   the thing the eye tracks across. Explicit rows mean the three panels cannot
+   drift apart again whatever goes in them. */
+.sq-matchup-grid > * {
+  display: grid;
+  grid-template-rows: 40px minmax(40px, 1fr) 22px;
+  align-items: center;
+  justify-items: center;
+  row-gap: 4px;
+}
+
+.sq-team {
+  padding: 12px 12px 11px;
+  background: var(--team-wash);
+  border-top: 4px solid var(--team);
+  text-align: center;
+  transition: opacity .2s;
+}
+/* A finished loser recedes rather than being struck through or greyed to an
+   unreadable value — the score still has to be legible, it just stops being
+   the thing your eye lands on first. */
+.sq-team.is-lost { opacity: .58; }
+
+.sq-team-id {
+  display: flex; align-items: center; justify-content: center;
+  gap: 9px; min-width: 0; max-width: 100%;
+  height: 100%;
+}
+/* Sized per team by markBox() — see the note on .sq-band-mark. No object-fit:
+   the width and height attributes are already square and so is the canvas. */
+.sq-team-logo { flex: none; }
+.sq-team-wordmark { max-height: 19px; max-width: 100%; width: auto; object-fit: contain; }
+.sq-team-name {
+  font-size: .9375rem; font-weight: 900;
+  letter-spacing: .02em; text-transform: uppercase;
+  color: var(--sq-charcoal);
+}
+
+.sq-team-score {
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.03em;
+  color: var(--sq-charcoal);
+  font-variant-numeric: tabular-nums;
+}
+.sq-team-score.is-leading { color: var(--team); font-weight: 700; }
+
+.sq-team-axis {
+  font-size: .5625rem; font-weight: 900;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 2px 9px; border-radius: var(--sq-r-sm);
+  background: var(--team); color: var(--team-ink);
+}
+
+/* Fixed width and one shape for all three states, so the card does not resize
+   under your thumb when a live poll lands. */
+.sq-matchup-mid {
+  padding: 12px 10px;
+  border-top: 4px solid var(--sq-line);
+  background: var(--sq-white);
+  width: 124px;
+}
+
+.sq-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-width: 46px; justify-content: center;
+  padding: 4px 11px;
+  border-radius: var(--sq-r-sm);
+  font-size: .875rem; font-weight: 900;
+  letter-spacing: .06em; text-transform: uppercase;
+  background: var(--sq-paper-2);
+  color: var(--sq-ink-soft);
+}
+.sq-badge.is-live { background: var(--sq-crimson); color: var(--sq-white); }
+.sq-badge.is-final { background: var(--sq-charcoal); color: var(--sq-white); }
+
+.sq-when {
+  font-size: .75rem; font-weight: 700;
+  color: var(--sq-ink-soft);
+  text-align: center; line-height: 1.25;
+  /* kickoffText() puts a real newline between the date and the time; without
+     this the column breaks the string wherever it happens to run out of room,
+     which orphaned "PM" onto its own line. */
+  white-space: pre-line;
+}
+/* The game clock is the number people read off this card mid-game. */
+.sq-when.is-clock {
+  font-size: 1rem; font-weight: 900;
+  color: var(--sq-charcoal);
+  font-variant-numeric: tabular-nums;
+}
+
+.sq-network {
+  font-size: .625rem; font-weight: 900;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid var(--sq-line);
+  border-radius: var(--sq-r-sm);
+  color: var(--sq-ink-soft);
+}
+/* Flex games genuinely have no network yet. Saying so is the point — it is
+   the cue to re-check, not a rendering failure. */
+.sq-network.is-tbd {
+  border-style: dashed;
+  color: var(--sq-ink-faint);
+}
+
+.sq-live-dot {
+  width: 7px; height: 7px; flex: none;
+  border-radius: 50%;
+  background: currentColor;
+  animation: sq-pulse 1.8s ease-in-out infinite;
+}
+@keyframes sq-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .3; transform: scale(.7); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sq-live-dot { animation: none; }
+}
+
+.sq-sub-note {
+  margin: 0;
+  padding: 10px 16px;
+  background: var(--sq-gold-wash);
+  border-top: 1px solid var(--sq-line);
+  color: var(--sq-ink);
+  font-size: .8125rem;
+  line-height: 1.5;
+}
+
+/* ── Your square ──────────────────────────────────────────────────────── */
+
+.sq-mine { padding: 20px; margin: 0 0 18px; }
+.sq-mine-card { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.sq-mine-digits { display: flex; align-items: center; gap: 10px; }
+
+.sq-digit-chip {
+  display: grid; place-items: center;
+  width: 62px; height: 62px;
+  border-radius: var(--sq-r-md);
+  background: var(--team); color: var(--team-ink);
+  font-size: 2rem; font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  box-shadow: var(--sq-shadow);
+}
+.sq-mine-x { font-size: 1.125rem; font-weight: 300; color: var(--sq-ink-faint); }
+
+.sq-mine-meta { flex: 1 1 260px; min-width: 0; }
+.sq-mine-line { margin: 0; font-size: .9375rem; line-height: 1.55; }
+.sq-mine-won {
+  margin: 8px 0 0;
+  font-size: .875rem; font-weight: 900;
+  letter-spacing: .02em;
+  color: var(--sq-crimson-deep);
+}
+
+.sq-outlook {
+  margin: 16px 0 0; padding: 14px 16px 12px;
+  border-radius: var(--sq-r-md);
+  background: var(--sq-paper);
+  font-size: .875rem;
+  line-height: 1.5;
+}
+.sq-outlook p { margin: 0; }
+.sq-outlook.is-on {
+  background: var(--sq-crimson-wash);
+  border-left: 4px solid var(--sq-crimson);
+  color: var(--sq-ink);
+}
+.sq-outlook-list {
+  margin: 8px 0 0; padding: 0;
+  list-style: none;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.sq-outlook-list li {
+  font-variant-numeric: tabular-nums;
+  color: var(--sq-ink-soft);
+}
+.sq-outlook-list strong { color: var(--sq-ink); }
+
+/* ── The board ────────────────────────────────────────────────────────────
+   THE TWO TEAM BANNERS ARE PART OF THE GRID, not cards floating above it.
+   They were two side-by-side cards in the first build, which put the team
+   labelled "down the side" along the top next to the one labelled "across the
+   top" -- a board that contradicted its own legend. Now `.sq-board-frame`
+   spans them: the column team runs the full width above the digits, the row
+   team runs the full height down the left, and the frame has no gap and no
+   padding anywhere, so each band's edge is the edge of the grid it names.
+
+   The frame is the *only* thing between the card and the grid. `.sq-board-card`
+   carries no padding for that reason -- any would reopen the seam.
+
+   IT SCROLLS RATHER THAN SHRINKING TO FIT. Ten name cells plus the digit axis
+   need ~660px; a 375px phone would give each cell 30px, which fits the layout
+   and loses the names -- and a board you cannot find your own name on has
+   failed at the only thing it does. So it scrolls sideways with the digit
+   column pinned. The side band sits OUTSIDE the scroller, so it stays put
+   while the board moves under it, and the "your square" card above carries the
+   answer for anyone who would rather not scroll at all. */
+
+.sq-board-card { padding: 0; overflow: hidden; }
+
+/* ONE THICKNESS FOR BOTH BANDS, held by a single custom property. They are
+   the same object seen twice, and eyeballing two numbers that must match is
+   how they stop matching. It also squares the corner cell, which is what lets
+   the parish emblem sit in it without distortion. */
+.sq-board-frame {
+  /* 50px, so the corner's inner box comes out at exactly 44px — the width of
+     the board's own digit column — once the 3px gutter is taken off each side.
+     At 56 the corner read as a slab parked beside the table rather than as the
+     table's own top-left cell. */
+  --band: 50px;
+  display: grid;
+  grid-template-columns: var(--band) minmax(0, 1fr);
+  grid-template-rows: var(--band) minmax(0, 1fr);
+}
+
+/* Each band starts AT the corner and stops. The top band used to run on over
+   the side band's column, which left the row team's mark jammed underneath the
+   column team's slab -- two teams overlapping in the one square that belongs
+   to neither of them. */
+/* Styled as a CELL, not as a panel: the same 3px gutter the board uses, the
+   same corner radius, and a border of its own — in St. Jude gold, which is the
+   one color on this page that belongs to neither team and so cannot be read as
+   either one's axis. That is what makes it sit in the table instead of beside
+   it. */
+.sq-board-corner {
+  grid-area: 1 / 1;
+  display: grid; place-items: center;
+  margin: 3px;
+  padding: 3px;
+  background: var(--sq-white);
+  border: 2px solid var(--sq-gold);
+  border-radius: var(--sq-r-sm);
+}
+.sq-board-corner img {
+  display: block;
+  max-width: 100%; max-height: 100%;
+  object-fit: contain;
+}
+
+.sq-band {
+  display: flex;
+  background: var(--team-wash);
+  color: var(--team-ink);
+}
+.sq-band-top {
+  grid-area: 1 / 2;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 10px;
+  border-top: 3px solid var(--team);
+}
+.sq-band-side {
+  grid-area: 2 / 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-left: 3px solid var(--team);
+}
+
+.sq-board-scroll {
+  grid-area: 2 / 2;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* A FIXED SLOT HOLDING A PER-TEAM IMAGE. The sizing happens in JS, via
+   markBox(), because it cannot be done in CSS at all: every logo is a 500x500
+   canvas but the artwork inside is not the same shape — the Steelers mark
+   fills 462x462 of it, the Seahawks 462x206 — and since the canvas is square,
+   `object-fit: contain` binds on the same dimension for all 32 whatever box
+   you give it. A wider box changes nothing. Only sizing the image itself does.
+   The slot is square and fixed so the band's height never depends on which
+   team is on screen. */
+.sq-band-mark {
+  display: grid; place-items: center;
+  width: 40px; height: 40px; flex: none;
+}
+
+/* AS BIG AS THE BAND WILL TAKE. The name is the band's whole job, so it gets
+   the leftover space (`flex: 1`) and a size that scales with the viewport;
+   the wide letter-spacing is what carries it across the full width on a short
+   name like Colts or Jets rather than leaving it huddled in the middle. */
+.sq-band-name {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  font-size: clamp(1.0625rem, 2.6vw, 1.625rem);
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* Bottom-to-top, the way a spine reads. `vertical-rl` alone runs it downward
+   and upside down relative to the board.
+
+   THE SAME SIZE AS THE TOP BAND, deliberately: these two are one object seen
+   twice, and the side band having its own smaller clamp made the row team look
+   like a subheading of the column team rather than its equal. */
+.sq-band-side .sq-band-name {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.sq-board {
+  display: grid;
+  grid-template-columns: 44px repeat(10, minmax(58px, 1fr));
+  gap: 3px;
+  padding: 3px;
+  min-width: 660px;
+}
+
+.sq-corner {
+  border-radius: var(--sq-r-sm);
+  background: var(--sq-paper-2);
+  position: sticky; left: 0; z-index: 3;
+}
+
+.sq-head {
+  display: grid; place-items: center;
+  min-height: 42px;
+  border-radius: var(--sq-r-sm);
+  font-size: 1.0625rem; font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+.sq-head-col { background: var(--cols-team); color: var(--cols-ink); }
+.sq-head-row {
+  background: var(--rows-team); color: var(--rows-ink);
+  position: sticky; left: 0; z-index: 2;
+}
+/* Before the draw the bands hold their place but stop pretending to hold a
+   number -- a "0" placeholder is a digit somebody would read off. */
+.sq-head.is-blank {
+  background: var(--sq-paper-2);
+  color: var(--sq-ink-faint);
+  font-weight: 400;
+}
+
+/* ── The three cell states ────────────────────────────────────────────────
+   A square can be all three at once: yours, one that took the half, and one
+   the score has just come back to. So each state gets a property of its own --
+   WASH for yours, BORDER for won, OUTLINE for live -- and any two of them can
+   render together without one silently winning. Sharing a property is how the
+   rarest and most interesting combination becomes the one you cannot see. */
+
+.sq-cell {
+  position: relative;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2px;
+  min-height: 58px;
+  padding: 4px 5px;
+  border: 1px solid var(--sq-line);
+  border-radius: var(--sq-r-sm);
+  background: var(--sq-white);
+  overflow: visible;
+}
+.sq-name {
+  font-size: .8125rem; font-weight: 700;
+  line-height: 1.2;
+  color: var(--sq-ink);
+  max-width: 100%;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* An empty board is the normal state until the club sends the sheet, so it is
+   drawn as a deliberate blank rather than left looking broken. */
+.sq-cell.is-empty {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--sq-white) 0 6px,
+    var(--sq-paper) 6px 12px
+  );
+  border-style: dashed;
+  border-color: var(--sq-paper-2);
+}
+
+/* YOURS — the wash. Crimson, because it is the club's color and this is the
+   one cell on the board that is about you rather than about the game. */
+.sq-cell.is-mine {
+  background: var(--sq-crimson-wash);
+  border-color: var(--sq-crimson);
+}
+.sq-cell.is-mine .sq-name { font-weight: 900; color: var(--sq-crimson-deep); }
+.sq-you {
+  font-size: .5625rem; font-weight: 900;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--sq-crimson-deep);
+}
+
+/* WON — the border. Gold and heavy, the only 3px border on the board. */
+.sq-cell.is-won {
+  border: 3px solid var(--sq-gold);
+  background: var(--sq-gold-wash);
+}
+.sq-cell.is-won .sq-name { color: var(--sq-ink); }
+/* Yours AND won keeps the gold border and says whose it is in the text, so the
+   best outcome on the board is not the one that loses its own marking. */
+.sq-cell.is-won.is-mine .sq-name { color: var(--sq-crimson-deep); font-weight: 900; }
+
+/* LIVE — the outline, which sits outside the border and so cannot collide with
+   it. Charcoal: the third club color, and the only one not already spoken for. */
+.sq-cell.is-live {
+  outline: 3px dashed var(--sq-charcoal);
+  outline-offset: 2px;
+  z-index: 1;
+  animation: sq-live-cell 2s ease-in-out infinite;
+}
+@keyframes sq-live-cell {
+  0%, 100% { outline-color: var(--sq-charcoal); }
+  50%      { outline-color: var(--sq-ink-faint); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sq-cell.is-live { animation: none; }
+}
+
+.sq-live-tag {
+  position: absolute; top: 3px; right: 4px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--sq-charcoal);
+}
+
+.sq-marks {
+  position: absolute; top: 3px; left: 3px;
+  display: flex; gap: 2px; flex-wrap: wrap;
+}
+.sq-mark {
+  font-size: .5625rem; font-weight: 900;
+  letter-spacing: .04em;
+  padding: 1px 5px; border-radius: var(--sq-r-sm);
+  background: var(--sq-gold); color: var(--sq-ink);
+}
+
+/* ── Legend ───────────────────────────────────────────────────────────── */
+
+.sq-legend {
+  display: flex; flex-wrap: wrap; gap: 8px 18px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--sq-line);
+  background: var(--sq-paper);
+}
+.sq-key {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--sq-ink-soft);
+}
+.sq-key::before {
+  content: "";
+  width: 15px; height: 15px; flex: none;
+  border-radius: 3px;
+}
+.sq-key-mine::before {
+  background: var(--sq-crimson-wash);
+  border: 1px solid var(--sq-crimson);
+}
+.sq-key-won::before { background: var(--sq-gold-wash); border: 3px solid var(--sq-gold); }
+.sq-key-live::before { background: var(--sq-white); border: 2px dashed var(--sq-charcoal); }
+
+.sq-board-empty {
+  margin: 0;
+  padding: 12px 16px;
+  border-top: 1px solid var(--sq-line);
+  font-size: .8125rem;
+  color: var(--sq-ink-soft);
+  text-align: center;
+}
+
+/* ── Payout cards ─────────────────────────────────────────────────────── */
+
+.sq-payouts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.sq-payout {
+  padding: 16px;
+  border: 1px solid var(--sq-line);
+  border-top: 4px solid var(--sq-line);
+  border-radius: var(--sq-r-md);
+  background: var(--sq-white);
+  text-align: center;
+}
+.sq-payout.is-pending { border-top-color: var(--sq-gold); }
+.sq-payout.is-graded { border-top-color: var(--sq-charcoal); }
+.sq-payout.is-mine {
+  border-top-color: var(--sq-crimson);
+  background: var(--sq-crimson-wash);
+  box-shadow: var(--sq-shadow);
+}
+.sq-payout .eyebrow { margin-bottom: 8px; }
+
+.sq-payout-score {
+  display: flex; align-items: baseline; justify-content: center; gap: 4px;
+  font-size: 1.75rem; font-weight: 300;
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--sq-charcoal);
+}
+.sq-payout-dash, .sq-payout-tbd { color: var(--sq-ink-faint); font-weight: 300; }
+
+.sq-payout-winner {
+  margin: 6px 0 0;
+  font-size: .8125rem; font-weight: 700;
+  color: var(--sq-ink-soft);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sq-payout.is-mine .sq-payout-winner { color: var(--sq-crimson-deep); }
+
+.sq-payout-money {
+  margin: 10px 0 0;
+  font-size: .9375rem; font-weight: 900;
+  color: var(--sq-charcoal);
+  font-variant-numeric: tabular-nums;
+}
+.sq-payout.is-mine .sq-payout-money { color: var(--sq-crimson-deep); }
+
+/* ── Footnotes ────────────────────────────────────────────────────────── */
+
+.sq-notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  padding: 22px;
+  margin-top: 30px;
+}
+.sq-note p:last-child {
+  margin: 0;
+  font-size: .875rem;
+  line-height: 1.6;
+  color: var(--sq-ink-soft);
+}
+.sq-note strong { color: var(--sq-ink); }
+
+/* ══ Season ledger ═════════════════════════════════════════════════════ */
+
+.sq-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.sq-stat { padding: 18px; border-top: 4px solid var(--sq-charcoal); }
+.sq-stat-value {
+  margin: 4px 0 0;
+  font-size: 1.875rem; font-weight: 900;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  color: var(--sq-charcoal);
+  font-variant-numeric: tabular-nums;
+}
+.sq-stat.is-up { border-top-color: var(--sq-crimson); }
+.sq-stat.is-up .sq-stat-value { color: var(--sq-crimson-deep); }
+.sq-stat.is-down .sq-stat-value { color: var(--sq-ink-soft); }
+.sq-stat-note {
+  margin: 6px 0 0;
+  font-size: .75rem;
+  line-height: 1.4;
+  color: var(--sq-ink-soft);
+}
+
+.sq-wk-card { padding: 6px; overflow: hidden; }
+.sq-wk-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.sq-wk-table { width: 100%; min-width: 620px; border-collapse: collapse; }
+.sq-wk-caption {
+  caption-side: bottom;
+  padding: 12px 12px 8px;
+  font-size: .75rem;
+  color: var(--sq-ink-soft);
+  text-align: left;
+}
+.sq-wk-table thead th {
+  padding: 12px 10px;
+  vertical-align: middle;
+  font-size: .625rem; font-weight: 900;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--sq-crimson);
+  text-align: center;
+  border-bottom: 2px solid var(--sq-crimson);
+}
+.sq-wk-table thead th:first-child { text-align: left; }
+
+.sq-wk-table tbody tr { border-bottom: 1px solid var(--sq-line); }
+.sq-wk-table tbody tr.is-current { background: var(--sq-gold-wash); }
+
+/* THE ROW HEADER IS A FLEX LINE INSIDE THE CELL, NOT FOUR INLINE ELEMENTS.
+   Inline children align on their baselines, which is only the same thing as
+   aligning them centre-to-centre while they are all the same height. They
+   stopped being the same height when the chips started sizing their marks per
+   team, so a 22px Ravens shield and a 15px Colts horseshoe put their two chips
+   at different heights — and the "No draw" pill, shorter than both, sat lower
+   again. Centre alignment on an explicit row fixes all of it at once.
+
+   The flex goes on an inner span, never on the `<th>`: `display: flex` on a
+   table cell takes it out of the table's internal layout. Same trap the Grid
+   tab documents for `.gteam-in`. */
+.sq-wk-head {
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 700;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.sq-wk-head-in {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+}
+.sq-wk-num {
+  display: grid; place-items: center;
+  width: 26px; height: 26px; flex: none;
+  border-radius: var(--sq-r-sm);
+  background: var(--sq-paper-2);
+  font-size: .8125rem; font-weight: 900;
+  color: var(--sq-ink-soft);
+}
+.sq-wk-table .is-current .sq-wk-num { background: var(--sq-crimson); color: var(--sq-white); }
+
+.sq-wk-teams { display: flex; align-items: center; gap: 6px; flex: none; }
+/* Washed, not saturated — see teamChip() in js/squaresLedger.js.
+
+   FIXED HEIGHT AND FIXED WIDTH, both load-bearing. The height stops a per-team
+   mark size from changing the chip's box. The width makes every chip identical
+   whether the abbreviation is two letters or three, which is what puts the "@"
+   and the flags that follow it at the same x on all eighteen rows — the column
+   alignment you can only see once you look down the table rather than across
+   one row of it. */
+.sq-wk-team {
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  height: 28px;
+  min-width: 74px;
+  padding: 0 8px 0 6px;
+  border-radius: var(--sq-r-sm);
+  background: var(--team-wash);
+  color: var(--team-ink);
+  border: 1px solid var(--team);
+  font-size: .6875rem; font-weight: 900; letter-spacing: .04em;
+}
+/* A fixed slot for a variable image — see markBox(). */
+.sq-wk-mark {
+  display: grid; place-items: center;
+  width: 22px; height: 22px; flex: none;
+}
+.sq-wk-mark img { flex: none; }
+.sq-wk-abbr { flex: none; }
+.sq-wk-at { font-size: .6875rem; color: var(--sq-ink-faint); flex: none; }
+
+.sq-wk-flag {
+  display: inline-flex; align-items: center; flex: none;
+  height: 22px;
+  padding: 0 8px; border-radius: var(--sq-r-sm);
+  background: var(--sq-gold-wash); color: #7A5B12;
+  border: 1px solid var(--sq-gold);
+  font-size: .625rem; font-weight: 900;
+  letter-spacing: .07em; text-transform: uppercase;
+}
+.sq-wk-flag.is-quiet {
+  background: var(--sq-paper-2); color: var(--sq-ink-soft);
+  border-color: var(--sq-line);
+}
+
+.sq-wk-cell {
+  padding: 8px 6px;
+  text-align: center;
+  vertical-align: middle;
+  min-width: 92px;
+}
+.sq-wk-key {
+  display: block;
+  font-size: .5625rem; font-weight: 900;
+  letter-spacing: .1em;
+  color: var(--sq-ink-faint);
+}
+.sq-wk-score {
+  display: block;
+  font-size: .9375rem; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--sq-charcoal);
+}
+.sq-wk-score.is-tbd { color: var(--sq-ink-faint); font-weight: 300; }
+.sq-wk-who {
+  display: block;
+  font-size: .6875rem;
+  color: var(--sq-ink-soft);
+  max-width: 96px; margin: 0 auto;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sq-wk-cell.is-mine { background: var(--sq-crimson-wash); border-radius: var(--sq-r-sm); }
+.sq-wk-cell.is-mine .sq-wk-score,
+.sq-wk-cell.is-mine .sq-wk-who { color: var(--sq-crimson-deep); font-weight: 900; }
+
+.sq-wk-money {
+  padding: 8px 12px;
+  text-align: right;
+  vertical-align: middle;
+  font-size: .9375rem; font-weight: 400;
+  color: var(--sq-ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.sq-wk-money.is-won { color: var(--sq-crimson-deep); font-weight: 900; }
+
+/* ── Leaderboard ──────────────────────────────────────────────────────── */
+
+.sq-lb { padding: 8px 6px; }
+.sq-lb-list { margin: 0; padding: 0; list-style: none; }
+.sq-lb-row {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--sq-line);
+}
+.sq-lb-row:last-child { border-bottom: 0; }
+.sq-lb-rank {
+  display: grid; place-items: center;
+  width: 24px; height: 24px;
+  border-radius: var(--sq-r-sm);
+  background: var(--sq-paper-2);
+  font-size: .75rem; font-weight: 900;
+  color: var(--sq-ink-soft);
+}
+.sq-lb-row:nth-child(1) .sq-lb-rank { background: var(--sq-crimson); color: var(--sq-white); }
+.sq-lb-row:nth-child(2) .sq-lb-rank,
+.sq-lb-row:nth-child(3) .sq-lb-rank { background: var(--sq-gold); color: var(--sq-ink); }
+
+.sq-lb-name {
+  font-weight: 700;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sq-lb-hits { font-size: .8125rem; color: var(--sq-ink-soft); }
+.sq-lb-money {
+  font-weight: 900;
+  color: var(--sq-charcoal);
+  font-variant-numeric: tabular-nums;
+  min-width: 72px; text-align: right;
+}
+
+/* ── Footer navigation ────────────────────────────────────────────────────
+   The two hidden rows, rebuilt in the club's colors. The pool's own views are
+   solid crimson because they are where you are; the way back to the rest of
+   the site is outlined, because it is a way out rather than a peer. Keeping
+   those two visually different is the whole reason this is two blocks and not
+   one row of five. */
+
+.sq-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 34px;
+  padding: 22px;
+  border: 1px solid var(--sq-line);
+  border-top: 3px solid var(--sq-gold);
+  border-radius: var(--sq-r-lg);
+  background: var(--sq-white);
+  box-shadow: var(--sq-shadow);
+}
+
+.sq-nav-label {
+  margin: 0 0 10px;
+  font-size: .625rem; font-weight: 900;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--sq-ink-soft);
+}
+
+.sq-nav-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.sq-nav-btn {
+  appearance: none;
+  font: inherit;
+  font-size: .8125rem; font-weight: 900;
+  letter-spacing: .05em; text-transform: uppercase;
+  min-height: 46px;
+  padding: 12px 18px;
+  border: 1.5px solid var(--sq-crimson);
+  border-radius: var(--sq-r-sm);
+  background: var(--sq-white);
+  color: var(--sq-crimson);
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.sq-nav-btn:hover {
+  background: var(--sq-crimson-wash);
+  border-color: var(--sq-crimson-deep);
+  color: var(--sq-crimson-deep);
+}
+.sq-nav-btn.is-active {
+  background: var(--sq-crimson);
+  border-color: var(--sq-crimson);
+  color: var(--sq-white);
+  cursor: default;
+}
+.sq-nav-btn.is-active:hover { background: var(--sq-crimson); color: var(--sq-white); }
+
+/* The way out is charcoal, not crimson: it leaves the club's pages, and
+   dressing it in the club's brand would say it does not. */
+.sq-nav-btn.is-host {
+  border-color: var(--sq-line);
+  color: var(--sq-charcoal);
+  font-weight: 700;
+}
+.sq-nav-btn.is-host:hover {
+  background: var(--sq-paper);
+  border-color: var(--sq-charcoal);
+  color: var(--sq-ink);
+}
+.sq-nav-btn:focus-visible {
+  outline: 3px solid var(--sq-charcoal);
+  outline-offset: 2px;
+}
+
+/* ── Phone ────────────────────────────────────────────────────────────────
+   The matchup keeps its three columns down to the smallest phone — stacking
+   it would put the two scores a screen apart, and a score comparison is the
+   one thing the card exists for. Only the padding and the marks come down. */
+@media (max-width: 560px) {
+  .sq-banner-plate { padding: 14px 16px; justify-content: center; }
+  .sq-banner-logo { height: 46px; }
+  .sq-banner-org { text-align: center; width: 100%; font-size: .625rem; }
+  .sq-banner-bar { padding: 11px 16px; }
+  .sq-banner-title { font-size: .9375rem; }
+  .sq-banner-note { padding: 8px 16px; }
+
+  .sq-matchup-mid { width: 84px; padding: 10px 6px; }
+  .sq-team { padding: 10px 6px 9px; gap: 4px; }
+  .sq-team-id { flex-direction: column; gap: 4px; }
+  .sq-team-logo { transform: scale(.82); transform-origin: center; }
+  .sq-team-wordmark { max-height: 15px; }
+  .sq-team-axis { font-size: .5rem; padding: 2px 6px; letter-spacing: .08em; }
+  .sq-badge { font-size: .75rem; padding: 3px 8px; min-width: 38px; }
+
+  .sq-digit-chip { width: 54px; height: 54px; font-size: 1.75rem; }
+  .sq-mine { padding: 16px; }
+  .sq-mine-card { gap: 14px; }
+
+  .sq-board-frame { --band: 44px; }
+  .sq-board-corner { padding: 2px; margin: 3px; }
+  .sq-band-top { padding: 0 6px; gap: 6px; }
+  .sq-band-side { padding: 6px 0; }
+  .sq-band-mark { width: 32px; height: 32px; }
+  .sq-band-name { letter-spacing: .1em; }
+
+  .sq-board { min-width: 604px; grid-template-columns: 40px repeat(10, minmax(54px, 1fr)); }
+  .sq-cell { min-height: 54px; }
+  .sq-name { font-size: .75rem; }
+  .sq-legend { gap: 6px 12px; padding: 10px 12px; }
+
+  .sq-payouts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sq-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* The controls stack one per row here, so the toggle no longer sits beside
+     a labelled control and the label-height offset is just dead space. */
+  .sq-sample-toggle { margin-top: 0; }
+
+  .sq-nav { gap: 20px; padding: 18px; }
+  .sq-nav-row { gap: 6px; }
+  .sq-nav-btn { flex: 1 1 auto; padding: 12px 12px; font-size: .75rem; }
 }
