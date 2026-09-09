@@ -1258,5 +1258,19 @@
   "vig": 0.0433,
   "bucket": 14,
   "fetchedAt": "2026-09-08T17:55:06.138427+00:00"
+ },
+ {
+  "id": "bec99e2f2b4c80e345731d69ee38d831",
+  "commenceTime": "2026-12-13T18:00:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Tampa Bay Buccaneers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7207,
+  "rawAwayProb": 0.3226,
+  "homeWinProb": 0.6908,
+  "awayWinProb": 0.3092,
+  "vig": 0.0433,
+  "bucket": 13,
+  "fetchedAt": "2026-09-09T17:50:05.219979+00:00"
  }
 ]
