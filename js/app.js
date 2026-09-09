@@ -34,6 +34,7 @@ import { initPickSheet } from './picksheet.js';
 import { initOdds } from './odds.js';
 import { initRecommend } from './recommend.js';
 import { initPlanning } from './planning.js';
+import { initWeekCard } from './weekCard.js';
 import { initInfinityWar } from './infinityWar.js';
 import { initSquares } from './squares.js';
 import { initSquaresLedger } from './squaresLedger.js';
@@ -54,6 +55,7 @@ const PANELS = {
   infinity:  { label: 'Infinity War' },
   lookback:  { label: 'Lookback', soon: true },
   survivor:  { label: 'Planning' },
+  picks:     { label: 'Picks' },
   'squares-board':  { label: 'Board' },
   'squares-season': { label: 'Season' },
 };
@@ -84,7 +86,12 @@ const GROUPS = [
     // Grid still leads, now that Planning is real: the Grid is the reference
     // -- the whole season at a glance -- and Planning is what you open once
     // you have a question about a specific week. Reference before answer.
-    panels: ['grid', 'odds', 'survivor'],
+    //
+    // Picks goes last because it is the OUTPUT: reference, then analysis, then
+    // the decision. It is also the one view in this row that ignores the pool
+    // switcher entirely -- it reads all four boards at once, which is a
+    // question none of the three before it can ask (see js/weekCard.js).
+    panels: ['grid', 'odds', 'survivor', 'picks'],
   },
   {
     id: 'squares',
@@ -354,6 +361,7 @@ function bootGatedTabs() {
   initOdds(document.getElementById('odds-root'));
   initRecommend(document.getElementById('recommend-root'));
   initPlanning(document.getElementById('survivor-root'), SEASON);
+  initWeekCard(document.getElementById('picks-root'), SEASON);
   initInfinityWar(document.getElementById('infinity-root'), SEASON);
 }
 

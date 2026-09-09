@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>weekCardModel — Week 1 2026 golden case</title>
+<style>
+  body { font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; margin: 24px; max-width: 900px; }
+  h1 { font-size: 18px; } h2 { font-size: 15px; margin-top: 28px; }
+  .pass { color: #0a7d28; } .fail { color: #b3121b; font-weight: 700; }
+  table { border-collapse: collapse; margin: 8px 0; }
+  td, th { border: 1px solid #ccc; padding: 3px 8px; text-align: left; }
+  #summary { font-size: 16px; font-weight: 700; padding: 8px 0; }
+</style>
+</head>
+<body>
+<h1>weekCardModel — Week 1 2026 golden case</h1>
+<p>Frozen odds snapshot <code>2026-09-08T17:55:06Z</code>, 9 books. Nothing spent in any pool.
+   Expected: <b>JAC / LAC / JAC / LAC</b>, exposure 2/2, DET held.</p>
+<div id="summary">running…</div>
+<div id="out"></div>
+
+<script type="module">
+import { buildGrid } from '../js/gridModel.js';
+import { LEAGUES } from '../js/survivorLeagues.js';
+import { buildWeekCard, candidatesFor, bookmakersIn, confidenceOf, diffCards } from '../js/weekCardModel.js';
+
+const out = document.getElementById('out');
+let passes = 0, fails = 0;
+
+const esc = (s) => String(s).replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
+function check(name, got, want) {
+  const ok = JSON.stringify(got) === JSON.stringify(want);
+  ok ? passes++ : fails++;
+  out.insertAdjacentHTML('beforeend',
+    `<div class="${ok ? 'pass' : 'fail'}">${ok ? 'PASS' : 'FAIL'} — ${esc(name)}`
+    + (ok ? '' : `<br>    got:  ${esc(JSON.stringify(got))}<br>    want: ${esc(JSON.stringify(want))}`)
+    + '</div>');
+}
+function note(html) { out.insertAdjacentHTML('beforeend', html); }
+const pct = (n) => (n == null ? '—' : (n * 100).toFixed(1) + '%');
+
+const j = (p) => fetch(p).then((r) => { if (!r.ok) throw new Error(`${p} → ${r.status}`); return r.json(); });
+
+const [schedule, projections, odds] = await Promise.all([
+  j('../data/schedule-2026.json'),
+  j('../data/projections-2026.json'),
+  j('fixtures/odds-2026-09-08.json'),
+]);
+
+const model = buildGrid({ schedule, projections, odds });
+const weeks = model.weeks;
+const WEEK = 1;
+
+/* ── The candidate set ──────────────────────────────────────────────────── */
+
+const books = bookmakersIn(odds);
+const cands = candidatesFor({ model, projections, week: WEEK, weeks, used: new Set(), books });
+
+note('<h2>Candidates (empty board)</h2><table><tr><th>team<th>p<th>gap<th>projNow<th>best left<th>fvCost<th>dead<th>books</tr>'
+  + cands.map((c) => `<tr><td>${c.team}<td>${pct(c.p)}<td>${pct(c.gap)}<td>${pct(c.projNow)}`
+      + `<td>w${c.bestWeek} ${pct(c.bestProb)}<td>${pct(c.fvCost)}<td>${c.deadWeight}<td>${c.books}</tr>`).join('')
+  + '</table>');
+
+check('exactly three candidates clear the floor with >=4 books',
+  cands.map((c) => c.team), ['LAC', 'JAC', 'DET']);
+check('LAC is the chalk at 80.7%', Math.round(cands[0].p * 1000) / 10, 80.7);
+check('JAC prices at 77.5%', Math.round(cands[1].p * 1000) / 10, 77.5);
+check('DET prices at 73.1%', Math.round(cands[2].p * 1000) / 10, 73.1);
+check('the gap the week turns on is 3.2 points', Math.round(cands[1].gap * 1000) / 10, 3.2);
+check('every candidate cites a >=4 book line', cands.every((c) => c.books >= 4), true);
+check('no candidate is priced from a projection',
+  cands.every((c) => Number.isFinite(c.p) && c.books >= 4), true);
+
+/* ── The card ───────────────────────────────────────────────────────────── */
+
+const boards = LEAGUES.map((league) => ({ league, used: new Set() }));
+const card = buildWeekCard({
+  model, projections, odds, week: WEEK, weeks, boards,
+  now: new Date('2026-09-08T18:00:00Z'),
+});
+
+const byId = new Map(card.picks.map((p) => [p.leagueId, p]));
+note('<h2>The card</h2><table><tr><th>pool<th>format<th>pick<th>p<th>gap<th>band<th>basis<th>swap</tr>'
+  + card.picks.map((p) => {
+      const L = LEAGUES.find((l) => l.id === p.leagueId);
+      return `<tr><td>${L.short}<td>${L.entrants}, ${L.lives} ${L.lives === 1 ? 'life' : 'lives'}`
+        + `<td><b>${p.pick ? p.pick.team : '—'}</b><td>${pct(p.pick?.p)}<td>${pct(p.pick?.gap)}`
+        + `<td>${pct(p.band)}<td>${p.basis ?? p.empty}`
+        + `<td>${p.swapped ? `${p.swapped.from.team}→${p.swapped.to.team} (${p.swapped.clause})` : '—'}</tr>`;
+    }).join('')
+  + '</table>');
+
+check("Mike's picks JAC", byId.get('mike').pick.team, 'JAC');
+check('Poop picks LAC', byId.get('sleeper').pick.team, 'LAC');
+check('Deadpool picks JAC', byId.get('deadpool').pick.team, 'JAC');
+check('East Orange picks LAC', byId.get('eastorange').pick.team, 'LAC');
+
+check("Mike's band is the full 5 points", byId.get('mike').band, 0.05);
+check('East Orange band is tightened to 2 points by potShare', byId.get('eastorange').band, 0.02);
+check('East Orange has no second option inside its band',
+  byId.get('eastorange').alternatives.length, 0);
+
+check('the Deadpool split is carried by future value, not by the gap',
+  byId.get('deadpool').swapped.clause, 'future-value');
+check('Poop keeps the chalk because it is the bigger pot',
+  byId.get('sleeper').swapped, null);
+check("Mike's is ranked on future value, leverage having no measured share",
+  byId.get('mike').basis, 'future-value');
+check('the small pools rank on win probability',
+  [byId.get('sleeper').basis, byId.get('deadpool').basis, byId.get('eastorange').basis],
+  ['win-probability', 'win-probability', 'win-probability']);
+
+/* ── Exposure ───────────────────────────────────────────────────────────── */
+
+const e = card.exposure;
+note(`<h2>Exposure</h2><p>${e.tickets} tickets across ${e.games} games — `
+  + `P(all lose) ${pct(e.pAllLose)}, P(one survives) ${pct(e.pAnySurvives)}. `
+  + `A single team everywhere would have been ${pct(e.pAllLoseIfSingle)}.</p>`);
+
+check('four tickets across two games', [e.tickets, e.games], [4, 2]);
+check('exposure reads 2/2', e.label, '2/2');
+check('P(all four lose) is ~4.3%', Math.round(e.pAllLose * 1000) / 10, 4.3);
+check('one team everywhere would have been ~19.3%', Math.round(e.pAllLoseIfSingle * 1000) / 10, 19.3);
+
+/* ── Held ───────────────────────────────────────────────────────────────── */
+
+note('<h2>Held</h2><table><tr><th>team<th>p<th>best left<th>fvCost<th>pools</tr>'
+  + card.held.map((h) => `<tr><td>${h.team}<td>${pct(h.p)}<td>w${h.bestWeek} ${pct(h.bestProb)}`
+      + `<td>${pct(h.fvCost)}<td>${h.pools.join(', ')}</tr>`).join('') + '</table>');
+
+check('DET is held, not spent', card.held.map((h) => h.team), ['DET']);
+check('DET is held in all four pools', card.held[0].pools.length, 4);
+check('DET is held because it has a better spot ahead', card.held[0].fvCost > 0, true);
+
+/* ── Rule 1: boards never union ─────────────────────────────────────────── */
+
+const spentLAC = LEAGUES.map((league) => ({
+  league,
+  used: league.id === 'sleeper' ? new Set(['LAC']) : new Set(),
+}));
+const card2 = buildWeekCard({
+  model, projections, odds, week: WEEK, weeks, boards: spentLAC,
+  now: new Date('2026-09-08T18:00:00Z'),
+});
+const by2 = new Map(card2.picks.map((p) => [p.leagueId, p]));
+check('spending LAC in Poop moves only Poop off it', by2.get('sleeper').pick.team, 'JAC');
+check('…and leaves East Orange on LAC (no union)', by2.get('eastorange').pick.team, 'LAC');
+check('…and re-bases the gap on Poop\'s own board', by2.get('sleeper').pick.gap, 0);
+
+/* ── Empty states ───────────────────────────────────────────────────────── */
+
+const allSpent = LEAGUES.map((league) => ({ league, used: new Set(['LAC', 'JAC', 'DET']) }));
+const card3 = buildWeekCard({
+  model, projections, odds, week: WEEK, weeks, boards: allSpent,
+  now: new Date('2026-09-08T18:00:00Z'),
+});
+check('a board with nothing above the floor says so explicitly',
+  card3.picks.map((p) => p.empty),
+  ['no-candidate', 'no-candidate', 'no-candidate', 'no-candidate']);
+check('…and recommends nothing rather than relaxing the floor',
+  card3.picks.every((p) => p.pick === null), true);
+
+/* ── Confidence + change detection ──────────────────────────────────────── */
+
+check('Tuesday is provisional', confidenceOf('2026-09-08T17:55:06Z', new Date('2026-09-08T18:00:00Z')).state, 'provisional');
+check('Thursday is firming', confidenceOf('2026-09-10T17:00:00Z', new Date('2026-09-10T18:00:00Z')).state, 'firming');
+check('Saturday is final', confidenceOf('2026-09-12T14:00:00Z', new Date('2026-09-12T14:00:00Z')).state, 'final');
+
+check('an unchanged card raises no banner', diffCards(card, card), null);
+const flipped = diffCards(card, card2);
+// Spending LAC in Poop cascades: Poop moves to JAC, and Deadpool -- which
+// only held JAC because it was splitting off Poop's LAC -- is free to take the
+// chalk back. Two flips, and both belong in the banner.
+check('a flipped recommendation is reported with its pool',
+  flipped.flips.map((f) => `${f.leagueId}:${f.from}->${f.to}`),
+  ['sleeper:LAC->JAC', 'deadpool:JAC->LAC']);
+check('the cascade leaves the two same-format pools still decorrelated',
+  by2.get('sleeper').pick.team !== by2.get('deadpool').pick.team, true);
+
+/* ── Done ───────────────────────────────────────────────────────────────── */
+
+const s = document.getElementById('summary');
+s.textContent = `${passes} passed, ${fails} failed`;
+s.className = fails ? 'fail' : 'pass';
+</script>
+</body>
+</html>

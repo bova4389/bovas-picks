@@ -2124,6 +2124,198 @@ footer {
 }
 
 /* ==========================================================================
+   SURVIVOR PICKS — the cross-pool week card  (js/weekCard.js)
+
+   Four pools side by side, which is the one layout decision here that carries
+   meaning: these are FOUR SEPARATE SUBMISSIONS, not one recommendation with
+   four notes on it, so they get four bounded cards rather than four rows of a
+   table. A table would invite reading down a column and treating the row as a
+   set, which is the exact mistake SURVIVOR-STRATEGY.md warns about ("do not
+   submit one set of picks across all four").
+
+   It reuses the Planning tab's vocabulary wholesale -- .planblock, .planrow,
+   .planrow-pct.is-market, .cost-* -- because the two tabs show the same two
+   probability scales and a market price must not look like one thing here and
+   another one row over. Only what is genuinely new to this tab gets a class.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── The confidence stamp ─────────────────────────────────────────────────
+   Shown always, gates nothing. The three states are distinguished by weight
+   and fill rather than by a traffic-light red/amber/green: none of them is an
+   error, and "Provisional" wearing a warning color would read as a fault in
+   the data rather than as an honest statement about the day of the week. */
+.wc-state {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+.wc-state.is-provisional {
+  background: var(--paper);
+  border-color: var(--line);
+  color: var(--ink-soft);
+}
+.wc-state.is-firming {
+  background: var(--purple-soft);
+  color: var(--violet-ink);
+}
+/* Saturday. The one state that says "act on this", so it is the only one that
+   takes the brand field. */
+.wc-state.is-final {
+  background: var(--purple);
+  color: var(--white);
+}
+
+/* ── The change banner ────────────────────────────────────────────────────
+   Violet, not amber: a flipped recommendation is news, not a warning, and the
+   amber/red pair is spent on the season audit's genuine faults. If this ever
+   looked like an error banner people would learn to dismiss it, and it is the
+   single most valuable thing on the tab. */
+.wc-changed {
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--violet);
+  border-left-width: 4px;
+  border-radius: var(--r-md);
+  background: var(--purple-soft);
+  color: var(--violet-ink);
+  font-size: .875rem;
+}
+.wc-changed ul { margin: 8px 0 0; padding-left: 18px; }
+.wc-changed li { margin: 3px 0; }
+
+/* ── The four pool cards ──────────────────────────────────────────────────
+   auto-fit, not a fixed four: at 235 entries Mike's card carries the longest
+   reason line on the tab, and forcing four across a laptop squeezes it to a
+   column of single words. Two-up on a tablet, one-up on a phone. */
+.wc-pools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+  gap: 12px;
+}
+.wc-pool {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--white);
+}
+.wc-pool.is-empty { background: var(--paper); }
+
+.wc-pool-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.wc-pool-head b { font-size: .9375rem; font-weight: 600; }
+.wc-pool-head span { font-size: .75rem; color: var(--ink-quiet); }
+
+.wc-pick { margin: 0; display: flex; flex-direction: column; gap: 2px; }
+.wc-pick b { font-size: 1.25rem; font-weight: 600; line-height: 1.2; }
+.wc-opp { font-size: .8125rem; color: var(--ink-soft); }
+
+.wc-price {
+  margin: 6px 0 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+/* Three facts, always the same three, always in the same order -- so two pool
+   cards can be compared by eye without reading the labels twice. */
+.wc-facts { margin: 0 0 10px; display: grid; gap: 6px; }
+.wc-facts > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  font-size: .8125rem;
+}
+.wc-facts dt {
+  color: var(--ink-quiet);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: .6875rem;
+}
+.wc-facts dd { margin: 0; font-weight: 600; color: var(--ink); text-align: right; }
+.wc-facts dd.is-dear { color: var(--dog-ink); }
+.wc-facts dd.is-free { color: var(--teal-ink); }
+
+/* Measured beats modeled, and the two must never look alike -- same dotted
+   underline a modeled probability wears on the Grid and on Planning. */
+.wc-share.is-measured { color: var(--fav-ink); }
+.wc-share.is-modeled {
+  color: var(--ink-soft);
+  border-bottom: 1px dotted var(--ink-faint);
+}
+
+.wc-why {
+  margin: auto 0 0;
+  padding-top: 10px;
+  font-size: .75rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.wc-empty { margin: 0 0 8px; font-size: .875rem; font-weight: 600; color: var(--ink); }
+
+/* The two cross-pool notes. Rust for a split (this pool is deliberately NOT
+   on the chalk), teal for a shared pick (correlation you are carrying on
+   purpose) -- the same fav/dog axis the rest of the site colors prices on. */
+.wc-swap,
+.wc-shared {
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  border-radius: var(--r-sm);
+  font-size: .75rem;
+  line-height: 1.5;
+}
+.wc-swap { background: var(--dog-soft); color: var(--dog-ink); }
+.wc-shared { background: var(--purple-soft); color: var(--violet-ink); }
+
+/* ── Exposure ─────────────────────────────────────────────────────────────*/
+
+.wc-exp-teams { margin: 0; font-size: .875rem; font-weight: 600; }
+.wc-exp-p { margin: 2px 0; font-size: 1.375rem; font-weight: 600; color: var(--fav-ink); }
+.wc-exp-pools { margin: 0; font-size: .75rem; color: var(--ink-quiet); }
+.wc-exp-line { margin: 14px 0 0; font-size: .875rem; color: var(--ink); }
+
+/* ── The log ──────────────────────────────────────────────────────────────*/
+
+.wc-logbar { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.wc-copied { font-size: .8125rem; font-weight: 600; color: var(--teal-ink); }
+
+.wc-json {
+  margin: 0;
+  padding: 12px 14px;
+  max-height: 260px;
+  overflow: auto;                /* its own scroller -- the page never scrolls sideways */
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--paper);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .75rem;
+  line-height: 1.5;
+  color: var(--ink);
+  white-space: pre;
+}
+
+/* ── Phone ────────────────────────────────────────────────────────────────
+   Same constraint as Planning: this gets read on a phone on Saturday morning,
+   which is the one moment the card is Final and the one moment it matters. */
+@media (max-width: 520px) {
+  .wc-pools { grid-template-columns: 1fr; }
+  .wc-pick b { font-size: 1.125rem; }
+  .wc-json { font-size: .6875rem; }
+}
+
+/* ==========================================================================
    Infinity War — the pick-eight tab
    ========================================================================== */
 

@@ -10,8 +10,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   repo per the workspace convention (see workspace `CLAUDE.md` Git Setup). Pushed since 2026-08-11.
 - **Hosting**: **GitHub Pages, live** at `https://bova4389.github.io/bovas-picks/` (enabled
   2026-08-11), deploying from `main`. See GitHub Setup below.
-- **Status**: Schedule, Grid, Pick Sheet, Odds, Recommend, Planning, Infinity War and Squares
-  tabs are functional.
+- **Status**: Schedule, Grid, Pick Sheet, Odds, Recommend, Planning, Picks, Infinity War and
+  Squares tabs are functional.
   **Lookback is the only "Soon" panel left**, and it is genuinely blocked rather than unstarted:
   it needs per-entrant weekly cards and the only ones parsed are 2025 Week 1. It un-stubs when the
   commissioner's workbooks start arriving, not before.
@@ -128,6 +128,8 @@ js/odds.js          Odds tab — one week of market prices, reads data/odds/
 js/recommend.js     Recommend tab — leverage = win prob ÷ pick share, per STRATEGY.md §4
 js/planModel.js     SHARED — survivor planning math, pure data              [NEVER versioned]
 js/planning.js      Planning tab — spend now or hold, per SURVIVOR-STRATEGY.md §1
+js/weekCardModel.js SHARED — the cross-pool week card, pure data          [NEVER versioned]
+js/weekCard.js      Picks tab — one pick per pool, all four at once
 js/infinityModel.js SHARED — the pick-eight math, pure data                 [NEVER versioned]
 js/infinityFeed.js  SHARED — pick'em-shaped Sleeper read                    [NEVER versioned]
 js/infinityWar.js   Infinity War tab — pick 8 of the slate, small field
@@ -147,7 +149,7 @@ The site covers **two different games**, so the nav says so. `js/app.js` holds a
 |---|---|
 | **Schedule** | *(none — it belongs to neither pool and is read from both)* |
 | **Season Long** | Pick Sheet · Odds · Recommend · Infinity War · Lookback |
-| **Survivor** | Grid · Odds · Planning |
+| **Survivor** | Grid · Odds · Planning · Picks |
 | **Squares** | Board · Season |
 
 Rules that keep this from rotting:
@@ -741,9 +743,140 @@ Three consequences, all of them corrections waiting to happen:
   (`fieldAvailability()` / `scarcityFor()`), so this is the natural next addition — but it needs a
   live field, which in preseason is empty.
 
+## Picks Tab — The Cross-Pool Week Card
+
+Built 2026-09-09. `js/weekCard.js` (render) over `js/weekCardModel.js` (pure math), the same
+split as `grid.js` / `gridModel.js`. It reads the **same** matrix from `buildGrid()` the Grid
+paints and leans on `js/planModel.js` rather than re-deriving future value, so no survivor tab
+can disagree with another about a game.
+
+It answers the one question the site could not ask:
+
+> "Given four pools with four different formats and four different used-team boards, what do I
+> submit in each one this week, and am I over-exposed to a single game?"
+
+### It ignores the pool switcher, deliberately — do not add one
+
+Every other survivor view is scoped to `activePool()`. This one reads all four boards in a single
+pass, and a switcher here would collapse it back into Planning with extra steps while leaving the
+cross-pool exposure line — the only thing on this site that answers "am I about to lose
+everything on one game" — with nothing to measure. **Changing the pool on the Grid or Planning
+does not change this tab.** That is the design, not an oversight.
+
+`boards()` builds one used-set per league from that league's own `loadLeagueState()`. **Never
+union them.** A union silently removes teams that are still perfectly spendable in three of the
+four pools, and it looks right.
+
+### The three scale rules, which every number here obeys
+
+Same compression limit as Planning (SURVIVOR-STRATEGY.md §4), stated as rules because this file
+has more chances to break them:
+
+1. **`gap` is market minus market. `fvCost` is projection minus projection.** There is
+   deliberately **no expression that combines them** — there is no honest exchange rate between
+   the two scales, which is exactly why the cross-pool swap below is two separate clauses rather
+   than one tidy EV formula. A tidy formula would be a confident, plausible, meaningless number.
+2. **The 0.70 floor is a market test only**, never applied to a projection.
+3. **A projection is never printed as a probability.**
+
+**`bookmakerCount >= 4` is load-bearing, and it is why this tab cannot look ahead on the market
+scale at all.** `data/odds/current.json` carries all 272 games, and reading that as "the season is
+priced" is the trap: measured 2026-09-09, only the current week has a market — **16 events at 9
+books, and all 254 others at exactly one book.** One book is an opinion, not a market
+(SURVIVOR-STRATEGY.md §4). So future value is measured on projections and nowhere else.
+
+### Selection is a property of the pool, not a setting
+
+| Pool shape | Ranked by | Why |
+|---|---|---|
+| One life, 100+ entries (Mike's) | leverage where a **measured** share exists; otherwise future value inside the band | runs to Week 10+, so future value is the second pillar, not a tie-break |
+| Three lives, few entries (Poop, Deadpool, East Orange) | win probability, future value as the tie-break | §2: too few rivals for a fade to buy anything |
+
+**A modeled pick share cannot produce a contrarian pick, and the tab says so rather than
+pretending otherwise.** `shareFor()` is monotone in `p` above ~0.71, so `leverageFor(p,
+shareFor(p))` is monotone there too and its argmax is *always* the chalk — leverage computed from
+a modeled share only re-derives the favorite and dresses it up as analysis. That is not a fault in
+`js/pickShare.js`, whose header says plainly the measured numbers arrive after kickoff; it means
+the Mike's branch must fall through to future value and label itself `future-value`, which is what
+it does. **The moment a real `data/popularity/pop-<year>-w<NN>.json` lands, the branch flips to
+`leverage` on its own.**
+
+**Bands come off `economics.potShare`, never a league id.** Five points in a full-pot pool, two in
+East Orange, because a buy-back there is ~8% of the *playable* pot against ~1% in Poop and
+Deadpool. If East Orange grows, or another half-pot pool is added, the rule follows the economics.
+
+### The cross-pool layer — the part that exists nowhere else
+
+Duplicated picks are detected between **same-format** pools only (`formatKey()` — lives, potShare,
+entry, buyback). Poop and Deadpool are identical; Mike's is a different game and so is East
+Orange, so a pick shared with either of those is not the duplicate this layer means.
+
+**The bigger pot keeps the better team.** If one of the two tickets is going to carry slightly
+less win probability, it should be the one playing for less money.
+
+Two clauses, each confined to one scale, either sufficient:
+
+- **`near-free`** (market) — the two candidates are within `SPLIT_BAND` (3 pts), so the split
+  costs almost nothing and roughly quarters the joint-wipeout probability.
+- **`future-value` / `dead-weight`** (projection) — the alternative is at least `FV_EDGE` (2 pts)
+  cheaper to spend, or has no better spot left at all. Capped by the pool's band, which is what
+  implements §4.4's "at 6+ points, win probability dominates".
+
+**`FV_EDGE` is a chosen threshold and the Week 1 2026 case sits 0.2 points inside it** — the
+clause fires at 0.02 and would not at 0.03. That is the honest shape of that particular week
+rather than a flaw in the number, and it is precisely why change detection exists.
+
+`exposureOf()` counts by **game, not by team**, so two pools on different teams in the same game
+would be caught rather than counted as diversified. `pAllLose` multiplies as independent events,
+which they are not, and is **labeled** rather than adjusted by a fudge factor that would look more
+careful and be less true.
+
+### Confidence is shown always and gates nothing
+
+Provisional (Sun–Wed) → Firming (Thu–Fri) → Final (Sat), tracking the odds workflow's own cadence.
+**Hiding the card until Saturday would be worse than showing a labeled draft**: Mike's locks at
+midnight Saturday and §2 confirms there is no late-information edge to wait for, so Saturday
+morning is the decision point and everything earlier is an honest draft.
+
+The three states are distinguished by weight and fill, **not** by a red/amber/green — none of them
+is an error, and "Provisional" in a warning color would read as a fault in the data rather than as
+a statement about the day of the week.
+
+### The change banner earns the feature's keep
+
+The card recomputes on every render and diffs against `survivor:card:<season>:<week>` in
+localStorage. **Only a changed recommendation raises a banner** — a price that drifted a tenth of
+a point is not news, and a banner firing every three hours is one nobody reads by Week 3, which
+would cost exactly the week it mattered. The stored copy holds the card's *shape* only, so
+changing a threshold cannot read as a recommendation flip on the next load.
+
+### The log, and the Lookback tie-in
+
+SURVIVOR-STRATEGY.md §6 step 7 asked for this and nothing implemented it. Each week's card reduces
+to a record — pool, team, price, gap, future cost, share, reason code, teams left — held in
+localStorage and copied by hand into **`data/survivor-log-<year>.json`**.
+
+The paste is a deliberate two-step, not a gap: the site is static with no backend, and a button
+that wrote only to localStorage would lose the season the first time a browser was cleared.
+Committed entries win for any week earlier than the current one; localStorage wins for the week in
+play. **This is the input the Lookback tab has been blocked on.**
+
+### Tests
+
+`test/weekcard.test.html` runs the model in the browser against
+`test/fixtures/odds-2026-09-08.json` — a frozen 272-event snapshot reassembled from
+`data/odds/history/`, so the golden case cannot drift as the live feed moves. 36 assertions; open
+it on the dev server. There is no node in this environment and no build step, so the test is a
+page rather than a runner — same reasoning as `assets-review.html`.
+
+**The golden case is Week 1 2026**: LAC 80.7 / JAC 77.5 / DET 73.1 are the only three clearing the
+floor at 4+ books, and the expected card is **JAC / LAC / JAC / LAC** with 2/2 exposure and DET
+*held*. If a change makes DET spendable, or collapses the exposure to 1/1, the change is wrong.
+
 ## Sleeper Pools — Live Feed
 
-**Three survivor pools** (`Poop 2026` 18 entries, `Deadpool`, `East Orange Squeeze` 8) plus the
+**Three survivor pools** (`Poop 2026` 29 entries, `Deadpool` 20, `East Orange Squeeze` 8 —
+roster counts re-read 2026-09-09) plus the
 **Infinity War** pick'em are fetched straight from Sleeper by a **Refresh from Sleeper** button —
 on the Grid tab for the survivor pools, in the tab itself for Infinity War. No script, no
 workflow, no committed file: the browser calls Sleeper and caches the answer in localStorage.
