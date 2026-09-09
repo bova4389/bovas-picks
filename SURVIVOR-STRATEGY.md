@@ -18,36 +18,55 @@ Orange Squeeze were added 2026-09-01 and are real.
 
 | | **Mike's Suicide League** | **Poop 2026** | **Deadpool** | **East Orange Squeeze** |
 |---|---|---|---|---|
-| Entries | **235** (2025 Wk 1) | **18** | **1 so far** | **8 so far** |
+| Entries | **235** (2025 Wk 1) | **29** | **20** | **8** |
 | Lives | **1 — one loss and out** | 3 (2 buy-backs) | 3 (2 buy-backs) | 3 (2 buy-backs) |
 | Submission | Same email as the pickem, **as a team name** | In-app | In-app | In-app |
 | Deadline | **Midnight Sat** (6pm before a Wed/Thu game) | In-app | In-app | In-app |
-| Entry / buy-back | — (one life) | $30–50 / $15–25 | **$30 / $15** | **$25 / $15** |
+| Entry / buy-back | — (one life) | **$30 / $15** | **$30 / $15** | **$25 / $15** |
 | Pot played for | all | all | all | **half — the rest to charity** |
 | Field data | Full weekly spreadsheet | **Live from Sleeper** | **Live from Sleeper** | **Live from Sleeper** |
 | Strategy driver | **Leverage + future value** | Survival + future value | same | **see the half-pot note** |
 
-**Deadpool and Poop are the two played hardest**, and they are the same game at different sizes.
-East Orange is a charity pool and is the odd one out on economics, below. Entry counts are
-snapshots — the live pools report their real size on every refresh, and Deadpool had only my
-entry in it the day it was added.
+**Deadpool and Poop are the two played hardest**, and they are the same game at different sizes
+on *identical* terms — $30 in, $15 a buy-back, three lives, full pot in both (confirmed
+2026-09-09). That is not a footnote: it is what makes a duplicate pick across the two a single
+correlated bet rather than two independent ones, which is the whole subject of the Picks tab.
+East Orange is a charity pool and is the odd one out on economics, below.
+
+**The three live counts above were re-read from Sleeper on 2026-09-09** and are roster counts —
+an entry is a roster, and a user holding two entries is two rosters. They are still snapshots:
+the live pools report their real size on every refresh, and both of the numbers this table
+carried before (Poop 18, Deadpool 1) were simply the day each pool was added.
 
 ### East Orange's half pot changes its buy-back maths, and not by a little
 
-§2 "Settled: play the aggressive line" rests on a buy-back costing **~2% of the pot**, which makes
+§2 "Settled: play the aggressive line" rests on a buy-back costing **~1% of the pot**, which makes
 aggression a rounding error. That arithmetic does not survive contact with a pool that only plays
 for half its money.
 
-At 8 entries and $25 in, the pot is ~$200 and **~$100 of it is actually winnable**. A $15
-buy-back is therefore **~15% of the playable pot** — not 2%. It is roughly *seven times* more
-expensive in real terms than the same buy-back in Deadpool, and it is 60% of a fresh entry rather
-than the "half an entry" the aggressive case assumes.
+At 8 entries and $25 in, the base pot is ~$200 and half of it is winnable. **But the base pot is
+the wrong denominator**, and pricing against it is what produced the "~15%" this section used to
+claim: buy-backs are revenue, they go into the same pot, and most of the field takes both. On the
+assumption used throughout this section — about three-quarters of the field buys back twice —
+that is another `8 × 0.75 × 2 × $15 ≈ $180`, for a pot of **~$380 and ~$190 winnable**.
+
+A $15 buy-back is therefore **~8% of the playable pot**, not 15% and not 2%. It is roughly *six
+to eight times* more expensive in real terms than the same buy-back in Poop or Deadpool, and it
+is 60% of a fresh entry rather than the "half an entry" the aggressive case assumes.
+
+The correction lowers the number and leaves the conclusion standing. Nothing below turns on 15
+versus 8; it turns on East Orange being most of an order of magnitude costlier than the other
+two, which it still is.
 
 **So play East Orange straighter than the other two.** Not conservatively for its own sake, but
 because the specific thing aggression buys — cheap extra attempts — is not cheap here. Hoarding
 elite teams still survives (that part never depended on the fee); treating elimination as a
 low-cost reset does not. If the pool fills out to 15–20 entries the ratio improves and this note
 should be recomputed rather than trusted.
+
+**The Picks tab drives this off `economics.potShare`, never off the league id** — so if East
+Orange grows, or another half-pot pool is added, the tighter band follows the economics instead
+of following a name.
 
 **`num_revives_allowed` from Sleeper is wrong in three different directions and gates nothing.**
 Poop reports 0, Deadpool reports 2, East Orange reports 10; the commissioners run re-entry by hand
@@ -173,18 +192,19 @@ The pool will run deep. With 235 entries, expect it to reach Week 10+ before it 
   the sheets, just a City or team name."* The numbers belong to the pickem pool alone. Both pools
   go out in one email; the format is in CLAUDE.md's Submission Format section.
 
-### The three app pools — Poop, Deadpool, East Orange — 8–20 entries, three lives
+### The three app pools — Poop, Deadpool, East Orange — 8–29 entries, three lives
 
 Genuinely different, in two ways that pull in opposite directions.
 
-**Ignore pick popularity almost entirely.** With 15–20 entries, the leverage term barely moves —
+**Ignore pick popularity almost entirely.** At 8–29 entries the leverage term barely moves —
 there simply aren't enough rivals for a fade to buy anything. **Play close to pure win
-probability, filtered by future value.** Chasing contrarian value in a 15-person pool is a pure
-cost.
+probability, filtered by future value.** Chasing contrarian value in a 20-person pool is a pure
+cost. This is the rule the Picks tab encodes: win probability leads in these three, and future
+value is the tie-break, where in Mike's pool that order is reversed.
 
 **But do not treat these as short pools.** The standard advice — small pools end early, so ignore
-future value — assumes one life each. With 2 buy-backs across ~18 entries, the pool holds roughly
-**50 lives**, so it will very likely run deep into the season. **Future value matters as much here
+future value — assumes one life each. With 2 buy-backs across 29 entries, Poop alone holds
+roughly **85 lives**, so it will very likely run deep into the season. **Future value matters as much here
 as in Mike's pool, possibly more.**
 
 **Lock timing may differ from Mike's pool — low priority, not worth chasing.** In-app survivor
@@ -212,27 +232,33 @@ and then declining to buy back — you paid the cost of the strategy and refused
 ### Settled: play the aggressive line in Poop and Deadpool
 
 **This settles Poop and Deadpool. East Orange is excluded** — its half pot makes a buy-back
-~15% of the winnable money rather than 2%, which is the one thing this argument rests on. See
+~8% of the winnable money rather than ~1%, which is the one thing this argument rests on. See
 "East Orange's half pot" above.
 
-The fees make this one-sided. Entry is **$30–50**, a buy-back is **$15–25** — roughly *half* an
-entry. Run it at midpoints with ~18 entrants:
+The fees make this one-sided. Entry is **$30**, a buy-back is **$15** — exactly *half* an entry,
+in both pools. These are the real terms, confirmed 2026-09-09; this section used to run on a
+"$30–50 / $15–25" range and its midpoints, and the true numbers make the case stronger rather
+than weaker. Run it on the counts of 2026-09-09, assuming about three-quarters of the field
+takes both buy-backs:
 
-| | |
-|---|---|
-| Base pot | 18 × $40 ≈ **$720** |
-| Buy-back revenue (cheap fee → many take it) | ~$300 |
-| Realistic pot | **~$1,000** |
-| Our maximum possible spend (entry + 2 buy-backs) | **$80** |
+| | **Poop (29)** | **Deadpool (20)** |
+|---|---|---|
+| Base pot | 29 × $30 = **$870** | 20 × $30 = **$600** |
+| Buy-back revenue (cheap fee → most take both) | ~$650 | ~$450 |
+| Realistic pot | **~$1,520** | **~$1,050** |
+| Playable (full pot in both) | **~$1,520** | **~$1,050** |
+| Our maximum possible spend (entry + 2 buy-backs) | **$60** | **$60** |
+| **One buy-back as a share of the playable pot** | **~1.0%** | **~1.4%** |
 
-**A buy-back costs ~2% of the pot. Burning both costs ~5%.** Aggression is priced as a rounding
-error, and it buys something real: arriving at Week 6 holding elite teams that everyone else has
-already spent.
+**A buy-back costs ~1% of the pot. Burning both costs ~2–3%.** That is *cheaper* than the ~2%
+this section previously estimated off the midpoint fees, so the aggressive line clears by a wider
+margin than the original argument claimed. Aggression is priced as a rounding error, and it buys
+something real: arriving at Week 6 holding elite teams that everyone else has already spent.
 
 The expected-cost side is smaller still. Suppose aggression raises the chance of an early
-elimination from ~10% to ~30% — that is only `0.20 × $20 ≈ $4` of extra expected spend. Against a
-~$1,000 pot, moving win probability by even one percentage point is worth $10. **The trade clears
-by a wide margin.** Play aggressive in Poop and Deadpool, and commit to actually
+elimination from ~10% to ~30% — that is only `0.20 × $15 ≈ $3` of extra expected spend. Against a
+~$1,000–1,500 pot, moving win probability by even one percentage point is worth $10–15. **The
+trade clears by a wide margin.** Play aggressive in Poop and Deadpool, and commit to actually
 buying back — that commitment is the strategy, not an afterthought.
 
 ### The buy-back rules — CONFIRMED 2026-08-28, no longer open
@@ -249,7 +275,7 @@ settings — see the contradiction note at the end.
   case above.** The aggressive line was argued partly on "re-enter holding elite teams nobody
   else has" — that payoff does not exist here. Burning mid-tier teams early and losing means
   re-entering with those teams *already gone* and the elite ones still unspent, which is simply
-  a shorter run at the same schedule. Aggression is still cheap (a buy-back is ~2% of the pot),
+  a shorter run at the same schedule. Aggression is still cheap (a buy-back is ~1% of the pot),
   but it now buys only extra attempts, not a stronger board. **Hoarding the elite teams is the
   part that survives; treating elimination as a cheap reset is the part that does not.**
 
@@ -457,7 +483,9 @@ never use them, not to spend a week proving it.
   overwhelmingly good." Check the league settings before Week 1.
 - **Buy-back cutoff week** in each pool — many close around Week 4. Aggression is correct *inside*
   that window and reckless outside it, so this sets the expiry date on the §2 recommendation.
-- ~~Entry fee and pot size~~ — **answered 2026-08-11:** $30–50 entry, $15–25 buy-backs. The
+- ~~Entry fee and pot size~~ — **answered 2026-08-11, corrected 2026-09-09:** $30 entry and $15
+  buy-backs in both Poop and Deadpool, $25 / $15 in East Orange. The earlier "$30–50 / $15–25"
+  was a range standing in for terms nobody had confirmed yet. The
   aggressive line is settled; see §2.
 - **Does Mike's pool allow team reuse after a certain point?** Some large pools reset in the back
   half. Confirm before planning an elite budget around 18 weeks.

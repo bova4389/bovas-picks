@@ -46,11 +46,17 @@
  * honestly, so the one-life pool is never mistaken for a three-life one at a
  * glance and the half-pot pool is never read as a full-pot one.
  *
- * `entrants` is a SNAPSHOT, taken the day the pool was added. A live pool's
- * real count comes back with the field on every refresh and is what the Grid
- * paints; this number only fills the gap before the first fetch. Do not treat
- * it as current -- the Poop count sat at 12 here for a fortnight while the
- * pool grew to 18.
+ * `entrants` is a SNAPSHOT, and the date it was taken is written beside it.
+ * A live pool's real count comes back with the field on every refresh and is
+ * what the Grid paints; this number only fills the gap before the first fetch.
+ * Do not treat it as current -- the Poop count sat at 12 here for a fortnight
+ * while the pool grew to 18, and then sat at 18 while it grew to 29.
+ *
+ * All three live counts were re-read from Sleeper's roster endpoint on
+ * 2026-09-09 and are ROSTER counts, which is what an entry is: the pool is
+ * keyed by roster_id everywhere in js/sleeperSurvivor.js, and a user with two
+ * entries is two rosters. A count taken off the users endpoint instead will
+ * disagree, and the roster one is the one this file means.
  *
  * `economics.potShare` is the fraction of the pot actually played for, and it
  * exists for East Orange, where half goes to charity. A buy-back there costs
@@ -63,8 +69,12 @@
 export const LEAGUES = [
   {
     id: 'sleeper', name: 'Poop 2026', short: 'Poop',
-    entrants: 18, lives: 3, hasField: true, live: true,
-    note: 'Three lives (2 buy-backs). Refreshes from Sleeper.',
+    entrants: 29, lives: 3, hasField: true, live: true,   // rosters, 2026-09-09
+    note: 'Three lives (2 buy-backs). $30 in, $15 a buy-back. Refreshes from Sleeper.',
+    // Identical terms to Deadpool, confirmed 2026-09-09. The two pools are the
+    // same game at different sizes, which is what lets the week card treat a
+    // duplicate pick across them as one correlated bet worth splitting.
+    economics: { entry: 30, buyback: 15, buybacks: 2, potShare: 1 },
 
     // Read live by js/sleeperSurvivor.js. `userId` is which entry is mine --
     // there is no authenticated call here, so the pool cannot tell us on its
@@ -76,7 +86,7 @@ export const LEAGUES = [
   },
   {
     id: 'deadpool', name: 'Deadpool', short: 'Deadpool',
-    entrants: 1, lives: 3, hasField: true, live: true,
+    entrants: 20, lives: 3, hasField: true, live: true,   // rosters, 2026-09-09
     note: 'Three lives (2 buy-backs). $30 in, $15 a buy-back. Refreshes from Sleeper.',
     economics: { entry: 30, buyback: 15, buybacks: 2, potShare: 1 },
 
@@ -92,7 +102,7 @@ export const LEAGUES = [
   },
   {
     id: 'eastorange', name: 'East Orange Squeeze', short: 'East Orange',
-    entrants: 8, lives: 3, hasField: true, live: true,
+    entrants: 8, lives: 3, hasField: true, live: true,    // rosters, 2026-09-09
     note: 'Charity pool — half the pot is played for. $25 in, $15 a buy-back.',
     economics: { entry: 25, buyback: 15, buybacks: 2, potShare: 0.5 },
 
