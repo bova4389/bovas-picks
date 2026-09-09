@@ -59,7 +59,7 @@ import { currentWeek } from '../js/gameState.js';
 import { LEAGUES } from '../js/survivorLeagues.js';
 import { fetchSleeperSurvivor, myPicksFrom } from '../js/sleeperSurvivor.js';
 import {
-  buildWeekCard, cardForLog, usedFromLog, mergeIntoLog,
+  buildWeekCard, cardForLog, usedFromLog, mergeIntoLog, liveEntrantsFrom,
 } from '../js/weekCardModel.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -97,14 +97,21 @@ async function main() {
   say(`week ${week}, odds fetched ${odds.fetchedAt}`);
 
   const boards = [];
+  const feeds = [];
   for (const league of LEAGUES) {
-    const { used, source } = await usedFor(league, season, log, week);
-    say(`  ${league.short}: ${used.size} spent (${source})`);
+    const { used, source, feed } = await usedFor(league, season, log, week);
+    const size = feed?.entries?.length;
+    say(`  ${league.short}: ${used.size} spent (${source})`
+      + (size ? `, ${size} entries` : ''));
     boards.push({ league, used });
+    feeds.push([league.id, feed]);
   }
 
+  // Sleeper is the source of truth for entry counts, and this is the one
+  // place that always has a fresh answer -- the feeds were just fetched.
   const card = buildWeekCard({
     model, projections, odds, week, weeks: model.weeks, boards,
+    liveEntrants: liveEntrantsFrom(feeds),
   });
 
   const teamsLeft = new Map(boards.map((b) => [b.league.id, 32 - b.used.size]));
@@ -138,12 +145,12 @@ async function usedFor(league, season, log, week) {
   if (league.sleeper) {
     try {
       const feed = await fetchSleeperSurvivor(league.sleeper, season);
-      return { used: new Set(Object.values(myPicksFrom(feed))), source: 'sleeper' };
+      return { used: new Set(Object.values(myPicksFrom(feed))), source: 'sleeper', feed };
     } catch (err) {
       say(`  ! ${league.short}: Sleeper unreachable (${err.message}) — falling back to the log`);
     }
   }
-  return { used: usedFromLog(log, league.id, week), source: 'log' };
+  return { used: usedFromLog(log, league.id, week), source: 'log', feed: null };
 }
 
 // One catch for everything. See the header: the odds commit must survive

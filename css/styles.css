@@ -2237,6 +2237,13 @@ footer {
 .wc-pool-head b { font-size: .9375rem; font-weight: 600; }
 .wc-pool-head span { font-size: .75rem; color: var(--ink-quiet); }
 
+/* An entry count that came off the hand-recorded snapshot rather than the
+   pool itself wears the site's dotted underline, the same mark a modeled
+   probability wears on the Grid and on Planning. It is the same kind of
+   claim -- a stand-in until the real thing is fetched -- and it should look
+   like one. A live count is plain, because it is simply true. */
+.wc-entrants.is-stale { border-bottom: 1px dotted var(--ink-faint); }
+
 .wc-pick { margin: 0; display: flex; flex-direction: column; gap: 2px; }
 .wc-pick b { font-size: 1.25rem; font-weight: 600; line-height: 1.2; }
 .wc-opp { font-size: .8125rem; color: var(--ink-soft); }

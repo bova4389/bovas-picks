@@ -25,7 +25,7 @@ import { buildGrid } from '../js/gridModel.js';
 import { LEAGUES } from '../js/survivorLeagues.js';
 import {
   buildWeekCard, candidatesFor, bookmakersIn, confidenceOf, diffCards,
-  cardForLog, usedFromLog, mergeIntoLog,
+  cardForLog, usedFromLog, mergeIntoLog, entrantsOf, liveEntrantsFrom,
 } from '../js/weekCardModel.js';
 
 const out = document.getElementById('out');
@@ -181,6 +181,70 @@ check('a flipped recommendation is reported with its pool',
 check('the cascade leaves the two same-format pools still decorrelated',
   by2.get('sleeper').pick.team !== by2.get('deadpool').pick.team, true);
 
+/* ── Sleeper is the source of truth for entry counts ────────────────────── */
+
+const poop = LEAGUES.find((l) => l.id === 'sleeper');
+const dead = LEAGUES.find((l) => l.id === 'deadpool');
+
+check('a count off the feed wins over the file',
+  entrantsOf(poop, new Map([['sleeper', 31]])), { count: 31, source: 'feed' });
+check('…and the file is used only when there is no feed',
+  entrantsOf(poop, new Map()), { count: poop.entrants, source: 'file' });
+check('…a zero or broken feed count is not trusted',
+  entrantsOf(poop, new Map([['sleeper', 0]])).source, 'file');
+check('Mike\'s has no feed and keeps its recorded count',
+  entrantsOf(LEAGUES.find((l) => l.id === 'mike'), new Map([['sleeper', 31]])),
+  { count: 235, source: 'file' });
+
+check('feed counts are read off the entries list',
+  [...liveEntrantsFrom([['sleeper', { entries: new Array(31) }], ['deadpool', null]])],
+  [['sleeper', 31]]);
+
+// The reason this matters at all: the count decides which of two identical
+// pools keeps the chalk. Flip the live sizes and the split flips with them.
+const bySize = buildWeekCard({
+  model, projections, odds, week: WEEK, weeks, boards,
+  liveEntrants: new Map([['sleeper', 12], ['deadpool', 40]]),
+  now: new Date('2026-09-08T18:00:00Z'),
+});
+const byFlip = new Map(bySize.picks.map((p) => [p.leagueId, p]));
+check('the bigger pot keeps the chalk — by the LIVE count, not the file',
+  [byFlip.get('deadpool').pick.team, byFlip.get('sleeper').pick.team], ['LAC', 'JAC']);
+check('…which is the reverse of what the recorded counts give',
+  [byId.get('deadpool').pick.team, byId.get('sleeper').pick.team], ['JAC', 'LAC']);
+check('…and the card reports the count it actually used',
+  byFlip.get('deadpool').entrants, { count: 40, source: 'feed' });
+check('…while a pool with no feed is marked as such',
+  byFlip.get('mike').entrants.source, 'file');
+
+// Leverage is gated on pool SIZE, so a live count has to drive that too.
+check('the leverage gate reads the live count, not the file',
+  pickForCount(120).basis !== pickForCount(12).basis, true);
+
+function pickForCount(n) {
+  const fake = { ...LEAGUES.find((l) => l.id === 'mike'), id: 'mike', entrants: 1 };
+  return buildWeekCard({
+    model, projections, odds, week: WEEK, weeks,
+    boards: [{ league: fake, used: new Set() }],
+    liveEntrants: new Map([['mike', n]]),
+    measuredShares: new Map([['mike', new Map([['LAC', 0.62], ['JAC', 0.20]])]]),
+    now: new Date('2026-09-08T18:00:00Z'),
+  }).picks[0];
+}
+
+// And with a MEASURED share, leverage finally does something a modeled one
+// never could: pick against the chalk.
+check('a measured share lets leverage select the contrarian',
+  pickForCount(120).basis, 'leverage');
+check('…and it takes the cheaper team, not the favorite',
+  pickForCount(120).pick.team, 'JAC');
+check('…while the same pool under 100 entries ignores share entirely',
+  pickForCount(12).basis, 'win-probability');
+
+check('the log records how big each pool was that week',
+  cardForLog(bySize, { teamsLeft: new Map() })
+    .picks.find((p) => p.pool === 'deadpool').entrants, 40);
+
 /* ── The committed log ──────────────────────────────────────────────────── */
 
 const logged = (week, pool, team, confidence) => ({
@@ -237,7 +301,8 @@ check('…and the swap that produced the split',
   entry.picks.find((p) => p.pool === 'deadpool').swappedFrom, 'LAC');
 check('…carrying no candidate lists or thresholds that would rot',
   Object.keys(entry.picks[0]).sort(),
-  ['basis', 'fvCost', 'gap', 'p', 'pool', 'share', 'swapClause', 'swappedFrom', 'team', 'teamsLeft']);
+  ['basis', 'entrants', 'fvCost', 'gap', 'p', 'pool', 'share', 'swapClause', 'swappedFrom',
+   'team', 'teamsLeft']);
 check('a card logged from the golden case reads JAC/LAC/JAC/LAC',
   ['mike', 'sleeper', 'deadpool', 'eastorange'].map((id) =>
     entry.picks.find((p) => p.pool === id).team),

@@ -36,8 +36,10 @@ import { seasonBanner, isBlocked } from './seasonBanner.js';
 import { buildGrid } from './gridModel.js';
 import { currentWeek as currentWeekOf } from './gameState.js';
 import { LEAGUES, loadLeagueState, usedTeams } from './survivorLeagues.js';
+import { loadCachedFeed } from './sleeperSurvivor.js';
 import {
-  buildWeekCard, cardForLog, diffCards, modeledShare, loggedPicksFor, FLOOR, MIN_BOOKS,
+  buildWeekCard, cardForLog, diffCards, modeledShare, loggedPicksFor,
+  liveEntrantsFrom, FLOOR, MIN_BOOKS,
 } from './weekCardModel.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 
@@ -104,6 +106,21 @@ function boards() {
   }));
 }
 
+/**
+ * How big each pool is right now, from the Grid's cached feeds.
+ *
+ * Sleeper is the source of truth for entry counts, and the Grid's Refresh
+ * button is what fetches it. This tab deliberately does NOT fetch -- two tabs
+ * racing the same undocumented endpoint is how a half-written feed lands on
+ * top of a complete one -- so it reads the cache the Grid maintains and falls
+ * back to the hand-recorded number when a pool has never been refreshed.
+ */
+function liveEntrants() {
+  return liveEntrantsFrom(
+    LEAGUES.map((l) => [l.id, l.sleeper ? loadCachedFeed(S.season, l.id) : null])
+  );
+}
+
 const storeKey = () => `survivor:card:${S.season}:${S.week}`;
 
 function readStored() {
@@ -141,7 +158,7 @@ function render() {
   const previous = readStored();
   const card = buildWeekCard({
     model: S.model, projections: S.projections, odds: S.odds,
-    week: S.week, weeks: S.weeks, boards: boards(),
+    week: S.week, weeks: S.weeks, boards: boards(), liveEntrants: liveEntrants(),
   });
 
   // Diffed BEFORE the new card is stored, or every render compares a card
@@ -389,11 +406,33 @@ function poolCard(entry, card) {
     </article>`;
 }
 
+/**
+ * The pool's own line. The entry count is the LIVE one wherever the pool has a
+ * feed, and a count that came off the hand-recorded snapshot instead says so
+ * with the same dotted underline a modeled number wears everywhere else --
+ * because it is the same kind of claim: a stand-in, not a measurement.
+ */
 function poolHead(L, entry) {
+  const n = entry.entrants || { count: L.entrants, source: 'file' };
+
+  // ONLY A POOL THAT COULD HAVE BEEN ASKED IS MARKED. Mike's has no feed and
+  // never will, so its hand-recorded 235 IS the truth there -- flagging it
+  // would be telling the reader to go and refresh something that cannot be
+  // refreshed, which is how a marker stops meaning anything.
+  const askable = Boolean(L.sleeper);
+  const stale = askable && n.source !== 'feed';
+
   return `
     <header class="wc-pool-head">
       <b>${esc(L.short)}</b>
-      <span>${L.entrants} ${L.entrants === 1 ? 'entry' : 'entries'} &middot;
+      <span>
+        <span class="wc-entrants${stale ? ' is-stale' : ''}"
+              title="${
+                !askable ? 'Recorded by hand — this pool has no feed'
+                : stale ? 'Hand-recorded — hit Refresh on the Grid for the live count'
+                : 'Live from Sleeper'
+              }"
+        >${n.count} ${n.count === 1 ? 'entry' : 'entries'}</span> &middot;
         ${L.lives} ${L.lives === 1 ? 'life' : 'lives'}${
           L.economics?.potShare === 0.5 ? ' &middot; half pot' : ''
         }</span>
@@ -421,19 +460,21 @@ function shareCell(entry, p) {
 
 /** One line saying why this pool picked this team, in the pool's own terms. */
 function reasonFor(entry, L) {
+  const n = entry.entrants?.count ?? L.entrants;
+
   if (entry.basis === 'leverage') {
     return `Ranked on leverage &mdash; ${pct(entry.pick.p)} against a measured
-      ${pct(entry.share)} of the field, in a pool of ${L.entrants} where a fade
+      ${pct(entry.share)} of the field, in a pool of ${n} where a fade
       actually buys something.`;
   }
   if (entry.basis === 'future-value') {
-    return `One life among ${L.entrants}, so this pool runs to Week&nbsp;10+ and future value
+    return `One life among ${n}, so this pool runs to Week&nbsp;10+ and future value
       leads. <b>No measured pick share exists for this week</b> &mdash; the field's picks arrive
       after kickoff &mdash; and a modeled share is a function of the price, so it would only
       re-derive the favorite. Ranked on what is cheapest to spend inside the
       ${pts(entry.band)} band instead.`;
   }
-  return `${L.entrants} entries and ${L.lives} lives: too few rivals for a fade to buy
+  return `${n} entries and ${L.lives} lives: too few rivals for a fade to buy
     anything, so this is close to pure win probability, with future value as the
     tie-break.${entry.band < 0.05 ? ` The band is tightened to ${pts(entry.band)} here
     because half the pot goes to charity, which makes a buy-back ~8% of the playable

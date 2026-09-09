@@ -126,6 +126,44 @@ export const FV_EDGE = 0.02;
  */
 export const LEVERAGE_MIN_ENTRIES = 100;
 
+/* ── How big a pool actually is ───────────────────────────────────────────*/
+
+/**
+ * A pool's entry count, from the pool itself wherever the pool can be asked.
+ *
+ * SLEEPER IS THE SOURCE OF TRUTH. `entrants` in js/survivorLeagues.js is a
+ * snapshot taken by hand, and it has now been wrong twice -- 12 while the pool
+ * was 18, then 18 while it was 29. It is the value before the first fetch and
+ * nothing more.
+ *
+ * That matters because the count is not decoration here: potOf() below uses it
+ * to decide which of two same-format pools keeps the chalk when they collide,
+ * so a stale number sends the better team to the smaller pot and the split the
+ * wrong way round. Mike's has no feed and keeps its hand-recorded 235, which
+ * is correct -- there is nothing to ask.
+ *
+ * `live` is leagueId -> count, built by the caller from whatever feed it has:
+ * the Grid's cached copy in the browser, a fresh fetch in CI.
+ */
+export function entrantsOf(league, live) {
+  const fromFeed = live?.get?.(league?.id);
+  return Number.isFinite(fromFeed) && fromFeed > 0
+    ? { count: fromFeed, source: 'feed' }
+    : { count: Number(league?.entrants) || 0, source: 'file' };
+}
+
+/** Entry counts keyed by league id, from cached or freshly fetched feeds.
+ *  A feed that failed or was never fetched is simply absent, which sends
+ *  entrantsOf() back to the file. */
+export function liveEntrantsFrom(feedsByLeague) {
+  const out = new Map();
+  for (const [id, feed] of feedsByLeague || []) {
+    const n = feed?.entries?.length;
+    if (Number.isFinite(n) && n > 0) out.set(id, n);
+  }
+  return out;
+}
+
 /* ── Candidates ───────────────────────────────────────────────────────────*/
 
 /** Event id -> how many books priced it, from the odds snapshot. */
@@ -240,8 +278,11 @@ export function candidatesFor({ model, projections, week, weeks, used, books }) 
  * Both are subject to the same hard constraints from §4.3: the floor (already
  * applied in candidatesFor) and the pool's give-up band.
  */
-export function pickFor({ league, candidates, measuredShare = null, k = DEFAULT_K }) {
+export function pickFor({
+  league, candidates, measuredShare = null, k = DEFAULT_K, liveEntrants = null,
+}) {
   const band = bandFor(league);
+  const entrants = entrantsOf(league, liveEntrants);
   const eligible = candidates.filter((c) => c.gap != null && c.gap <= band);
 
   if (!eligible.length) {
@@ -253,12 +294,13 @@ export function pickFor({ league, candidates, measuredShare = null, k = DEFAULT_
       // on the board clears the floor at all, versus something clears it but
       // everything sits outside what this pool may give up.
       empty: candidates.length ? 'outside-band' : 'no-candidate',
+      entrants,
       alternatives: candidates.slice(0, 4),
     };
   }
 
   const leverageApplies = league.lives === 1
-    && (league.entrants ?? 0) >= LEVERAGE_MIN_ENTRIES;
+    && entrants.count >= LEVERAGE_MIN_ENTRIES;
 
   let ranked;
   let basis;
@@ -286,6 +328,7 @@ export function pickFor({ league, candidates, measuredShare = null, k = DEFAULT_
     runnerUp: ranked[1] || null,
     band,
     basis,
+    entrants,
     share: measuredShare ? shareOf(ranked[0], measuredShare) : null,
     leverage: measuredShare ? leverageOf(ranked[0], measuredShare, k) : null,
     empty: null,
@@ -362,7 +405,7 @@ export function formatKey(league) {
  * Anything else keeps the duplicate and lets the renderer show the warning.
  * A hedge is a thing you buy, and past the band the price is too high.
  */
-export function splitDuplicates({ picks, leagues }) {
+export function splitDuplicates({ picks, leagues, liveEntrants = null }) {
   const byId = new Map(leagues.map((l) => [l.id, l]));
   const out = picks.map((p) => ({ ...p, swapped: null }));
 
@@ -380,7 +423,8 @@ export function splitDuplicates({ picks, leagues }) {
 
     // Biggest pot first; it keeps the duplicate. Pot rather than entry count,
     // because a half-pot pool with more entries is still playing for less.
-    group.sort((a, b) => potOf(byId.get(b.leagueId)) - potOf(byId.get(a.leagueId)));
+    group.sort((a, b) =>
+      potOf(byId.get(b.leagueId), liveEntrants) - potOf(byId.get(a.leagueId), liveEntrants));
 
     for (const entry of group.slice(1)) {
       const league = byId.get(entry.leagueId);
@@ -422,11 +466,11 @@ export function splitDuplicates({ picks, leagues }) {
  *  revenue is deliberately ignored -- this exists only to ORDER two pools
  *  against each other, and the take-up rate is an assumption where the entry
  *  fee is a fact. */
-function potOf(league) {
+function potOf(league, liveEntrants) {
   const e = league?.economics || {};
   const entry = Number(e.entry) || 0;
   const share = Number.isFinite(e.potShare) ? e.potShare : 1;
-  return (Number(league?.entrants) || 0) * entry * share;
+  return entrantsOf(league, liveEntrants).count * entry * share;
 }
 
 /* ── Exposure ─────────────────────────────────────────────────────────────*/
@@ -584,7 +628,7 @@ export function diffCards(prev, next) {
  */
 export function buildWeekCard({
   model, projections, odds, week, weeks, boards,
-  measuredShares = new Map(), k = DEFAULT_K, now = new Date(),
+  measuredShares = new Map(), liveEntrants = null, k = DEFAULT_K, now = new Date(),
 }) {
   const books = bookmakersIn(odds);
   const leagues = boards.map((b) => b.league);
@@ -598,10 +642,11 @@ export function buildWeekCard({
     league,
     candidates,
     measuredShare: measuredShares.get(league.id) || null,
+    liveEntrants,
     k,
   }));
 
-  const picks = splitDuplicates({ picks: chosen, leagues });
+  const picks = splitDuplicates({ picks: chosen, leagues, liveEntrants });
 
   // Teams that clear the floor and are going nowhere. Named explicitly rather
   // than left as an absence: "DET is held, it has a better spot in Week 3" is
@@ -657,6 +702,10 @@ export function cardForLog(card, { teamsLeft = new Map() } = {}) {
       fvCost: round(p.pick?.fvCost, 4),
       share: round(p.share, 4),
       basis: p.basis ?? null,
+      // How big the pool was the week the pick was made. Lookback cannot
+      // reconstruct this later -- the pools grow, and the count is what made
+      // one of two identical pools the one that kept the chalk.
+      entrants: p.entrants?.count ?? null,
       swappedFrom: p.swapped?.from?.team ?? null,
       swapClause: p.swapped?.clause ?? null,
       teamsLeft: teamsLeft.get(p.leagueId) ?? null,

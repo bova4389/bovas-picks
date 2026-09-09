@@ -58,6 +58,14 @@
  * entries is two rosters. A count taken off the users endpoint instead will
  * disagree, and the roster one is the one this file means.
  *
+ * SLEEPER IS THE SOURCE OF TRUTH, AND THE PICKS TAB NOW READS IT DIRECTLY.
+ * `entrantsOf()` in js/weekCardModel.js prefers the count off the feed and
+ * falls back to the number here only before the first fetch -- which matters,
+ * because that count decides which of two identical pools keeps the chalk
+ * when they collide, and a stale one sends the better team to the smaller
+ * pot. Keep these numbers roughly current for the pre-fetch case; do not
+ * treat them as the answer.
+ *
  * `economics.potShare` is the fraction of the pot actually played for, and it
  * exists for East Orange, where half goes to charity. A buy-back there costs
  * the same dollars as anywhere else and buys half as much pot, so anything

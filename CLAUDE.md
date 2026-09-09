@@ -802,6 +802,17 @@ the Mike's branch must fall through to future value and label itself `future-val
 it does. **The moment a real `data/popularity/pop-<year>-w<NN>.json` lands, the branch flips to
 `leverage` on its own.**
 
+**Entry counts come from Sleeper, not from the file.** `entrantsOf()` prefers the count off the
+feed and falls back to `entrants` in `js/survivorLeagues.js` only before the first fetch. That
+number is a hand-taken snapshot and has been wrong twice — 12 while the pool was 18, then 18 while
+it was 29 — and it is not decoration: it decides which of two same-format pools keeps the chalk
+when they collide, so a stale one sends the better team to the smaller pot. The browser reads the
+Grid's cached feeds (it never fetches — the Grid owns that button); CI passes the counts it just
+fetched. A count that came off the file wears the dotted underline a modeled number wears
+everywhere else, **but only for a pool that has a feed to be asked** — Mike's 235 is hand-recorded
+because there is nothing to ask, and flagging it would point the reader at a Refresh button that
+cannot help them.
+
 **Bands come off `economics.potShare`, never a league id.** Five points in a full-pot pool, two in
 East Orange, because a buy-back there is ~8% of the *playable* pot against ~1% in Poop and
 Deadpool. If East Orange grows, or another half-pot pool is added, the rule follows the economics.
@@ -917,7 +928,7 @@ slightly stale used-set is recoverable and is labeled in the run output; no reco
 
 `test/weekcard.test.html` runs the model in the browser against
 `test/fixtures/odds-2026-09-08.json` — a frozen 272-event snapshot reassembled from
-`data/odds/history/`, so the golden case cannot drift as the live feed moves. 53 assertions
+`data/odds/history/`, so the golden case cannot drift as the live feed moves. 67 assertions
 covering the model, the log's freeze and carry-forward rules, and the shape of a logged card; open
 it on the dev server. There is no node in this environment and no build step, so the test is a
 page rather than a runner — same reasoning as `assets-review.html`.
