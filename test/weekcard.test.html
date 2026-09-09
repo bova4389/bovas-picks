@@ -15,15 +15,18 @@
 </head>
 <body>
 <h1>weekCardModel — Week 1 2026 golden case</h1>
-<p>Frozen odds snapshot <code>2026-09-08T17:55:06Z</code>, 9 books. Nothing spent in any pool.
-   Expected: <b>JAC / LAC / JAC / LAC</b>, exposure 2/2, DET held.</p>
+<p>Frozen odds snapshot <code>2026-09-08T17:55:06Z</code>, 9 books. Nothing spent in any pool.<br />
+   Expected: <b>JAC / LAC / JAC / LAC</b>, exposure 2/2, DET held &mdash; plus the committed log's freeze and carry-forward rules.</p>
 <div id="summary">running…</div>
 <div id="out"></div>
 
 <script type="module">
 import { buildGrid } from '../js/gridModel.js';
 import { LEAGUES } from '../js/survivorLeagues.js';
-import { buildWeekCard, candidatesFor, bookmakersIn, confidenceOf, diffCards } from '../js/weekCardModel.js';
+import {
+  buildWeekCard, candidatesFor, bookmakersIn, confidenceOf, diffCards,
+  cardForLog, usedFromLog, mergeIntoLog,
+} from '../js/weekCardModel.js';
 
 const out = document.getElementById('out');
 let passes = 0, fails = 0;
@@ -177,6 +180,68 @@ check('a flipped recommendation is reported with its pool',
   ['sleeper:LAC->JAC', 'deadpool:JAC->LAC']);
 check('the cascade leaves the two same-format pools still decorrelated',
   by2.get('sleeper').pick.team !== by2.get('deadpool').pick.team, true);
+
+/* ── The committed log ──────────────────────────────────────────────────── */
+
+const logged = (week, pool, team, confidence) => ({
+  week, confidence, builtAt: `2026-09-0${week}T12:00:00Z`,
+  picks: [{ pool, team, p: 0.8, gap: 0, fvCost: 0.01, share: null,
+            basis: 'win-probability', swappedFrom: null, swapClause: null, teamsLeft: 32 }],
+});
+
+const seasonLog = { season: 2026, weeks: {
+  1: logged(1, 'mike', 'JAC', 'final'),
+  2: logged(2, 'mike', 'LAC', 'final'),
+  3: logged(3, 'mike', 'DET', 'provisional'),
+} };
+
+check('the log carries a pool\'s spent teams forward',
+  [...usedFromLog(seasonLog, 'mike', 3)].sort(), ['JAC', 'LAC']);
+check('…strictly before the week being rebuilt, never including it',
+  usedFromLog(seasonLog, 'mike', 3).has('DET'), false);
+check('…and never leaks one pool\'s picks into another',
+  [...usedFromLog(seasonLog, 'deadpool', 5)], []);
+
+// The whole point of the freeze: Saturday's card is what was submitted, and a
+// Sunday run rebuilding on post-lock prices must not be able to rewrite it.
+const afterSunday = mergeIntoLog(seasonLog, 2, logged(2, 'mike', 'DET', 'provisional'));
+check('a final entry is frozen against a later provisional one', afterSunday.reason, 'frozen');
+check('…and the recorded pick is untouched', afterSunday.log.weeks[2].picks[0].team, 'LAC');
+
+const firming = mergeIntoLog(seasonLog, 3, logged(3, 'mike', 'LAC', 'firming'));
+check('a provisional entry is replaced by a better-informed one', firming.reason, 'updated');
+check('…with the new recommendation', firming.log.weeks[3].picks[0].team, 'LAC');
+
+const sat = mergeIntoLog(seasonLog, 3, logged(3, 'mike', 'DET', 'final'));
+check('a final entry may be written over a provisional one', sat.reason, 'updated');
+
+// Eight runs a day: an unchanged card must not produce eight commits.
+const same = mergeIntoLog(seasonLog, 3, { ...logged(3, 'mike', 'DET', 'provisional'),
+  builtAt: '2026-09-09T23:59:00Z' });
+check('an unchanged card writes nothing, whatever the timestamp says', same.reason, 'unchanged');
+
+check('a new week is added', mergeIntoLog(seasonLog, 4, logged(4, 'mike', 'BUF', 'provisional')).reason, 'added');
+check('…without disturbing the weeks already there',
+  Object.keys(mergeIntoLog(seasonLog, 4, logged(4, 'mike', 'BUF', 'provisional')).log.weeks).sort(),
+  ['1', '2', '3', '4']);
+check('an empty log takes its first entry',
+  mergeIntoLog({ season: 2026, weeks: {} }, 1, logged(1, 'mike', 'JAC', 'provisional')).reason, 'added');
+
+// The round trip the CI runner actually performs.
+const entry = cardForLog(card, { teamsLeft: new Map(LEAGUES.map((l) => [l.id, 32])) });
+check('a logged card names every pool', entry.picks.map((p) => p.pool).sort(),
+  ['deadpool', 'eastorange', 'mike', 'sleeper']);
+check('…and records the reason each pick was made, not just the pick',
+  entry.picks.every((p) => p.basis != null), true);
+check('…and the swap that produced the split',
+  entry.picks.find((p) => p.pool === 'deadpool').swappedFrom, 'LAC');
+check('…carrying no candidate lists or thresholds that would rot',
+  Object.keys(entry.picks[0]).sort(),
+  ['basis', 'fvCost', 'gap', 'p', 'pool', 'share', 'swapClause', 'swappedFrom', 'team', 'teamsLeft']);
+check('a card logged from the golden case reads JAC/LAC/JAC/LAC',
+  ['mike', 'sleeper', 'deadpool', 'eastorange'].map((id) =>
+    entry.picks.find((p) => p.pool === id).team),
+  ['JAC', 'LAC', 'JAC', 'LAC']);
 
 /* ── Done ───────────────────────────────────────────────────────────────── */
 

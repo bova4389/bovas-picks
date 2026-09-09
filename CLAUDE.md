@@ -130,6 +130,7 @@ js/planModel.js     SHARED — survivor planning math, pure data              [N
 js/planning.js      Planning tab — spend now or hold, per SURVIVOR-STRATEGY.md §1
 js/weekCardModel.js SHARED — the cross-pool week card, pure data          [NEVER versioned]
 js/weekCard.js      Picks tab — one pick per pool, all four at once
+js/package.json     TYPE-ONLY, for Node in CI. Not a build step — see Picks Tab.
 js/infinityModel.js SHARED — the pick-eight math, pure data                 [NEVER versioned]
 js/infinityFeed.js  SHARED — pick'em-shaped Sleeper read                    [NEVER versioned]
 js/infinityWar.js   Infinity War tab — pick 8 of the slate, small field
@@ -850,22 +851,74 @@ a point is not news, and a banner firing every three hours is one nobody reads b
 would cost exactly the week it mattered. The stored copy holds the card's *shape* only, so
 changing a threshold cannot read as a recommendation flip on the next load.
 
-### The log, and the Lookback tie-in
+### The log writes itself — and the one way it can be wrong
 
 SURVIVOR-STRATEGY.md §6 step 7 asked for this and nothing implemented it. Each week's card reduces
-to a record — pool, team, price, gap, future cost, share, reason code, teams left — held in
-localStorage and copied by hand into **`data/survivor-log-<year>.json`**.
+to a record — pool, team, price, gap, future cost, share, reason code, teams left — in
+**`data/survivor-log-<year>.json`**.
 
-The paste is a deliberate two-step, not a gap: the site is static with no backend, and a button
-that wrote only to localStorage would lose the season the first time a browser was cleared.
-Committed entries win for any week earlier than the current one; localStorage wins for the week in
-play. **This is the input the Lookback tab has been blocked on.**
+**`.github/workflows/fetch-odds.yml` writes it, on every odds snapshot.** It rides on that
+workflow rather than having a schedule of its own on purpose: the card is a function of the odds,
+so it should be rebuilt exactly when they change and never on a cadence that could drift out of
+step with them. Nothing has to be done by hand for the record to exist. The copy button on the tab
+is now the *fallback* — for a week CI missed, or a correction — rather than a weekly routine.
+That routine was the original design and it was a bad one: a chore that gets done twice and then
+never again produces a log with two weeks in it, which is worse than no log.
+
+**A `final` entry is frozen once written.** Saturday is the decision point, so the Sunday runs must
+not be able to rebuild the week on post-lock prices. Without the freeze the log would end the
+season claiming recommendations it never made, and Lookback would be grading a record that had
+been quietly edited to agree with the outcome. Provisional and firming entries *are* replaced —
+they are drafts of the same week and the later one is better informed. An unchanged card writes
+nothing at all, or eight runs a day would produce eight commits differing only in a timestamp.
+
+**Where each pool's used teams come from, and which one can lie:**
+
+| Pool | Source | Can drift? |
+|---|---|---|
+| Poop, Deadpool, East Orange | Sleeper, live — my own picks come back with the field | No |
+| Mike's | **the log's own previous weeks** | **Yes** |
+
+Mike's has no feed, and the mailed workbook carries no flag saying which entry is mine, so CI has
+nothing to go on but what the log says was *recommended* — which is not always what was
+*submitted*. Follow the card and the two agree forever; deviate once and they part, and the
+failure is silent in the worst way: CI keeps recommending teams that are already spent and every
+number about them is confident and wrong.
+
+The browser is the only place that holds the truth, so **`driftWarning()` in `js/weekCard.js`
+compares the committed log against `survivor:<season>:mike` week by week and says so when they
+disagree.** It compares **only weeks already behind us** — the log has no entry for the week being
+decided, so including it would fire a warning the moment a pick was recorded, every single week,
+and a warning that always fires is one nobody reads on the week it is real.
+
+**This is the input the Lookback tab has been blocked on.**
+
+### Node is in CI only, and this is not a build step
+
+`scripts/log_week_card.mjs` **imports `js/weekCardModel.js` directly** rather than
+reimplementing it. That is the whole design: a second copy of the model — in Python, or rewritten
+in the script — would be two models that agree right up until the day they quietly do not, and the
+log would then record a recommendation the site never made.
+
+`js/package.json` is four lines (`{"type": "module"}`) and exists solely to tell Node those files
+are ESM. **Nothing is installed, compiled or bundled**; there are no dependencies, `npm ci` would
+have nothing to do, the browser never reads it, and `node` is never required to serve the site. It
+is the same carve-out the Python scripts in `scripts/` already have — offline tooling that
+produces data, not a toolchain the page depends on. **Do not "fix" it by deleting it**, and do not
+read it as licence to add a bundler.
+
+The workflow step is `continue-on-error: true` **and** the script has a catch-all that exits 0.
+Doubled deliberately: the odds snapshot is the more important of the two jobs by a long way, and
+Sleeper being down for ten minutes must never cost a sample in the Thursday-to-Saturday window
+where lines actually move. A Sleeper failure falls back to the log rather than aborting — a
+slightly stale used-set is recoverable and is labeled in the run output; no record at all is not.
 
 ### Tests
 
 `test/weekcard.test.html` runs the model in the browser against
 `test/fixtures/odds-2026-09-08.json` — a frozen 272-event snapshot reassembled from
-`data/odds/history/`, so the golden case cannot drift as the live feed moves. 36 assertions; open
+`data/odds/history/`, so the golden case cannot drift as the live feed moves. 53 assertions
+covering the model, the log's freeze and carry-forward rules, and the shape of a logged card; open
 it on the dev server. There is no node in this environment and no build step, so the test is a
 page rather than a runner — same reasoning as `assets-review.html`.
 
@@ -1573,6 +1626,11 @@ ODDS_API_KEY=xxxxx python scripts/fetch_odds.py
   files mean "movement since first snapshot" is always the true opening line for that game — the
   Odds tab's line-movement numbers read straight off `history[0]` vs. the latest entry.
 → `data/odds/quota.json` — requests-remaining as of the last call
+
+**The same workflow also rebuilds the survivor week card** and commits
+`data/survivor-log-<year>.json` (`node scripts/log_week_card.mjs`). It is one job because the card
+is a function of the odds — see "The log writes itself" under Picks Tab, and note that the Node
+step is CI-only and adds no build step to the site.
 
 The `bucket` field on each event in `current.json` is a *display* grouping only (0 = this
 game-week, +1 = next, recomputed fresh every run) — not Mike's week numbers, and not a storage

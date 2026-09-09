@@ -665,3 +665,110 @@ export function cardForLog(card, { teamsLeft = new Map() } = {}) {
 }
 
 const round = (n, dp) => (Number.isFinite(n) ? Number(n.toFixed(dp)) : null);
+
+/* ── The committed log ────────────────────────────────────────────────────
+   Pure, and here rather than in the CI runner on purpose: this is the logic
+   that decides what the season's permanent record says, and it is the one
+   part of the automation that has to be right. Keeping it in the model puts
+   it under test/weekcard.test.html with everything else, and leaves
+   scripts/log_week_card.mjs as file I/O and nothing else.
+   ------------------------------------------------------------------------ */
+
+/**
+ * What a pool has already spent, according to the committed log.
+ *
+ * The fallback for a pool with no live feed -- which today means Mike's, whose
+ * field arrives as a mailed workbook and whose entries carry no "this one is
+ * mine" flag (see data/survivor-<year>.json). Every other pool's used-set
+ * comes back from Sleeper and never needs this.
+ *
+ * IT ASSUMES THE CARD'S RECOMMENDATION WAS SUBMITTED, and that assumption can
+ * be wrong. The browser holds the real answer for Mike's in
+ * `survivor:<season>:mike`, so js/weekCard.js compares the two and says so
+ * when they disagree rather than letting the log drift quietly -- a wrong
+ * used-set does not error, it just starts recommending a team that is already
+ * gone.
+ *
+ * Strictly BEFORE `week`: the entry for the week being rebuilt is what we are
+ * about to replace, and counting it would strike this week's own pick off its
+ * own board.
+ */
+export function usedFromLog(log, leagueId, week) {
+  const used = new Set();
+
+  for (const [w, entry] of Object.entries(log?.weeks || {})) {
+    if (Number(w) >= Number(week)) continue;
+    const hit = (entry?.picks || []).find((p) => p.pool === leagueId);
+    if (hit?.team) used.add(hit.team);
+  }
+
+  return used;
+}
+
+/**
+ * What the log says a pool picked, week by week.
+ *
+ * usedFromLog() flattens this to a set, which is all the model needs. The
+ * renderer needs the weeks as well, because "the log has JAC in week 2 and
+ * your board has LAC" is a fixable statement and "these two sets differ" is
+ * not.
+ */
+export function loggedPicksFor(log, leagueId) {
+  const byWeek = new Map();
+
+  for (const [w, entry] of Object.entries(log?.weeks || {})) {
+    const hit = (entry?.picks || []).find((p) => p.pool === leagueId);
+    if (hit?.team) byWeek.set(Number(w), hit.team);
+  }
+
+  return byWeek;
+}
+
+/**
+ * Fold one week's record into the log, and refuse to rewrite history.
+ *
+ * A FINAL ENTRY IS FROZEN. Saturday is the decision point -- Mike's locks at
+ * midnight and SURVIVOR-STRATEGY.md §2 confirms there is no late-information
+ * edge -- so once a card has been recorded in the `final` state, that is what
+ * stood when the pick was submitted and later runs must not touch it.
+ *
+ * Without this the Sunday-morning odds runs would quietly overwrite Saturday's
+ * card with one built on post-lock prices, and the log would end the season
+ * claiming to have recommended things it never recommended. Which would make
+ * it worse than no log: Lookback would grade a record that had been edited to
+ * agree with the outcome.
+ *
+ * Provisional and firming entries ARE replaced, because they are drafts of the
+ * same week and the later one is simply better informed.
+ *
+ * Returns the log plus what happened, so the caller can say so out loud rather
+ * than silently writing nothing.
+ */
+export function mergeIntoLog(log, week, entry) {
+  const base = {
+    season: log?.season ?? null,
+    weeks: { ...(log?.weeks || {}) },
+  };
+  const key = String(week);
+  const existing = base.weeks[key];
+
+  if (existing?.confidence === 'final' && entry?.confidence !== 'final') {
+    return { log: base, wrote: false, reason: 'frozen' };
+  }
+  if (existing && JSON.stringify(stripVolatile(existing)) === JSON.stringify(stripVolatile(entry))) {
+    // Same recommendation, same prices. Writing it anyway would produce a
+    // commit whose only change is a timestamp, eight times a day.
+    return { log: base, wrote: false, reason: 'unchanged' };
+  }
+
+  base.weeks[key] = entry;
+  return { log: base, wrote: true, reason: existing ? 'updated' : 'added' };
+}
+
+/** `builtAt` moves on every run by definition, so it cannot take part in the
+ *  "has anything actually changed" test. */
+function stripVolatile(entry) {
+  const { builtAt, ...rest } = entry || {};
+  return rest;
+}
+

@@ -36,7 +36,9 @@ import { seasonBanner, isBlocked } from './seasonBanner.js';
 import { buildGrid } from './gridModel.js';
 import { currentWeek as currentWeekOf } from './gameState.js';
 import { LEAGUES, loadLeagueState, usedTeams } from './survivorLeagues.js';
-import { buildWeekCard, cardForLog, diffCards, modeledShare, FLOOR, MIN_BOOKS } from './weekCardModel.js';
+import {
+  buildWeekCard, cardForLog, diffCards, modeledShare, loggedPicksFor, FLOOR, MIN_BOOKS,
+} from './weekCardModel.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 
 const S = {
@@ -151,6 +153,7 @@ function render() {
   S.root.innerHTML = head()
     + banner
     + controls(card)
+    + driftWarning()
     + changeBanner(S.changed)
     + poolCards(card)
     + exposureBlock(card)
@@ -195,6 +198,79 @@ function controls(card) {
       <p class="planctl-note">
         ${esc(c.basis)}
         <span class="planctl-spent">${spent} spent across four pools</span>
+      </p>
+    </div>`;
+}
+
+/* ── Drift between the committed log and a hand-kept board ────────────────*/
+
+/**
+ * The one place the automation can be wrong, said out loud.
+ *
+ * The odds workflow rebuilds this card on every snapshot and commits the
+ * result, and for the three Sleeper pools it reads my actual picks back from
+ * the pool, so those cannot drift. Mike's has no feed and the mailed workbook
+ * carries no flag saying which entry is mine, so CI has nothing to go on but
+ * the log's own history -- which records what was RECOMMENDED, not what was
+ * submitted.
+ *
+ * Follow the card and the two agree forever. Deviate once and they part, and
+ * the failure is silent in the worst way: CI keeps recommending teams that are
+ * already spent, and every number it prints about them is confident and wrong.
+ *
+ * The browser is the only place that knows the truth, so this is where the
+ * mismatch has to be caught. It is a prompt to fix the log, not an error --
+ * the local board is right and the file is behind it.
+ */
+function driftWarning() {
+  const rows = [];
+
+  for (const league of LEAGUES) {
+    // Pools with a live feed cannot drift; their used-set comes from the pool.
+    if (league.sleeper) continue;
+
+    const logged = loggedPicksFor(S.log, league.id);
+    const mine = loadLeagueState(league.id, S.season).picks || {};
+
+    // ONLY WEEKS ALREADY BEHIND US. The log has no entry for the week being
+    // decided -- CI writes it as the week runs -- so comparing this week would
+    // report a disagreement the moment a pick is recorded, every single week,
+    // and a warning that always fires is one nobody reads on the week it is
+    // real.
+    const weeks = new Set([
+      ...logged.keys(),
+      ...Object.keys(mine).map(Number),
+    ].filter((w) => Number.isFinite(w) && w < S.week));
+
+    const conflicts = [];
+    for (const w of [...weeks].sort((a, b) => a - b)) {
+      const was = logged.get(w) || null;
+      const is = mine[String(w)] || null;
+      if (was !== is) conflicts.push({ week: w, logged: was, mine: is });
+    }
+
+    if (conflicts.length) rows.push({ league, conflicts });
+  }
+
+  if (!rows.length) return '';
+
+  return `
+    <div class="wc-drift" role="status">
+      <strong>The committed log disagrees with your board</strong>
+      <ul>
+        ${rows.map((r) => `
+          <li><b>${esc(r.league.short)}:</b>
+            ${r.conflicts.map((c) => `week ${c.week} &mdash;
+              log says ${c.logged ? esc(mascot(c.logged)) : 'nothing'},
+              your board says ${c.mine ? esc(mascot(c.mine)) : 'nothing'}`).join('; ')}.</li>`).join('')}
+      </ul>
+      <p>
+        ${rows.map((r) => esc(r.league.short)).join(' and ')}
+        ${rows.length === 1 ? 'has' : 'have'} no live feed, so the automation carries
+        used teams forward from what the log says was <em>recommended</em> &mdash; which is not
+        always what was <em>submitted</em>. <b>Your board is the truth and the file is behind
+        it.</b> Fix the team names in <code>data/survivor-log-${S.season}.json</code> and commit,
+        or this tab will keep offering teams that are already gone.
       </p>
     </div>`;
 }
@@ -477,10 +553,20 @@ function heldBlock(card) {
 /* ── The log ──────────────────────────────────────────────────────────────*/
 
 /**
- * §7. The site is static with no backend, so the durable half of the log is
- * written by pasting. That is a deliberate two-step, not a gap: a button that
- * silently wrote to localStorage alone would lose the season the first time a
- * browser was cleared, and this file is what Lookback has been blocked on.
+ * §7, and it keeps itself.
+ *
+ * `.github/workflows/fetch-odds.yml` runs `scripts/log_week_card.mjs` on every
+ * odds snapshot -- eight times a day Thursday to Saturday, once daily
+ * otherwise -- rebuilding this card with the same model and committing the
+ * result. Nothing here has to be done by hand for the record to exist.
+ *
+ * A FINAL ENTRY IS FROZEN once written, so Saturday's card is what the season
+ * remembers, and the Sunday runs cannot rewrite it on post-lock prices.
+ *
+ * The copy button stays as the manual path -- for a week CI missed, for a
+ * correction, and for the case where the recommendation was not what was
+ * actually submitted. It is a fallback now rather than the weekly routine it
+ * used to be.
  */
 function logBlock(card) {
   const weeks = Object.keys(S.log?.weeks || {}).length;
@@ -492,12 +578,17 @@ function logBlock(card) {
           <p class="eyebrow">The record</p>
           <h3>Log this week</h3>
         </div>
-        ${weeks ? `<span class="pill">${weeks} ${weeks === 1 ? 'week' : 'weeks'} committed</span>` : ''}
+        <span class="pill${weeks ? ' ok' : ''}">${
+          weeks ? `${weeks} ${weeks === 1 ? 'week' : 'weeks'} committed` : 'automated'
+        }</span>
       </div>
       <p class="lede">
-        Copy this week's card and paste it into
-        <code>data/survivor-log-${S.season}.json</code> under <code>weeks</code>. That committed
-        file is what survives a cleared browser, and it is the input the Lookback tab needs.
+        <b>This writes itself.</b> The odds workflow rebuilds this card on every snapshot and
+        commits <code>data/survivor-log-${S.season}.json</code> &mdash; eight times a day
+        Thursday to Saturday, once daily otherwise &mdash; using the same model this page runs.
+        Saturday's card is frozen once written, so the season remembers what stood at the
+        deadline rather than what the odds did afterward.
+        Copy below only to correct a week, or to fill one CI missed.
       </p>
       <div class="wc-logbar">
         <button type="button" class="btn" id="wc-copy">Copy week ${card.week} as JSON</button>

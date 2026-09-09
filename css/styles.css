@@ -2187,6 +2187,26 @@ footer {
 .wc-changed ul { margin: 8px 0 0; padding-left: 18px; }
 .wc-changed li { margin: 3px 0; }
 
+/* Amber, unlike the change banner's violet: this one IS a fault -- the
+   committed log and the hand-kept board have parted, and every recommendation
+   for that pool is wrong until it is fixed. It uses the season audit's warn
+   tokens deliberately, so "something upstream disagrees with itself" looks the
+   same wherever it happens on this site. */
+.wc-drift {
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--warn);
+  border-left-width: 4px;
+  border-radius: var(--r-md);
+  background: var(--warn-bg);
+  color: var(--amber-ink);
+  font-size: .875rem;
+}
+.wc-drift ul { margin: 8px 0; padding-left: 18px; }
+.wc-drift li { margin: 3px 0; }
+.wc-drift p { margin: 8px 0 0; }
+.wc-drift code { font-size: .8125rem; }
+
 /* ── The four pool cards ──────────────────────────────────────────────────
    auto-fit, not a fixed four: at 235 entries Mike's card carries the longest
    reason line on the tab, and forcing four across a laptop squeezes it to a

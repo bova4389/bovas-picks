@@ -45,11 +45,33 @@ jobs:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python3 scripts/fetch_odds.py
 
+      # ── The survivor week card rides along on the odds snapshot ──────────
+      # It has no schedule of its own on purpose: the card is a function of
+      # the odds, so it should be rebuilt exactly when they change and never
+      # on a cadence of its own that could drift out of step with them.
+      #
+      # NODE IS CI-ONLY AND THE SITE DOES NOT KNOW IT EXISTS. The script
+      # imports js/weekCardModel.js directly rather than reimplementing it,
+      # so there is one model rather than two that agree until they don't --
+      # see that script's header. Nothing is installed, compiled or bundled;
+      # `npm ci` would have nothing to do, which is why it is not here.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # continue-on-error AND a catch-all inside the script, deliberately
+      # doubled. The odds snapshot is the more important of the two jobs by a
+      # long way, and Sleeper being down for ten minutes must never be able to
+      # cost a sample in the Thursday-to-Saturday window where lines move.
+      - name: Log the survivor week card
+        continue-on-error: true
+        run: node scripts/log_week_card.mjs
+
       - name: Commit snapshot
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/odds/
+          git add data/odds/ data/survivor-log-*.json
           git diff --cached --quiet && exit 0
           git commit -m "chore(bot): update odds snapshot [automated]"
           git push
