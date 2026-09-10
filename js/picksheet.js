@@ -10,9 +10,9 @@
 import {
   SEASON, tryNumberMap, weekNumbers, scoredGames, tiebreakerGame,
   loadPicks, savePicks, loadProfile, saveProfile, getOddsSnapshot,
-  getSeasonAudit,
+  getSeasonAudit, getSchedule,
 } from './data.js';
-import { buildOddsIndex } from './oddsMatch.js';
+import { buildSeasonOddsIndex, matchSeasonOdds } from './oddsMatch.js';
 import { loadLeagueState } from './survivorLeagues.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 import { favoriteLine } from './oddsBadge.js';
@@ -26,7 +26,8 @@ let map = null;
 let week = null;
 let picks = {};          // { [awayNum]: chosenNumber }  — keyed by game
 let profile = loadProfile();
-let oddsIndex = new Map();
+let seasonIndex = null;  // pair+kickoff, from buildSeasonOddsIndex
+let kickoffs = new Map(); // "week|Away|Home" -> ISO kickoff, from the schedule
 
 const el = (id) => document.getElementById(id);
 
@@ -48,8 +49,15 @@ export async function initPickSheet(root) {
 
   // Odds are best-effort here — a missing/failed snapshot (getOddsSnapshot
   // never throws) just means no favorite badges render, not a broken sheet.
+  //
+  // The SEASON index, keyed on pair AND kickoff, because the snapshot holds
+  // all 272 games at once and 96 of them share a pair with another game. See
+  // js/oddsBadge.js's header for what the pair-only join did here.
   const snapshot = await getOddsSnapshot();
-  oddsIndex = snapshot ? buildOddsIndex(snapshot.events) : new Map();
+  seasonIndex = snapshot ? buildSeasonOddsIndex(snapshot.events) : null;
+  // The number map has no kickoffs in it — the commissioner's workbook only
+  // prints a day name — so the dates the join needs come from the schedule.
+  kickoffs = kickoffIndex(await getSchedule(SEASON));
 
   const weeks = weekNumbers(map);
   week = weeks[0];
@@ -58,6 +66,40 @@ export async function initPickSheet(root) {
   root.innerHTML = shell(weeks);
   wireControls();
   render();
+}
+
+/* ── The odds join ────────────────────────────────────────────────────────
+   Two steps rather than one because the number map and the odds snapshot
+   have no key in common: the map names mascots and a day of the week, the
+   snapshot names full team names and an exact kickoff. The schedule is the
+   only thing holding both, so it is the bridge.
+   ------------------------------------------------------------------------ */
+
+/** "week|Away|Home" (mascots) -> ISO kickoff, for every game of the season. */
+function kickoffIndex(schedule) {
+  const idx = new Map();
+  for (const g of schedule?.games || []) {
+    const away = ABBR_TO_MASCOT[g.away];
+    const home = ABBR_TO_MASCOT[g.home];
+    if (!away || !home || !g.date) continue;
+    idx.set(`${g.week}|${away}|${home}`, g.date);
+  }
+  return idx;
+}
+
+/**
+ * The odds event for one number-map game, or null.
+ *
+ * The kickoff is what separates the two meetings of a division rivalry, so a
+ * game the schedule can't date gets null rather than a guess — matchSeasonOdds
+ * would otherwise fall back to "the only event for this pair", which is the
+ * exact wrong answer for the 96 games that have two.
+ */
+function oddsFor(g) {
+  if (!seasonIndex) return null;
+  const date = kickoffs.get(`${week}|${g.away}|${g.home}`) || null;
+  if (!date) return null;
+  return matchSeasonOdds({ away: g.away, home: g.home, date }, seasonIndex);
 }
 
 function header() {
@@ -102,7 +144,7 @@ function shell(weeks) {
       <div class="field">
         <label for="mnf-points">Monday night points</label>
         <input id="mnf-points" type="number" inputmode="numeric" min="0" max="120"
-               placeholder="44" value="" aria-describedby="mnf-game" />
+               placeholder="Total" value="" aria-describedby="mnf-game" />
         <span class="hint" id="mnf-game"></span>
       </div>
       <div class="field" style="flex:1 1 190px">
@@ -218,7 +260,7 @@ function renderGames() {
 
   const tb = tiebreakerGame(map, week);
   el('mnf-game').textContent = tb
-    ? `Total points in ${tb.away} at ${tb.home}`
+    ? `Total points in ${tb.away} at ${tb.home}${marketTotalNote(tb)}`
     : 'Tiebreaker game not marked on this sheet';
 
   el('games').querySelectorAll('.pick').forEach((btn) => {
@@ -235,9 +277,31 @@ function renderGames() {
   });
 }
 
+/**
+ * ` — market O/U 43.5 (the field guesses this number)`, or '' with no line.
+ *
+ * The parenthetical is a warning, not a suggestion, and it is worth the
+ * pixels. Mike's pool breaks a tie on ABSOLUTE distance from the real total,
+ * and the 267 parsed cards in data/raw/entries-2025-w01.json show the field
+ * landing right on the market: that week's line was ~43.5 and the field's
+ * median guess was 44, with 41% of all entries inside 42-45. Simulated
+ * against 2,127 real finals (mean 45.1, SD 13.9), guessing the market number
+ * is close to the worst available choice -- roughly 4% equity in the
+ * tiebreaker versus roughly 24% for a number 8 points off it, because the
+ * market number is where you split with 25 people on the rare occasion you
+ * are right. Same leverage logic as STRATEGY.md's underdog rule, pointed at
+ * the tiebreaker box. Printing the line without that caveat would invite
+ * exactly the wrong move.
+ */
+function marketTotalNote(tb) {
+  const ev = oddsFor(tb);
+  if (!ev || ev.total == null) return '';
+  return ` — market O/U ${ev.total} (the field guesses this number)`;
+}
+
 function gameRow(g) {
   const chosen = picks[g.awayNum];
-  const fav = favoriteLine(g, oddsIndex);
+  const fav = favoriteLine(g, oddsFor(g));
   return `
     <div class="game${chosen ? ' is-picked' : ''}${g.tiebreaker ? ' is-tiebreak' : ''}">
       ${g.tiebreaker ? '<div class="game-tb">Tiebreaker &mdash; total points</div>' : ''}

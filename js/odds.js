@@ -309,12 +309,25 @@ function oddsRow(r) {
         <div class="prob-seg ${homeSeg}" style="width:${homePct}%"></div>
       </div>
       <div class="oddsline-meta">
-        <span>${r.ev.bookmakerCount} book${r.ev.bookmakerCount === 1 ? '' : 's'} &middot; ${(r.ev.vig * 100).toFixed(1)}% hold</span>
+        <span>${r.ev.bookmakerCount} book${r.ev.bookmakerCount === 1 ? '' : 's'} &middot; ${(r.ev.vig * 100).toFixed(1)}% hold${totalNote(r.ev)}</span>
         ${r.move
           ? `<span class="odds-move ${r.move.dir}">${r.move.text}</span>`
           : '<span class="odds-move">Opening line</span>'}
       </div>
     </div>`;
+}
+
+/**
+ * ` · O/U 43.5`, or '' when the snapshot has no total for this game.
+ *
+ * '' is the normal state for every row written before 2026-09-09, when the
+ * fetcher started asking for the totals market -- history files keep their
+ * old shape forever, so `total` is absent on the whole back catalog and
+ * undefined must render as nothing rather than as "O/U undefined".
+ */
+function totalNote(ev) {
+  if (ev.total == null) return '';
+  return ` &middot; O/U ${ev.total}`;
 }
 
 /**

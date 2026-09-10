@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Fetch NFL moneyline odds from The Odds API and snapshot them into data/odds/.
+Fetch NFL moneylines and game totals from The Odds API into data/odds/.
 
 Run manually:
 
@@ -16,7 +16,8 @@ this file or in committed JSON.
 What it writes:
 
     data/odds/current.json           latest snapshot, one row per upcoming
-                                      game, de-vigged win probabilities
+                                      game, de-vigged win probabilities and
+                                      the consensus over/under
     data/odds/history/<event-id>.json every snapshot ever taken of that
                                       specific game, oldest first — this is
                                       the line-movement trail the Odds tab
@@ -46,6 +47,22 @@ averages across whatever bookmakers are returned for the `us` region, then
 de-vigs the averaged line. That is a deliberate simplification — median or
 sharpest-book-only would both be defensible too — and is the one thing most
 likely worth revisiting once real snapshots are being compared to results.
+
+`total` is the MEDIAN of the books' over/under points, not the mean, and the
+difference is not cosmetic. A total is a posted number that books cluster on,
+so the median returns a line that somebody is actually offering (43.5), while
+the mean invents one that nobody is (43.28) and lets a single stale book at
+39.5 drag the consensus. Win probability keeps the mean because it is a
+derived quantity rather than a posted one. Only the point is stored, not the
+over/under prices: the consumer is the pool's Monday-night tiebreaker box,
+which wants "what number does the market expect", not a de-vigged over.
+
+QUOTA: The Odds API bills [markets] x [regions] per request, so asking for
+h2h AND totals costs 2 credits per call where h2h alone cost 1. The workflow
+fires ~121 times a month (8/day Thu-Sat plus a daily anchor), which moves the
+monthly spend from ~121 to ~242 against the free tier's 500. Still inside it
+with room, but the headroom is now ~2x, not ~4x — check data/odds/quota.json
+before adding a third market or a denser cron.
 """
 
 import json
@@ -59,7 +76,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 API_URL = (
     "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/"
-    "?apiKey={key}&regions=us&markets=h2h&oddsFormat=american"
+    "?apiKey={key}&regions=us&markets=h2h,totals&oddsFormat=american"
 )
 
 
@@ -93,12 +110,34 @@ def week_bucket(commence_iso, anchor):
     return bucket
 
 
+def consensus_total(points):
+    """Median of the books' over/under points — see the module docstring."""
+    if not points:
+        return None
+    ordered = sorted(points)
+    mid = len(ordered) // 2
+    if len(ordered) % 2:
+        return ordered[mid]
+    return (ordered[mid - 1] + ordered[mid]) / 2
+
+
 def summarize_event(ev):
     home, away = ev["home_team"], ev["away_team"]
     home_probs, away_probs = [], []
+    total_points = []
 
     for bk in ev.get("bookmakers", []):
         for market in bk.get("markets", []):
+            if market["key"] == "totals":
+                # Over and Under carry the same `point`; take it once.
+                point = next(
+                    (o.get("point") for o in market["outcomes"]
+                     if o.get("point") is not None),
+                    None,
+                )
+                if point is not None:
+                    total_points.append(float(point))
+                continue
             if market["key"] != "h2h":
                 continue
             prices = {o["name"]: o["price"] for o in market["outcomes"]}
@@ -107,6 +146,8 @@ def summarize_event(ev):
             home_probs.append(american_to_prob(prices[home]))
             away_probs.append(american_to_prob(prices[away]))
 
+    # A game with a total but no moneyline is still unpriced as far as every
+    # existing consumer is concerned, so the h2h check stays the gate.
     if not home_probs:
         return None
 
@@ -125,6 +166,8 @@ def summarize_event(ev):
         "homeWinProb": round(dv_home, 4) if dv_home is not None else None,
         "awayWinProb": round(dv_away, 4) if dv_away is not None else None,
         "vig": round((avg_home + avg_away) - 1, 4),
+        "total": consensus_total(total_points),
+        "totalBookCount": len(total_points),
     }
 
 

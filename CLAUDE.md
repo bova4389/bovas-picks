@@ -34,6 +34,9 @@ A personal analysis tool to help pick winners each week across two NFL pick'em p
    excluded except the Thanksgiving and Christmas holiday slates, where picks are due before
    Thursday kickoff. **$1,000 paid out each week** to the most correct picks, with the Monday night
    game's total points as the tiebreaker; roughly **$5–6k** to the season-long winners.
+   **The tiebreaker is closest by ABSOLUTE value** — confirmed 2026-09-09 — not closest without
+   going over. That distinction decides which direction to miss in, so do not re-derive it from
+   the fact that most pools do it one way; see "The tiebreaker guess" below.
 2. **Survivor pool** (most popular) — pick one team to win each week. Can't reuse a team once picked. A loss eliminates you, but buy-back re-entry is allowed.
 
 The goal is a single dashboard that helps decide picks for both pools each week, plus tracks results/standings over the season.
@@ -124,7 +127,7 @@ js/schedule.js      Schedule tab — one week, live scores
 js/survivorPicks.js SHARED — the weekly pick board, pure render            [NEVER versioned]
 js/grid.js          Grid tab — the whole season as one table
 js/picksheet.js     Pick Sheet tab
-js/odds.js          Odds tab — one week of market prices, reads data/odds/
+js/odds.js          Odds tab — one week of prices + totals, reads data/odds/
 js/recommend.js     Recommend tab — leverage = win prob ÷ pick share, per STRATEGY.md §4
 js/planModel.js     SHARED — survivor planning math, pure data              [NEVER versioned]
 js/planning.js      Planning tab — spend now or hold, per SURVIVOR-STRATEGY.md §1
@@ -196,19 +199,41 @@ Rules that keep this from rotting:
 Pick Sheet does this now, and it's a requirement (not a nice-to-have) for the Survivor grid and
 Lookback when they're built. The reusable half of this is `js/oddsMatch.js` (pure data: join a
 `{away, home}` game to an odds event, oriented probabilities) and `js/oddsBadge.js`
-(`favoriteLine(game, oddsIndex)` → a text fragment like `` Jaguars <strong>85%</strong> ``, or `''`
-if there's no market line — callers treat `''` as "render nothing"). Both `recommend.js` and
-`picksheet.js` already build their `oddsIndex` the same way:
+(`favoriteLine(game, ev)` → a text fragment like `` Jaguars <strong>85%</strong> ``, or `''`
+if there's no market line — callers treat `''` as "render nothing").
+
+**Use `buildSeasonOddsIndex` / `matchSeasonOdds`, never `buildOddsIndex`.** `getOddsSnapshot()`
+returns **all 272 games at once**, and the pair-only index collapses both meetings of every
+division rivalry into whichever was written last — 96 games affected. Every tab now uses the
+season join:
 
 ```js
 import { getOddsSnapshot } from './data.js';
-import { buildOddsIndex } from './oddsMatch.js';
+import { buildSeasonOddsIndex, matchSeasonOdds } from './oddsMatch.js';
 import { favoriteLine } from './oddsBadge.js';
 
 const snapshot = await getOddsSnapshot();               // null-safe, never throws
-const oddsIndex = snapshot ? buildOddsIndex(snapshot.events) : new Map();
-// per matchup: favoriteLine(game, oddsIndex) — '' means don't render anything
+const seasonIndex = snapshot ? buildSeasonOddsIndex(snapshot.events) : null;
+// per matchup, and the game needs a `date`:
+const ev = matchSeasonOdds({ away, home, date }, seasonIndex);
+favoriteLine(game, ev);   // '' means don't render anything
 ```
+
+**This section used to print the `buildOddsIndex` version, and the Pick Sheet was built from it.**
+The result was live for the whole 2026 preseason: the sheet named **Denver** the favorite in the
+Week 1 Broncos-at-Chiefs tiebreaker game, reading the **November 1** line where Denver is at home.
+Fixed 2026-09-09. `buildOddsIndex` now has **no callers** and is kept only because a genuinely
+one-week set of events is still a valid thing to index; reach for it only when you can prove your
+event list is one week.
+
+**`favoriteLine()` takes the matched event, not an index** — for exactly this reason. Deciding the
+join belongs to the caller, which is the only party that knows what its event list spans.
+
+**A number-map game has no kickoff on it** (the workbook prints only a day name), so a tab
+rendering the number map has to bridge through the schedule to get a date the join can use. See
+`kickoffIndex()` / `oddsFor()` in `js/picksheet.js` — and note that `recommend.js` reads
+`g.date || null` off number-map games, which is always null, so **its division games silently
+resolve to no line at all.** Less wrong than the Pick Sheet's bug was, still wrong; not fixed here.
 
 **What's deliberately NOT shared: the wrapper markup.** `favoriteLine()` returns a bare text
 fragment, not a component with its own container — Pick Sheet wraps it in `.game-odds` (a
@@ -1531,6 +1556,10 @@ use. Three things about it are corrections rather than preferences, so don't und
   under Data Pipeline for what it did before. `matchSeasonOdds` (pair **and** kickoff) does the
   join, not `buildOddsIndex` — all 272 games are in the snapshot at once here, so the pair-only
   index would collapse both meetings of every division rivalry.
+- **The meta line carries the over/under** (`9 books · 4.3% hold · O/U 43`) when the snapshot has
+  one, via `totalNote()`, and renders nothing when it does not — which is the state of every
+  history entry predating 2026-09-09. Same `''` means "render nothing" contract as
+  `favoriteLine()` and `budgetNote()`.
 - **It fetches ~16 history files, not 272.** The old version pulled every game's full snapshot
   trail at boot to compute line movement for rows nobody had scrolled to. Histories are fetched
   per selected week, and `loadJSON` memoises them across week switches.
@@ -1618,9 +1647,9 @@ python scripts/parse_pool_picks.py "path/to/Weekly picks 26.xlsx" 2026 [week]
 → `data/raw/entries-<year>-w<NN>.json` — names + individual cards, **tracked**
 → `data/popularity/pop-<year>-w<NN>.json` — aggregate percentages only, **tracked**
 
-**3. Odds — on a schedule, not mailed.** `scripts/fetch_odds.py` pulls NFL moneylines from
-[The Odds API](https://the-odds-api.com/) (free tier, 500 requests/month), de-vigs them, and
-snapshots the result. Run manually or via `.github/workflows/fetch-odds.yml`, which fires on a
+**3. Odds — on a schedule, not mailed.** `scripts/fetch_odds.py` pulls NFL moneylines **and game
+totals** from [The Odds API](https://the-odds-api.com/) (free tier, 500 requests/month), de-vigs
+the moneylines, and snapshots the result. Run manually or via `.github/workflows/fetch-odds.yml`, which fires on a
 consistent daily anchor (14:00 UTC, every day of the week — so Monday's opening line and
 Saturday's closing line are both on record at the same clock time) with denser sampling layered on
 top Thursday–Saturday, all inside budget.
@@ -1630,6 +1659,23 @@ ODDS_API_KEY=xxxxx python scripts/fetch_odds.py
 ```
 
 → `data/odds/current.json` — latest snapshot, **tracked** (market prices only)
+
+**`total` is the consensus over/under, added 2026-09-09**, as the MEDIAN of the books' posted
+points — not the mean. A total is a number books cluster on, so the median returns a line somebody
+is actually offering (43.5) while the mean invents one nobody is (43.28) and lets one stale book at
+39.5 drag the consensus. Win probability keeps the mean because it is derived rather than posted.
+Only the point is stored, never the over/under prices: the consumer is the Monday-night tiebreaker
+box, which wants "what does the market expect", not a de-vigged over.
+
+**It doubled the quota cost and that is the ceiling to watch.** The Odds API bills
+[markets] × [regions], so `h2h,totals` is 2 credits a call where `h2h` was 1. The workflow fires
+~121 times a month, so monthly spend went from ~121 to ~242 against the free tier's 500 — still
+inside it, but the headroom is ~2× now, not ~4×. **Check `data/odds/quota.json` before adding a
+third market or a denser cron.**
+
+`total` is **absent on every history entry written before 2026-09-09**, and history files keep
+their old shape forever. Every consumer must treat missing as "no line" and render nothing —
+never "O/U undefined".
 → `data/odds/history/<event-id>.json` — every snapshot ever taken of that specific game, oldest
   first, keyed by the Odds API's event id rather than by week bucket. This is deliberate: a bucket
   is only where a game sits *today*, and it drifts forward as weeks roll over, so bucket-keyed
@@ -1710,6 +1756,38 @@ ever wanted back, it is a render change, not a re-parse.
 (`.game.is-tiebreak`), the hint under the Monday-night points input, and the game name appended to
 the outgoing email line. All three read the parser's `tiebreaker` flag — none of them re-derives
 it. See the Data Pipeline section for why that matters.
+
+### The tiebreaker guess — the market number is the worst answer
+
+The hint under the Monday-night input prints the market over/under **and warns you off it**:
+`market O/U 43 (the field guesses this number)`. That parenthetical is the feature; the number
+alone would be actively harmful.
+
+Both halves are measured, not asserted:
+
+- **The field guesses the line.** The 267 parsed cards in `data/raw/entries-2025-w01.json` are the
+  only real sample we have. That week's total was ~43.5, and the field's median guess was 44, mean
+  43.4, with **41% of all entries inside 42–45**.
+- **Games do not land on the line.** 2,127 completed games across `data/schedule-*.json` give mean
+  45.1, median 44, **SD 13.9**. Recentered on a 43 total, the chance of landing anywhere in 41–45
+  is **15%**; it comes in at 36 or under 33% of the time and at 52 or over 25% of the time.
+
+Simulated together — draw a real outcome, draw rivals from the real field, closest absolute wins —
+the equity curve is a U with its trough exactly on the line: **~4% for guessing 43–44 against 8
+tied rivals, ~24% for guessing 34–36 or 53–55.** Guessing the market number is the tiebreaker
+equivalent of picking all favorites, and it fails for the same reason: you are only ever right at
+the same moment as 25 other people.
+
+The low side is preferred over the high side at equal simulated equity, because the recentered
+distribution puts more mass below 37 than above 51, and because it is the half that survives if
+the pool rule ever turns out to be closest-without-going-over.
+
+**The tab prints the caveat and stops there. It does not recommend a number** — that is the same
+line the Infinity War tab holds between the season prize and the weekly prize, for the same
+reason: the trade is the user's.
+
+**Do not restore `placeholder="44"` on the input.** It was there from the first build and it is a
+nudge toward the exact worst answer, sitting inches from text that says so.
 
 ## Which Data File Feeds Which View
 
