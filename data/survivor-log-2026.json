@@ -3,13 +3,13 @@
   "weeks": {
     "1": {
       "week": 1,
-      "builtAt": "2026-09-10T07:21:33.641Z",
-      "oddsFetchedAt": "2026-09-10T07:21:27.605853+00:00",
+      "builtAt": "2026-09-10T12:57:26.567Z",
+      "oddsFetchedAt": "2026-09-10T12:57:21.931312+00:00",
       "confidence": "firming",
       "exposure": {
         "tickets": 4,
         "games": 2,
-        "pAllLose": 0.044
+        "pAllLose": 0.0442
       },
       "picks": [
         {
@@ -28,8 +28,8 @@
         {
           "pool": "deadpool",
           "team": "JAC",
-          "p": 0.7769,
-          "gap": 0.0258,
+          "p": 0.7759,
+          "gap": 0.0268,
           "fvCost": 0.0256,
           "share": null,
           "basis": "win-probability",
@@ -41,8 +41,8 @@
         {
           "pool": "mike",
           "team": "JAC",
-          "p": 0.7769,
-          "gap": 0.0258,
+          "p": 0.7759,
+          "gap": 0.0268,
           "fvCost": 0.0256,
           "share": null,
           "basis": "future-value",

@@ -1286,5 +1286,19 @@
   "vig": 0.0414,
   "bucket": 16,
   "fetchedAt": "2026-09-10T07:21:27.605853+00:00"
+ },
+ {
+  "id": "08abdb683fcb6d77f66baed136f47283",
+  "commenceTime": "2027-01-03T21:05:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4762,
+  "rawAwayProb": 0.5652,
+  "homeWinProb": 0.4573,
+  "awayWinProb": 0.5427,
+  "vig": 0.0414,
+  "bucket": 16,
+  "fetchedAt": "2026-09-10T12:57:21.931312+00:00"
  }
 ]

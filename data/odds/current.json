@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-10T07:21:27.605853+00:00",
+ "fetchedAt": "2026-09-10T12:57:21.931312+00:00",
  "events": [
   {
    "id": "acc580d74344ea3b31bbcdd057fe6a9c",
@@ -7,11 +7,11 @@
    "home": "Los Angeles Rams",
    "away": "San Francisco 49ers",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6726,
-   "rawAwayProb": 0.3675,
-   "homeWinProb": 0.6467,
-   "awayWinProb": 0.3533,
-   "vig": 0.04,
+   "rawHomeProb": 0.6713,
+   "rawAwayProb": 0.3691,
+   "homeWinProb": 0.6453,
+   "awayWinProb": 0.3547,
+   "vig": 0.0404,
    "bucket": 0
   },
   {
@@ -46,11 +46,11 @@
    "home": "Houston Texans",
    "away": "Buffalo Bills",
    "bookmakerCount": 8,
-   "rawHomeProb": 0.5037,
-   "rawAwayProb": 0.5439,
-   "homeWinProb": 0.4808,
-   "awayWinProb": 0.5192,
-   "vig": 0.0475,
+   "rawHomeProb": 0.4997,
+   "rawAwayProb": 0.5475,
+   "homeWinProb": 0.4772,
+   "awayWinProb": 0.5228,
+   "vig": 0.0472,
    "bucket": 0
   },
   {
@@ -85,11 +85,11 @@
    "home": "Jacksonville Jaguars",
    "away": "Cleveland Browns",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.812,
-   "rawAwayProb": 0.2332,
-   "homeWinProb": 0.7769,
-   "awayWinProb": 0.2231,
-   "vig": 0.0452,
+   "rawHomeProb": 0.8111,
+   "rawAwayProb": 0.2343,
+   "homeWinProb": 0.7759,
+   "awayWinProb": 0.2241,
+   "vig": 0.0454,
    "bucket": 0
   },
   {
@@ -137,11 +137,11 @@
    "home": "Minnesota Vikings",
    "away": "Green Bay Packers",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.5513,
-   "rawAwayProb": 0.4943,
-   "homeWinProb": 0.5273,
-   "awayWinProb": 0.4727,
-   "vig": 0.0456,
+   "rawHomeProb": 0.5524,
+   "rawAwayProb": 0.4929,
+   "homeWinProb": 0.5285,
+   "awayWinProb": 0.4715,
+   "vig": 0.0454,
    "bucket": 0
   },
   {
@@ -163,11 +163,11 @@
    "home": "Philadelphia Eagles",
    "away": "Washington Commanders",
    "bookmakerCount": 9,
-   "rawHomeProb": 0.6975,
-   "rawAwayProb": 0.3472,
-   "homeWinProb": 0.6676,
-   "awayWinProb": 0.3324,
-   "vig": 0.0447,
+   "rawHomeProb": 0.6988,
+   "rawAwayProb": 0.3457,
+   "homeWinProb": 0.669,
+   "awayWinProb": 0.331,
+   "vig": 0.0445,
    "bucket": 0
   },
   {

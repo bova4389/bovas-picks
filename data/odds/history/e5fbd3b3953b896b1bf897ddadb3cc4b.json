@@ -1286,5 +1286,19 @@
   "vig": 0.0426,
   "bucket": 2,
   "fetchedAt": "2026-09-10T07:21:27.605853+00:00"
+ },
+ {
+  "id": "e5fbd3b3953b896b1bf897ddadb3cc4b",
+  "commenceTime": "2026-09-25T00:15:00Z",
+  "home": "Green Bay Packers",
+  "away": "Atlanta Falcons",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7895,
+  "rawAwayProb": 0.2532,
+  "homeWinProb": 0.7572,
+  "awayWinProb": 0.2428,
+  "vig": 0.0426,
+  "bucket": 2,
+  "fetchedAt": "2026-09-10T12:57:21.931312+00:00"
  }
 ]
