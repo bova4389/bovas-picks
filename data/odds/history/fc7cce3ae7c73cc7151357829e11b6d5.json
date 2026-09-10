@@ -1316,5 +1316,21 @@
   "totalBookCount": 2,
   "bucket": 15,
   "fetchedAt": "2026-09-10T17:43:23.575785+00:00"
+ },
+ {
+  "id": "fc7cce3ae7c73cc7151357829e11b6d5",
+  "commenceTime": "2026-12-27T21:25:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "San Francisco 49ers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6078,
+  "rawAwayProb": 0.4348,
+  "homeWinProb": 0.583,
+  "awayWinProb": 0.417,
+  "vig": 0.0426,
+  "total": 46.5,
+  "totalBookCount": 2,
+  "bucket": 15,
+  "fetchedAt": "2026-09-10T22:38:50.494283+00:00"
  }
 ]

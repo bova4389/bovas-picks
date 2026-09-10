@@ -1316,5 +1316,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-09-10T17:43:23.575785+00:00"
+ },
+ {
+  "id": "fafc649c455e32a0f2ba1bd06e2039bc",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "Tennessee Titans",
+  "away": "Philadelphia Eagles",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.3336,
+  "rawAwayProb": 0.7085,
+  "homeWinProb": 0.3201,
+  "awayWinProb": 0.6799,
+  "vig": 0.0421,
+  "total": 42.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-09-10T22:38:50.494283+00:00"
  }
 ]

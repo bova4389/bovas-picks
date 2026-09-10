@@ -1316,5 +1316,21 @@
   "totalBookCount": 1,
   "bucket": 15,
   "fetchedAt": "2026-09-10T17:43:23.575785+00:00"
+ },
+ {
+  "id": "29425f5c68826d615277cf9be2b82e00",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "Las Vegas Raiders",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "total": 42.5,
+  "totalBookCount": 1,
+  "bucket": 15,
+  "fetchedAt": "2026-09-10T22:38:50.494283+00:00"
  }
 ]

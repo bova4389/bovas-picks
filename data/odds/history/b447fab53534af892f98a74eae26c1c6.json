@@ -1316,5 +1316,21 @@
   "totalBookCount": 1,
   "bucket": 12,
   "fetchedAt": "2026-09-10T17:43:23.575785+00:00"
+ },
+ {
+  "id": "b447fab53534af892f98a74eae26c1c6",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "Cleveland Browns",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3571,
+  "rawAwayProb": 0.6855,
+  "homeWinProb": 0.3425,
+  "awayWinProb": 0.6575,
+  "vig": 0.0427,
+  "total": 45.5,
+  "totalBookCount": 1,
+  "bucket": 12,
+  "fetchedAt": "2026-09-10T22:38:50.494283+00:00"
  }
 ]

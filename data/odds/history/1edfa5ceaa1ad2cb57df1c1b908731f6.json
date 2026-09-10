@@ -1316,5 +1316,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-10T17:43:23.575785+00:00"
+ },
+ {
+  "id": "1edfa5ceaa1ad2cb57df1c1b908731f6",
+  "commenceTime": "2026-09-13T20:25:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.8335,
+  "rawAwayProb": 0.2083,
+  "homeWinProb": 0.8,
+  "awayWinProb": 0.2,
+  "vig": 0.0418,
+  "total": 47.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-09-10T22:38:50.494283+00:00"
  }
 ]

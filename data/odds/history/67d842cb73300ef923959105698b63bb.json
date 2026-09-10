@@ -1316,5 +1316,21 @@
   "totalBookCount": 2,
   "bucket": 16,
   "fetchedAt": "2026-09-10T17:43:23.575785+00:00"
+ },
+ {
+  "id": "67d842cb73300ef923959105698b63bb",
+  "commenceTime": "2027-01-03T21:25:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5556,
+  "rawAwayProb": 0.4878,
+  "homeWinProb": 0.5325,
+  "awayWinProb": 0.4675,
+  "vig": 0.0434,
+  "total": 45.5,
+  "totalBookCount": 2,
+  "bucket": 16,
+  "fetchedAt": "2026-09-10T22:38:50.494283+00:00"
  }
 ]
