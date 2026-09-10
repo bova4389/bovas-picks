@@ -1272,5 +1272,19 @@
   "vig": 0.0465,
   "bucket": 1,
   "fetchedAt": "2026-09-09T17:50:05.219979+00:00"
+ },
+ {
+  "id": "56e8897681915f7ec92baeee952bb1ae",
+  "commenceTime": "2026-09-18T00:15:00Z",
+  "home": "Buffalo Bills",
+  "away": "Detroit Lions",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.6389,
+  "rawAwayProb": 0.4064,
+  "homeWinProb": 0.6112,
+  "awayWinProb": 0.3888,
+  "vig": 0.0453,
+  "bucket": 1,
+  "fetchedAt": "2026-09-10T07:21:27.605853+00:00"
  }
 ]

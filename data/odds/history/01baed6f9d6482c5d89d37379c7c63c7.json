@@ -1272,5 +1272,19 @@
   "vig": 0.0426,
   "bucket": 17,
   "fetchedAt": "2026-09-09T17:50:05.219979+00:00"
+ },
+ {
+  "id": "01baed6f9d6482c5d89d37379c7c63c7",
+  "commenceTime": "2027-01-10T18:00:00Z",
+  "home": "New York Giants",
+  "away": "Philadelphia Eagles",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4237,
+  "rawAwayProb": 0.6183,
+  "homeWinProb": 0.4066,
+  "awayWinProb": 0.5934,
+  "vig": 0.042,
+  "bucket": 17,
+  "fetchedAt": "2026-09-10T07:21:27.605853+00:00"
  }
 ]

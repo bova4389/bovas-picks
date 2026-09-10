@@ -1272,5 +1272,19 @@
   "vig": 0.0435,
   "bucket": 1,
   "fetchedAt": "2026-09-09T17:50:05.219979+00:00"
+ },
+ {
+  "id": "4aeee070bb6ec60bdfae4dede61b9014",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "New York Jets",
+  "away": "Green Bay Packers",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.3333,
+  "rawAwayProb": 0.7101,
+  "homeWinProb": 0.3194,
+  "awayWinProb": 0.6806,
+  "vig": 0.0435,
+  "bucket": 1,
+  "fetchedAt": "2026-09-10T07:21:27.605853+00:00"
  }
 ]
