@@ -1396,5 +1396,21 @@
   "totalBookCount": 2,
   "bucket": 2,
   "fetchedAt": "2026-09-11T17:46:15.343808+00:00"
+ },
+ {
+  "id": "0339a0e41bcee12820eb3e64bb5fadb4",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Miami Dolphins",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2273,
+  "rawAwayProb": 0.8148,
+  "homeWinProb": 0.2181,
+  "awayWinProb": 0.7819,
+  "vig": 0.0421,
+  "total": 44.5,
+  "totalBookCount": 2,
+  "bucket": 2,
+  "fetchedAt": "2026-09-11T22:38:54.543859+00:00"
  }
 ]

@@ -1396,5 +1396,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-09-11T17:46:15.343808+00:00"
+ },
+ {
+  "id": "36ad2fa722f4915ef23d2c81351261de",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "Houston Texans",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.586,
+  "rawAwayProb": 0.4575,
+  "homeWinProb": 0.5616,
+  "awayWinProb": 0.4384,
+  "vig": 0.0435,
+  "total": 45.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-09-11T22:38:54.543859+00:00"
  }
 ]
