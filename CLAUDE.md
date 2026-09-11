@@ -1520,11 +1520,7 @@ into anything written back to the JSON.
 
 ### What is still owed
 
-- **The 100 names and which square is mine.** Both go into `data/squares-2026.json` once the club
-  sends the filled board — `entries` is a 10 × 10 array, `mine` a list of `{row, col}`. Names only:
-  the repo is public and deploys to GitHub Pages, so strip any email or phone column first.
-- **Each week's draw**, as `digits: {cols: [...], rows: [...]}`, plus confirmation of which team is
-  on which axis. `axisConfirmed` is `false` and the page says so out loud until it is flipped.
+- **The overtime rule** — still unconfirmed with the club. See "Quarter scores" above.
 - **The digit-probability layer** — an offline script pulling quarter-by-quarter scores from past
   ESPN seasons to answer "is this week's pair live or dead", including a Colts-specific table since
   they hold an axis 17 weeks of 18. Designed, not built.
@@ -1535,6 +1531,24 @@ into anything written back to the JSON.
 ### Marks
 
 `saint-jude-emblem.png` was cropped out of the lockup **in pure stdlib Python** — there is no
+### The board and all 18 draws — entered 2026-09-11
+
+The club posted every week's board at once on stjudemensclub.com, and the 100 names, all 18 draws
+and `mine` went into `data/squares-2026.json` from screenshots of it. `mine` is **Matt Bova**,
+`{row: 9, col: 1}` (zero-indexed). `axisConfirmed` is now `true`: the Colts are across the top on
+all 17 Colts weeks, and Seattle is across the top for the Week 13 substitute.
+
+- **Names are verbatim from the club's board, typos included** — `Joe Huber#2`, `Stephen Reitz Jr2`,
+  `Ryan Deiterding #2` beside `Ryan Deitering #1`. Do not tidy them: members find themselves on the
+  board by the name the club printed.
+- **`Mikey Cahill #2` appears twice on the club's own board** (row 1 col 1 and row 8 col 2), and is
+  left that way by the user's call. `leaderboard()` tallies by name, so those two squares share one
+  line on the Season tab. That is expected, not a bug to fix.
+- **Checked against the images, not just re-read.** Each image's digit bands were cropped out of the
+  original screenshot and laid over the digits the site rendered, for all 360 positions.
+- **The screenshots live in `St Jude Squares Images/`, which is gitignored** because they show
+  members' names. They are the record to go back to if a week's draw is ever disputed.
+
 Pillow here and no build step, so the PNG was decoded, unfiltered, sliced and re-encoded by hand.
 The cut is measured, not guessed: the emblem and the wordmark are joined by the gold rule, so the
 boundary comes from the first transparent column run in the **top third**, above that rule. If the

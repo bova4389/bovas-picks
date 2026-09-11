@@ -27,9 +27,20 @@
         }
       ],
       "overtime": "final",
-      "axisConfirmed": false,
-      "mine": [],
-      "entries": null,
+      "axisConfirmed": true,
+      "mine": [{"row": 9, "col": 1}],
+      "entries": [
+        ["John Heinzleman #1", "Patrick O'Donnell", "Matt Iaria", "Holli Mahoney", "Dan Steinbrenner #2", "Nick Haggenjos", "Owen Denzer", "Chris Bova", "Casey Bosega", "Pete Malloy"],
+        ["Cassie Himes", "Mikey Cahill #2", "Craig McElfresh #1", "Ryan Deiterding #2", "Jeff Keyler", "AJ Reiber", "Nathan Ante", "Larry Potter", "Tim Mahoney", "Jim Crews"],
+        ["Nick Hupp #2", "Mark Reuth", "Emma Kreutzer", "Rueth Sweet", "Ryan Wood", "Domenic Melillo", "Jeff Morgan", "Teresa Payne", "Phil Raskosky", "Will May"],
+        ["Matt Flynn", "Judd Lawrie #1", "Matthew Kreutzer", "John Flynn", "Brian Holtz", "Judd Lawrie Football", "Brian Lauck", "Andy Fitzgerald", "Mary Flynn", "Craig McElfresh #2"],
+        ["Mike Ball", "Chris Hale", "Justin Teipen", "Joe Huber#2", "Ethan Ante", "Lane Wood", "Chris Doyle", "Mike VanOsdel", "Mike Murphy", "Chad Hall"],
+        ["Mark Kreutzer", "Joe Melillo", "Bart Trumpey", "Nick Himes", "John Heinzleman #2", "David Cwickla", "Sam Galbraith", "David Beckwidth", "James Pappas", "Mike Kelly"],
+        ["Lebanon Crew #2", "Eric Benjamin", "Jake Schweers", "Jon Durrett", "Jeff Chida", "TJ Waugh", "Gary Steigerwalt", "Jeff Payne", "Michael Bolinger", "Chris Cecil"],
+        ["Steve Mahoney", "Matt Bailey 1", "Cody Baker", "Greg Roberts", "Dan Steinbrenner #1", "Larry Keyler", "Mike Potter", "Joseph Keller", "Walt Cwickla", "John Mahoney"],
+        ["Dustin Ante", "Kurtis Arbuckle", "Mikey Cahill #2", "Matt Bailey #2", "Luke Bockelman", "Lebanon Crew #1", "Nick Hupp #1", "Anthony Uberta", "Donna Meyer", "Bradd Stoops"],
+        ["Pat Beck", "Matt Bova", "Stephen Reitz Jr #1", "Olivia Keller", "Ryan Deitering #1", "Stephen Reitz Jr2", "Joe Huber #1", "Mike Ante", "Ryan Carrol", "Lauren Schweers"]
+      ],
       "weeks": [
         {
           "week": 1,
@@ -41,7 +52,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "BAL",
-          "digits": null,
+          "digits": {
+            "cols": [6, 5, 1, 4, 3, 9, 8, 2, 0, 7],
+            "rows": [2, 1, 8, 9, 0, 6, 3, 4, 7, 5]
+          },
           "result": null
         },
         {
@@ -54,7 +68,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "KC",
-          "digits": null,
+          "digits": {
+            "cols": [8, 2, 0, 1, 4, 7, 6, 3, 9, 5],
+            "rows": [9, 2, 4, 3, 1, 7, 8, 0, 6, 5]
+          },
           "result": null
         },
         {
@@ -67,7 +84,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "HOU",
-          "digits": null,
+          "digits": {
+            "cols": [1, 4, 6, 7, 5, 9, 3, 2, 0, 8],
+            "rows": [8, 7, 3, 4, 9, 2, 0, 6, 5, 1]
+          },
           "result": null
         },
         {
@@ -80,7 +100,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "WAS",
-          "digits": null,
+          "digits": {
+            "cols": [8, 6, 1, 9, 5, 4, 7, 2, 3, 0],
+            "rows": [3, 9, 7, 2, 1, 4, 0, 5, 6, 8]
+          },
           "result": null
         },
         {
@@ -93,7 +116,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "PIT",
-          "digits": null,
+          "digits": {
+            "cols": [7, 2, 0, 8, 9, 1, 6, 3, 5, 4],
+            "rows": [4, 5, 3, 6, 2, 1, 9, 8, 7, 0]
+          },
           "result": null
         },
         {
@@ -106,7 +132,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "TEN",
-          "digits": null,
+          "digits": {
+            "cols": [5, 3, 9, 0, 2, 4, 1, 6, 7, 8],
+            "rows": [2, 9, 5, 8, 6, 3, 4, 0, 1, 7]
+          },
           "result": null
         },
         {
@@ -119,7 +148,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "MIN",
-          "digits": null,
+          "digits": {
+            "cols": [9, 8, 0, 6, 1, 7, 2, 4, 5, 3],
+            "rows": [3, 9, 4, 6, 0, 2, 7, 1, 8, 5]
+          },
           "result": null
         },
         {
@@ -132,7 +164,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "JAC",
-          "digits": null,
+          "digits": {
+            "cols": [3, 5, 4, 0, 1, 8, 6, 7, 2, 9],
+            "rows": [4, 9, 5, 3, 1, 2, 6, 8, 0, 7]
+          },
           "result": null
         },
         {
@@ -145,7 +180,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "DAL",
-          "digits": null,
+          "digits": {
+            "cols": [8, 3, 2, 1, 5, 9, 0, 6, 7, 4],
+            "rows": [1, 7, 4, 9, 3, 0, 5, 8, 2, 6]
+          },
           "result": null
         },
         {
@@ -158,7 +196,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "MIA",
-          "digits": null,
+          "digits": {
+            "cols": [3, 0, 1, 8, 5, 4, 2, 7, 9, 6],
+            "rows": [7, 2, 9, 3, 5, 4, 6, 0, 1, 8]
+          },
           "result": null
         },
         {
@@ -171,7 +212,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "HOU",
-          "digits": null,
+          "digits": {
+            "cols": [2, 4, 3, 7, 0, 8, 9, 6, 1, 5],
+            "rows": [0, 8, 5, 4, 9, 1, 3, 7, 6, 2]
+          },
           "result": null
         },
         {
@@ -184,7 +228,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "NYG",
-          "digits": null,
+          "digits": {
+            "cols": [1, 2, 8, 7, 9, 3, 5, 4, 6, 0],
+            "rows": [2, 0, 9, 5, 1, 8, 4, 3, 7, 6]
+          },
           "result": null
         },
         {
@@ -197,7 +244,10 @@
           "note": "Colts bye \u2014 Monday night game",
           "colsTeam": "SEA",
           "rowsTeam": "DAL",
-          "digits": null,
+          "digits": {
+            "cols": [7, 3, 0, 8, 1, 5, 9, 4, 2, 6],
+            "rows": [5, 4, 0, 1, 2, 9, 3, 8, 7, 6]
+          },
           "result": null
         },
         {
@@ -210,7 +260,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "PHI",
-          "digits": null,
+          "digits": {
+            "cols": [6, 4, 8, 2, 0, 5, 1, 3, 9, 7],
+            "rows": [3, 1, 7, 2, 4, 5, 8, 0, 6, 9]
+          },
           "result": null
         },
         {
@@ -223,7 +276,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "TEN",
-          "digits": null,
+          "digits": {
+            "cols": [1, 7, 6, 2, 5, 9, 3, 4, 0, 8],
+            "rows": [1, 5, 4, 6, 3, 8, 2, 7, 0, 9]
+          },
           "result": null
         },
         {
@@ -236,7 +292,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "CIN",
-          "digits": null,
+          "digits": {
+            "cols": [7, 2, 8, 9, 5, 0, 3, 1, 4, 6],
+            "rows": [5, 6, 3, 9, 1, 7, 0, 2, 4, 8]
+          },
           "result": null
         },
         {
@@ -249,7 +308,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "CLE",
-          "digits": null,
+          "digits": {
+            "cols": [2, 0, 5, 6, 7, 9, 3, 4, 8, 1],
+            "rows": [2, 6, 3, 1, 5, 8, 0, 7, 4, 9]
+          },
           "result": null
         },
         {
@@ -262,7 +324,10 @@
           "note": null,
           "colsTeam": "IND",
           "rowsTeam": "JAC",
-          "digits": null,
+          "digits": {
+            "cols": [4, 5, 1, 3, 6, 0, 9, 7, 2, 8],
+            "rows": [2, 5, 0, 8, 9, 7, 6, 3, 4, 1]
+          },
           "result": null
         }
       ]

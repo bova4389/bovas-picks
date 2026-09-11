@@ -24,3 +24,8 @@
 Thumbs.db
 __pycache__/
 *.pyc
+
+# Photos of the St. Jude squares boards, sent by the club. Kept local only:
+# they may show members' names, and this repo is public on GitHub Pages.
+# The numbers are typed into data/squares-2026.json by hand.
+/St Jude Squares Images/
