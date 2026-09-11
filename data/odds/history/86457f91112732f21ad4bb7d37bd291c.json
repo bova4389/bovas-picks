@@ -1348,5 +1348,21 @@
   "totalBookCount": 2,
   "bucket": 4,
   "fetchedAt": "2026-09-11T01:10:14.478606+00:00"
+ },
+ {
+  "id": "86457f91112732f21ad4bb7d37bd291c",
+  "commenceTime": "2026-10-12T00:20:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3788,
+  "rawAwayProb": 0.6644,
+  "homeWinProb": 0.3631,
+  "awayWinProb": 0.6369,
+  "vig": 0.0432,
+  "total": 48.5,
+  "totalBookCount": 2,
+  "bucket": 4,
+  "fetchedAt": "2026-09-11T07:19:59.387291+00:00"
  }
 ]

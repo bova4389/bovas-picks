@@ -1348,5 +1348,21 @@
   "totalBookCount": 2,
   "bucket": 4,
   "fetchedAt": "2026-09-11T01:10:14.478606+00:00"
+ },
+ {
+  "id": "448d7cf18c6db4c811ed82ded1b72867",
+  "commenceTime": "2026-10-11T17:00:00Z",
+  "home": "Pittsburgh Steelers",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "total": 47.5,
+  "totalBookCount": 2,
+  "bucket": 4,
+  "fetchedAt": "2026-09-11T07:19:59.387291+00:00"
  }
 ]
