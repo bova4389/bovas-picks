@@ -1254,7 +1254,9 @@ because Squares is the only consumer.
   quarters. Never collapse the two.
 - **`overtime` is a config flag**, `'final'` or `'regulation'`, because pools split on whether the
   last payout lands on the score the game ended on or the score at the end of the fourth.
-  **Unconfirmed with the commissioner as of 2026-09-08** — ask before Week 1.
+  **St. Jude uses `'final'` — confirmed by the user 2026-09-11.** The fourth payout is the score the
+  game ends on. In an overtime game the end-of-fourth score is ignored entirely and pays nothing;
+  only the final score after overtime pays. There are four payouts, never five.
 
 **Finished weeks get frozen into `data/squares-<year>.json`** via `result`, and `frozenGame()`
 rebuilds them. That is what makes the ledger permanent and offline-capable rather than dependent on
@@ -1518,19 +1520,6 @@ labeled SAMPLE wherever it shows, it is deterministic per week so it does not re
 refresh, and it **copies** the pool rather than mutating it — the sample must never be able to leak
 into anything written back to the JSON.
 
-### What is still owed
-
-- **The overtime rule** — still unconfirmed with the club. See "Quarter scores" above.
-- **The digit-probability layer** — an offline script pulling quarter-by-quarter scores from past
-  ESPN seasons to answer "is this week's pair live or dead", including a Colts-specific table since
-  they hold an axis 17 weeks of 18. Designed, not built.
-- **Pools the user runs**, imported from a filled Google Sheet. `data/squares-<year>.json` is a
-  `pools` array from day one for exactly this, and both tabs render any pool generically, so this
-  is an import step rather than a new tab.
-
-### Marks
-
-`saint-jude-emblem.png` was cropped out of the lockup **in pure stdlib Python** — there is no
 ### The board and all 18 draws — entered 2026-09-11
 
 The club posted every week's board at once on stjudemensclub.com, and the 100 names, all 18 draws
@@ -1549,6 +1538,18 @@ all 17 Colts weeks, and Seattle is across the top for the Week 13 substitute.
 - **The screenshots live in `St Jude Squares Images/`, which is gitignored** because they show
   members' names. They are the record to go back to if a week's draw is ever disputed.
 
+### What is still owed
+
+- **The digit-probability layer** — an offline script pulling quarter-by-quarter scores from past
+  ESPN seasons to answer "is this week's pair live or dead", including a Colts-specific table since
+  they hold an axis 17 weeks of 18. Designed, not built.
+- **Pools the user runs**, imported from a filled Google Sheet. `data/squares-<year>.json` is a
+  `pools` array from day one for exactly this, and both tabs render any pool generically, so this
+  is an import step rather than a new tab.
+
+### Marks
+
+`saint-jude-emblem.png` was cropped out of the lockup **in pure stdlib Python** — there is no
 Pillow here and no build step, so the PNG was decoded, unfiltered, sliced and re-encoded by hand.
 The cut is measured, not guessed: the emblem and the wordmark are joined by the gold rule, so the
 boundary comes from the first transparent column run in the **top third**, above that rule. If the
