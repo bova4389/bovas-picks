@@ -1364,5 +1364,21 @@
   "totalBookCount": 1,
   "bucket": 17,
   "fetchedAt": "2026-09-11T07:19:59.387291+00:00"
+ },
+ {
+  "id": "bb66a6f02c535c0cd8b9c689a5513687",
+  "commenceTime": "2027-01-10T18:00:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8039,
+  "rawAwayProb": 0.2381,
+  "homeWinProb": 0.7715,
+  "awayWinProb": 0.2285,
+  "vig": 0.042,
+  "total": 40.5,
+  "totalBookCount": 1,
+  "bucket": 17,
+  "fetchedAt": "2026-09-11T12:51:38.886985+00:00"
  }
 ]

@@ -1364,5 +1364,21 @@
   "totalBookCount": 2,
   "bucket": 15,
   "fetchedAt": "2026-09-11T07:19:59.387291+00:00"
+ },
+ {
+  "id": "cf5cefa5556bcd0156bd394171ef6c8e",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Washington Commanders",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4673,
+  "homeWinProb": 0.5514,
+  "awayWinProb": 0.4486,
+  "vig": 0.0418,
+  "total": 46.5,
+  "totalBookCount": 2,
+  "bucket": 15,
+  "fetchedAt": "2026-09-11T12:51:38.886985+00:00"
  }
 ]

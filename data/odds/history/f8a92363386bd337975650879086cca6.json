@@ -1364,5 +1364,21 @@
   "totalBookCount": 2,
   "bucket": 12,
   "fetchedAt": "2026-09-11T07:19:59.387291+00:00"
+ },
+ {
+  "id": "f8a92363386bd337975650879086cca6",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "Tampa Bay Buccaneers",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4545,
+  "rawAwayProb": 0.5868,
+  "homeWinProb": 0.4365,
+  "awayWinProb": 0.5635,
+  "vig": 0.0413,
+  "total": 46.5,
+  "totalBookCount": 2,
+  "bucket": 12,
+  "fetchedAt": "2026-09-11T12:51:38.886985+00:00"
  }
 ]

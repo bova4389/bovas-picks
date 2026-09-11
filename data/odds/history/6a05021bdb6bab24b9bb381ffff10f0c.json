@@ -1364,5 +1364,21 @@
   "totalBookCount": 1,
   "bucket": 11,
   "fetchedAt": "2026-09-11T07:19:59.387291+00:00"
+ },
+ {
+  "id": "6a05021bdb6bab24b9bb381ffff10f0c",
+  "commenceTime": "2026-11-29T18:00:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Atlanta Falcons",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.6855,
+  "rawAwayProb": 0.3571,
+  "homeWinProb": 0.6575,
+  "awayWinProb": 0.3425,
+  "vig": 0.0427,
+  "total": 43.5,
+  "totalBookCount": 1,
+  "bucket": 11,
+  "fetchedAt": "2026-09-11T12:51:38.886985+00:00"
  }
 ]

@@ -1364,5 +1364,21 @@
   "totalBookCount": 1,
   "bucket": 15,
   "fetchedAt": "2026-09-11T07:19:59.387291+00:00"
+ },
+ {
+  "id": "126f27c71e8130ef87de0d137e833d9b",
+  "commenceTime": "2026-12-25T21:30:00Z",
+  "home": "Denver Broncos",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4762,
+  "rawAwayProb": 0.5652,
+  "homeWinProb": 0.4573,
+  "awayWinProb": 0.5427,
+  "vig": 0.0414,
+  "total": 46.5,
+  "totalBookCount": 1,
+  "bucket": 15,
+  "fetchedAt": "2026-09-11T12:51:38.886985+00:00"
  }
 ]
