@@ -1508,17 +1508,26 @@ Three specific decisions that look wrong until you try the alternative:
   crimson and gold are the *chrome*. Repainting the Colts in crimson is the one change that would
   make every week look the same.
 
-**The board scrolls sideways rather than shrinking to fit.** Ten name cells plus an axis need
-~660px; a 375px phone would give each cell 30px, which fits the layout and loses the names — and a
+**The board scrolls sideways rather than shrinking to fit, and its names wrap.** Shrinking a 10 × 10
+board onto a 375px phone would give each cell ~28px, where no name is readable at any size — and a
 board you cannot find your own name on has failed at the only thing it does. The digit column is
 pinned with `position: sticky`, and the "your square" card above carries the answer for anyone who
 would rather not scroll at all.
 
-**The sample toggle is a design tool, not a feature.** Until the club sends the filled board every
-cell is empty, so the toggle fills the grid with obviously fake names and a seeded draw. It is
-labeled SAMPLE wherever it shows, it is deterministic per week so it does not reshuffle on a
-refresh, and it **copies** the pool rather than mutating it — the sample must never be able to leak
-into anything written back to the JSON.
+**Names wrap and are never cut off** (changed 2026-09-11). They used to be one line with an
+ellipsis, which on a phone cut all 100 to "John …" — scrollable and still unreadable. `.sq-name` now
+wraps at spaces and sizes itself off the board's visible width (`100cqi` of `.sq-board-scroll`, a
+size container), clamped 10px–13px. The formula and the column minimums (68px, and 66px on a phone)
+are **measured** so the longest word on the 2026 board, "Steinbrenner", fits one line at the 10px
+floor; `overflow-wrap: break-word` is only a last resort. **If a longer surname joins the board,
+re-measure** — the arithmetic is in the comment above `.sq-name`. A won cell carries top padding so
+its Q1/Q2/Q3/F chips never sit on a wrapped name.
+
+**There is no sample mode.** A "Preview with sample data" toggle filled the board with fake names and
+a seeded draw while the club's board was outstanding. It was removed 2026-09-11, at the user's
+request, once the real board was in: the checkbox, the overlay code, the banner and their styles.
+Do not reinstate it — an empty board (next season, before the club sends it) already renders as a
+deliberate hatched blank with a note in the legend.
 
 ### The board and all 18 draws — entered 2026-09-11
 

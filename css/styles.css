@@ -2800,35 +2800,6 @@ footer {
   min-height: 1em;
 }
 
-/* No label of its own, so it needs the label's height to sit level. */
-.sq-sample-toggle { margin-top: 23px; }
-
-.sq-sample-toggle {
-  display: flex; align-items: center; gap: 9px;
-  min-height: 46px; padding: 0 4px;
-  font-size: .875rem; font-weight: 700;
-  color: var(--sq-ink-soft);
-  cursor: pointer;
-}
-.sq-sample-toggle input {
-  width: 20px; height: 20px;
-  accent-color: var(--sq-crimson);
-  cursor: pointer;
-}
-.sq-sample-toggle:hover { color: var(--sq-ink); }
-
-.sq-sample-banner {
-  margin: 0 0 18px;
-  padding: 13px 16px;
-  border: 1px dashed var(--sq-charcoal);
-  border-left: 4px solid var(--sq-charcoal);
-  border-radius: var(--sq-r-md);
-  background: var(--sq-paper);
-  color: var(--sq-ink);
-  font-size: .875rem;
-  line-height: 1.5;
-}
-
 .sq-section { margin-top: 30px; }
 
 /* ── The matchup ──────────────────────────────────────────────────────────
@@ -3124,6 +3095,9 @@ footer {
 
 .sq-board-scroll {
   grid-area: 2 / 2;
+  /* A size container, so `.sq-name` can size itself off the board's visible
+     width (100cqi). Its width comes from the frame's grid, never its content. */
+  container-type: inline-size;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
@@ -3171,10 +3145,10 @@ footer {
 
 .sq-board {
   display: grid;
-  grid-template-columns: 44px repeat(10, minmax(58px, 1fr));
+  grid-template-columns: 44px repeat(10, minmax(68px, 1fr));
   gap: 3px;
   padding: 3px;
-  min-width: 660px;
+  min-width: 760px;
 }
 
 .sq-corner {
@@ -3216,18 +3190,36 @@ footer {
   align-items: center; justify-content: center;
   gap: 2px;
   min-height: 58px;
-  padding: 4px 5px;
+  min-width: 0;
+  padding: 4px 3px;
   border: 1px solid var(--sq-line);
   border-radius: var(--sq-r-sm);
   background: var(--sq-white);
   overflow: visible;
 }
+/* NAMES WRAP. THEY ARE NEVER CUT OFF.
+   They used to sit on one line with an ellipsis, which on a phone cut all 100
+   to "John ..." -- a board you could scroll and still not read. Now a name
+   wraps at its spaces, and its size tracks the board's visible width.
+
+   THE NUMBERS ARE MEASURED, NOT CHOSEN. The longest single word on the 2026
+   board is "Steinbrenner", 5.89em wide in Lato 700. A cell's text box is
+   (W - 160px) / 10 for a board W wide (44px digit column, 3px gaps and board
+   padding, 1px border and 3px padding per side), so a size of (W - 160px) / 62
+   keeps that word on one line with ~5% to spare. The 68px column minimum
+   (66px with 2px padding on a phone) is what holds it at the 10px floor.
+   break-word is only the last resort -- a won cell's 3px border, say. IF A
+   LONGER SURNAME JOINS THE BOARD, RE-MEASURE. The first declaration is the
+   fallback for a browser without container units. */
 .sq-name {
-  font-size: .8125rem; font-weight: 700;
-  line-height: 1.2;
+  font-size: .75rem;
+  font-size: clamp(.625rem, calc((100cqi - 160px) / 62), .8125rem);
+  font-weight: 700;
+  line-height: 1.15;
   color: var(--sq-ink);
   max-width: 100%;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  text-align: center;
+  overflow-wrap: break-word;
 }
 
 /* An empty board is the normal state until the club sends the sheet, so it is
@@ -3259,6 +3251,9 @@ footer {
 .sq-cell.is-won {
   border: 3px solid var(--sq-gold);
   background: var(--sq-gold-wash);
+  /* Room under the Q1/Q2/Q3/F chips, which sit absolutely in the top-left
+     corner and would otherwise land on the first line of a wrapped name. */
+  padding-top: 20px;
 }
 .sq-cell.is-won .sq-name { color: var(--sq-ink); }
 /* Yours AND won keeps the gold border and says whose it is in the text, so the
@@ -3757,17 +3752,13 @@ footer {
   .sq-band-mark { width: 32px; height: 32px; }
   .sq-band-name { letter-spacing: .1em; }
 
-  .sq-board { min-width: 604px; grid-template-columns: 40px repeat(10, minmax(54px, 1fr)); }
-  .sq-cell { min-height: 54px; }
-  .sq-name { font-size: .75rem; }
+  .sq-board { min-width: 736px; grid-template-columns: 40px repeat(10, minmax(66px, 1fr)); }
+  .sq-cell { min-height: 54px; padding: 4px 2px; }
+  .sq-name { font-size: .625rem; }
   .sq-legend { gap: 6px 12px; padding: 10px 12px; }
 
   .sq-payouts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sq-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-  /* The controls stack one per row here, so the toggle no longer sits beside
-     a labelled control and the label-height offset is just dead space. */
-  .sq-sample-toggle { margin-top: 0; }
 
   .sq-nav { gap: 20px; padding: 18px; }
   .sq-nav-row { gap: 6px; }

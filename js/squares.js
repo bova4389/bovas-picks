@@ -14,12 +14,6 @@
    ink is chosen by measured contrast with readableInkOn(), never by eye —
    several primaries (Vikings gold, Chargers powder) are light enough that
    white-on-brand fails the 4.5:1 floor this site holds.
-
-   THE SAMPLE TOGGLE IS A DESIGN TOOL, NOT A FEATURE. Until the club sends the
-   filled board and the first draw, every cell is empty and there is nothing
-   to look at. The toggle fills the grid with obviously fake names and a
-   deterministic draw so the layout can be judged now. It is labeled SAMPLE
-   everywhere it shows, and it never writes anything to the pool document.
    ========================================================================== */
 
 import { SEASON, getSquares } from './data.js';
@@ -44,13 +38,11 @@ const POLL_MS = 30_000;
 const PREKICK_MS = 10 * 60_000;
 
 let doc = null;
-let basePool = null;      // the pool exactly as committed
-let pool = null;          // basePool, or the sample overlay when toggled on
+let pool = null;          // the pool exactly as committed
 let week = null;
 let view = null;          // loadWeek() result for the graded week
 let game = null;          // the one game this week grades on
 let identity = new Map(); // abbr -> { colors, logo, wordmark }
-let sample = false;
 let panel = null;
 let pollTimer = null;
 let refreshing = false;
@@ -65,14 +57,13 @@ export async function initSquares(root, season = SEASON) {
   wireClubNav(root);
 
   doc = await getSquares(season);
-  basePool = poolById(doc, POOL_ID);
+  pool = poolById(doc, POOL_ID);
 
-  if (!basePool) {
+  if (!pool) {
     root.innerHTML = header() + missingPool(season);
     return;
   }
 
-  pool = basePool;
   await loadIdentity();
 
   week = pickOpeningWeek();
@@ -99,7 +90,7 @@ export async function initSquares(root, season = SEASON) {
  * Wednesday after it. See squaresModel.js for the rule.
  */
 function pickOpeningWeek() {
-  return defaultWeek(basePool) ?? payoutWeeks(basePool)[0];
+  return defaultWeek(pool) ?? payoutWeeks(pool)[0];
 }
 
 /* How much ink a mark should cover, in square pixels of rendered artwork.
@@ -112,7 +103,7 @@ const MARK_AREA = 600;
 /** Colors, marks and per-team mark sizing, fetched once. */
 async function loadIdentity() {
   const abbrs = new Set();
-  for (const w of basePool.weeks) { abbrs.add(w.away); abbrs.add(w.home); }
+  for (const w of pool.weeks) { abbrs.add(w.away); abbrs.add(w.home); }
 
   await Promise.all([...abbrs].map(async (abbr) => {
     const [colors, logo, wordmark, box] = await Promise.all([
@@ -138,7 +129,7 @@ const mascotOf = (abbr) => ABBR_TO_MASCOT[abbr] || abbr;
 function header() {
   return `
     ${clubBanner({
-      pool: basePool?.name || 'Squares',
+      pool: pool?.name || 'Squares',
       subtitle: 'The board',
       season: SEASON,
     })}
@@ -153,7 +144,7 @@ function header() {
 }
 
 function shell() {
-  const weeks = payoutWeeks(basePool);
+  const weeks = payoutWeeks(pool);
 
   return `
     ${header()}
@@ -163,7 +154,7 @@ function shell() {
         <label for="sq-week">Week</label>
         <select id="sq-week">
           ${weeks.map((w) => {
-            const cfg = weekConfig(basePool, w);
+            const cfg = weekConfig(pool, w);
             return `<option value="${w}">Week ${w} — ${escape(matchupLabel(cfg))}</option>`;
           }).join('')}
         </select>
@@ -173,10 +164,6 @@ function shell() {
         <button class="btn btn-ghost" id="sq-refresh" type="button">Refresh</button>
         <span class="sq-updated" id="sq-updated"></span>
       </div>
-      <label class="sq-sample-toggle">
-        <input type="checkbox" id="sq-sample" />
-        <span>Preview with sample data</span>
-      </label>
     </div>
 
     <div id="sq-body"></div>`;
@@ -197,12 +184,6 @@ function wire() {
     clearScoreboardCache();
     await refresh({ force: true });
   });
-
-  el('sq-sample').addEventListener('change', (e) => {
-    sample = e.target.checked;
-    applySample();
-    render();
-  });
 }
 
 /* ── Data ─────────────────────────────────────────────────────────────── */
@@ -219,10 +200,9 @@ async function refresh({ force = false } = {}) {
       maxAgeMs: force ? 0 : POLL_MS,
     });
 
-    const cfg = weekConfig(basePool, week);
+    const cfg = weekConfig(pool, week);
     game = (view?.games || []).find((g) => g.id === String(cfg?.gameId)) || null;
 
-    applySample();
     render();
   } finally {
     refreshing = false;
@@ -256,67 +236,6 @@ function stopPolling() {
   if (pollTimer) { clearTimeout(pollTimer); pollTimer = null; }
 }
 
-/* ── Sample overlay ───────────────────────────────────────────────────────
-   Deliberately silly names, so a screenshot of a sample board can never be
-   mistaken for the real one. Seeded off the week number so the draw holds
-   still across a refresh instead of reshuffling every thirty seconds.
-   ------------------------------------------------------------------------ */
-
-const SAMPLE_NAMES = [
-  'Bova', 'Mitch', 'Deuce', 'Tank', 'Skip', 'Moose', 'Rooster', 'Cheeks',
-  'Doc', 'Slim', 'Ace', 'Chief', 'Bear', 'Duke', 'Gus', 'Hoss',
-  'Junior', 'Lefty', 'Mac', 'Nub', 'Ozzie', 'Pinky', 'Quinn', 'Red',
-  'Sarge', 'Tiny', 'Vern', 'Whit', 'Yogi', 'Zeke', 'Boomer', 'Chip',
-  'Dutch', 'Elmo', 'Flash', 'Goose', 'Hawk', 'Ike', 'Jinx', 'Knuckles',
-  'Lucky', 'Meatball', 'Nails', 'Opie', 'Pops', 'Rocket', 'Scooter', 'Tex',
-  'Buck', 'Curly',
-];
-
-/** Tiny seeded generator — same week in, same board out. */
-function rng(seed) {
-  let s = seed * 2654435761 % 2147483647;
-  return () => (s = (s * 16807) % 2147483647) / 2147483647;
-}
-
-function shuffled(list, rand) {
-  const out = [...list];
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
-  }
-  return out;
-}
-
-/**
- * Swap `pool` between the committed document and a filled-in copy of it.
- *
- * A copy, never a mutation: the sample must not be able to leak into anything
- * that later gets written back to data/squares-<year>.json.
- */
-function applySample() {
-  if (!sample) { pool = basePool; return; }
-
-  // The names and the owned square are fixed for the season, so they are
-  // seeded once rather than per week — same as the real thing.
-  const nameRand = rng(1);
-  const names = shuffled([...SAMPLE_NAMES, ...SAMPLE_NAMES], nameRand).slice(0, 100);
-  const entries = Array.from({ length: 10 }, (_, r) => names.slice(r * 10, r * 10 + 10));
-  entries[4][6] = 'Bova';
-
-  const weeks = basePool.weeks.map((w) => {
-    const rand = rng(w.week + 101);
-    return {
-      ...w,
-      digits: {
-        cols: shuffled([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], rand),
-        rows: shuffled([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], rand),
-      },
-    };
-  });
-
-  pool = { ...basePool, entries, mine: [{ row: 4, col: 6 }], weeks };
-}
-
 /* ── Render ───────────────────────────────────────────────────────────── */
 
 function render() {
@@ -324,7 +243,6 @@ function render() {
   const grades = cfg && game ? gradeWeek(pool, cfg, game) : null;
 
   el('sq-body').innerHTML = [
-    sample ? sampleBanner() : '',
     matchupCard(cfg),
     yourSquare(cfg, grades),
     board(cfg, grades),
@@ -363,17 +281,8 @@ function paintStatus(cfg) {
   if (!pill) return;
 
   const ready = hasEntries(pool) && hasDigits(cfg);
-  pill.textContent = sample ? 'Sample' : ready ? 'Board set' : 'Awaiting board';
-  pill.className = `pill${ready && !sample ? ' ok' : ''}`;
-}
-
-function sampleBanner() {
-  return `
-    <div class="sq-sample-banner">
-      <strong>Sample data.</strong> Made-up names and a made-up draw, so the
-      layout can be judged before the club sends the real board. Nothing here
-      is saved.
-    </div>`;
+  pill.textContent = ready ? 'Board set' : 'Awaiting board';
+  pill.className = `pill${ready ? ' ok' : ''}`;
 }
 
 /* ── The matchup ──────────────────────────────────────────────────────── */
@@ -866,16 +775,16 @@ function payouts(cfg, grades) {
 /* ── Footnotes ────────────────────────────────────────────────────────── */
 
 function footnotes(cfg) {
-  const ec = economics(basePool);
+  const ec = economics(pool);
 
   return `
     <div class="card sq-notes">
       <div class="sq-note">
         <p class="eyebrow">The pool</p>
         <p>
-          100 squares at ${money(basePool.buyIn)} is
+          100 squares at ${money(pool.buyIn)} is
           ${money(ec.collected)} in. ${ec.payouts} payouts of
-          ${money(basePool.payoutPerQuarter)} is ${money(ec.paid)} out, so
+          ${money(pool.payoutPerQuarter)} is ${money(ec.paid)} out, so
           <strong>${money(ec.charity)}</strong> (${pct(ec.charityPct)}) goes to
           St. Jude. A square is worth ${money(ec.evPerSquare)} of that back &mdash;
           the shortfall <em>is</em> the donation.
@@ -885,12 +794,12 @@ function footnotes(cfg) {
         <p class="eyebrow">Why no square is better than another</p>
         <p>
           The names hold still all season but the digits are redrawn every week,
-          so over ${basePool.weeks.length} weeks every square is dealt the same
+          so over ${pool.weeks.length} weeks every square is dealt the same
           spread of pairs. A 7 and a 0 is a great week and a 2 and a 5 is a dead
           one, but nobody owns either &mdash; you just rent them for a Sunday.
         </p>
       </div>
-      ${cfg && !basePool.axisConfirmed ? `
+      ${cfg && !pool.axisConfirmed ? `
         <div class="sq-note">
           <p class="eyebrow">Unconfirmed</p>
           <p>
