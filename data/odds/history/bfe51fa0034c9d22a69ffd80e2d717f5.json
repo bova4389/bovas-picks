@@ -1332,5 +1332,21 @@
   "totalBookCount": 1,
   "bucket": 16,
   "fetchedAt": "2026-09-10T22:38:50.494283+00:00"
+ },
+ {
+  "id": "bfe51fa0034c9d22a69ffd80e2d717f5",
+  "commenceTime": "2027-01-03T18:00:00Z",
+  "home": "New York Jets",
+  "away": "Minnesota Vikings",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.3937,
+  "rawAwayProb": 0.6491,
+  "homeWinProb": 0.3775,
+  "awayWinProb": 0.6225,
+  "vig": 0.0428,
+  "total": 39.5,
+  "totalBookCount": 1,
+  "bucket": 16,
+  "fetchedAt": "2026-09-11T01:10:14.478606+00:00"
  }
 ]

@@ -1290,5 +1290,21 @@
   "totalBookCount": 1,
   "bucket": 13,
   "fetchedAt": "2026-09-10T22:38:50.494283+00:00"
+ },
+ {
+  "id": "5dc9cb8fba610d682dc670ae4e7d59f3",
+  "commenceTime": "2026-12-13T18:00:00Z",
+  "home": "Washington Commanders",
+  "away": "Houston Texans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4878,
+  "rawAwayProb": 0.5556,
+  "homeWinProb": 0.4675,
+  "awayWinProb": 0.5325,
+  "vig": 0.0434,
+  "total": 44.5,
+  "totalBookCount": 1,
+  "bucket": 13,
+  "fetchedAt": "2026-09-11T01:10:14.478606+00:00"
  }
 ]
