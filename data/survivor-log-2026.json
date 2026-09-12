@@ -3,8 +3,8 @@
   "weeks": {
     "1": {
       "week": 1,
-      "builtAt": "2026-09-12T07:12:33.719Z",
-      "oddsFetchedAt": "2026-09-12T07:12:28.802623+00:00",
+      "builtAt": "2026-09-12T12:12:49.127Z",
+      "oddsFetchedAt": "2026-09-12T12:12:43.553597+00:00",
       "confidence": "final",
       "exposure": {
         "tickets": 4,

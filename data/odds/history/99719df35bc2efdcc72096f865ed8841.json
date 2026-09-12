@@ -1444,5 +1444,21 @@
   "totalBookCount": 1,
   "bucket": 14,
   "fetchedAt": "2026-09-12T07:12:28.802623+00:00"
+ },
+ {
+  "id": "99719df35bc2efdcc72096f865ed8841",
+  "commenceTime": "2026-12-20T18:00:00Z",
+  "home": "Green Bay Packers",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.8667,
+  "rawAwayProb": 0.1754,
+  "homeWinProb": 0.8316,
+  "awayWinProb": 0.1684,
+  "vig": 0.0421,
+  "total": 45.5,
+  "totalBookCount": 1,
+  "bucket": 14,
+  "fetchedAt": "2026-09-12T12:12:43.553597+00:00"
  }
 ]

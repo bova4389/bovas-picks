@@ -1444,5 +1444,21 @@
   "totalBookCount": 2,
   "bucket": 10,
   "fetchedAt": "2026-09-12T07:12:28.802623+00:00"
+ },
+ {
+  "id": "cbe45bafcc2615fc1d96cbc12840377a",
+  "commenceTime": "2026-11-22T21:25:00Z",
+  "home": "Philadelphia Eagles",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7041,
+  "rawAwayProb": 0.339,
+  "homeWinProb": 0.675,
+  "awayWinProb": 0.325,
+  "vig": 0.0431,
+  "total": 42.5,
+  "totalBookCount": 2,
+  "bucket": 10,
+  "fetchedAt": "2026-09-12T12:12:43.553597+00:00"
  }
 ]
