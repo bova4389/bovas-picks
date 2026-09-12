@@ -1460,5 +1460,21 @@
   "totalBookCount": 1,
   "bucket": 13,
   "fetchedAt": "2026-09-12T12:12:43.553597+00:00"
+ },
+ {
+  "id": "a31f461ccd92e1072f23ccfae281ae9a",
+  "commenceTime": "2026-12-13T18:00:00Z",
+  "home": "Detroit Lions",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7826,
+  "rawAwayProb": 0.2597,
+  "homeWinProb": 0.7508,
+  "awayWinProb": 0.2492,
+  "vig": 0.0423,
+  "total": 47.5,
+  "totalBookCount": 1,
+  "bucket": 13,
+  "fetchedAt": "2026-09-12T17:15:02.827997+00:00"
  }
 ]

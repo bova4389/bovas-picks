@@ -1460,5 +1460,21 @@
   "totalBookCount": 2,
   "bucket": 14,
   "fetchedAt": "2026-09-12T12:12:43.553597+00:00"
+ },
+ {
+  "id": "3b696c07ff6a1ef461d023a73db17584",
+  "commenceTime": "2026-12-20T18:00:00Z",
+  "home": "Tennessee Titans",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4878,
+  "rawAwayProb": 0.5556,
+  "homeWinProb": 0.4675,
+  "awayWinProb": 0.5325,
+  "vig": 0.0434,
+  "total": 47.5,
+  "totalBookCount": 2,
+  "bucket": 14,
+  "fetchedAt": "2026-09-12T17:15:02.827997+00:00"
  }
 ]
