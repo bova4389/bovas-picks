@@ -1412,5 +1412,21 @@
   "totalBookCount": 1,
   "bucket": 13,
   "fetchedAt": "2026-09-11T22:38:54.543859+00:00"
+ },
+ {
+  "id": "f7fba6b1804e02292ee0ce4738484258",
+  "commenceTime": "2026-12-13T18:00:00Z",
+  "home": "Cleveland Browns",
+  "away": "Atlanta Falcons",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5495,
+  "rawAwayProb": 0.495,
+  "homeWinProb": 0.5261,
+  "awayWinProb": 0.4739,
+  "vig": 0.0446,
+  "total": 40.5,
+  "totalBookCount": 1,
+  "bucket": 13,
+  "fetchedAt": "2026-09-12T01:11:41.436041+00:00"
  }
 ]
