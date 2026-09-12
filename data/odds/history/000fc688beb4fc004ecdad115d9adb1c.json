@@ -1492,5 +1492,21 @@
   "totalBookCount": 2,
   "bucket": 14,
   "fetchedAt": "2026-09-12T19:27:32.973293+00:00"
+ },
+ {
+  "id": "000fc688beb4fc004ecdad115d9adb1c",
+  "commenceTime": "2026-12-20T18:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.4464,
+  "rawAwayProb": 0.5968,
+  "homeWinProb": 0.4279,
+  "awayWinProb": 0.5721,
+  "vig": 0.0432,
+  "total": 47.5,
+  "totalBookCount": 2,
+  "bucket": 14,
+  "fetchedAt": "2026-09-12T22:22:14.396795+00:00"
  }
 ]

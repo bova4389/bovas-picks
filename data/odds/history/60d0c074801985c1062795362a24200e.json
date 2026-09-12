@@ -1492,5 +1492,21 @@
   "totalBookCount": 1,
   "bucket": 11,
   "fetchedAt": "2026-09-12T19:27:32.973293+00:00"
+ },
+ {
+  "id": "60d0c074801985c1062795362a24200e",
+  "commenceTime": "2026-11-29T18:00:00Z",
+  "home": "Houston Texans",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5495,
+  "rawAwayProb": 0.495,
+  "homeWinProb": 0.5261,
+  "awayWinProb": 0.4739,
+  "vig": 0.0446,
+  "total": 45.5,
+  "totalBookCount": 1,
+  "bucket": 11,
+  "fetchedAt": "2026-09-12T22:22:14.396795+00:00"
  }
 ]

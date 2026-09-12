@@ -1492,5 +1492,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-09-12T19:27:32.973293+00:00"
+ },
+ {
+  "id": "85ef85098ddd22fe4ecf45e7e3c0a9c0",
+  "commenceTime": "2026-09-20T20:25:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Washington Commanders",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.6846,
+  "rawAwayProb": 0.3644,
+  "homeWinProb": 0.6526,
+  "awayWinProb": 0.3474,
+  "vig": 0.049,
+  "total": 51.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-09-12T22:22:14.396795+00:00"
  }
 ]

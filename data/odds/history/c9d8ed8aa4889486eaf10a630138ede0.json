@@ -1492,5 +1492,21 @@
   "totalBookCount": 2,
   "bucket": 3,
   "fetchedAt": "2026-09-12T19:27:32.973293+00:00"
+ },
+ {
+  "id": "c9d8ed8aa4889486eaf10a630138ede0",
+  "commenceTime": "2026-10-04T13:30:00Z",
+  "home": "Washington Commanders",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5413,
+  "rawAwayProb": 0.505,
+  "homeWinProb": 0.5174,
+  "awayWinProb": 0.4826,
+  "vig": 0.0462,
+  "total": 49.5,
+  "totalBookCount": 2,
+  "bucket": 3,
+  "fetchedAt": "2026-09-12T22:22:14.396795+00:00"
  }
 ]

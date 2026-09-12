@@ -1492,5 +1492,21 @@
   "totalBookCount": 2,
   "bucket": 7,
   "fetchedAt": "2026-09-12T19:27:32.973293+00:00"
+ },
+ {
+  "id": "ab2865e9f2d4b012de8bc6fb6de11a7c",
+  "commenceTime": "2026-10-30T00:15:00Z",
+  "home": "Green Bay Packers",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.7753,
+  "rawAwayProb": 0.2667,
+  "homeWinProb": 0.7441,
+  "awayWinProb": 0.2559,
+  "vig": 0.0419,
+  "total": 45.5,
+  "totalBookCount": 2,
+  "bucket": 7,
+  "fetchedAt": "2026-09-12T22:22:14.396795+00:00"
  }
 ]

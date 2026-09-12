@@ -1492,5 +1492,21 @@
   "totalBookCount": 1,
   "bucket": 15,
   "fetchedAt": "2026-09-12T19:27:32.973293+00:00"
+ },
+ {
+  "id": "fe2eb511d4c2da3a8e88b85b4f4e9f7e",
+  "commenceTime": "2026-12-27T18:00:00Z",
+  "home": "Miami Dolphins",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.2532,
+  "rawAwayProb": 0.7895,
+  "homeWinProb": 0.2428,
+  "awayWinProb": 0.7572,
+  "vig": 0.0426,
+  "total": 45.5,
+  "totalBookCount": 1,
+  "bucket": 15,
+  "fetchedAt": "2026-09-12T22:22:14.396795+00:00"
  }
 ]
