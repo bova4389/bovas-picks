@@ -1428,5 +1428,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-12T01:11:41.436041+00:00"
+ },
+ {
+  "id": "b6cfdcbafa61ce220ba87dc2d9b80c77",
+  "commenceTime": "2026-09-13T17:00:00Z",
+  "home": "Indianapolis Colts",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.4037,
+  "rawAwayProb": 0.6358,
+  "homeWinProb": 0.3884,
+  "awayWinProb": 0.6116,
+  "vig": 0.0395,
+  "total": 48.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-09-12T07:12:28.802623+00:00"
  }
 ]
