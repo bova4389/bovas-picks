@@ -3,19 +3,19 @@
   "weeks": {
     "1": {
       "week": 1,
-      "builtAt": "2026-09-12T17:15:08.631Z",
-      "oddsFetchedAt": "2026-09-12T17:15:02.827997+00:00",
+      "builtAt": "2026-09-12T19:27:38.023Z",
+      "oddsFetchedAt": "2026-09-12T19:27:32.973293+00:00",
       "confidence": "final",
       "exposure": {
         "tickets": 4,
         "games": 2,
-        "pAllLose": 0.0446
+        "pAllLose": 0.0445
       },
       "picks": [
         {
           "pool": "sleeper",
           "team": "LAC",
-          "p": 0.7996,
+          "p": 0.8001,
           "gap": 0,
           "fvCost": 0.0479,
           "share": null,
@@ -29,7 +29,7 @@
           "pool": "deadpool",
           "team": "JAC",
           "p": 0.7774,
-          "gap": 0.0222,
+          "gap": 0.0227,
           "fvCost": 0.0256,
           "share": null,
           "basis": "win-probability",
@@ -42,7 +42,7 @@
           "pool": "mike",
           "team": "JAC",
           "p": 0.7774,
-          "gap": 0.0222,
+          "gap": 0.0227,
           "fvCost": 0.0256,
           "share": null,
           "basis": "future-value",
@@ -54,7 +54,7 @@
         {
           "pool": "eastorange",
           "team": "LAC",
-          "p": 0.7996,
+          "p": 0.8001,
           "gap": 0,
           "fvCost": 0.0479,
           "share": null,
