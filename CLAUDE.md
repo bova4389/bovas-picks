@@ -1876,7 +1876,13 @@ Schedule's highlights, so the two can never disagree. Precedence:
   email is the commissioner's three lines plus the readback.
 - **Schedule marks** the picked side with an inset ring (`.schedteam.is-picked`, no width cost)
   and tags on a second grid row: `Pick'em` (purple) for the season card, the pool's short name
-  (dark teal `#006B75`, ~6.3:1 under white) per survivor pool. Re-read on every render.
+  (dark teal `#006B75`, ~6.3:1 under white) per survivor pool, and `Infinity` (dark amber
+  `#7E4B00`, 7.26:1) per Infinity War pick. Re-read on every render.
+- **Infinity War picks** come from `infinityPicks()`: this device's
+  `infinity:<year>:<week>:teams` (written by `js/infinityWar.js` beside its game-id card, because
+  that card stores ids only and the side is derived from the odds), then the sent file's
+  `weeks.<N>.infinity` list of abbreviations. The tab's **unsaved** chalk-eight default is not a
+  pick and never tags the Schedule — a tag means a card was actually saved or recorded as sent.
 
 ## Which Data File Feeds Which View
 
