@@ -110,7 +110,7 @@ css/styles.css      design system (see below)
 js/app.js           two-level nav, deep links (#season/odds), boots every tab  [versioned]
 js/data.js          SHARED data layer — fetch + cache + localStorage           [NEVER versioned]
 js/teams.js         team-name crosswalk (mascot ↔ full name ↔ abbreviation)    [NEVER versioned]
-js/oddsMatch.js      SHARED — join a {away,home} game to an odds event         [NEVER versioned]
+js/oddsMatch.js      SHARED — odds join + the schedule kickoff bridge          [NEVER versioned]
 js/oddsBadge.js      SHARED — inline "who's favored" text fragment            [NEVER versioned]
 js/season.js        SHARED — season identity + the cross-feed audit          [NEVER versioned]
 js/seasonBanner.js  SHARED — the audit's rendering half                      [NEVER versioned]
@@ -230,10 +230,21 @@ event list is one week.
 join belongs to the caller, which is the only party that knows what its event list spans.
 
 **A number-map game has no kickoff on it** (the workbook prints only a day name), so a tab
-rendering the number map has to bridge through the schedule to get a date the join can use. See
-`kickoffIndex()` / `oddsFor()` in `js/picksheet.js` — and note that `recommend.js` reads
-`g.date || null` off number-map games, which is always null, so **its division games silently
-resolve to no line at all.** Less wrong than the Pick Sheet's bug was, still wrong; not fixed here.
+rendering the number map has to bridge through the schedule to get a date the join can use.
+`kickoffIndex(schedule)` in `js/oddsMatch.js` builds that bridge once — a
+`"week|Away|Home"` (mascots) → ISO kickoff Map — and `kickoffFor(kickoffs, week, away, home)`
+reads it. Both the Pick Sheet (`oddsFor()`) and Recommend (`slateFor()`, `dateForPopGame()`)
+call it; **do not write a third copy.** The popularity files are dateless for the same reason
+and go through the same index.
+
+**A missing date costs every game, not just the rivalries.** `matchSeasonOdds` returns null the
+moment `game.date` is falsy — it never falls back to "the only event for this pair" — so a
+dateless slate resolves *no* market line anywhere. `recommend.js` read `g.date || null` straight
+off number-map games, which is always null, and its whole slate came back unpriced: **0 of 209
+scored games for the 2026 season.** It read as "the market has no lines yet" rather than as a
+bug, which is why it outlived the Pick Sheet's louder version of the same dateless join. Fixed
+2026-09-10; Week 1 now prices 14 of 14, and the season 186 of 209 (the 23 are pairs genuinely
+absent from the snapshot).
 
 **What's deliberately NOT shared: the wrapper markup.** `favoriteLine()` returns a bare text
 fragment, not a component with its own container — Pick Sheet wraps it in `.game-odds` (a
@@ -552,6 +563,12 @@ submission detail, not a calculation input. **Do not reinstate a hard gate on th
 **Use `matchSeasonOdds`, never `buildOddsIndex`.** The snapshot holds all 272 games at once, so
 the pair-only join collapses both meetings of a division rivalry — measured: it returned **21
 matches for a 16-game week**. Pair *and* kickoff is the only correct join here, same as the Grid.
+
+**The kickoff comes from the schedule, never from the slate.** Neither the number map nor a
+popularity file carries one, and `matchSeasonOdds` answers null without it — so `slateFor()` and
+`dateForPopGame()` both stamp a date from `state.kickoffs` (`kickoffIndex()` in `js/oddsMatch.js`,
+built once at boot). Reading `g.date` off a number-map game instead silently unpriced the entire
+tab; see "Odds are not siloed" under Site Architecture.
 
 ### The row — two channels, and neither may carry the other
 

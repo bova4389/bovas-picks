@@ -9,7 +9,7 @@
    join — see js/oddsBadge.js for the shared inline-rendering half of this.
    ========================================================================== */
 
-import { mascotOf } from './teams.js';
+import { mascotOf, ABBR_TO_MASCOT } from './teams.js';
 
 function pairKey(a, b) {
   return [a, b].sort().join('|');
@@ -78,6 +78,49 @@ export function matchSeasonOdds(game, seasonIndex, windowMs = 4 * 86_400_000) {
     if (gap < bestGap) { best = ev; bestGap = gap; }
   }
   return bestGap <= windowMs ? best : null;
+}
+
+/* ── The kickoff bridge ──────────────────────────────────────
+   matchSeasonOdds needs a `date`, and the two sources that list games for the
+   pool — the commissioner's number map and the popularity files — carry no
+   kickoff at all: the workbook prints a day name and nothing more. The
+   schedule feed is the only thing holding both the matchup and the clock, so
+   it is the bridge, and this is the one place that builds it.
+
+   A game with no date is not a small loss. matchSeasonOdds returns null the
+   moment `date` is missing, so a dateless slate resolves *no* market line
+   anywhere, not merely on the 96 games whose pair has two meetings. Recommend
+   shipped that way for the whole 2026 preseason — see CLAUDE.md.
+   ───────────────────────────────────────────────────────────────────── */
+
+/**
+ * `"week|Away|Home"` (mascots) -> ISO kickoff, for every game of a season.
+ *
+ * Takes the object `getSchedule()` resolves — `{ games: [...] }` with abbr
+ * team codes — and is null-safe, so a failed schedule fetch yields an empty
+ * index rather than throwing. Pair it with `kickoffFor()` below.
+ */
+export function kickoffIndex(schedule) {
+  const idx = new Map();
+  for (const g of schedule?.games || []) {
+    const away = ABBR_TO_MASCOT[g.away];
+    const home = ABBR_TO_MASCOT[g.home];
+    if (!away || !home || !g.date) continue;
+    idx.set(`${g.week}|${away}|${home}`, g.date);
+  }
+  return idx;
+}
+
+/**
+ * The kickoff for one mascot-shaped game, or null when the schedule cannot
+ * date it.
+ *
+ * Null on purpose rather than a guess: matchSeasonOdds treats a missing date
+ * as "no market", which is the safe answer. Handing it an approximate date
+ * would instead invite the December line onto the September game.
+ */
+export function kickoffFor(kickoffs, week, away, home) {
+  return kickoffs?.get(`${week}|${away}|${home}`) || null;
 }
 
 /**

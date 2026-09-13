@@ -12,7 +12,9 @@ import {
   loadPicks, savePicks, loadProfile, saveProfile, getOddsSnapshot,
   getSeasonAudit, getSchedule,
 } from './data.js';
-import { buildSeasonOddsIndex, matchSeasonOdds } from './oddsMatch.js';
+import {
+  buildSeasonOddsIndex, matchSeasonOdds, kickoffIndex, kickoffFor,
+} from './oddsMatch.js';
 import { loadLeagueState } from './survivorLeagues.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 import { favoriteLine } from './oddsBadge.js';
@@ -72,32 +74,19 @@ export async function initPickSheet(root) {
    Two steps rather than one because the number map and the odds snapshot
    have no key in common: the map names mascots and a day of the week, the
    snapshot names full team names and an exact kickoff. The schedule is the
-   only thing holding both, so it is the bridge.
+   only thing holding both, so it is the bridge — built by kickoffIndex() in
+   js/oddsMatch.js, which the Recommend tab shares.
    ------------------------------------------------------------------------ */
-
-/** "week|Away|Home" (mascots) -> ISO kickoff, for every game of the season. */
-function kickoffIndex(schedule) {
-  const idx = new Map();
-  for (const g of schedule?.games || []) {
-    const away = ABBR_TO_MASCOT[g.away];
-    const home = ABBR_TO_MASCOT[g.home];
-    if (!away || !home || !g.date) continue;
-    idx.set(`${g.week}|${away}|${home}`, g.date);
-  }
-  return idx;
-}
 
 /**
  * The odds event for one number-map game, or null.
  *
  * The kickoff is what separates the two meetings of a division rivalry, so a
- * game the schedule can't date gets null rather than a guess — matchSeasonOdds
- * would otherwise fall back to "the only event for this pair", which is the
- * exact wrong answer for the 96 games that have two.
+ * game the schedule can't date gets null rather than a guess.
  */
 function oddsFor(g) {
   if (!seasonIndex) return null;
-  const date = kickoffs.get(`${week}|${g.away}|${g.home}`) || null;
+  const date = kickoffFor(kickoffs, week, g.away, g.home);
   if (!date) return null;
   return matchSeasonOdds({ away: g.away, home: g.home, date }, seasonIndex);
 }

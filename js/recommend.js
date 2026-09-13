@@ -49,7 +49,9 @@ import {
   SEASON, tryNumberMap, weekNumbers, scoredGames, getPopularity, getOddsSnapshot,
   getSeasonAudit, getSchedule, getOddsHistory,
 } from './data.js';
-import { buildSeasonOddsIndex, matchSeasonOdds, orientProbs } from './oddsMatch.js';
+import {
+  buildSeasonOddsIndex, matchSeasonOdds, orientProbs, kickoffIndex, kickoffFor,
+} from './oddsMatch.js';
 import { seasonBanner, isBlocked } from './seasonBanner.js';
 import { ABBR_TO_MASCOT, MASCOT_TO_ABBR } from './teams.js';
 import {
@@ -71,7 +73,7 @@ const LONGSHOT_SHARE = 0.15; // Step 5: "never take a minority side the field ra
 const THIN_SHARE = 0.40;     // Step 5: above this the minority side buys little separation
 
 let state = {
-  map: null, schedule: null, snapshot: null, seasonIndex: null,
+  map: null, schedule: null, snapshot: null, seasonIndex: null, kickoffs: new Map(),
   week: null, weeks: [], k: DEFAULT_K, kSource: 'default', prior: null,
   injuries: null, movement: new Map(), identity: null,
 };
@@ -97,6 +99,10 @@ export async function initRecommend(root) {
   state.snapshot = snapshot;
   state.prior = prior ? priorProfile(prior) : null;
   state.seasonIndex = snapshot ? buildSeasonOddsIndex(snapshot.events) : null;
+  // Neither the number map nor a popularity file carries a kickoff, and the
+  // odds join refuses to answer without one. The schedule is the only source
+  // that has both -- indexed once here rather than scanned per game.
+  state.kickoffs = kickoffIndex(schedule);
 
   state.weeks = state.map ? weekNumbers(state.map) : scheduleWeeks(schedule);
   if (!state.weeks.length) {
@@ -160,11 +166,18 @@ const scheduleWeeks = (schedule) =>
  * that is what matchSeasonOdds and the popularity file both key on. The
  * numbers are null when there is no workbook -- callers render them only if
  * present rather than showing a blank column.
+ *
+ * `date` comes from the schedule for number-map games, never off the map
+ * itself: the workbook prints a day name, so a map game has no kickoff on it
+ * at all. Reading `g.date` here was doing exactly that, and since
+ * matchSeasonOdds returns null without a date, every game on this tab
+ * resolved no market line for the whole 2026 preseason.
  */
 function slateFor(week) {
   if (state.map) {
     return scoredGames(state.map, week).map((g) => ({
-      away: g.away, home: g.home, date: g.date || null,
+      away: g.away, home: g.home,
+      date: kickoffFor(state.kickoffs, week, g.away, g.home),
       awayNum: g.awayNum ?? null, homeNum: g.homeNum ?? null,
       awayAbbr: MASCOT_TO_ABBR[g.away] || null,
       homeAbbr: MASCOT_TO_ABBR[g.home] || null,
@@ -256,11 +269,9 @@ async function calibrate() {
 }
 
 /** The kickoff for a popularity-file game, needed so the odds join can tell
- *  two meetings of the same pair apart. */
+ *  two meetings of the same pair apart. Same index the slate uses. */
 function dateForPopGame(week, g) {
-  const hit = (state.schedule?.games || []).find((s) => s.week === week
-    && ABBR_TO_MASCOT[s.away] === g.away && ABBR_TO_MASCOT[s.home] === g.home);
-  return hit?.date || null;
+  return kickoffFor(state.kickoffs, week, g.away, g.home);
 }
 
 /* ── One game ─────────────────────────────────────────────────────────────*/
