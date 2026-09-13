@@ -1371,6 +1371,23 @@ footer {
 .glive[hidden] { display: none; }
 .glive-btn { min-height: 46px; }
 .glive-btn[disabled] { opacity: .6; cursor: progress; }
+.glive-connect { flex-basis: 100%; }
+
+/* Connect Sleeper (js/sleeperAuth.js). Shared by the Grid and Infinity War. */
+.slc { font-size: .8125rem; color: var(--ink-quiet); }
+.slc-on { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.slc-on.is-expired .slc-state { color: var(--bad); }
+.slc summary { cursor: pointer; min-height: 46px; display: flex; align-items: center; font-weight: 600; color: var(--purple); }
+.slc-why { font-weight: 400; color: var(--ink-quiet); margin-left: 4px; }
+.slc-form { display: flex; gap: 8px; flex-wrap: wrap; }
+.slc-input {
+  flex: 1 1 16ch; min-width: 0; min-height: 46px; padding: 10px 12px;
+  font: inherit; font-size: .9375rem;
+  border: 1.5px solid var(--line); border-radius: var(--r-sm); background: var(--white); color: var(--ink);
+}
+.slc-btn { min-height: 46px; }
+.slc-msg { margin: 6px 0 0; color: var(--bad); }
+.slc-help { margin: 6px 0 0; line-height: 1.45; }
 
 /* --ink-quiet, not --ink-soft: this line sits on --paper-2 inside the card,
    where --ink-soft measures below the site's 4.5:1 floor. Same trap the grid's

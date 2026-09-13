@@ -46,6 +46,7 @@ import {
   mergeMyPicks, freshness, coverageNote,
 } from './sleeperSurvivor.js';
 import { pickBoardShell, renderPickBoard } from './survivorPicks.js';
+import { mountConnectBoxes } from './sleeperAuth.js';
 
 /* ── Preferences ──────────────────────────────────────────────────────────
    Everything the user has bent to their liking survives a refresh. The grid
@@ -203,6 +204,7 @@ export async function initGrid(root, season = SEASON) {
 
   root.innerHTML = shellHead() + banner() + controls() + detailShell() + tableShell()
     + legend() + pickBoardShell();
+  mountConnectBoxes(root);
   wire();
   renderTable();
   paintPickBoard();
@@ -419,6 +421,7 @@ function liveRow() {
       <span class="gridctl-label">Pool data</span>
       <button type="button" class="btn btn-ghost glive-btn" id="g-refresh">Refresh from Sleeper</button>
       <span class="glive-status" id="g-live-status" role="status" aria-live="polite">${liveStatus()}</span>
+      <div class="glive-connect" data-sl-connect></div>
     </div>`;
 }
 

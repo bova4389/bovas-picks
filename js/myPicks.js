@@ -20,6 +20,8 @@
        2. data/picks-sent-<year>.json's `survivor` map, for every pool
 
      INFINITY WAR (eight games per week) -- ACTUAL picks only
+       0. the last Sleeper refresh on this device (needs Connect Sleeper) --
+          what the pool actually holds, so it beats anything typed here
        1. this device's saved card, as the team abbreviations the Infinity
           War tab showed as the pick when it was saved
        2. data/picks-sent-<year>.json's `infinity` list
@@ -42,6 +44,7 @@ import {
 } from './data.js';
 import { LEAGUES, loadLeagueState, saveLeagueState } from './survivorLeagues.js';
 import { loadCachedFeed, myPicksFrom } from './sleeperSurvivor.js';
+import { loadCachedPool, myPicksFor as infinityPicksFrom } from './infinityFeed.js';
 
 let sent = null;   // data/picks-sent-<year>.json, or null
 let log = null;    // data/survivor-log-<year>.json, or null
@@ -212,6 +215,9 @@ export const infinityTeamsKey = (season, week) => `infinity:${season}:${week}:te
  * The device card wins when it holds anything, same rule as the season card.
  */
 export function infinityPicks(week, season = SEASON) {
+  const fromSleeper = infinityPicksFrom(loadCachedPool(season, 'infinity'), week);
+  if (fromSleeper.length) return { teams: new Set(fromSleeper), source: 'sleeper' };
+
   try {
     const local = JSON.parse(localStorage.getItem(infinityTeamsKey(season, week)));
     if (Array.isArray(local) && local.length) return { teams: new Set(local), source: 'device' };

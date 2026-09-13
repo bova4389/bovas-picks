@@ -52,6 +52,8 @@
    ========================================================================== */
 
 export const REST = 'https://api.sleeper.app/v1';
+import { getToken, tokenInfo } from './sleeperAuth.js';
+
 export const GQL = 'https://api.sleeper.app/graphql';
 
 /** Sleeper spells Jacksonville JAX; every other feed in this project, and
@@ -79,16 +81,29 @@ export async function getJSON(url) {
  * a schema change lands as an empty pool rather than as an error.
  */
 export async function gql(query, variables) {
-  const res = await fetch(GQL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ query, variables }),
-  });
+  // Picks need a login since 2026-09-13 -- see js/sleeperAuth.js. The token is
+  // this device's own and goes to Sleeper only.
+  const token = getToken();
+  const headers = { 'Content-Type': 'application/json', Accept: 'application/json' };
+  if (token) headers.Authorization = token;
+
+  const res = await fetch(GQL, { method: 'POST', headers, body: JSON.stringify({ query, variables }) });
+  if (res.status === 401) throw new Error(unauthorizedMessage(token));
   if (!res.ok) throw new Error(`Sleeper GraphQL ${res.status}`);
 
   const body = await res.json();
+  if (body.errors?.some((e) => e.code === 'unauthorized' || /unauthori/i.test(e.message))) {
+    throw new Error(unauthorizedMessage(token));
+  }
   if (body.errors?.length) throw new Error(`Sleeper GraphQL: ${body.errors[0].message}`);
   return body.data;
+}
+
+function unauthorizedMessage(token) {
+  if (!token) return 'Sleeper now needs a login to show picks — use Connect Sleeper';
+  return tokenInfo(token)?.expired
+    ? 'your Sleeper token has expired — paste a fresh one in Connect Sleeper'
+    : 'Sleeper rejected the saved token — paste a fresh one in Connect Sleeper';
 }
 
 /**

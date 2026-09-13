@@ -32,6 +32,8 @@ import { buildGrid } from './gridModel.js';
 import { currentWeek as currentWeekOf } from './gameState.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 import { infinityTeamsKey } from './myPicks.js';
+import { loadCachedPool, saveCachedPool } from './infinityFeed.js';
+import { mountConnectBoxes } from './sleeperAuth.js';
 import {
   PICKS_PER_WEEK, weekGames, rankGames, sourceWarning, chalkSet,
   expectedCorrect, scoreDistribution, atLeast, simulateField, scoreCard,
@@ -79,6 +81,7 @@ export async function initInfinityWar(root, season = SEASON) {
   S.root = root;
   S.season = season;
   S.prefs = loadPrefs();
+  S.feed = loadCachedPool(season, POOL.id);
 
   const [schedule, projections, odds] = await Promise.all([
     getSchedule(season), getProjections(season), getOddsSnapshot(),
@@ -182,6 +185,7 @@ function render() {
     + blockOutlook(sim)
     + blockSwaps(sim)
     + blockField();
+  mountConnectBoxes(S.root);
 }
 
 function head() {
@@ -229,6 +233,7 @@ function controls() {
         <button id="iw-refresh" class="btn" type="button">Refresh from Sleeper</button>
         ${live}
       </div>
+      <div class="planctl-item iw-connect" data-sl-connect></div>
       <p class="planctl-note" id="iw-status">
         The field is modeled, not read &mdash; nobody's picks are visible before kickoff.
       </p>
@@ -593,6 +598,8 @@ async function refresh() {
     const feed = await fetchInfinityPool(POOL.sleeper, S.season);
     S.feed = feed;
     S.liveCount = feed.entries.length;
+    // Cached so the Schedule can tag my Sleeper picks -- see myPicks.js.
+    saveCachedPool(S.season, POOL.id, feed);
 
     // The pool's real size beats the guess, but only once there is more than
     // just me in it -- a one-entry pool is a pool that has not filled, not a

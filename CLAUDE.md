@@ -1028,6 +1028,26 @@ are recorded in `data/picks-sent-<year>.json` / on the Picks tab instead (see My
 `scripts/log_week_card.mjs` reads the sent file before falling back to the log. Do not put a
 Sleeper auth token in this public repo to get around it.
 
+**Resolved the same day with a per-device token — `js/sleeperAuth.js`.** Every pick query in the
+schema (`get_pickem_picks_for_league`, `get_pickem_leg`, `get_pickem_legs`) was probed across all
+four pools and all require a login; sending Sleeper's own web headers does not help. The endpoint
+still allows any origin *and* the `Authorization` header (preflight checked), so the browser sends
+the owner's own Sleeper JWT, pasted once per device into a **Connect Sleeper** box on the Grid's
+live row and the Infinity War controls.
+
+- **The token lives in that browser's localStorage (`sleeper:token`) and nowhere else.** Never
+  commit it, never write it to `data/`, never give it to CI. It is the Sleeper password in effect.
+- It is a JWT, so the box shows whose it is and when it expires (Sleeper's run about a year).
+  `user_id` is regex-read from the payload text, not `JSON.parse`d — it is an 18-digit bare number
+  and would round into someone else's id.
+- An `unauthorized` answer is turned into an instruction: connect, or paste a fresh token.
+- The kickoff gate is unchanged: a login shows the same early picks the API always leaked.
+- A successful Infinity War refresh is cached (`infinity:feed:infinity:<year>`) and `infinityPicks()`
+  in `js/myPicks.js` reads it first, so the Schedule's Infinity tags follow Sleeper.
+- **How to get the token** (computer only): sleeper.com → F12 → Network → filter `graphql` → reload
+  → click a row → Request Headers → `authorization`. The pick'em league page makes few requests, so
+  if none show, open chat or another league.
+
 **The GraphQL endpoint is undocumented and may change without notice.** Every failure path leaves
 the last good cached feed in place and says why, rather than writing a partial pool over a
 complete one — a stale field number is recoverable, a half-parsed one silently understates
