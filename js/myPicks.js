@@ -1,7 +1,7 @@
 /* ==========================================================================
    My picks, one answer for every tab that asks.
 
-   Three tabs need to know what I picked: the Pick Sheet builds the email from
+   Several tabs need to know what I picked: the Pick Sheet builds the email from
    it, and the Schedule highlights it on the game cards. Each used to read its
    own copy of the truth, so the Pick Sheet could say "no suicide pick" while
    the Picks tab plainly showed one. This module is the one resolver.
@@ -18,6 +18,12 @@
        1. a pick marked on this device (Picks tab or Grid), or an old cached
           Sleeper feed
        2. data/picks-sent-<year>.json's `survivor` map, for every pool
+
+     INFINITY WAR (eight games per week) -- ACTUAL picks only
+       1. this device's saved card, as the team abbreviations the Infinity
+          War tab showed as the pick when it was saved
+       2. data/picks-sent-<year>.json's `infinity` list
+       The tab's unsaved chalk-eight default is NOT a pick and never shows.
 
      THE RECOMMENDATION IS A SEPARATE QUESTION (survivorRecommendation), and
      callers must ask it by name. For one morning a missing pick fell back to
@@ -189,6 +195,31 @@ export function recordSurvivorPick(leagueId, week, team, season = SEASON) {
     delete picks[w];
   }
   saveLeagueState(leagueId, season, { ...state, picks });
+}
+
+/* ── Infinity War ─────────────────────────────────────────────────────────*/
+
+/**
+ * Where js/infinityWar.js saves the picked SIDE of each saved game. Its own
+ * card key holds game ids only, and the side is derived from the odds at
+ * render time -- which needs the whole grid model. Saving the teams beside the
+ * ids lets the Schedule mark the side without building that model twice.
+ */
+export const infinityTeamsKey = (season, week) => `infinity:${season}:${week}:teams`;
+
+/**
+ * My Infinity War picks for a week: `{ teams: Set<abbr>, source }`, or null.
+ * The device card wins when it holds anything, same rule as the season card.
+ */
+export function infinityPicks(week, season = SEASON) {
+  try {
+    const local = JSON.parse(localStorage.getItem(infinityTeamsKey(season, week)));
+    if (Array.isArray(local) && local.length) return { teams: new Set(local), source: 'device' };
+  } catch { /* fall through to the sent file */ }
+
+  const sentTeams = sentCard(week)?.infinity;
+  if (Array.isArray(sentTeams) && sentTeams.length) return { teams: new Set(sentTeams), source: 'sent' };
+  return null;
 }
 
 /** The Picks tab's last-rendered card for a week, as js/weekCard.js stores it. */

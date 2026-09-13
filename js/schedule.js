@@ -22,7 +22,7 @@
 
 import { getSchedule, tryNumberMap } from './data.js';
 import {
-  loadMyPicks, seasonPicksByGame, survivorPicksForWeek, pairKey,
+  loadMyPicks, seasonPicksByGame, survivorPicksForWeek, infinityPicks, pairKey,
 } from './myPicks.js';
 import { clearScoreboardCache } from './espn.js';
 import {
@@ -236,7 +236,7 @@ function summaryLine() {
 
   // Says the away/home convention once, here, rather than putting an "at"
   // label on all 16 cards — position carries it after the first glance.
-  const anyPicks = mine && (mine.season.size || mine.survivor.size);
+  const anyPicks = mine && (mine.season.size || mine.survivor.size || mine.infinity.size);
 
   return `
     <p class="lede">
@@ -248,6 +248,7 @@ function summaryLine() {
         Your picks:
         <span class="schedpick schedpick-season">Pick'em</span> season long
         <span class="schedpick schedpick-surv">Pool</span> survivor
+        ${mine.infinity.size ? '<span class="schedpick schedpick-inf">Infinity</span> Infinity War' : ''}
       </p>` : ''}`;
 }
 
@@ -263,7 +264,11 @@ function myPicksFor(week) {
     if (!survivor.has(pick.team)) survivor.set(pick.team, []);
     survivor.get(pick.team).push({ league, pick });
   }
-  return { season: seasonPicksByGame(numberMap, week, season), survivor };
+  return {
+    season: seasonPicksByGame(numberMap, week, season),
+    survivor,
+    infinity: infinityPicks(week, season)?.teams || new Set(),
+  };
 }
 
 /** Tags for one side of one game: '' when I picked nothing there. */
@@ -275,6 +280,9 @@ function pickTags(g, side) {
   const tags = [];
   if (mine.season.get(pairKey(g.away, g.home)) === name) {
     tags.push(`<span class="schedpick schedpick-season" title="Season-long pick">Pick'em</span>`);
+  }
+  if (mine.infinity.has(abbr)) {
+    tags.push(`<span class="schedpick schedpick-inf" title="Infinity War pick">Infinity</span>`);
   }
   for (const { league, pick } of mine.survivor.get(abbr) || []) {
     const how = 'Survivor pick';

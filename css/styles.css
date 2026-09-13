@@ -1164,12 +1164,15 @@ body.chrome-off main.wrap { padding-top: 24px; }
    which measures only ~4.5:1 under white at this size; #006B75 is ~6.3:1. */
 .schedpick-season { background: var(--purple); }
 .schedpick-surv { background: #006B75; }
+/* Infinity War: dark amber, clear of both hues above. White on it is 7.26:1. */
+.schedpick-inf { background: #7E4B00; }
 .sched-picks-key {
   margin: -4px 0 12px;
   font-size: .75rem; color: var(--ink-soft);
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
 }
-.sched-picks-key .schedpick-surv { margin-left: 6px; }
+.sched-picks-key .schedpick-surv,
+.sched-picks-key .schedpick-inf { margin-left: 6px; }
 
 .live-dot, .poss-dot {
   width: 7px; height: 7px; border-radius: 50%;

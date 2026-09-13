@@ -31,6 +31,7 @@ import { seasonBanner, isBlocked } from './seasonBanner.js';
 import { buildGrid } from './gridModel.js';
 import { currentWeek as currentWeekOf } from './gameState.js';
 import { ABBR_TO_MASCOT } from './teams.js';
+import { infinityTeamsKey } from './myPicks.js';
 import {
   PICKS_PER_WEEK, weekGames, rankGames, sourceWarning, chalkSet,
   expectedCorrect, scoreDistribution, atLeast, simulateField, scoreCard,
@@ -113,6 +114,9 @@ function loadWeek() {
   // expensive way, where a stale number rendered as a silent blank.
   S.picks = stored.filter((id) => valid.has(id));
 
+  // A card saved before the Schedule read its sides has ids but no teams.
+  if (S.picks.length) saveTeams();
+
   // Nothing stored: open on the chalk eight rather than an empty card. It is
   // the correct answer for the season prize and the honest starting point for
   // the weekly one, and an empty card would make every block below say
@@ -132,7 +136,17 @@ function loadPicks(season, week) {
 function savePicks() {
   try {
     localStorage.setItem(PICKS_KEY(S.season, S.week), JSON.stringify(S.picks));
+    saveTeams();
   } catch { /* private browsing -- the card still works, it just won't persist */ }
+}
+
+/** The side of each saved game, for the Schedule's tags -- see myPicks.js. */
+function saveTeams() {
+  const byId = new Map(S.slate.map((g) => [g.gameId, g]));
+  const teams = S.picks.map((id) => byId.get(id)?.pick).filter(Boolean);
+  try {
+    localStorage.setItem(infinityTeamsKey(S.season, S.week), JSON.stringify(teams));
+  } catch { /* ignore */ }
 }
 
 function loadPrefs() {
