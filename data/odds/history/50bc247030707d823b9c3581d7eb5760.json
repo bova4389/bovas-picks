@@ -1508,5 +1508,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-09-12T22:22:14.396795+00:00"
+ },
+ {
+  "id": "50bc247030707d823b9c3581d7eb5760",
+  "commenceTime": "2026-09-21T00:20:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.7348,
+  "rawAwayProb": 0.3132,
+  "homeWinProb": 0.7011,
+  "awayWinProb": 0.2989,
+  "vig": 0.048,
+  "total": 47.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
  }
 ]

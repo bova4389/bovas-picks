@@ -1508,5 +1508,21 @@
   "totalBookCount": 1,
   "bucket": 11,
   "fetchedAt": "2026-09-12T22:22:14.396795+00:00"
+ },
+ {
+  "id": "9b825e6518156008da499be041975fdd",
+  "commenceTime": "2026-11-26T18:00:00Z",
+  "home": "Detroit Lions",
+  "away": "Chicago Bears",
+  "bookmakerCount": 1,
+  "rawHomeProb": 0.5868,
+  "rawAwayProb": 0.4545,
+  "homeWinProb": 0.5635,
+  "awayWinProb": 0.4365,
+  "vig": 0.0413,
+  "total": 52.5,
+  "totalBookCount": 1,
+  "bucket": 11,
+  "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
  }
 ]
