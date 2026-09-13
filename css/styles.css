@@ -1138,6 +1138,39 @@ body.chrome-off main.wrap { padding-top: 24px; }
 .schedteam.is-loser .schedteam-name,
 .schedteam.is-loser .schedteam-score { color: var(--ink-soft); font-weight: 400; }
 
+/* My picks. A ring on the side I took, plus a row of tags under it naming
+   which pool took it. The ring is an inset shadow rather than a border, so it
+   costs no width -- the 375px budget above has none to give. The tags carry
+   the meaning; the ring only says "look here", so it is one color for both
+   kinds of pick. Tags sit on their own grid row, under their own side. */
+.schedgame.has-pick { border-color: var(--purple-mid); }
+.schedteam.is-picked { box-shadow: inset 0 0 0 2px var(--purple); }
+.schedpicks {
+  grid-row: 2;
+  display: flex; flex-wrap: wrap; gap: 4px;
+  margin-top: -6px;
+}
+.schedpicks-away { grid-column: 1; justify-content: flex-start; }
+.schedpicks-home { grid-column: 3; justify-content: flex-end; }
+.schedpicks:empty { display: none; }
+.schedpick {
+  display: inline-block;
+  font-size: .625rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  line-height: 1.5; padding: 1px 7px; border-radius: 999px;
+  color: var(--white); white-space: nowrap;
+}
+/* White on --purple is 10.43:1. The survivor tag is a darker teal than --teal,
+   which measures only ~4.5:1 under white at this size; #006B75 is ~6.3:1. */
+.schedpick-season { background: var(--purple); }
+.schedpick-surv { background: #006B75; }
+.sched-picks-key {
+  margin: -4px 0 12px;
+  font-size: .75rem; color: var(--ink-soft);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+}
+.sched-picks-key .schedpick-surv { margin-left: 6px; }
+
 .live-dot, .poss-dot {
   width: 7px; height: 7px; border-radius: 50%;
   background: var(--violet); flex: none;
@@ -3673,53 +3706,6 @@ footer {
   outline: 3px solid var(--sq-charcoal);
   outline-offset: 2px;
 }
-
-/* Locking is a step backwards, so it looks like one — quieter than the way in. */
-.sq-nav-btn.is-lock {
-  border-color: var(--sq-line);
-  color: var(--sq-ink-soft);
-  font-weight: 700;
-}
-.sq-nav-btn.is-lock:hover {
-  background: var(--sq-paper);
-  border-color: var(--sq-ink-soft);
-  color: var(--sq-ink);
-}
-
-.sq-gate {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
-  margin-top: 10px;
-}
-.sq-gate-label {
-  font-size: .625rem; font-weight: 900;
-  letter-spacing: .14em; text-transform: uppercase;
-  color: var(--sq-ink-soft);
-  width: 100%;
-}
-.sq-gate-input {
-  font: inherit;
-  font-size: .875rem;
-  min-height: 46px;
-  padding: 11px 14px;
-  border: 1.5px solid var(--sq-line);
-  border-radius: var(--sq-r-sm);
-  background: var(--sq-white);
-  color: var(--sq-ink);
-  flex: 1 1 160px;
-  min-width: 0;
-}
-.sq-gate-input:focus-visible {
-  outline: 3px solid var(--sq-charcoal);
-  outline-offset: 2px;
-}
-.sq-gate-err {
-  width: 100%;
-  margin: 0;
-  font-size: .75rem; font-weight: 700;
-  color: var(--sq-crimson-deep);
-  min-height: 1em;
-}
-.sq-gate-err:empty { min-height: 0; }
 
 /* ── Phone ────────────────────────────────────────────────────────────────
    The matchup keeps its three columns down to the smallest phone — stacking

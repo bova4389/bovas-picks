@@ -9,8 +9,8 @@
   <!-- LINK PREVIEWS SEE THIS, NOT the dynamic title js/app.js writes: the
        crawlers behind iMessage, WhatsApp and Slack fetch the URL and read the
        markup without running any script, and a hash never reaches the server
-       anyway. Since anyone without the site password lands on the Squares
-       board whatever URL they open, the preview is named for the board. The
+       anyway. The link that gets shared outside the pool is the Squares
+       board's (#squares), so the preview is named for the board. The
        <title> above stays this site's, so a bookmark made before the first
        render is still labelled correctly for its owner. -->
   <meta property="og:title" content="St. Jude Men&rsquo;s Club &mdash; Football Squares" />
@@ -28,7 +28,7 @@
        because the Squares tab is deliberately not in this site's look --
        see the SQUARES block in css/styles.css. -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260911" />
+  <link rel="stylesheet" href="css/styles.css?v=20260913" />
 </head>
 <body>
 
@@ -143,6 +143,6 @@
     Personal tool. Picks are emailed manually — this only builds and checks the message.
   </footer>
 
-  <script type="module" src="js/app.js?v=20260911"></script>
+  <script type="module" src="js/app.js?v=20260913"></script>
 </body>
 </html>

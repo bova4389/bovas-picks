@@ -139,7 +139,7 @@ js/infinityFeed.js  SHARED — pick'em-shaped Sleeper read                    [N
 js/infinityWar.js   Infinity War tab — pick 8 of the slate, small field
 js/squaresModel.js  SHARED — squares math, pure data                       [NEVER versioned]
 js/squaresChrome.js SHARED — St. Jude banner, theme hook, footer nav       [NEVER versioned]
-js/siteGate.js      SHARED — password gate: Squares public, rest hidden    [NEVER versioned]
+js/myPicks.js       SHARED — what I picked: Pick Sheet card + survivor picks [NEVER versioned]
 js/squares.js       Squares Board tab — one week: matchup, board, payouts
 js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
 ```
@@ -1178,41 +1178,21 @@ not less.
   the season prize yet, so nothing depends on it — but a season-long standings view would.
 - **`spread` wants calibrating** against real picks. See above.
 
-## The Site Gate — Squares is public, the rest is not
+## The Site Gate — removed 2026-09-13
 
-Added 2026-09-08 so the Squares board could be shared with the St. Jude Men's Club without
-handing a hundred people a tour of the survivor grid and the strategy docs. `js/siteGate.js`
-holds a SHA-256 of the password; `js/app.js` enforces it.
+From 2026-09-08 to 2026-09-13 a password gate (`js/siteGate.js`) kept every tab but Squares out
+of the nav and un-booted, with an **Admin** button in the Squares footer. **Removed at the
+owner's request**: the site opens on **Schedule** again, every tab boots at load, and the Squares
+footer always shows the way back to Schedule / Season Long / Survivor.
 
-**What it does, and it is more than hiding a tab:**
+Two things that were true before the gate and are true again now:
 
-- **`show()` is the single choke point.** Every route into a panel — the nav rows, a deep link, a
-  restored hash, the Squares footer's own buttons — goes through it, so the check lives there
-  rather than in the nav. `#season/picksheet` typed by hand lands on the Squares board.
-- **Row 1 is filtered**, so a locked visitor sees one pill, and on Squares even that is hidden by
-  `chromeOff`.
-- **The gated tabs are not booted at all.** This is the part that matters: every `init()` fetches
-  as it starts, so booting them behind a hidden panel would put `data/survivor-*.json`,
-  `data/popularity/*` and the odds snapshot in a club visitor's network tab, where "you cannot see
-  this" would be plainly untrue. Verified: a locked load requests only `squares-2026.json`,
-  `schedule-2026.json`, `team-identity.json` and `logo-trim.json`.
-- **The Squares footer nav is the gate's front door.** It listed Schedule / Season Long / Survivor
-  unconditionally, which on the one page built to be shared outside the pool was a guided tour.
-  Locked it offers a quiet **Admin** button; unlocked, the way back plus **Lock**.
+- **It never protected a file.** The repo is public and Pages serves it from the root, so
+  `/STRATEGY.md` and `/data/raw/*` were always fetchable. The real fix for sharing Squares with
+  the club is still the separate `bova4389/stjude-squares` repo `.sq-theme` was scoped for.
+- **The link to hand the club is `…/bovas-picks/#squares`.** A bare URL now lands on Schedule.
 
-**What it does NOT do, and this is the part to keep saying out loud: it does not protect a file.**
-This repo is public and Pages serves it from the repo root, so `/STRATEGY.md`, `/CLAUDE.md` and
-`/data/raw/entries-2025-w01.json` stay directly fetchable by anyone who types the path. A UI gate
-cannot change that. **The real fix is the separate repo** — `bova4389/stjude-squares` at its own
-origin, which is what `.sq-theme` and `js/squaresChrome.js` were scoped for — plus excluding the
-internal docs from what Pages serves. Both are agreed and deferred, not dismissed.
-
-Two consequences of a public hash: the password is recoverable offline, and a short or purely
-numeric one falls in seconds because the search space is tiny. **Never put anything behind this
-gate that would matter if it leaked**, and never commit an API key on the strength of it.
-
-`sessionStorage`, not `localStorage` — the unlock lasts for the tab and no longer. Storage blocked
-in private browsing **fails closed**.
+Do not rebuild a gate from git history without asking — it was taken out on purpose.
 
 ### Titles and link previews
 
@@ -1223,8 +1203,8 @@ wrong name in their tab bar and their bookmarks.
 
 **Link-preview crawlers never see any of that.** iMessage, WhatsApp and Slack fetch the URL and
 read the markup without running scripts, and a `#hash` never reaches the server at all. So the
-Open Graph tags in `index.html` are named for the Squares board — correct, because a locked
-visitor lands there whatever URL they open. The static `<title>` stays this site's.
+Open Graph tags in `index.html` are named for the Squares board — correct, because the link that
+goes outside the pool is the `#squares` one. The static `<title>` stays this site's.
 
 ## Squares — Read Before Changing Any Color
 
@@ -1829,6 +1809,31 @@ reason: the trade is the user's.
 
 **Do not restore `placeholder="44"` on the input.** It was there from the first build and it is a
 nudge toward the exact worst answer, sitting inches from text that says so.
+
+## My Picks — One Resolver, Three Tabs
+
+`js/myPicks.js` (added 2026-09-13) answers "what did I pick" for the Pick Sheet's email and the
+Schedule's highlights, so the two can never disagree. Precedence:
+
+| Question | 1st | 2nd | then |
+|---|---|---|---|
+| Season-long card | localStorage `picks:<year>:w<N>` (this device) | `data/picks-sent-<year>.json` | — |
+| Survivor pick, per pool | Grid / Sleeper (`loadLeagueState`, cached feed) | sent file's `suicide` (Mike's only) | survivor log if `final` → Picks tab stored card → log at any confidence |
+
+- **Why a committed sent file.** localStorage is per browser. A card typed on one device showed as
+  a blank sheet on another and read as "the pick sheet reset". `data/picks-sent-<year>.json` holds
+  each card exactly as emailed (`numbers`, `points`, `suicide` abbreviation) and is hand-updated
+  after the email goes out. The device copy wins only when it holds at least one pick, so a
+  half-edited card is never swapped for the sent one.
+- **Why the Picks tab stands in for an unrecorded survivor pick.** The Picks tab is where that
+  decision is made; requiring a second click on the Grid is how the email went out with
+  `Suicide —`. Each resolved pick carries a `source` (`recorded` / `sent` / `log` / `card`).
+- **The Pick Sheet opens on the current week** (`currentWeek()` from the schedule), not Week 1.
+- **No entry-name field.** Removed 2026-09-13 — the sheet is only ever the owner's card, so the
+  email is the commissioner's three lines plus the readback.
+- **Schedule marks** the picked side with an inset ring (`.schedteam.is-picked`, no width cost)
+  and tags on a second grid row: `Pick'em` (purple) for the season card, the pool's short name
+  (dark teal `#006B75`, ~6.3:1 under white) per survivor pool. Re-read on every render.
 
 ## Which Data File Feeds Which View
 

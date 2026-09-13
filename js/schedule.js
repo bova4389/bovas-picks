@@ -20,7 +20,10 @@
    NEVER add a ?v= to this file — see data.js's note on module identity.
    ========================================================================== */
 
-import { getSchedule } from './data.js';
+import { getSchedule, tryNumberMap } from './data.js';
+import {
+  loadMyPicks, seasonPicksByGame, survivorPicksForWeek, pairKey,
+} from './myPicks.js';
 import { clearScoreboardCache } from './espn.js';
 import {
   loadWeek, weeksIn, currentWeek, anyLive, msToNextKickoff,
@@ -41,6 +44,14 @@ let view = null;      // last loadWeek() result
    memory by then rather than awaited per card. Null if it failed to load, in
    which case every team just renders without a tint or a logo. */
 let identity = null;
+/* The commissioner's number map, for turning my numbered season-long card
+   back into teams. Null before the workbook arrives -- then only survivor
+   picks are marked. */
+let numberMap = null;
+/* My picks for the week on screen, rebuilt on every render() because the Pick
+   Sheet, the Grid and the Picks tab can all change them while this panel is
+   hidden. { season: Map pair -> mascot, survivor: Map abbr -> [{league, pick}] } */
+let mine = null;
 let timer = null;
 let agoTimer = null;
 let refreshing = false;
@@ -55,7 +66,10 @@ export async function initSchedule(root, activeSeason) {
   // Fetched alongside the schedule rather than after it: both are needed for
   // the first paint, and getIdentity() resolves null on failure instead of
   // throwing, so a missing identity file costs the tint and logos, not the tab.
-  [schedule, identity] = await Promise.all([getSchedule(season), getIdentity()]);
+  [schedule, identity, numberMap] = await Promise.all([
+    getSchedule(season), getIdentity(), tryNumberMap(season), loadMyPicks(season),
+  ]);
+  if (numberMap && Number(numberMap.year) !== Number(season)) numberMap = null;
 
   if (!schedule || !schedule.games?.length) {
     root.innerHTML = emptyState(season);
@@ -195,6 +209,8 @@ function render() {
     (a, b) => firstKickoff(byDay.get(a)) - firstKickoff(byDay.get(b))
   );
 
+  mine = myPicksFor(view.week);
+
   body.innerHTML = `
     ${summaryLine()}
     ${days.map((d) => `
@@ -220,11 +236,52 @@ function summaryLine() {
 
   // Says the away/home convention once, here, rather than putting an "at"
   // label on all 16 cards — position carries it after the first glance.
+  const anyPicks = mine && (mine.season.size || mine.survivor.size);
+
   return `
     <p class="lede">
       Week ${view.week} · ${parts.join(' · ')}
       <span class="sched-legend">Away left · Home right</span>
-    </p>`;
+    </p>
+    ${anyPicks ? `
+      <p class="sched-picks-key">
+        Your picks:
+        <span class="schedpick schedpick-season">Pick'em</span> season long
+        <span class="schedpick schedpick-surv">Pool</span> survivor
+      </p>` : ''}`;
+}
+
+/* ── My picks ─────────────────────────────────────────────────────────────
+   Read through js/myPicks.js, the same resolver the Pick Sheet builds its
+   email from, so the card on this tab and the email can never disagree about
+   what was picked.
+   ------------------------------------------------------------------------ */
+
+function myPicksFor(week) {
+  const survivor = new Map();
+  for (const { league, pick } of survivorPicksForWeek(week, season)) {
+    if (!survivor.has(pick.team)) survivor.set(pick.team, []);
+    survivor.get(pick.team).push({ league, pick });
+  }
+  return { season: seasonPicksByGame(numberMap, week, season), survivor };
+}
+
+/** Tags for one side of one game: '' when I picked nothing there. */
+function pickTags(g, side) {
+  if (!mine) return '';
+  const name = side === 'away' ? g.away : g.home;
+  const abbr = side === 'away' ? g.awayAbbr : g.homeAbbr;
+
+  const tags = [];
+  if (mine.season.get(pairKey(g.away, g.home)) === name) {
+    tags.push(`<span class="schedpick schedpick-season" title="Season-long pick">Pick'em</span>`);
+  }
+  for (const { league, pick } of mine.survivor.get(abbr) || []) {
+    const how = pick.source === 'recorded' ? 'Survivor pick' : 'Survivor pick, from the Picks tab card';
+    tags.push(`<span class="schedpick schedpick-surv" title="${escape(`${how} — ${league.name}`)}">${
+      escape(league.short)}</span>`);
+  }
+  return tags.join('');
 }
 
 /**
@@ -253,15 +310,24 @@ function gameCard(g) {
 
   const meta = metaText(g);
 
+  // My picks sit on a second row under the side they belong to, rather than
+  // inside the team panel -- at 375px the name has no width left to share.
+  const awayTags = pickTags(g, 'away');
+  const homeTags = pickTags(g, 'home');
+  const picked = awayTags || homeTags;
+
   return `
-    <div class="${cls}${g.neutral ? ' is-neutral' : ''}">
-      ${teamSide(g, 'away')}
+    <div class="${cls}${g.neutral ? ' is-neutral' : ''}${picked ? ' has-pick' : ''}">
+      ${teamSide(g, 'away', Boolean(awayTags))}
       <div class="schedgame-center">
         <div class="schedgame-status">${statusText(g)}</div>
         ${venueHtml(g)}
         ${meta ? `<div class="schedgame-meta">${meta}</div>` : ''}
       </div>
-      ${teamSide(g, 'home')}
+      ${teamSide(g, 'home', Boolean(homeTags))}
+      ${picked ? `
+        <div class="schedpicks schedpicks-away">${awayTags}</div>
+        <div class="schedpicks schedpicks-home">${homeTags}</div>` : ''}
     </div>`;
 }
 
@@ -314,7 +380,7 @@ function venueHtml(g) {
   return `<div class="schedgame-venue" title="${escape(title)}">${inner}</div>`;
 }
 
-function teamSide(g, side) {
+function teamSide(g, side, picked = false) {
   const name = side === 'away' ? g.away : g.home;
   const abbr = side === 'away' ? g.awayAbbr : g.homeAbbr;
 
@@ -359,7 +425,7 @@ function teamSide(g, side) {
   // screen reader) while putting badges on the outer edges and scores inward,
   // flanking the clock.
   return `
-    <div class="schedteam schedteam-${side} ${mark}${g.neutral && side === 'home' ? ' is-displaced' : ''}"
+    <div class="schedteam schedteam-${side} ${mark}${g.neutral && side === 'home' ? ' is-displaced' : ''}${picked ? ' is-picked' : ''}"
          data-abbr="${escape(abbr || '')}"${tint ? ` style="background:${tint}"` : ''}>
       <span class="schedteam-badge" aria-hidden="true">${
         logo ? `<img src="${escape(logo)}" alt="" loading="lazy" decoding="async">` : ''

@@ -9,13 +9,13 @@
 
 import {
   SEASON, tryNumberMap, weekNumbers, scoredGames, tiebreakerGame,
-  loadPicks, savePicks, loadProfile, saveProfile, getOddsSnapshot,
-  getSeasonAudit, getSchedule,
+  savePicks, getOddsSnapshot, getSeasonAudit, getSchedule,
 } from './data.js';
 import {
   buildSeasonOddsIndex, matchSeasonOdds, kickoffIndex, kickoffFor,
 } from './oddsMatch.js';
-import { loadLeagueState } from './survivorLeagues.js';
+import { currentWeek } from './gameState.js';
+import { loadMyPicks, seasonCard, survivorPick } from './myPicks.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 import { favoriteLine } from './oddsBadge.js';
 import { seasonBanner } from './seasonBanner.js';
@@ -27,7 +27,6 @@ const DAY_ORDER = [
 let map = null;
 let week = null;
 let picks = {};          // { [awayNum]: chosenNumber }  — keyed by game
-let profile = loadProfile();
 let seasonIndex = null;  // pair+kickoff, from buildSeasonOddsIndex
 let kickoffs = new Map(); // "week|Away|Home" -> ISO kickoff, from the schedule
 
@@ -59,15 +58,27 @@ export async function initPickSheet(root) {
   seasonIndex = snapshot ? buildSeasonOddsIndex(snapshot.events) : null;
   // The number map has no kickoffs in it — the commissioner's workbook only
   // prints a day name — so the dates the join needs come from the schedule.
-  kickoffs = kickoffIndex(await getSchedule(SEASON));
+  const schedule = await getSchedule(SEASON);
+  kickoffs = kickoffIndex(schedule);
+  await loadMyPicks();
 
+  // Open on the week in play, not Week 1. Opening on the first week of the
+  // sheet looked exactly like the saved card had been wiped from Week 2 on.
   const weeks = weekNumbers(map);
-  week = weeks[0];
-  picks = loadPicks(week);
+  const now = schedule ? currentWeek(schedule) : weeks[0];
+  week = weeks.includes(now) ? now : weeks.find((w) => w >= now) ?? weeks[weeks.length - 1];
+  picks = seasonCard(map, week).picks;
 
   root.innerHTML = shell(weeks);
   wireControls();
   render();
+
+  // The survivor pick can change while this panel is hidden -- a team spent
+  // on the Grid, or the Picks tab rendering a card -- so re-read it on the
+  // way in rather than emailing the copy taken at boot.
+  document.addEventListener('panelchange', (e) => {
+    if (e.detail?.panel === 'picksheet') renderOutput();
+  });
 }
 
 /* ── The odds join ────────────────────────────────────────────────────────
@@ -136,11 +147,6 @@ function shell(weeks) {
                placeholder="Total" value="" aria-describedby="mnf-game" />
         <span class="hint" id="mnf-game"></span>
       </div>
-      <div class="field" style="flex:1 1 190px">
-        <label for="entry-name">Name on the entry</label>
-        <input id="entry-name" type="text" placeholder="Your pool name"
-               value="${escape(profile.name || '')}" />
-      </div>
       <button class="btn btn-ghost" id="clear-week" type="button">Clear week</button>
     </div>
 
@@ -168,7 +174,7 @@ function shell(weeks) {
 function wireControls() {
   el('week-select').addEventListener('change', (e) => {
     week = Number(e.target.value);
-    picks = loadPicks(week);
+    picks = seasonCard(map, week).picks;
     el('mnf-points').value = picks.__mnf ?? '';
     render();
   });
@@ -176,12 +182,6 @@ function wireControls() {
   el('mnf-points').addEventListener('input', (e) => {
     picks.__mnf = e.target.value === '' ? undefined : Number(e.target.value);
     persist();
-    renderOutput();
-  });
-
-  el('entry-name').addEventListener('input', (e) => {
-    profile.name = e.target.value;
-    saveProfile(profile);
     renderOutput();
   });
 
@@ -205,7 +205,7 @@ function wireControls() {
   });
 
   el('mail-btn').addEventListener('click', () => {
-    const subject = `Week ${week} picks${profile.name ? ` — ${profile.name}` : ''}`;
+    const subject = `Week ${week} picks`;
     window.location.href =
       `mailto:?subject=${encodeURIComponent(subject)}` +
       `&body=${encodeURIComponent(el('email-box').value)}`;
@@ -370,17 +370,13 @@ function validate() {
     problems.push('Monday night points not set — it is the tiebreaker');
   }
 
-  if (!profile.name || !profile.name.trim()) {
-    problems.push('No name on the entry');
-  }
-
   // Both pools go in one email and share the midnight-Saturday deadline, so a
   // missing suicide pick is a half-sent entry, not a separate errand. Warned
   // rather than blocked: the pick'em card is still valid on its own, and some
   // weeks the suicide entry is already out (a Wednesday or Thursday team has
   // to be in by 6pm before that game, which is days earlier).
   if (!survivorPickName()) {
-    problems.push(`No suicide pick recorded for Week ${week} — set it on the Survivor grid`);
+    problems.push(`No suicide pick for Week ${week} yet — the Survivor Picks tab has no card for Mike's pool`);
   }
 
   return problems;
@@ -438,8 +434,6 @@ function buildMessage() {
   lines.push(pickedNumbers().join(',') || '(no picks yet)');
   lines.push(`points ${picks.__mnf ?? '—'}`);
   lines.push(`Suicide ${survivorPickName() ?? '—'}`);
-  lines.push('');
-  lines.push(profile.name || '(name)');
 
   lines.push('');
   lines.push(`--- Week ${week} check ---`);
@@ -455,12 +449,16 @@ function buildMessage() {
 }
 
 /**
- * My suicide pick for this week, as a team name — or null if I have not made
- * one. Read from Mike's pool specifically: the Sleeper pool is a different
- * game and its pick has no business in this email.
+ * My suicide pick for this week, as a team name — or null if there is none.
+ * Read from Mike's pool specifically: the Sleeper pools are different games
+ * and their picks have no business in this email.
+ *
+ * Resolved by js/myPicks.js, so a pick recorded on the Grid wins and the
+ * Survivor Picks tab's card for Mike's fills in when nothing was recorded —
+ * the same answer the Picks tab shows.
  */
 function survivorPickName() {
-  const abbr = loadLeagueState('mike', SEASON).picks[String(week)];
+  const abbr = survivorPick('mike', week)?.team;
   return abbr ? (ABBR_TO_MASCOT[abbr] || abbr) : null;
 }
 
