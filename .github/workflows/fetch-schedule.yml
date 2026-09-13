@@ -68,11 +68,22 @@ jobs:
       - name: Rebuild projections
         run: python3 scripts/build_projections.py "${{ steps.season.outputs.year }}"
 
-      - name: Commit schedule and projections
+      # Grade the pick'em cards and suicide picks from the scores the fetch
+      # just filled in, so a week's results exist Tuesday instead of when Mike
+      # mails his answer key with the next week's picks. His copy is then a
+      # check on ours (grade_week.py --check), not the only source.
+      # continue-on-error: a grading failure must never cost the schedule or
+      # projections commit below. Needs no pip install -- only --check reads xlsx.
+      - name: Grade pools
+        continue-on-error: true
+        run: python3 scripts/grade_week.py "${{ steps.season.outputs.year }}"
+
+      - name: Commit schedule, projections and results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/schedule-*.json data/projections-*.json
+          [ -d data/results ] && git add data/results
           git diff --cached --quiet && exit 0
-          git commit -m "chore(bot): refresh ${{ steps.season.outputs.year }} schedule + projections [automated]"
+          git commit -m "chore(bot): refresh ${{ steps.season.outputs.year }} schedule, projections + results [automated]"
           git push

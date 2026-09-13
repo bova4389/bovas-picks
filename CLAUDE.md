@@ -1676,6 +1676,30 @@ python scripts/parse_pool_picks.py "path/to/Weekly picks 26.xlsx" 2026 [week]
 → `data/raw/entries-<year>-w<NN>.json` — names + individual cards, **tracked**
 → `data/popularity/pop-<year>-w<NN>.json` — aggregate percentages only, **tracked**
 
+**We grade the week ourselves; Mike's answer key is the check, not the source** (decided
+2026-09-13). He fills in Week N's results by hand and mails them with Week N+1's picks, so
+waiting on him leaves a week ungraded for most of the next week. `scripts/grade_week.py` derives
+the answer key from the ESPN final scores in `data/schedule-<year>.json` and grades every card
+(most correct, then closest Monday-night total by absolute value) and every suicide pick.
+`fetch-schedule.yml` runs it every Tuesday right after the score fetch.
+
+```bash
+python scripts/grade_week.py 2026 [week]
+python scripts/grade_week.py 2026 1 --check "Weekly picks 26.xlsx" --check-suicide "Suicide 26.xlsx"
+```
+
+→ `data/results/pickem-<year>-w<NN>.json` — answer key, graded cards, rank, winner(s), **tracked**
+→ `data/results/survivor-<year>.json` — per-week won/lost counts and who lost, **tracked**
+
+- **Run `--check` when the next week's workbooks arrive.** It diffs his answer key against ours,
+  lists every card whose picks or tiebreaker changed since we parsed it (his keying fixes, usually
+  one or two), and compares his per-card totals to ours. It only reports; if his corrections should
+  be the record, re-run `parse_pool_picks.py` for that week and grade again.
+- **A tie credits nobody and prints a warning**, because the pool's tie rule is not on record.
+  Ask Mike the first time it happens and write the answer here.
+- **Suicide results record losses, never eliminations.** Buy-backs cannot be read from any feed.
+- A week with games still to play is written `"complete": false` with no ranking.
+
 **3. Odds — on a schedule, not mailed.** `scripts/fetch_odds.py` pulls NFL moneylines **and game
 totals** from [The Odds API](https://the-odds-api.com/) (free tier, 500 requests/month), de-vigs
 the moneylines, and snapshots the result. Run manually or via `.github/workflows/fetch-odds.yml`, which fires on a
