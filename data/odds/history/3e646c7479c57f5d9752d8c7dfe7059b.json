@@ -1524,5 +1524,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
+ },
+ {
+  "id": "3e646c7479c57f5d9752d8c7dfe7059b",
+  "commenceTime": "2026-09-14T00:20:00Z",
+  "home": "New York Giants",
+  "away": "Dallas Cowboys",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.4117,
+  "rawAwayProb": 0.6273,
+  "homeWinProb": 0.3962,
+  "awayWinProb": 0.6038,
+  "vig": 0.0389,
+  "total": 47.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-09-13T17:24:35.736896+00:00"
  }
 ]
