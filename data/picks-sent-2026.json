@@ -1,5 +1,11 @@
 {
   "season": 2026,
   "note": "Season-long cards exactly as emailed to the commissioner. numbers = the pick numbers; points = Monday night total; suicide = Mike's pool team abbreviation. Read by js/myPicks.js.",
-  "weeks": {}
+  "weeks": {
+    "1": {
+      "numbers": [1, 4, 6, 7, 9, 12, 14, 15, 18, 19, 21, 24, 26, 27],
+      "points": 36,
+      "suicide": "JAC"
+    }
+  }
 }
