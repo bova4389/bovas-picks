@@ -197,6 +197,31 @@ export async function getSquares(season = SEASON) {
 }
 
 /**
+ * My season-long cards as they were emailed, or null. Hand-maintained in
+ * data/picks-sent-<year>.json so a sent card is there on every device, not
+ * only in the browser it was typed into. See js/myPicks.js.
+ */
+export async function getSentPicks(season = SEASON) {
+  try {
+    return await loadJSON(`data/picks-sent-${season}.json`);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * The committed survivor week-card log, written by CI from the Picks tab's
+ * model (scripts/log_week_card.mjs), or null.
+ */
+export async function getSurvivorLog(season = SEASON) {
+  try {
+    return await loadJSON(`data/survivor-log-${season}.json`);
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Cross-check every loaded feed against the active season.
  *
  * The guard that stops the tabs combining two seasons — see js/season.js for
@@ -248,18 +273,4 @@ export function savePicks(week, picks, season = SEASON) {
   } catch {
     /* private browsing / quota — the card still works, it just won't persist */
   }
-}
-
-export function loadProfile() {
-  try {
-    return JSON.parse(localStorage.getItem('profile')) || { name: '' };
-  } catch {
-    return { name: '' };
-  }
-}
-
-export function saveProfile(profile) {
-  try {
-    localStorage.setItem('profile', JSON.stringify(profile));
-  } catch { /* ignore */ }
 }
