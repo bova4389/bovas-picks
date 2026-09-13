@@ -277,7 +277,7 @@ function pickTags(g, side) {
     tags.push(`<span class="schedpick schedpick-season" title="Season-long pick">Pick'em</span>`);
   }
   for (const { league, pick } of mine.survivor.get(abbr) || []) {
-    const how = pick.source === 'recorded' ? 'Survivor pick' : 'Survivor pick, from the Picks tab card';
+    const how = 'Survivor pick';
     tags.push(`<span class="schedpick schedpick-surv" title="${escape(`${how} — ${league.name}`)}">${
       escape(league.short)}</span>`);
   }

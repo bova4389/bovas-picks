@@ -34,11 +34,16 @@ import { SEASON, getSchedule, getProjections, getOddsSnapshot } from './data.js'
 import { auditSurvivorFeeds } from './season.js';
 import { seasonBanner, isBlocked } from './seasonBanner.js';
 import { buildGrid } from './gridModel.js';
-import { currentWeek as currentWeekOf } from './gameState.js';
-import { LEAGUES, loadLeagueState, usedTeams } from './survivorLeagues.js';
+import {
+  currentWeek as currentWeekOf, loadWeek, anyLive, msToNextKickoff, outcomeFor,
+} from './gameState.js';
+import { LEAGUES } from './survivorLeagues.js';
 import { loadCachedFeed } from './sleeperSurvivor.js';
 import {
-  buildWeekCard, cardForLog, diffCards, modeledShare, loggedPicksFor,
+  loadMyPicks, survivorPick, survivorBoard, recordSurvivorPick, sentCard,
+} from './myPicks.js';
+import {
+  buildWeekCard, cardForLog, diffCards, modeledShare,
   liveEntrantsFrom, FLOOR, MIN_BOOKS,
 } from './weekCardModel.js';
 import { ABBR_TO_MASCOT } from './teams.js';
@@ -46,7 +51,13 @@ import { ABBR_TO_MASCOT } from './teams.js';
 const S = {
   root: null, season: SEASON, model: null, projections: null, odds: null,
   audit: null, week: null, weeks: [], now: 1, card: null, changed: null, log: null,
+  view: null,   // loadWeek() for the week on screen -- scores for "your pick"
 };
+
+/* Scores are re-read this often while a game is on and this panel is showing.
+   Matches the Schedule tab, which reads the same cached ESPN scoreboard. */
+const POLL_MS = 25_000;
+const PREKICK_MS = 15 * 60 * 1000;
 
 /* ── Boot ─────────────────────────────────────────────────────────────────*/
 
@@ -57,6 +68,7 @@ export async function initWeekCard(root, season = SEASON) {
 
   const [schedule, projections, odds, log] = await Promise.all([
     getSchedule(season), getProjections(season), getOddsSnapshot(), getLog(season),
+    loadMyPicks(season),
   ]);
 
   S.projections = projections;
@@ -72,9 +84,11 @@ export async function initWeekCard(root, season = SEASON) {
   S.weeks = S.model.weeks;
   S.now = currentWeekOf(schedule);
   S.week = S.weeks.includes(S.now) ? S.now : S.weeks[0];
+  S.view = await loadWeek(season, S.week, { live: true });
 
   render();
   wire();
+  setInterval(pollScores, POLL_MS);
 }
 
 /**
@@ -97,13 +111,23 @@ async function getLog(season) {
 
 /* ── State ────────────────────────────────────────────────────────────────*/
 
-/** Every pool's board, each from its OWN state. Never merged -- see rule 1 in
- *  weekCardModel.js. */
+/**
+ * Every pool's board, each from its OWN picks. Never merged -- see rule 1 in
+ * weekCardModel.js.
+ *
+ * Built from my ACTUAL picks (js/myPicks.js: this device plus the committed
+ * sent file), and deliberately NOT counting the week on screen: marking this
+ * week's pick must not strike that team off this week's own board and flip
+ * the recommendation under it.
+ */
 function boards() {
-  return LEAGUES.map((league) => ({
-    league,
-    used: usedTeams(loadLeagueState(league.id, S.season)),
-  }));
+  return LEAGUES.map((league) => {
+    const picks = survivorBoard(league.id, S.season);
+    const used = new Set(
+      Object.entries(picks).filter(([w]) => Number(w) !== S.week).map(([, t]) => t)
+    );
+    return { league, used };
+  });
 }
 
 /**
@@ -219,75 +243,45 @@ function controls(card) {
     </div>`;
 }
 
-/* ── Drift between the committed log and a hand-kept board ────────────────*/
+/* ── Picks the committed record does not have ─────────────────────────────*/
 
 /**
- * The one place the automation can be wrong, said out loud.
+ * Past weeks whose pick is not in data/picks-sent-<year>.json.
  *
- * The odds workflow rebuilds this card on every snapshot and commits the
- * result, and for the three Sleeper pools it reads my actual picks back from
- * the pool, so those cannot drift. Mike's has no feed and the mailed workbook
- * carries no flag saying which entry is mine, so CI has nothing to go on but
- * the log's own history -- which records what was RECOMMENDED, not what was
- * submitted.
- *
- * Follow the card and the two agree forever. Deviate once and they part, and
- * the failure is silent in the worst way: CI keeps recommending teams that are
- * already spent, and every number it prints about them is confident and wrong.
- *
- * The browser is the only place that knows the truth, so this is where the
- * mismatch has to be caught. It is a prompt to fix the log, not an error --
- * the local board is right and the file is behind it.
+ * That file is the only record every device and the weekly log can read.
+ * Sleeper stopped reporting picks on 2026-09-13, so a pick that exists only
+ * on this device is invisible everywhere else -- and the log, finding no pick,
+ * assumes the recommendation was submitted and plans around that.
  */
 function driftWarning() {
   const rows = [];
 
   for (const league of LEAGUES) {
-    // Pools with a live feed cannot drift; their used-set comes from the pool.
-    if (league.sleeper) continue;
-
-    const logged = loggedPicksFor(S.log, league.id);
-    const mine = loadLeagueState(league.id, S.season).picks || {};
-
-    // ONLY WEEKS ALREADY BEHIND US. The log has no entry for the week being
-    // decided -- CI writes it as the week runs -- so comparing this week would
-    // report a disagreement the moment a pick is recorded, every single week,
-    // and a warning that always fires is one nobody reads on the week it is
-    // real.
-    const weeks = new Set([
-      ...logged.keys(),
-      ...Object.keys(mine).map(Number),
-    ].filter((w) => Number.isFinite(w) && w < S.week));
-
-    const conflicts = [];
-    for (const w of [...weeks].sort((a, b) => a - b)) {
-      const was = logged.get(w) || null;
-      const is = mine[String(w)] || null;
-      if (was !== is) conflicts.push({ week: w, logged: was, mine: is });
+    const gaps = [];
+    for (const w of S.weeks) {
+      if (w >= S.now) break;
+      if (sentCard(w)?.survivor?.[league.id]) continue;
+      gaps.push({ week: w, team: survivorPick(league.id, w, S.season)?.team || null });
     }
-
-    if (conflicts.length) rows.push({ league, conflicts });
+    if (gaps.length) rows.push({ league, gaps });
   }
 
   if (!rows.length) return '';
 
   return `
     <div class="wc-drift" role="status">
-      <strong>The committed log disagrees with your board</strong>
+      <strong>Picks missing from the permanent record</strong>
       <ul>
         ${rows.map((r) => `
           <li><b>${esc(r.league.short)}:</b>
-            ${r.conflicts.map((c) => `week ${c.week} &mdash;
-              log says ${c.logged ? esc(mascot(c.logged)) : 'nothing'},
-              your board says ${c.mine ? esc(mascot(c.mine)) : 'nothing'}`).join('; ')}.</li>`).join('')}
+            ${r.gaps.map((g) => `week ${g.week} &mdash; ${
+              g.team ? `${esc(mascot(g.team))} (this device only)` : 'not marked'
+            }`).join('; ')}.</li>`).join('')}
       </ul>
       <p>
-        ${rows.map((r) => esc(r.league.short)).join(' and ')}
-        ${rows.length === 1 ? 'has' : 'have'} no live feed, so the automation carries
-        used teams forward from what the log says was <em>recommended</em> &mdash; which is not
-        always what was <em>submitted</em>. <b>Your board is the truth and the file is behind
-        it.</b> Fix the team names in <code>data/survivor-log-${S.season}.json</code> and commit,
-        or this tab will keep offering teams that are already gone.
+        Until these are in <code>data/picks-sent-${S.season}.json</code>, other devices and the
+        weekly log do not know them, and the log assumes the recommendation was what you
+        submitted. Send the picks to Claude to add.
       </p>
     </div>`;
 }
@@ -330,7 +324,7 @@ function poolCards(card) {
       <div class="section-head">
         <div>
           <p class="eyebrow">Week ${card.week} &middot; four pools</p>
-          <h3>What to submit</h3>
+          <h3>Your picks</h3>
         </div>
         ${card.exposure ? `<span class="pill${card.exposure.games > 1 ? ' ok' : ' warn'}">${
           esc(card.exposure.label)} exposure</span>` : ''}
@@ -355,6 +349,8 @@ function poolCard(entry, card) {
     return `
       <article class="wc-pool is-empty">
         ${poolHead(L, entry)}
+        ${mineBlock(L, null)}
+        <p class="wc-rec-label">Recommended</p>
         <p class="wc-empty">${
           entry.empty === 'no-candidate'
             ? `No team on this board clears the ${pct(FLOOR)} floor this week.`
@@ -374,6 +370,8 @@ function poolCard(entry, card) {
   return `
     <article class="wc-pool">
       ${poolHead(L, entry)}
+      ${mineBlock(L, p)}
+      <p class="wc-rec-label">Recommended</p>
       <p class="wc-pick">
         <b>${esc(mascot(p.team))}</b>
         <span class="wc-opp">${p.isHome ? 'vs' : 'at'} ${esc(mascot(p.opp))}</span>
@@ -404,6 +402,120 @@ function poolCard(entry, card) {
             .map((id) => esc(LEAGUES.find((l) => l.id === id)?.short || id)).join(', ')
         }.</p>` : ''}
     </article>`;
+}
+
+/* ── Your pick, and how it is doing ───────────────────────────────────────*/
+
+/**
+ * My actual pick for this pool and week, with its live result -- or, with
+ * none marked, one tap to mark the recommendation and a menu for anything else.
+ *
+ * This block answers "what did I pick"; everything under the "Recommended"
+ * label is the card's opinion. The two used to be one block headed "What to
+ * submit", and it read as a record of the pick itself.
+ */
+function mineBlock(L, rec) {
+  const mine = survivorPick(L.id, S.week, S.season);
+  const menu = teamMenu(L, mine);
+
+  if (!mine) {
+    return `
+      <div class="wc-mine is-empty">
+        <span class="wc-mine-label">Your pick</span>
+        <p class="wc-mine-none">Not marked</p>
+        <div class="wc-mine-actions">
+          ${rec ? `<button type="button" class="btn" data-pick-pool="${L.id}" data-pick-team="${esc(rec.team)}">I picked ${esc(mascot(rec.team))}</button>` : ''}
+          ${menu}
+        </div>
+      </div>`;
+  }
+
+  const g = gameFor(mine.team);
+  const away = g && g.awayAbbr === mine.team;
+  const opp = g ? `${away ? 'at' : 'vs'} ${esc(away ? g.home : g.away)}` : '';
+
+  return `
+    <div class="wc-mine">
+      <span class="wc-mine-label">Your pick</span>
+      <p class="wc-mine-team"><b>${esc(mascot(mine.team))}</b> <span class="wc-opp">${opp}</span></p>
+      <p class="wc-result" data-result="${L.id}">${resultHtml(mine.team)}</p>
+      <div class="wc-mine-actions">${menu}</div>
+    </div>`;
+}
+
+/** The week's teams as a menu, minus teams already spent in other weeks of
+ *  THIS pool. Choosing one records it; the blank option clears a pick marked
+ *  on this device. */
+function teamMenu(L, mine) {
+  const picks = survivorBoard(L.id, S.season);
+  const spent = new Set(Object.entries(picks).filter(([w]) => Number(w) !== S.week).map(([, t]) => t));
+  const teams = [...new Set((S.view?.games || []).flatMap((g) => [g.awayAbbr, g.homeAbbr]))]
+    .filter((t) => t && !spent.has(t))
+    .sort((a, b) => mascot(a).localeCompare(mascot(b)));
+
+  const blank = !mine ? 'Other team…' : mine.source === 'device' ? 'Clear pick' : 'Change pick…';
+
+  return `
+    <select class="wc-mine-select" data-pick-select="${L.id}" aria-label="${esc(L.short)} pick for week ${S.week}">
+      <option value="">${blank}</option>
+      ${teams.map((t) => `<option value="${t}"${mine?.team === t ? ' selected' : ''}>${esc(mascot(t))}</option>`).join('')}
+    </select>`;
+}
+
+function gameFor(abbr) {
+  return (S.view?.games || []).find((g) => g.awayAbbr === abbr || g.homeAbbr === abbr) || null;
+}
+
+/** "Kicks off Sun 1:00 PM" / "Winning 14–7 · Q2 8:12" / "Won 24–17". */
+function resultHtml(abbr) {
+  const g = gameFor(abbr);
+  if (!g) return '<span class="wc-res">No game this week</span>';
+
+  const mine = g.awayAbbr === abbr ? g.awayScore : g.homeScore;
+  const theirs = g.awayAbbr === abbr ? g.homeScore : g.awayScore;
+  const score = `${mine ?? 0}&ndash;${theirs ?? 0}`;
+  const clock = g.state === 'in'
+    ? ` &middot; ${g.period > 4 ? 'OT' : `Q${g.period}`}${g.clock ? ` ${esc(g.clock)}` : ''}`
+    : '';
+
+  switch (outcomeFor(mascot(abbr), g)) {
+    case 'won':     return `<span class="wc-res is-won">Won ${score}</span>`;
+    case 'lost':    return `<span class="wc-res is-lost">Lost ${score}</span>`;
+    case 'tied':    return `<span class="wc-res is-lost">Tied ${score}</span>`;
+    case 'winning': return `<span class="wc-res is-winning">Winning ${score}${clock}</span>`;
+    case 'losing':  return `<span class="wc-res is-losing">Losing ${score}${clock}</span>`;
+    case 'even':    return `<span class="wc-res is-winning">Tied ${score}${clock}</span>`;
+    default: {
+      const d = g.kickoff ? new Date(g.kickoff) : null;
+      const when = d
+        ? d.toLocaleString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' })
+        : 'TBD';
+      return `<span class="wc-res">Kicks off ${esc(when)}</span>`;
+    }
+  }
+}
+
+/**
+ * Re-read scores and repaint ONLY the result lines, so a tick never resets a
+ * menu someone has open. Runs only while this panel and the browser tab are
+ * showing and a game is on or about to start -- the Schedule tab's policy.
+ */
+async function pollScores() {
+  const panel = S.root?.closest('.panel');
+  if (!S.view || document.hidden || !panel || panel.hidden) return;
+
+  const next = msToNextKickoff(S.view.games);
+  if (!anyLive(S.view.games) && !(next != null && next <= PREKICK_MS)) return;
+
+  const week = S.week;
+  const view = await loadWeek(S.season, week, { live: true, maxAgeMs: POLL_MS });
+  if (week !== S.week) return;
+  S.view = view;
+
+  S.root.querySelectorAll('[data-result]').forEach((node) => {
+    const pick = survivorPick(node.dataset.result, S.week, S.season);
+    if (pick) node.innerHTML = resultHtml(pick.team);
+  });
 }
 
 /**
@@ -647,13 +759,26 @@ function logEntry(card) {
 /* ── Wiring ───────────────────────────────────────────────────────────────*/
 
 function wire() {
-  S.root.addEventListener('change', (e) => {
+  S.root.addEventListener('change', async (e) => {
+    const pool = e.target.dataset?.pickSelect;
+    if (pool) {
+      recordSurvivorPick(pool, S.week, e.target.value || null, S.season);
+      render();
+      return;
+    }
     if (e.target.id !== 'wc-week') return;
     S.week = Number(e.target.value);
+    S.view = await loadWeek(S.season, S.week, { live: true });
     render();
   });
 
   S.root.addEventListener('click', async (e) => {
+    const mark = e.target.closest('[data-pick-pool]');
+    if (mark) {
+      recordSurvivorPick(mark.dataset.pickPool, S.week, mark.dataset.pickTeam, S.season);
+      render();
+      return;
+    }
     if (!e.target.closest('#wc-copy')) return;
 
     const text = document.getElementById('wc-json')?.textContent || '';
@@ -679,8 +804,10 @@ function wire() {
   // team while this panel is hidden. Re-read every board on the way in rather
   // than holding the copy taken at boot -- a team spent elsewhere is a team
   // this tab would otherwise recommend twice.
-  document.addEventListener('panelchange', (e) => {
+  document.addEventListener('panelchange', async (e) => {
     if (e.detail?.panel !== 'picks' || !S.model) return;
+    render();
+    S.view = await loadWeek(S.season, S.week, { live: true, maxAgeMs: POLL_MS });
     render();
   });
 }

@@ -15,7 +15,9 @@ import {
   buildSeasonOddsIndex, matchSeasonOdds, kickoffIndex, kickoffFor,
 } from './oddsMatch.js';
 import { currentWeek } from './gameState.js';
-import { loadMyPicks, seasonCard, survivorPick } from './myPicks.js';
+import {
+  loadMyPicks, seasonCard, survivorPick, survivorRecommendation,
+} from './myPicks.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 import { favoriteLine } from './oddsBadge.js';
 import { seasonBanner } from './seasonBanner.js';
@@ -400,7 +402,10 @@ function renderOutput() {
     box.className = 'issues ok';
     const n = pickedNumbers().length;
     box.innerHTML =
-      `<p>Ready — ${n} picks, numbers check out against the Week ${week} sheet.</p>`;
+      `<p>Ready — ${n} picks, numbers check out against the Week ${week} sheet.</p>` +
+      (suicideIsRecommendation()
+        ? `<p class="hint">Suicide line is the Picks tab's recommendation — mark your Mike's pick there if you go a different way.</p>`
+        : '');
   }
 
   el('email-box').value = buildMessage();
@@ -453,14 +458,17 @@ function buildMessage() {
  * Read from Mike's pool specifically: the Sleeper pools are different games
  * and their picks have no business in this email.
  *
- * Resolved by js/myPicks.js, so a pick recorded on the Grid wins and the
- * Survivor Picks tab's card for Mike's fills in when nothing was recorded —
- * the same answer the Picks tab shows.
+ * My actual Mike's pick wins. With none marked, the Picks tab's
+ * recommendation fills the line so the email is ready — and renderOutput()
+ * says it is the recommendation, not a recorded pick.
  */
 function survivorPickName() {
-  const abbr = survivorPick('mike', week)?.team;
+  const abbr = survivorPick('mike', week)?.team || survivorRecommendation('mike', week);
   return abbr ? (ABBR_TO_MASCOT[abbr] || abbr) : null;
 }
+
+const suicideIsRecommendation = () =>
+  !survivorPick('mike', week) && Boolean(survivorRecommendation('mike', week));
 
 function escape(s) {
   return String(s).replace(/[&<>"']/g, (c) => (

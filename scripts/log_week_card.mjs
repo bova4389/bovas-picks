@@ -59,7 +59,7 @@ import { currentWeek } from '../js/gameState.js';
 import { LEAGUES } from '../js/survivorLeagues.js';
 import { fetchSleeperSurvivor, myPicksFrom } from '../js/sleeperSurvivor.js';
 import {
-  buildWeekCard, cardForLog, usedFromLog, mergeIntoLog, liveEntrantsFrom,
+  buildWeekCard, cardForLog, loggedPicksFor, mergeIntoLog, liveEntrantsFrom,
 } from '../js/weekCardModel.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -94,12 +94,13 @@ async function main() {
   const model = buildGrid({ schedule, projections, odds });
   const week = currentWeek(schedule);
   const log = (await readJSON(`data/survivor-log-${season}.json`)) || { season, weeks: {} };
+  const sent = await readJSON(`data/picks-sent-${season}.json`);
   say(`week ${week}, odds fetched ${odds.fetchedAt}`);
 
   const boards = [];
   const feeds = [];
   for (const league of LEAGUES) {
-    const { used, source, feed } = await usedFor(league, season, log, week);
+    const { used, source, feed } = await usedFor(league, season, log, week, sent);
     const size = feed?.entries?.length;
     say(`  ${league.short}: ${used.size} spent (${source})`
       + (size ? `, ${size} entries` : ''));
@@ -141,16 +142,30 @@ async function main() {
  * stale used-set produces a slightly stale recommendation, which is recoverable
  * and is labeled in the run output. Aborting produces no record at all.
  */
-async function usedFor(league, season, log, week) {
+async function usedFor(league, season, log, week, sent) {
   if (league.sleeper) {
     try {
       const feed = await fetchSleeperSurvivor(league.sleeper, season);
       return { used: new Set(Object.values(myPicksFrom(feed))), source: 'sleeper', feed };
     } catch (err) {
-      say(`  ! ${league.short}: Sleeper unreachable (${err.message}) — falling back to the log`);
+      say(`  ! ${league.short}: Sleeper unreachable (${err.message}) — using the sent file, then the log`);
     }
   }
-  return { used: usedFromLog(log, league.id, week), source: 'log', feed: null };
+
+  // Sleeper's pick query has answered "Unauthorized" since 2026-09-13, so for
+  // every pool the real record is data/picks-sent-<year>.json. A week missing
+  // from it falls back to what the log RECOMMENDED -- the old assumption, now
+  // only a gap-filler, and the Picks tab flags every week that relies on it.
+  const logged = loggedPicksFor(log, league.id);
+  const used = new Set();
+  let fromSent = 0;
+  for (let w = 1; w < week; w += 1) {
+    const actual = sent?.weeks?.[String(w)]?.survivor?.[league.id];
+    if (actual) fromSent += 1;
+    const team = actual || logged.get(w);
+    if (team) used.add(team);
+  }
+  return { used, source: fromSent ? 'sent+log' : 'log', feed: null };
 }
 
 // One catch for everything. See the header: the odds commit must survive

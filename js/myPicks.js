@@ -14,19 +14,19 @@
        2. data/picks-sent-<year>.json -- the card as it was emailed, committed
           so it is there on every device and survives a cleared browser
 
-     SURVIVOR (one team per pool per week)
-       1. a pick recorded on the Grid, or read back from Sleeper -- the truth
-       2. data/picks-sent-<year>.json's `suicide` line, for Mike's pool
-       3. the committed survivor log, if that week's card is FINAL (frozen at
-          the deadline, so it is what stood when the email went out)
-       4. the Picks tab's card for that week, as last rendered on this device
-       5. the committed survivor log at any confidence
+     SURVIVOR (one team per pool per week) -- ACTUAL picks only
+       1. a pick marked on this device (Picks tab or Grid), or an old cached
+          Sleeper feed
+       2. data/picks-sent-<year>.json's `survivor` map, for every pool
 
-   2-5 are the Picks tab's answer standing in for a pick nobody recorded. That
-   is deliberate: the Picks tab is where the survivor decision is made, and
-   making it a second errand to also click "Spend" on the Grid is how the
-   email went out with "Suicide —". A resolved pick says which source it came
-   from, so a caller can say "recommended" rather than "recorded" if it wants.
+     THE RECOMMENDATION IS A SEPARATE QUESTION (survivorRecommendation), and
+     callers must ask it by name. For one morning a missing pick fell back to
+     the recommendation, and the Picks tab told the owner he had picked the
+     Chargers. Only the Pick Sheet's email falls back, and it says so.
+
+   WHY NOT SLEEPER: its pick query began answering "Unauthorized" to every
+   unauthenticated request on 2026-09-13, so the three Sleeper pools can no
+   longer report my picks. They are recorded here instead.
 
    NEVER add a ?v= to this file -- see data.js's note on module identity.
    ========================================================================== */
@@ -34,7 +34,7 @@
 import {
   SEASON, loadPicks, scoredGames, getSentPicks, getSurvivorLog,
 } from './data.js';
-import { LEAGUES, loadLeagueState } from './survivorLeagues.js';
+import { LEAGUES, loadLeagueState, saveLeagueState } from './survivorLeagues.js';
 import { loadCachedFeed, myPicksFrom } from './sleeperSurvivor.js';
 
 let sent = null;   // data/picks-sent-<year>.json, or null
@@ -108,37 +108,87 @@ export const pairKey = (a, b) => [a, b].sort().join('|');
 /* ── Survivor ─────────────────────────────────────────────────────────────*/
 
 /**
- * My pick in one pool for one week: `{ team, source }` with `team` an
- * abbreviation, or null.
+ * What I ACTUALLY picked in one pool for one week: `{ team, source }` with
+ * `team` an abbreviation, or null.
+ *
+ * Only real picks: one marked on this device (the Picks tab or the Grid), or
+ * one in the committed sent file. A recommendation is never returned here --
+ * that was tried for a morning and the Picks tab promptly told the owner he
+ * had picked the Chargers when he had not. Recommendations have their own
+ * function below, and every caller has to say which one it means.
  */
 export function survivorPick(leagueId, week, season = SEASON) {
   const w = String(week);
   const league = LEAGUES.find((l) => l.id === leagueId);
 
+  // Sleeper's pick query started answering "Unauthorized" on 2026-09-13, so a
+  // cached feed is only ever an old one -- still true for the weeks it holds.
   const recorded = loadLeagueState(leagueId, season).picks[w]
     || (league?.sleeper ? myPicksFrom(loadCachedFeed(season, leagueId))[w] : null);
-  if (recorded) return { team: recorded, source: 'recorded' };
+  if (recorded) return { team: recorded, source: 'device' };
 
-  if (leagueId === 'mike' && sentCard(week)?.suicide) {
-    return { team: sentCard(week).suicide, source: 'sent' };
-  }
+  const sentTeam = sentCard(week)?.survivor?.[leagueId];
+  if (sentTeam) return { team: sentTeam, source: 'sent' };
 
+  return null;
+}
+
+/**
+ * What the Picks tab RECOMMENDED for one pool and week, or null: the frozen
+ * log entry if final, else this device's last-rendered card, else the log at
+ * any confidence.
+ */
+export function survivorRecommendation(leagueId, week, season = SEASON) {
+  const w = String(week);
   const logged = log?.weeks?.[w];
   const fromLog = logged?.picks?.find((p) => p.pool === leagueId)?.team || null;
-  if (fromLog && logged.confidence === 'final') return { team: fromLog, source: 'log' };
+  if (fromLog && logged.confidence === 'final') return fromLog;
 
   const card = storedCard(week, season);
   const fromCard = card?.picks?.find((p) => p.leagueId === leagueId)?.pick?.team || null;
-  if (fromCard) return { team: fromCard, source: 'card' };
-
-  return fromLog ? { team: fromLog, source: 'log' } : null;
+  return fromCard || fromLog;
 }
 
-/** Every pool's pick for a week, skipping pools with none. */
+/** Every pool's actual pick for a week, skipping pools with none. */
 export function survivorPicksForWeek(week, season = SEASON) {
   return LEAGUES
     .map((league) => ({ league, pick: survivorPick(league.id, week, season) }))
     .filter((r) => r.pick);
+}
+
+/**
+ * Every week's actual pick in one pool, `week -> team`: the sent file first,
+ * then this device on top. This is the board the Picks tab builds its
+ * used-teams from, so a pick recorded on any device counts everywhere.
+ */
+export function survivorBoard(leagueId, season = SEASON) {
+  const picks = {};
+  for (const [w, card] of Object.entries(sent?.weeks || {})) {
+    const t = card?.survivor?.[leagueId];
+    if (t) picks[String(Number(w))] = t;
+  }
+  const league = LEAGUES.find((l) => l.id === leagueId);
+  if (league?.sleeper) Object.assign(picks, myPicksFrom(loadCachedFeed(season, leagueId)));
+  Object.assign(picks, loadLeagueState(leagueId, season).picks);
+  return picks;
+}
+
+/**
+ * Record (or clear, with team = null) my pick for one pool and week on this
+ * device. One team per week per pool: this replaces the week's pick rather
+ * than toggling it.
+ */
+export function recordSurvivorPick(leagueId, week, team, season = SEASON) {
+  const state = loadLeagueState(leagueId, season);
+  const picks = { ...state.picks };
+  const w = String(week);
+  if (team) {
+    for (const [other, t] of Object.entries(picks)) if (t === team && other !== w) delete picks[other];
+    picks[w] = team;
+  } else {
+    delete picks[w];
+  }
+  saveLeagueState(leagueId, season, { ...state, picks });
 }
 
 /** The Picks tab's last-rendered card for a week, as js/weekCard.js stores it. */

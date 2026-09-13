@@ -1020,6 +1020,13 @@ job):
 | `GET api.sleeper.app/schedule/nfl/regular/<yr>` | `game_id` → week + matchup |
 | `POST api.sleeper.app/graphql` | `get_pickem_picks_for_league(league_id, leg_id, include_tiebreaker)` |
 
+**2026-09-13: it changed. `get_pickem_picks_for_league` (and `get_pickem_legs`) now answer
+`"Unauthorized"` to every unauthenticated request** — REST still serves leagues, users and rosters,
+but no pick data. The Grid's Refresh button fails, no field pick shares arrive, and my own picks
+are recorded in `data/picks-sent-<year>.json` / on the Picks tab instead (see My Picks).
+`scripts/log_week_card.mjs` reads the sent file before falling back to the log. Do not put a
+Sleeper auth token in this public repo to get around it.
+
 **The GraphQL endpoint is undocumented and may change without notice.** Every failure path leaves
 the last good cached feed in place and says why, rather than writing a partial pool over a
 complete one — a stale field number is recoverable, a half-parsed one silently understates
@@ -1818,16 +1825,27 @@ Schedule's highlights, so the two can never disagree. Precedence:
 | Question | 1st | 2nd | then |
 |---|---|---|---|
 | Season-long card | localStorage `picks:<year>:w<N>` (this device) | `data/picks-sent-<year>.json` | — |
-| Survivor pick, per pool | Grid / Sleeper (`loadLeagueState`, cached feed) | sent file's `suicide` (Mike's only) | survivor log if `final` → Picks tab stored card → log at any confidence |
+| Survivor pick, per pool | marked on this device (Picks tab / Grid) or an old cached Sleeper feed | sent file's `survivor` map | **nothing** — see below |
 
 - **Why a committed sent file.** localStorage is per browser. A card typed on one device showed as
   a blank sheet on another and read as "the pick sheet reset". `data/picks-sent-<year>.json` holds
   each card exactly as emailed (`numbers`, `points`, `suicide` abbreviation) and is hand-updated
   after the email goes out. The device copy wins only when it holds at least one pick, so a
   half-edited card is never swapped for the sent one.
-- **Why the Picks tab stands in for an unrecorded survivor pick.** The Picks tab is where that
-  decision is made; requiring a second click on the Grid is how the email went out with
-  `Suicide —`. Each resolved pick carries a `source` (`recorded` / `sent` / `log` / `card`).
+- **An actual pick and a recommendation are two functions, never one.** `survivorPick()` returns
+  only real picks; `survivorRecommendation()` returns the card's opinion (final log → stored card
+  → log). For one morning a missing pick fell back to the recommendation, and the Picks tab told
+  the owner he had picked the Chargers in Poop and East Orange when he had not. **Only the Pick
+  Sheet's email falls back**, and it prints a note saying the suicide line is the recommendation.
+- **`data/picks-sent-<year>.json` holds every pool's pick**: `weeks.<N>.survivor = { mike, sleeper,
+  deadpool, eastorange }` (abbreviations; `sleeper` is Poop). The Picks tab builds its used-teams
+  boards from `survivorBoard()` (sent file + this device), excluding the week on screen so marking
+  this week's pick does not flip this week's recommendation.
+- **The Picks tab shows "Your pick" above "Recommended"** on each pool card, with a live result
+  (`Kicks off` / `Winning 14–7 · Q2` / `Won 27–7`) from `gameState.loadWeek()`, polled every 25s
+  under the Schedule tab's policy and repainting only the result lines. "I picked X" marks the
+  recommendation in one tap; the menu marks anything else. Past weeks missing from the sent file
+  are listed in a banner, because the CI log cannot see a device-only pick.
 - **The Pick Sheet opens on the current week** (`currentWeek()` from the schedule), not Week 1.
 - **No entry-name field.** Removed 2026-09-13 — the sheet is only ever the owner's card, so the
   email is the commissioner's three lines plus the readback.

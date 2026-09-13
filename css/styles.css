@@ -2277,6 +2277,49 @@ footer {
    like one. A live count is plain, because it is simply true. */
 .wc-entrants.is-stale { border-bottom: 1px dotted var(--ink-faint); }
 
+/* Your pick -- the top of every pool card, above the card's own opinion. A
+   filled panel so it can never be read as part of the recommendation below. */
+.wc-mine {
+  display: flex; flex-direction: column; gap: 4px;
+  margin: 0 0 12px; padding: 10px 12px;
+  border-radius: var(--r-sm);
+  background: var(--purple-soft);
+}
+.wc-mine.is-empty { background: var(--paper); border: 1px dashed var(--line); }
+.wc-mine-label,
+.wc-rec-label {
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.wc-rec-label { margin: 0 0 4px; }
+.wc-mine-team { margin: 0; }
+.wc-mine-team b { font-size: 1.25rem; font-weight: 600; color: var(--purple-deep); }
+.wc-mine-none { margin: 0; font-size: .875rem; color: var(--ink); }
+.wc-mine-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.wc-mine-actions .btn { min-height: 46px; }
+.wc-mine-select {
+  min-height: 46px; padding: 0 10px;
+  border: 1px solid var(--line); border-radius: var(--r-sm);
+  background: var(--white); color: var(--ink);
+  font: inherit; font-size: .875rem;
+  flex: 1 1 140px; min-width: 0;
+}
+.wc-result { margin: 0; }
+/* Result states carry a word as well as a color, so none depends on color
+   alone. Every text/fill pair is >= 4.5:1. */
+.wc-res {
+  display: inline-block;
+  font-size: .8125rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 999px;
+  background: var(--white); color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.wc-res.is-won     { background: #006B75; color: var(--white); }
+.wc-res.is-winning { background: #E3F2F3; color: #005159; }
+.wc-res.is-losing  { background: var(--dog-soft); color: var(--dog-ink); }
+.wc-res.is-lost    { background: var(--bad); color: var(--white); }
+
 .wc-pick { margin: 0; display: flex; flex-direction: column; gap: 2px; }
 .wc-pick b { font-size: 1.25rem; font-weight: 600; line-height: 1.2; }
 .wc-opp { font-size: .8125rem; color: var(--ink-soft); }
