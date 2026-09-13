@@ -141,6 +141,8 @@ js/infinityWar.js   Infinity War tab — pick 8 of the slate, small field
 js/squaresModel.js  SHARED — squares math, pure data                       [NEVER versioned]
 js/squaresChrome.js SHARED — St. Jude banner, theme hook, footer nav       [NEVER versioned]
 js/myPicks.js       SHARED — what I picked: Pick Sheet card + survivor picks [NEVER versioned]
+js/liveModel.js     SHARED — live pool standings math, pure data           [NEVER versioned]
+js/standings.js     Standings tab — me vs. Mike's two pools, live
 js/squares.js       Squares Board tab — one week: matchup, board, payouts
 js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
 ```
@@ -153,8 +155,8 @@ The site covers **two different games**, so the nav says so. `js/app.js` holds a
 | Row 1 (the pool) | Row 2 (views inside it) |
 |---|---|
 | **Schedule** | *(none — it belongs to neither pool and is read from both)* |
-| **Season Long** | Pick Sheet · Odds · Recommend · Infinity War · Lookback |
-| **Survivor** | Grid · Odds · Planning · Picks |
+| **Season Long** | Pick Sheet · Standings · Odds · Recommend · Infinity War · Lookback |
+| **Survivor** | Grid · Odds · Planning · Picks · Standings |
 | **Squares** | Board · Season |
 
 Rules that keep this from rotting:
@@ -1861,6 +1863,32 @@ reason: the trade is the user's.
 
 **Do not restore `placeholder="44"` on the input.** It was there from the first build and it is a
 nudge toward the exact worst answer, sitting inches from text that says so.
+
+## Standings Tab — Me vs. Mike's Pools, Live
+
+Built 2026-09-13. `js/standings.js` (render + polling) over `js/liveModel.js` (pure math). One
+panel on both nav rows, the Odds precedent: the pick'em half is Season Long, the suicide half
+Survivor. It reads Mike's cards (`data/raw/entries-<year>-w<NN>.json`, `data/survivor-<year>.json`)
+against live ESPN state, so it needs nothing from his answer key. My entry is found by nickname
+(`MY_NICK = 'Bova'`, #238 / #208 in 2026).
+
+- **"Still alive to win the week" is exact.** The best outcome for me is always every remaining
+  pick of mine hitting (flipping a game never helps me against anyone), so `bestCase()` scores that
+  one outcome. A tie at the top is alive if some whole-number Monday total, no lower than the points
+  already scored, leaves my guess strictly closest. Cross-checked in Python on 2026-09-13.
+- **The percentage is an estimate and is labeled one.** `winChance()` simulates open games from
+  `liveProb()`: pre-game price → expected margin, updated for score and time left (margin SD 13.45,
+  scaling with √time left). Ties split; the Monday total is sampled around the market total. The
+  RNG is seeded so the number only moves when a score does.
+- **Pre-game prices only.** The odds bot snapshots during games, and those in-play prices already
+  know the score (Jaguars went 78% → 90% after kickoff). Each game uses the last history snapshot
+  taken before kickoff; adding the score on top of an in-play price would count the lead twice.
+- **Per game it shows my chance if my pick wins vs. loses**, tagged `Must win` when losing leaves
+  no simulated path, `Barely matters` when losing keeps ≥85% of the chance.
+- Suicide half: my pick's status, survived / out / playing / not started, the floor–ceiling of
+  survivors, and every team's count. A tied game says "counts as a loss?" — the rule is not on record.
+- No new exports were added to shared modules for this (it fetches the raw cards itself), so it
+  can ship mid-game without the stale-shared-module blank page described under Cache busting.
 
 ## My Picks — One Resolver, Three Tabs
 

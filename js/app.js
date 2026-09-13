@@ -35,6 +35,7 @@ import { initRecommend } from './recommend.js';
 import { initPlanning } from './planning.js';
 import { initWeekCard } from './weekCard.js';
 import { initInfinityWar } from './infinityWar.js';
+import { initStandings } from './standings.js';
 import { initSquares } from './squares.js';
 import { initSquaresLedger } from './squaresLedger.js';
 
@@ -52,6 +53,7 @@ const PANELS = {
   odds:      { label: 'Odds' },
   recommend: { label: 'Recommend' },
   infinity:  { label: 'Infinity War' },
+  standings: { label: 'Standings' },
   lookback:  { label: 'Lookback', soon: true },
   survivor:  { label: 'Planning' },
   picks:     { label: 'Picks' },
@@ -77,7 +79,8 @@ const GROUPS = [
     // note in CLAUDE.md). It is a season-long pick'em, same as the Pick
     // Sheet's pool, and it goes after Recommend because it is a whole
     // decision rather than one input to one.
-    panels: ['picksheet', 'odds', 'recommend', 'infinity', 'lookback'],
+    // Standings sits beside the Pick Sheet: submit on Saturday, watch on Sunday.
+    panels: ['picksheet', 'standings', 'odds', 'recommend', 'infinity', 'lookback'],
   },
   {
     id: 'survivor',
@@ -90,7 +93,9 @@ const GROUPS = [
     // the decision. It is also the one view in this row that ignores the pool
     // switcher entirely -- it reads all four boards at once, which is a
     // question none of the three before it can ask (see js/weekCard.js).
-    panels: ['grid', 'odds', 'survivor', 'picks'],
+    // Standings is shared with Season Long (one panel, two routes -- the Odds
+    // precedent); its second half is Mike's suicide pool.
+    panels: ['grid', 'odds', 'survivor', 'picks', 'standings'],
   },
   {
     id: 'squares',
@@ -336,5 +341,6 @@ initRecommend(document.getElementById('recommend-root'));
 initPlanning(document.getElementById('survivor-root'), SEASON);
 initWeekCard(document.getElementById('picks-root'), SEASON);
 initInfinityWar(document.getElementById('infinity-root'), SEASON);
+initStandings(document.getElementById('standings-root'), SEASON);
 initSquares(document.getElementById('squares-root'), SEASON);
 initSquaresLedger(document.getElementById('squares-season-root'), SEASON);

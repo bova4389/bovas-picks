@@ -3813,3 +3813,39 @@ footer {
   .sq-nav-row { gap: 6px; }
   .sq-nav-btn { flex: 1 1 auto; padding: 12px 12px; font-size: .75rem; }
 }
+
+/* ── Standings (js/standings.js) ─────────────────────────────────────────── */
+.st-card { margin-bottom: 20px; }
+.st-card h3 { margin-top: 2px; }
+.st-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 14px 0 10px; }
+.st-stats div { background: var(--paper); border-radius: var(--r-md); padding: 10px 8px; text-align: center; }
+.st-stats strong { display: block; font-size: 1.5rem; font-weight: 500; color: var(--ink); line-height: 1.1; }
+.st-stats span { font-size: .75rem; color: var(--ink-quiet); }
+.st-verdict-row { margin: 6px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.st-verdict { display: inline-block; padding: 4px 12px; border-radius: 999px; font-weight: 600; font-size: .875rem; }
+.st-verdict.is-alive { background: var(--purple-soft); color: var(--violet-ink); }
+.st-verdict.is-win { background: #E0F2F1; color: var(--teal-ink); }
+.st-verdict.is-out { background: var(--bad-bg); color: var(--bad); }
+.st-chance { font-weight: 600; color: var(--ink); }
+.st-note { margin: 6px 0; font-size: .875rem; color: var(--ink-soft); }
+.st-fine { font-size: .75rem; }
+.st-sub { margin: 18px 0 8px; font-size: .9375rem; font-weight: 600; }
+.st-games { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.st-game { border: 1px solid var(--line); border-radius: var(--r-md); padding: 10px 12px; }
+.st-game.is-live { border-color: var(--violet); }
+.st-game-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
+.st-matchup { font-weight: 600; }
+.st-status { font-size: .8125rem; color: var(--ink-quiet); }
+.st-game-pick, .st-swing { font-size: .875rem; margin-top: 4px; }
+.st-swing { color: var(--ink-soft); }
+.st-tag { display: inline-block; margin-left: 4px; padding: 0 7px; border-radius: 999px; font-size: .6875rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; background: var(--paper-2); color: var(--ink-quiet); vertical-align: 1px; }
+.st-tag.is-must { background: var(--dog-soft); color: var(--dog-ink); }
+.st-tablewrap { overflow-x: auto; }
+.st-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+.st-table th { text-align: left; font-size: .75rem; font-weight: 600; color: var(--ink-quiet); padding: 6px 8px; border-bottom: 1px solid var(--line); }
+.st-table td { padding: 7px 8px; border-bottom: 1px solid var(--line); }
+.st-table .st-name { font-weight: 500; }
+.st-table tr.is-me td { background: var(--purple-soft); font-weight: 600; }
+.st-s-lost td, .st-s-tie td { color: var(--bad); }
+.st-s-won td:last-child { color: var(--teal-ink); }
