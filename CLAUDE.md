@@ -13,8 +13,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Status**: Schedule, Grid, Pick Sheet, Odds, Recommend, Planning, Picks, Infinity War and
   Squares tabs are functional.
   **Lookback is the only "Soon" panel left**, and it is genuinely blocked rather than unstarted:
-  it needs per-entrant weekly cards and the only ones parsed are 2025 Week 1. It un-stubs when the
-  commissioner's workbooks start arriving, not before.
+  it needs per-entrant weekly cards, and the first 2026 ones (Week 1, both workbooks) were parsed
+  2026-09-13. It needs graded weeks — the answer key fills in as results post — before it has
+  anything to look back on.
 
 **Folder left as `NFL Pickems/`, not renamed to match.** The rename request was for *displayed*
 branding — title, header, docs — not the repo's on-disk path. Renaming the folder now would touch

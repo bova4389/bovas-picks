@@ -6,11 +6,11 @@ entrant's pick history.
 Layout (Sheet1):
 
     C1              "Suicide Pool"
-    row 2, D..T     week numbers 1..17
+    row 2, D..U     week numbers 1..18 (the 2025 sheet stopped at T = 17)
     row 3+, A       entry number
     row 3+, B       real name (often blank — nickname is the reliable id)
     row 3+, C       nickname
-    row 3+, D..T    team abbreviation picked that week, blank once eliminated
+    row 3+, D..U    team abbreviation picked that week, blank once eliminated
     col V           reference list of team abbreviations (ignored)
 
 Two things the pickem parser doesn't have to deal with:
@@ -35,7 +35,7 @@ import openpyxl
 
 ROOT = Path(__file__).resolve().parent.parent
 FIRST_WEEK_COL = 4          # column D
-MAX_WEEK_COL = 20           # column T = week 17
+MAX_WEEK_COL = 21           # column U = week 18
 
 TEAMS = {
     "ARI", "ATL", "BAL", "BUF", "CAR", "CHI", "CIN", "CLE", "DAL", "DEN",

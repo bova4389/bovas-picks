@@ -54,10 +54,14 @@ def load_number_map(year):
     return json.loads(path.read_text(encoding="utf-8"))["weeks"]
 
 
-def read_week(ws):
-    """-> (answer_key, entries). Answer key is {} until results are posted."""
+def read_week(ws, n_games):
+    """-> (answer_key, entries). Answer key is {} until results are posted.
+
+    Only the first n_games columns of row 2 are the key. The 2026 sheets carry
+    stray 1s in the unused columns past the last game, which read as results.
+    """
     key = {}
-    for col in PICK_COLS:
+    for col in PICK_COLS[:n_games]:
         v = ws.cell(row=2, column=col).value
         if isinstance(v, int):
             key[col] = v
@@ -143,11 +147,10 @@ def main():
         if str(week) not in number_map:
             continue
 
-        key, entries = read_week(wb[name])
+        games = [g for g in number_map[str(week)] if g["counts"]]
+        key, entries = read_week(wb[name], len(games))
         if not entries:
             continue  # blank template — weeks not yet played
-
-        games = [g for g in number_map[str(week)] if g["counts"]]
         pop = popularity(games, entries)
 
         raw_path = ROOT / "data" / "raw" / f"entries-{year}-w{week:02d}.json"
