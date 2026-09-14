@@ -121,6 +121,8 @@ js/gridModel.js     SHARED — the 32 x 18 team-week matrix, pure data         [
 js/survivorLeagues.js SHARED — per-pool used teams + field scarcity          [NEVER versioned]
 js/sleeperApi.js    SHARED — Sleeper transport + THE KICKOFF GATE           [NEVER versioned]
 js/sleeperSurvivor.js SHARED — survivor-shaped Sleeper read, normalized     [NEVER versioned]
+js/sleeperAuth.js   SHARED — per-device Sleeper token + the Connect box    [NEVER versioned]
+js/sleeperBookmarklet.js SHARED — the "Get Sleeper token" bookmark        [NEVER versioned]
 js/pickShare.js     SHARED — modeled pick share + k calibration            [NEVER versioned]
 js/injuries.js      SHARED — ESPN injury report, live from the browser      [NEVER versioned]
 js/teamIdentity.js  SHARED — team colors, uniforms, logo/wordmark paths     [NEVER versioned]
@@ -1050,9 +1052,27 @@ live row and the Infinity War controls.
 - The kickoff gate is unchanged: a login shows the same early picks the API always leaked.
 - A successful Infinity War refresh is cached (`infinity:feed:infinity:<year>`) and `infinityPicks()`
   in `js/myPicks.js` reads it first, so the Schedule's Infinity tags follow Sleeper.
-- **How to get the token** (computer only): sleeper.com → F12 → Network → filter `graphql` → reload
-  → click a row → Request Headers → `authorization`. The pick'em league page makes few requests, so
-  if none show, open chat or another league.
+- **How to get the token — the bookmark is the primary path (added 2026-09-14).** The Connect box
+  offers **Copy the bookmark** (and, on a computer, a link to drag to the bookmarks bar). Saved as a
+  bookmark and tapped on sleeper.com while logged in, it copies the token; the box's **Paste &
+  save** reads it back. It works on an iPad, which the DevTools route never did. Rules for
+  `js/sleeperBookmarklet.js`, all load-bearing:
+  - It runs on **Sleeper's** page, so it calls nothing — no fetch, no redirect, and never the token
+    in a URL. It reads storage, writes the clipboard, and says what happened.
+  - It **never hardcodes a storage key.** It regex-scans every string in localStorage,
+    sessionStorage and `document.cookie` for anything JWT-shaped, however deeply nested, and keeps
+    the unexpired one naming a `user_id` that expires last — the same shape `tokenInfo()` reads.
+  - Clipboard first, `prompt()` holding the token as the fallback for iOS versions that refuse the
+    write.
+  - The source is collapsed onto one line, so it has **no `//` comments** and explicit semicolons.
+  - **Verified only against planted fake tokens**, since no Sleeper login was available when it was
+    built. If it finds nothing on the real site, Sleeper keeps the token somewhere a page script
+    cannot read (an HttpOnly cookie, or IndexedDB) — fall back to the DevTools steps, which stay in
+    the box under "If the bookmark doesn't work": sleeper.com → F12 → Network → filter `graphql` →
+    reload → click a row → Request Headers → `authorization`.
+- **How often:** once per device; again only on expiry, a Sleeper logout, or a password change.
+  The connected box turns amber ("Time to reconnect") inside 30 days of expiry, and `saveToken()`
+  refuses a token that has already expired.
 
 **The GraphQL endpoint is undocumented and may change without notice.** Every failure path leaves
 the last good cached feed in place and says why, rather than writing a partial pool over a

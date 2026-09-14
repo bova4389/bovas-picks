@@ -1388,6 +1388,30 @@ footer {
 .slc-btn { min-height: 46px; }
 .slc-msg { margin: 6px 0 0; color: var(--bad); }
 .slc-help { margin: 6px 0 0; line-height: 1.45; }
+/* Amber, not red: an expiring token is a to-do, not a failure. --amber-ink
+   clears 4.5:1 on every background this box sits on. */
+.slc-on.is-soon .slc-state { color: var(--amber-ink); }
+.slc-on + .slc-off { margin-top: 4px; }
+.slc-head { margin: 14px 0 4px; font-weight: 600; color: var(--ink); }
+.slc-steps { margin: 0; padding-left: 1.4em; line-height: 1.45; }
+.slc-steps li { margin: 0 0 8px; }
+.slc-steps li::marker { font-weight: 600; }
+.slc-steps .slc-btn { margin-right: 6px; }
+/* A drag target, so it reads as a thing rather than a link to follow. Hidden
+   on touch screens, which have no bookmarks bar to drag to. */
+.slc-bm {
+  display: inline-block; padding: 2px 8px; border: 1.5px dashed var(--purple-mid);
+  border-radius: var(--r-sm); color: var(--purple); font-weight: 600; text-decoration: none; cursor: grab;
+}
+@media (hover: none) { .slc-bm-desk { display: none; } }
+.slc-bm-code {
+  display: block; width: 100%; max-width: 100%; min-height: 5.5em; margin-top: 6px; padding: 8px;
+  font: .75rem/1.35 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink);
+  border: 1.5px solid var(--line); border-radius: var(--r-sm); background: var(--white);
+  word-break: break-all; resize: vertical;
+}
+.slc-bm-code[hidden] { display: none; }
+.slc-alt summary { min-height: 46px; font-weight: 400; color: var(--purple); }
 
 /* --ink-quiet, not --ink-soft: this line sits on --paper-2 inside the card,
    where --ink-soft measures below the site's 4.5:1 floor. Same trap the grid's
