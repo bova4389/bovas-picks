@@ -12,8 +12,21 @@
    its own panel and `initStandings(root, season, mode)` builds an independent
    instance for each:
 
-     mode 'season'    Mike's pick'em            (panel-standings)
-     mode 'survivor'  Mike's suicide pool       (panel-survivor-standings)
+     mode 'season'    Mike's pick'em, Infinity War           (panel-standings)
+     mode 'survivor'  Mike's suicide pool, Poop, Deadpool    (panel-survivor-standings)
+
+   THE SLEEPER CARDS (Infinity War, Poop, Deadpool; added 2026-09-14) read the
+   pool copy cached by the Grid / Infinity War tabs, and carry their own
+   "Refresh from Sleeper" button that runs the SAME fetch and cache functions
+   those tabs use -- so on a phone on a Sunday nobody has to leave Standings to
+   update a pool. A survivor refresh also folds my picks into that pool's
+   league state, exactly as the Grid's refresh does. Without a usable token a
+   card shows the Connect Sleeper box instead of numbers; a pool that has never
+   been fetched shows no numbers either. Never a half-read pool as the pool.
+
+   Other entrants' picks only exist in the cache for games that had kicked off
+   at the last refresh (the kickoff gate), so every Sleeper card says how many
+   picks are still hidden and treats its counts as counts of what is visible.
 
    Every instance owns its own state and its own polling timer, closed over
    below. They share no module-level state on purpose: two timers writing one
@@ -56,6 +69,16 @@ import { clearScoreboardCache } from './espn.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 import { getIdentity } from './teamIdentity.js';
 import { renderPickBoard } from './survivorPicks.js';
+import { LEAGUES, loadLeagueState, saveLeagueState } from './survivorLeagues.js';
+import {
+  fetchSleeperSurvivor, loadCachedFeed, saveCachedFeed, mergeMyPicks, freshness,
+} from './sleeperSurvivor.js';
+import { fetchInfinityPool, loadCachedPool, saveCachedPool } from './infinityFeed.js';
+import { POOL as INFINITY } from './infinityWar.js';
+import { getToken, tokenInfo, mountConnectBoxes } from './sleeperAuth.js';
+import {
+  teamIndex, gradePickemWeek, weekPrize, survivorCoverage,
+} from './standingsModel.js';
 import {
   slateRows, scoreEntries, rankNow, bestCase, winChance, survivorWeek, fractionLeft,
 } from './liveModel.js';
@@ -95,6 +118,7 @@ export async function initStandings(root, season, mode) {
     schedule: null, map: null, cards: null, survivor: null, identity: null,
     prices: new Map(), totals: new Map(),
     view: null, timer: null, busy: false, again: false,
+    poolBusy: new Set(), poolMsg: new Map(),
   };
 
   const [schedule, map, survivor, odds, identity] = await Promise.all([
@@ -165,7 +189,38 @@ export async function initStandings(root, season, mode) {
 
   root.addEventListener('click', (e) => {
     if (e.target.closest('[data-st="refresh"]')) { clearScoreboardCache(); refresh(true); }
+    const poolBtn = e.target.closest('[data-st-pool]');
+    if (poolBtn) refreshPool(poolBtn.dataset.stPool);
   });
+
+  /* One Sleeper pool, on request. The same fetch + cache calls the Grid and
+     Infinity War tabs make; a failure keeps the last good copy and says why. */
+  async function refreshPool(id) {
+    if (S.poolBusy.has(id)) return;
+    S.poolBusy.add(id);
+    S.poolMsg.delete(id);
+    if (S.view) render(S);
+    try {
+      if (id === INFINITY.id) {
+        saveCachedPool(S.season, id, await fetchInfinityPool(INFINITY.sleeper, S.season));
+      } else {
+        const league = LEAGUES.find((l) => l.id === id);
+        if (!league?.sleeper) return;
+        const feed = await fetchSleeperSurvivor(league.sleeper, S.season);
+        saveCachedFeed(S.season, id, feed);
+        saveLeagueState(id, S.season, mergeMyPicks(loadLeagueState(id, S.season), feed));
+      }
+    } catch (err) {
+      S.poolMsg.set(id, `Couldn't refresh — ${err.message}.`);
+    } finally {
+      S.poolBusy.delete(id);
+      if (S.view) render(S);
+    }
+  }
+
+  // Connecting or disconnecting anywhere on the site changes what the Sleeper
+  // cards can show.
+  window.addEventListener('sleeperauth', () => { if (S.view) render(S); });
   root.addEventListener('change', async (e) => {
     if (!e.target.matches('[data-st="week"]')) return;
     const week = Number(e.target.value);
@@ -265,7 +320,11 @@ function render(S) {
 
   S.body.innerHTML = `
     <p class="lede">Week ${S.week} · ${esc(updated)}</p>
-    ${S.mode === 'survivor' ? survivorSection(S, live) : pickemSection(S, live)}`;
+    ${S.mode === 'survivor'
+      ? survivorSection(S, live)
+        + LEAGUES.filter((l) => l.sleeper).map((l) => sleeperSurvivorCard(S, l, live)).join('')
+      : pickemSection(S, live) + infinityCard(S, live)}`;
+  mountConnectBoxes(S.body);
 }
 
 /* ── Pick'em ──────────────────────────────────────────────────────────── */
@@ -482,6 +541,168 @@ function survivorSection(S, live) {
     <p class="st-note">Whatever happens next, between <strong>${wk.floor}</strong> and <strong>${wk.ceiling}</strong> of ${wk.total} get through Week ${S.week}.</p>
     ${board}`);
 }
+
+/* ── Sleeper pools ────────────────────────────────────────────────────── */
+
+/** A token that can actually be sent: present and not expired. */
+const connected = () => Boolean(getToken()) && !tokenInfo()?.expired;
+
+/** The strip under a Sleeper card: when the copy is from, the Refresh
+ *  button, any error, and the Connect box when there is no usable token. */
+function poolFoot(S, id, feed) {
+  const busy = S.poolBusy.has(id);
+  const msg = S.poolMsg.get(id);
+  const button = connected()
+    ? `<button type="button" class="btn btn-ghost" data-st-pool="${esc(id)}"${busy ? ' disabled' : ''}>${busy ? 'Refreshing…' : 'Refresh from Sleeper'}</button>`
+    : '';
+  return `
+    <div class="st-pool-foot">
+      <span class="st-note">Picks from Sleeper, ${esc(freshness(feed))}.</span>
+      ${button}
+    </div>
+    ${msg ? `<p class="st-note st-err" role="alert">${esc(msg)}</p>` : ''}
+    ${connected() ? '' : '<div class="st-connect" data-sl-connect></div>'}`;
+}
+
+/** The card body when there is nothing trustworthy to count. */
+function poolEmpty(S, id, feed, what) {
+  const lead = !connected()
+    ? `Connect Sleeper to read ${what}. Until then there are no numbers to show.`
+    : !feed
+      ? `Nothing fetched from Sleeper for ${what} on this device yet.`
+      : `No Week ${S.week} picks in ${what} yet.`;
+  return `<p class="lede">${esc(lead)}</p>${poolFoot(S, id, feed)}`;
+}
+
+function sleeperSurvivorCard(S, league, live) {
+  const feed = loadCachedFeed(S.season, league.id);
+  if (!feed || !connected()) {
+    return card(league.name, `Week ${S.week}`, poolEmpty(S, league.id, feed, league.name));
+  }
+
+  const wk = survivorWeek(feed.entries || [], S.week, teamIndex(live));
+  const cov = survivorCoverage(feed, S.week);
+  if (!wk.total && !cov.hidden) {
+    return card(league.name, `Week ${S.week}`, poolEmpty(S, league.id, feed, league.name));
+  }
+
+  const meEntry = (feed.entries || []).find((e) => e.isMe);
+  const myTeam = meEntry?.picks?.[String(S.week)];
+  const myRow = wk.teams.find((t) => t.team === myTeam);
+  const tone = myRow?.status === 'won' ? 'is-win' : myRow?.status === 'lost' ? 'is-out' : 'is-alive';
+  const mine = myRow
+    ? `<p class="st-verdict-row"><span class="st-verdict ${tone}">
+        Your pick ${esc(ABBR_TO_MASCOT[myTeam] || myTeam)}: ${SURVIVOR_LABEL[myRow.status]}${scoreText(myRow)}</span></p>`
+    : '<p class="st-note">No pick from you found for this week.</p>';
+
+  // Mid-week the counts are of the picks the gate has released, not the pool,
+  // and the floor/ceiling line would be a claim about people we cannot see.
+  const gate = cov.hidden
+    ? `<p class="st-note"><strong>${cov.hidden}</strong> ${cov.hidden === 1 ? 'pick is' : 'picks are'} still hidden until kickoff (as of the last refresh), so the counts above are of the ${wk.total} visible.</p>`
+    : `<p class="st-note">Whatever happens next, between <strong>${wk.floor}</strong> and <strong>${wk.ceiling}</strong> of ${wk.total} get through Week ${S.week}.</p>`;
+
+  const status = new Map(wk.teams.map((t) => [t.team, {
+    text: statusText(t),
+    tone: t.status === 'won' ? 'won'
+      : t.status === 'lost' || t.status === 'tie' ? 'lost'
+        : t.status === 'pre' ? 'pre' : 'live',
+  }]));
+  const host = document.createElement('div');
+  renderPickBoard(host, {
+    feed, season: S.season, league, identity: S.identity, week: S.week,
+    mine: meEntry ? { picks: meEntry.picks } : null, status, embedded: true,
+  });
+
+  return card(league.name, `Week ${S.week}: ${cov.expected || wk.total} entries`, `
+    ${mine}
+    <div class="st-stats">
+      <div><strong>${wk.won}</strong><span>survived</span></div>
+      <div><strong>${wk.lost}</strong><span>lost</span></div>
+      <div><strong>${wk.playing}</strong><span>playing now</span></div>
+      <div><strong>${wk.notStarted + cov.hidden}</strong><span>not started</span></div>
+    </div>
+    ${gate}
+    ${host.innerHTML}
+    ${poolFoot(S, league.id, feed)}`);
+}
+
+function infinityCard(S, live) {
+  const id = INFINITY.id;
+  const feed = loadCachedPool(S.season, id);
+  if (!feed || !connected()) {
+    return card(INFINITY.name, `Week ${S.week}`, poolEmpty(S, id, feed, INFINITY.name));
+  }
+  const limit = Number(feed.settings?.weeklyPickLimit) || 8;
+  const rows = gradePickemWeek(feed.entries || [], S.week, teamIndex(live), limit);
+  const wkInfo = feed.weeks?.[String(S.week)] || null;
+  const locked = Number(wkInfo?.locked) || 0;
+  if (!rows.some((r) => r.visible) && !locked) {
+    return card(INFINITY.name, `Week ${S.week}`, poolEmpty(S, id, feed, INFINITY.name));
+  }
+
+  const me = rows.find((r) => r.isMe) || null;
+  const weekly = INFINITY.economics?.weekly ?? 20;
+  const prize = weekPrize(rows, live, weekly);
+  const ahead = me ? rows.filter((r) => r.correct > me.correct).length : 0;
+  const tied = me ? rows.filter((r) => r.correct === me.correct).length : 0;
+
+  let prizeBox;
+  let verdict;
+  if (prize.final) {
+    const names = prize.leaders.map((r) => (r.isMe ? 'you' : r.name));
+    prizeBox = prize.meIn ? `$${fmtMoney(prize.share)}` : '$0';
+    verdict = prize.meIn
+      ? `<span class="st-verdict is-win">${prize.leaders.length > 1 ? `Split the $${weekly} ${prize.leaders.length} ways` : `You won the $${weekly}`}</span>`
+      : `<span class="st-verdict is-out">$${weekly} to ${esc(names.join(', '))}</span>`;
+  } else if (!me) {
+    prizeBox = '—';
+    verdict = '<span class="st-note">Your card is not in this copy of the pool.</span>';
+  } else {
+    prizeBox = prize.meIn ? 'Leading' : prize.meAlive ? 'Alive' : 'Out';
+    verdict = prize.meIn
+      ? `<span class="st-verdict is-alive">${prize.leaders.length > 1 ? `Tied for the lead (${prize.leaders.length})` : `Leading for the $${weekly}`}</span>`
+      : prize.meAlive
+        ? `<span class="st-verdict is-alive">Still alive for the $${weekly}</span>`
+        : `<span class="st-verdict is-out">Can't reach the $${weekly} — leader has ${prize.top}</span>`;
+  }
+
+  const gate = locked
+    ? `<p class="st-note"><strong>${locked}</strong> picks were still hidden until kickoff at the last refresh, so other entries' open picks are not shown. <strong>Max</strong> assumes a full card of ${limit}.</p>`
+    : '';
+
+  const body = rows.map((r) => `
+    <tr class="${r.isMe ? 'is-me' : ''}">
+      <td class="st-num">${r.rank}</td>
+      <td class="st-name"><span>${esc(r.name)}</span></td>
+      <td class="st-num">${r.correct}</td>
+      <td class="st-num">${r.winning}</td>
+      <td class="st-num">${r.max}</td>
+    </tr>`).join('');
+
+  const stats = me ? `
+    <div class="st-stats">
+      <div><strong>${me.correct}</strong><span>correct</span></div>
+      <div><strong>${me.winning}</strong><span>winning now</span></div>
+      <div><strong>${ordinal(ahead + 1)}</strong><span>of ${rows.length}${tied > 1 ? ` (${tied} tied)` : ''}</span></div>
+      <div><strong>${prizeBox}</strong><span>week's $${weekly}</span></div>
+    </div>` : '';
+
+  return card(INFINITY.name, `Week ${S.week}: ${rows.length} entries`, `
+    ${stats}
+    <p class="st-verdict-row">${verdict}</p>
+    ${gate}
+    <h4 class="st-sub">This week</h4>
+    <div class="st-tablewrap"><table class="st-table">
+      <thead><tr>
+        <th class="st-num">#</th><th>Entry</th><th class="st-num">Right</th>
+        <th class="st-num">Winning</th><th class="st-num">Max</th>
+      </tr></thead>
+      <tbody>${body}</tbody>
+    </table></div>
+    ${poolFoot(S, id, feed)}`);
+}
+
+const fmtMoney = (n) => (Number.isInteger(n) ? String(n) : n.toFixed(2));
 
 /** A team's game as one short line: the result and score once it has
  *  started, the kickoff before. */

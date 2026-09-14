@@ -64,7 +64,7 @@ token or a graded week.
 | 3 | Split the Standings panel in two | **done 9/14/2026** |
 | 4 | Table formatting pass | **done 9/14/2026** |
 | 5 | Week dropdown + Wednesday cutover | **done 9/14/2026** |
-| 6 | Multi-league standings (Infinity, Poop, Deadpool) | a connected Sleeper token to see real data |
+| 6 | Multi-league standings (Infinity, Poop, Deadpool) | **done 9/14/2026** (each card has its own Refresh) |
 | 7 | Payouts + All Weeks | `data/results/` existing (first Tuesday grading run) |
 | 8 | Lock / Unlock | nothing |
 | 9 | Docs | after the rest |

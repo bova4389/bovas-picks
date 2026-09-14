@@ -3890,6 +3890,13 @@ footer {
 .st-note { margin: 6px 0; font-size: .875rem; color: var(--ink-soft); }
 .st-fine { font-size: .75rem; }
 .st-sub { margin: 18px 0 8px; font-size: .9375rem; font-weight: 600; }
+/* Under a Sleeper card: freshness on the left, Refresh on the right, wrapping
+   under each other on a phone rather than squeezing. */
+.st-pool-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+.st-pool-foot .st-note { margin: 0; }
+.st-pool-foot .btn { min-height: 46px; }
+.st-err { color: var(--bad); }
+.st-connect { margin-top: 10px; }
 .st-games { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .st-game { border: 1px solid var(--line); border-radius: var(--r-md); padding: 10px 12px; }
 .st-game.is-live { border-color: var(--violet); }

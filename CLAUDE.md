@@ -145,7 +145,8 @@ js/poolWeek.js      SHARED — which week a pool page opens on (Wed 6pm)     [NE
 js/squaresChrome.js SHARED — St. Jude banner, theme hook, footer nav       [NEVER versioned]
 js/myPicks.js       SHARED — what I picked: Pick Sheet card + survivor picks [NEVER versioned]
 js/liveModel.js     SHARED — live pool standings math, pure data           [NEVER versioned]
-js/standings.js     Standings — two instances: Mike's pick'em (Season Long), Mike's suicide (Survivor)
+js/standingsModel.js SHARED — Sleeper pools' standings math, pure data     [NEVER versioned]
+js/standings.js     Standings — Season Long: Mike's pick'em + Infinity War; Survivor: Mike's suicide + Poop + Deadpool
 js/squares.js       Squares Board tab — one week: matchup, board, payouts
 js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
 ```
@@ -1930,6 +1931,27 @@ against live ESPN state, so it needs nothing from his answer key. My entry is fo
   no simulated path, `Barely matters` when losing keeps ≥85% of the chance.
 - Suicide half: my pick's status, survived / out / playing / not started, the floor–ceiling of
   survivors, then the pick board (see "The pick board" under Grid Tab) with each team's result. A tied game says "counts as a loss?" — the rule is not on record.
+- **The Sleeper cards (2026-09-14): Infinity War on Season Long, Poop and Deadpool on Survivor.**
+  They read the pool copy the Grid / Infinity War tabs cache (`survivor:feed:<pool>:<year>`,
+  `infinity:feed:infinity:<year>`), and each card has its **own Refresh from Sleeper** button
+  that calls the same `fetchSleeperSurvivor` / `fetchInfinityPool` and cache writers — the plan
+  said Standings should never fetch, but on a phone on a Sunday that meant leaving the page to
+  update a pool, so it fetches only when the button is pressed. A survivor refresh also folds my
+  picks into that pool's league state (`mergeMyPicks` + `saveLeagueState`), exactly as the Grid
+  does, so the two stay in step.
+  - **No usable token (missing or expired): the Connect box, no numbers.** A pool never fetched
+    on this device: no numbers and a Refresh button. Never a half-read pool as if it were the pool.
+  - **The kickoff gate is stated, not hidden.** Other entrants' picks exist only for games that
+    had kicked off at the last refresh. Survivor cards say how many picks are still hidden, fold
+    them into "not started", and drop the floor–ceiling line while any are hidden. Infinity War's
+    **Max** is `limit − losses` (a full card of 8 assumed), not correct + visible open picks,
+    which would cap a rival whose picks simply have not been revealed.
+  - **Infinity War's week prize** is final only once every game of the week is final; before that
+    it says leading / alive / out on Max. Ties split the $20.
+  - **The math lives in the NEW file `js/standingsModel.js`**, not as new exports on
+    `liveModel.js` or `infinityModel.js`: those are cached in visitors' browsers, and a fresh
+    caller importing a name a cached copy lacks blanks the site. A file nobody has cached cannot
+    be stale.
 - **Week dropdown (2026-09-14).** Defaults to `poolWeek()` — the Wednesday 6pm rule above, shared
   with Squares — never `currentWeek()`, which would replace Monday night's settled standings with
   an empty week hours after the last game. It offers Week 1 through that default, never a future
