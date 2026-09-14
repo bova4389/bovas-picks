@@ -82,8 +82,8 @@ export async function initSquares(root, season = SEASON) {
  * `currentWeek()` in gameState.js rolls over a few hours after the last game
  * of an NFL week, which is right for a schedule and wrong here: it would
  * replace Sunday's settled board with next week's empty one before anybody
- * had looked at what they won. defaultWeek() holds each week until 2pm the
- * Wednesday after it. See squaresModel.js for the rule.
+ * had looked at what they won. defaultWeek() holds each week until 6pm the
+ * Wednesday after it. See js/poolWeek.js for the rule.
  */
 function pickOpeningWeek() {
   return defaultWeek(pool) ?? payoutWeeks(pool)[0];

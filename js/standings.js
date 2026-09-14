@@ -20,6 +20,16 @@
    object reads fine and misbehaves once. Feeds are memoized by loadJSON in
    data.js, so a second instance costs no extra network.
 
+   THE WEEK. Each panel carries a week dropdown, defaulting to poolWeek() from
+   js/poolWeek.js: a week stays the default until 6pm the Wednesday after its
+   last game, NOT gameState.currentWeek(), which would swap Monday night's
+   settled standings for an empty week a few hours after the final whistle.
+   The dropdown offers every week from 1 to that default -- never a future
+   week, which would only ever say "waiting". The choice is deliberately not
+   remembered: a Week 3 left selected would still be on screen in December.
+   The header (with the dropdown) is drawn once and only the body re-renders
+   on a poll, so a live-score refresh never snaps an open dropdown shut.
+
    The survivor half renders the pick board from js/survivorPicks.js -- the
    format that used to sit under the Grid -- with the summary boxes above it.
    The Grid no longer carries the board.
@@ -40,6 +50,7 @@ import {
   getOddsSnapshot, getOddsHistory,
 } from './data.js';
 import { loadWeek, currentWeek, anyLive, msToNextKickoff } from './gameState.js';
+import { poolWeek } from './poolWeek.js';
 import { buildSeasonOddsIndex, matchSeasonOdds, orientProbs } from './oddsMatch.js';
 import { clearScoreboardCache } from './espn.js';
 import { ABBR_TO_MASCOT } from './teams.js';
@@ -80,9 +91,10 @@ export async function initStandings(root, season, mode) {
   const S = {
     root, mode, season,
     panel: root.closest('.panel'),
-    week: null, schedule: null, map: null, cards: null, survivor: null, identity: null,
+    week: null, weeks: [], defaultWeek: null, body: null, odds: null, loadSeq: 0,
+    schedule: null, map: null, cards: null, survivor: null, identity: null,
     prices: new Map(), totals: new Map(),
-    view: null, timer: null, busy: false,
+    view: null, timer: null, busy: false, again: false,
   };
 
   const [schedule, map, survivor, odds, identity] = await Promise.all([
@@ -96,17 +108,21 @@ export async function initStandings(root, season, mode) {
   S.map = map && Number(map.year) === Number(season) ? map : null;
   S.survivor = survivor && Number(survivor.year) === Number(season) ? survivor : null;
   S.identity = identity;
+  S.odds = odds;
 
   if (!schedule?.games?.length) {
     root.innerHTML = head(S) + '<p class="lede">No schedule loaded for this season.</p>';
     return;
   }
-  S.week = currentWeek(schedule);
+  S.defaultWeek = poolWeek(schedule) ?? currentWeek(schedule);
+  S.week = S.defaultWeek;
+  S.weeks = [...new Set(schedule.games.map((g) => Number(g.week)))]
+    .filter((w) => Number.isFinite(w) && w <= S.defaultWeek)
+    .sort((a, b) => a - b);
 
-  if (mode === 'season') {
-    const [cards] = await Promise.all([loadCards(season, S.week), loadPrices(S, odds)]);
-    S.cards = cards;
-  }
+  root.innerHTML = head(S) + '<div data-st="body"></div>';
+  S.body = root.querySelector('[data-st="body"]');
+  await loadWeekData(S);
 
   const showing = () => !document.hidden && S.panel && !S.panel.hidden;
 
@@ -125,13 +141,22 @@ export async function initStandings(root, season, mode) {
   };
 
   async function refresh(force = false) {
-    if (S.busy) return;
+    if (S.busy) { S.again = S.again || force; return; }
     S.busy = true;
+    const week = S.week;
     try {
-      S.view = await loadWeek(S.season, S.week, { live: true, maxAgeMs: force ? 0 : POLL_MS });
-      render(S);
+      const view = await loadWeek(S.season, week, { live: true, maxAgeMs: force ? 0 : POLL_MS });
+      // The week was switched mid-fetch: this answer is for the old one.
+      if (week === S.week) {
+        S.view = view;
+        render(S);
+      }
     } finally {
       S.busy = false;
+    }
+    if (week !== S.week || S.again) {
+      S.again = false;
+      return refresh(true);
     }
     schedulePoll();
   }
@@ -141,9 +166,42 @@ export async function initStandings(root, season, mode) {
   root.addEventListener('click', (e) => {
     if (e.target.closest('[data-st="refresh"]')) { clearScoreboardCache(); refresh(true); }
   });
+  root.addEventListener('change', async (e) => {
+    if (!e.target.matches('[data-st="week"]')) return;
+    const week = Number(e.target.value);
+    if (!Number.isFinite(week) || week === S.week) return;
+    stop();
+    S.week = week;
+    S.view = null;
+    S.body.innerHTML = `<p class="lede">Loading Week ${week}…</p>`;
+    const seq = await loadWeekData(S);
+    // A second switch while this one was loading wins; drop the stale one.
+    if (seq === S.loadSeq) refresh(true);
+  });
   document.addEventListener('visibilitychange', onShow);
   document.addEventListener('panelchange', onShow);
   await refresh(true);
+}
+
+/** Everything that depends on the selected week, reloaded on a switch.
+ *  Prices are keyed by team pair, and a division rivalry repeats a pair
+ *  across weeks, so both maps start empty for every week. Returns this
+ *  load's sequence number so a caller can tell whether it is still current. */
+async function loadWeekData(S) {
+  const seq = ++S.loadSeq;
+  if (S.mode !== 'season') return seq;
+  const prices = new Map();
+  const totals = new Map();
+  const [cards] = await Promise.all([
+    loadCards(S.season, S.week),
+    loadPrices({ ...S, prices, totals }, S.odds),
+  ]);
+  if (seq === S.loadSeq) {
+    S.cards = cards;
+    S.prices = prices;
+    S.totals = totals;
+  }
+  return seq;
 }
 
 async function loadCards(season, week) {
@@ -180,6 +238,7 @@ async function loadPrices(S, odds) {
 /* ── Render ───────────────────────────────────────────────────────────── */
 
 function head(S) {
+  const weeks = S.weeks.length ? S.weeks : [S.week].filter(Boolean);
   return `
     <div class="section-head">
       <div>
@@ -187,7 +246,15 @@ function head(S) {
         <h2>Standings</h2>
       </div>
       <button type="button" class="btn btn-ghost" data-st="refresh">Refresh</button>
-    </div>`;
+    </div>
+    ${weeks.length ? `
+      <label class="st-weekpick">
+        <span>Week</span>
+        <select data-st="week">
+          ${weeks.map((w) => `
+            <option value="${w}"${w === S.week ? ' selected' : ''}>Week ${w}${w === S.defaultWeek ? ' — this week' : ''}</option>`).join('')}
+        </select>
+      </label>` : ''}`;
 }
 
 function render(S) {
@@ -196,8 +263,7 @@ function render(S) {
     ? `Scores as of ${new Date(S.view.fetchedAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}`
     : 'Scores from the committed schedule (live feed unavailable)';
 
-  S.root.innerHTML = `
-    ${head(S)}
+  S.body.innerHTML = `
     <p class="lede">Week ${S.week} · ${esc(updated)}</p>
     ${S.mode === 'survivor' ? survivorSection(S, live) : pickemSection(S, live)}`;
 }

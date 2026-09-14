@@ -59,11 +59,11 @@ token or a graded week.
 
 | # | Phase | Blocked on |
 |---|---|---|
-| 1 | East Orange removal | nothing |
-| 2 | Sleeper connect: bookmarklet + in-box instructions | nothing to build; verification needs a real token |
-| 3 | Split the Standings panel in two | nothing |
-| 4 | Table formatting pass | nothing |
-| 5 | Week dropdown + Wednesday cutover | nothing |
+| 1 | East Orange removal | **done 9/14/2026** |
+| 2 | Sleeper connect: bookmarklet + in-box instructions | **done 9/14/2026**, verified on laptop and iPad |
+| 3 | Split the Standings panel in two | **done 9/14/2026** |
+| 4 | Table formatting pass | **done 9/14/2026** |
+| 5 | Week dropdown + Wednesday cutover | **done 9/14/2026** |
 | 6 | Multi-league standings (Infinity, Poop, Deadpool) | a connected Sleeper token to see real data |
 | 7 | Payouts + All Weeks | `data/results/` existing (first Tuesday grading run) |
 | 8 | Lock / Unlock | nothing |
