@@ -149,6 +149,7 @@ js/myPicks.js       SHARED — what I picked: Pick Sheet card + survivor picks [
 js/liveModel.js     SHARED — live pool standings math, pure data           [NEVER versioned]
 js/standingsModel.js SHARED — Sleeper pools' standings math, pure data     [NEVER versioned]
 js/payouts.js       SHARED — prize winners, season tables, burn matrix     [NEVER versioned]
+js/pickLock.js      SHARED — per-week Lock / Unlock for pick editing       [NEVER versioned]
 js/standings.js     Standings — Season Long: Mike's pick'em + Infinity War; Survivor: Mike's suicide + Poop + Deadpool
 js/squares.js       Squares Board tab — one week: matchup, board, payouts
 js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
@@ -875,7 +876,7 @@ it was 29 — and it is not decoration: it decides which of two same-format pool
 when they collide, so a stale one sends the better team to the smaller pot. The browser reads the
 Grid's cached feeds (it never fetches — the Grid owns that button); CI passes the counts it just
 fetched. A count that came off the file wears the dotted underline a modeled number wears
-everywhere else, **but only for a pool that has a feed to be asked** — Mike's 235 is hand-recorded
+everywhere else, **but only for a pool that has a feed to be asked** — Mike's 247 is hand-recorded
 because there is nothing to ask, and flagging it would point the reader at a Refresh button that
 cannot help them.
 
@@ -1909,7 +1910,7 @@ reason: the trade is the user's.
 **Do not restore `placeholder="44"` on the input.** It was there from the first build and it is a
 nudge toward the exact worst answer, sitting inches from text that says so.
 
-## Standings Tab — Me vs. Mike's Pools, Live
+## Standings — Every Pool, Live, One Panel Per Row
 
 Built 2026-09-13. `js/standings.js` (render + polling) over `js/liveModel.js` (pure math).
 **Split into two panels 2026-09-14:** `initStandings(root, season, mode)` builds an independent
@@ -1986,6 +1987,24 @@ against live ESPN state, so it needs nothing from his answer key. My entry is fo
   below 420px.
 - No new exports were added to shared modules for this (it fetches the raw cards itself), so it
   can ship mid-game without the stale-shared-module blank page described under Cache busting.
+
+## Lock / Unlock — Pick Sheet and Picks Tab
+
+Added 2026-09-14 so a submitted card cannot be changed by a stray tap on a phone. `js/pickLock.js`
+holds the state; `js/picksheet.js` and `js/weekCard.js` render its `lockControl()` and honor it.
+
+- **Per week.** `picks:lock:<year>:w<N>` (Pick Sheet) and `survivor:lock:<year>:w<N>` (Picks tab),
+  in localStorage, so locking Week 1 leaves Week 2 open.
+- **The default is right without pressing anything:** a week opens **locked once its card is in
+  `data/picks-sent-<year>.json`** (Pick Sheet: `numbers` present; Picks tab: any `survivor` pick),
+  unlocked before that. A tap overrides the default and is remembered on that device.
+- **It guards editing only.** Locked disables the pick buttons, the Monday total and Clear week on
+  the Pick Sheet, and the "I picked" buttons and pick menus on the Picks tab — and each handler
+  re-checks the lock, so a control forced back on still does nothing. Copying and emailing the
+  message, live scores, and the recommendation all keep working on a locked card.
+- **Unlocking is one tap, no confirm.** The failure being prevented is a thumb brushing a screen.
+- **A tinted left edge (`--purple-mid`), not a warning color** — locked is the normal state of a
+  submitted week.
 
 ## My Picks — One Resolver, Three Tabs
 

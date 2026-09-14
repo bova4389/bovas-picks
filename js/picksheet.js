@@ -5,6 +5,11 @@
    before they go out, and get a clean message to paste into the email. A
    transposed number costs a game, and a game is what separates the top of
    this pool from the middle.
+
+   LOCK / UNLOCK (2026-09-14): a week whose card has been emailed opens locked,
+   so a stray tap cannot change it -- see js/pickLock.js. Locked disables the
+   pick buttons, the Monday total and Clear week; copying and emailing the
+   message still work.
    ========================================================================== */
 
 import {
@@ -16,8 +21,9 @@ import {
 } from './oddsMatch.js';
 import { currentWeek } from './gameState.js';
 import {
-  loadMyPicks, seasonCard, survivorPick, survivorRecommendation,
+  loadMyPicks, seasonCard, survivorPick, survivorRecommendation, sentCard,
 } from './myPicks.js';
+import { isLocked, setLocked, lockControl } from './pickLock.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 import { favoriteLine } from './oddsBadge.js';
 import { seasonBanner } from './seasonBanner.js';
@@ -33,6 +39,9 @@ let seasonIndex = null;  // pair+kickoff, from buildSeasonOddsIndex
 let kickoffs = new Map(); // "week|Away|Home" -> ISO kickoff, from the schedule
 
 const el = (id) => document.getElementById(id);
+
+/** Locked by default once this week's card is in the sent file. */
+const locked = () => isLocked('picks', SEASON, week, Boolean(sentCard(week)?.numbers?.length));
 
 /* ── Boot ─────────────────────────────────────────────────────────────── */
 
@@ -150,6 +159,7 @@ function shell(weeks) {
         <span class="hint" id="mnf-game"></span>
       </div>
       <button class="btn btn-ghost" id="clear-week" type="button">Clear week</button>
+      <div class="field lock-field" id="lock-slot"></div>
     </div>
 
     <div class="progress" id="progress">
@@ -182,12 +192,20 @@ function wireControls() {
   });
 
   el('mnf-points').addEventListener('input', (e) => {
+    if (locked()) { e.target.value = picks.__mnf ?? ''; return; }
     picks.__mnf = e.target.value === '' ? undefined : Number(e.target.value);
     persist();
     renderOutput();
   });
 
+  el('lock-slot').addEventListener('click', (e) => {
+    if (!e.target.closest('[data-lock-toggle]')) return;
+    setLocked('picks', SEASON, week, !locked());
+    render();
+  });
+
   el('clear-week').addEventListener('click', () => {
+    if (locked()) return;
     picks = {};
     persist();
     el('mnf-points').value = '';
@@ -221,6 +239,12 @@ function persist() { savePicks(week, picks); }
 function render() {
   el('week-select').value = week;
   el('mnf-points').value = picks.__mnf ?? '';
+  const isLockedNow = locked();
+  el('lock-slot').innerHTML = lockControl(isLockedNow);
+  el('mnf-points').disabled = isLockedNow;
+  el('clear-week').disabled = isLockedNow;
+  el('lock-slot').closest('.controls')?.classList.toggle('is-locked', isLockedNow);
+  el('games').classList.toggle('is-locked', isLockedNow);
   renderGames();
   renderProgress();
   renderOutput();
@@ -256,6 +280,7 @@ function renderGames() {
 
   el('games').querySelectorAll('.pick').forEach((btn) => {
     btn.addEventListener('click', () => {
+      if (locked()) return;
       const away = Number(btn.dataset.away);
       const num = Number(btn.dataset.num);
       picks[away] = picks[away] === num ? undefined : num;
@@ -305,7 +330,7 @@ function gameRow(g) {
 
 function side(g, num, team, label, chosen) {
   return `
-    <button class="pick" type="button"
+    <button class="pick" type="button"${locked() ? ' disabled' : ''}
             data-away="${g.awayNum}" data-num="${num}"
             aria-pressed="${chosen === num}"
             aria-label="Pick ${escape(team)}, number ${num}">

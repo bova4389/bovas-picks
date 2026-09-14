@@ -3952,3 +3952,15 @@ footer {
 .st-table tr.is-me td { background: var(--purple-soft); font-weight: 600; }
 .st-s-lost td, .st-s-tie td { color: var(--bad); }
 .st-s-won td:last-child { color: var(--teal-ink); }
+
+/* ── Lock / Unlock (js/pickLock.js) ───────────────────────────────────────
+   A quiet tinted edge, not a warning color: a locked card is the normal state
+   of a submitted week, and nothing about it is wrong. */
+.lockctl { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.lockctl-btn { min-height: 46px; }
+.lockctl-note { font-size: .8125rem; color: var(--ink-quiet); }
+.lockctl.is-locked .lockctl-note { color: var(--violet-ink); font-weight: 600; }
+.lock-field { justify-content: flex-end; }
+.controls.is-locked, .planblock.is-locked { box-shadow: inset 4px 0 0 var(--purple-mid), var(--shadow-sm); }
+#games.is-locked .pick:disabled { cursor: default; }
+.pick:disabled, .wc-mine-select:disabled, .wc-mine-actions .btn:disabled { cursor: not-allowed; }
