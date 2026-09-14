@@ -1796,6 +1796,8 @@ footer {
    ------------------------------------------------------------------------ */
 
 .pboard { margin-top: 22px; padding: 18px 20px 20px; }
+/* Inside a Standings card, which already supplies the padding. */
+.pboard.is-embedded { margin-top: 0; padding: 0; }
 .pboard-title { margin: 0; font-size: 1.25rem; font-weight: 300; letter-spacing: -.01em; }
 .pboard-week { min-height: 46px; }
 
@@ -1882,6 +1884,25 @@ footer {
   border-radius: 20px;
 }
 
+/* What happened to the team's game (Standings only). Its own row on a phone,
+   under the name, so the name keeps its width; its own fixed column wider up,
+   fixed for the same reason the count column is -- see below. Each tone is a
+   text color already measured at 4.5:1+ on white and on the is-mine tint. */
+.pboard-status {
+  grid-area: status;
+  font-size: .8125rem; color: var(--ink-quiet);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pboard-status.is-won { color: var(--teal-ink); font-weight: 600; }
+.pboard-status.is-lost { color: var(--bad); font-weight: 600; }
+.pboard-status.is-live { color: var(--violet-ink); font-weight: 600; }
+.pboard-list.has-status .pboard-row {
+  grid-template-areas:
+    "badge  team   count  pct"
+    "badge  status status status"
+    "bar    bar    bar    bar";
+}
+
 /* My own pick, marked on a channel of its own -- the bars are already spoken
    for by team color, so this is a tint plus a word rather than a fifth hue. */
 .pboard-row.is-mine { background: var(--pb-tint, var(--purple-soft)); }
@@ -1905,6 +1926,10 @@ footer {
     grid-template-columns: auto minmax(0, 1fr) 82px minmax(90px, 1.1fr) auto;
     grid-template-areas: "badge team count bar pct";
     gap: 12px;
+  }
+  .pboard-list.has-status .pboard-row {
+    grid-template-columns: auto minmax(0, 1fr) 132px 82px minmax(90px, 1.1fr) auto;
+    grid-template-areas: "badge team status count bar pct";
   }
 }
 
@@ -3839,9 +3864,18 @@ footer {
 }
 
 /* ── Standings (js/standings.js) ─────────────────────────────────────────── */
-.st-card { margin-bottom: 20px; }
+/* .card carries no padding of its own, and until 2026-09-14 neither did this:
+   every Standings card put its text flush against the rounded border, which
+   is the "too close to the edge, sometimes leaking over" complaint. */
+.st-card { margin-bottom: 20px; padding: 18px 20px 20px; }
 .st-card h3 { margin-top: 2px; }
 .st-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 14px 0 10px; }
+/* Four boxes at 375px are ~70px each, and "27th / of 281 (48 tied)" wrapped
+   to four lines inside one. Two up gives each box room for its label. */
+@media (max-width: 420px) {
+  .st-card { padding: 16px 16px 18px; }
+  .st-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 .st-stats div { background: var(--paper); border-radius: var(--r-md); padding: 10px 8px; text-align: center; }
 .st-stats strong { display: block; font-size: 1.5rem; font-weight: 500; color: var(--ink); line-height: 1.1; }
 .st-stats span { font-size: .75rem; color: var(--ink-quiet); }
@@ -3865,11 +3899,31 @@ footer {
 .st-tag { display: inline-block; margin-left: 4px; padding: 0 7px; border-radius: 999px; font-size: .6875rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .04em; background: var(--paper-2); color: var(--ink-quiet); vertical-align: 1px; }
 .st-tag.is-must { background: var(--dog-soft); color: var(--dog-ink); }
-.st-tablewrap { overflow-x: auto; }
-.st-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
-.st-table th { text-align: left; font-size: .75rem; font-weight: 600; color: var(--ink-quiet); padding: 6px 8px; border-bottom: 1px solid var(--line); }
+/* The table fits the card rather than scrolling: numbers never wrap and sit
+   right-aligned under right-aligned headers, and the one text column (the
+   entry name) is the one allowed to wrap, so a long name takes a second line
+   instead of pushing the numbers past the card edge. The scroller stays only
+   as a last resort, with a fade so a table that does scroll looks it. */
+.st-tablewrap {
+  overflow-x: auto;
+  background:
+    linear-gradient(to right, var(--white) 30%, rgba(255,255,255,0)) left / 24px 100% no-repeat local,
+    linear-gradient(to left, var(--white) 30%, rgba(255,255,255,0)) right / 24px 100% no-repeat local,
+    linear-gradient(to left, rgba(43,20,77,.10), rgba(43,20,77,0)) right / 12px 100% no-repeat scroll;
+}
+/* Capped: on a desktop card a full-width table strands the numbers ~800px from
+   the names they belong to. */
+.st-table { width: 100%; max-width: 640px; border-collapse: collapse; font-size: .875rem; }
+.st-table th { text-align: left; font-size: .75rem; font-weight: 600; color: var(--ink-quiet); padding: 6px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
 .st-table td { padding: 7px 8px; border-bottom: 1px solid var(--line); }
-.st-table .st-name { font-weight: 500; }
+.st-table th:first-child, .st-table td:first-child { padding-left: 4px; }
+.st-table th:last-child, .st-table td:last-child { padding-right: 4px; }
+.st-table .st-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.st-table .st-name { font-weight: 500; width: 100%; min-width: 6rem; overflow-wrap: anywhere; }
+@media (max-width: 420px) {
+  .st-table { font-size: .8125rem; }
+  .st-table th, .st-table td { padding-left: 5px; padding-right: 5px; }
+}
 .st-table tr.is-me td { background: var(--purple-soft); font-weight: 600; }
 .st-s-lost td, .st-s-tie td { color: var(--bad); }
 .st-s-won td:last-child { color: var(--teal-ink); }

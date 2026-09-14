@@ -144,7 +144,7 @@ js/squaresModel.js  SHARED — squares math, pure data                       [NE
 js/squaresChrome.js SHARED — St. Jude banner, theme hook, footer nav       [NEVER versioned]
 js/myPicks.js       SHARED — what I picked: Pick Sheet card + survivor picks [NEVER versioned]
 js/liveModel.js     SHARED — live pool standings math, pure data           [NEVER versioned]
-js/standings.js     Standings tab — me vs. Mike's two pools, live
+js/standings.js     Standings — two instances: Mike's pick'em (Season Long), Mike's suicide (Survivor)
 js/squares.js       Squares Board tab — one week: matchup, board, payouts
 js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
 ```
@@ -176,6 +176,11 @@ Rules that keep this from rotting:
   and a squares payout turns on the last digit of a score, which no market on this site quotes.
   Showing a favorite beside a board would imply a connection that does not exist.
 
+- **Standings is two panels, not one reached twice** (split 2026-09-14). `standings` is Season
+  Long's (Mike's pick'em) and `survivor-standings` is Survivor's (Mike's suicide pool); both are
+  drawn by `js/standings.js` in a different `mode`. While it was one shared panel it rendered
+  both pools on both rows. `MOVED` in `app.js` sends an old `#survivor/standings` bookmark to
+  the survivor panel instead of letting `fromHash()` re-home it to Season Long by name.
 - **Odds is one panel reached from two rows — not two copies.** Every panel is booted once at load
   and shown or hidden after that, so crossing rows never re-renders and never drops a half-filled
   pick sheet. Adding a third route to a panel is one line in `GROUPS`.
@@ -502,10 +507,14 @@ via `parse_survivor.py` into `data/survivor-<year>.json`; the Sleeper pool is fe
 `S.feeds` in `grid.js` holds one per pool and `applyField()` points `S.field` at the active one.
 A pool with no feed simply shows no share. See the Sleeper section below.
 
-### The pick board — under the grid
+### The pick board — moved to Survivor Standings
 
-`js/survivorPicks.js`, mounted at the bottom of the Grid by `paintPickBoard()`. The grid above it
-answers "what can I spend, and when"; the board answers "what did everyone else just spend",
+**Moved off the Grid on 2026-09-14** (the pool's results were shown twice on the Survivor row).
+It now renders inside the suicide-pool card on Survivor Standings, under the summary boxes, with a
+status line per team (`Won 34–10`, `Lost`, kickoff time) passed in as `o.status` from the same
+`survivorWeek()` result the boxes count. The rules below still hold.
+
+`js/survivorPicks.js` answers "what did everyone else just spend",
 which is the other half of a survivor decision and the half the tool could not show at all.
 
 - **Only teams somebody picked are listed.** Filtered in `weekDistribution()`. In a 12-entry pool
@@ -523,16 +532,19 @@ which is the other half of a survivor decision and the half the tool could not s
   `expected` / `locked` and a caveat line appears while the week is partial — and disappears once
   it is complete, because a disclaimer that never goes away is one nobody reads on the week it
   matters.
-- **The week selector offers only weeks with at least one visible pick** (`weeksWithPicks()`), and
-  defaults to the latest of them. `S.pickWeek` is deliberately **not** in `grid:prefs`: it is a
-  glance at the week in play, not a view you set up and live in, and a remembered Week 3 would
+- **Embedded, it has no week selector of its own** (`o.embedded`): the Standings panel owns the
+  week. Standalone, the selector offers only weeks with at least one visible pick
+  (`weeksWithPicks()`). Either way the chosen week is not persisted — a remembered Week 3 would
   still be on screen in December.
+- **`renderPickBoard` and `pickBoardShell` keep their old names on purpose.** The module is
+  unversioned, so just after a deploy a fresh caller can meet a cached copy; importing a name the
+  cached copy lacks blanks the whole site. Standings calls `renderPickBoard` into a detached
+  element for that reason. `pickBoardShell` has no callers and can go in a later deploy.
 - **Bar color comes from `js/teamIdentity.js`**, never a hardcoded hex, per the Team Identity
   rule. `--pb-bar` is set inline per row with a `--purple-mid` fallback for an identity that did
   not load.
-- Pure render, no state and no fetching — the Grid owns the feed, pool and week. That is what
-  makes moving it to the Survivor **Planning** panel later a change of mount point and nothing
-  else.
+- Pure render, no state and no fetching — the caller owns the feed, pool and week. That is what
+  made the move off the Grid a change of mount point and nothing else.
 
 `weekDistribution()` / `weeksWithPicks()` **replaced `weekPickShare()`**, which returned
 `team -> pct` and nothing else. It was exported, never called anywhere, and could not answer the
@@ -1891,9 +1903,11 @@ nudge toward the exact worst answer, sitting inches from text that says so.
 
 ## Standings Tab — Me vs. Mike's Pools, Live
 
-Built 2026-09-13. `js/standings.js` (render + polling) over `js/liveModel.js` (pure math). One
-panel on both nav rows, the Odds precedent: the pick'em half is Season Long, the suicide half
-Survivor. It reads Mike's cards (`data/raw/entries-<year>-w<NN>.json`, `data/survivor-<year>.json`)
+Built 2026-09-13. `js/standings.js` (render + polling) over `js/liveModel.js` (pure math).
+**Split into two panels 2026-09-14:** `initStandings(root, season, mode)` builds an independent
+instance per row — `'season'` draws only the pick'em, `'survivor'` only the suicide pool. Each
+instance closes over its own state and polling timer and polls only while its own panel shows;
+there is no module-level state, because two timers writing one object is a bug waiting to happen. It reads Mike's cards (`data/raw/entries-<year>-w<NN>.json`, `data/survivor-<year>.json`)
 against live ESPN state, so it needs nothing from his answer key. My entry is found by nickname
 (`MY_NICK = 'Bova'`, #238 / #208 in 2026).
 
@@ -1911,7 +1925,12 @@ against live ESPN state, so it needs nothing from his answer key. My entry is fo
 - **Per game it shows my chance if my pick wins vs. loses**, tagged `Must win` when losing leaves
   no simulated path, `Barely matters` when losing keeps ≥85% of the chance.
 - Suicide half: my pick's status, survived / out / playing / not started, the floor–ceiling of
-  survivors, and every team's count. A tied game says "counts as a loss?" — the rule is not on record.
+  survivors, then the pick board (see "The pick board" under Grid Tab) with each team's result. A tied game says "counts as a loss?" — the rule is not on record.
+- **`.card` has no padding, so `.st-card` supplies its own** (added 2026-09-14). Without it every
+  Standings card put its text on the rounded border. Tables fit the card rather than scroll:
+  numbers `nowrap` and right-aligned (`.st-num`), the name column wraps, and the table caps at
+  640px so a desktop card does not strand the numbers far from the names. Summary boxes go two-up
+  below 420px.
 - No new exports were added to shared modules for this (it fetches the raw cards itself), so it
   can ship mid-game without the stale-shared-module blank page described under Cache busting.
 
@@ -1986,8 +2005,8 @@ reading a committed file.
   holds each team. Mike's from `data/survivor-<year>.json`; Sleeper live from the pool itself, on
   demand. See the Sleeper Survivor Pool section.
 - **Weekly pick distribution (built)** — which teams the pool took this week, how many entries
-  took each, and the shape of that as a bar chart. Bottom of the Grid tab; see "The pick board"
-  under Grid Tab. Fills in through the Sunday as the kickoff gate releases each pick.
+  took each, and the shape of that as a bar chart. On Survivor Standings (moved from the Grid
+  2026-09-14); see "The pick board" under Grid Tab. Fills in through the Sunday as the kickoff gate releases each pick.
 - Buy-back tracking — **not built.** `survivorLeagues.js` carries a `buybacks` counter in each
   pool's state and nothing reads it yet. Note the shape this feature must NOT take: "new pick
   history restarting after buy-back" was the original sketch and it is **wrong for this pool** —

@@ -1,8 +1,10 @@
 /* ==========================================================================
    Survivor pick board — who the pool actually took, one week at a time.
 
-   Sits at the bottom of the Grid tab. The grid above it answers "what CAN I
-   spend, and when"; this answers "what did everyone else just spend", which is
+   Lives on the Survivor Standings panel (moved from the bottom of the Grid on
+   2026-09-14, so the pool's results are in one place, not two). The Grid
+   answers "what CAN I spend, and when"; this answers "what did everyone else
+   just spend", which is
    the other half of a survivor decision and the half the tool could not show
    at all. Surviving a week is not about being right, it is about being right
    when the field is wrong, so the shape of the field's week is the number that
@@ -23,10 +25,14 @@
       says how many are still locked. Presenting a third of the pool as if it
       were the whole thing is the one way this board could actively mislead.
 
-   Pure render, no state and no fetching: the Grid owns the feed, the selected
-   pool and the selected week, and calls render() again when any of them
-   change. Written this way so the board can be moved to the Survivor Planning
-   panel later by changing where it mounts and nothing else.
+   Pure render, no state and no fetching: the caller owns the feed, the pool
+   and the week. Written this way so moving it off the Grid was a change of
+   mount point and nothing else -- keep it that way for the next move.
+
+   An optional `status` map (team -> { text, tone }) adds a line under each
+   row saying what happened to that team's game. The Standings panel passes
+   it from the same survivorWeek() result its summary boxes count, so the
+   board and the boxes cannot disagree. Tones: won / lost / live / pre.
 
    NEVER add a ?v= to this file -- see data.js's note on module identity.
    ========================================================================== */
@@ -35,13 +41,30 @@ import { weekDistribution, weeksWithPicks } from './survivorLeagues.js';
 import { tintOn } from './teamIdentity.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 
-/** The container the Grid mounts once and re-renders into. */
+/**
+ * Render into an element. The original entry point, kept with its name and
+ * signature ON PURPOSE: this file is unversioned, so for ~10 minutes after a
+ * deploy a visitor can get a fresh caller against a cached copy of this
+ * module. A caller that imports a name the cached copy lacks blanks the whole
+ * site ("does not provide an export named"). Callers use this; the string
+ * form below is internal until a deploy has passed with it in place.
+ */
+export function renderPickBoard(host, o) {
+  if (!host) return;
+  host.innerHTML = pickBoardHtml(o);
+  host.hidden = !o.league;
+}
+
+/** Retired with the Grid's board (2026-09-14). Kept for the same cached-
+ *  module reason as renderPickBoard; nothing calls it. Safe to delete in a
+ *  later deploy. */
 export function pickBoardShell() {
-  return `<section class="card pboard" id="g-pickboard"></section>`;
+  return '<section class="card pboard" id="g-pickboard"></section>';
 }
 
 /**
- * @param {HTMLElement} host      the #g-pickboard element
+ * The board as a string, for a caller that builds its own markup.
+ *
  * @param {object}      o
  * @param {object|null} o.feed    survivor-<year>.json shape, either source
  * @param {number}      o.season
@@ -49,28 +72,29 @@ export function pickBoardShell() {
  * @param {object|null} o.identity team-identity doc, or null
  * @param {number|null} o.week    the week to show, or null to pick the latest
  * @param {object|null} o.mine    my own league state, for the "you" marker
+ * @param {Map|null}    o.status  team -> { text, tone }, optional
+ * @param {boolean}     o.embedded  inside another card: a subheading instead
+ *                      of a card head, and no week select of its own
  */
-export function renderPickBoard(host, o) {
-  if (!host) return;
-
-  // "Off" is a deliberate choice to stop showing pool data, so the board goes
-  // away with the rest of it rather than sitting there empty.
-  if (!o.league) { host.hidden = true; host.innerHTML = ''; return; }
-  host.hidden = false;
+export function pickBoardHtml(o) {
+  // "Off" is a deliberate choice to stop showing pool data.
+  if (!o.league) return '';
 
   const weeks = weeksWithPicks(o.feed, o.season);
-  if (!weeks.length) { host.innerHTML = head(o) + empty(o); return; }
+  if (!weeks.length) return head(o) + empty(o);
 
   const week = weeks.includes(Number(o.week)) ? Number(o.week) : weeks[weeks.length - 1];
   const dist = weekDistribution(o.feed, week, o.season);
-  if (!dist || !dist.rows.length) { host.innerHTML = head(o, weeks, week) + empty(o); return; }
+  if (!dist || !dist.rows.length) return head(o, weeks, week) + empty(o);
 
-  host.innerHTML = head(o, weeks, week) + note(dist, o) + list(dist, o, week);
+  const body = head(o, weeks, week) + note(dist, o) + list(dist, o, week);
+  return o.embedded ? `<div class="pboard is-embedded">${body}</div>` : body;
 }
 
 /* ── Chrome ───────────────────────────────────────────────────────────────*/
 
 function head(o, weeks = null, week = null) {
+  if (o.embedded) return '<h4 class="st-sub">Who the pool picked</h4>';
   return `
     <div class="section-head">
       <div>
@@ -122,7 +146,7 @@ function list(dist, o, week) {
   const mine = o.mine?.picks?.[String(week)] || null;
 
   return `
-    <ol class="pboard-list">
+    <ol class="pboard-list${o.status ? ' has-status' : ''}">
       ${dist.rows.map((r) => row(r, dist, o, mine)).join('')}
     </ol>`;
 }
@@ -135,6 +159,7 @@ function row(r, dist, o, mine) {
   // Scaled to the week's biggest pick -- see rule 2 in the header.
   const width = dist.topCount ? (r.count / dist.topCount) * 100 : 0;
   const isMine = mine === r.team;
+  const st = o.status?.get?.(r.team) || null;
 
   return `
     <li class="pboard-row${isMine ? ' is-mine' : ''}"${
@@ -154,6 +179,7 @@ function row(r, dist, o, mine) {
         <span class="pboard-fill" style="width:${width.toFixed(1)}%"></span>
       </span>
       <span class="pboard-pct">${fmtPct(r.pct)}%</span>
+      ${st ? `<span class="pboard-status is-${esc(st.tone)}">${esc(st.text)}</span>` : ''}
     </li>`;
 }
 
