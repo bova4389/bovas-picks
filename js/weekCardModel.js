@@ -124,7 +124,7 @@ export const FV_EDGE = 0.02;
  *
  * SURVIVOR-STRATEGY.md §2: at 20-29 entries "there simply aren't enough rivals
  * for a fade to buy anything", and chasing contrarian value is a pure cost.
- * Only Mike's 235-entry pool is above this.
+ * Only Mike's 247-entry pool is above this.
  */
 export const LEVERAGE_MIN_ENTRIES = 100;
 
@@ -141,7 +141,7 @@ export const LEVERAGE_MIN_ENTRIES = 100;
  * That matters because the count is not decoration here: potOf() below uses it
  * to decide which of two same-format pools keeps the chalk when they collide,
  * so a stale number sends the better team to the smaller pot and the split the
- * wrong way round. Mike's has no feed and keeps its hand-recorded 235, which
+ * wrong way round. Mike's has no feed and keeps its hand-recorded 247, which
  * is correct -- there is nothing to ask.
  *
  * `live` is leagueId -> count, built by the caller from whatever feed it has:
@@ -258,7 +258,7 @@ export function candidatesFor({ model, projections, week, weeks, used, books }) 
  *
  * TWO RULES, and which one applies is a property of the POOL, not a setting.
  *
- * ONE LIFE, MANY RIVALS (Mike's, 235 entries). §4.3: leverage is real here and
+ * ONE LIFE, MANY RIVALS (Mike's, 247 entries). §4.3: leverage is real here and
  * only here, and the pool will run to Week 10+, so future value is the second
  * pillar rather than a tie-break. Ranked by leverage where a MEASURED share
  * exists; by future value inside the band where one does not.

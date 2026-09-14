@@ -18,6 +18,11 @@
    Changing the pool on the Grid or Planning therefore does NOT change what
    this shows. That is the design, not an oversight.
 
+   LOCK / UNLOCK (2026-09-14): a week whose survivor picks are in the sent file
+   opens locked, disabling the "I picked" buttons and the pick menus so a
+   stray tap cannot re-mark a submitted pick -- see js/pickLock.js. The card,
+   its scores and its recommendation keep updating while locked.
+
    ── WHAT IT SHOWS WHEN IT IS NOT SURE, WHICH IS MOST OF THE WEEK ─────────
 
    The card is stamped Provisional / Firming / Final and is NEVER hidden.
@@ -42,6 +47,7 @@ import { loadCachedFeed } from './sleeperSurvivor.js';
 import {
   loadMyPicks, survivorPick, survivorBoard, recordSurvivorPick, sentCard,
 } from './myPicks.js';
+import { isLocked, setLocked, lockControl } from './pickLock.js';
 import {
   buildWeekCard, cardForLog, diffCards, modeledShare,
   liveEntrantsFrom, FLOOR, MIN_BOOKS,
@@ -147,6 +153,10 @@ function liveEntrants() {
 
 const storeKey = () => `survivor:card:${S.season}:${S.week}`;
 
+/** Locked by default once any survivor pick for this week is in the sent file. */
+const lockedNow = () => isLocked('survivor', S.season, S.week,
+  Object.keys(sentCard(S.week)?.survivor || {}).length > 0);
+
 function readStored() {
   try {
     return JSON.parse(localStorage.getItem(storeKey()));
@@ -219,7 +229,7 @@ function head() {
     <p class="lede">
       One pick per pool, every pool at once &mdash; and how much of the week rides on the
       same game. The ${words(LEAGUES.length)} pools are ${words(LEAGUES.length)} different games: what is right in a three-life
-      pool of 20 can be wrong in a 235-entry pool with one life on the same Sunday, so
+      pool of 20 can be wrong in a 247-entry pool with one life on the same Sunday, so
       <strong>nothing here is submitted anywhere as a set</strong>.
       Prices are the market's, at ${MIN_BOOKS}+ books. The week-against-week comparisons are
       modeled and are an <strong>ordering</strong>, never a probability.
@@ -242,6 +252,7 @@ function controls(card) {
         </select>
       </label>
       <span class="wc-state is-${c.state}" title="${esc(c.basis)}">${esc(c.label)}</span>
+      ${lockControl(lockedNow())}
       <p class="planctl-note">
         ${esc(c.basis)}
         <span class="planctl-spent">${spent} spent across ${words(LEAGUES.length)} pools</span>
@@ -326,7 +337,7 @@ function changeBanner(changed) {
 
 function poolCards(card) {
   return `
-    <section class="card planblock">
+    <section class="card planblock${lockedNow() ? ' is-locked' : ''}">
       <div class="section-head">
         <div>
           <p class="eyebrow">Week ${card.week} &middot; ${words(LEAGUES.length)} pools</p>
@@ -430,7 +441,7 @@ function mineBlock(L, rec) {
         <span class="wc-mine-label">Your pick</span>
         <p class="wc-mine-none">Not marked</p>
         <div class="wc-mine-actions">
-          ${rec ? `<button type="button" class="btn" data-pick-pool="${L.id}" data-pick-team="${esc(rec.team)}">I picked ${esc(mascot(rec.team))}</button>` : ''}
+          ${rec ? `<button type="button" class="btn" data-pick-pool="${L.id}" data-pick-team="${esc(rec.team)}"${lockedNow() ? ' disabled' : ''}>I picked ${esc(mascot(rec.team))}</button>` : ''}
           ${menu}
         </div>
       </div>`;
@@ -462,7 +473,7 @@ function teamMenu(L, mine) {
   const blank = !mine ? 'Other team…' : mine.source === 'device' ? 'Clear pick' : 'Change pick…';
 
   return `
-    <select class="wc-mine-select" data-pick-select="${L.id}" aria-label="${esc(L.short)} pick for week ${S.week}">
+    <select class="wc-mine-select" data-pick-select="${L.id}"${lockedNow() ? ' disabled' : ''} aria-label="${esc(L.short)} pick for week ${S.week}">
       <option value="">${blank}</option>
       ${teams.map((t) => `<option value="${t}"${mine?.team === t ? ' selected' : ''}>${esc(mascot(t))}</option>`).join('')}
     </select>`;
@@ -534,7 +545,7 @@ function poolHead(L, entry) {
   const n = entry.entrants || { count: L.entrants, source: 'file' };
 
   // ONLY A POOL THAT COULD HAVE BEEN ASKED IS MARKED. Mike's has no feed and
-  // never will, so its hand-recorded 235 IS the truth there -- flagging it
+  // never will, so its hand-recorded 247 IS the truth there -- flagging it
   // would be telling the reader to go and refresh something that cannot be
   // refreshed, which is how a marker stops meaning anything.
   const askable = Boolean(L.sleeper);
@@ -768,6 +779,7 @@ function wire() {
   S.root.addEventListener('change', async (e) => {
     const pool = e.target.dataset?.pickSelect;
     if (pool) {
+      if (lockedNow()) { render(); return; }
       recordSurvivorPick(pool, S.week, e.target.value || null, S.season);
       render();
       return;
@@ -779,8 +791,14 @@ function wire() {
   });
 
   S.root.addEventListener('click', async (e) => {
+    if (e.target.closest('[data-lock-toggle]')) {
+      setLocked('survivor', S.season, S.week, !lockedNow());
+      render();
+      return;
+    }
     const mark = e.target.closest('[data-pick-pool]');
     if (mark) {
+      if (lockedNow()) return;
       recordSurvivorPick(mark.dataset.pickPool, S.week, mark.dataset.pickTeam, S.season);
       render();
       return;

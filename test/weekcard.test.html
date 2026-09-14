@@ -205,7 +205,7 @@ check('…a zero or broken feed count is not trusted',
   entrantsOf(poop, new Map([['sleeper', 0]])).source, 'file');
 check('Mike\'s has no feed and keeps its recorded count',
   entrantsOf(LEAGUES.find((l) => l.id === 'mike'), new Map([['sleeper', 31]])),
-  { count: 235, source: 'file' });
+  { count: 247, source: 'file' });
 
 check('feed counts are read off the entries list',
   [...liveEntrantsFrom([['sleeper', { entries: new Array(31) }], ['deadpool', null]])],

@@ -107,7 +107,9 @@ export const LEAGUES = [
   },
   {
     id: 'mike', name: "Mike's Suicide League", short: "Mike's",
-    entrants: 235, lives: 1, hasField: true,
+    // 247 in 2026: Mike's season email and data/survivor-2026.json agree. It
+    // was 235, the 2025 Week 1 count, until 2026-09-14.
+    entrants: 247, lives: 1, hasField: true,
     note: 'One life. No buy-back.',
   },
 ];

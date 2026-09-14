@@ -66,8 +66,8 @@ token or a graded week.
 | 5 | Week dropdown + Wednesday cutover | **done 9/14/2026** |
 | 6 | Multi-league standings (Infinity, Poop, Deadpool) | **done 9/14/2026** (each card has its own Refresh) |
 | 7 | Payouts + All Weeks | **done 9/14/2026** (graded in the browser; no `data/results/` needed) |
-| 8 | Lock / Unlock | nothing |
-| 9 | Docs | after the rest |
+| 8 | Lock / Unlock | **done 9/14/2026** |
+| 9 | Docs | **done 9/14/2026** (CLAUDE.md sections per phase; Mike's suicide entrants 235 → 247) |
 
 ---
 
