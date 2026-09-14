@@ -202,7 +202,7 @@ const range = (from, to) =>
    error and no visible seam. Used-team state is per league, and the field
    behind it has to be too.
 
-   `pool` is the app's own id ('sleeper', 'deadpool', 'eastorange'), not the
+   `pool` is the app's own id ('sleeper', 'deadpool'), not the
    Sleeper snowflake, so it matches the keys `S.feeds` uses in the Grid. The
    Poop pool's id is still 'sleeper', so its existing cache key is unchanged
    and survives this migration untouched. */

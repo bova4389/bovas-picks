@@ -33,7 +33,7 @@
      Chargers. Only the Pick Sheet's email falls back, and it says so.
 
    WHY NOT SLEEPER: its pick query began answering "Unauthorized" to every
-   unauthenticated request on 2026-09-13, so the three Sleeper pools can no
+   unauthenticated request on 2026-09-13, so the Sleeper pools can no
    longer report my picks. They are recorded here instead.
 
    NEVER add a ?v= to this file -- see data.js's note on module identity.

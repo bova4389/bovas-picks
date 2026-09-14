@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Picks — the week's card, all four pools at once.
+   Picks — the week's card, every pool at once.
 
    The render half of js/weekCardModel.js, which holds every number on this
    tab. Same split as grid.js / gridModel.js and planning.js / planModel.js:
@@ -8,8 +8,8 @@
    ── WHY THIS TAB HAS NO POOL SWITCHER, AND MUST NOT GROW ONE ─────────────
 
    Every other survivor view is scoped to `activePool()`. This one is the
-   question you cannot ask a pool at a time -- four formats, four used-team
-   boards, four submissions, and how correlated those four tickets are. A
+   question you cannot ask a pool at a time -- several formats, one used-team
+   board each, one submission each, and how correlated those tickets are. A
    switcher here would turn it back into Planning with extra steps, and the
    cross-pool exposure line, which is the only thing on this site that
    answers "am I about to lose everything on one game", would have nothing
@@ -202,6 +202,12 @@ function render() {
     + logBlock(card);
 }
 
+/** A small count as a word, so copy about "the pools" follows LEAGUES rather
+ *  than going stale the next time a pool is added or dissolved. */
+function words(n) {
+  return ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'][n] ?? String(n);
+}
+
 function head() {
   return `
     <div class="section-head">
@@ -212,7 +218,7 @@ function head() {
     </div>
     <p class="lede">
       One pick per pool, every pool at once &mdash; and how much of the week rides on the
-      same game. The four pools are four different games: what is right in a three-life
+      same game. The ${words(LEAGUES.length)} pools are ${words(LEAGUES.length)} different games: what is right in a three-life
       pool of 20 can be wrong in a 235-entry pool with one life on the same Sunday, so
       <strong>nothing here is submitted anywhere as a set</strong>.
       Prices are the market's, at ${MIN_BOOKS}+ books. The week-against-week comparisons are
@@ -238,7 +244,7 @@ function controls(card) {
       <span class="wc-state is-${c.state}" title="${esc(c.basis)}">${esc(c.label)}</span>
       <p class="planctl-note">
         ${esc(c.basis)}
-        <span class="planctl-spent">${spent} spent across four pools</span>
+        <span class="planctl-spent">${spent} spent across ${words(LEAGUES.length)} pools</span>
       </p>
     </div>`;
 }
@@ -316,14 +322,14 @@ function changeBanner(changed) {
     </div>`;
 }
 
-/* ── The four pool cards ──────────────────────────────────────────────────*/
+/* ── The pool cards ───────────────────────────────────────────────────────*/
 
 function poolCards(card) {
   return `
     <section class="card planblock">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Week ${card.week} &middot; four pools</p>
+          <p class="eyebrow">Week ${card.week} &middot; ${words(LEAGUES.length)} pools</p>
           <h3>Your picks</h3>
         </div>
         ${card.exposure ? `<span class="pill${card.exposure.games > 1 ? ' ok' : ' warn'}">${
@@ -639,13 +645,13 @@ function exposureBlock(card) {
       </div>
       <p class="wc-exp-line">
         ${e.tickets} tickets across <b>${e.games} ${e.games === 1 ? 'game' : 'games'}</b>.
-        All four lose <b>${pct1(e.pAllLose)}</b> of the time; at least one survives
+        All ${words(e.tickets)} lose <b>${pct1(e.pAllLose)}</b> of the time; at least one survives
         ${pct1(e.pAnySurvives)}.
         ${e.games > 1
-          ? `Carrying one team in all four would have been ${pct1(e.pAllLoseIfSingle)} &mdash;
+          ? `Carrying one team in all ${words(e.tickets)} would have been ${pct1(e.pAllLoseIfSingle)} &mdash;
              so the split cuts the joint-wipeout risk by roughly
              ${(e.pAllLoseIfSingle / e.pAllLose).toFixed(1)}x.`
-          : `<b>Every ticket is on the same game.</b> One result takes all four pools at once,
+          : `<b>Every ticket is on the same game.</b> One result takes all ${words(e.tickets)} pools at once,
              and nothing on this board was close enough to split off.`}
       </p>
       <p class="plannote">

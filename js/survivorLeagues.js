@@ -39,7 +39,8 @@
 
 /**
  * The pools, in the order they matter: the two played hardest first, then the
- * 235-entry one-life pool, then the charity pool.
+ * big one-life pool. East Orange Squeeze was dissolved after Week 1 of 2026 and
+ * is gone from this list; its Week 1 picks stay in the committed log as a record.
  *
  * `lives`, `entrants` and `economics` are DISPLAY FACTS, not calculation
  * inputs -- nothing here infers strategy from them. They label the switcher
@@ -52,7 +53,7 @@
  * Do not treat it as current -- the Poop count sat at 12 here for a fortnight
  * while the pool grew to 18, and then sat at 18 while it grew to 29.
  *
- * All three live counts were re-read from Sleeper's roster endpoint on
+ * The live counts were re-read from Sleeper's roster endpoint on
  * 2026-09-09 and are ROSTER counts, which is what an entry is: the pool is
  * keyed by roster_id everywhere in js/sleeperSurvivor.js, and a user with two
  * entries is two rosters. A count taken off the users endpoint instead will
@@ -66,13 +67,14 @@
  * pot. Keep these numbers roughly current for the pre-fetch case; do not
  * treat them as the answer.
  *
- * `economics.potShare` is the fraction of the pot actually played for, and it
- * exists for East Orange, where half goes to charity. A buy-back there costs
- * the same dollars as anywhere else and buys half as much pot, so anything
- * that ever prices a buy-back must multiply by this rather than assume 1.
- * Recorded from the commissioner, never from Sleeper -- see the
- * `num_revives_allowed` note in SURVIVOR-STRATEGY.md, which all three Sleeper
- * pools now contradict in three different directions.
+ * `economics.potShare` is the fraction of the pot actually played for. It was
+ * added for East Orange (dissolved), where half went to charity, and no current
+ * pool uses anything but 1 -- it stays so the next charity pool is a config
+ * entry. A buy-back in a half pot costs the same dollars and buys half as much
+ * pot, so anything that ever prices a buy-back must multiply by this rather
+ * than assume 1. Recorded from the commissioner, never from Sleeper -- see the
+ * `num_revives_allowed` note in SURVIVOR-STRATEGY.md, which the Sleeper pools
+ * contradict in different directions.
  */
 export const LEAGUES = [
   {
@@ -107,17 +109,6 @@ export const LEAGUES = [
     id: 'mike', name: "Mike's Suicide League", short: "Mike's",
     entrants: 235, lives: 1, hasField: true,
     note: 'One life. No buy-back.',
-  },
-  {
-    id: 'eastorange', name: 'East Orange Squeeze', short: 'East Orange',
-    entrants: 8, lives: 3, hasField: true, live: true,    // rosters, 2026-09-09
-    note: 'Charity pool — half the pot is played for. $25 in, $15 a buy-back.',
-    economics: { entry: 25, buyback: 15, buybacks: 2, potShare: 0.5 },
-
-    sleeper: {
-      leagueId: '1398146363136483328',
-      userId: '721908735856967680',
-    },
   },
 ];
 

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Infinity War model — picking 8 of a full slate, against 10-15 people.
+   Infinity War model — picking 8 of a full slate, against 17 other people.
 
    Pure data. Takes the 32 x 18 matrix from js/gridModel.js and answers the
    questions this pool asks, which are NOT the questions Mike's pool asks.
@@ -27,7 +27,7 @@
           * The SEASON prize wants maximum expected correct. That is the
             chalk eight, every week, with no cleverness at all.
 
-          * The WEEKLY prize wants the highest chance of BEATING 10-15
+          * The WEEKLY prize wants the highest chance of BEATING 17
             people. Those are different objectives, and in a small pool they
             actively conflict.
 

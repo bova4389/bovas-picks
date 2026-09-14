@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "note": "My picks exactly as submitted. numbers = season-long pick numbers; points = Monday night total; survivor = pool id -> team abbreviation (mike, sleeper = Poop, deadpool, eastorange). infinity = list of Infinity War team abbreviations picked. Read by js/myPicks.js and scripts/log_week_card.mjs.",
+  "note": "My picks exactly as submitted. numbers = season-long pick numbers; points = Monday night total; survivor = pool id -> team abbreviation (mike, sleeper = Poop, deadpool; eastorange existed only through Week 1 — East Orange Squeeze was dissolved after Week 1 of 2026). infinity = list of Infinity War team abbreviations picked. Read by js/myPicks.js and scripts/log_week_card.mjs.",
   "weeks": {
     "1": {
       "numbers": [1, 4, 6, 7, 9, 12, 14, 15, 18, 19, 21, 24, 26, 27],

@@ -328,8 +328,7 @@ Same treatment applies to the season-long leaderboard, which shares `.st-table`.
 * Do **not** use `currentWeek()` from `gameState.js` here. It rolls over a few hours after the
   last game, which is right for a schedule and wrong for a pool — it would replace Sunday's
   settled standings with an empty Week 2 before anyone had looked.
-* Squares should keep its own 2pm rule. Two pools, two clocks, both stated. If they are ever
-  unified, that is a separate decision with the owner.
+* ~~Squares should keep its own 2pm rule.~~ **Superseded — owner unified both on 6pm; see §13.1.**
 
 **The control** — one `<select>` at the top of each standings panel, shared by every card on
 that panel: `All weeks`, then each week that has data, newest last. Selected week is **not**
@@ -359,19 +358,28 @@ survivors-remaining line with the losing teams named.
 **New hand-maintained file `data/payouts-<year>.json`.** Hand-maintained is correct and is not
 an omission — these numbers arrive in a commissioner's email, exactly like `squares-<year>.json`.
 
-From Michael Lowe's 2026 season email (the authority, dated the day before Week 1):
+Each pool cites its own source. **Infinity War is not one of Mike's pools** — an earlier draft
+of this file filed it under Mike's email, which was wrong; its terms come from the owner.
 
 ```json
 {
   "year": 2026,
-  "source": "Mike Lowe season email, 2026-09-13",
   "pools": {
-    "mike-pickem":  { "name": "Mike's Weekly Pool", "entries": 284, "weekly": 1270, "season": 2540 },
-    "mike-suicide": { "name": "Mike's Suicide Pool", "entries": 247, "survivor": 5650 },
-    "infinity":     { "name": "Infinity War", "entry": 50, "weekly": 20, "seasonNote": "remainder to top 1 or 2, split undecided" }
+    "mike-pickem":  { "name": "Mike's Weekly Pool", "source": "Mike Lowe season email, 2026-09-13",
+                      "entries": 284, "weekly": 1270, "season": 2540 },
+    "mike-suicide": { "name": "Mike's Suicide Pool", "source": "Mike Lowe season email, 2026-09-13",
+                      "entries": 247, "survivor": 5650 },
+    "infinity":     { "name": "Infinity War", "source": "owner, 2026-09-14",
+                      "entries": 18, "entry": 50, "weekly": 20, "season": { "first": 380, "second": 160 } },
+    "sleeper":      { "name": "Poop 2026", "source": "owner, 2026-09-14",
+                      "base": 870, "buyback": 15, "buybacksByWeek": {} },
+    "deadpool":     { "name": "Deadpool", "source": "owner, 2026-09-14",
+                      "base": 600, "buyback": 15, "buybacksByWeek": { "1": 2 } }
   }
 }
 ```
+
+`mike-pickem.season` ($2,540) goes to Mike's season-long winner, confirmed by the owner 9/14/2026.
 
 * **CLAUDE.md is stale on these figures** — it says "$1,000 paid out each week" and "roughly
   $5–6k to the season-long winners". Correct it to $1,270 / $2,540 / $5,650 and cite the email.
@@ -386,8 +394,9 @@ From Michael Lowe's 2026 season email (the authority, dated the day before Week 
   flag it, because the pool's tie rule is still not on record (`grade_week.py` already prints a
   warning and credits nobody). Ask Mike the first time it happens and write the answer into
   CLAUDE.md.
-* Infinity: $20 × weeks won, accumulating. The season remainder is **not** modelled — the
-  1st/2nd split is undecided and guessing it would put a wrong number next to a real one.
+* Infinity: $20 × weeks won, accumulating, plus the season prizes of **$380 to 1st and $160 to
+  2nd**. Show those as "at stake" next to the current top two until the season is complete;
+  never add them to anyone's total early.
 * A payout is shown only for a **complete** week (`"complete": true` in the results file). A
   provisional winner who changes on Monday night is worse than no figure.
 
@@ -455,13 +464,32 @@ Applies to **Pick Sheet** (`js/picksheet.js`) and **Picks** (`js/weekCard.js`).
 
 ---
 
-## 13. Open questions for the owner
+## 13. Owner decisions (answered 9/14/2026 in the local session)
 
-1. **Wednesday cutover hour** — 6:00 PM local assumed. Squares uses 2:00 PM by its own rule.
-2. **Survivor All Weeks** — burn matrix as recommended, or something simpler?
-3. **Tie rule in Mike's weekly pool** — split or roll? Not on record; needed for cumulative
-   payouts. Ask Mike.
-4. **Infinity War season remainder** — "top 1 or 2" is still undecided; nothing is modelled
-   until it is.
-5. **Poop / Deadpool payouts** — `LEAGUES.economics` has $30 in, $15 a buy-back, but no pot or
-   payout structure. Needed if those cards are to show money like Mike's do.
+These override anything earlier in this file that disagrees.
+
+1. **Cutover is Wednesday 6:00 PM local for both Standings and Squares.** One clock, not two.
+   So §8's "Squares keeps its own 2pm rule" is void: `cutoverFor()` moves from
+   `js/squaresModel.js` into `js/poolWeek.js` at 18:00 (the 36-hour tail stays), and
+   `squaresModel.js` imports it instead of keeping a copy. Update the Squares comments and the
+   CLAUDE.md "week changeover — 2pm Wednesday" section to match.
+2. **Survivor All Weeks: the owner left it to us, so it's the burn matrix** (§8), with one
+   phone-driven change: rows only for teams the pool has actually picked, the same filter the
+   pick board uses, plus an entries-alive row on top. A full 32-row matrix is the Grid's 375px
+   problem all over again.
+3. **Mike's weekly pool tie rule:** most correct picks wins; a tie on correct picks goes to the
+   Monday night total, closest by absolute value; **only if that is also tied is the payout
+   split evenly.** `grade_week.py` must apply the tiebreaker before declaring a tie, and the
+   cumulative payout splits only a true double tie. (Its current `ties` list is about a *game*
+   ending tied, which is a separate, still-unrecorded rule; leave that warning alone.)
+4. **Infinity War season prizes: $380 to 1st, $160 to 2nd**, plus $20 each week. Infinity War is
+   **not** Mike's league; nothing about it comes from Mike's email. **Mike's weekly pool season
+   winner gets $2,540.**
+5. **Poop / Deadpool pots grow with buy-backs** ($15 each, hand-counted, since buy-backs cannot
+   be read from any feed):
+   * Deadpool: $600 base (20 × $30), $630 after 2 buy-backs as of Week 1.
+   * Poop 2026: **$870 base** (29 × $30, matching `LEAGUES`; the owner's earlier $900 was a
+     miscount), Week 1 buy-backs unknown.
+   * Goes in `data/payouts-2026.json` as `base` plus a hand-entered buy-back count per week, and
+     the card shows the current pot. **Both pots are winner-take-all** (owner, 9/14/2026). Buy-back
+     counts come from the owner each week and are entered by hand; nothing derives them.

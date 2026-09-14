@@ -2179,12 +2179,12 @@ footer {
 /* ==========================================================================
    SURVIVOR PICKS — the cross-pool week card  (js/weekCard.js)
 
-   Four pools side by side, which is the one layout decision here that carries
-   meaning: these are FOUR SEPARATE SUBMISSIONS, not one recommendation with
-   four notes on it, so they get four bounded cards rather than four rows of a
+   The pools side by side, which is the one layout decision here that carries
+   meaning: these are SEPARATE SUBMISSIONS, not one recommendation with a note
+   per pool, so each gets its own bounded card rather than a row of a
    table. A table would invite reading down a column and treating the row as a
    set, which is the exact mistake SURVIVOR-STRATEGY.md warns about ("do not
-   submit one set of picks across all four").
+   submit one set of picks across all of them").
 
    It reuses the Planning tab's vocabulary wholesale -- .planblock, .planrow,
    .planrow-pct.is-market, .cost-* -- because the two tabs show the same two

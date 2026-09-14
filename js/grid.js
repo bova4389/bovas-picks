@@ -184,9 +184,9 @@ export async function initGrid(root, season = SEASON) {
   // shipped with the site; every live pool's is whatever that pool's last
   // Refresh cached, and null until its button has been pressed once.
   //
-  // Built from LEAGUES rather than listed by hand: there are three Sleeper
-  // pools now, and a hand-written list is how the fourth one silently gets no
-  // cache at all.
+  // Built from LEAGUES rather than listed by hand: there are several Sleeper
+  // pools, and a hand-written list is how the next one silently gets no cache
+  // at all.
   S.feeds = { mike: survivor };
   for (const l of LEAGUES) {
     if (l.live) S.feeds[l.id] = loadCachedFeed(season, l.id);

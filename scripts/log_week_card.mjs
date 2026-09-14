@@ -25,15 +25,16 @@
 
    ── WHERE EACH POOL'S USED TEAMS COME FROM ──────────────────────────────
 
-     Poop, Deadpool, East Orange   Sleeper, live. My own picks come back with
-                                   everyone else's, so these are exact and
-                                   need no state from anywhere.
-     Mike's                        THE LOG'S OWN PREVIOUS WEEKS. There is no
-                                   feed, and the mailed workbook carries no
-                                   flag saying which entry is mine, so the
-                                   only thing here that knows what Mike's has
-                                   spent is what this log previously said was
-                                   recommended.
+     Poop, Deadpool   Sleeper, live. My own picks come back with everyone
+                      else's, so these are exact and need no state from
+                      anywhere.
+     Mike's           THE LOG'S OWN PREVIOUS WEEKS. There is no feed, and the
+                      mailed workbook carries no flag saying which entry is
+                      mine, so the only thing here that knows what Mike's has
+                      spent is what this log previously said was recommended.
+
+     (East Orange Squeeze was dissolved after Week 1 of 2026. Its Week 1 pick
+     stays in the log as a record; nothing reads it.)
 
    That last one assumes the recommendation was actually submitted. The
    browser holds the truth in `survivor:<season>:mike`, and js/weekCard.js

@@ -8,15 +8,18 @@ this week, given I can never spend it again?"* Almost nothing transfers between 
 
 ---
 
-## The Four Pools
+## The Pools
 
-**All four exist and all four are in the Grid tab's dropdown.** Pools are added to
+**Three pools are live and all three are in the Grid tab's dropdown.** East Orange Squeeze was
+dissolved after Week 1 of 2026 and removed from the site 2026-09-14; its column below and the
+half-pot analysis are kept, because that analysis is the only worked example of how a half pot
+changes buy-back math. Pools are added to
 `js/survivorLeagues.js` as they are created — a listed pool nobody has entered is a dead dropdown
 option that invites picks being logged against a pool that cannot receive them. The Yahoo pool
 this document once analyzed was never created and was removed 2026-08-14; Deadpool and East
 Orange Squeeze were added 2026-09-01 and are real.
 
-| | **Mike's Suicide League** | **Poop 2026** | **Deadpool** | **East Orange Squeeze** |
+| | **Mike's Suicide League** | **Poop 2026** | **Deadpool** | **East Orange Squeeze** *(dissolved)* |
 |---|---|---|---|---|
 | Entries | **235** (2025 Wk 1) | **29** | **20** | **8** |
 | Lives | **1 — one loss and out** | 3 (2 buy-backs) | 3 (2 buy-backs) | 3 (2 buy-backs) |
@@ -31,14 +34,16 @@ Orange Squeeze were added 2026-09-01 and are real.
 on *identical* terms — $30 in, $15 a buy-back, three lives, full pot in both (confirmed
 2026-09-09). That is not a footnote: it is what makes a duplicate pick across the two a single
 correlated bet rather than two independent ones, which is the whole subject of the Picks tab.
-East Orange is a charity pool and is the odd one out on economics, below.
+East Orange was a charity pool and the odd one out on economics, below.
 
 **The three live counts above were re-read from Sleeper on 2026-09-09** and are roster counts —
 an entry is a roster, and a user holding two entries is two rosters. They are still snapshots:
 the live pools report their real size on every refresh, and both of the numbers this table
 carried before (Poop 18, Deadpool 1) were simply the day each pool was added.
 
-### East Orange's half pot changes its buy-back maths, and not by a little
+### East Orange's half pot changes its buy-back math, and not by a little
+
+*The pool is dissolved. The reasoning stands for any future half-pot pool.*
 
 §2 "Settled: play the aggressive line" rests on a buy-back costing **~1% of the pot**, which makes
 aggression a rounding error. That arithmetic does not survive contact with a pool that only plays
@@ -64,12 +69,11 @@ elite teams still survives (that part never depended on the fee); treating elimi
 low-cost reset does not. If the pool fills out to 15–20 entries the ratio improves and this note
 should be recomputed rather than trusted.
 
-**The Picks tab drives this off `economics.potShare`, never off the league id** — so if East
-Orange grows, or another half-pot pool is added, the tighter band follows the economics instead
-of following a name.
+**The Picks tab drives this off `economics.potShare`, never off the league id** — so when another
+half-pot pool is added, the tighter band follows the economics instead of following a name.
 
 **`num_revives_allowed` from Sleeper is wrong in three different directions and gates nothing.**
-Poop reports 0, Deadpool reports 2, East Orange reports 10; the commissioners run re-entry by hand
+Poop reports 0, Deadpool reports 2, East Orange (dissolved) reported 10; the commissioners run re-entry by hand
 outside the app, so the field describes Sleeper's own bookkeeping rather than the pool's rules.
 The numbers in the table above are the commissioners', which is the only authority. Do not "fix"
 this document from the API, and do not let the API value gate any buy-back feature. Corollary —
@@ -83,7 +87,7 @@ alike. A mid-week read is therefore partial by design, and the pool data row say
 
 **These pools require different play, and the difference is not a matter of taste.** A pick that
 is correct in a three-life pool can be actively wrong in Mike's on the same Sunday. Do not submit
-one set of picks across all four.
+one set of picks across all of them.
 
 **Infinity War is not in this document.** It is a season-long pick'em — eight games a week,
 straight up, no elimination — so none of the survivor maths below applies to it. Its own analysis
@@ -192,11 +196,11 @@ The pool will run deep. With 235 entries, expect it to reach Week 10+ before it 
   the sheets, just a City or team name."* The numbers belong to the pickem pool alone. Both pools
   go out in one email; the format is in CLAUDE.md's Submission Format section.
 
-### The three app pools — Poop, Deadpool, East Orange — 8–29 entries, three lives
+### The app pools — Poop and Deadpool — 20–29 entries, three lives
 
 Genuinely different, in two ways that pull in opposite directions.
 
-**Ignore pick popularity almost entirely.** At 8–29 entries the leverage term barely moves —
+**Ignore pick popularity almost entirely.** At 20–29 entries the leverage term barely moves —
 there simply aren't enough rivals for a fade to buy anything. **Play close to pure win
 probability, filtered by future value.** Chasing contrarian value in a 20-person pool is a pure
 cost. This is the rule the Picks tab encodes: win probability leads in these three, and future
@@ -231,7 +235,7 @@ and then declining to buy back — you paid the cost of the strategy and refused
 
 ### Settled: play the aggressive line in Poop and Deadpool
 
-**This settles Poop and Deadpool. East Orange is excluded** — its half pot makes a buy-back
+**This settles Poop and Deadpool. East Orange was excluded** (now dissolved) — its half pot made a buy-back
 ~8% of the winnable money rather than ~1%, which is the one thing this argument rests on. See
 "East Orange's half pot" above.
 
@@ -484,7 +488,7 @@ never use them, not to spend a week proving it.
 - **Buy-back cutoff week** in each pool — many close around Week 4. Aggression is correct *inside*
   that window and reckless outside it, so this sets the expiry date on the §2 recommendation.
 - ~~Entry fee and pot size~~ — **answered 2026-08-11, corrected 2026-09-09:** $30 entry and $15
-  buy-backs in both Poop and Deadpool, $25 / $15 in East Orange. The earlier "$30–50 / $15–25"
+  buy-backs in both Poop and Deadpool, $25 / $15 in East Orange (dissolved). The earlier "$30–50 / $15–25"
   was a range standing in for terms nobody had confirmed yet. The
   aggressive line is settled; see §2.
 - **Does Mike's pool allow team reuse after a certain point?** Some large pools reset in the back

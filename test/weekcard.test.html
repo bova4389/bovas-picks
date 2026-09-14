@@ -16,7 +16,7 @@
 <body>
 <h1>weekCardModel — Week 1 2026 golden case</h1>
 <p>Frozen odds snapshot <code>2026-09-08T17:55:06Z</code>, 9 books. Nothing spent in any pool.<br />
-   Expected: <b>JAC / LAC / JAC / LAC</b>, exposure 2/2, DET held &mdash; plus the committed log's freeze and carry-forward rules.</p>
+   Expected: <b>JAC / LAC / JAC</b> (Mike's / Poop / Deadpool), exposure 2/2, DET held &mdash; plus the committed log's freeze and carry-forward rules.</p>
 <div id="summary">running…</div>
 <div id="out"></div>
 
@@ -97,12 +97,23 @@ note('<h2>The card</h2><table><tr><th>pool<th>format<th>pick<th>p<th>gap<th>band
 check("Mike's picks JAC", byId.get('mike').pick.team, 'JAC');
 check('Poop picks LAC', byId.get('sleeper').pick.team, 'LAC');
 check('Deadpool picks JAC', byId.get('deadpool').pick.team, 'JAC');
-check('East Orange picks LAC', byId.get('eastorange').pick.team, 'LAC');
+check('the card covers exactly the three live pools', card.picks.length, 3);
 
 check("Mike's band is the full 5 points", byId.get('mike').band, 0.05);
-check('East Orange band is tightened to 2 points by potShare', byId.get('eastorange').band, 0.02);
-check('East Orange has no second option inside its band',
-  byId.get('eastorange').alternatives.length, 0);
+
+// No live pool is half-pot since East Orange was dissolved, so the potShare
+// band is checked on a made-up one. Alone on its own board, so no cross-pool
+// swap can move it.
+const halfPot = { ...LEAGUES.find((l) => l.id === 'deadpool'), id: 'halfpot',
+  economics: { entry: 25, buyback: 15, buybacks: 2, potShare: 0.5 } };
+const hp = buildWeekCard({
+  model, projections, odds, week: WEEK, weeks,
+  boards: [{ league: halfPot, used: new Set() }],
+  now: new Date('2026-09-08T18:00:00Z'),
+}).picks[0];
+check('a half-pot pool picks LAC', hp.pick.team, 'LAC');
+check('…its band is tightened to 2 points by potShare', hp.band, 0.02);
+check('…and it has no second option inside its band', hp.alternatives.length, 0);
 
 check('the Deadpool split is carried by future value, not by the gap',
   byId.get('deadpool').swapped.clause, 'future-value');
@@ -111,8 +122,8 @@ check('Poop keeps the chalk because it is the bigger pot',
 check("Mike's is ranked on future value, leverage having no measured share",
   byId.get('mike').basis, 'future-value');
 check('the small pools rank on win probability',
-  [byId.get('sleeper').basis, byId.get('deadpool').basis, byId.get('eastorange').basis],
-  ['win-probability', 'win-probability', 'win-probability']);
+  [byId.get('sleeper').basis, byId.get('deadpool').basis],
+  ['win-probability', 'win-probability']);
 
 /* ── Exposure ───────────────────────────────────────────────────────────── */
 
@@ -121,9 +132,9 @@ note(`<h2>Exposure</h2><p>${e.tickets} tickets across ${e.games} games — `
   + `P(all lose) ${pct(e.pAllLose)}, P(one survives) ${pct(e.pAnySurvives)}. `
   + `A single team everywhere would have been ${pct(e.pAllLoseIfSingle)}.</p>`);
 
-check('four tickets across two games', [e.tickets, e.games], [4, 2]);
+check('three tickets across two games', [e.tickets, e.games], [3, 2]);
 check('exposure reads 2/2', e.label, '2/2');
-check('P(all four lose) is ~4.3%', Math.round(e.pAllLose * 1000) / 10, 4.3);
+check('P(all three lose) is ~4.3%', Math.round(e.pAllLose * 1000) / 10, 4.3);
 check('one team everywhere would have been ~19.3%', Math.round(e.pAllLoseIfSingle * 1000) / 10, 19.3);
 
 /* ── Held ───────────────────────────────────────────────────────────────── */
@@ -133,7 +144,7 @@ note('<h2>Held</h2><table><tr><th>team<th>p<th>best left<th>fvCost<th>pools</tr>
       + `<td>${pct(h.fvCost)}<td>${h.pools.join(', ')}</tr>`).join('') + '</table>');
 
 check('DET is held, not spent', card.held.map((h) => h.team), ['DET']);
-check('DET is held in all four pools', card.held[0].pools.length, 4);
+check('DET is held in all three pools', card.held[0].pools.length, 3);
 check('DET is held because it has a better spot ahead', card.held[0].fvCost > 0, true);
 
 /* ── Rule 1: boards never union ─────────────────────────────────────────── */
@@ -148,7 +159,7 @@ const card2 = buildWeekCard({
 });
 const by2 = new Map(card2.picks.map((p) => [p.leagueId, p]));
 check('spending LAC in Poop moves only Poop off it', by2.get('sleeper').pick.team, 'JAC');
-check('…and leaves East Orange on LAC (no union)', by2.get('eastorange').pick.team, 'LAC');
+check("…and leaves Mike's on JAC (no union)", by2.get('mike').pick.team, 'JAC');
 check('…and re-bases the gap on Poop\'s own board', by2.get('sleeper').pick.gap, 0);
 
 /* ── Empty states ───────────────────────────────────────────────────────── */
@@ -160,7 +171,7 @@ const card3 = buildWeekCard({
 });
 check('a board with nothing above the floor says so explicitly',
   card3.picks.map((p) => p.empty),
-  ['no-candidate', 'no-candidate', 'no-candidate', 'no-candidate']);
+  ['no-candidate', 'no-candidate', 'no-candidate']);
 check('…and recommends nothing rather than relaxing the floor',
   card3.picks.every((p) => p.pick === null), true);
 
@@ -294,7 +305,7 @@ check('an empty log takes its first entry',
 // The round trip the CI runner actually performs.
 const entry = cardForLog(card, { teamsLeft: new Map(LEAGUES.map((l) => [l.id, 32])) });
 check('a logged card names every pool', entry.picks.map((p) => p.pool).sort(),
-  ['deadpool', 'eastorange', 'mike', 'sleeper']);
+  ['deadpool', 'mike', 'sleeper']);
 check('…and records the reason each pick was made, not just the pick',
   entry.picks.every((p) => p.basis != null), true);
 check('…and the swap that produced the split',
@@ -303,10 +314,10 @@ check('…carrying no candidate lists or thresholds that would rot',
   Object.keys(entry.picks[0]).sort(),
   ['basis', 'entrants', 'fvCost', 'gap', 'p', 'pool', 'share', 'swapClause', 'swappedFrom',
    'team', 'teamsLeft']);
-check('a card logged from the golden case reads JAC/LAC/JAC/LAC',
-  ['mike', 'sleeper', 'deadpool', 'eastorange'].map((id) =>
+check('a card logged from the golden case reads JAC/LAC/JAC',
+  ['mike', 'sleeper', 'deadpool'].map((id) =>
     entry.picks.find((p) => p.pool === id).team),
-  ['JAC', 'LAC', 'JAC', 'LAC']);
+  ['JAC', 'LAC', 'JAC']);
 
 /* ── Done ───────────────────────────────────────────────────────────────── */
 

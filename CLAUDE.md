@@ -133,7 +133,7 @@ js/recommend.js     Recommend tab — leverage = win prob ÷ pick share, per STR
 js/planModel.js     SHARED — survivor planning math, pure data              [NEVER versioned]
 js/planning.js      Planning tab — spend now or hold, per SURVIVOR-STRATEGY.md §1
 js/weekCardModel.js SHARED — the cross-pool week card, pure data          [NEVER versioned]
-js/weekCard.js      Picks tab — one pick per pool, all four at once
+js/weekCard.js      Picks tab — one pick per pool, every pool at once
 js/package.json     TYPE-ONLY, for Node in CI. Not a build step — see Picks Tab.
 js/infinityModel.js SHARED — the pick-eight math, pure data                 [NEVER versioned]
 js/infinityFeed.js  SHARED — pick'em-shaped Sleeper read                    [NEVER versioned]
@@ -482,8 +482,10 @@ above are separate for the same reason in miniature: one is mine and must surviv
 the other is a copy of someone else's data that a refresh may replace whole.
 
 **`LEAGUES` in `js/survivorLeagues.js` lists the pools that actually exist, in dropdown order** —
-`Poop 2026`, `Deadpool`, `Mike's Suicide League`, `East Orange Squeeze`, then `Off`. The order is
-the two played hardest, then the big one-life pool, then the charity pool. Pools are added as they are created;
+`Poop 2026`, `Deadpool`, `Mike's Suicide League`, then `Off`. The order is
+the two played hardest, then the big one-life pool. **East Orange Squeeze was dissolved after Week 1
+of 2026 and removed 2026-09-14**; its Week 1 pick stays in `data/survivor-log-2026.json` as a record,
+and a device still holding it as its pool falls back on its own (see `knownLeague()` below). Pools are added as they are created;
 SURVIVOR-STRATEGY.md may analyze one before it exists, which is not a reason to list it. The
 Yahoo pool was listed for months without existing and was removed 2026-08-14. When a pool is
 added or removed, note that `grid:prefs` outlives it: `knownLeague()` in `grid.js` resolves a
@@ -798,20 +800,20 @@ can disagree with another about a game.
 
 It answers the one question the site could not ask:
 
-> "Given four pools with four different formats and four different used-team boards, what do I
-> submit in each one this week, and am I over-exposed to a single game?"
+> "Given several pools with different formats and separate used-team boards, what do I submit in
+> each one this week, and am I over-exposed to a single game?"
 
 ### It ignores the pool switcher, deliberately — do not add one
 
-Every other survivor view is scoped to `activePool()`. This one reads all four boards in a single
+Every other survivor view is scoped to `activePool()`. This one reads every pool's board in a single
 pass, and a switcher here would collapse it back into Planning with extra steps while leaving the
 cross-pool exposure line — the only thing on this site that answers "am I about to lose
 everything on one game" — with nothing to measure. **Changing the pool on the Grid or Planning
 does not change this tab.** That is the design, not an oversight.
 
 `boards()` builds one used-set per league from that league's own `loadLeagueState()`. **Never
-union them.** A union silently removes teams that are still perfectly spendable in three of the
-four pools, and it looks right.
+union them.** A union silently removes teams that are still perfectly spendable in the other
+pools, and it looks right.
 
 ### The three scale rules, which every number here obeys
 
@@ -836,7 +838,7 @@ books, and all 254 others at exactly one book.** One book is an opinion, not a m
 | Pool shape | Ranked by | Why |
 |---|---|---|
 | One life, 100+ entries (Mike's) | leverage where a **measured** share exists; otherwise future value inside the band | runs to Week 10+, so future value is the second pillar, not a tie-break |
-| Three lives, few entries (Poop, Deadpool, East Orange) | win probability, future value as the tie-break | §2: too few rivals for a fade to buy anything |
+| Three lives, few entries (Poop, Deadpool) | win probability, future value as the tie-break | §2: too few rivals for a fade to buy anything |
 
 **A modeled pick share cannot produce a contrarian pick, and the tab says so rather than
 pretending otherwise.** `shareFor()` is monotone in `p` above ~0.71, so `leverageFor(p,
@@ -859,8 +861,9 @@ because there is nothing to ask, and flagging it would point the reader at a Ref
 cannot help them.
 
 **Bands come off `economics.potShare`, never a league id.** Five points in a full-pot pool, two in
-East Orange, because a buy-back there is ~8% of the *playable* pot against ~1% in Poop and
-Deadpool. If East Orange grows, or another half-pot pool is added, the rule follows the economics.
+a half-pot one, because a buy-back there is ~8% of the *playable* pot against ~1% in Poop and
+Deadpool. East Orange was the only half-pot pool and is dissolved, so no live pool uses the tight
+band today; the mechanism stays so the next charity pool gets it from its config alone.
 
 ### The cross-pool layer — the part that exists nowhere else
 
@@ -932,7 +935,7 @@ nothing at all, or eight runs a day would produce eight commits differing only i
 
 | Pool | Source | Can drift? |
 |---|---|---|
-| Poop, Deadpool, East Orange | Sleeper, live — my own picks come back with the field | No |
+| Poop, Deadpool | Sleeper, live — my own picks come back with the field | No |
 | Mike's | **the log's own previous weeks** | **Yes** |
 
 Mike's has no feed, and the mailed workbook carries no flag saying which entry is mine, so CI has
@@ -973,19 +976,20 @@ slightly stale used-set is recoverable and is labeled in the run output; no reco
 
 `test/weekcard.test.html` runs the model in the browser against
 `test/fixtures/odds-2026-09-08.json` — a frozen 272-event snapshot reassembled from
-`data/odds/history/`, so the golden case cannot drift as the live feed moves. 67 assertions
+`data/odds/history/`, so the golden case cannot drift as the live feed moves. 68 assertions
 covering the model, the log's freeze and carry-forward rules, and the shape of a logged card; open
 it on the dev server. There is no node in this environment and no build step, so the test is a
 page rather than a runner — same reasoning as `assets-review.html`.
 
 **The golden case is Week 1 2026**: LAC 80.7 / JAC 77.5 / DET 73.1 are the only three clearing the
-floor at 4+ books, and the expected card is **JAC / LAC / JAC / LAC** with 2/2 exposure and DET
-*held*. If a change makes DET spendable, or collapses the exposure to 1/1, the change is wrong.
+floor at 4+ books, and the expected card is **JAC / LAC / JAC** (Mike's / Poop / Deadpool) with 2/2
+exposure and DET *held*. It read JAC / LAC / JAC / LAC until East Orange was removed; the half-pot
+band that pool exercised is now tested on a made-up half-pot league. If a change makes DET spendable, or collapses the exposure to 1/1, the change is wrong.
 
 ## Sleeper Pools — Live Feed
 
-**Three survivor pools** (`Poop 2026` 29 entries, `Deadpool` 20, `East Orange Squeeze` 8 —
-roster counts re-read 2026-09-09) plus the
+**Two survivor pools** (`Poop 2026` 29 entries, `Deadpool` 20 — roster counts re-read
+2026-09-09; East Orange Squeeze was the third until it dissolved after Week 1) plus the
 **Infinity War** pick'em are fetched straight from Sleeper by a **Refresh from Sleeper** button —
 on the Grid tab for the survivor pools, in the tab itself for Infinity War. No script, no
 workflow, no committed file: the browser calls Sleeper and caches the answer in localStorage.
@@ -1115,8 +1119,8 @@ refresh instead of being hand-typed. `mergeMyPicks()` merges rather than replace
 feed has not reached keeps whatever was entered by hand.
 
 **Explained 2026-08-28, still do not "fix" it — and now contradicted in three directions at
-once.** Poop reports `num_revives_allowed: 0`, Deadpool `2`, East Orange `10`; all three pools
-run two buy-backs by their commissioners' accounts. Sleeper's settings report
+once.** Poop reports `num_revives_allowed: 0`, Deadpool `2`, East Orange (since dissolved) `10`; all
+three pools ran two buy-backs by their commissioners' accounts. Sleeper's settings report
 `num_revives_allowed: 0` for Poop while the pool plainly runs buy-backs — because the commissioner
 administers re-entry **outside the app**, by hand. So that field describes Sleeper's own
 bookkeeping, not the pool's rules. Treat the API value as inert: never let it gate a buy-back
@@ -1127,8 +1131,9 @@ playing.
 ## Infinity War — Read Before Changing Any Number
 
 Built 2026-09-01. A Sleeper **classic pick'em** (`pickem_type: 0`, `weekly_pick_limit: 8`),
-10–15 entrants, **$50 in**. **$20 a week to the most correct**; the remainder to the top one or
-two at the end of the season. Sits on the Season Long row — row 1 is the size of the *kinds* of
+**18 entrants**, **$50 in**. **$20 a week to the most correct**; at the end of the season
+**$380 to 1st and $160 to 2nd** (confirmed by the owner 2026-09-14). Not one of Mike's pools —
+nothing about it comes from his emails. Sits on the Season Long row — row 1 is the size of the *kinds* of
 game, not the count of leagues.
 
 `js/infinityWar.js` (render) over `js/infinityModel.js` (pure math), the same split as
@@ -1138,7 +1143,7 @@ game, not the count of leagues.
 
 - **The season prize wants maximum expected correct.** That is the chalk eight — the eight most
   lopsided games — every week, with no cleverness at all. `chalkSet()` does it in one line.
-- **The weekly $20 wants the highest chance of beating 10–15 people.** Different objective, and
+- **The weekly $20 wants the highest chance of beating 17 people.** Different objective, and
   in a small pool it actively conflicts with the first.
 
 **If everyone picks chalk, everyone picks the same eight and everyone scores identically.** The
@@ -1911,7 +1916,7 @@ Schedule's highlights, so the two can never disagree. Precedence:
   the owner he had picked the Chargers in Poop and East Orange when he had not. **Only the Pick
   Sheet's email falls back**, and it prints a note saying the suicide line is the recommendation.
 - **`data/picks-sent-<year>.json` holds every pool's pick**: `weeks.<N>.survivor = { mike, sleeper,
-  deadpool, eastorange }` (abbreviations; `sleeper` is Poop). The Picks tab builds its used-teams
+  deadpool }` (abbreviations; `sleeper` is Poop; `eastorange` may appear in Week 1 only). The Picks tab builds its used-teams
   boards from `survivorBoard()` (sent file + this device), excluding the week on screen so marking
   this week's pick does not flip this week's recommendation.
 - **The Picks tab shows "Your pick" above "Recommended"** on each pool card, with a live result
