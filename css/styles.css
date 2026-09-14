@@ -3896,6 +3896,22 @@ footer {
 .st-pool-foot .st-note { margin: 0; }
 .st-pool-foot .btn { min-height: 46px; }
 .st-err { color: var(--bad); }
+/* Payout facts under a card's boxes: a quiet list, money in bold. */
+.st-pay { list-style: none; margin: 8px 0 4px; padding: 10px 12px; background: var(--paper); border-radius: var(--r-md); font-size: .875rem; color: var(--ink-soft); display: grid; gap: 4px; }
+.st-pay strong { color: var(--ink); font-weight: 600; }
+/* The burn matrix: a count per team per week, tinted by how that week went.
+   Tints are the verdict pills' own pairs, already measured for contrast. */
+.st-burntable td, .st-burntable th { padding-left: 6px; padding-right: 6px; }
+.st-burntable tfoot td { font-weight: 600; color: var(--ink-quiet); border-bottom: 0; }
+.st-burn.is-won { background: #E0F2F1; color: var(--teal-ink); }
+.st-burn.is-lost, .st-burn.is-tie { background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+.st-burn.is-live { background: var(--purple-soft); color: var(--violet-ink); }
+.st-burn.is-mine { box-shadow: inset 0 0 0 2px var(--violet-ink); font-weight: 700; }
+.st-key { display: inline-block; padding: 0 6px; margin-right: 4px; border-radius: 4px; }
+.st-key.is-won { background: #E0F2F1; color: var(--teal-ink); }
+.st-key.is-lost { background: var(--bad-bg); color: var(--bad); }
+.st-key.is-live { background: var(--purple-soft); color: var(--violet-ink); }
+.st-key.is-mine { box-shadow: inset 0 0 0 2px var(--violet-ink); color: var(--ink); }
 .st-connect { margin-top: 10px; }
 .st-games { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .st-game { border: 1px solid var(--line); border-radius: var(--r-md); padding: 10px 12px; }

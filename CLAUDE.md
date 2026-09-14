@@ -33,8 +33,10 @@ A personal analysis tool to help pick winners each week across two NFL pick'em p
 1. **Season-long straight-up pool** — pick the outright winner of every game each week (no point
    spread). ~200–300 entrants. Picks due end of day **Saturday**, so Thursday night games are
    excluded except the Thanksgiving and Christmas holiday slates, where picks are due before
-   Thursday kickoff. **$1,000 paid out each week** to the most correct picks, with the Monday night
-   game's total points as the tiebreaker; roughly **$5–6k** to the season-long winners.
+   Thursday kickoff. **$1,270 paid out each week** to the most correct picks, with the Monday night
+   game's total points as the tiebreaker; **$2,540** to the season-long winner (corrected 2026-09-14
+   from "$1,000 a week / $5–6k season": Mike's 2026 email says **$1,270 a week**, and the owner
+   confirmed the season prize). Tied on correct and on the Monday guess: **split evenly**.
    **The tiebreaker is closest by ABSOLUTE value** — confirmed 2026-09-09 — not closest without
    going over. That distinction decides which direction to miss in, so do not re-derive it from
    the fact that most pools do it one way; see "The tiebreaker guess" below.
@@ -146,6 +148,7 @@ js/squaresChrome.js SHARED — St. Jude banner, theme hook, footer nav       [NE
 js/myPicks.js       SHARED — what I picked: Pick Sheet card + survivor picks [NEVER versioned]
 js/liveModel.js     SHARED — live pool standings math, pure data           [NEVER versioned]
 js/standingsModel.js SHARED — Sleeper pools' standings math, pure data     [NEVER versioned]
+js/payouts.js       SHARED — prize winners, season tables, burn matrix     [NEVER versioned]
 js/standings.js     Standings — Season Long: Mike's pick'em + Infinity War; Survivor: Mike's suicide + Poop + Deadpool
 js/squares.js       Squares Board tab — one week: matchup, board, payouts
 js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
@@ -1952,6 +1955,23 @@ against live ESPN state, so it needs nothing from his answer key. My entry is fo
     `liveModel.js` or `infinityModel.js`: those are cached in visitors' browsers, and a fresh
     caller importing a name a cached copy lacks blanks the site. A file nobody has cached cannot
     be stale.
+- **Payouts and "All weeks" (2026-09-14).** Prize money lives in the hand-kept
+  `data/payouts-<year>.json` — Mike's $1,270 weekly / $2,540 season, the suicide pool's $5,650,
+  Infinity War's $20 weekly with $380 / $160 season prizes, and Poop / Deadpool as a base pot plus
+  **hand-entered** `buybacksByWeek` (buy-backs cannot be read from Sleeper; update the file when
+  the owner reports them). Every card shows its payout line; the dropdown's **All weeks** swaps in
+  season views. Rules that each have a reason:
+  - **The season is graded in the browser, week by week, from ESPN scores** — it does not wait on
+    `scripts/grade_week.py` or `data/results/`, which did not exist when this shipped.
+  - **Money counts only for a complete week** (every game final). An unfinished week shows its
+    leaders and pays nobody. Mike's weekly tie rule: most correct, then Monday total closest by
+    absolute value, then an even split (`pickemWeekResult()`); Infinity War splits ties.
+  - **Mike's pick'em weeks with no parsed cards are skipped and named**, not guessed.
+  - **The survivor season view is a burn matrix**: teams down, weeks across, how many entries took
+    each team each week, tinted won / lost / playing, my pick ringed. The owner left the shape open;
+    it is the pool-level mirror of the Grid. Losses are **counted, never turned into
+    eliminations** — buy-backs happen outside Sleeper.
+  - Math in the new `js/payouts.js`, for the same cached-module reason as `standingsModel.js`.
 - **Week dropdown (2026-09-14).** Defaults to `poolWeek()` — the Wednesday 6pm rule above, shared
   with Squares — never `currentWeek()`, which would replace Monday night's settled standings with
   an empty week hours after the last game. It offers Week 1 through that default, never a future
