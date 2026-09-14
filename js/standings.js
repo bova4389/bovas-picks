@@ -1,21 +1,36 @@
 /* ==========================================================================
-   Standings — how I am doing against Mike's two pools, live, while the
-   week's games are still being played.
+   Standings — how I am doing against Mike's pools, live, while the week's
+   games are still being played.
 
    Answers the Sunday question the rest of the site could not: "with the 4pm,
    the night game and Monday still to go, can I still win this week, and what
    do I need?" The math is in js/liveModel.js; this file fetches and draws.
 
-   One panel reached from both nav rows (the Odds precedent): the pick'em half
-   belongs to Season Long, the suicide half to Survivor.
+   TWO PANELS, ONE MODULE. Standings used to be one panel reached from both
+   nav rows, and it rendered both halves on both -- so Season Long showed the
+   suicide pool and Survivor showed the pick'em. Since 2026-09-14 each row has
+   its own panel and `initStandings(root, season, mode)` builds an independent
+   instance for each:
+
+     mode 'season'    Mike's pick'em            (panel-standings)
+     mode 'survivor'  Mike's suicide pool       (panel-survivor-standings)
+
+   Every instance owns its own state and its own polling timer, closed over
+   below. They share no module-level state on purpose: two timers writing one
+   object reads fine and misbehaves once. Feeds are memoized by loadJSON in
+   data.js, so a second instance costs no extra network.
+
+   The survivor half renders the pick board from js/survivorPicks.js -- the
+   format that used to sit under the Grid -- with the summary boxes above it.
+   The Grid no longer carries the board.
 
    PRE-GAME PRICES ONLY. The odds bot keeps snapshotting during games, and a
    snapshot taken at 2:30pm is an in-play price that already knows the score.
    Feeding that to liveProb(), which adds the score itself, would count the
    lead twice -- so each game uses the last snapshot taken BEFORE kickoff.
 
-   Polls on the Schedule tab's policy: only while this panel is showing, the
-   browser tab is in front, and a game is live or about to be.
+   Polls on the Schedule tab's policy: only while THIS instance's panel is
+   showing, the browser tab is in front, and a game is live or about to be.
 
    NEVER add a ?v= to this file -- see data.js's note on module identity.
    ========================================================================== */
@@ -28,6 +43,8 @@ import { loadWeek, currentWeek, anyLive, msToNextKickoff } from './gameState.js'
 import { buildSeasonOddsIndex, matchSeasonOdds, orientProbs } from './oddsMatch.js';
 import { clearScoreboardCache } from './espn.js';
 import { ABBR_TO_MASCOT } from './teams.js';
+import { getIdentity } from './teamIdentity.js';
+import { renderPickBoard } from './survivorPicks.js';
 import {
   slateRows, scoreEntries, rankNow, bestCase, winChance, survivorWeek, fractionLeft,
 } from './liveModel.js';
@@ -39,12 +56,10 @@ const MY_NICK = 'Bova';
 const POLL_MS = 25_000;
 const PREKICK_MS = 15 * 60 * 1000;
 
-const S = {
-  root: null, panel: null, season: null, week: null,
-  schedule: null, map: null, cards: null, survivor: null,
-  prices: new Map(), totals: new Map(),
-  view: null, timer: null, busy: false,
-};
+/* The suicide pool as the pick board expects a league: a name for the empty
+   states, and `live: false` because it is parsed from the mailed workbook
+   rather than refreshed from Sleeper. */
+const MIKE_SUICIDE = { id: 'mike', name: "Mike's Suicide League", live: false };
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -54,30 +69,77 @@ const ordinal = (n) => `${n}${['th', 'st', 'nd', 'rd'][(n % 100 - 20) % 10] || [
 
 /* ── Boot ─────────────────────────────────────────────────────────────── */
 
-export async function initStandings(root, season) {
+/**
+ * @param {HTMLElement} root
+ * @param {number} season
+ * @param {'season'|'survivor'} mode  which row's standings this instance draws
+ */
+export async function initStandings(root, season, mode) {
   if (!root) return;
-  S.root = root;
-  S.panel = root.closest('.panel');
-  S.season = season;
 
-  const [schedule, map, survivor, odds] = await Promise.all([
-    getSchedule(season), tryNumberMap(season), getSurvivor(season), getOddsSnapshot(),
+  const S = {
+    root, mode, season,
+    panel: root.closest('.panel'),
+    week: null, schedule: null, map: null, cards: null, survivor: null, identity: null,
+    prices: new Map(), totals: new Map(),
+    view: null, timer: null, busy: false,
+  };
+
+  const [schedule, map, survivor, odds, identity] = await Promise.all([
+    getSchedule(season),
+    mode === 'season' ? tryNumberMap(season) : null,
+    mode === 'survivor' ? getSurvivor(season) : null,
+    mode === 'season' ? getOddsSnapshot() : null,
+    mode === 'survivor' ? getIdentity() : null,
   ]);
   S.schedule = schedule;
   S.map = map && Number(map.year) === Number(season) ? map : null;
   S.survivor = survivor && Number(survivor.year) === Number(season) ? survivor : null;
+  S.identity = identity;
 
   if (!schedule?.games?.length) {
-    root.innerHTML = head() + '<p class="lede">No schedule loaded for this season.</p>';
+    root.innerHTML = head(S) + '<p class="lede">No schedule loaded for this season.</p>';
     return;
   }
   S.week = currentWeek(schedule);
 
-  const [cards] = await Promise.all([loadCards(season, S.week), loadPrices(odds)]);
-  S.cards = cards;
+  if (mode === 'season') {
+    const [cards] = await Promise.all([loadCards(season, S.week), loadPrices(S, odds)]);
+    S.cards = cards;
+  }
+
+  const showing = () => !document.hidden && S.panel && !S.panel.hidden;
+
+  const stop = () => {
+    if (S.timer) clearTimeout(S.timer);
+    S.timer = null;
+  };
+
+  const schedulePoll = () => {
+    stop();
+    if (!S.view || !showing()) return;
+    const next = msToNextKickoff(S.view.games);
+    if (anyLive(S.view.games) || (next != null && next <= PREKICK_MS)) {
+      S.timer = setTimeout(() => refresh(), POLL_MS);
+    }
+  };
+
+  async function refresh(force = false) {
+    if (S.busy) return;
+    S.busy = true;
+    try {
+      S.view = await loadWeek(S.season, S.week, { live: true, maxAgeMs: force ? 0 : POLL_MS });
+      render(S);
+    } finally {
+      S.busy = false;
+    }
+    schedulePoll();
+  }
+
+  const onShow = () => (showing() ? refresh() : stop());
 
   root.addEventListener('click', (e) => {
-    if (e.target.closest('#st-refresh')) { clearScoreboardCache(); refresh(true); }
+    if (e.target.closest('[data-st="refresh"]')) { clearScoreboardCache(); refresh(true); }
   });
   document.addEventListener('visibilitychange', onShow);
   document.addEventListener('panelchange', onShow);
@@ -96,7 +158,7 @@ async function loadCards(season, week) {
 }
 
 /** Pre-kickoff away win probability and total, per "Away|Home" mascot pair. */
-async function loadPrices(odds) {
+async function loadPrices(S, odds) {
   if (!odds?.events) return;
   const index = buildSeasonOddsIndex(odds.events);
   const games = S.schedule.games.filter((g) => g.week === S.week);
@@ -115,70 +177,34 @@ async function loadPrices(odds) {
   }));
 }
 
-/* ── Refresh + polling ────────────────────────────────────────────────── */
-
-const showing = () => !document.hidden && S.panel && !S.panel.hidden;
-
-function onShow() {
-  if (showing()) refresh();
-  else stop();
-}
-
-async function refresh(force = false) {
-  if (S.busy) return;
-  S.busy = true;
-  try {
-    S.view = await loadWeek(S.season, S.week, { live: true, maxAgeMs: force ? 0 : POLL_MS });
-    render();
-  } finally {
-    S.busy = false;
-  }
-  schedule();
-}
-
-function schedule() {
-  stop();
-  if (!S.view || !showing()) return;
-  const next = msToNextKickoff(S.view.games);
-  if (anyLive(S.view.games) || (next != null && next <= PREKICK_MS)) {
-    S.timer = setTimeout(() => refresh(), POLL_MS);
-  }
-}
-
-function stop() {
-  if (S.timer) clearTimeout(S.timer);
-  S.timer = null;
-}
-
 /* ── Render ───────────────────────────────────────────────────────────── */
 
-function head() {
+function head(S) {
   return `
     <div class="section-head">
       <div>
-        <p class="eyebrow">Mike's pools · live</p>
+        <p class="eyebrow">${S.mode === 'survivor' ? "Mike's suicide pool" : "Mike's pick'em"} · live</p>
         <h2>Standings</h2>
       </div>
-      <button type="button" class="btn btn-ghost" id="st-refresh">Refresh</button>
+      <button type="button" class="btn btn-ghost" data-st="refresh">Refresh</button>
     </div>`;
 }
 
-function render() {
+function render(S) {
   const live = S.view.games;
   const updated = S.view.fetchedAt
     ? `Scores as of ${new Date(S.view.fetchedAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}`
     : 'Scores from the committed schedule (live feed unavailable)';
 
   S.root.innerHTML = `
-    ${head()}
+    ${head(S)}
     <p class="lede">Week ${S.week} · ${esc(updated)}</p>
-    ${pickemSection(live)}
-    ${survivorSection(live)}`;
+    ${S.mode === 'survivor' ? survivorSection(S, live) : pickemSection(S, live)}`;
 }
 
 /* ── Pick'em ──────────────────────────────────────────────────────────── */
 
-function pickemSection(live) {
+function pickemSection(S, live) {
   if (!S.map || !S.cards) {
     return card("Mike's pick'em", 'Waiting on the cards',
       `<p class="lede">Week ${S.week}'s picks from Mike haven't been loaded yet. Run
@@ -305,24 +331,32 @@ function leaderboard(ranked, me) {
   if (!top.includes(me)) top.push(me);
   const rows = top.map((e) => `
     <tr class="${e === me ? 'is-me' : ''}">
-      <td>${e.rank}</td>
-      <td class="st-name">${esc(e.nick || e.name || `#${e.entry}`)}</td>
-      <td>${e.correct}</td>
-      <td>${e.winningNow}</td>
-      <td>${e.max}</td>
-      <td>${e.mnf ?? '—'}</td>
+      <td class="st-num">${e.rank}</td>
+      <td class="st-name"><span>${esc(e.nick || e.name || `#${e.entry}`)}</span></td>
+      <td class="st-num">${e.correct}</td>
+      <td class="st-num">${e.winningNow}</td>
+      <td class="st-num">${e.max}</td>
+      <td class="st-num">${e.mnf ?? '—'}</td>
     </tr>`).join('');
   return `
     <h4 class="st-sub">Leaderboard</h4>
     <div class="st-tablewrap"><table class="st-table">
-      <thead><tr><th>#</th><th>Entry</th><th>Right</th><th>Winning</th><th>Max</th><th>MNF</th></tr></thead>
+      <thead><tr>
+        <th class="st-num">#</th><th>Entry</th><th class="st-num">Right</th>
+        <th class="st-num">Winning</th><th class="st-num">Max</th><th class="st-num">MNF</th>
+      </tr></thead>
       <tbody>${rows}</tbody>
     </table></div>`;
 }
 
 /* ── Suicide ──────────────────────────────────────────────────────────── */
 
-function survivorSection(live) {
+const SURVIVOR_LABEL = {
+  won: 'Won', lost: 'Lost', tie: 'Tied (counts as a loss?)',
+  leading: 'Winning', trailing: 'Losing', tied: 'Tied', pre: 'Not started',
+};
+
+function survivorSection(S, live) {
   if (!S.survivor) {
     return card("Mike's suicide pool", 'Waiting on the sheet',
       '<p class="lede">Run <code>scripts/parse_survivor.py</code> on Mike\'s Suicide workbook.</p>');
@@ -337,22 +371,39 @@ function survivorSection(live) {
   const mineEntry = S.survivor.entries.find((e) => String(e.nick).trim() === MY_NICK);
   const myTeam = mineEntry?.picks?.[String(S.week)];
   const myRow = wk.teams.find((t) => t.team === myTeam);
-  const label = {
-    won: 'Won', lost: 'Lost', tie: 'Tied (counts as a loss?)', leading: 'Winning', trailing: 'Losing', tied: 'Tied', pre: 'Not started',
-  };
 
   const mine = myRow
     ? `<p class="st-verdict-row"><span class="st-verdict ${myRow.status === 'won' ? 'is-win' : myRow.status === 'lost' ? 'is-out' : 'is-alive'}">
-        Your pick ${esc(ABBR_TO_MASCOT[myTeam] || myTeam)}: ${label[myRow.status]}${scoreText(myRow)}</span></p>`
+        Your pick ${esc(ABBR_TO_MASCOT[myTeam] || myTeam)}: ${SURVIVOR_LABEL[myRow.status]}${scoreText(myRow)}</span></p>`
     : '<p class="st-note">No pick found for you this week.</p>';
 
-  const teamRows = wk.teams.map((t) => `
-    <tr class="st-s-${t.status}${t.team === myTeam ? ' is-me' : ''}">
-      <td class="st-name">${esc(ABBR_TO_MASCOT[t.team] || t.team)}</td>
-      <td>${t.count}</td>
-      <td>${Math.round((100 * t.count) / wk.total)}%</td>
-      <td>${label[t.status]}${scoreText(t)}</td>
-    </tr>`).join('');
+  // What happened to each team's game, for the board's status line. Built
+  // from the same survivorWeek() result the boxes above are counted from, so
+  // the two can never disagree about who survived.
+  const status = new Map(wk.teams.map((t) => [t.team, {
+    text: statusText(t),
+    tone: t.status === 'won' ? 'won'
+      : t.status === 'lost' || t.status === 'tie' ? 'lost'
+        : t.status === 'pre' ? 'pre' : 'live',
+  }]));
+
+  // renderPickBoard into a detached element rather than pickBoardHtml(): the
+  // older export name is the one a cached copy of survivorPicks.js is sure to
+  // have -- see the note on renderPickBoard. A cached copy also ignores
+  // `status` and `embedded`, which costs the status line for a few minutes
+  // rather than the page.
+  const host = document.createElement('div');
+  renderPickBoard(host, {
+    feed: S.survivor,
+    season: S.season,
+    league: MIKE_SUICIDE,
+    identity: S.identity,
+    week: S.week,
+    mine: mineEntry ? { picks: mineEntry.picks } : null,
+    status,
+    embedded: true,
+  });
+  const board = host.innerHTML;
 
   return card("Mike's suicide pool", `Week ${S.week}: ${wk.total} entries`, `
     ${mine}
@@ -363,10 +414,19 @@ function survivorSection(live) {
       <div><strong>${wk.notStarted}</strong><span>not started</span></div>
     </div>
     <p class="st-note">Whatever happens next, between <strong>${wk.floor}</strong> and <strong>${wk.ceiling}</strong> of ${wk.total} get through Week ${S.week}.</p>
-    <div class="st-tablewrap"><table class="st-table">
-      <thead><tr><th>Team</th><th>Entries</th><th>Share</th><th>Status</th></tr></thead>
-      <tbody>${teamRows}</tbody>
-    </table></div>`);
+    ${board}`);
+}
+
+/** A team's game as one short line: the result and score once it has
+ *  started, the kickoff before. */
+function statusText(t) {
+  if (t.status === 'pre') {
+    const k = t.game?.kickoff;
+    return k
+      ? new Date(k).toLocaleString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' })
+      : SURVIVOR_LABEL.pre;
+  }
+  return `${SURVIVOR_LABEL[t.status]}${scoreText(t)}`;
 }
 
 function scoreText(t) {

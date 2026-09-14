@@ -54,6 +54,7 @@ const PANELS = {
   recommend: { label: 'Recommend' },
   infinity:  { label: 'Infinity War' },
   standings: { label: 'Standings' },
+  'survivor-standings': { label: 'Standings' },
   lookback:  { label: 'Lookback', soon: true },
   survivor:  { label: 'Planning' },
   picks:     { label: 'Picks' },
@@ -93,9 +94,10 @@ const GROUPS = [
     // the decision. It is also the one view in this row that ignores the pool
     // switcher entirely -- it reads every pool's board at once, which is a
     // question none of the three before it can ask (see js/weekCard.js).
-    // Standings is shared with Season Long (one panel, two routes -- the Odds
-    // precedent); its second half is Mike's suicide pool.
-    panels: ['grid', 'odds', 'survivor', 'picks', 'standings'],
+    // Standings is its OWN panel here, not Season Long's reached twice. It
+    // was shared until 2026-09-14 and rendered both pools on both rows; each
+    // row now draws only its own pool (see js/standings.js).
+    panels: ['grid', 'odds', 'survivor', 'picks', 'survivor-standings'],
   },
   {
     id: 'squares',
@@ -305,11 +307,21 @@ arrowNav(subNav, '.subtab', () => groupById(active.group).panels,
    re-homed to a group that still carries it rather than being thrown away.
    ------------------------------------------------------------------------ */
 
+const MOVED = {
+  'survivor/standings': { group: 'survivor', panel: 'survivor-standings' },
+};
+
 function fromHash(hash) {
   const [a, b] = hash.replace(/^#/, '').split('/');
   if (!a) return null;
 
   if (b && groupById(a)?.panels.includes(b)) return { group: a, panel: b };
+
+  // Panels that were renamed rather than moved, where re-homing by name would
+  // land in the wrong row: "#survivor/standings" predates the split and means
+  // the survivor half, which is now its own panel.
+  const renamed = MOVED[`${a}/${b}`];
+  if (renamed) return renamed;
   if (groupById(a) && !b) return { group: a, panel: lastPanel.get(a) };
 
   // The panel half is the part worth keeping: a saved "#season/grid" means
@@ -341,6 +353,7 @@ initRecommend(document.getElementById('recommend-root'));
 initPlanning(document.getElementById('survivor-root'), SEASON);
 initWeekCard(document.getElementById('picks-root'), SEASON);
 initInfinityWar(document.getElementById('infinity-root'), SEASON);
-initStandings(document.getElementById('standings-root'), SEASON);
+initStandings(document.getElementById('standings-root'), SEASON, 'season');
+initStandings(document.getElementById('survivor-standings-root'), SEASON, 'survivor');
 initSquares(document.getElementById('squares-root'), SEASON);
 initSquaresLedger(document.getElementById('squares-season-root'), SEASON);
