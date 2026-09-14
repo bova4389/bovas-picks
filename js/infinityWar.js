@@ -1,9 +1,10 @@
 /* ==========================================================================
    Infinity War — the season-long pick'em where you pick eight.
 
-   A Sleeper classic pick'em (`pickem_type: 0`, `weekly_pick_limit: 8`), 10-15
-   entrants, $50 in. $20 a week to the most correct; the rest to the top one
-   or two at the end of the season.
+   A Sleeper classic pick'em (`pickem_type: 0`, `weekly_pick_limit: 8`), 18
+   entrants, $50 in. $20 a week to the most correct; $380 to 1st and $160 to
+   2nd at the end of the season (owner, 2026-09-14). 18 x $50 = $900 =
+   18 weekly prizes + $380 + $160, so the pot is fully accounted for.
 
    READ js/infinityModel.js's HEADER BEFORE CHANGING ANY NUMBER HERE. The two
    prizes in this pool want opposite things -- the season prize wants the
@@ -50,18 +51,17 @@ export const POOL = {
     leagueId: '1400511807180828672',
     userId: '721908735856967680',
   },
-  economics: { entry: 50, weekly: 20, potShare: 1 },
+  economics: { entry: 50, weekly: 20, season: { first: 380, second: 160 }, potShare: 1 },
 };
 
 const PREF_KEY = 'infinity:prefs';
 const PICKS_KEY = (season, week) => `infinity:${season}:${week}`;
 
 const DEFAULTS = {
-  // Opponents, NOT counting me. The pool had one entry (mine) when this was
-  // built, so there is nothing to read yet -- 11 is the middle of the 10-15
-  // the commissioner expects. Overwritten by the live count once the pool
-  // fills and Refresh has been pressed once.
-  fieldSize: 11,
+  // Opponents, NOT counting me: 18 entrants (owner, 2026-09-14) minus one.
+  // Overwritten by the live count once Refresh has been pressed. A stored
+  // `infinity:prefs` from before this change keeps its old number until then.
+  fieldSize: 17,
   // How far the field strays from chalk. A guess, deliberately exposed as a
   // control rather than buried as a constant -- see simulateField()'s note.
   spread: 5,

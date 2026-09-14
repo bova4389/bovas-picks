@@ -9,9 +9,9 @@
    This is the one view that must deliberately ignore the switcher. The
    question it answers cannot be asked one pool at a time:
 
-     "Given four pools with four different formats and four different
-      used-team boards, what do I submit in each one this week, and am I
-      over-exposed to a single game?"
+     "Given several pools with different formats and separate used-team
+      boards, what do I submit in each one this week, and am I over-exposed
+      to a single game?"
 
    No DOM, no fetching, no colors -- same contract as js/planModel.js, which
    this leans on rather than re-deriving. js/weekCard.js decides what any of it
@@ -22,8 +22,8 @@
    1. NEVER UNION USED-TEAM LISTS ACROSS POOLS. State is per league, and the
       Grid re-strikes its rows on a switch rather than merging them. Every
       board here is built from ONE league's used-set. A union would quietly
-      remove teams that are still perfectly spendable in three of the four
-      pools -- and it would look right.
+      remove teams that are still perfectly spendable in the other pools -- and
+      it would look right.
 
    2. NEVER TEST A PROJECTION AGAINST THE 0.70 FLOOR. planModel.js's header
       has the long version: preseason regression compresses the spread so hard
@@ -79,11 +79,13 @@ export const MIN_BOOKS = 4;
  *
  * Five points in a full-pot pool. Two in a pool that plays for half its money,
  * because the thing a give-up buys there -- a cheap extra attempt -- is not
- * cheap: a buy-back runs ~8% of East Orange's playable pot against ~1% in Poop
+ * cheap: a buy-back ran ~8% of East Orange's playable pot against ~1% in Poop
  * and Deadpool (SURVIVOR-STRATEGY.md, "East Orange's half pot").
  *
- * Driven off `economics.potShare`, NEVER off a league id, so the tighter band
- * follows the economics if the pool grows or another half-pot pool is added.
+ * No current pool is half-pot -- East Orange was dissolved after Week 1 of
+ * 2026 -- so BAND_HALF_POT has no live user. It stays because it is driven off
+ * `economics.potShare`, NEVER off a league id, so the next half-pot pool gets
+ * the tighter band from its config alone.
  */
 export const BAND = 0.05;
 export const BAND_HALF_POT = 0.02;
@@ -120,7 +122,7 @@ export const FV_EDGE = 0.02;
 /**
  * Entries below which the leverage term is not worth computing at all.
  *
- * SURVIVOR-STRATEGY.md §2: at 8-29 entries "there simply aren't enough rivals
+ * SURVIVOR-STRATEGY.md §2: at 20-29 entries "there simply aren't enough rivals
  * for a fade to buy anything", and chasing contrarian value is a pure cost.
  * Only Mike's 235-entry pool is above this.
  */
@@ -269,7 +271,7 @@ export function candidatesFor({ model, projections, week, weeks, used, books }) 
  *   measured numbers arrive after kickoff; it means this branch must say it
  *   has no leverage rather than print one it cannot have.
  *
- * THREE LIVES, FEW RIVALS (Poop, Deadpool, East Orange). §2: "play close to
+ * THREE LIVES, FEW RIVALS (Poop, Deadpool). §2: "play close to
  * pure win probability, filtered by future value". Win probability leads and
  * future value breaks ties -- the reverse of Mike's, deliberately. With 2
  * buy-backs across 29 entries Poop holds ~85 lives and will run deep, so
@@ -366,8 +368,8 @@ export function modeledShare(p, k = DEFAULT_K) {
  * Poop and Deadpool are identical -- $30 in, $15 a buy-back, three lives, full
  * pot (confirmed 2026-09-09) -- which is what makes a duplicated pick across
  * them one correlated bet rather than two independent ones. Mike's is a
- * different game (one life) and East Orange is a different game (half pot), so
- * a pick shared with either of those is not the duplicate this layer means.
+ * different game (one life), and so would a half-pot pool be, so a pick shared
+ * with either of those is not the duplicate this layer means.
  */
 export function formatKey(league) {
   const e = league?.economics || {};
@@ -509,7 +511,7 @@ export function exposureOf(picks) {
   // What a single ticket everywhere would have cost, so the split has
   // something to be measured against rather than being asserted as prudent.
   //
-  // The counterfactual is the BEST of the picks carried across all four, not
+  // The counterfactual is the BEST of the picks carried across every pool, not
   // the worst -- "I did not split" means every pool took the team the card
   // ranked first, so the honest comparison is against the strongest single
   // ticket. Measuring against the weakest would flatter the split by pricing

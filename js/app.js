@@ -91,7 +91,7 @@ const GROUPS = [
     //
     // Picks goes last because it is the OUTPUT: reference, then analysis, then
     // the decision. It is also the one view in this row that ignores the pool
-    // switcher entirely -- it reads all four boards at once, which is a
+    // switcher entirely -- it reads every pool's board at once, which is a
     // question none of the three before it can ask (see js/weekCard.js).
     // Standings is shared with Season Long (one panel, two routes -- the Odds
     // precedent); its second half is Mike's suicide pool.
