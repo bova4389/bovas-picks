@@ -43,6 +43,15 @@
    The header (with the dropdown) is drawn once and only the body re-renders
    on a poll, so a live-score refresh never snaps an open dropdown shut.
 
+   PAYOUTS AND "ALL WEEKS" (2026-09-14). Prize money comes from the
+   hand-kept data/payouts-<year>.json. Every card carries a payout line, and
+   the week dropdown's "All weeks" option swaps the week's cards for season
+   views: Mike's pick'em and Infinity War as year-to-date tables (correct,
+   weeks won, money), each survivor pool as a burn matrix of the teams it has
+   spent. The season is graded here, from ESPN scores, week by week -- it does
+   not wait on scripts/grade_week.py -- and money is counted only for a week
+   whose every game is final. The math is in js/payouts.js.
+
    The survivor half renders the pick board from js/survivorPicks.js -- the
    format that used to sit under the Grid -- with the summary boxes above it.
    The Grid no longer carries the board.
@@ -79,6 +88,9 @@ import { getToken, tokenInfo, mountConnectBoxes } from './sleeperAuth.js';
 import {
   teamIndex, gradePickemWeek, weekPrize, survivorCoverage,
 } from './standingsModel.js';
+import {
+  entryKey, pickemWeekResult, seasonTable, paidSoFar, potOf, burnMatrix, outcomeMap, money,
+} from './payouts.js';
 import {
   slateRows, scoreEntries, rankNow, bestCase, winChance, survivorWeek, fractionLeft,
 } from './liveModel.js';
@@ -119,15 +131,19 @@ export async function initStandings(root, season, mode) {
     prices: new Map(), totals: new Map(),
     view: null, timer: null, busy: false, again: false,
     poolBusy: new Set(), poolMsg: new Map(),
+    payouts: null, allWeeks: false, ytd: null, ytdBusy: false, ytdAgain: false,
+    cardCache: new Map(), weekViews: new Map(),
   };
 
-  const [schedule, map, survivor, odds, identity] = await Promise.all([
+  const [schedule, map, survivor, odds, identity, payouts] = await Promise.all([
     getSchedule(season),
     mode === 'season' ? tryNumberMap(season) : null,
     mode === 'survivor' ? getSurvivor(season) : null,
     mode === 'season' ? getOddsSnapshot() : null,
     mode === 'survivor' ? getIdentity() : null,
+    loadPayouts(season),
   ]);
+  S.payouts = payouts;
   S.schedule = schedule;
   S.map = map && Number(map.year) === Number(season) ? map : null;
   S.survivor = survivor && Number(survivor.year) === Number(season) ? survivor : null;
@@ -174,6 +190,7 @@ export async function initStandings(root, season, mode) {
       if (week === S.week) {
         S.view = view;
         render(S);
+        updateSeason(S);
       }
     } finally {
       S.busy = false;
@@ -215,16 +232,26 @@ export async function initStandings(root, season, mode) {
     } finally {
       S.poolBusy.delete(id);
       if (S.view) render(S);
+      updateSeason(S);
     }
   }
 
   // Connecting or disconnecting anywhere on the site changes what the Sleeper
   // cards can show.
-  window.addEventListener('sleeperauth', () => { if (S.view) render(S); });
+  window.addEventListener('sleeperauth', () => { if (S.view) render(S); updateSeason(S); });
   root.addEventListener('change', async (e) => {
     if (!e.target.matches('[data-st="week"]')) return;
-    const week = Number(e.target.value);
-    if (!Number.isFinite(week) || week === S.week) return;
+    // "All weeks" keeps the CURRENT week loaded underneath, so live polling
+    // and the in-progress week's numbers carry on while the season shows.
+    const all = e.target.value === 'all';
+    const week = all ? S.defaultWeek : Number(e.target.value);
+    if (!Number.isFinite(week)) return;
+    const was = S.allWeeks;
+    S.allWeeks = all;
+    if (week === S.week) {
+      if (was !== all && S.view) { render(S); updateSeason(S); }
+      return;
+    }
     stop();
     S.week = week;
     S.view = null;
@@ -306,8 +333,9 @@ function head(S) {
       <label class="st-weekpick">
         <span>Week</span>
         <select data-st="week">
+          <option value="all"${S.allWeeks ? ' selected' : ''}>All weeks</option>
           ${weeks.map((w) => `
-            <option value="${w}"${w === S.week ? ' selected' : ''}>Week ${w}${w === S.defaultWeek ? ' — this week' : ''}</option>`).join('')}
+            <option value="${w}"${!S.allWeeks && w === S.week ? ' selected' : ''}>Week ${w}${w === S.defaultWeek ? ' — this week' : ''}</option>`).join('')}
         </select>
       </label>` : ''}`;
 }
@@ -317,6 +345,14 @@ function render(S) {
   const updated = S.view.fetchedAt
     ? `Scores as of ${new Date(S.view.fetchedAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}`
     : 'Scores from the committed schedule (live feed unavailable)';
+
+  if (S.allWeeks) {
+    S.body.innerHTML = `
+      <p class="lede">Season to date · ${esc(updated)}</p>
+      ${S.mode === 'survivor' ? allSurvivor(S) : allPickem(S) + allInfinity(S)}`;
+    mountConnectBoxes(S.body);
+    return;
+  }
 
   S.body.innerHTML = `
     <p class="lede">Week ${S.week} · ${esc(updated)}</p>
@@ -395,8 +431,20 @@ function pickemSection(S, live) {
     <p class="st-note">${esc(bestLine)} Leader has ${leaderCorrect} correct.</p>
     ${sim ? `<p class="st-note st-fine">The percentage is an estimate: pre-game prices${priced < open ? ` (${open - priced} of ${open} games unpriced, treated as coin flips)` : ''}, adjusted for the current score and time left, ties split.</p>` : ''}`;
 
+  const pool = S.payouts?.pools?.['mike-pickem'];
+  const result = pool ? pickemWeekResult(scored, rows, pool.weekly) : null;
+  const mineYtd = S.ytd?.pickem?.table?.find((r) => r.isMe) || null;
+  const pay = pool ? payLines([
+    result.complete
+      ? `Week ${S.week} prize <strong>${money(pool.weekly)}</strong>: ${esc(listNames(result.winners.map((e) => nameOf(e))))}${result.winners.length > 1 ? ` (split, ${money(result.share)} each)` : ''}`
+      : `Week ${S.week} prize <strong>${money(pool.weekly)}</strong> · leader${result.leaders.length > 1 ? 's' : ''} on ${result.top}: ${esc(listNames(result.leaders.map((e) => nameOf(e))))}`,
+    mineYtd ? `Your season: <strong>${money(mineYtd.money)}</strong> · ${money(S.ytd.pickem.paid)} paid out so far` : '',
+    `Season winner gets <strong>${money(pool.season)}</strong>`,
+  ]) : '';
+
   return card("Mike's pick'em", `Week ${S.week}: you vs. ${field.length} others`, `
     ${summary}
+    ${pay}
     ${gamesLeft(rows, me, sim, best.alive)}
     ${tiebreakerLine(me, tbRow, tb)}
     ${leaderboard(ranked, me)}`);
@@ -539,6 +587,7 @@ function survivorSection(S, live) {
       <div><strong>${wk.notStarted}</strong><span>not started</span></div>
     </div>
     <p class="st-note">Whatever happens next, between <strong>${wk.floor}</strong> and <strong>${wk.ceiling}</strong> of ${wk.total} get through Week ${S.week}.</p>
+    ${potLine(S, 'mike-suicide')}
     ${board}`);
 }
 
@@ -622,6 +671,7 @@ function sleeperSurvivorCard(S, league, live) {
       <div><strong>${wk.notStarted + cov.hidden}</strong><span>not started</span></div>
     </div>
     ${gate}
+    ${potLine(S, league.id)}
     ${host.innerHTML}
     ${poolFoot(S, league.id, feed)}`);
 }
@@ -690,6 +740,7 @@ function infinityCard(S, live) {
   return card(INFINITY.name, `Week ${S.week}: ${rows.length} entries`, `
     ${stats}
     <p class="st-verdict-row">${verdict}</p>
+    ${infinityPay(S)}
     ${gate}
     <h4 class="st-sub">This week</h4>
     <div class="st-tablewrap"><table class="st-table">
@@ -703,6 +754,325 @@ function infinityCard(S, live) {
 }
 
 const fmtMoney = (n) => (Number.isInteger(n) ? String(n) : n.toFixed(2));
+
+/* ── Payouts ──────────────────────────────────────────────────────────── */
+
+async function loadPayouts(season) {
+  try {
+    const res = await fetch(`data/payouts-${season}.json`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return Number(data.year) === Number(season) ? data : null;
+  } catch {
+    return null;
+  }
+}
+
+const nameOf = (e) => (String(e.nick || '').trim() === MY_NICK ? 'you' : e.nick || e.name || `#${e.entry}`);
+
+/** "A, B and 3 more" -- a leader list that cannot swallow the card. */
+function listNames(names, max = 3) {
+  const list = names.slice(0, max).join(', ');
+  return names.length > max ? `${list} and ${names.length - max} more` : list;
+}
+
+/** A short run of payout facts under a card's summary boxes. */
+function payLines(lines) {
+  const items = lines.filter(Boolean);
+  return items.length ? `<ul class="st-pay">${items.map((l) => `<li>${l}</li>`).join('')}</ul>` : '';
+}
+
+function potLine(S, id) {
+  const pool = S.payouts?.pools?.[id];
+  const pot = potOf(pool);
+  if (!pot) return '';
+  const detail = pot.buybacks
+    ? ` (${money(pot.base)} + ${pot.buybacks} buy-back${pot.buybacks === 1 ? '' : 's'})`
+    : '';
+  return payLines([
+    `Pot <strong>${money(pot.total)}</strong>${detail}${pool.winnerTakeAll ? ' · winner take all' : ''} · paid when the pool ends`,
+  ]);
+}
+
+function infinityPay(S) {
+  const pool = S.payouts?.pools?.infinity;
+  if (!pool) return '';
+  const ytd = S.ytd?.infinity;
+  const me = ytd?.table?.find((r) => r.isMe) || null;
+  return payLines([
+    me ? `Your season: <strong>${money(me.money)}</strong> · ${money(ytd.paid)} paid out so far` : '',
+    `Season prizes: <strong>${money(pool.season?.first)}</strong> 1st · <strong>${money(pool.season?.second)}</strong> 2nd`,
+  ]);
+}
+
+/* ── The season, graded week by week ─────────────────────────────────────
+   Recomputed after every refresh, pool refresh and connection change. Past
+   weeks' scores come through loadWeek's own cache and cards through
+   S.cardCache, so a 25-second live poll re-reads almost nothing. A second
+   request while one is running is folded into one more pass afterward. */
+
+async function updateSeason(S) {
+  if (S.ytdBusy) { S.ytdAgain = true; return; }
+  S.ytdBusy = true;
+  try {
+    S.ytd = await computeSeason(S);
+    if (S.view) render(S);
+  } catch (err) {
+    console.warn('standings: season view failed', err);
+  } finally {
+    S.ytdBusy = false;
+  }
+  if (S.ytdAgain) {
+    S.ytdAgain = false;
+    updateSeason(S);
+  }
+}
+
+/** One week's scores: the live view for the week on screen, else a cached read. */
+async function viewFor(S, week) {
+  if (week === S.week && S.view) return S.view;
+  const cached = S.weekViews.get(week);
+  if (cached && Date.now() - cached.at < 10 * 60e3) return cached.view;
+  const view = await loadWeek(S.season, week, { live: true, maxAgeMs: 10 * 60e3 });
+  S.weekViews.set(week, { at: Date.now(), view });
+  return view;
+}
+
+async function cardsFor(S, week) {
+  if (week === S.week && S.cards) return S.cards;
+  if (!S.cardCache.has(week)) S.cardCache.set(week, await loadCards(S.season, week));
+  return S.cardCache.get(week);
+}
+
+async function computeSeason(S) {
+  const weeks = S.weeks.length ? S.weeks : [S.defaultWeek];
+  const views = new Map(await Promise.all(weeks.map(async (w) => [w, await viewFor(S, w)])));
+  return S.mode === 'survivor' ? survivorSeason(S, weeks, views) : pickemSeason(S, weeks, views);
+}
+
+async function pickemSeason(S, weeks, views) {
+  const out = {};
+
+  // Mike's weekly pool: one card file per week, graded against that week's scores.
+  const pool = S.payouts?.pools?.['mike-pickem'];
+  if (S.map && pool) {
+    const graded = [];
+    const missing = [];
+    for (const w of weeks) {
+      const cards = await cardsFor(S, w);
+      if (!cards) { missing.push(w); continue; }
+      const games = views.get(w)?.games || [];
+      const rows = slateRows(scoredGames(S.map, w), new Map(games.map((g) => [`${g.away}|${g.home}`, g])), new Map());
+      const scored = scoreEntries(cards.entries.map((e) => ({ ...e, mnf: typeof e.mnf === 'number' ? e.mnf : null })), rows);
+      const res = pickemWeekResult(scored, rows, pool.weekly);
+      graded.push({
+        week: w,
+        complete: res.complete,
+        winners: res.winners.map(entryKey),
+        winnerNames: res.winners.map(nameOf),
+        share: res.share,
+        entries: scored.map((e) => ({
+          key: entryKey(e), name: e.nick || e.name || `#${e.entry}`,
+          isMe: String(e.nick || '').trim() === MY_NICK, correct: e.correct,
+        })),
+      });
+    }
+    out.pickem = { weeks: graded, missing, table: seasonTable(graded), paid: paidSoFar(graded) };
+  }
+
+  // Infinity War: the cached Sleeper pool, every week graded the same way the card is.
+  const inf = S.payouts?.pools?.infinity;
+  const feed = connected() ? loadCachedPool(S.season, INFINITY.id) : null;
+  if (feed && inf) {
+    const limit = Number(feed.settings?.weeklyPickLimit) || 8;
+    const graded = weeks.map((w) => {
+      const games = views.get(w)?.games || [];
+      const rows = gradePickemWeek(feed.entries || [], w, teamIndex(games), limit);
+      const prize = weekPrize(rows, games, inf.weekly);
+      return {
+        week: w,
+        complete: prize.final && rows.some((r) => r.visible),
+        winners: prize.leaders.map((r) => r.name),
+        winnerNames: prize.leaders.map((r) => (r.isMe ? 'you' : r.name)),
+        share: prize.share,
+        entries: rows.map((r) => ({ key: r.name, name: r.name, isMe: r.isMe, correct: r.correct })),
+      };
+    });
+    out.infinity = { weeks: graded, table: seasonTable(graded), paid: paidSoFar(graded) };
+  }
+  return out;
+}
+
+function survivorSeason(S, weeks, views) {
+  const results = Object.fromEntries(weeks.map((w) => [w, outcomeMap(views.get(w)?.games)]));
+  const pools = {};
+  if (S.survivor) {
+    pools['mike-suicide'] = burnMatrix(S.survivor.entries.map((e) => ({
+      key: entryKey(e), name: e.nick || e.name, isMe: String(e.nick || '').trim() === MY_NICK, picks: e.picks,
+    })), weeks, results);
+  }
+  if (connected()) {
+    for (const league of LEAGUES.filter((l) => l.sleeper)) {
+      const feed = loadCachedFeed(S.season, league.id);
+      if (!feed) continue;
+      pools[league.id] = burnMatrix((feed.entries || []).map((e) => ({
+        key: String(e.entry), name: e.nick, isMe: e.isMe, picks: e.picks,
+      })), weeks, results);
+      pools[league.id].feed = feed;
+    }
+  }
+  return { weeks, pools };
+}
+
+/* ── All weeks: render ────────────────────────────────────────────────── */
+
+const waiting = (title) => card(title, 'Season to date', '<p class="lede">Adding up the season…</p>');
+
+function seasonRows(table, limit = 15) {
+  const top = table.slice(0, limit);
+  const me = table.find((r) => r.isMe);
+  if (me && !top.includes(me)) top.push(me);
+  return top.map((r) => `
+    <tr class="${r.isMe ? 'is-me' : ''}">
+      <td class="st-num">${r.rank}</td>
+      <td class="st-name"><span>${esc(r.name)}</span></td>
+      <td class="st-num">${r.correct}</td>
+      <td class="st-num">${r.weeksWon ? fmtWeeks(r.weeksWon) : '—'}</td>
+      <td class="st-num">${r.money ? money(r.money) : '—'}</td>
+    </tr>`).join('');
+}
+
+const fmtWeeks = (n) => (Math.abs(n - Math.round(n)) < 0.01 ? String(Math.round(n)) : n.toFixed(2));
+
+function seasonBoxes(table, paid) {
+  const me = table.find((r) => r.isMe);
+  if (!me) return '';
+  const ahead = table.filter((r) => r.correct > me.correct).length;
+  return `
+    <div class="st-stats">
+      <div><strong>${me.correct}</strong><span>correct</span></div>
+      <div><strong>${ordinal(ahead + 1)}</strong><span>of ${table.length}</span></div>
+      <div><strong>${money(me.money)}</strong><span>you've won</span></div>
+      <div><strong>${money(paid)}</strong><span>paid out</span></div>
+    </div>`;
+}
+
+function weekByWeek(weeks) {
+  return payLines(weeks.map((w) => (w.complete
+    ? `Week ${w.week}: <strong>${money(w.share * w.winners.length)}</strong> to ${esc(listNames(w.winnerNames))}${w.winners.length > 1 ? ` (${money(w.share)} each)` : ''}`
+    : `Week ${w.week}: in progress — counted in <em>correct</em>, not paid yet`)));
+}
+
+function seasonTableHtml(table) {
+  return `
+    <div class="st-tablewrap"><table class="st-table">
+      <thead><tr>
+        <th class="st-num">#</th><th>Entry</th><th class="st-num">Right</th>
+        <th class="st-num">Weeks won</th><th class="st-num">$</th>
+      </tr></thead>
+      <tbody>${seasonRows(table)}</tbody>
+    </table></div>`;
+}
+
+function allPickem(S) {
+  const title = "Mike's pick'em";
+  const pool = S.payouts?.pools?.['mike-pickem'];
+  if (!S.ytd) return waiting(title);
+  const p = S.ytd.pickem;
+  if (!p || !pool) return card(title, 'Season to date', '<p class="lede">No cards or payouts file loaded for this season yet.</p>');
+  const missing = p.missing.length
+    ? `<p class="st-note">No cards loaded for Week ${p.missing.join(', ')} — those weeks are not counted. Run <code>scripts/parse_pool_picks.py</code> on Mike's workbook.</p>`
+    : '';
+  const leader = p.table[0];
+  return card(title, `Season to date: ${p.weeks.length} week${p.weeks.length === 1 ? '' : 's'} graded`, `
+    ${seasonBoxes(p.table, p.paid)}
+    ${payLines([
+      `Season winner gets <strong>${money(pool.season)}</strong>${leader?.correct ? ` · leading: ${esc(leader.isMe ? 'you' : leader.name)} on ${leader.correct}` : ''}`,
+    ])}
+    ${missing}
+    <h4 class="st-sub">Week by week</h4>
+    ${weekByWeek(p.weeks)}
+    <h4 class="st-sub">Season leaderboard</h4>
+    ${seasonTableHtml(p.table)}`);
+}
+
+function allInfinity(S) {
+  const id = INFINITY.id;
+  const pool = S.payouts?.pools?.infinity;
+  const feed = loadCachedPool(S.season, id);
+  if (!feed || !connected()) return card(INFINITY.name, 'Season to date', poolEmpty(S, id, feed, INFINITY.name));
+  if (!S.ytd) return waiting(INFINITY.name);
+  const p = S.ytd.infinity;
+  if (!p || !pool) return card(INFINITY.name, 'Season to date', '<p class="lede">No payouts file loaded for this season yet.</p>');
+  const [first, second] = p.table;
+  return card(INFINITY.name, 'Season to date', `
+    ${seasonBoxes(p.table, p.paid)}
+    ${payLines([
+      `Season prizes: <strong>${money(pool.season?.first)}</strong> 1st · <strong>${money(pool.season?.second)}</strong> 2nd`
+        + (first?.correct ? ` · now: ${esc(first.isMe ? 'you' : first.name)} (${first.correct})${second ? `, ${esc(second.isMe ? 'you' : second.name)} (${second.correct})` : ''}` : ''),
+    ])}
+    <h4 class="st-sub">Week by week</h4>
+    ${weekByWeek(p.weeks)}
+    <h4 class="st-sub">Season leaderboard</h4>
+    ${seasonTableHtml(p.table)}
+    ${poolFoot(S, id, feed)}`);
+}
+
+function allSurvivor(S) {
+  const cards = [["Mike's suicide pool", 'mike-suicide', null]]
+    .concat(LEAGUES.filter((l) => l.sleeper).map((l) => [l.name, l.id, l]));
+  return cards.map(([title, id, league]) => {
+    if (league) {
+      const feed = loadCachedFeed(S.season, league.id);
+      if (!feed || !connected()) return card(title, 'Season to date', poolEmpty(S, id, feed, title));
+    }
+    if (!S.ytd) return waiting(title);
+    const m = S.ytd.pools?.[id];
+    if (!m || !m.rows.length) {
+      return card(title, 'Season to date', `<p class="lede">No picks recorded for ${esc(title)} yet.</p>${league ? poolFoot(S, id, loadCachedFeed(S.season, id)) : ''}`);
+    }
+    return card(title, 'Season to date', burnHtml(S, id, m, league));
+  }).join('');
+}
+
+function burnHtml(S, id, m, league) {
+  const oneLife = !league;
+  const weeks = S.ytd.weeks;
+  const pot = potOf(S.payouts?.pools?.[id]);
+  const cell = (c) => (c
+    ? `<td class="st-num st-burn is-${c.outcome}${c.mine ? ' is-mine' : ''}"${c.mine ? ' title="Your pick"' : ''}>${c.count}</td>`
+    : '<td class="st-num st-burn is-empty"></td>');
+  const rows = m.rows.map((r) => `
+    <tr>
+      <td class="st-name"><span>${esc(ABBR_TO_MASCOT[r.team] || r.team)}</span></td>
+      ${weeks.map((w) => cell(r.cells[w])).join('')}
+      <td class="st-num"><strong>${r.total}</strong></td>
+    </tr>`).join('');
+
+  const hidden = league ? survivorCoverage(m.feed, S.defaultWeek).hidden : 0;
+  return `
+    <div class="st-stats">
+      <div><strong>${m.entrants}</strong><span>entries</span></div>
+      <div><strong>${m.unbeaten}</strong><span>${oneLife ? 'still alive' : 'no losses yet'}</span></div>
+      <div><strong>${m.myLosses == null ? '—' : oneLife ? (m.myLosses ? 'Out' : 'Alive') : m.myLosses}</strong><span>${oneLife ? 'you' : 'your losses'}</span></div>
+      <div><strong>${pot ? money(pot.total) : '—'}</strong><span>pot</span></div>
+    </div>
+    ${oneLife ? '' : '<p class="st-note">Losses are counted, not turned into eliminations: buy-backs are handled outside Sleeper, so an entry with a loss may still be playing.</p>'}
+    ${hidden ? `<p class="st-note"><strong>${hidden}</strong> Week ${S.defaultWeek} picks were still hidden until kickoff at the last refresh and are not in the table yet.</p>` : ''}
+    <h4 class="st-sub">Teams spent, week by week</h4>
+    <p class="st-note st-fine">Each number is how many entries took that team that week. <span class="st-key is-won">won</span> <span class="st-key is-lost">lost</span> <span class="st-key is-live">playing</span> <span class="st-key is-mine">your pick</span></p>
+    <div class="st-tablewrap"><table class="st-table st-burntable">
+      <thead><tr>
+        <th>Team</th>${weeks.map((w) => `<th class="st-num">W${w}</th>`).join('')}<th class="st-num">Total</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+      <tfoot>
+        <tr><td>Picks</td>${m.perWeek.map((p) => `<td class="st-num">${p.picks}</td>`).join('')}<td></td></tr>
+        <tr><td>Lost</td>${m.perWeek.map((p) => `<td class="st-num">${p.lost}</td>`).join('')}<td></td></tr>
+      </tfoot>
+    </table></div>
+    ${league ? poolFoot(S, id, m.feed) : ''}`;
+}
 
 /** A team's game as one short line: the result and score once it has
  *  started, the kickoff before. */

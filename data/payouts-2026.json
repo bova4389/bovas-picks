@@ -1,0 +1,45 @@
+{
+  "year": 2026,
+  "note": "Hand-maintained, like squares-2026.json: prize money arrives by email and word of mouth, never from a feed. Read by js/standings.js. Buy-backs cannot be read from Sleeper, so buybacksByWeek is entered by hand each week (week number -> buy-backs that week).",
+  "pools": {
+    "mike-pickem": {
+      "name": "Mike's Weekly Pool",
+      "source": "Mike Lowe season email, 2026-09-13; season prize confirmed by owner 2026-09-14",
+      "entries": 284,
+      "weekly": 1270,
+      "season": 2540,
+      "tieRule": "Most correct wins. Tied on correct: Monday night total closest by absolute value. Still tied: split evenly (owner, 2026-09-14)."
+    },
+    "mike-suicide": {
+      "name": "Mike's Suicide Pool",
+      "source": "Mike Lowe season email, 2026-09-13",
+      "entries": 247,
+      "pot": 5650
+    },
+    "infinity": {
+      "name": "Infinity War",
+      "source": "owner, 2026-09-14",
+      "entries": 18,
+      "entry": 50,
+      "weekly": 20,
+      "season": { "first": 380, "second": 160 },
+      "tieRule": "A tied week splits the $20 evenly."
+    },
+    "sleeper": {
+      "name": "Poop 2026",
+      "source": "owner, 2026-09-14",
+      "base": 870,
+      "buyback": 15,
+      "buybacksByWeek": {},
+      "winnerTakeAll": true
+    },
+    "deadpool": {
+      "name": "Deadpool",
+      "source": "owner, 2026-09-14",
+      "base": 600,
+      "buyback": 15,
+      "buybacksByWeek": { "1": 2 },
+      "winnerTakeAll": true
+    }
+  }
+}
