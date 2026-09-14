@@ -3867,6 +3867,8 @@ footer {
 /* .card carries no padding of its own, and until 2026-09-14 neither did this:
    every Standings card put its text flush against the rounded border, which
    is the "too close to the edge, sometimes leaking over" complaint. */
+.st-weekpick { display: flex; align-items: center; gap: 10px; margin: 4px 0 10px; font-size: .8125rem; font-weight: 600; color: var(--ink-quiet); text-transform: uppercase; letter-spacing: .06em; }
+.st-weekpick select { min-height: 46px; padding: 0 12px; font: inherit; font-size: .9375rem; font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--ink); background: var(--white); border: 1.5px solid var(--line); border-radius: var(--r-sm); }
 .st-card { margin-bottom: 20px; padding: 18px 20px 20px; }
 .st-card h3 { margin-top: 2px; }
 .st-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 14px 0 10px; }

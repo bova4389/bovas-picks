@@ -141,6 +141,7 @@ js/infinityModel.js SHARED — the pick-eight math, pure data                 [N
 js/infinityFeed.js  SHARED — pick'em-shaped Sleeper read                    [NEVER versioned]
 js/infinityWar.js   Infinity War tab — pick 8 of the slate, small field
 js/squaresModel.js  SHARED — squares math, pure data                       [NEVER versioned]
+js/poolWeek.js      SHARED — which week a pool page opens on (Wed 6pm)     [NEVER versioned]
 js/squaresChrome.js SHARED — St. Jude banner, theme hook, footer nav       [NEVER versioned]
 js/myPicks.js       SHARED — what I picked: Pick Sheet card + survivor picks [NEVER versioned]
 js/liveModel.js     SHARED — live pool standings math, pure data           [NEVER versioned]
@@ -1499,10 +1500,12 @@ uniformly light, they all carry internal contrast — and it was no better on th
 where Pittsburgh's gold sat on Pittsburgh's gold. If it ever needs solving, the fix is a white
 plate behind the mark, not a return to saturated chips.
 
-### The week changeover — 2pm Wednesday, not the NFL's rollover
+### The week changeover — 6pm Wednesday, not the NFL's rollover
 
-`defaultWeek()` holds a week on screen **until 2pm the Wednesday after its game**, then flips to
-the next. `currentWeek()` in `gameState.js` deliberately is **not** used here: it rolls over a few
+`defaultWeek()` holds a week on screen **until 6pm the Wednesday after its game**, then flips to
+the next. **It was 2pm until 2026-09-14**, when the owner put every pool page on one 6pm clock: the
+rule now lives in `js/poolWeek.js` (`cutoverFor()`, `poolWeek()`), shared with both Standings
+panels, and `squaresModel.js` imports and re-exports `cutoverFor` rather than keeping a copy. `currentWeek()` in `gameState.js` deliberately is **not** used here: it rolls over a few
 hours after an NFL week's last game, which is right for a schedule and wrong for a pool — it would
 replace Sunday's settled board with next week's empty one before anybody had looked at what they
 won. The board turns over midweek and is ready before Thursday.
@@ -1510,14 +1513,15 @@ won. The board turns over midweek and is ready before Thursday.
 **The 36-hour tail in `cutoverFor()` is what makes one rule cover every kickoff slot.** Measured
 from a Sunday afternoon game it lands early Monday, so the cutover is that same week's Wednesday;
 measured from a Monday nighter — which is exactly what the Colts' bye week grades on — it lands
-Wednesday morning, so the cutover is that afternoon rather than eight days later. Without it a
+Wednesday morning, so the cutover is that evening rather than eight days later. Without it a
 Monday game needs a special case, and the one week that needs it is the one nobody would remember
-to test. Verified against the real 2026 file: Week 1 holds through Wed Sep 16 13:59 and flips to
-Week 2 at 14:01; Week 13 (Mon Dec 7) flips to Week 14 on Wed Dec 9.
+to test. Verified against the real 2026 file on 2026-09-14: Week 1 (last game Mon Sep 14, 8:15pm)
+holds through Wed Sep 16 17:59 and flips to Week 2 at 18:01; a Monday-night week and a Sunday-only
+week the same weekend both flip the following Wednesday at 6pm. Squares at Wed 3pm still shows the
+old week.
 
-Local time throughout, deliberately: this is a pool played in one room in Indianapolis, and
-"Wednesday at 2" means the clock on the wall there — which for anyone using this is the clock on
-their own phone.
+Local time throughout, deliberately: "Wednesday at 6" means the clock on the phone of whoever is
+looking, which for everyone using this is Eastern.
 
 ### Polling — already the conservative version, do not replace it with load-once
 
@@ -1926,6 +1930,13 @@ against live ESPN state, so it needs nothing from his answer key. My entry is fo
   no simulated path, `Barely matters` when losing keeps ≥85% of the chance.
 - Suicide half: my pick's status, survived / out / playing / not started, the floor–ceiling of
   survivors, then the pick board (see "The pick board" under Grid Tab) with each team's result. A tied game says "counts as a loss?" — the rule is not on record.
+- **Week dropdown (2026-09-14).** Defaults to `poolWeek()` — the Wednesday 6pm rule above, shared
+  with Squares — never `currentWeek()`, which would replace Monday night's settled standings with
+  an empty week hours after the last game. It offers Week 1 through that default, never a future
+  week, and the choice is not remembered. The header holds the dropdown and is drawn once; only
+  the body re-renders on a poll, so a live refresh cannot snap an open dropdown shut. A switch
+  mid-fetch drops the stale answer (`loadSeq`, and `refresh()` re-checks the week after its
+  await). Prices reload per week because rivalry pairs repeat.
 - **`.card` has no padding, so `.st-card` supplies its own** (added 2026-09-14). Without it every
   Standings card put its text on the rounded border. Tables fit the card rather than scroll:
   numbers `nowrap` and right-aligned (`.st-num`), the name column wraps, and the table caps at

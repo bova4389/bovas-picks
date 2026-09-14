@@ -19,6 +19,13 @@
    NEVER add a ?v= to this file — see js/data.js on module identity.
    ========================================================================== */
 
+import { cutoverFor } from './poolWeek.js';
+
+/* Re-exported: the changeover rule lives in js/poolWeek.js so Squares and
+   Standings share one clock. Kept exported here so nothing that imported it
+   from this file breaks. */
+export { cutoverFor };
+
 /* ── Pool + week lookup ───────────────────────────────────────────────────*/
 
 /** One pool out of the document, by id. Null when absent. */
@@ -196,44 +203,11 @@ export function liveCell(weekCfg, game) {
 
 /* ── Which week to open on ─────────────────────────────────────────────────────────*/
 
-/** Wednesday, as getDay() counts them. */
-const WEDNESDAY = 3;
-
 /**
- * A week stays on screen until 2pm the Wednesday after its game.
+ * A week stays on screen until 6pm the Wednesday after its game.
  *
- * The pool's rhythm, not the NFL's: the game is played, the four payouts are
- * settled, and people look at what they won for a few days afterward. Flipping
- * to next week's empty board the moment the whistle blows would hide the only
- * thing anybody wants to see on a Monday morning. Wednesday 2pm local is the
- * changeover, so the board turns over midweek and is ready before Thursday.
- *
- * The 36-hour tail is what makes one rule cover every kickoff slot. Measured
- * from a Sunday afternoon game it lands early Monday, so the cutover is that
- * same week's Wednesday; measured from a Monday nighter -- which is what the
- * Colts' bye week grades on -- it lands Wednesday morning, so the cutover is
- * that afternoon rather than eight days later. Without it, a Monday game would
- * have to be special-cased, and the one week that needs the special case is the
- * one nobody would remember to test.
- */
-export function cutoverFor(kickoff, tailHours = 36) {
-  const settled = new Date(new Date(kickoff).getTime() + tailHours * 3_600_000);
-
-  const at = new Date(settled);
-  at.setHours(14, 0, 0, 0);
-  while (at.getDay() !== WEDNESDAY || at < settled) {
-    at.setDate(at.getDate() + 1);
-    at.setHours(14, 0, 0, 0);
-  }
-  return at;
-}
-
-/**
- * The week to show on open: the first one whose cutover has not passed.
- *
- * Local time throughout, deliberately -- this is a pool played in one room in
- * Indianapolis, and "Wednesday at 2" means the clock on the wall there, which
- * for anyone actually using this is the clock on their own phone.
+ * 2pm until 2026-09-14, when the owner put every pool page on one 6pm clock.
+ * The rule and its 36-hour tail are explained in js/poolWeek.js.
  *
  * Falls back to the last payout week once the season is over, so January opens
  * on Week 18 rather than on nothing.
