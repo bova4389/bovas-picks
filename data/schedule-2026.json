@@ -7,9 +7,9 @@
    "date": "2026-09-10T00:20Z",
    "home": "SEA",
    "away": "NE",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 13,
+   "awayScore": 10,
+   "completed": true,
    "neutral": false
   },
   {
@@ -18,9 +18,9 @@
    "date": "2026-09-11T00:35Z",
    "home": "LAR",
    "away": "SF",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 7,
+   "awayScore": 27,
+   "completed": true,
    "neutral": true,
    "venue": {
     "name": "Melbourne Cricket Ground",
@@ -34,9 +34,9 @@
    "date": "2026-09-13T17:00Z",
    "home": "CIN",
    "away": "TB",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 33,
+   "awayScore": 27,
+   "completed": true,
    "neutral": false
   },
   {
@@ -45,9 +45,9 @@
    "date": "2026-09-13T17:00Z",
    "home": "DET",
    "away": "NO",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 31,
+   "awayScore": 30,
+   "completed": true,
    "neutral": false
   },
   {
@@ -56,9 +56,9 @@
    "date": "2026-09-13T17:00Z",
    "home": "TEN",
    "away": "NYJ",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 10,
+   "awayScore": 23,
+   "completed": true,
    "neutral": false
   },
   {
@@ -67,9 +67,9 @@
    "date": "2026-09-13T17:00Z",
    "home": "IND",
    "away": "BAL",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 23,
+   "awayScore": 41,
+   "completed": true,
    "neutral": false
   },
   {
@@ -78,9 +78,9 @@
    "date": "2026-09-13T17:00Z",
    "home": "PIT",
    "away": "ATL",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 20,
+   "awayScore": 13,
+   "completed": true,
    "neutral": false
   },
   {
@@ -89,9 +89,9 @@
    "date": "2026-09-13T17:00Z",
    "home": "CAR",
    "away": "CHI",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 37,
+   "awayScore": 59,
+   "completed": true,
    "neutral": false
   },
   {
@@ -100,9 +100,9 @@
    "date": "2026-09-13T17:00Z",
    "home": "JAC",
    "away": "CLE",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 34,
+   "awayScore": 10,
+   "completed": true,
    "neutral": false
   },
   {
@@ -111,9 +111,9 @@
    "date": "2026-09-13T17:00Z",
    "home": "HOU",
    "away": "BUF",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 31,
+   "awayScore": 36,
+   "completed": true,
    "neutral": false
   },
   {
@@ -122,9 +122,9 @@
    "date": "2026-09-13T20:25Z",
    "home": "LV",
    "away": "MIA",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 27,
+   "awayScore": 13,
+   "completed": true,
    "neutral": false
   },
   {
@@ -133,9 +133,9 @@
    "date": "2026-09-13T20:25Z",
    "home": "MIN",
    "away": "GB",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 39,
+   "awayScore": 22,
+   "completed": true,
    "neutral": false
   },
   {
@@ -144,9 +144,9 @@
    "date": "2026-09-13T20:25Z",
    "home": "PHI",
    "away": "WAS",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 24,
+   "awayScore": 22,
+   "completed": true,
    "neutral": false
   },
   {
@@ -155,9 +155,9 @@
    "date": "2026-09-13T20:25Z",
    "home": "LAC",
    "away": "ARI",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 14,
+   "awayScore": 26,
+   "completed": true,
    "neutral": false
   },
   {
@@ -166,9 +166,9 @@
    "date": "2026-09-14T00:20Z",
    "home": "NYG",
    "away": "DAL",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 28,
+   "awayScore": 20,
+   "completed": true,
    "neutral": false
   },
   {
@@ -177,9 +177,9 @@
    "date": "2026-09-15T00:15Z",
    "home": "KC",
    "away": "DEN",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 31,
+   "awayScore": 10,
+   "completed": true,
    "neutral": false
   },
   {
@@ -3101,5 +3101,5 @@
   "18": []
  },
  "gameCount": 272,
- "completed": 0
+ "completed": 16
 }

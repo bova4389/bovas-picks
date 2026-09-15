@@ -1,0 +1,2898 @@
+{
+ "year": 2026,
+ "week": 1,
+ "source": "espn",
+ "complete": true,
+ "gamesScored": 14,
+ "gamesFinal": 14,
+ "pending": [],
+ "ties": [],
+ "tiebreakerTotal": 41,
+ "answerKey": {
+  "1": {
+   "winner": "Bears",
+   "number": 1,
+   "score": "59-37"
+  },
+  "3": {
+   "winner": "Bengals",
+   "number": 4,
+   "score": "27-33"
+  },
+  "5": {
+   "winner": "Lions",
+   "number": 6,
+   "score": "30-31"
+  },
+  "7": {
+   "winner": "Bills",
+   "number": 7,
+   "score": "36-31"
+  },
+  "9": {
+   "winner": "Ravens",
+   "number": 9,
+   "score": "41-23"
+  },
+  "11": {
+   "winner": "Jaguars",
+   "number": 12,
+   "score": "10-34"
+  },
+  "13": {
+   "winner": "Steelers",
+   "number": 14,
+   "score": "13-20"
+  },
+  "15": {
+   "winner": "Jets",
+   "number": 15,
+   "score": "23-10"
+  },
+  "17": {
+   "winner": "Cardinals",
+   "number": 17,
+   "score": "26-14"
+  },
+  "19": {
+   "winner": "Raiders",
+   "number": 20,
+   "score": "13-27"
+  },
+  "21": {
+   "winner": "Vikings",
+   "number": 22,
+   "score": "22-39"
+  },
+  "23": {
+   "winner": "Eagles",
+   "number": 24,
+   "score": "22-24"
+  },
+  "25": {
+   "winner": "Giants",
+   "number": 26,
+   "score": "20-28"
+  },
+  "27": {
+   "winner": "Chiefs",
+   "number": 28,
+   "score": "10-31"
+  }
+ },
+ "winners": [
+  265
+ ],
+ "entries": [
+  {
+   "entry": 265,
+   "name": "Kevin Melley",
+   "nick": "Crab Rangoon",
+   "correct": 13,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 1
+  },
+  {
+   "entry": 28,
+   "name": "Tom Sr (sue dad)",
+   "nick": "Tom Sr",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 2
+  },
+  {
+   "entry": 53,
+   "name": "Meredith Parsons",
+   "nick": "Meredith",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 2
+  },
+  {
+   "entry": 229,
+   "name": "Sean Gould",
+   "nick": "Big Sean",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 2
+  },
+  {
+   "entry": 78,
+   "name": "Scott Wojcik",
+   "nick": "Scott W",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 5
+  },
+  {
+   "entry": 218,
+   "name": "Chris Licout",
+   "nick": "Chrissy",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 5
+  },
+  {
+   "entry": 256,
+   "name": "David Mandell",
+   "nick": "DMAN805",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 7
+  },
+  {
+   "entry": 240,
+   "name": "Marcy Martinowich",
+   "nick": "Marcy",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 7,
+   "rank": 8
+  },
+  {
+   "entry": 182,
+   "name": "Joe Failla",
+   "nick": "Dolpfan 72",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 32,
+   "mnfDiff": 9,
+   "rank": 9
+  },
+  {
+   "entry": 6,
+   "name": "Tyler Harris",
+   "nick": "Harrisite",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 11,
+   "rank": 10
+  },
+  {
+   "entry": 97,
+   "name": "Jeffery Copello",
+   "nick": "JC",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 11,
+   "rank": 10
+  },
+  {
+   "entry": 280,
+   "name": "Brandon Jacobson",
+   "nick": "BigBLuvslilb",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 54,
+   "mnfDiff": 13,
+   "rank": 12
+  },
+  {
+   "entry": 227,
+   "name": "David Rollins",
+   "nick": "Steelcurtain31",
+   "correct": 12,
+   "picks": 14,
+   "mnf": 59,
+   "mnfDiff": 18,
+   "rank": 13
+  },
+  {
+   "entry": 129,
+   "name": "Kevin Saba",
+   "nick": "The Mayor",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 41,
+   "mnfDiff": 0,
+   "rank": 14
+  },
+  {
+   "entry": 91,
+   "name": "Chad Gernstein",
+   "nick": "Omaha",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 15
+  },
+  {
+   "entry": 116,
+   "name": "Tom Corliss",
+   "nick": "Trockout",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 15
+  },
+  {
+   "entry": 169,
+   "name": "Herb Sandborn",
+   "nick": "Handyman Herb",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 15
+  },
+  {
+   "entry": 249,
+   "name": "Lauren Meehan",
+   "nick": "Penelope",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 15
+  },
+  {
+   "entry": 7,
+   "name": "Tony Seeger",
+   "nick": "Dr T",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 19
+  },
+  {
+   "entry": 23,
+   "name": "Nancy Kane",
+   "nick": "Granny Kane",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 19
+  },
+  {
+   "entry": 41,
+   "name": "Anthony (Jacks)",
+   "nick": "Doody",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 19
+  },
+  {
+   "entry": 84,
+   "name": "Delphine",
+   "nick": "What's this do Tommy",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 19
+  },
+  {
+   "entry": 185,
+   "name": "Susan Cook",
+   "nick": "Ward 2 Watt",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 19
+  },
+  {
+   "entry": 200,
+   "name": "Lori Schwab",
+   "nick": "Dr Lori",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 19
+  },
+  {
+   "entry": 260,
+   "name": "Kenny King",
+   "nick": "Kenny King Kong",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 19
+  },
+  {
+   "entry": 34,
+   "name": "Tom Reese",
+   "nick": "The Bone",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 26
+  },
+  {
+   "entry": 42,
+   "name": "Joe Ercolani",
+   "nick": "Joey Erc",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 26
+  },
+  {
+   "entry": 175,
+   "name": "Brad Thomas",
+   "nick": "BradT",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 26
+  },
+  {
+   "entry": 195,
+   "name": "Nick Diaz",
+   "nick": "Nick Diaz",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 26
+  },
+  {
+   "entry": 251,
+   "name": "Deb & Steve Tatum",
+   "nick": "Grandy",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 26
+  },
+  {
+   "entry": 46,
+   "name": "Rusty Moore",
+   "nick": "Irishgunslinger",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 50,
+   "name": "Nancy Jackson",
+   "nick": "Fancy Nancy",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 71,
+   "name": null,
+   "nick": "Bryant Whittaker",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 72,
+   "name": "Andrea Weldemeyer",
+   "nick": "Hail Andi",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 99,
+   "name": "Thaddius Longsworth",
+   "nick": "Thaddius",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 108,
+   "name": "Leslie Kugel",
+   "nick": "Kugeliscious1",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 37,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 157,
+   "name": "Kris Trouteaud",
+   "nick": "Kris Trouteaud",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 194,
+   "name": "Jake Diaz",
+   "nick": "Jacob Diaz",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 209,
+   "name": "Chris Griffin",
+   "nick": "Chris Griffin",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 231,
+   "name": "Amanda Ferguson",
+   "nick": "BAMF",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 236,
+   "name": "Cory Laabs",
+   "nick": "Cory L",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 31
+  },
+  {
+   "entry": 16,
+   "name": "Luke Nealon",
+   "nick": "Crown Eden",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 42
+  },
+  {
+   "entry": 39,
+   "name": "Gina Freeman",
+   "nick": "GFreeRio",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 42
+  },
+  {
+   "entry": 104,
+   "name": "Gregg Lazzaro",
+   "nick": "Isakama",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 42
+  },
+  {
+   "entry": 205,
+   "name": "Nick Batelli",
+   "nick": "Nick B",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 42
+  },
+  {
+   "entry": 213,
+   "name": "Dan Napadano",
+   "nick": "Nap",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 42
+  },
+  {
+   "entry": 2,
+   "name": "Sandy O'Donnell",
+   "nick": "Bills Fan",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 47
+  },
+  {
+   "entry": 204,
+   "name": "Louis Batelli",
+   "nick": "Frankie D",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 47
+  },
+  {
+   "entry": 243,
+   "name": "Dick Degroat",
+   "nick": "Bills Dad",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 47
+  },
+  {
+   "entry": 183,
+   "name": "Austin Beach",
+   "nick": "Waddle into the playoffs",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 31,
+   "mnfDiff": 10,
+   "rank": 50
+  },
+  {
+   "entry": 102,
+   "name": "Josh Colvenback",
+   "nick": "WhoDat",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 11,
+   "rank": 51
+  },
+  {
+   "entry": 67,
+   "name": "Frank Hendricks",
+   "nick": "Colonel",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 59,
+   "mnfDiff": 18,
+   "rank": 52
+  },
+  {
+   "entry": 246,
+   "name": "Jeanene Cassels",
+   "nick": "Johnny Hockey",
+   "correct": 11,
+   "picks": 14,
+   "mnf": 21,
+   "mnfDiff": 20,
+   "rank": 53
+  },
+  {
+   "entry": 58,
+   "name": "Tim Barrington",
+   "nick": "The U SUCKS!",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 41,
+   "mnfDiff": 0,
+   "rank": 54
+  },
+  {
+   "entry": 77,
+   "name": "Rick Wojcik",
+   "nick": "Rick Wojo",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 41,
+   "mnfDiff": 0,
+   "rank": 54
+  },
+  {
+   "entry": 142,
+   "name": "Katie O Rhoades",
+   "nick": "MoveThoseChains8",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 41,
+   "mnfDiff": 0,
+   "rank": 54
+  },
+  {
+   "entry": 55,
+   "name": "Cheri Gradwell",
+   "nick": "Cheri",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 66,
+   "name": "Michael Paul",
+   "nick": "Michael Paul",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 86,
+   "name": "Matt Symons wife",
+   "nick": "Comanea",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 90,
+   "name": "Bobby nese",
+   "nick": "Mr Vegas ",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 100,
+   "name": "Linda Munk(little lori mom)",
+   "nick": "Bootz8910",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 115,
+   "name": "Chris Russo son",
+   "nick": "Chris R",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 147,
+   "name": "Anita McKenize",
+   "nick": "Anita",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 174,
+   "name": "Jason Hart",
+   "nick": "Jazon",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 187,
+   "name": "Evan(Mark) Jones",
+   "nick": "AppStateAlum",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 215,
+   "name": "Steve Cronwell",
+   "nick": "Cobb",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 222,
+   "name": "Brian Croke",
+   "nick": "Brian Child",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 242,
+   "name": "Lori Collins",
+   "nick": "Lori C",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 284,
+   "name": "Audry Rich",
+   "nick": "Audry Rich",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 57
+  },
+  {
+   "entry": 19,
+   "name": "Jon Pratt",
+   "nick": "E Coli",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 39,
+   "mnfDiff": 2,
+   "rank": 70
+  },
+  {
+   "entry": 22,
+   "name": "John Lettieri",
+   "nick": "John The Destroyer",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 70
+  },
+  {
+   "entry": 69,
+   "name": "Joe Janisch",
+   "nick": "Scuba Joe",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 39,
+   "mnfDiff": 2,
+   "rank": 70
+  },
+  {
+   "entry": 177,
+   "name": "Kevin Wood",
+   "nick": "Creepin Pats",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 70
+  },
+  {
+   "entry": 248,
+   "name": "Jim Gibbons",
+   "nick": "GoBirds",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 70
+  },
+  {
+   "entry": 254,
+   "name": "Crystal Stahl",
+   "nick": "Stillwalkin23",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 70
+  },
+  {
+   "entry": 266,
+   "name": "Rene Z",
+   "nick": "Watch Me NeNe",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 70
+  },
+  {
+   "entry": 9,
+   "name": null,
+   "nick": "Victoria",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 56,
+   "name": "Tim Barrington",
+   "nick": "Silence of the Lamb",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 76,
+   "name": "Jackie Heksel",
+   "nick": "Jackie H",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 105,
+   "name": "Kyle Rayburn",
+   "nick": "Lil Kyle",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 141,
+   "name": "Jim Young",
+   "nick": "Jimmy Y",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 154,
+   "name": "Bob Orioli",
+   "nick": "Rocketman",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 173,
+   "name": "Ervin Funke",
+   "nick": "Swingin",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 176,
+   "name": "James D'Amico",
+   "nick": "James D",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 210,
+   "name": "Robert Parry",
+   "nick": "Buffalo Bob",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 221,
+   "name": "Brian Croke",
+   "nick": "Quincy",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 247,
+   "name": "Ed Marenburg",
+   "nick": "EDZO 17",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 250,
+   "name": "Steve Boyle",
+   "nick": "Fugettaboutit",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 253,
+   "name": "Alissa Hixson",
+   "nick": "Lissy Kissy",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 275,
+   "name": "Jeremy Jones",
+   "nick": "Double J",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 77
+  },
+  {
+   "entry": 11,
+   "name": "Max Kirk",
+   "nick": "Maxbkirk",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 91
+  },
+  {
+   "entry": 81,
+   "name": "Grant ",
+   "nick": "Grant ",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 37,
+   "mnfDiff": 4,
+   "rank": 91
+  },
+  {
+   "entry": 87,
+   "name": "Madison Fisher",
+   "nick": "Madison",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 91
+  },
+  {
+   "entry": 111,
+   "name": "Patty &Rick",
+   "nick": "Patty Smack",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 91
+  },
+  {
+   "entry": 223,
+   "name": "Mike Gallagher",
+   "nick": "Gallagher",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 91
+  },
+  {
+   "entry": 224,
+   "name": "Skip Vigars",
+   "nick": "Skip",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 91
+  },
+  {
+   "entry": 232,
+   "name": "Dino Barbounis",
+   "nick": "Docdinob",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 37,
+   "mnfDiff": 4,
+   "rank": 91
+  },
+  {
+   "entry": 241,
+   "name": "John Martinowich",
+   "nick": "Johnmartinowich",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 91
+  },
+  {
+   "entry": 259,
+   "name": "Thomas McGuire",
+   "nick": "TractorTom76",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 91
+  },
+  {
+   "entry": 148,
+   "name": "Melissa Petry",
+   "nick": "Melissa",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 46,
+   "mnfDiff": 5,
+   "rank": 100
+  },
+  {
+   "entry": 189,
+   "name": "Matt Kohn",
+   "nick": "Matt Kohn",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 46,
+   "mnfDiff": 5,
+   "rank": 100
+  },
+  {
+   "entry": 238,
+   "name": "Matt Bova",
+   "nick": "Bova",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 36,
+   "mnfDiff": 5,
+   "rank": 100
+  },
+  {
+   "entry": 252,
+   "name": "Joel Duncan",
+   "nick": "JD21",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 46,
+   "mnfDiff": 5,
+   "rank": 100
+  },
+  {
+   "entry": 270,
+   "name": "Jack Kirk",
+   "nick": "Jack K",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 46,
+   "mnfDiff": 5,
+   "rank": 100
+  },
+  {
+   "entry": 274,
+   "name": "Michelle Coyle",
+   "nick": "Michelle Coyle",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 36,
+   "mnfDiff": 5,
+   "rank": 100
+  },
+  {
+   "entry": 75,
+   "name": "Matt Heksel",
+   "nick": "Mr Matt",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 106
+  },
+  {
+   "entry": 125,
+   "name": "Lynn Lilly",
+   "nick": "Lynn",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 106
+  },
+  {
+   "entry": 168,
+   "name": "Larry Niedert",
+   "nick": "DLN",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 106
+  },
+  {
+   "entry": 96,
+   "name": "Dave Copello",
+   "nick": "D.C.",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 7,
+   "rank": 109
+  },
+  {
+   "entry": 114,
+   "name": "Allie Scuffil",
+   "nick": "Allie",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 7,
+   "rank": 109
+  },
+  {
+   "entry": 166,
+   "name": "Jason Dean",
+   "nick": "Deanmachine",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 7,
+   "rank": 109
+  },
+  {
+   "entry": 101,
+   "name": "Angie Munk",
+   "nick": "Turtle",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 112
+  },
+  {
+   "entry": 264,
+   "name": "Jack Kimble",
+   "nick": "Jack the Pouty Puss",
+   "correct": 10,
+   "picks": 13,
+   "mnf": 33,
+   "mnfDiff": 8,
+   "rank": 112
+  },
+  {
+   "entry": 163,
+   "name": "Patricia Vince",
+   "nick": "Cryin Colts Fan",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 32,
+   "mnfDiff": 9,
+   "rank": 114
+  },
+  {
+   "entry": 5,
+   "name": "Deb Gaudry",
+   "nick": "Deb",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 51,
+   "mnfDiff": 10,
+   "rank": 115
+  },
+  {
+   "entry": 278,
+   "name": "Clarence Zimmerman",
+   "nick": "Jen-Z",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 51,
+   "mnfDiff": 10,
+   "rank": 115
+  },
+  {
+   "entry": 156,
+   "name": "Billy Ignace",
+   "nick": "Shark",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 11,
+   "rank": 117
+  },
+  {
+   "entry": 180,
+   "name": "Paul Hardie",
+   "nick": "Big Blue",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 11,
+   "rank": 117
+  },
+  {
+   "entry": 191,
+   "name": "Dave Giles",
+   "nick": "SokkerJock",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 11,
+   "rank": 117
+  },
+  {
+   "entry": 159,
+   "name": "Mike Tiseo",
+   "nick": "MNT-2026-Champ",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 53,
+   "mnfDiff": 12,
+   "rank": 120
+  },
+  {
+   "entry": 130,
+   "name": "Doc Mike",
+   "nick": "Doc Mike",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 28,
+   "mnfDiff": 13,
+   "rank": 121
+  },
+  {
+   "entry": 228,
+   "name": "Janie Thomas",
+   "nick": "Jfinfanatic",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 54,
+   "mnfDiff": 13,
+   "rank": 121
+  },
+  {
+   "entry": 54,
+   "name": "Kerri Yakel",
+   "nick": "KerBear",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 56,
+   "mnfDiff": 15,
+   "rank": 123
+  },
+  {
+   "entry": 113,
+   "name": "Maerisa Trafficante",
+   "nick": "MaerisaT",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 41,
+   "mnfDiff": 0,
+   "rank": 124
+  },
+  {
+   "entry": 179,
+   "name": "Patty Strohn",
+   "nick": "Xray Lady",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 41,
+   "mnfDiff": 0,
+   "rank": 124
+  },
+  {
+   "entry": 3,
+   "name": "Sharon Dwyer",
+   "nick": "Nites321",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 21,
+   "name": "Krista Marsh",
+   "nick": "MamaMarsh",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 31,
+   "name": null,
+   "nick": "Nutty Buddys",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 82,
+   "name": "Matt Moran",
+   "nick": "Matt Mo",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 103,
+   "name": "Aaron Lewelling",
+   "nick": "Alew",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 152,
+   "name": "Nancy Valencic",
+   "nick": "Florida's Finest",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 164,
+   "name": "Scott Pohl",
+   "nick": "Blues Brother",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 184,
+   "name": "AL Cook",
+   "nick": "Blitzburgh",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 214,
+   "name": "John Fowle",
+   "nick": "Foul Ball",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 234,
+   "name": "Kevin Kenny",
+   "nick": "Trask",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 255,
+   "name": "Taylor Mikell",
+   "nick": "Tmac217",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 257,
+   "name": "Frank Popolo",
+   "nick": "Chicago Frank",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 267,
+   "name": "Jeremy Benedict",
+   "nick": "JB",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 126
+  },
+  {
+   "entry": 149,
+   "name": "Ashley Minge",
+   "nick": "Ashley M",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 139
+  },
+  {
+   "entry": 162,
+   "name": "Kathleen McGinnis",
+   "nick": "Bengals / Bucs",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 139
+  },
+  {
+   "entry": 201,
+   "name": "Angalina Jefferies",
+   "nick": "Angelina",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 139
+  },
+  {
+   "entry": 281,
+   "name": "Doloris Callea",
+   "nick": "Callea Family",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 139
+  },
+  {
+   "entry": 17,
+   "name": "Nick Spinelli",
+   "nick": "Tomakawked",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 18,
+   "name": "Thomas Santangelo",
+   "nick": "Tsanta",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 45,
+   "name": "Brent Wadhams",
+   "nick": "Brent",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 61,
+   "name": "Matt Colla",
+   "nick": "Gino",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 79,
+   "name": "Karen Kiedrowski tom mom",
+   "nick": "Karen K",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 85,
+   "name": "Matt Symons",
+   "nick": "Symons",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 107,
+   "name": "Romeo",
+   "nick": "Romeo",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 124,
+   "name": "Renee Thigpen",
+   "nick": "Rene Thigpen",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 188,
+   "name": "Don Jones",
+   "nick": "DJFL",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 202,
+   "name": "Ken Watts",
+   "nick": "Watts",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 216,
+   "name": "Cindy Bawden",
+   "nick": "Cinbad",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 233,
+   "name": "Tiffany Merchant",
+   "nick": "Tiff Merch",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 269,
+   "name": "Stan Zielinski",
+   "nick": "Bear Down",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 271,
+   "name": "Patrick JR",
+   "nick": "Paddy the Baddy",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 143
+  },
+  {
+   "entry": 26,
+   "name": "Sue",
+   "nick": "Sue ",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 37,
+   "mnfDiff": 4,
+   "rank": 157
+  },
+  {
+   "entry": 48,
+   "name": "Jon Paul Jackson",
+   "nick": "Ball & Achane",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 157
+  },
+  {
+   "entry": 57,
+   "name": "Tim Barrington",
+   "nick": "7-11 Guy",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 37,
+   "mnfDiff": 4,
+   "rank": 157
+  },
+  {
+   "entry": 95,
+   "name": "Dan Brodoff",
+   "nick": "Brody",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 37,
+   "mnfDiff": 4,
+   "rank": 157
+  },
+  {
+   "entry": 112,
+   "name": "Timothy McDonald",
+   "nick": "Willis MVP",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 157
+  },
+  {
+   "entry": 150,
+   "name": "Errol(Guy) Valencic",
+   "nick": "Mule Charger",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 37,
+   "mnfDiff": 4,
+   "rank": 157
+  },
+  {
+   "entry": 198,
+   "name": "Alex Salas",
+   "nick": "Alexis 20",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 37,
+   "mnfDiff": 4,
+   "rank": 157
+  },
+  {
+   "entry": 230,
+   "name": "Dustin Burns",
+   "nick": "Pickled Willie's",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 157
+  },
+  {
+   "entry": 244,
+   "name": "Albert Layne",
+   "nick": "Bad Insomniac",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 157
+  },
+  {
+   "entry": 276,
+   "name": "Siegfried Wroebel",
+   "nick": "Atownpro",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 37,
+   "mnfDiff": 4,
+   "rank": 157
+  },
+  {
+   "entry": 43,
+   "name": "Steve Acquafresca",
+   "nick": "Freshwater",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 46,
+   "mnfDiff": 5,
+   "rank": 167
+  },
+  {
+   "entry": 74,
+   "name": "Byron Williams",
+   "nick": "Dark Passenger",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 46,
+   "mnfDiff": 5,
+   "rank": 167
+  },
+  {
+   "entry": 118,
+   "name": "Joe Valenza",
+   "nick": "Opuesto",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 36,
+   "mnfDiff": 5,
+   "rank": 167
+  },
+  {
+   "entry": 145,
+   "name": "Rackley/Romeo",
+   "nick": "Home Team",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 46,
+   "mnfDiff": 5,
+   "rank": 167
+  },
+  {
+   "entry": 123,
+   "name": "Jerry Thigpen",
+   "nick": "Jerry Thigpen",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 171
+  },
+  {
+   "entry": 138,
+   "name": "Ike Faulkenberry",
+   "nick": "Ike",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 171
+  },
+  {
+   "entry": 158,
+   "name": "Dave Trouteaud",
+   "nick": "Dave Trouteaud",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 171
+  },
+  {
+   "entry": 237,
+   "name": "John Knoy",
+   "nick": "Gator John",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 35,
+   "mnfDiff": 6,
+   "rank": 171
+  },
+  {
+   "entry": 245,
+   "name": "Ryan Oxx",
+   "nick": "Oxx",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 35,
+   "mnfDiff": 6,
+   "rank": 171
+  },
+  {
+   "entry": 132,
+   "name": null,
+   "nick": "Big Mike 2",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 7,
+   "rank": 176
+  },
+  {
+   "entry": 134,
+   "name": "Jerome Gulvis",
+   "nick": "Beer Money",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 7,
+   "rank": 176
+  },
+  {
+   "entry": 144,
+   "name": "Steve Roling",
+   "nick": "Jackson",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 7,
+   "rank": 176
+  },
+  {
+   "entry": 155,
+   "name": "Josh Louis",
+   "nick": "Josh",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 7,
+   "rank": 176
+  },
+  {
+   "entry": 136,
+   "name": "Joe (Gator) Oliver",
+   "nick": "Gator Joe",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 180
+  },
+  {
+   "entry": 160,
+   "name": "Aaron Jackson",
+   "nick": "Aaron Jackson",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 180
+  },
+  {
+   "entry": 165,
+   "name": "Bruce Westemeier",
+   "nick": "Bruce",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 180
+  },
+  {
+   "entry": 178,
+   "name": "Rob Glessner",
+   "nick": "Rob Comedy",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 180
+  },
+  {
+   "entry": 190,
+   "name": "Jimmy Nagaj",
+   "nick": "Clydes Clippers 33",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 180
+  },
+  {
+   "entry": 80,
+   "name": "Tom Weiler",
+   "nick": "Tee Time",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 50,
+   "mnfDiff": 9,
+   "rank": 185
+  },
+  {
+   "entry": 181,
+   "name": "Matthew Hardie",
+   "nick": "Sagttgrandma",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 50,
+   "mnfDiff": 9,
+   "rank": 185
+  },
+  {
+   "entry": 40,
+   "name": "Matt Gradowski(flex)",
+   "nick": "MattG",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 51,
+   "mnfDiff": 10,
+   "rank": 187
+  },
+  {
+   "entry": 110,
+   "name": "Dan Radick",
+   "nick": "Fuzzy",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 51,
+   "mnfDiff": 10,
+   "rank": 187
+  },
+  {
+   "entry": 120,
+   "name": "George Mallous",
+   "nick": "The Riddler",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 31,
+   "mnfDiff": 10,
+   "rank": 187
+  },
+  {
+   "entry": 121,
+   "name": "Michael Cenzi",
+   "nick": "Cenzinator92",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 31,
+   "mnfDiff": 10,
+   "rank": 187
+  },
+  {
+   "entry": 131,
+   "name": "Big Mike",
+   "nick": "Big Mike 1",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 51,
+   "mnfDiff": 10,
+   "rank": 187
+  },
+  {
+   "entry": 70,
+   "name": "Rachel Linse (Joe J wife)",
+   "nick": "Sharkdiver",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 53,
+   "mnfDiff": 12,
+   "rank": 192
+  },
+  {
+   "entry": 272,
+   "name": "Beau Wood",
+   "nick": "Te-Beau take the wheel",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 55,
+   "mnfDiff": 14,
+   "rank": 193
+  },
+  {
+   "entry": 12,
+   "name": "Don Nealon",
+   "nick": "DaCanes",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 56,
+   "mnfDiff": 15,
+   "rank": 194
+  },
+  {
+   "entry": 30,
+   "name": "Mary (son) Jeral",
+   "nick": "Slim Pickens",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 56,
+   "mnfDiff": 15,
+   "rank": 194
+  },
+  {
+   "entry": 83,
+   "name": "Jason Kondra(jkon22@yahoo,com)",
+   "nick": "Jason Cuse",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 58,
+   "mnfDiff": 17,
+   "rank": 196
+  },
+  {
+   "entry": 133,
+   "name": "Mike Richards",
+   "nick": "Detroit Mike",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 59,
+   "mnfDiff": 18,
+   "rank": 197
+  },
+  {
+   "entry": 161,
+   "name": "Chris Oneill",
+   "nick": "Monsters of the Midway",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 41,
+   "mnfDiff": 0,
+   "rank": 198
+  },
+  {
+   "entry": 38,
+   "name": "Mike Grimm",
+   "nick": "The MGs in SC",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 199
+  },
+  {
+   "entry": 49,
+   "name": "Paul Jackson",
+   "nick": "Shelby Man",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 199
+  },
+  {
+   "entry": 59,
+   "name": "Greg ",
+   "nick": "Hurricane Boi",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 199
+  },
+  {
+   "entry": 64,
+   "name": "Lisa Dupes (Falco friend)",
+   "nick": "Lisa D",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 199
+  },
+  {
+   "entry": 98,
+   "name": "Samuel Bennett",
+   "nick": "DJS",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 199
+  },
+  {
+   "entry": 128,
+   "name": "Tobin Walcott",
+   "nick": "Ironman 87",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 199
+  },
+  {
+   "entry": 207,
+   "name": "Craig Hicks",
+   "nick": "South Detroiter",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 199
+  },
+  {
+   "entry": 235,
+   "name": "Kevin Kenny",
+   "nick": "Thirsty Siblings",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 199
+  },
+  {
+   "entry": 15,
+   "name": "Bryce Nealon",
+   "nick": "Fitznews",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 207
+  },
+  {
+   "entry": 20,
+   "name": "Jacob marsh",
+   "nick": "Marshmadness",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 39,
+   "mnfDiff": 2,
+   "rank": 207
+  },
+  {
+   "entry": 36,
+   "name": "Jacueline Grimm",
+   "nick": "You serious Clark",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 39,
+   "mnfDiff": 2,
+   "rank": 207
+  },
+  {
+   "entry": 62,
+   "name": "Troy Peck",
+   "nick": "D-Troy",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 207
+  },
+  {
+   "entry": 137,
+   "name": "Cathy Prosise",
+   "nick": "Cathy P",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 207
+  },
+  {
+   "entry": 153,
+   "name": "Joe Valencic sr",
+   "nick": "HEFE1122",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 39,
+   "mnfDiff": 2,
+   "rank": 207
+  },
+  {
+   "entry": 211,
+   "name": "Stacy Hering",
+   "nick": "FinsUp",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 207
+  },
+  {
+   "entry": 263,
+   "name": "Brant/Amy Frederick",
+   "nick": "The Bartenders",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 207
+  },
+  {
+   "entry": 33,
+   "name": null,
+   "nick": "Blake",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 215
+  },
+  {
+   "entry": 52,
+   "name": "Joalis Arends",
+   "nick": "Joalis",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 215
+  },
+  {
+   "entry": 122,
+   "name": "Alyssa Cenzi",
+   "nick": "BabaLou",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 215
+  },
+  {
+   "entry": 146,
+   "name": "Curtis Gunther",
+   "nick": "Gunther ",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 215
+  },
+  {
+   "entry": 167,
+   "name": "Charley Bohley",
+   "nick": "Tuna",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 215
+  },
+  {
+   "entry": 172,
+   "name": "Gail Funke",
+   "nick": "Gfunk",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 215
+  },
+  {
+   "entry": 217,
+   "name": "Leslie Duke",
+   "nick": "Lduke",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 215
+  },
+  {
+   "entry": 268,
+   "name": "Bryces friend(Mack)",
+   "nick": "Mackpool",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 215
+  },
+  {
+   "entry": 283,
+   "name": "Phil Oliver",
+   "nick": "Rosie 500",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 215
+  },
+  {
+   "entry": 10,
+   "name": "Brian Kirk",
+   "nick": "NaplesNDFan",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 224
+  },
+  {
+   "entry": 24,
+   "name": "Jim McLean",
+   "nick": "Jim McLean",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 224
+  },
+  {
+   "entry": 117,
+   "name": "Zach Sloan",
+   "nick": "Duvall",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 224
+  },
+  {
+   "entry": 139,
+   "name": "Lynne Howell",
+   "nick": "Lynne H",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 37,
+   "mnfDiff": 4,
+   "rank": 224
+  },
+  {
+   "entry": 203,
+   "name": "Kymi Ferris",
+   "nick": "SheHawk Tuah",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 224
+  },
+  {
+   "entry": 219,
+   "name": "Mike Locout",
+   "nick": "Mike Mike",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 224
+  },
+  {
+   "entry": 51,
+   "name": "Amy Totherow",
+   "nick": "Porch Swing Angel",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 36,
+   "mnfDiff": 5,
+   "rank": 230
+  },
+  {
+   "entry": 282,
+   "name": "Robert Muller",
+   "nick": "Bobby",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 46,
+   "mnfDiff": 5,
+   "rank": 230
+  },
+  {
+   "entry": 186,
+   "name": "Kaleigh Cook",
+   "nick": "Turn Down for Watt",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 232
+  },
+  {
+   "entry": 220,
+   "name": "Mike Brunke",
+   "nick": "Brickster 34",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 35,
+   "mnfDiff": 6,
+   "rank": 232
+  },
+  {
+   "entry": 88,
+   "name": "Ronnie Grigby",
+   "nick": "Ronnie",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 7,
+   "rank": 234
+  },
+  {
+   "entry": 94,
+   "name": "Blake Ginther",
+   "nick": "Ginner",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 7,
+   "rank": 234
+  },
+  {
+   "entry": 4,
+   "name": "Alicia Wolfe",
+   "nick": "Rotar523",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 236
+  },
+  {
+   "entry": 193,
+   "name": "Kyle Hamer",
+   "nick": "Hammertime",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 236
+  },
+  {
+   "entry": 89,
+   "name": "Hamilton Abreu",
+   "nick": "NJ Gernerals",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 50,
+   "mnfDiff": 9,
+   "rank": 238
+  },
+  {
+   "entry": 68,
+   "name": "Franks Wife",
+   "nick": "DBLJ",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 51,
+   "mnfDiff": 10,
+   "rank": 239
+  },
+  {
+   "entry": 171,
+   "name": "Shawn Roman",
+   "nick": "Lehigh Lions",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 31,
+   "mnfDiff": 10,
+   "rank": 239
+  },
+  {
+   "entry": 127,
+   "name": "Carol Roming",
+   "nick": "Red Zone",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 28,
+   "mnfDiff": 13,
+   "rank": 241
+  },
+  {
+   "entry": 92,
+   "name": "Patti Thomas",
+   "nick": "Love Donation",
+   "correct": 8,
+   "picks": 13,
+   "mnf": 27,
+   "mnfDiff": 14,
+   "rank": 242
+  },
+  {
+   "entry": 119,
+   "name": "Tim Brooks",
+   "nick": "Spyder",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 55,
+   "mnfDiff": 14,
+   "rank": 242
+  },
+  {
+   "entry": 261,
+   "name": "Sol Malo",
+   "nick": "Fireball",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 27,
+   "mnfDiff": 14,
+   "rank": 242
+  },
+  {
+   "entry": 262,
+   "name": "Lois Malo",
+   "nick": "Jersey Girl",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 24,
+   "mnfDiff": 17,
+   "rank": 245
+  },
+  {
+   "entry": 273,
+   "name": "Matt Coyle",
+   "nick": "Matt Coyle",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 41,
+   "mnfDiff": 0,
+   "rank": 246
+  },
+  {
+   "entry": 199,
+   "name": "Jamy Hillaker",
+   "nick": "Bulldogge Mom",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 247
+  },
+  {
+   "entry": 109,
+   "name": "Leslie Kugel",
+   "nick": "Kugeliscious2",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 39,
+   "mnfDiff": 2,
+   "rank": 248
+  },
+  {
+   "entry": 192,
+   "name": "Christine Giles",
+   "nick": "Cricket",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 39,
+   "mnfDiff": 2,
+   "rank": 248
+  },
+  {
+   "entry": 1,
+   "name": "Mike Lowe",
+   "nick": "Budman",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 250
+  },
+  {
+   "entry": 44,
+   "name": "Taylor Ives",
+   "nick": "Huskies",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 250
+  },
+  {
+   "entry": 60,
+   "name": "Tim Barrington",
+   "nick": "Ladyhawke",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 250
+  },
+  {
+   "entry": 73,
+   "name": "Tiffany Williams",
+   "nick": "Cheesehead",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 250
+  },
+  {
+   "entry": 135,
+   "name": "Dan Noyes",
+   "nick": "Noyesmaker",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 250
+  },
+  {
+   "entry": 143,
+   "name": "Steve Roling",
+   "nick": "Steve",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 250
+  },
+  {
+   "entry": 151,
+   "name": "Joe Valencic",
+   "nick": "Buster",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 250
+  },
+  {
+   "entry": 206,
+   "name": "Mark Miller",
+   "nick": "Mark Miller",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 250
+  },
+  {
+   "entry": 212,
+   "name": "Bret Peruzzi",
+   "nick": "Bperuze",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 250
+  },
+  {
+   "entry": 279,
+   "name": "John Sissman (LJ)",
+   "nick": "Arrowhead",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 3,
+   "rank": 250
+  },
+  {
+   "entry": 29,
+   "name": null,
+   "nick": "Ms. Mac",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 260
+  },
+  {
+   "entry": 65,
+   "name": "Marty Moran",
+   "nick": "Marty Moran",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 260
+  },
+  {
+   "entry": 258,
+   "name": "Cory Lytle NNCC ",
+   "nick": "Cory NNCC",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 45,
+   "mnfDiff": 4,
+   "rank": 260
+  },
+  {
+   "entry": 27,
+   "name": null,
+   "nick": "B&W",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 36,
+   "mnfDiff": 5,
+   "rank": 263
+  },
+  {
+   "entry": 226,
+   "name": "Mac Rollins",
+   "nick": "Momoneymac",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 46,
+   "mnfDiff": 5,
+   "rank": 263
+  },
+  {
+   "entry": 208,
+   "name": "Mike & Mary Harty",
+   "nick": "Harty",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 34,
+   "mnfDiff": 7,
+   "rank": 265
+  },
+  {
+   "entry": 225,
+   "name": "Nancy Lappi",
+   "nick": "Lappin",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 266
+  },
+  {
+   "entry": 277,
+   "name": "John Hofmann",
+   "nick": "Hofdaddy",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 49,
+   "mnfDiff": 8,
+   "rank": 266
+  },
+  {
+   "entry": 14,
+   "name": "Morgan Byces GF",
+   "nick": "Ravens99",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 50,
+   "mnfDiff": 9,
+   "rank": 268
+  },
+  {
+   "entry": 47,
+   "name": "Parker Jackson",
+   "nick": "TW Fish",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 32,
+   "mnfDiff": 9,
+   "rank": 268
+  },
+  {
+   "entry": 25,
+   "name": "Josh (Jacks)",
+   "nick": "Juice 1",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 53,
+   "mnfDiff": 12,
+   "rank": 270
+  },
+  {
+   "entry": 170,
+   "name": "Dick EnDres",
+   "nick": "ID",
+   "correct": 7,
+   "picks": 14,
+   "mnf": null,
+   "mnfDiff": null,
+   "rank": 271
+  },
+  {
+   "entry": 106,
+   "name": "Justin Santangelo",
+   "nick": "Justin Santangelo",
+   "correct": 6,
+   "picks": 14,
+   "mnf": 41,
+   "mnfDiff": 0,
+   "rank": 272
+  },
+  {
+   "entry": 63,
+   "name": "Chris Falco",
+   "nick": "Halfsighted",
+   "correct": 6,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 1,
+   "rank": 273
+  },
+  {
+   "entry": 140,
+   "name": "Mark Hershey",
+   "nick": "Kaz",
+   "correct": 6,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 274
+  },
+  {
+   "entry": 126,
+   "name": "Austin Nicodemus",
+   "nick": "Paxton",
+   "correct": 6,
+   "picks": 14,
+   "mnf": 55,
+   "mnfDiff": 14,
+   "rank": 275
+  },
+  {
+   "entry": 8,
+   "name": "Pat Kirk",
+   "nick": "Irish Cowboy",
+   "correct": 5,
+   "picks": 14,
+   "mnf": 40,
+   "mnfDiff": 1,
+   "rank": 276
+  },
+  {
+   "entry": 32,
+   "name": "Tom Jr (Sue Brother)",
+   "nick": "Tom Jr",
+   "correct": 5,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 2,
+   "rank": 277
+  },
+  {
+   "entry": 37,
+   "name": null,
+   "nick": "Jacdash",
+   "correct": 5,
+   "picks": 14,
+   "mnf": 44,
+   "mnfDiff": 3,
+   "rank": 278
+  },
+  {
+   "entry": 13,
+   "name": "Shane Oconnor",
+   "nick": "Coltstud2001",
+   "correct": 5,
+   "picks": 14,
+   "mnf": 46,
+   "mnfDiff": 5,
+   "rank": 279
+  },
+  {
+   "entry": 35,
+   "name": "Jennifer Reese ",
+   "nick": "Hummas Rules",
+   "correct": 5,
+   "picks": 14,
+   "mnf": 59,
+   "mnfDiff": 18,
+   "rank": 280
+  },
+  {
+   "entry": 93,
+   "name": "Scott McHenry",
+   "nick": "Scott McHenry",
+   "correct": 4,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 6,
+   "rank": 281
+  }
+ ]
+}

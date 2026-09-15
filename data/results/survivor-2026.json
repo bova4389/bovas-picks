@@ -1,0 +1,543 @@
+{
+ "year": 2026,
+ "source": "espn",
+ "weeks": {
+  "1": {
+   "won": 159,
+   "lost": 88,
+   "tie": 0,
+   "pending": 0,
+   "losers": [
+    {
+     "entry": 134,
+     "nick": "Gunther ",
+     "name": "Curtis Gunther",
+     "team": "CAR"
+    },
+    {
+     "entry": 74,
+     "nick": "Comanea",
+     "name": "Matt Symons wife",
+     "team": "DAL"
+    },
+    {
+     "entry": 187,
+     "nick": "Bonita Bullies",
+     "name": "KC VanBrockin",
+     "team": "DAL"
+    },
+    {
+     "entry": 227,
+     "nick": "Chicago Frank",
+     "name": "Frank Popolo",
+     "team": "DAL"
+    },
+    {
+     "entry": 190,
+     "nick": "Foul Ball",
+     "name": "John Fowle",
+     "team": "HOU"
+    },
+    {
+     "entry": 5,
+     "nick": "Dr T",
+     "name": "Tony Seeger",
+     "team": "LAC"
+    },
+    {
+     "entry": 9,
+     "nick": "Dolfan 14",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 10,
+     "nick": "Baby G.",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 13,
+     "nick": "Big Ben",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 14,
+     "nick": "AllieGator",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 15,
+     "nick": "BowlingAllie",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 18,
+     "nick": "Gbaby",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 22,
+     "nick": "Dinglebarry 2",
+     "name": "Zach Wright",
+     "team": "LAC"
+    },
+    {
+     "entry": 23,
+     "nick": "JulesyPoo 1",
+     "name": "Juliana Lombardo",
+     "team": "LAC"
+    },
+    {
+     "entry": 27,
+     "nick": "DaCanes",
+     "name": "Don Nealon",
+     "team": "LAC"
+    },
+    {
+     "entry": 38,
+     "nick": "Juice 2",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 40,
+     "nick": "Slim Pickens",
+     "name": "Mary (son) Jeral",
+     "team": "LAC"
+    },
+    {
+     "entry": 41,
+     "nick": "Doody",
+     "name": "Anthony (Jacks)",
+     "team": "LAC"
+    },
+    {
+     "entry": 43,
+     "nick": "Freshwater",
+     "name": "Steve Acquafresca",
+     "team": "LAC"
+    },
+    {
+     "entry": 45,
+     "nick": "Irishgunslinger",
+     "name": "Rusty Moore",
+     "team": "LAC"
+    },
+    {
+     "entry": 49,
+     "nick": "7-11 Guy",
+     "name": "Tim Barrington",
+     "team": "LAC"
+    },
+    {
+     "entry": 61,
+     "nick": "Hail Andi",
+     "name": "Andrea Weldemeyer",
+     "team": "LAC"
+    },
+    {
+     "entry": 67,
+     "nick": "Tee Time",
+     "name": "Tom Weiler",
+     "team": "LAC"
+    },
+    {
+     "entry": 70,
+     "nick": "Matt Mo",
+     "name": "Matt Moran",
+     "team": "LAC"
+    },
+    {
+     "entry": 75,
+     "nick": "Madison",
+     "name": "Madison Fisher",
+     "team": "LAC"
+    },
+    {
+     "entry": 79,
+     "nick": "Mr Vegas 2",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 82,
+     "nick": "Thaddius",
+     "name": "Thaddius Longsworth",
+     "team": "LAC"
+    },
+    {
+     "entry": 85,
+     "nick": "WhoDat",
+     "name": "Josh Colvenback",
+     "team": "LAC"
+    },
+    {
+     "entry": 88,
+     "nick": "Stu Pidasso",
+     "name": "John Richard",
+     "team": "LAC"
+    },
+    {
+     "entry": 90,
+     "nick": "Dane Glesak",
+     "name": "Jim McCab (Richard Friend)",
+     "team": "LAC"
+    },
+    {
+     "entry": 93,
+     "nick": "Lil Kyle 2",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 96,
+     "nick": "Kugeliscious2",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 98,
+     "nick": "Kugeliscious4",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 102,
+     "nick": "Chris R",
+     "name": "Chris Russo son",
+     "team": "LAC"
+    },
+    {
+     "entry": 105,
+     "nick": "BabaLou",
+     "name": "Alyssa Cenzi",
+     "team": "LAC"
+    },
+    {
+     "entry": 111,
+     "nick": "Doc Mike",
+     "name": "Doc Mike",
+     "team": "LAC"
+    },
+    {
+     "entry": 112,
+     "nick": "Big Mike 1",
+     "name": "Big Mike",
+     "team": "LAC"
+    },
+    {
+     "entry": 117,
+     "nick": "Trandis",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 118,
+     "nick": "Nicole",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 119,
+     "nick": "Beer Money",
+     "name": "Jerome Gulvis",
+     "team": "LAC"
+    },
+    {
+     "entry": 120,
+     "nick": "Noyesmaker",
+     "name": "Dan Noyes",
+     "team": "LAC"
+    },
+    {
+     "entry": 124,
+     "nick": "Lynne H",
+     "name": "Lynne Howell",
+     "team": "LAC"
+    },
+    {
+     "entry": 125,
+     "nick": "Kaz",
+     "name": "Mark Hershey",
+     "team": "LAC"
+    },
+    {
+     "entry": 126,
+     "nick": "Jimmy Y",
+     "name": "Jim Young",
+     "team": "LAC"
+    },
+    {
+     "entry": 128,
+     "nick": "Steve",
+     "name": "Steve Roling",
+     "team": "LAC"
+    },
+    {
+     "entry": 137,
+     "nick": "Ashley M",
+     "name": "Ashley Minge",
+     "team": "LAC"
+    },
+    {
+     "entry": 141,
+     "nick": "Kris Trouteaud",
+     "name": "Kris Trouteaud",
+     "team": "LAC"
+    },
+    {
+     "entry": 147,
+     "nick": "Cryin Colts Fan",
+     "name": "Patricia Vince",
+     "team": "LAC"
+    },
+    {
+     "entry": 148,
+     "nick": "Bruce",
+     "name": "Bruce Westemeier",
+     "team": "LAC"
+    },
+    {
+     "entry": 154,
+     "nick": "DLN",
+     "name": "Larry Niedert",
+     "team": "LAC"
+    },
+    {
+     "entry": 159,
+     "nick": "Jazon",
+     "name": "Jason Hart",
+     "team": "LAC"
+    },
+    {
+     "entry": 160,
+     "nick": "BradT",
+     "name": "Brad Thomas",
+     "team": "LAC"
+    },
+    {
+     "entry": 161,
+     "nick": "Creepin Pats",
+     "name": "Kevin Wood",
+     "team": "LAC"
+    },
+    {
+     "entry": 162,
+     "nick": "Rob Comedy",
+     "name": "Rob Glessner",
+     "team": "LAC"
+    },
+    {
+     "entry": 164,
+     "nick": "Big Blue",
+     "name": "Paul Hardie",
+     "team": "LAC"
+    },
+    {
+     "entry": 169,
+     "nick": "Turn Down for Watt",
+     "name": "Kaleigh Cook",
+     "team": "LAC"
+    },
+    {
+     "entry": 170,
+     "nick": "Mile High Club",
+     "name": "David Desroches",
+     "team": "LAC"
+    },
+    {
+     "entry": 171,
+     "nick": "AppStateAlum",
+     "name": "Evan(Mark) Jones",
+     "team": "LAC"
+    },
+    {
+     "entry": 176,
+     "nick": "Jacob Diaz",
+     "name": "Jake Diaz",
+     "team": "LAC"
+    },
+    {
+     "entry": 177,
+     "nick": "Alexis 20",
+     "name": "Alex Salas",
+     "team": "LAC"
+    },
+    {
+     "entry": 184,
+     "nick": "Chris Griffin",
+     "name": "Chris Griffin",
+     "team": "LAC"
+    },
+    {
+     "entry": 186,
+     "nick": "FinsUp",
+     "name": "Stacy Hering",
+     "team": "LAC"
+    },
+    {
+     "entry": 188,
+     "nick": "Bperuze",
+     "name": "Bret Peruzzi",
+     "team": "LAC"
+    },
+    {
+     "entry": 194,
+     "nick": "Skip",
+     "name": "Skip Vigars",
+     "team": "LAC"
+    },
+    {
+     "entry": 198,
+     "nick": "JBC-1",
+     "name": "John Corallo",
+     "team": "LAC"
+    },
+    {
+     "entry": 202,
+     "nick": "Tiff Merch",
+     "name": "Tiffany Merchant",
+     "team": "LAC"
+    },
+    {
+     "entry": 205,
+     "nick": "Gator John",
+     "name": "John Knoy",
+     "team": "LAC"
+    },
+    {
+     "entry": 206,
+     "nick": "Danny Diamonds",
+     "name": "Duncan Minnick",
+     "team": "LAC"
+    },
+    {
+     "entry": 209,
+     "nick": "Marcy",
+     "name": "Marcy Martinowich",
+     "team": "LAC"
+    },
+    {
+     "entry": 213,
+     "nick": "Ryan F",
+     "name": "Ryan Faglione",
+     "team": "LAC"
+    },
+    {
+     "entry": 214,
+     "nick": "Lori C",
+     "name": "Lori Collins",
+     "team": "LAC"
+    },
+    {
+     "entry": 219,
+     "nick": "Mozier Momma 2",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 221,
+     "nick": "EDZO 17",
+     "name": "Ed Marenburg",
+     "team": "LAC"
+    },
+    {
+     "entry": 222,
+     "nick": "GoBirds",
+     "name": "Jim Gibbons",
+     "team": "LAC"
+    },
+    {
+     "entry": 225,
+     "nick": "Stillwalkin23",
+     "name": "Crystal Stahl",
+     "team": "LAC"
+    },
+    {
+     "entry": 228,
+     "nick": "TractorTom76",
+     "name": "Thomas McGuire",
+     "team": "LAC"
+    },
+    {
+     "entry": 232,
+     "nick": "Bear Down",
+     "name": "Stan Zielinski",
+     "team": "LAC"
+    },
+    {
+     "entry": 233,
+     "nick": "Jack K",
+     "name": "Jack Kirk",
+     "team": "LAC"
+    },
+    {
+     "entry": 235,
+     "nick": "Te-Beau take the wheel",
+     "name": "Beau Wood",
+     "team": "LAC"
+    },
+    {
+     "entry": 238,
+     "nick": "Double J",
+     "name": "Jeremy Jones",
+     "team": "LAC"
+    },
+    {
+     "entry": 240,
+     "nick": "Masey Tom",
+     "name": "Howard Mase",
+     "team": "LAC"
+    },
+    {
+     "entry": 243,
+     "nick": "BigBluvslilb",
+     "name": "Brandon Jacobson",
+     "team": "LAC"
+    },
+    {
+     "entry": 247,
+     "nick": "Toni97",
+     "name": "Bruce Inglerright",
+     "team": "LAC"
+    },
+    {
+     "entry": 132,
+     "nick": "Rackley 2",
+     "name": null,
+     "team": "LAR"
+    },
+    {
+     "entry": 16,
+     "nick": "Steve O",
+     "name": null,
+     "team": "MIA"
+    },
+    {
+     "entry": 31,
+     "nick": "Tomakawked",
+     "name": "Nick Spinelli",
+     "team": "TEN"
+    },
+    {
+     "entry": 55,
+     "nick": "Halfsighted",
+     "name": "Chris Falco",
+     "team": "TEN"
+    },
+    {
+     "entry": 246,
+     "nick": "Bruce25",
+     "name": "Bruce Inglerright",
+     "team": "TEN"
+    }
+   ],
+   "tied": []
+  }
+ }
+}
