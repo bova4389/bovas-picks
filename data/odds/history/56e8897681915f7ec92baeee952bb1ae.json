@@ -1540,5 +1540,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-09-14T19:21:34.973318+00:00"
+ },
+ {
+  "id": "56e8897681915f7ec92baeee952bb1ae",
+  "commenceTime": "2026-09-18T00:15:00Z",
+  "home": "Buffalo Bills",
+  "away": "Detroit Lions",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6934,
+  "rawAwayProb": 0.3489,
+  "homeWinProb": 0.6653,
+  "awayWinProb": 0.3347,
+  "vig": 0.0422,
+  "total": 53.5,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-09-15T18:11:39.359212+00:00"
  }
 ]
