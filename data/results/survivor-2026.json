@@ -3,8 +3,8 @@
  "source": "espn",
  "weeks": {
   "1": {
-   "won": 159,
-   "lost": 88,
+   "won": 160,
+   "lost": 87,
    "tie": 0,
    "pending": 0,
    "losers": [
@@ -13,6 +13,12 @@
      "nick": "Gunther ",
      "name": "Curtis Gunther",
      "team": "CAR"
+    },
+    {
+     "entry": 195,
+     "nick": "Momoneymac",
+     "name": "Mac Rollins",
+     "team": "LAC"
     },
     {
      "entry": 74,
@@ -63,20 +69,8 @@
      "team": "LAC"
     },
     {
-     "entry": 14,
-     "nick": "AllieGator",
-     "name": null,
-     "team": "LAC"
-    },
-    {
      "entry": 15,
      "nick": "BowlingAllie",
-     "name": null,
-     "team": "LAC"
-    },
-    {
-     "entry": 18,
-     "nick": "Gbaby",
      "name": null,
      "team": "LAC"
     },

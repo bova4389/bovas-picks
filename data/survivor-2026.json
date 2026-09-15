@@ -8,18 +8,18 @@
    "picks": [
     {
      "team": "LAC",
-     "count": 78,
-     "pct": 31.6
+     "count": 77,
+     "pct": 31.2
     },
     {
      "team": "JAC",
-     "count": 61,
-     "pct": 24.7
+     "count": 62,
+     "pct": 25.1
     },
     {
      "team": "DET",
-     "count": 33,
-     "pct": 13.4
+     "count": 34,
+     "pct": 13.8
     },
     {
      "team": "PIT",
@@ -32,14 +32,14 @@
      "pct": 4.5
     },
     {
-     "team": "CHI",
+     "team": "PHI",
      "count": 7,
      "pct": 2.8
     },
     {
-     "team": "PHI",
-     "count": 7,
-     "pct": 2.8
+     "team": "CHI",
+     "count": 6,
+     "pct": 2.4
     },
     {
      "team": "CIN",
@@ -201,12 +201,12 @@
    "name": "Mac Rollins",
    "nick": "Momoneymac",
    "picks": {
-    "1": "CHI"
+    "1": "LAC"
    },
    "problems": [],
    "alive": true,
    "used": [
-    "CHI"
+    "LAC"
    ]
   },
   {
@@ -1605,12 +1605,12 @@
    "name": null,
    "nick": "AllieGator",
    "picks": {
-    "1": "LAC"
+    "1": "JAC"
    },
    "problems": [],
    "alive": true,
    "used": [
-    "LAC"
+    "JAC"
    ]
   },
   {
@@ -1631,12 +1631,12 @@
    "name": null,
    "nick": "Gbaby",
    "picks": {
-    "1": "LAC"
+    "1": "DET"
    },
    "problems": [],
    "alive": true,
    "used": [
-    "LAC"
+    "DET"
    ]
   },
   {
@@ -2890,7 +2890,7 @@
   {
    "entry": 12,
    "name": null,
-   "nick": "AP8",
+   "nick": "AR8",
    "picks": {
     "1": "PIT"
    },
