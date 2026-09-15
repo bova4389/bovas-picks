@@ -119,6 +119,22 @@ export async function fetchInfinityPool(pool, season) {
       }
 
       if (mine.length) entry.picks[String(week)] = mine;
+
+      // The Monday night total-points guess that breaks a tie for the weekly
+      // $20. Behind the same kickoff gate as the picks: a rival's guess is
+      // shown only once its game has started.
+      const tb = payload?.tiebreaker;
+      if (tb && tb.value != null) {
+        const tbGame = games.get(String(tb.game_id));
+        if (entry.isMe || hasKickedOff(tbGame)) {
+          entry.tiebreakers = entry.tiebreakers || {};
+          entry.tiebreakers[String(week)] = {
+            guess: Number(tb.value),
+            away: team(tbGame?.away),
+            home: team(tbGame?.home),
+          };
+        }
+      }
     }
 
     const rows = [...counts.entries()]

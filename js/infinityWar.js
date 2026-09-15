@@ -35,6 +35,8 @@ import { ABBR_TO_MASCOT } from './teams.js';
 import { infinityTeamsKey } from './myPicks.js';
 import { loadCachedPool, saveCachedPool } from './infinityFeed.js';
 import { mountConnectBoxes } from './sleeperAuth.js';
+import { loadWeek as loadScores } from './gameState.js';
+import { teamIndex, gradePickemWeek, weekPrize } from './standingsModel.js';
 import {
   PICKS_PER_WEEK, weekGames, rankGames, sourceWarning, chalkSet,
   expectedCorrect, scoreDistribution, atLeast, simulateField, scoreCard,
@@ -72,6 +74,7 @@ const S = {
   week: null, weeks: [], now: 1, slate: [], picks: [],
   prefs: { ...DEFAULTS }, feed: null, liveCount: null,
   sim: null, simKey: null,
+  results: null, resultsKey: null, resultsBusy: null,
 };
 
 /* ── Boot ─────────────────────────────────────────────────────────────────*/
@@ -181,6 +184,7 @@ function render() {
     + banner
     + controls()
     + (warn ? note(warn) : '')
+    + blockResults()
     + blockCard()
     + blockOutlook(sim)
     + blockSwaps(sim)
@@ -247,6 +251,110 @@ const spreadLabel = (v) => (
         : v <= 14 ? 'a lot — several contrarians'
           : 'wildly — nobody agrees'
 );
+
+/* ── Results: how the week actually went ──────────────────────────────────
+
+   Every entry graded against the live scores, with the weekly prize called
+   the same way Standings calls it (weekPrize): never split -- a tie on
+   correct goes to the Monday night total-points guess, and a tie on that
+   rolls the pot to next week. Scores load asynchronously, so the block shows
+   a placeholder and re-renders once they arrive. */
+
+function resultsKey() {
+  return `${S.week}|${S.feed?.fetchedAt || 0}`;
+}
+
+function blockResults() {
+  const title = `Week ${S.week} results`;
+  if (!S.feed) {
+    return card(title, 'How the pool did', `
+      <p class="lede">No pool loaded yet. <strong>Connect Sleeper</strong> above (Sleeper now
+      requires your login to read picks), then press <strong>Refresh from Sleeper</strong>.</p>`);
+  }
+  if (S.resultsKey !== resultsKey()) {
+    refreshResults();
+    return card(title, 'How the pool did', '<p class="lede">Grading the week…</p>');
+  }
+  const r = S.results;
+  if (!r || !r.rows.some((x) => x.visible)) {
+    return card(title, 'How the pool did', `
+      <p class="lede">No picks visible for Week ${S.week} in the last refresh. Picks show once
+      their games kick off; press <strong>Refresh from Sleeper</strong> to update.</p>`);
+  }
+
+  const { rows, prize, pot } = r;
+  const winner = prize.winners[0] || null;
+  const who = (x) => (x.isMe ? 'you' : x.name);
+  let verdict;
+  if (!prize.final) {
+    verdict = `In progress. ${prize.leaders.length > 1 ? `${prize.leaders.length} tied` : esc(who(prize.leaders[0]))} leading at ${prize.top}.`;
+  } else if (prize.rollover) {
+    verdict = `${prize.leaders.length}-way tie at ${prize.top}, and tied on the tiebreaker too: the <strong>${money(pot)}</strong> rolls to next week.`;
+  } else if (prize.needsTiebreak) {
+    verdict = `${prize.leaders.length}-way tie at ${prize.top}. This copy of the pool has no tiebreaker guesses; press <strong>Refresh from Sleeper</strong>.`;
+  } else {
+    verdict = `<strong>${esc(who(winner))}</strong> ${winner.isMe ? 'win' : 'wins'} the <strong>${money(pot)}</strong> at ${prize.top}`
+      + (prize.leaders.length > 1 && winner.tiebreaker
+        ? `, on the tiebreaker: ${prize.leaders.length}-way tie, guessed ${winner.tiebreaker.guess} of a ${prize.total}-point Monday night.`
+        : '.');
+  }
+
+  const tied = new Set(prize.leaders);
+  const body = rows.map((x) => {
+    const tb = x.tiebreaker ? x.tiebreaker.guess : '—';
+    const off = prize.total != null && x.tiebreaker && tied.has(x) ? ` <span class="iw-fine">(off ${Math.abs(x.tiebreaker.guess - prize.total)})</span>` : '';
+    const paid = prize.winners.includes(x) ? ` <strong>${money(pot)}</strong>` : '';
+    return `
+      <tr>
+        <td>${x.rank}</td>
+        <td>${esc(x.isMe ? `${x.name} (you)` : x.name)}${paid}</td>
+        <td>${x.correct}${prize.final ? '' : ` <span class="iw-fine">max ${x.max}</span>`}</td>
+        <td>${tb}${off}</td>
+      </tr>`;
+  }).join('');
+
+  return card(title, 'How the pool did', `
+    <p class="lede">${verdict}</p>
+    <table class="iw-swaps">
+      <thead><tr><th>#</th><th>Entry</th><th>Right</th><th>Tiebreaker</th></tr></thead>
+      <tbody>${body}</tbody>
+    </table>
+    <p class="iw-fine">The $${POOL.economics.weekly} is never split. Tied on correct, the Monday
+      night total-points guess closest either way wins; tied on that too, it rolls to next week.
+      Guesses show once the Monday game kicks off.</p>`);
+}
+
+async function refreshResults() {
+  const key = resultsKey();
+  if (S.resultsBusy === key) return;
+  S.resultsBusy = key;
+  try {
+    const limit = Number(S.feed.settings?.weeklyPickLimit) || PICKS_PER_WEEK;
+    // Walk the season up to this week so a rolled-over pot is carried forward.
+    let carried = 0;
+    let out = null;
+    for (let w = Math.min(...S.weeks); w <= S.week; w += 1) {
+      const view = await loadScores(S.season, w, { live: true, maxAgeMs: 10 * 60e3 });
+      const games = view?.games || [];
+      const rows = gradePickemWeek(S.feed.entries || [], w, teamIndex(games), limit);
+      const pot = POOL.economics.weekly + carried;
+      const prize = weekPrize(rows, games, pot);
+      if (w === S.week) { out = { rows, prize, pot }; break; }
+      const settled = prize.final && rows.some((x) => x.visible) && !prize.needsTiebreak;
+      if (settled) carried = prize.rollover ? pot : 0;
+    }
+    if (resultsKey() !== key) return;
+    S.results = out;
+    S.resultsKey = key;
+  } catch (err) {
+    console.warn('infinity war: results failed', err);
+    S.results = null;
+    S.resultsKey = key;
+  } finally {
+    if (S.resultsBusy === key) S.resultsBusy = null;
+  }
+  render();
+}
 
 /* ── Block A: the card ────────────────────────────────────────────────────*/
 

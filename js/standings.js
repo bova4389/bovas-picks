@@ -691,7 +691,9 @@ function infinityCard(S, live) {
   }
 
   const me = rows.find((r) => r.isMe) || null;
-  const weekly = INFINITY.economics?.weekly ?? 20;
+  // A previous week's rolled-over pot rides on this one (see pickemSeason).
+  const weekly = S.ytd?.infinity?.weeks?.find((w) => w.week === S.week)?.pot
+    ?? INFINITY.economics?.weekly ?? 20;
   const prize = weekPrize(rows, live, weekly);
   const ahead = me ? rows.filter((r) => r.correct > me.correct).length : 0;
   const tied = me ? rows.filter((r) => r.correct === me.correct).length : 0;
@@ -699,11 +701,19 @@ function infinityCard(S, live) {
   let prizeBox;
   let verdict;
   if (prize.final) {
-    const names = prize.leaders.map((r) => (r.isMe ? 'you' : r.name));
-    prizeBox = prize.meIn ? `$${fmtMoney(prize.share)}` : '$0';
-    verdict = prize.meIn
-      ? `<span class="st-verdict is-win">${prize.leaders.length > 1 ? `Split the $${weekly} ${prize.leaders.length} ways` : `You won the $${weekly}`}</span>`
-      : `<span class="st-verdict is-out">$${weekly} to ${esc(names.join(', '))}</span>`;
+    // Never split: one winner, a rollover, or a tie the cached pool can't break yet.
+    const winner = prize.winners[0] || null;
+    const tbNote = prize.leaders.length > 1 && prize.total != null
+      ? ` · ${prize.leaders.length}-way tie at ${prize.top}, Monday total ${prize.total}${winner?.tiebreaker ? `, guess ${winner.tiebreaker.guess}` : ''}`
+      : '';
+    prizeBox = prize.rollover ? 'Rolls over' : prize.needsTiebreak ? 'Tied' : prize.meIn ? `$${fmtMoney(prize.share)}` : '$0';
+    verdict = prize.rollover
+      ? `<span class="st-verdict is-alive">Tied on picks and on the tiebreaker: the $${weekly} rolls to next week</span>`
+      : prize.needsTiebreak
+        ? `<span class="st-verdict is-alive">${prize.leaders.length}-way tie at ${prize.top}. Refresh from Sleeper to read the tiebreaker guesses.</span>`
+        : prize.meIn
+          ? `<span class="st-verdict is-win">You won the $${weekly}${esc(tbNote)}</span>`
+          : `<span class="st-verdict is-out">$${weekly} to ${esc(winner ? winner.name : 'nobody')}${esc(tbNote)}</span>`;
   } else if (!me) {
     prizeBox = '—';
     verdict = '<span class="st-note">Your card is not in this copy of the pool.</span>';
@@ -885,15 +895,23 @@ async function pickemSeason(S, weeks, views) {
   const feed = connected() ? loadCachedPool(S.season, INFINITY.id) : null;
   if (feed && inf) {
     const limit = Number(feed.settings?.weeklyPickLimit) || 8;
-    const graded = weeks.map((w) => {
+    // In week order, because a rolled-over pot is added to the next week's $20.
+    let carried = 0;
+    const graded = [...weeks].sort((a, b) => a - b).map((w) => {
       const games = views.get(w)?.games || [];
       const rows = gradePickemWeek(feed.entries || [], w, teamIndex(games), limit);
-      const prize = weekPrize(rows, games, inf.weekly);
+      const pot = inf.weekly + carried;
+      const prize = weekPrize(rows, games, pot);
+      const complete = prize.final && rows.some((r) => r.visible) && !prize.needsTiebreak;
+      carried = complete && prize.rollover ? pot : complete ? 0 : carried;
       return {
         week: w,
-        complete: prize.final && rows.some((r) => r.visible),
-        winners: prize.leaders.map((r) => r.name),
-        winnerNames: prize.leaders.map((r) => (r.isMe ? 'you' : r.name)),
+        complete,
+        pot,
+        rollover: complete && prize.rollover,
+        needsTiebreak: prize.final && prize.needsTiebreak,
+        winners: prize.winners.map((r) => r.name),
+        winnerNames: prize.winners.map((r) => (r.isMe ? 'you' : r.name)),
         share: prize.share,
         entries: rows.map((r) => ({ key: r.name, name: r.name, isMe: r.isMe, correct: r.correct })),
       };
@@ -958,9 +976,13 @@ function seasonBoxes(table, paid) {
 }
 
 function weekByWeek(weeks) {
-  return payLines(weeks.map((w) => (w.complete
-    ? `Week ${w.week}: <strong>${money(w.share * w.winners.length)}</strong> to ${esc(listNames(w.winnerNames))}${w.winners.length > 1 ? ` (${money(w.share)} each)` : ''}`
-    : `Week ${w.week}: in progress — counted in <em>correct</em>, not paid yet`)));
+  return payLines(weeks.map((w) => (w.rollover
+    ? `Week ${w.week}: <strong>${money(w.pot)}</strong> rolls over (tied on the tiebreaker too)`
+    : w.needsTiebreak
+      ? `Week ${w.week}: tied on picks. Refresh from Sleeper to read the tiebreaker`
+      : w.complete
+        ? `Week ${w.week}: <strong>${money(w.share * w.winners.length)}</strong> to ${esc(listNames(w.winnerNames))}${w.winners.length > 1 ? ` (${money(w.share)} each)` : ''}`
+        : `Week ${w.week}: in progress — counted in <em>correct</em>, not paid yet`)));
 }
 
 function seasonTableHtml(table) {

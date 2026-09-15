@@ -1184,8 +1184,23 @@ game, not the count of leagues.
 - **The weekly $20 wants the highest chance of beating 17 people.** Different objective, and
   in a small pool it actively conflicts with the first.
 
+**The weekly $20 is never split (owner, 2026-09-15).** Tied on correct, the Monday night
+total-points guess closest by absolute value wins; tied on that too, the pot rolls to the next
+week. Week 1 2026: a three-way tie at 7, won by djbogardus72 (43 vs a 41 total). `weekPrize()`
+in `standingsModel.js` grades this for Standings, reading each entry's guess that
+`infinityFeed.js` now captures (`entry.tiebreakers[week]`, kickoff-gated). A pool cached before
+2026-09-15 has no guesses; a tied week then reads "refresh from Sleeper", never a split.
+The tab itself got a **Week N results** block the same day (`blockResults()` in
+`infinityWar.js`): every entry graded with `gradePickemWeek` + `weekPrize` against
+`gameState.loadWeek` scores, walking earlier weeks to carry a rolled-over pot. Before it, a
+finished week showed nothing but the pick-count table. The cached pool's team codes are the
+site's (`JAX` → `JAC` via `sleeperApi.team()`); hand-built test pools must match or a pick
+silently grades as `pre`.
+**The strategy simulation below still models a tie as a split** (`share` of 1/n) and has not
+been reworked for this rule.
+
 **If everyone picks chalk, everyone picks the same eight and everyone scores identically.** The
-week is an n-way tie and the $20 splits n ways. Verified in the model: at `spread = 0` the tab
+week is an n-way tie, decided only by the tiebreaker. Verified in the model: at `spread = 0` the tab
 reports 0% outright, 100% tie, and a share of exactly 1/12 against 11 opponents. **Picking well
 does not win the weekly prize; picking differently and being right does.** The tab shows both
 numbers and refuses to blend them into one recommendation, because they are separate money and

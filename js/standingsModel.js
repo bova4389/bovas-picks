@@ -74,6 +74,7 @@ export function gradePickemWeek(entries, week, byTeam, limit = 8) {
     return {
       name: e.name || e.nick || `Entry ${e.entry}`,
       isMe: Boolean(e.isMe),
+      tiebreaker: e.tiebreakers?.[String(week)] || null,
       visible: picks.length,
       correct,
       lost,
@@ -99,23 +100,57 @@ export function gradePickemWeek(entries, week, byTeam, limit = 8) {
  * The week's prize, as far as it can be called.
  *
  * Final only once every game of the week is final. Before that it reports who
- * leads and whether I can still catch them on `max`. Ties split the prize, per
- * the pool's rule ($20 splits n ways -- see Infinity War in CLAUDE.md).
+ * leads and whether I can still catch them on `max`.
  *
- * @returns {{ final: boolean, top: number, leaders: Array, share: number|null,
- *            meIn: boolean, meAlive: boolean }}
+ * THE WEEKLY PRIZE IS NEVER SPLIT (owner, 2026-09-15). Tied on correct, the
+ * Monday night total-points guess closest by absolute value wins. Tied on that
+ * too, nobody wins and the pot rolls to next week (`rollover`). An entry with
+ * no guess cannot win a tiebreak. If the cached pool predates tiebreaker
+ * capture, no tied entry has a guess at all: `needsTiebreak`, not a winner.
+ *
+ * `winners` is always 0 or 1 entries; `share` is the whole pot or null.
+ * `leaders` stays everyone tied on correct, for the in-progress wording.
+ *
+ * @returns {{ final: boolean, top: number, leaders: Array, winners: Array,
+ *            share: number|null, total: number|null, rollover: boolean,
+ *            needsTiebreak: boolean, meIn: boolean, meAlive: boolean }}
  */
 export function weekPrize(rows, games, prize = 20) {
   const final = (games || []).length > 0 && games.every((g) => g.state === 'post');
   const top = rows.length ? rows[0].correct : 0;
   const leaders = rows.filter((r) => r.correct === top);
   const me = rows.find((r) => r.isMe) || null;
+
+  let winners = [];
+  let total = null;
+  let rollover = false;
+  let needsTiebreak = false;
+  if (final && leaders.length === 1) {
+    winners = leaders;
+  } else if (final && leaders.length > 1) {
+    const tb = leaders.find((r) => r.tiebreaker)?.tiebreaker || null;
+    const g = tb && (games || []).find((x) => x.awayAbbr === tb.away && x.homeAbbr === tb.home);
+    total = g ? (Number(g.awayScore) || 0) + (Number(g.homeScore) || 0) : null;
+    if (total == null) {
+      needsTiebreak = true;
+    } else {
+      const off = (r) => (r.tiebreaker ? Math.abs(r.tiebreaker.guess - total) : Infinity);
+      const best = Math.min(...leaders.map(off));
+      const closest = leaders.filter((r) => off(r) === best);
+      if (closest.length === 1) winners = closest;
+      else rollover = true;
+    }
+  }
   return {
     final,
     top,
     leaders,
-    share: final && leaders.length ? Math.round((prize / leaders.length) * 100) / 100 : null,
-    meIn: Boolean(me && me.correct === top),
+    winners,
+    total,
+    rollover,
+    needsTiebreak,
+    share: winners.length ? prize : null,
+    meIn: Boolean(me && (final ? winners.includes(me) : me.correct === top)),
     meAlive: Boolean(me && me.max >= top),
   };
 }

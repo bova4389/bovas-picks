@@ -23,7 +23,7 @@
       "entry": 50,
       "weekly": 20,
       "season": { "first": 380, "second": 160 },
-      "tieRule": "A tied week splits the $20 evenly."
+      "tieRule": "Never split. Tied on correct: Monday night total-points guess closest by absolute value wins. Tied on that too: the pot rolls to next week (owner, 2026-09-15)."
     },
     "sleeper": {
       "name": "Poop 2026",
