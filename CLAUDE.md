@@ -2078,8 +2078,13 @@ Schedule's highlights, so the two can never disagree. Precedence:
 - **The Pick Sheet opens on the current week** (`currentWeek()` from the schedule), not Week 1.
 - **No entry-name field.** Removed 2026-09-13 — the sheet is only ever the owner's card, so the
   email is the commissioner's three lines plus the readback.
-- **Schedule marks** the picked side with an inset ring (`.schedteam.is-picked`, no width cost)
-  and tags on a second grid row: `Pick'em` (purple) for the season card, the pool's short name
+- **Schedule outlines the team that won or is ahead**, not the side I picked (changed
+  2026-09-16; the purple `.is-picked` ring only repeated the tags and said nothing about the
+  score). `pickVerdict()` in `schedule.js` picks the tone: **green** if that team is my pick,
+  **red** if it is the team I picked against, **yellow** if I picked both sides in different
+  pools. No outline before kickoff, on a tied score or a tie final, or in a game I have no pick
+  in. Inset shadows, no width cost; each color clears 3:1 on white. The picked side still carries
+  tags on a second grid row: `Pick'em` (purple) for the season card, the pool's short name
   (dark teal `#006B75`, ~6.3:1 under white) per survivor pool, and `Infinity` (dark amber
   `#7E4B00`, 7.26:1) per Infinity War pick. Re-read on every render.
 - **Infinity War picks** come from `infinityPicks()`: this device's

@@ -1138,13 +1138,28 @@ body.chrome-off main.wrap { padding-top: 24px; }
 .schedteam.is-loser .schedteam-name,
 .schedteam.is-loser .schedteam-score { color: var(--ink-soft); font-weight: 400; }
 
-/* My picks. A ring on the side I took, plus a row of tags under it naming
-   which pool took it. The ring is an inset shadow rather than a border, so it
-   costs no width -- the 375px budget above has none to give. The tags carry
-   the meaning; the ring only says "look here", so it is one color for both
-   kinds of pick. Tags sit on their own grid row, under their own side. */
+/* My picks. Tags under the side I took name which pool took it; they sit on
+   their own grid row, under their own side.
+
+   The outline answers the other question -- is it going my way -- on the half
+   of the team that won or is ahead: green if that is my pick, red if it is the
+   team I picked against, yellow if I picked both sides in different pools
+   (pickVerdict() in schedule.js). It replaced a purple ring on the side I
+   picked, which only repeated the tags and said nothing about the score.
+   An inset shadow rather than a border, so it costs no width -- the 375px
+   budget above has none to give. Each color clears 3:1 against white, the
+   bar for a non-text mark: green 5.02, red 4.83, yellow 3.64. */
 .schedgame.has-pick { border-color: var(--purple-mid); }
-.schedteam.is-picked { box-shadow: inset 0 0 0 2px var(--purple); }
+.schedteam.is-going-for { box-shadow: inset 0 0 0 3px #15803D; }
+.schedteam.is-going-against { box-shadow: inset 0 0 0 3px #DC2626; }
+.schedteam.is-going-split { box-shadow: inset 0 0 0 3px #B7791F; }
+.sched-verdict-key {
+  display: inline-block; width: 18px; height: 12px;
+  border-radius: 4px; margin-left: 6px; background: var(--white);
+}
+.sched-verdict-key.is-going-for { box-shadow: inset 0 0 0 3px #15803D; }
+.sched-verdict-key.is-going-against { box-shadow: inset 0 0 0 3px #DC2626; }
+.sched-verdict-key.is-going-split { box-shadow: inset 0 0 0 3px #B7791F; }
 .schedpicks {
   grid-row: 2;
   display: flex; flex-wrap: wrap; gap: 4px;

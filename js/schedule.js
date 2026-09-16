@@ -249,6 +249,12 @@ function summaryLine() {
         <span class="schedpick schedpick-season">Pick'em</span> season long
         <span class="schedpick schedpick-surv">Pool</span> survivor
         ${mine.infinity.size ? '<span class="schedpick schedpick-inf">Infinity</span> Infinity War' : ''}
+      </p>
+      <p class="sched-picks-key">
+        Outline on the team ahead:
+        <span class="sched-verdict-key is-going-for"></span> your pick
+        <span class="sched-verdict-key is-going-against"></span> against you
+        <span class="sched-verdict-key is-going-split"></span> picked both
       </p>` : ''}`;
 }
 
@@ -323,20 +329,50 @@ function gameCard(g) {
   const awayTags = pickTags(g, 'away');
   const homeTags = pickTags(g, 'home');
   const picked = awayTags || homeTags;
+  const verdict = pickVerdict(g, Boolean(awayTags), Boolean(homeTags));
+  const verdictFor = (side) => (verdict?.side === side ? verdict : null);
 
   return `
     <div class="${cls}${g.neutral ? ' is-neutral' : ''}${picked ? ' has-pick' : ''}">
-      ${teamSide(g, 'away', Boolean(awayTags))}
+      ${teamSide(g, 'away', verdictFor('away'))}
       <div class="schedgame-center">
         <div class="schedgame-status">${statusText(g)}</div>
         ${venueHtml(g)}
         ${meta ? `<div class="schedgame-meta">${meta}</div>` : ''}
       </div>
-      ${teamSide(g, 'home', Boolean(homeTags))}
+      ${teamSide(g, 'home', verdictFor('home'))}
       ${picked ? `
         <div class="schedpicks schedpicks-away">${awayTags}</div>
         <div class="schedpicks schedpicks-home">${homeTags}</div>` : ''}
     </div>`;
+}
+
+/**
+ * Is this game going my way? Outlines the half of the team that won, or is
+ * ahead right now, rather than ringing the side I picked: the tags under the
+ * team already say what I picked, and the ring said nothing about the score.
+ *
+ *   for      the team ahead is one I picked            green
+ *   against  the team ahead is the one I picked against red
+ *   split    I picked both sides, in different pools   yellow
+ *
+ * Null -- no outline -- before kickoff, on a tied score or a tie final, and in
+ * a game I have no pick in.
+ */
+const VERDICT_TITLE = {
+  for: 'Going your way',
+  against: 'Going against your pick',
+  split: 'You picked both sides',
+};
+
+function pickVerdict(g, awayPicked, homePicked) {
+  if (!awayPicked && !homePicked) return null;
+  const ahead = g.winner === 'away' || g.winner === 'home' ? g.winner : g.leader;
+  if (ahead !== 'away' && ahead !== 'home') return null;
+  const tone = awayPicked && homePicked ? 'split'
+    : (ahead === 'away' ? awayPicked : homePicked) ? 'for'
+    : 'against';
+  return { side: ahead, tone };
 }
 
 /** One team's record from the identity doc, or null. */
@@ -388,7 +424,7 @@ function venueHtml(g) {
   return `<div class="schedgame-venue" title="${escape(title)}">${inner}</div>`;
 }
 
-function teamSide(g, side, picked = false) {
+function teamSide(g, side, verdict = null) {
   const name = side === 'away' ? g.away : g.home;
   const abbr = side === 'away' ? g.awayAbbr : g.homeAbbr;
 
@@ -433,8 +469,8 @@ function teamSide(g, side, picked = false) {
   // screen reader) while putting badges on the outer edges and scores inward,
   // flanking the clock.
   return `
-    <div class="schedteam schedteam-${side} ${mark}${g.neutral && side === 'home' ? ' is-displaced' : ''}${picked ? ' is-picked' : ''}"
-         data-abbr="${escape(abbr || '')}"${tint ? ` style="background:${tint}"` : ''}>
+    <div class="schedteam schedteam-${side} ${mark}${g.neutral && side === 'home' ? ' is-displaced' : ''}${verdict ? ` is-going-${verdict.tone}` : ''}"
+         data-abbr="${escape(abbr || '')}"${verdict ? ` title="${VERDICT_TITLE[verdict.tone]}"` : ''}${tint ? ` style="background:${tint}"` : ''}>
       <span class="schedteam-badge" aria-hidden="true">${
         logo ? `<img src="${escape(logo)}" alt="" loading="lazy" decoding="async">` : ''
       }</span>
