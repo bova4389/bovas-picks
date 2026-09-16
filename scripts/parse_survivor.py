@@ -104,6 +104,22 @@ def main():
             }
         )
 
+    # Mike's GRADED sheet moves each week's eliminated entries to the top and
+    # renumbers them 1..N in column A, colliding with the numbers of entries
+    # still alive. Parsing it would silently re-key the pool, so refuse, and
+    # take his corrections from `grade_week.py --check-suicide` instead.
+    numbers = Counter(e["entry"] for e in entries if e["entry"] is not None)
+    dupes = sorted(n for n, c in numbers.items() if c > 1)
+    if dupes:
+        shown = ", ".join(str(n) for n in dupes[:12]) + (" ..." if len(dupes) > 12 else "")
+        sys.exit(
+            f"REFUSING TO PARSE: {len(dupes)} entry numbers appear more than once in column A ({shown}).\n"
+            "This looks like Mike's graded sheet, which renumbers eliminated entries. Writing it\n"
+            f"would give those entries numbers that belong to live ones in data/survivor-{year}.json.\n"
+            "Run `python scripts/grade_week.py <year> <week> --check-suicide <sheet>` to list his\n"
+            "corrections, and apply them to the existing file by hand, keeping the entry numbers."
+        )
+
     played = sorted({w for e in entries for w in e["picks"]})
     if not played:
         sys.exit("no picks found — is this a blank template?")

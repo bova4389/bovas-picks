@@ -1778,6 +1778,20 @@ python scripts/grade_week.py 2026 1 --check "Weekly picks 26.xlsx" --check-suici
   lists every card whose picks or tiebreaker changed since we parsed it (his keying fixes, usually
   one or two), and compares his per-card totals to ours. It only reports; if his corrections should
   be the record, re-run `parse_pool_picks.py` for that week and grade again.
+- **Mike's graded suicide sheet is laid out differently, and it cannot be re-parsed.** Each week's
+  eliminated entries get a red fill (`FFFF0000`) on that week's pick cell, move to the top of the
+  sheet, and are **renumbered 1..N in column A**, so their numbers collide with entries still
+  alive (Week 1 of 2026: 87 renumbered, 62 numbers duplicated). He also keys corrections into it
+  (Week 1: Gbaby LAC→DET, AllieGator LAC→JAC, Momoneymac CHI→LAC, nickname AP8→AR8). So:
+  - `--check-suicide` pairs his rows with ours by **(nickname, real name)**, never by entry
+    number, allowing for one person holding several entries under the same pair (Danny Diamonds).
+    A retyped nickname is paired on a unique real name or pick history and reported as `renamed`.
+    It then compares his red cells with the losers we graded, for final weeks only, and prints
+    `agree` / `DISAGREE`, or "marked partway" when his red cells are a subset of ours: he marks
+    Thursday losers before mailing the pre-results sheet (Rackley 2, Rams, Week 1).
+  - **`parse_survivor.py` refuses any sheet with duplicate entry numbers** and exits non-zero
+    without writing. Apply his corrections to `data/survivor-<year>.json` by hand, keeping our
+    entry numbers, then re-run `grade_week.py`.
 - **A tie credits nobody and prints a warning**, because the pool's tie rule is not on record.
   Ask Mike the first time it happens and write the answer here.
 - **Suicide results record losses, never eliminations.** Buy-backs cannot be read from any feed.

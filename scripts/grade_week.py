@@ -33,11 +33,18 @@ the Tuesday workflow run commits nothing on a week that did not move.
     * his per-card week totals vs. ours
 It reports only; it never rewrites data/raw/. Re-run parse_pool_picks.py for
 that week if his corrections should become the record.
+
+--check-suicide matches his rows to ours by (nickname, real name), never by
+entry number, because his graded sheet renumbers the eliminated entries. It
+lists changed picks and retyped nicknames, then compares his red-filled "out"
+cells with the losers we graded, for every week that is final. It reports
+only; it never rewrites data/survivor-<year>.json.
 """
 
 import argparse
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -264,42 +271,140 @@ def check_pickem(year, week, ours, workbook):
     print("no differences" if not problems else f"{problems} difference(s)")
 
 
-def check_survivor(year, workbook):
+def _person(nick, name):
+    """Row identity on Mike's suicide sheet: (nickname, real name), both stripped.
+
+    Never the entry number. His graded sheet moves each week's eliminated
+    entries to the top and renumbers them 1..N in column A, so those numbers
+    collide with entries still alive (CLAUDE.md, Data Pipeline).
+    """
+    return (str(nick or "").strip(), str(name or "").strip())
+
+
+def _is_red(cell):
+    return bool(cell.fill.fill_type) and str(cell.fill.fgColor.rgb or "").upper().endswith("FF0000")
+
+
+def _pair_unique(his_left, ours_left, his_val, our_val, pairs):
+    """Pair leftover rows whose value is present exactly once on each side."""
+    his_groups, our_groups = {}, {}
+    for h in his_left:
+        his_groups.setdefault(his_val(h), []).append(h)
+    for o in ours_left:
+        our_groups.setdefault(our_val(o), []).append(o)
+    for v, hs in his_groups.items():
+        os_ = our_groups.get(v, [])
+        if v and len(hs) == 1 and len(os_) == 1:
+            pairs.append((hs[0], os_[0]))
+            his_left.remove(hs[0])
+            ours_left.remove(os_[0])
+
+
+def check_survivor(year, workbook, results=None):
     import openpyxl
     sys.path.insert(0, str(ROOT / "scripts"))
     from parse_survivor import FIRST_WEEK_COL, MAX_WEEK_COL, normalise
 
-    ours = {e["entry"]: e for e in load(DATA / f"survivor-{year}.json")["entries"]}
     ws = openpyxl.load_workbook(workbook, data_only=True)["Sheet1"]
     print("\n=== check: Mike's suicide sheet vs ours ===")
-    problems = 0
-    seen = set()
+
+    his_rows = []
     for row in ws.iter_rows(min_row=3, max_row=ws.max_row):
-        n = row[0].value
-        if n is None and not row[2].value:
+        if row[0].value is None and not row[2].value:
             continue
-        seen.add(n)
-        his = {}
+        picks, red = {}, set()
         for col in range(FIRST_WEEK_COL, MAX_WEEK_COL + 1):
+            wk = str(col - FIRST_WEEK_COL + 1)
             team, _ = normalise(row[col - 1].value)
             if team:
-                his[str(col - FIRST_WEEK_COL + 1)] = team
-        if n not in ours:
+                picks[wk] = team
+                if _is_red(row[col - 1]):
+                    red.add(wk)
+        his_rows.append({"key": _person(row[2].value, row[1].value), "sheet_no": row[0].value,
+                         "picks": picks, "red": red})
+
+    # Pair rows by person. One person can hold several entries under the same
+    # nickname and name, so each key is a multiset: identical pick histories
+    # pair first, then whatever is left pairs in sheet order.
+    ours_by_key, his_by_key = {}, {}
+    for e in load(DATA / f"survivor-{year}.json")["entries"]:
+        ours_by_key.setdefault(_person(e["nick"], e["name"]), []).append(e)
+    for h in his_rows:
+        his_by_key.setdefault(h["key"], []).append(h)
+
+    pairs, his_left, ours_left = [], [], []
+    for key in his_by_key.keys() | ours_by_key.keys():
+        hs, os_ = list(his_by_key.get(key, [])), list(ours_by_key.get(key, []))
+        for h in list(hs):
+            same = next((o for o in os_ if o["picks"] == h["picks"]), None)
+            if same:
+                pairs.append((h, same))
+                hs.remove(h)
+                os_.remove(same)
+        pairs.extend(zip(hs, os_))
+        his_left.extend(hs[len(os_):])
+        ours_left.extend(os_[len(hs):])
+
+    # A nickname he retyped (AP8 -> AR8) leaves one unpaired row on each side.
+    # Pair those on a real name, or failing that a pick history, that is
+    # unique on both sides, and report a rename instead of a removal plus an add.
+    _pair_unique(his_left, ours_left, lambda h: h["key"][1], lambda o: _person("", o["name"])[1], pairs)
+    _pair_unique(his_left, ours_left, lambda h: json.dumps(h["picks"], sort_keys=True) if h["picks"] else "",
+                 lambda o: json.dumps(o["picks"], sort_keys=True) if o["picks"] else "", pairs)
+
+    problems = 0
+    for h, o in sorted(pairs, key=lambda p: (p[1]["entry"] is None, p[1]["entry"] or 0)):
+        label = f"#{o['entry']} {str(o['nick'] or '').strip()}"
+        if _person(o["nick"], o["name"]) != h["key"]:
             problems += 1
-            print(f"  added   #{n} {row[2].value}: {his}")
-            continue
-        mine = ours[n]["picks"]
+            print(f"  renamed {label}: now {h['key'][0]!r}" + (f" / {h['key'][1]!r}" if h["key"][1] else ""))
+        mine, his = o["picks"], h["picks"]
         for wk in sorted(mine.keys() & his.keys(), key=int):
             if mine[wk] != his[wk]:
                 problems += 1
-                print(f"  changed #{n} {row[2].value} week {wk}: {mine[wk]} -> {his[wk]}")
+                print(f"  changed {label} week {wk}: {mine[wk]} -> {his[wk]}")
         for wk in sorted(mine.keys() - his.keys(), key=int):
             problems += 1
-            print(f"  cleared #{n} {row[2].value} week {wk}: {mine[wk]} no longer on his sheet")
-    for n in sorted(ours.keys() - seen, key=lambda x: (x is None, x)):
+            print(f"  cleared {label} week {wk}: {mine[wk]} no longer on his sheet")
+        for wk in sorted(his.keys() - mine.keys(), key=int):
+            problems += 1
+            print(f"  new     {label} week {wk}: {his[wk]} on his sheet only")
+    for h in his_left:
         problems += 1
-        print(f"  removed #{n} {ours[n]['nick']}")
-    print("no differences in weeks we hold" if not problems else f"{problems} difference(s)")
+        print(f"  added   {h['key'][0]} (his row #{h['sheet_no']}): {h['picks']}")
+    for o in ours_left:
+        problems += 1
+        print(f"  removed #{o['entry']} {o['nick']}")
+    print("no pick differences" if not problems else f"{problems} pick difference(s)")
+
+    # His red fills are his eliminations. Compare them with the losers we
+    # graded, but only in weeks our grade has as final: his sheet can carry a
+    # highlighted cell before the games are played, and that is not a result.
+    for wk, w in sorted(((results or {}).get("weeks") or {}).items(), key=lambda x: int(x[0])):
+        if w["pending"]:
+            print(f"week {wk}: games still to play, red fills not compared")
+            continue
+        picked = [h for h in his_rows if wk in h["picks"]]
+        red = [h for h in picked if wk in h["red"]]
+        if not red:
+            print(f"week {wk}: no red fills on his sheet, nothing to compare (we graded {w['lost']} lost)")
+            continue
+        his_out = Counter((h["key"], h["picks"][wk]) for h in red)
+        our_out = Counter((_person(l["nick"], l["name"]), l["team"]) for l in w["losers"])
+        if not his_out - our_out and his_out != our_out:
+            # He marks early losers (a Thursday game) before mailing the sheet
+            # that week, so a subset of ours is a sheet graded partway.
+            print(f"week {wk}: his sheet is marked partway -- all {len(red)} of his red cells are "
+                  f"among our {w['lost']} lost; the rest are not marked yet")
+            continue
+        verdict = "agree" if his_out == our_out else "DISAGREE"
+        print(f"week {wk}: his {len(red)} out / {len(picked) - len(red)} alive; "
+              f"ours {w['lost']} lost / {w['won']} won" + (f" / {w['tie']} tied" if w["tie"] else "")
+              + f" -- {verdict}")
+        for (key, team), n in sorted((his_out - our_out).items()):
+            print(f"  out on his sheet only: {key[0]} ({team})" + (f" x{n}" if n > 1 else ""))
+        for (key, team), n in sorted((our_out - his_out).items()):
+            print(f"  lost in our grade only: {key[0]} ({team})" + (f" x{n}" if n > 1 else ""))
 
 
 def main():
@@ -315,14 +420,14 @@ def main():
         int(p.stem.rsplit("-w", 1)[1]) for p in (DATA / "raw").glob(f"entries-{args.year}-w*.json"))
 
     graded = {w: grade_pickem(args.year, w, by_pair) for w in weeks}
-    grade_survivor(args.year, by_team)
+    survivor = grade_survivor(args.year, by_team)
 
     if args.check:
         if len(weeks) != 1:
             sys.exit("--check needs a single week")
         check_pickem(args.year, weeks[0], graded[weeks[0]], args.check)
     if args.check_suicide:
-        check_survivor(args.year, args.check_suicide)
+        check_survivor(args.year, args.check_suicide, survivor)
 
 
 if __name__ == "__main__":
