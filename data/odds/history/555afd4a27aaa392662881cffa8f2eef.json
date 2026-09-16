@@ -1524,5 +1524,21 @@
   "totalBookCount": 2,
   "bucket": 2,
   "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
+ },
+ {
+  "id": "555afd4a27aaa392662881cffa8f2eef",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "New York Giants",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.7256,
+  "rawAwayProb": 0.3178,
+  "homeWinProb": 0.6954,
+  "awayWinProb": 0.3046,
+  "vig": 0.0434,
+  "total": 43.0,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-09-16T18:11:35.711900+00:00"
  }
 ]
