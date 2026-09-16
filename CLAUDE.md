@@ -1199,6 +1199,17 @@ silently grades as `pre`.
 **The strategy simulation below still models a tie as a split** (`share` of 1/n) and has not
 been reworked for this rule.
 
+**"Your eight" shows the Sleeper card when there is one (2026-09-16).** Week 1 read "0 of 8" with
+every game grayed out, after a successful refresh: the card only ever read this device's
+`infinity:<year>:<week>` or fell back to chalk, and **the odds feed drops a game once it is
+played**, so a finished week has no prices and no chalk either. `loadWeek()` now takes my picks
+from the cached feed first (the same precedence as `infinityPicks()`), keeps the side I took in
+`S.sides`, and grades each pick against *that side* — a dog pick is right when the dog wins, and an
+unpicked game is never marked missed. A Sleeper card is read-only here (change it on Sleeper, then
+Refresh), `refresh()` rebuilds the card, and a week with every game final drops the two forecast
+blocks. The simulation still models every pick as the favorite; the swap block says so when a
+Sleeper card holds an underdog.
+
 **If everyone picks chalk, everyone picks the same eight and everyone scores identically.** The
 week is an n-way tie, decided only by the tiebreaker. Verified in the model: at `spread = 0` the tab
 reports 0% outright, 100% tie, and a share of exactly 1/12 against 11 opponents. **Picking well

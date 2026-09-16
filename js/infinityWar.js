@@ -33,14 +33,14 @@ import { buildGrid } from './gridModel.js';
 import { currentWeek as currentWeekOf } from './gameState.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 import { infinityTeamsKey } from './myPicks.js';
-import { loadCachedPool, saveCachedPool } from './infinityFeed.js';
+import { loadCachedPool, saveCachedPool, myPicksFor } from './infinityFeed.js';
 import { mountConnectBoxes } from './sleeperAuth.js';
 import { loadWeek as loadScores } from './gameState.js';
 import { teamIndex, gradePickemWeek, weekPrize } from './standingsModel.js';
 import {
   PICKS_PER_WEEK, weekGames, rankGames, sourceWarning, chalkSet,
   expectedCorrect, scoreDistribution, atLeast, simulateField, scoreCard,
-  swapCandidates, gradeCard,
+  swapCandidates,
 } from './infinityModel.js';
 
 /* The pool itself. Not in js/survivorLeagues.js -- that file is the survivor
@@ -72,6 +72,9 @@ const DEFAULTS = {
 const S = {
   root: null, season: SEASON, model: null, audit: null,
   week: null, weeks: [], now: 1, slate: [], picks: [],
+  // gameId -> the team I took, for a card read from Sleeper. A card built on
+  // this device always takes the favorite, so it leaves this empty.
+  sides: new Map(), fromSleeper: false,
   prefs: { ...DEFAULTS }, feed: null, liveCount: null,
   sim: null, simKey: null,
   results: null, resultsKey: null, resultsBusy: null,
@@ -110,6 +113,21 @@ export async function initInfinityWar(root, season = SEASON) {
 /** The slate and my stored card for whichever week is showing. */
 function loadWeek() {
   S.slate = weekGames(S.model, S.week);
+  S.sides = new Map();
+  S.fromSleeper = false;
+
+  // The card I actually submitted beats anything planned on this device --
+  // the same precedence infinityPicks() in myPicks.js gives the Schedule.
+  // Without this a finished week showed 0 of 8: the odds feed drops games
+  // once they are played, so there is no chalk to fall back on either, and
+  // every game renders "no line".
+  const sent = sleeperCard();
+  if (sent.length) {
+    S.picks = sent.map((p) => p.gameId);
+    for (const p of sent) S.sides.set(p.gameId, p.team);
+    S.fromSleeper = true;
+    return;
+  }
 
   const stored = loadPicks(S.season, S.week);
   const valid = new Set(S.slate.map((g) => g.gameId));
@@ -129,6 +147,30 @@ function loadWeek() {
   // "pick something first".
   if (!S.picks.length) S.picks = chalkSet(S.slate).map((g) => g.gameId);
 }
+
+/** My Sleeper picks for the week on screen, resolved to this slate's games. */
+function sleeperCard() {
+  const out = [];
+  for (const team of myPicksFor(S.feed, S.week)) {
+    const g = S.slate.find((x) => x.home === team || x.away === team);
+    if (g && !out.some((p) => p.gameId === g.gameId)) out.push({ gameId: g.gameId, team });
+  }
+  return out;
+}
+
+/** The side I am on in a game: the Sleeper pick if there is one, else the favorite. */
+const sideOf = (g) => S.sides.get(g.gameId) || g.pick;
+
+/** That side's win probability, which is not `g.prob` when I took the dog. */
+function sideProb(g) {
+  const side = sideOf(g);
+  if (side && side === g.home && g.homeProb != null) return g.homeProb;
+  if (side && side === g.away && g.awayProb != null) return g.awayProb;
+  if (side && side !== g.pick && g.prob != null) return 1 - g.prob;
+  return g.prob;
+}
+
+const weekOver = () => S.slate.length > 0 && S.slate.every((g) => g.state === 'post');
 
 /* ── Storage ──────────────────────────────────────────────────────────────*/
 
@@ -178,16 +220,19 @@ function render() {
   const { counts } = rankGames(S.slate);
   const warn = sourceWarning(counts);
 
-  const sim = simulation();
+  // A finished week has nothing left to model -- and no prices to model it
+  // with, since the odds feed drops games once they are played -- so the two
+  // forecast blocks would only say "pick some games" under a graded card.
+  const over = weekOver();
+  const sim = over ? null : simulation();
 
   S.root.innerHTML = head()
     + banner
     + controls()
-    + (warn ? note(warn) : '')
+    + (warn && !over ? note(warn) : '')
     + blockResults()
     + blockCard()
-    + blockOutlook(sim)
-    + blockSwaps(sim)
+    + (over ? '' : blockOutlook(sim) + blockSwaps(sim))
     + blockField();
   mountConnectBoxes(S.root);
 }
@@ -359,48 +404,78 @@ async function refreshResults() {
 /* ── Block A: the card ────────────────────────────────────────────────────*/
 
 function blockCard() {
-  const { ranked } = rankGames(S.slate);
   const picked = new Set(S.picks);
-  const grade = gradeCard(S.slate, S.picks);
+  const { ranked } = rankGames(S.slate);
+  // Read from Sleeper, my eight lead the list: with no prices left on a
+  // finished week the ranking is only schedule order, and the card is the
+  // point. Planning on this device keeps the pure price order.
+  const rowsIn = S.fromSleeper
+    ? ranked.filter((g) => picked.has(g.gameId)).concat(ranked.filter((g) => !picked.has(g.gameId)))
+    : ranked;
 
-  const rows = ranked.map((g) => {
+  let correct = 0;
+  let settledPicks = 0;
+
+  const rows = rowsIn.map((g) => {
     const on = picked.has(g.gameId);
+    const side = on ? sideOf(g) : g.pick;
+    const prob = on ? sideProb(g) : g.prob;
     const settled = g.state === 'post' && g.winner;
-    const right = settled && g.winner === g.pick;
+    // Graded against the side I took, and only for games I took: an unpicked
+    // game cannot be missed, and a dog pick is right when the dog wins.
+    const right = on && settled && g.winner === side;
+    if (on && settled) { settledPicks += 1; if (right) correct += 1; }
+    const mark = on && settled ? (right ? ' is-right' : ' is-wrong') : '';
+
+    const sideText = side
+      ? esc(name(side))
+      : settled ? `${esc(name(g.winner))} won` : 'no line';
+    const tail = on && settled
+      ? `<span class="iw-result ${right ? 'is-right' : 'is-wrong'}">${right ? 'Right' : 'Missed'}</span>`
+      : settled && g.prob == null ? '<span></span>'
+      : `<span class="iw-src ${esc(g.source || 'none')}">${
+        g.source === 'market' ? 'market' : g.source === 'projection' ? 'proj' : 'no data'
+      }</span>`;
+
+    // A Sleeper card is changed on Sleeper, so its rows are not toggles here.
+    const locked = S.fromSleeper || g.prob == null;
 
     return `
-      <button class="iw-game${on ? ' is-on' : ''}${
-        settled ? (right ? ' is-right' : ' is-wrong') : ''
-      }" type="button" data-game="${esc(g.gameId)}"${g.prob == null ? ' disabled' : ''}
-              aria-pressed="${on}">
+      <button class="iw-game${on ? ' is-on' : ''}${mark}" type="button"
+              data-game="${esc(g.gameId)}"${locked ? ' disabled' : ''} aria-pressed="${on}">
         <span class="iw-matchup">${esc(name(g.away))} at ${esc(name(g.home))}</span>
-        <span class="iw-side">${g.pick ? esc(name(g.pick)) : 'no line'}</span>
-        <span class="iw-prob">${g.prob == null ? '—' : pct(g.prob)}</span>
-        <span class="iw-src ${esc(g.source || 'none')}">${
-          g.source === 'market' ? 'market' : g.source === 'projection' ? 'proj' : 'no data'
-        }</span>
+        <span class="iw-side">${sideText}</span>
+        <span class="iw-prob">${prob == null ? '—' : pct(prob)}</span>
+        ${tail}
       </button>`;
   }).join('');
 
   const n = S.picks.length;
   const short = n !== PICKS_PER_WEEK;
+  const grade = settledPicks
+    ? `<span class="iw-grade">${correct} right of ${settledPicks} settled</span>` : '';
+
+  const control = S.fromSleeper
+    ? '<span class="iw-fine">Your card as submitted on Sleeper. Change it there, then Refresh.</span>'
+    : '<button id="iw-chalk" class="btn btn-quiet" type="button">Reset to chalk</button>';
 
   return card('Week ' + S.week, 'Your eight', `
     <p class="iw-count${short ? ' is-short' : ''}">
       <strong>${n} of ${PICKS_PER_WEEK}</strong> picked${
         short ? (n > PICKS_PER_WEEK ? ' — too many' : ' — the card is short') : ''
       }
-      ${grade ? `<span class="iw-grade">${grade.correct} right of ${grade.settled} settled</span>` : ''}
-      <button id="iw-chalk" class="btn btn-quiet" type="button">Reset to chalk</button>
+      ${grade}
+      ${control}
     </p>
-    <div class="iw-games">${rows}</div>`);
+    <div class="iw-games${S.fromSleeper ? ' is-sleeper' : ''}">${rows}</div>`);
 }
 
 /* ── Block B: what the card is worth ──────────────────────────────────────*/
 
 function blockOutlook(sim) {
   const byId = new Map(S.slate.map((g) => [g.gameId, g]));
-  const probs = S.picks.map((id) => byId.get(id)?.prob).filter((p) => p != null);
+  const probs = S.picks.map((id) => byId.get(id)).filter(Boolean)
+    .map(sideProb).filter((p) => p != null);
 
   if (!probs.length) {
     return card('This week', 'What the card is worth',
@@ -477,9 +552,9 @@ function blockSwaps(sim) {
       <td class="iw-swap-in">${esc(name(s.add?.pick || '—'))}</td>
       <td class="${s.dShare > 0 ? 'is-up' : 'is-down'}">${signed(s.dShare * 100, 1)}%</td>
       <td class="${s.dCorrect >= 0 ? 'is-up' : 'is-down'}">${signed(s.dCorrect, 2)}</td>
-      <td><button class="btn btn-quiet iw-do-swap" type="button"
+      <td>${S.fromSleeper ? '' : `<button class="btn btn-quiet iw-do-swap" type="button"
                   data-drop="${esc(s.drop?.gameId || '')}"
-                  data-add="${esc(s.add?.gameId || '')}">Apply</button></td>
+                  data-add="${esc(s.add?.gameId || '')}">Apply</button>`}</td>
     </tr>`).join('') : `
     <tr><td colspan="5">No swap improves this card at the current settings.</td></tr>`;
 
@@ -499,6 +574,10 @@ function blockSwaps(sim) {
       </div>
     </div>
     <p class="lede">${blockOutlookCopy(out)}</p>
+    ${S.picks.some((id) => S.sides.has(id) && S.sides.get(id) !== S.slate.find((g) => g.gameId === id)?.pick)
+    ? `<p class="iw-fine">Your Sleeper card takes at least one underdog; these figures model
+        every pick as the favorite, so read them as the chalk version of your card.</p>`
+    : ''}
     <table class="iw-swaps">
       <thead>
         <tr>
@@ -717,6 +796,9 @@ async function refresh() {
       S.prefs.fieldSize = feed.entries.length - 1;
       savePrefs();
     }
+    // Rebuild the card too, so a card just read from Sleeper replaces
+    // whatever this device was showing without a reload.
+    loadWeek();
     render();
   } catch (err) {
     if (status) {

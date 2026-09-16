@@ -2594,6 +2594,20 @@ footer {
 .iw-src.projection { border-bottom: 1px dotted var(--ink-faint); }
 .iw-src.none { color: var(--dog-ink); }
 
+/* A card read from Sleeper is not toggled here, so its rows are disabled --
+   but my eight stay at full strength and only the games I passed on fade. */
+.iw-games.is-sleeper .iw-game[disabled] { cursor: default; }
+.iw-games.is-sleeper .iw-game.is-on[disabled] { opacity: 1; }
+.iw-result {
+  text-align: right;
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.iw-result.is-right { color: #005F68; }
+.iw-result.is-wrong { color: var(--dog-ink); }
+
 /* ── Stats + distribution ─────────────────────────────────────────────────*/
 
 .iw-stats {
