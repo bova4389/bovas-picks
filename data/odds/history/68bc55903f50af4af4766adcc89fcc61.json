@@ -1412,5 +1412,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-17T13:33:58.064839+00:00"
+ },
+ {
+  "id": "68bc55903f50af4af4766adcc89fcc61",
+  "commenceTime": "2026-09-20T20:25:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.9104,
+  "rawAwayProb": 0.1323,
+  "homeWinProb": 0.8731,
+  "awayWinProb": 0.1269,
+  "vig": 0.0427,
+  "total": 45.0,
+  "totalBookCount": 8,
+  "bucket": 0,
+  "fetchedAt": "2026-09-17T18:18:36.978175+00:00"
  }
 ]
