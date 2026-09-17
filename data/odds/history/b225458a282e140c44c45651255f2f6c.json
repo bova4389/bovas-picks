@@ -1556,5 +1556,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-09-17T07:46:02.672013+00:00"
+ },
+ {
+  "id": "b225458a282e140c44c45651255f2f6c",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Buffalo Bills",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.6891,
+  "rawAwayProb": 0.3551,
+  "homeWinProb": 0.6599,
+  "awayWinProb": 0.3401,
+  "vig": 0.0441,
+  "total": 49.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-09-17T13:33:58.064839+00:00"
  }
 ]
