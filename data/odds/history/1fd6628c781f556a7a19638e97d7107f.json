@@ -1652,5 +1652,21 @@
   "totalBookCount": 8,
   "bucket": 0,
   "fetchedAt": "2026-09-18T01:18:50.131332+00:00"
+ },
+ {
+  "id": "1fd6628c781f556a7a19638e97d7107f",
+  "commenceTime": "2026-09-20T20:05:00Z",
+  "home": "Denver Broncos",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 7,
+  "rawHomeProb": 0.602,
+  "rawAwayProb": 0.4357,
+  "homeWinProb": 0.5801,
+  "awayWinProb": 0.4199,
+  "vig": 0.0377,
+  "total": 45.5,
+  "totalBookCount": 7,
+  "bucket": 0,
+  "fetchedAt": "2026-09-18T07:27:15.058912+00:00"
  }
 ]

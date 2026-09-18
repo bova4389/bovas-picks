@@ -1652,5 +1652,21 @@
   "totalBookCount": 8,
   "bucket": 0,
   "fetchedAt": "2026-09-18T01:18:50.131332+00:00"
+ },
+ {
+  "id": "0636ebff776d43f8c829a36713c80b22",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "Tampa Bay Buccaneers",
+  "away": "Cleveland Browns",
+  "bookmakerCount": 7,
+  "rawHomeProb": 0.8138,
+  "rawAwayProb": 0.2286,
+  "homeWinProb": 0.7807,
+  "awayWinProb": 0.2193,
+  "vig": 0.0424,
+  "total": 41.5,
+  "totalBookCount": 7,
+  "bucket": 0,
+  "fetchedAt": "2026-09-18T07:27:15.058912+00:00"
  }
 ]
