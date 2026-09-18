@@ -1684,5 +1684,21 @@
   "totalBookCount": 8,
   "bucket": 0,
   "fetchedAt": "2026-09-18T12:59:56.220560+00:00"
+ },
+ {
+  "id": "0283a29e1b38ef78b29b904fd56a16dd",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "Chicago Bears",
+  "away": "Minnesota Vikings",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.681,
+  "rawAwayProb": 0.3594,
+  "homeWinProb": 0.6546,
+  "awayWinProb": 0.3454,
+  "vig": 0.0404,
+  "total": 48.0,
+  "totalBookCount": 8,
+  "bucket": 0,
+  "fetchedAt": "2026-09-18T17:43:05.471006+00:00"
  }
 ]

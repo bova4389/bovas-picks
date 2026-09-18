@@ -1460,5 +1460,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-09-18T12:59:56.220560+00:00"
+ },
+ {
+  "id": "9d2b09e0f9b6dd5ce0d985894f4f98fa",
+  "commenceTime": "2026-09-27T20:05:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.8362,
+  "rawAwayProb": 0.208,
+  "homeWinProb": 0.8008,
+  "awayWinProb": 0.1992,
+  "vig": 0.0441,
+  "total": 48.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-09-18T17:43:05.471006+00:00"
  }
 ]
