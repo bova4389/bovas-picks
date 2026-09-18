@@ -1700,5 +1700,21 @@
   "totalBookCount": 8,
   "bucket": 0,
   "fetchedAt": "2026-09-18T17:43:05.471006+00:00"
+ },
+ {
+  "id": "71b3b83747589efdc5baef2c5cf811bf",
+  "commenceTime": "2026-09-20T20:05:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.7525,
+  "rawAwayProb": 0.2877,
+  "homeWinProb": 0.7234,
+  "awayWinProb": 0.2766,
+  "vig": 0.0403,
+  "total": 43.5,
+  "totalBookCount": 8,
+  "bucket": 0,
+  "fetchedAt": "2026-09-18T22:38:09.368558+00:00"
  }
 ]

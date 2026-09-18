@@ -1402,5 +1402,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-09-18T17:43:05.471006+00:00"
+ },
+ {
+  "id": "1f3cfd315a24d1a7dd5859a8e6b88e18",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Jacksonville Jaguars",
+  "away": "New England Patriots",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.5708,
+  "rawAwayProb": 0.4717,
+  "homeWinProb": 0.5475,
+  "awayWinProb": 0.4525,
+  "vig": 0.0425,
+  "total": 45.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-09-18T22:38:09.368558+00:00"
  }
 ]
