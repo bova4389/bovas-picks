@@ -1732,5 +1732,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-09-19T12:32:43.888915+00:00"
+ },
+ {
+  "id": "84cfca14efc21363fd605508404cf1ff",
+  "commenceTime": "2026-09-27T20:25:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.4293,
+  "rawAwayProb": 0.6187,
+  "homeWinProb": 0.4096,
+  "awayWinProb": 0.5904,
+  "vig": 0.048,
+  "total": 52.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-09-19T17:18:35.278037+00:00"
  }
 ]
