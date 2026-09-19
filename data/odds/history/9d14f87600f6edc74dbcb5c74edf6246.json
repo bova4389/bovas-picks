@@ -1672,5 +1672,21 @@
   "totalBookCount": 8,
   "bucket": 0,
   "fetchedAt": "2026-09-18T22:38:09.368558+00:00"
+ },
+ {
+  "id": "9d14f87600f6edc74dbcb5c74edf6246",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "New England Patriots",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.7049,
+  "rawAwayProb": 0.3355,
+  "homeWinProb": 0.6775,
+  "awayWinProb": 0.3225,
+  "vig": 0.0404,
+  "total": 41.5,
+  "totalBookCount": 8,
+  "bucket": 0,
+  "fetchedAt": "2026-09-19T01:15:04.746046+00:00"
  }
 ]

@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-18T22:38:09.368558+00:00",
+ "fetchedAt": "2026-09-19T01:15:04.746046+00:00",
  "events": [
   {
    "id": "aee7eae1849ebb103b9bf233e9741392",
@@ -23,11 +23,11 @@
    "away": "New Orleans Saints",
    "bookmakerCount": 8,
    "rawHomeProb": 0.8078,
-   "rawAwayProb": 0.2351,
-   "homeWinProb": 0.7746,
-   "awayWinProb": 0.2254,
-   "vig": 0.043,
-   "total": 46.0,
+   "rawAwayProb": 0.2342,
+   "homeWinProb": 0.7752,
+   "awayWinProb": 0.2248,
+   "vig": 0.0421,
+   "total": 46.25,
    "totalBookCount": 8,
    "bucket": 0
   },
@@ -142,11 +142,11 @@
    "home": "Los Angeles Chargers",
    "away": "Las Vegas Raiders",
    "bookmakerCount": 8,
-   "rawHomeProb": 0.7525,
-   "rawAwayProb": 0.2877,
-   "homeWinProb": 0.7234,
-   "awayWinProb": 0.2766,
-   "vig": 0.0403,
+   "rawHomeProb": 0.7512,
+   "rawAwayProb": 0.2898,
+   "homeWinProb": 0.7216,
+   "awayWinProb": 0.2784,
+   "vig": 0.041,
    "total": 43.5,
    "totalBookCount": 8,
    "bucket": 0
