@@ -3,8 +3,8 @@
  "source": "espn",
  "weeks": {
   "1": {
-   "won": 160,
-   "lost": 87,
+   "won": 161,
+   "lost": 86,
    "tie": 0,
    "pending": 0,
    "losers": [
@@ -84,12 +84,6 @@
      "entry": 23,
      "nick": "JulesyPoo 1",
      "name": "Juliana Lombardo",
-     "team": "LAC"
-    },
-    {
-     "entry": 27,
-     "nick": "DaCanes",
-     "name": "Don Nealon",
      "team": "LAC"
     },
     {
@@ -531,6 +525,14 @@
      "team": "TEN"
     }
    ],
+   "tied": []
+  },
+  "2": {
+   "won": 0,
+   "lost": 0,
+   "tie": 0,
+   "pending": 160,
+   "losers": [],
    "tied": []
   }
  }

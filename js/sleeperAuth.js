@@ -235,4 +235,8 @@ export function mountConnectBoxes(root = document) {
   }
 }
 
-window.addEventListener('sleeperauth', () => mountConnectBoxes());
+// Node imports this module transitively (scripts/log_week_card.mjs -> sleeperApi.js)
+// and has no window, so a bare listener here crashes the CI log step on import.
+if (typeof window !== 'undefined') {
+  window.addEventListener('sleeperauth', () => mountConnectBoxes());
+}

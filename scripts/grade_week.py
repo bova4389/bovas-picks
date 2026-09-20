@@ -300,14 +300,16 @@ def _pair_unique(his_left, ours_left, his_val, our_val, pairs):
             ours_left.remove(os_[0])
 
 
-def check_survivor(year, workbook, results=None):
+def read_suicide_sheet(workbook):
+    """Mike's graded suicide sheet -> one dict per row: key, sheet_no, picks, red.
+
+    Week keys are strings, to match the JSON we compare and merge against.
+    """
     import openpyxl
     sys.path.insert(0, str(ROOT / "scripts"))
     from parse_survivor import FIRST_WEEK_COL, MAX_WEEK_COL, normalise
 
     ws = openpyxl.load_workbook(workbook, data_only=True)["Sheet1"]
-    print("\n=== check: Mike's suicide sheet vs ours ===")
-
     his_rows = []
     for row in ws.iter_rows(min_row=3, max_row=ws.max_row):
         if row[0].value is None and not row[2].value:
@@ -322,16 +324,25 @@ def check_survivor(year, workbook, results=None):
                     red.add(wk)
         his_rows.append({"key": _person(row[2].value, row[1].value), "sheet_no": row[0].value,
                          "picks": picks, "red": red})
+    return his_rows
 
-    # Pair rows by person. One person can hold several entries under the same
-    # nickname and name, so each key is a multiset: identical pick histories
-    # pair first, then whatever is left pairs in sheet order.
+
+def pair_suicide_rows(his_rows, our_entries):
+    """-> (pairs, his_left, ours_left), pairing on person, never on entry number.
+
+    One pairing, used by both the check and the merge: two of them would be two
+    chances to pair a row differently, and the merge would then write a pick
+    onto an entry the check said was someone else's.
+    """
     ours_by_key, his_by_key = {}, {}
-    for e in load(DATA / f"survivor-{year}.json")["entries"]:
+    for e in our_entries:
         ours_by_key.setdefault(_person(e["nick"], e["name"]), []).append(e)
     for h in his_rows:
         his_by_key.setdefault(h["key"], []).append(h)
 
+    # One person can hold several entries under the same nickname and name, so
+    # each key is a multiset: identical pick histories pair first, then
+    # whatever is left pairs in sheet order.
     pairs, his_left, ours_left = [], [], []
     for key in his_by_key.keys() | ours_by_key.keys():
         hs, os_ = list(his_by_key.get(key, [])), list(ours_by_key.get(key, []))
@@ -351,6 +362,14 @@ def check_survivor(year, workbook, results=None):
     _pair_unique(his_left, ours_left, lambda h: h["key"][1], lambda o: _person("", o["name"])[1], pairs)
     _pair_unique(his_left, ours_left, lambda h: json.dumps(h["picks"], sort_keys=True) if h["picks"] else "",
                  lambda o: json.dumps(o["picks"], sort_keys=True) if o["picks"] else "", pairs)
+    return pairs, his_left, ours_left
+
+
+def check_survivor(year, workbook, results=None):
+    print("\n=== check: Mike's suicide sheet vs ours ===")
+    his_rows = read_suicide_sheet(workbook)
+    pairs, his_left, ours_left = pair_suicide_rows(
+        his_rows, load(DATA / f"survivor-{year}.json")["entries"])
 
     problems = 0
     for h, o in sorted(pairs, key=lambda p: (p[1]["entry"] is None, p[1]["entry"] or 0)):

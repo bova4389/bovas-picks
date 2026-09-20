@@ -65,6 +65,58 @@
           "teamsLeft": 32
         }
       ]
+    },
+    "2": {
+      "week": 2,
+      "builtAt": "2026-09-20T19:20:31.925Z",
+      "oddsFetchedAt": "2026-09-20T17:28:25.915685+00:00",
+      "confidence": "provisional",
+      "exposure": {
+        "tickets": 3,
+        "games": 1,
+        "pAllLose": 0.1255
+      },
+      "picks": [
+        {
+          "pool": "sleeper",
+          "team": "SF",
+          "p": 0.8745,
+          "gap": 0,
+          "fvCost": -0.0126,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 29,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 31
+        },
+        {
+          "pool": "deadpool",
+          "team": "SF",
+          "p": 0.8745,
+          "gap": 0,
+          "fvCost": -0.0126,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 20,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 31
+        },
+        {
+          "pool": "mike",
+          "team": "SF",
+          "p": 0.8745,
+          "gap": 0,
+          "fvCost": -0.0126,
+          "share": null,
+          "basis": "future-value",
+          "entrants": 247,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 31
+        }
+      ]
     }
   }
 }

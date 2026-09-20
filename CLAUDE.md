@@ -1801,8 +1801,25 @@ python scripts/grade_week.py 2026 1 --check "Weekly picks 26.xlsx" --check-suici
     `agree` / `DISAGREE`, or "marked partway" when his red cells are a subset of ours: he marks
     Thursday losers before mailing the pre-results sheet (Rackley 2, Rams, Week 1).
   - **`parse_survivor.py` refuses any sheet with duplicate entry numbers** and exits non-zero
-    without writing. Apply his corrections to `data/survivor-<year>.json` by hand, keeping our
-    entry numbers, then re-run `grade_week.py`.
+    without writing. That refusal is only half an answer, so **`scripts/merge_survivor_week.py`
+    is the other half** (added 2026-09-20): it folds the graded sheet's new week, and any
+    corrections in it, into the existing `data/survivor-<year>.json`, pairing rows by person and
+    keeping **our** entry numbers. Then re-run `grade_week.py`.
+
+    ```bash
+    python scripts/merge_survivor_week.py "Suicide 26.xlsx" 2026 --dry-run   # report only
+    python scripts/merge_survivor_week.py "Suicide 26.xlsx" 2026
+    python scripts/grade_week.py 2026 --check-suicide "Suicide 26.xlsx"      # confirm agreement
+    ```
+
+    Three rules in it, each the reason it is a script rather than a hand edit:
+    **(a) it shares one pairing with the check** — `pair_suicide_rows()` was moved out of
+    `grade_week.check_survivor()` rather than copied, because two pairings are two chances to
+    pair a row differently and this is the one that *writes*;
+    **(b) an unpaired row on either side is a refusal, not a guess** — an entry added or dropped
+    mid-season gets looked at by hand;
+    **(c) a pick we hold and his sheet does not is never cleared** — he hides eliminated entries'
+    later cells, and a blank is not a retraction.
 - **A tie credits nobody and prints a warning**, because the pool's tie rule is not on record.
   Ask Mike the first time it happens and write the answer here.
 - **Suicide results record losses, never eliminations.** Buy-backs cannot be read from any feed.
