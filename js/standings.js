@@ -427,7 +427,7 @@ function pickemSection(S, live) {
       <div><strong>${me.remaining}</strong><span>still to play</span></div>
       <div><strong>${ordinal(scored.filter((e) => e.correct > me.correct).length + 1)}</strong><span>of ${scored.length}${tiedWithMe > 1 ? ` (${tiedWithMe} tied)` : ''}</span></div>
     </div>
-    <p class="st-verdict-row">${verdict}${sim ? ` <span class="st-chance">≈ ${pct(sim.chance)} to win</span>` : ''}</p>
+    <p class="st-verdict-row">${verdict}${sim ? ` <span class="st-chance">≈ ${finePct(sim.chance)} to win</span>` : ''}</p>
     <p class="st-note">${esc(bestLine)} Leader has ${leaderCorrect} correct.</p>
     ${sim ? `<p class="st-note st-fine">The percentage is an estimate: pre-game prices${priced < open ? ` (${open - priced} of ${open} games unpriced, treated as coin flips)` : ''}, adjusted for the current score and time left, ties split.</p>` : ''}`;
 
@@ -445,19 +445,69 @@ function pickemSection(S, live) {
   return card("Mike's pick'em", `Week ${S.week}: you vs. ${field.length} others`, `
     ${summary}
     ${pay}
-    ${gamesLeft(rows, me, sim, best.alive)}
+    ${weekGames(rows, me, sim, best.alive)}
     ${tiebreakerLine(me, tbRow, tb)}
     ${leaderboard(ranked, me)}`);
 }
 
-function gamesLeft(rows, me, sim, alive) {
-  const open = rows.filter((r) => !r.decided)
-    .sort((a, b) => (a.live?.kickoff || '').localeCompare(b.live?.kickoff || ''));
-  if (!open.length) return '';
+/* A pick is "must win" when losing it costs essentially all of the week --
+   NOT when the simulation returns a bare zero. At 8,000 trials against a
+   280-entry field, a branch worth 0.05% never lands once, so `ifMiss === 0`
+   tagged Must win on nearly every open game the moment the week turned
+   against us. A tag that fires everywhere says nothing, and it said it
+   loudest in the week it mattered. Measured relative to the same game's
+   winning branch, which is the comparison a reader is actually making. */
+const MUST_WIN_FRAC = 0.05;
+const BARELY_FRAC = 0.85;
+
+/* Below the simulation's own resolution (1/8000) a probability is not zero,
+   it is unresolved -- so it is printed as a bound, never as "0%". */
+const finePct = (p) => {
+  if (p == null) return '—';
+  if (p < 0.001) return '<0.1%';
+  if (p < 0.095) return `${(p * 100).toFixed(1)}%`;
+  if (p >= 0.995 && p < 1) return '>99%';
+  return `${Math.round(p * 100)}%`;
+};
+
+/* What my pick is doing right now, in the Picks tab's own chip vocabulary
+   (.wc-res) so a result means the same thing on both tabs. Returns null
+   before kickoff and for a game I have no pick in -- there is no result to
+   state yet, and an empty chip reads as a missing one. */
+function pickResult(r, myNum) {
+  if (myNum == null) return null;
+  const g = r.live;
+  const mineIsAway = myNum === r.awayNum;
+  if (r.decided) {
+    const mine = mineIsAway ? g.awayScore : g.homeScore;
+    const opp = mineIsAway ? g.homeScore : g.awayScore;
+    if (r.tie) return { cls: 'is-tie', text: `Tied ${mine}–${opp}` };
+    return r.winnerNum === myNum
+      ? { cls: 'is-won', text: `Won ${mine}–${opp}` }
+      : { cls: 'is-lost', text: `Lost ${mine}–${opp}` };
+  }
+  if (g?.state !== 'in') return null;
+  const mine = mineIsAway ? g.awayScore : g.homeScore;
+  const opp = mineIsAway ? g.homeScore : g.awayScore;
+  if (mine > opp) return { cls: 'is-winning', text: `Winning ${mine}–${opp}` };
+  if (mine < opp) return { cls: 'is-losing', text: `Losing ${mine}–${opp}` };
+  return { cls: 'is-tie', text: `Tied ${mine}–${opp}` };
+}
+
+/* Every game on the card, not just the open ones. The old list filtered to
+   `!r.decided`, so a finished game vanished off the page entirely and the
+   only trace of how the week had gone was a pair of counters at the top --
+   "which games am I winning or losing" had no answer anywhere. Kickoff order
+   is kept rather than sorting live games to the top, because a list that
+   reshuffles under your thumb every few minutes cannot be scanned. */
+function weekGames(rows, me, sim, alive) {
+  if (!rows.length) return '';
+  const order = [...rows].sort((a, b) => (a.live?.kickoff || '').localeCompare(b.live?.kickoff || ''));
   const cond = new Map((sim?.games || []).map((g) => [g.row.awayNum, g]));
   const picks = new Set(me.picks);
+  const tally = { won: 0, lost: 0, winning: 0, losing: 0 };
 
-  const items = open.map((r) => {
+  const items = order.map((r) => {
     const myNum = picks.has(r.awayNum) ? r.awayNum : picks.has(r.homeNum) ? r.homeNum : null;
     const myTeam = myNum === r.awayNum ? r.away : myNum === r.homeNum ? r.home : null;
     const g = r.live;
@@ -466,30 +516,55 @@ function gamesLeft(rows, me, sim, alive) {
     const ifMiss = c ? (myNum === r.awayNum ? c.ifHome : c.ifAway) : null;
     const pMine = myNum == null ? null : myNum === r.awayNum ? r.awayNow : 1 - r.awayNow;
 
-    let need = '';
-    if (alive && myNum != null && c) {
-      if (ifMiss === 0) need = '<span class="st-tag is-must">Must win</span>';
-      else if (ifHit != null && ifMiss >= ifHit * 0.85) need = '<span class="st-tag">Barely matters</span>';
+    const res = pickResult(r, myNum);
+    if (res) {
+      if (res.cls === 'is-won') tally.won += 1;
+      else if (res.cls === 'is-lost') tally.lost += 1;
+      else if (res.cls === 'is-winning') tally.winning += 1;
+      else if (res.cls === 'is-losing') tally.losing += 1;
     }
 
-    const status = !g ? '' : g.state === 'in'
-      ? `${esc(g.away)} ${g.awayScore}–${g.homeScore} ${esc(g.home)} · Q${g.period > 4 ? 'OT' : g.period} ${esc(g.clock || '')}`
-      : `${new Date(g.kickoff).toLocaleString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' })}`;
+    /* Both branches unresolved means the simulation cannot separate them,
+       which is not the same as "this one decides the week" -- so no tag. */
+    let need = '';
+    if (alive && myNum != null && c && ifHit != null && ifMiss != null && ifHit > 0) {
+      if (ifMiss <= ifHit * MUST_WIN_FRAC) need = '<span class="st-tag is-must">Must win</span>';
+      else if (ifMiss >= ifHit * BARELY_FRAC) need = '<span class="st-tag">Barely matters</span>';
+    }
+
+    const status = !g ? '' : g.state === 'post'
+      ? `Final · ${esc(g.away)} ${g.awayScore}–${g.homeScore} ${esc(g.home)}`
+      : g.state === 'in'
+        ? `${esc(g.away)} ${g.awayScore}–${g.homeScore} ${esc(g.home)} · ${g.period > 4 ? 'OT' : `Q${g.period}`} ${esc(g.clock || '')}`
+        : `${new Date(g.kickoff).toLocaleString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' })}`;
+
+    const pickLine = myTeam
+      ? `Your pick: <strong>${esc(myTeam)}</strong>${res ? '' : ` · ${pct(pMine)} to win`} ${need}`
+      : 'Not on your card';
 
     return `
-      <li class="st-game${g?.state === 'in' ? ' is-live' : ''}">
+      <li class="st-game${g?.state === 'in' ? ' is-live' : ''}${r.decided ? ' is-done' : ''}">
         <div class="st-game-top">
           <span class="st-matchup">${esc(r.away)} at ${esc(r.home)}${r.tiebreaker ? ' <span class="st-tag">Tiebreaker</span>' : ''}</span>
           <span class="st-status">${status}</span>
         </div>
         <div class="st-game-pick">
-          ${myTeam ? `Your pick: <strong>${esc(myTeam)}</strong> · ${pct(pMine)} to win ${need}` : 'Not on your card'}
+          ${res ? `<span class="st-res ${res.cls}">${esc(res.text)}</span> ` : ''}${pickLine}
         </div>
-        ${c && myNum != null ? `<div class="st-swing">Your chance if ${esc(myTeam)} win: <strong>${pct(ifHit)}</strong> · if they lose: <strong>${pct(ifMiss)}</strong></div>` : ''}
+        ${c && myNum != null && !r.decided
+          ? `<div class="st-swing">Your chance if ${esc(myTeam)} win: <strong>${finePct(ifHit)}</strong> · if they lose: <strong>${finePct(ifMiss)}</strong></div>`
+          : ''}
       </li>`;
   }).join('');
 
-  return `<h4 class="st-sub">Games still to decide</h4><ul class="st-games">${items}</ul>`;
+  const counts = [
+    tally.won ? `<span class="st-res is-won">${tally.won} won</span>` : '',
+    tally.lost ? `<span class="st-res is-lost">${tally.lost} lost</span>` : '',
+    tally.winning ? `<span class="st-res is-winning">${tally.winning} winning</span>` : '',
+    tally.losing ? `<span class="st-res is-losing">${tally.losing} losing</span>` : '',
+  ].filter(Boolean).join(' ');
+
+  return `<h4 class="st-sub">Your week, game by game</h4>${counts ? `<p class="st-tally">${counts}</p>` : ''}<ul class="st-games">${items}</ul>`;
 }
 
 function tiebreakerLine(me, row, tb) {
