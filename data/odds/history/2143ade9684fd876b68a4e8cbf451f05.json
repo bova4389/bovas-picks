@@ -1812,5 +1812,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-20T01:15:09.665430+00:00"
+ },
+ {
+  "id": "2143ade9684fd876b68a4e8cbf451f05",
+  "commenceTime": "2026-09-20T17:02:38Z",
+  "home": "Baltimore Ravens",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 6,
+  "rawHomeProb": 0.8813,
+  "rawAwayProb": 0.1739,
+  "homeWinProb": 0.8352,
+  "awayWinProb": 0.1648,
+  "vig": 0.0552,
+  "total": 43.5,
+  "totalBookCount": 6,
+  "bucket": 0,
+  "fetchedAt": "2026-09-20T17:28:25.915685+00:00"
  }
 ]

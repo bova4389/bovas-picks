@@ -1812,5 +1812,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-20T01:15:09.665430+00:00"
+ },
+ {
+  "id": "aee7eae1849ebb103b9bf233e9741392",
+  "commenceTime": "2026-09-20T17:02:58Z",
+  "home": "Atlanta Falcons",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 6,
+  "rawHomeProb": 0.2222,
+  "rawAwayProb": 0.8323,
+  "homeWinProb": 0.2107,
+  "awayWinProb": 0.7893,
+  "vig": 0.0544,
+  "total": 47.0,
+  "totalBookCount": 6,
+  "bucket": 0,
+  "fetchedAt": "2026-09-20T17:28:25.915685+00:00"
  }
 ]
