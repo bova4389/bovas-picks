@@ -1988,8 +1988,24 @@ against live ESPN state, so it needs nothing from his answer key. My entry is fo
 - **Pre-game prices only.** The odds bot snapshots during games, and those in-play prices already
   know the score (Jaguars went 78% → 90% after kickoff). Each game uses the last history snapshot
   taken before kickoff; adding the score on top of an in-play price would count the lead twice.
-- **Per game it shows my chance if my pick wins vs. loses**, tagged `Must win` when losing leaves
-  no simulated path, `Barely matters` when losing keeps ≥85% of the chance.
+- **Every game on the card is listed, decided ones included** (changed 2026-09-20). The list used
+  to filter to `!r.decided`, so a finished game vanished off the page and "which games am I
+  winning or losing" had no answer anywhere — the only trace of the week was a pair of counters.
+  `weekGames()` now renders all of them in kickoff order (stable: a list that re-sorts live games
+  to the top cannot be scanned on a phone you reopen every ten minutes), each with a result chip
+  oriented to **my** pick — `Won 27–20` / `Lost 20–27` / `Tied` / `Winning 14–7` / `Losing 7–14` —
+  plus a tally line above. The chips are `.st-res`, the same five states and the same measured
+  color pairs as the Picks tab's `.wc-res`, so a result looks identical on both tabs.
+- **Per game it shows my chance if my pick wins vs. loses**, tagged `Must win` and
+  `Barely matters`. **Both tags are measured relative to that same game's other branch**
+  (`MUST_WIN_FRAC` 0.05, `BARELY_FRAC` 0.85) — `Must win` was `ifMiss === 0` until 2026-09-20,
+  which is not a fact about the pool but **the simulation's resolution floor**: at 8,000 trials
+  against a 282-entry field a branch worth 0.05% never lands once, so as soon as the week turned
+  against us nearly every open game tagged `Must win`. A tag that fires everywhere says nothing,
+  and it said it loudest in the week it mattered. Two rules follow: a game where **both** branches
+  come back 0 is unresolved, not decisive, and gets **no tag**; and a probability below the sim's
+  resolution prints as `<0.1%` via `finePct()`, never as `0%`. Raising the trial count would not
+  fix either — the floor just moves.
 - Suicide half: my pick's status, survived / out / playing / not started, the floor–ceiling of
   survivors, then the pick board (see "The pick board" under Grid Tab) with each team's result. A tied game says "counts as a loss?" — the rule is not on record.
 - **The Sleeper cards (2026-09-14): Infinity War on Season Long, Poop and Deadpool on Survivor.**

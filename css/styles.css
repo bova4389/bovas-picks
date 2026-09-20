@@ -3953,6 +3953,21 @@ footer {
 .st-tag { display: inline-block; margin-left: 4px; padding: 0 7px; border-radius: 999px; font-size: .6875rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .04em; background: var(--paper-2); color: var(--ink-quiet); vertical-align: 1px; }
 .st-tag.is-must { background: var(--dog-soft); color: var(--dog-ink); }
+/* The per-game result chip. Same four states and the same measured pairs as
+   the Picks tab's .wc-res, so "Won 27-20" looks identical on both tabs --
+   reusing the vocabulary, not the class, because this chip sits inline in a
+   sentence rather than in that tab's flex row. A finished game keeps a
+   quieter card than a live one: it is history, and the live border is what
+   the eye should find first. */
+.st-res { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: .8125rem; font-weight: 600;
+  font-variant-numeric: tabular-nums; background: var(--paper-2); color: var(--ink); }
+.st-res.is-won     { background: #006B75; color: var(--white); }
+.st-res.is-winning { background: #E3F2F3; color: #005159; }
+.st-res.is-losing  { background: var(--dog-soft); color: var(--dog-ink); }
+.st-res.is-lost    { background: var(--bad); color: var(--white); }
+.st-res.is-tie     { background: var(--paper-2); color: var(--ink-soft); }
+.st-tally { margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.st-game.is-done { background: var(--paper); }
 /* The table fits the card rather than scrolling: numbers never wrap and sit
    right-aligned under right-aligned headers, and the one text column (the
    entry name) is the one allowed to wrap, so a long name takes a second line
