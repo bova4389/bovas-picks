@@ -1764,5 +1764,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-09-19T22:20:39.851939+00:00"
+ },
+ {
+  "id": "17a730b7d399feeab6a78c30767c29d2",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Indianapolis Colts",
+  "away": "Houston Texans",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.4609,
+  "rawAwayProb": 0.5867,
+  "homeWinProb": 0.44,
+  "awayWinProb": 0.56,
+  "vig": 0.0476,
+  "total": 44.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-09-20T01:15:09.665430+00:00"
  }
 ]

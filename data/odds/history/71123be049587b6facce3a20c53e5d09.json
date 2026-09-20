@@ -1764,5 +1764,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-09-19T22:20:39.851939+00:00"
+ },
+ {
+  "id": "71123be049587b6facce3a20c53e5d09",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Pittsburgh Steelers",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.4729,
+  "rawAwayProb": 0.5744,
+  "homeWinProb": 0.4515,
+  "awayWinProb": 0.5485,
+  "vig": 0.0473,
+  "total": 46.0,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-09-20T01:15:09.665430+00:00"
  }
 ]

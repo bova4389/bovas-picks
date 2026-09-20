@@ -1796,5 +1796,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-19T22:20:39.851939+00:00"
+ },
+ {
+  "id": "4aeee070bb6ec60bdfae4dede61b9014",
+  "commenceTime": "2026-09-20T17:00:00Z",
+  "home": "New York Jets",
+  "away": "Green Bay Packers",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.397,
+  "rawAwayProb": 0.6419,
+  "homeWinProb": 0.3821,
+  "awayWinProb": 0.6179,
+  "vig": 0.0389,
+  "total": 44.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-09-20T01:15:09.665430+00:00"
  }
 ]
