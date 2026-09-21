@@ -1588,5 +1588,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-09-20T01:15:09.665430+00:00"
+ },
+ {
+  "id": "3bfd8bfb4b8e9a365a0877879b73b16b",
+  "commenceTime": "2026-09-28T00:20:00Z",
+  "home": "Denver Broncos",
+  "away": "Los Angeles Rams",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.4654,
+  "rawAwayProb": 0.5787,
+  "homeWinProb": 0.4458,
+  "awayWinProb": 0.5542,
+  "vig": 0.0441,
+  "total": 45.5,
+  "totalBookCount": 8,
+  "bucket": 1,
+  "fetchedAt": "2026-09-21T19:27:22.856100+00:00"
  }
 ]
