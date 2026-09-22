@@ -188,9 +188,9 @@
    "date": "2026-09-18T00:15Z",
    "home": "BUF",
    "away": "DET",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 41,
+   "awayScore": 31,
+   "completed": true,
    "neutral": false
   },
   {
@@ -199,9 +199,9 @@
    "date": "2026-09-20T17:00Z",
    "home": "ATL",
    "away": "CAR",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 3,
+   "awayScore": 34,
+   "completed": true,
    "neutral": false
   },
   {
@@ -210,9 +210,9 @@
    "date": "2026-09-20T17:00Z",
    "home": "CHI",
    "away": "MIN",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 3,
+   "awayScore": 9,
+   "completed": true,
    "neutral": false
   },
   {
@@ -221,9 +221,9 @@
    "date": "2026-09-20T17:00Z",
    "home": "TEN",
    "away": "PHI",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 20,
+   "awayScore": 24,
+   "completed": true,
    "neutral": false
   },
   {
@@ -232,9 +232,9 @@
    "date": "2026-09-20T17:00Z",
    "home": "NE",
    "away": "PIT",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 20,
+   "awayScore": 3,
+   "completed": true,
    "neutral": false
   },
   {
@@ -243,9 +243,9 @@
    "date": "2026-09-20T17:00Z",
    "home": "NYJ",
    "away": "GB",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 17,
+   "awayScore": 20,
+   "completed": true,
    "neutral": false
   },
   {
@@ -254,9 +254,9 @@
    "date": "2026-09-20T17:00Z",
    "home": "TB",
    "away": "CLE",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 19,
+   "awayScore": 23,
+   "completed": true,
    "neutral": false
   },
   {
@@ -265,9 +265,9 @@
    "date": "2026-09-20T17:00Z",
    "home": "BAL",
    "away": "NO",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 17,
+   "awayScore": 24,
+   "completed": true,
    "neutral": false
   },
   {
@@ -276,9 +276,9 @@
    "date": "2026-09-20T17:00Z",
    "home": "HOU",
    "away": "CIN",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 6,
+   "awayScore": 20,
+   "completed": true,
    "neutral": false
   },
   {
@@ -287,9 +287,9 @@
    "date": "2026-09-20T20:05Z",
    "home": "DEN",
    "away": "JAC",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 20,
+   "awayScore": 13,
+   "completed": true,
    "neutral": false
   },
   {
@@ -298,9 +298,9 @@
    "date": "2026-09-20T20:05Z",
    "home": "LAC",
    "away": "LV",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 14,
+   "awayScore": 26,
+   "completed": true,
    "neutral": false
   },
   {
@@ -309,9 +309,9 @@
    "date": "2026-09-20T20:25Z",
    "home": "DAL",
    "away": "WAS",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 37,
+   "awayScore": 20,
+   "completed": true,
    "neutral": false
   },
   {
@@ -320,9 +320,9 @@
    "date": "2026-09-20T20:25Z",
    "home": "ARI",
    "away": "SEA",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 7,
+   "awayScore": 31,
+   "completed": true,
    "neutral": false
   },
   {
@@ -331,9 +331,9 @@
    "date": "2026-09-20T20:25Z",
    "home": "SF",
    "away": "MIA",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 35,
+   "awayScore": 13,
+   "completed": true,
    "neutral": false
   },
   {
@@ -342,9 +342,9 @@
    "date": "2026-09-21T00:20Z",
    "home": "KC",
    "away": "IND",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 33,
+   "awayScore": 30,
+   "completed": true,
    "neutral": false
   },
   {
@@ -353,9 +353,9 @@
    "date": "2026-09-22T00:15Z",
    "home": "LAR",
    "away": "NYG",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 28,
+   "awayScore": 6,
+   "completed": true,
    "neutral": false
   },
   {
@@ -3101,5 +3101,5 @@
   "18": []
  },
  "gameCount": 272,
- "completed": 16
+ "completed": 32
 }

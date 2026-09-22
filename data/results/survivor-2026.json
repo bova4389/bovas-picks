@@ -528,11 +528,384 @@
    "tied": []
   },
   "2": {
-   "won": 0,
-   "lost": 0,
+   "won": 98,
+   "lost": 62,
    "tie": 0,
-   "pending": 160,
-   "losers": [],
+   "pending": 0,
+   "losers": [
+    {
+     "entry": 174,
+     "nick": "Clydes Clippers 33",
+     "name": "Jimmy Nagaj",
+     "team": "TB"
+    },
+    {
+     "entry": 64,
+     "nick": "Rick Wojo",
+     "name": "Rick Wojcik",
+     "team": "BAL"
+    },
+    {
+     "entry": 157,
+     "nick": "Lehigh Lions",
+     "name": "Shawn Roman",
+     "team": "TB"
+    },
+    {
+     "entry": 236,
+     "nick": "Matt Coyle",
+     "name": "Matt Coyle",
+     "team": "TB"
+    },
+    {
+     "entry": 167,
+     "nick": "Waddle into the playoffs",
+     "name": "Austin Beach",
+     "team": "TB"
+    },
+    {
+     "entry": 237,
+     "nick": "Michelle Coyle",
+     "name": "Michelle Coyle",
+     "team": "CHI"
+    },
+    {
+     "entry": 24,
+     "nick": "JulesyPoo 2",
+     "name": "Juliana Lombardo",
+     "team": "TB"
+    },
+    {
+     "entry": 29,
+     "nick": "Fitznews",
+     "name": "Bryce Nealon",
+     "team": "TB"
+    },
+    {
+     "entry": 37,
+     "nick": "Juice 1",
+     "name": "Josh (Jacks)",
+     "team": "BAL"
+    },
+    {
+     "entry": 59,
+     "nick": "Sharkdiver",
+     "name": "Rachel Linse (Joe J wife)",
+     "team": "TB"
+    },
+    {
+     "entry": 77,
+     "nick": "NJ Gernerals",
+     "name": "Hamilton Abreu",
+     "team": "BAL"
+    },
+    {
+     "entry": 114,
+     "nick": "Detroit Mike",
+     "name": "Mike Richards",
+     "team": "BAL"
+    },
+    {
+     "entry": 143,
+     "nick": "MNT-2026-Champ",
+     "name": "Mike Tiseo",
+     "team": "TB"
+    },
+    {
+     "entry": 193,
+     "nick": "Gallagher",
+     "name": "Mike Gallagher",
+     "team": "TB"
+    },
+    {
+     "entry": 197,
+     "nick": "Jfinfanatic",
+     "name": "Janie Thomas",
+     "team": "TB"
+    },
+    {
+     "entry": 245,
+     "nick": "Audry Rich",
+     "name": "Audry Rich",
+     "team": "TB"
+    },
+    {
+     "entry": 4,
+     "nick": "Harrisite",
+     "name": "Tyler Harris",
+     "team": "TB"
+    },
+    {
+     "entry": 8,
+     "nick": "Blondie",
+     "name": "Kirsten ",
+     "team": "BAL"
+    },
+    {
+     "entry": 20,
+     "nick": "MMC",
+     "name": null,
+     "team": "TB"
+    },
+    {
+     "entry": 44,
+     "nick": "Huskies",
+     "name": "Taylor Ives",
+     "team": "TB"
+    },
+    {
+     "entry": 54,
+     "nick": "Gino",
+     "name": "Matt Colla",
+     "team": "TB"
+    },
+    {
+     "entry": 57,
+     "nick": "DBLJ",
+     "name": "Franks Wife",
+     "team": "LAC"
+    },
+    {
+     "entry": 60,
+     "nick": "Bryant Whittaker",
+     "name": null,
+     "team": "TB"
+    },
+    {
+     "entry": 62,
+     "nick": "Mr Matt",
+     "name": "Matt Heksel",
+     "team": "TB"
+    },
+    {
+     "entry": 63,
+     "nick": "Jackie H",
+     "name": "Jackie Heksel",
+     "team": "BAL"
+    },
+    {
+     "entry": 66,
+     "nick": "Karen K",
+     "name": "Karen Kiedrowski tom mom",
+     "team": "TB"
+    },
+    {
+     "entry": 69,
+     "nick": "Grant 2",
+     "name": null,
+     "team": "LAC"
+    },
+    {
+     "entry": 72,
+     "nick": "What's this do Tommy",
+     "name": "Delphine",
+     "team": "TB"
+    },
+    {
+     "entry": 109,
+     "nick": "Paxton",
+     "name": "Austin Nicodemus",
+     "team": "TB"
+    },
+    {
+     "entry": 116,
+     "nick": "Prosecco ",
+     "name": null,
+     "team": "TB"
+    },
+    {
+     "entry": 121,
+     "nick": "Gator Joe",
+     "name": "Joe (Gator) Oliver",
+     "team": "TB"
+    },
+    {
+     "entry": 122,
+     "nick": "Cathy P",
+     "name": "Cathy Prosise",
+     "team": "TB"
+    },
+    {
+     "entry": 127,
+     "nick": "Londyn",
+     "name": "Sami Ehi",
+     "team": "BAL"
+    },
+    {
+     "entry": 136,
+     "nick": "Melissa",
+     "name": "Melissa Petry",
+     "team": "TB"
+    },
+    {
+     "entry": 145,
+     "nick": "Monsters of the Midway",
+     "name": "Chris Oneill",
+     "team": "TB"
+    },
+    {
+     "entry": 149,
+     "nick": "TJO",
+     "name": "Tim O",
+     "team": "TB"
+    },
+    {
+     "entry": 153,
+     "nick": "Horace Clarke",
+     "name": "Jack Gordon",
+     "team": "LAC"
+    },
+    {
+     "entry": 178,
+     "nick": "Bulldogge Mom",
+     "name": "Jamy Hillaker",
+     "team": "TB"
+    },
+    {
+     "entry": 183,
+     "nick": "Mark Miller",
+     "name": "Mark Miller",
+     "team": "TB"
+    },
+    {
+     "entry": 204,
+     "nick": "Spurier 2",
+     "name": "Kevin Kenny",
+     "team": "LAC"
+    },
+    {
+     "entry": 210,
+     "nick": "Johnmartinowich",
+     "name": "John Martinowich",
+     "team": "TB"
+    },
+    {
+     "entry": 244,
+     "nick": "Da Bears",
+     "name": "Mike Spetsios",
+     "team": "TB"
+    },
+    {
+     "entry": 14,
+     "nick": "AllieGator",
+     "name": null,
+     "team": "BAL"
+    },
+    {
+     "entry": 39,
+     "nick": "Sue ",
+     "name": "Sue",
+     "team": "TB"
+    },
+    {
+     "entry": 56,
+     "nick": "Colonel",
+     "name": "Frank Hendricks",
+     "team": "TB"
+    },
+    {
+     "entry": 138,
+     "nick": "Mule Charger",
+     "name": "Errol(Guy) Valencic",
+     "team": "TB"
+    },
+    {
+     "entry": 146,
+     "nick": "Bengals / Bucs",
+     "name": "Kathleen McGinnis",
+     "team": "TB"
+    },
+    {
+     "entry": 172,
+     "nick": "DJFL",
+     "name": "Don Jones",
+     "team": "BAL"
+    },
+    {
+     "entry": 182,
+     "nick": "Nick B",
+     "name": "Nick Batelli",
+     "team": "TB"
+    },
+    {
+     "entry": 226,
+     "nick": "Tmac217",
+     "name": "Taylor Mikell",
+     "team": "TB"
+    },
+    {
+     "entry": 229,
+     "nick": "Crab Rangoon",
+     "name": "Kevin Melley",
+     "team": "TB"
+    },
+    {
+     "entry": 100,
+     "nick": "Patty Smack",
+     "name": "Patty &Rick",
+     "team": "NYJ"
+    },
+    {
+     "entry": 28,
+     "nick": "Ravens99",
+     "name": "Morgan Byces GF",
+     "team": "BAL"
+    },
+    {
+     "entry": 130,
+     "nick": "Scarlette",
+     "name": null,
+     "team": "TB"
+    },
+    {
+     "entry": 211,
+     "nick": "Bugman",
+     "name": "Eddie Faglione",
+     "team": "BAL"
+    },
+    {
+     "entry": 26,
+     "nick": "Maxbkirk",
+     "name": "Max Kirk",
+     "team": "TB"
+    },
+    {
+     "entry": 32,
+     "nick": "Tsanta",
+     "name": "Thomas Santangelo",
+     "team": "TB"
+    },
+    {
+     "entry": 203,
+     "nick": "Spurier 1",
+     "name": "Kevin Kenny",
+     "team": "TB"
+    },
+    {
+     "entry": 220,
+     "nick": "Oxx",
+     "name": "Ryan Oxx",
+     "team": "TB"
+    },
+    {
+     "entry": 242,
+     "nick": "JBVike",
+     "name": "John Schaefer",
+     "team": "TB"
+    },
+    {
+     "entry": 95,
+     "nick": "Kugeliscious1",
+     "name": "Leslie Kugel",
+     "team": "TB"
+    },
+    {
+     "entry": 131,
+     "nick": "Rackley 1",
+     "name": "Adam Rackley",
+     "team": "TB"
+    }
+   ],
    "tied": []
   }
  }
