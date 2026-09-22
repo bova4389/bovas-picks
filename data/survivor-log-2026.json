@@ -117,6 +117,58 @@
           "teamsLeft": 31
         }
       ]
+    },
+    "3": {
+      "week": 3,
+      "builtAt": "2026-09-22T18:05:59.390Z",
+      "oddsFetchedAt": "2026-09-22T18:05:52.607066+00:00",
+      "confidence": "provisional",
+      "exposure": {
+        "tickets": 3,
+        "games": 1,
+        "pAllLose": 0.151
+      },
+      "picks": [
+        {
+          "pool": "sleeper",
+          "team": "KC",
+          "p": 0.849,
+          "gap": 0,
+          "fvCost": 0.1365,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 29,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 30
+        },
+        {
+          "pool": "deadpool",
+          "team": "KC",
+          "p": 0.849,
+          "gap": 0,
+          "fvCost": 0.1365,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 20,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 30
+        },
+        {
+          "pool": "mike",
+          "team": "KC",
+          "p": 0.849,
+          "gap": 0,
+          "fvCost": 0.1365,
+          "share": null,
+          "basis": "future-value",
+          "entrants": 247,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 30
+        }
+      ]
     }
   }
 }
