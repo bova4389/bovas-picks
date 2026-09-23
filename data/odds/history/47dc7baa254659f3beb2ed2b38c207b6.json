@@ -1812,5 +1812,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-09-22T18:05:52.607066+00:00"
+ },
+ {
+  "id": "47dc7baa254659f3beb2ed2b38c207b6",
+  "commenceTime": "2026-09-29T00:15:00Z",
+  "home": "Chicago Bears",
+  "away": "Philadelphia Eagles",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.3456,
+  "rawAwayProb": 0.6979,
+  "homeWinProb": 0.3312,
+  "awayWinProb": 0.6688,
+  "vig": 0.0435,
+  "total": 41.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-09-23T18:23:51.536400+00:00"
  }
 ]

@@ -1524,5 +1524,21 @@
   "totalBookCount": 2,
   "bucket": 3,
   "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
+ },
+ {
+  "id": "f01589b0e7e6dd4f4ac1220a1db81f53",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.8674,
+  "rawAwayProb": 0.1768,
+  "homeWinProb": 0.8307,
+  "awayWinProb": 0.1693,
+  "vig": 0.0442,
+  "total": 44.75,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-09-23T18:23:51.536400+00:00"
  }
 ]
