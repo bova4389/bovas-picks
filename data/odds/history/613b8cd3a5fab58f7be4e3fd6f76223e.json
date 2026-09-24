@@ -1860,5 +1860,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-24T13:36:01.374476+00:00"
+ },
+ {
+  "id": "613b8cd3a5fab58f7be4e3fd6f76223e",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Cleveland Browns",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.4476,
+  "rawAwayProb": 0.5938,
+  "homeWinProb": 0.4298,
+  "awayWinProb": 0.5702,
+  "vig": 0.0414,
+  "total": 42.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-09-24T18:26:53.571493+00:00"
  }
 ]

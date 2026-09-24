@@ -1572,5 +1572,21 @@
   "totalBookCount": 8,
   "bucket": 1,
   "fetchedAt": "2026-09-24T13:36:01.374476+00:00"
+ },
+ {
+  "id": "d55cb69fed50a09170560b5b75d8de86",
+  "commenceTime": "2026-10-02T00:15:00Z",
+  "home": "Cleveland Browns",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 5,
+  "rawHomeProb": 0.453,
+  "rawAwayProb": 0.5918,
+  "homeWinProb": 0.4336,
+  "awayWinProb": 0.5664,
+  "vig": 0.0448,
+  "total": 37.5,
+  "totalBookCount": 8,
+  "bucket": 1,
+  "fetchedAt": "2026-09-24T18:26:53.571493+00:00"
  }
 ]

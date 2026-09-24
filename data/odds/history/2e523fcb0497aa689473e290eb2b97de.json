@@ -1860,5 +1860,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-24T13:36:01.374476+00:00"
+ },
+ {
+  "id": "2e523fcb0497aa689473e290eb2b97de",
+  "commenceTime": "2026-09-27T20:25:00Z",
+  "home": "New Orleans Saints",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.6394,
+  "rawAwayProb": 0.4025,
+  "homeWinProb": 0.6137,
+  "awayWinProb": 0.3863,
+  "vig": 0.0419,
+  "total": 43.5,
+  "totalBookCount": 8,
+  "bucket": 0,
+  "fetchedAt": "2026-09-24T18:26:53.571493+00:00"
  }
 ]
