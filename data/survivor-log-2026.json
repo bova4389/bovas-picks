@@ -120,19 +120,19 @@
     },
     "3": {
       "week": 3,
-      "builtAt": "2026-09-24T18:26:58.240Z",
-      "oddsFetchedAt": "2026-09-24T18:26:53.571493+00:00",
+      "builtAt": "2026-09-24T23:14:44.586Z",
+      "oddsFetchedAt": "2026-09-24T23:14:38.881243+00:00",
       "confidence": "firming",
       "exposure": {
         "tickets": 3,
         "games": 1,
-        "pAllLose": 0.1622
+        "pAllLose": 0.1634
       },
       "picks": [
         {
           "pool": "sleeper",
           "team": "KC",
-          "p": 0.8378,
+          "p": 0.8366,
           "gap": 0,
           "fvCost": 0.1118,
           "share": null,
@@ -145,7 +145,7 @@
         {
           "pool": "deadpool",
           "team": "KC",
-          "p": 0.8378,
+          "p": 0.8366,
           "gap": 0,
           "fvCost": 0.1118,
           "share": null,
@@ -158,7 +158,7 @@
         {
           "pool": "mike",
           "team": "KC",
-          "p": 0.8378,
+          "p": 0.8366,
           "gap": 0,
           "fvCost": 0.1118,
           "share": null,

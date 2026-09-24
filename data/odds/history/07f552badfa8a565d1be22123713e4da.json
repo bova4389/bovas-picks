@@ -1700,5 +1700,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-24T18:26:53.571493+00:00"
+ },
+ {
+  "id": "07f552badfa8a565d1be22123713e4da",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Detroit Lions",
+  "away": "New York Jets",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.7533,
+  "rawAwayProb": 0.2885,
+  "homeWinProb": 0.7231,
+  "awayWinProb": 0.2769,
+  "vig": 0.0418,
+  "total": 47.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-09-24T23:14:38.881243+00:00"
  }
 ]

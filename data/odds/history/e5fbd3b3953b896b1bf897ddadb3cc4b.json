@@ -1876,5 +1876,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-24T18:26:53.571493+00:00"
+ },
+ {
+  "id": "e5fbd3b3953b896b1bf897ddadb3cc4b",
+  "commenceTime": "2026-09-25T00:15:00Z",
+  "home": "Green Bay Packers",
+  "away": "Atlanta Falcons",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.7123,
+  "rawAwayProb": 0.328,
+  "homeWinProb": 0.6847,
+  "awayWinProb": 0.3153,
+  "vig": 0.0403,
+  "total": 43.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-09-24T23:14:38.881243+00:00"
  }
 ]

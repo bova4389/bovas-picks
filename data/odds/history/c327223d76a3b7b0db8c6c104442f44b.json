@@ -1588,5 +1588,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-09-24T18:26:53.571493+00:00"
+ },
+ {
+  "id": "c327223d76a3b7b0db8c6c104442f44b",
+  "commenceTime": "2026-10-04T20:05:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.8642,
+  "rawAwayProb": 0.1832,
+  "homeWinProb": 0.8251,
+  "awayWinProb": 0.1749,
+  "vig": 0.0474,
+  "total": 42.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-09-24T23:14:38.881243+00:00"
  }
 ]
