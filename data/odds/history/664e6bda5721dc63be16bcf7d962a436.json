@@ -1540,5 +1540,21 @@
   "totalBookCount": 4,
   "bucket": 1,
   "fetchedAt": "2026-09-23T18:23:51.536400+00:00"
+ },
+ {
+  "id": "664e6bda5721dc63be16bcf7d962a436",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "New York Giants",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.5827,
+  "rawAwayProb": 0.4594,
+  "homeWinProb": 0.5591,
+  "awayWinProb": 0.4409,
+  "vig": 0.0421,
+  "total": 43.5,
+  "totalBookCount": 4,
+  "bucket": 1,
+  "fetchedAt": "2026-09-24T07:38:59.371919+00:00"
  }
 ]
