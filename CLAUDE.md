@@ -320,10 +320,11 @@ Design constraints that are load-bearing, not preference:
 **Local dev** (fetch is blocked on `file://`, so it must be served):
 
 ```bash
-python -m http.server 8765 -d "NFL Pickems"
+python -m http.server 8765
 ```
 
-`.claude/launch.json` at the workspace root defines this as the `pickem` preview server.
+Run it from the repo root, `C:\Users\bovac\code\bovas-picks`. A session's `.claude/launch.json`
+can define it as the `pickem` preview server.
 
 ## Season Handling — Read Before Touching Any Tab
 
