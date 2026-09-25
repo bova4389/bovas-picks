@@ -1704,5 +1704,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-09-25T18:41:56.449474+00:00"
+ },
+ {
+  "id": "2a529c108305ffa049d8b6cfdbaa4d36",
+  "commenceTime": "2026-09-27T17:00:00Z",
+  "home": "Washington Commanders",
+  "away": "Seattle Seahawks",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.2542,
+  "rawAwayProb": 0.7891,
+  "homeWinProb": 0.2437,
+  "awayWinProb": 0.7563,
+  "vig": 0.0434,
+  "total": 40.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-09-25T23:20:00.276031+00:00"
  }
 ]
