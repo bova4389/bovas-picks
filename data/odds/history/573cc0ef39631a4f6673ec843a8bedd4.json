@@ -1384,5 +1384,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-09-25T07:55:47.352198+00:00"
+ },
+ {
+  "id": "573cc0ef39631a4f6673ec843a8bedd4",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "Buffalo Bills",
+  "away": "New England Patriots",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.7192,
+  "rawAwayProb": 0.3285,
+  "homeWinProb": 0.6865,
+  "awayWinProb": 0.3135,
+  "vig": 0.0477,
+  "total": 50.0,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-09-25T13:54:04.103652+00:00"
  }
 ]
