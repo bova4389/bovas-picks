@@ -1368,5 +1368,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-09-25T01:37:15.117360+00:00"
+ },
+ {
+  "id": "96d2373cda647873b971f268482bced0",
+  "commenceTime": "2026-10-04T20:25:00Z",
+  "home": "Seattle Seahawks",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.7611,
+  "rawAwayProb": 0.2881,
+  "homeWinProb": 0.7254,
+  "awayWinProb": 0.2746,
+  "vig": 0.0493,
+  "total": 43.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-09-25T07:55:47.352198+00:00"
  }
 ]
