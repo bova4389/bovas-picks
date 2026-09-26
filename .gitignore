@@ -29,3 +29,9 @@ __pycache__/
 # they may show members' names, and this repo is public on GitHub Pages.
 # The numbers are typed into data/squares-2026.json by hand.
 /St Jude Squares Images/
+
+# Matt's Sleeper login token, for reading the pick'em pools from local scripts.
+# A credential for the whole Sleeper account: never commit it. This repo is
+# public AND served by GitHub Pages, so a committed token is published twice.
+# Pattern covers Notepad's habit of saving it as .sleeper_token.txt.
+.sleeper_token*

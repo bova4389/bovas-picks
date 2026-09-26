@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "note": "My picks exactly as submitted. numbers = season-long pick numbers; points = Monday night total; survivor = pool id -> team abbreviation (mike, sleeper = Poop, deadpool; eastorange existed only through Week 1 — East Orange Squeeze was dissolved after Week 1 of 2026). infinity = list of Infinity War team abbreviations picked. Read by js/myPicks.js and scripts/log_week_card.mjs.",
+  "note": "My picks exactly as submitted. numbers = season-long pick numbers; points = Monday night total; survivor = pool id -> team abbreviation (mike, sleeper = Poop, deadpool; eastorange existed only through Week 1 \u2014 East Orange Squeeze was dissolved after Week 1 of 2026). infinity = list of Infinity War team abbreviations picked. Read by js/myPicks.js and scripts/log_week_card.mjs.",
   "weeks": {
     "1": {
       "numbers": [1, 4, 6, 7, 9, 12, 14, 15, 18, 19, 21, 24, 26, 27],
@@ -8,15 +8,27 @@
       "survivor": {
         "mike": "JAC",
         "sleeper": "LAC",
-        "deadpool": "JAC"
-      }
+        "deadpool": "JAC",
+        "eastorange": "LAC"
+      },
+      "infinity": ["CIN", "DET", "BUF", "JAC", "DAL", "PHI", "PIT", "LAC"]
     },
     "2": {
       "numbers": [2, 4, 6, 7, 10, 11, 14, 15, 17, 20, 22, 24, 26, 28, 30],
       "points": 41,
       "survivor": {
-        "mike": "SF"
-      }
+        "mike": "SF",
+        "sleeper": "SF",
+        "deadpool": "SF"
+      },
+      "infinity": ["BAL", "CHI", "KC", "LAC", "SF", "LAR", "TB", "PHI"]
+    },
+    "3": {
+      "survivor": {
+        "sleeper": "KC",
+        "deadpool": "KC"
+      },
+      "infinity": ["BUF", "PHI", "CAR", "DET", "GB", "KC", "SF", "SEA"]
     }
   }
 }
