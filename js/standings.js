@@ -84,7 +84,7 @@ import {
 } from './sleeperSurvivor.js';
 import { fetchInfinityPool, loadCachedPool, saveCachedPool } from './infinityFeed.js';
 import { POOL as INFINITY } from './infinityWar.js';
-import { getToken, tokenInfo, mountConnectBoxes } from './sleeperAuth.js';
+import { getToken, tokenInfo, mountConnectBoxes, hasSharedFeed } from './sleeperAuth.js';
 import {
   teamIndex, gradePickemWeek, weekPrize, survivorCoverage,
 } from './standingsModel.js';
@@ -671,12 +671,17 @@ function survivorSection(S, live) {
 /** A token that can actually be sent: present and not expired. */
 const connected = () => Boolean(getToken()) && !tokenInfo()?.expired;
 
+/** Pool numbers can be shown: this device is connected, or the shared feed
+ *  (the GitHub job's copy, js/sharedFeeds.js) loaded. Refresh then re-reads
+ *  that copy rather than failing. */
+const readable = () => connected() || hasSharedFeed();
+
 /** The strip under a Sleeper card: when the copy is from, the Refresh
  *  button, any error, and the Connect box when there is no usable token. */
 function poolFoot(S, id, feed) {
   const busy = S.poolBusy.has(id);
   const msg = S.poolMsg.get(id);
-  const button = connected()
+  const button = readable()
     ? `<button type="button" class="btn btn-ghost" data-st-pool="${esc(id)}"${busy ? ' disabled' : ''}>${busy ? 'Refreshing…' : 'Refresh from Sleeper'}</button>`
     : '';
   return `
@@ -690,7 +695,7 @@ function poolFoot(S, id, feed) {
 
 /** The card body when there is nothing trustworthy to count. */
 function poolEmpty(S, id, feed, what) {
-  const lead = !connected()
+  const lead = !readable()
     ? `Connect Sleeper to read ${what}. Until then there are no numbers to show.`
     : !feed
       ? `Nothing fetched from Sleeper for ${what} on this device yet.`
@@ -700,7 +705,7 @@ function poolEmpty(S, id, feed, what) {
 
 function sleeperSurvivorCard(S, league, live) {
   const feed = loadCachedFeed(S.season, league.id);
-  if (!feed || !connected()) {
+  if (!feed || !readable()) {
     return card(league.name, `Week ${S.week}`, poolEmpty(S, league.id, feed, league.name));
   }
 
@@ -754,7 +759,7 @@ function sleeperSurvivorCard(S, league, live) {
 function infinityCard(S, live) {
   const id = INFINITY.id;
   const feed = loadCachedPool(S.season, id);
-  if (!feed || !connected()) {
+  if (!feed || !readable()) {
     return card(INFINITY.name, `Week ${S.week}`, poolEmpty(S, id, feed, INFINITY.name));
   }
   const limit = Number(feed.settings?.weeklyPickLimit) || 8;
@@ -967,7 +972,7 @@ async function pickemSeason(S, weeks, views) {
 
   // Infinity War: the cached Sleeper pool, every week graded the same way the card is.
   const inf = S.payouts?.pools?.infinity;
-  const feed = connected() ? loadCachedPool(S.season, INFINITY.id) : null;
+  const feed = readable() ? loadCachedPool(S.season, INFINITY.id) : null;
   if (feed && inf) {
     const limit = Number(feed.settings?.weeklyPickLimit) || 8;
     // In week order, because a rolled-over pot is added to the next week's $20.
@@ -1004,7 +1009,7 @@ function survivorSeason(S, weeks, views) {
       key: entryKey(e), name: e.nick || e.name, isMe: String(e.nick || '').trim() === MY_NICK, picks: e.picks,
     })), weeks, results);
   }
-  if (connected()) {
+  if (readable()) {
     for (const league of LEAGUES.filter((l) => l.sleeper)) {
       const feed = loadCachedFeed(S.season, league.id);
       if (!feed) continue;
@@ -1097,7 +1102,7 @@ function allInfinity(S) {
   const id = INFINITY.id;
   const pool = S.payouts?.pools?.infinity;
   const feed = loadCachedPool(S.season, id);
-  if (!feed || !connected()) return card(INFINITY.name, 'Season to date', poolEmpty(S, id, feed, INFINITY.name));
+  if (!feed || !readable()) return card(INFINITY.name, 'Season to date', poolEmpty(S, id, feed, INFINITY.name));
   if (!S.ytd) return waiting(INFINITY.name);
   const p = S.ytd.infinity;
   if (!p || !pool) return card(INFINITY.name, 'Season to date', '<p class="lede">No payouts file loaded for this season yet.</p>');
@@ -1121,7 +1126,7 @@ function allSurvivor(S) {
   return cards.map(([title, id, league]) => {
     if (league) {
       const feed = loadCachedFeed(S.season, league.id);
-      if (!feed || !connected()) return card(title, 'Season to date', poolEmpty(S, id, feed, title));
+      if (!feed || !readable()) return card(title, 'Season to date', poolEmpty(S, id, feed, title));
     }
     if (!S.ytd) return waiting(title);
     const m = S.ytd.pools?.[id];

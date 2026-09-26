@@ -40,6 +40,13 @@ const KEY = 'sleeper:token';
  *  weekday rather than discover it on a Sunday. */
 const RENEW_DAYS = 30;
 
+/* Set by js/sharedFeeds.js when the GitHub job's copy of the pools loaded.
+   With it, connecting a device is optional -- it only buys a live refresh --
+   so the box stops saying it is needed. */
+let shared = null;
+export function setSharedFeed(info) { shared = info || null; }
+export const hasSharedFeed = () => Boolean(shared);
+
 export function getToken() {
   try { return localStorage.getItem(KEY) || null; } catch { return null; }
 }
@@ -173,7 +180,9 @@ function boxHtml(message = '') {
   }
   return `
     <details class="slc slc-off"${message ? ' open' : ''}>
-      <summary>Connect Sleeper <span class="slc-why">— needed to read picks</span></summary>
+      <summary>${shared
+        ? 'Live refresh <span class="slc-why">— optional; picks load automatically</span>'
+        : 'Connect Sleeper <span class="slc-why">— needed to read picks</span>'}</summary>
       ${connectHtml(message)}
     </details>`;
 }

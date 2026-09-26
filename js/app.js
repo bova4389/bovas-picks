@@ -345,6 +345,14 @@ document.getElementById('brand-season').textContent = SEASON;
    2026-09-13 at the owner's request -- see "The Site Gate" in CLAUDE.md.
    ------------------------------------------------------------------------ */
 
+// The Sleeper pools, from the GitHub job's copy, before any tab reads its cache.
+// Capped at 3s inside, so a slow network never holds the page up for long.
+// Imported dynamically so that a failure here -- a stale cached module in the
+// first minutes after a deploy, say -- costs the seeding and never the page.
+await import('./sharedFeeds.js')
+  .then((m) => m.seedSharedFeeds(SEASON))
+  .catch((err) => console.warn('shared Sleeper feed not loaded:', err));
+
 initSchedule(document.getElementById('schedule-root'), SEASON);
 initGrid(document.getElementById('grid-root'), SEASON);
 initPickSheet(document.getElementById('picksheet-root'));

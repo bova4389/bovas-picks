@@ -178,6 +178,39 @@ const HIDE_WHILE = new Set(['pre_game', 'canceled', 'postponed']);
 export const hasKickedOff = (game) =>
   Boolean(game) && !HIDE_WHILE.has(String(game.status));
 
+/* ── The shared feed ──────────────────────────────────────────────────────
+   Every pool, fetched by .github/workflows/sleeper-feeds.yml with the owner's
+   token (the SLEEPER_TOKEN repo secret) and committed as
+   data/sleeper/feeds-<year>.json, keyed by Sleeper league id. It is how a
+   device with no token of its own still shows the pools: the site seeds its
+   caches from it at load (js/sharedFeeds.js), and a Refresh on a device with
+   no usable token reads it again instead of failing.
+
+   The job runs these same fetch functions, so the kickoff gate was applied
+   when the copy was made. A game that kicked off since then stays hidden
+   until the next run -- late, never early.
+   ------------------------------------------------------------------------ */
+
+let shared = null;
+
+export function loadSharedFeeds(season, { fresh = false } = {}) {
+  if (fresh || !shared) {
+    shared = fetch(`data/sleeper/feeds-${season}.json?t=${Date.now()}`, { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null)
+      .then((d) => (Number(d?.season) === Number(season) ? d : null));
+  }
+  return shared;
+}
+
+export async function sharedFeedFor(leagueId, season, opts) {
+  const data = await loadSharedFeeds(season, opts);
+  return data?.pools?.[String(leagueId)] || null;
+}
+
+/** True when this device cannot send a token that Sleeper would accept. */
+export const noUsableToken = () => !getToken() || Boolean(tokenInfo()?.expired);
+
 /* ── Pool discovery ───────────────────────────────────────────────────────*/
 
 /**

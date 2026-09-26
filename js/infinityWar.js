@@ -43,18 +43,10 @@ import {
   swapCandidates,
 } from './infinityModel.js';
 
-/* The pool itself. Not in js/survivorLeagues.js -- that file is the survivor
-   pools, and its every helper assumes one pick a week and a monotonic used-
-   teams ledger. Neither is true here. */
-export const POOL = {
-  id: 'infinity',
-  name: 'Infinity War',
-  sleeper: {
-    leagueId: '1400511807180828672',
-    userId: '721908735856967680',
-  },
-  economics: { entry: 50, weekly: 20, season: { first: 380, second: 160 }, potShare: 1 },
-};
+/* The pool itself lives in js/infinityPool.js so Node can import it without
+   the rest of this tab. Re-exported so every `import { POOL }` still works. */
+import { POOL } from './infinityPool.js';
+export { POOL };
 
 const PREF_KEY = 'infinity:prefs';
 const PICKS_KEY = (season, week) => `infinity:${season}:${week}`;

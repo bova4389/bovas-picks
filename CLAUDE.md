@@ -124,6 +124,8 @@ js/survivorLeagues.js SHARED — per-pool used teams + field scarcity          [
 js/sleeperApi.js    SHARED — Sleeper transport + THE KICKOFF GATE           [NEVER versioned]
 js/sleeperSurvivor.js SHARED — survivor-shaped Sleeper read, normalized     [NEVER versioned]
 js/sleeperAuth.js   SHARED — per-device Sleeper token + the Connect box    [NEVER versioned]
+js/sharedFeeds.js   SHARED — seeds the pool caches from the GitHub job's copy [NEVER versioned]
+js/infinityPool.js  SHARED — Infinity War's league id, importable by Node   [NEVER versioned]
 js/sleeperBookmarklet.js SHARED — the "Get Sleeper token" bookmark        [NEVER versioned]
 js/pickShare.js     SHARED — modeled pick share + k calibration            [NEVER versioned]
 js/injuries.js      SHARED — ESPN injury report, live from the browser      [NEVER versioned]
@@ -1012,8 +1014,10 @@ band that pool exercised is now tested on a made-up half-pot league. If a change
 **Two survivor pools** (`Poop 2026` 29 entries, `Deadpool` 20 — roster counts re-read
 2026-09-09; East Orange Squeeze was the third until it dissolved after Week 1) plus the
 **Infinity War** pick'em are fetched straight from Sleeper by a **Refresh from Sleeper** button —
-on the Grid tab for the survivor pools, in the tab itself for Infinity War. No script, no
-workflow, no committed file: the browser calls Sleeper and caches the answer in localStorage.
+on the Grid tab for the survivor pools, in the tab itself for Infinity War. The browser calls
+Sleeper and caches the answer in localStorage -- and, since 2026-09-26, a GitHub job also fetches
+every pool and commits a shared copy (see **The shared feed** below), so a device with no token
+still shows them.
 
 **The transport lives in `js/sleeperApi.js`.** Endpoints, the leg-id format, the JAX/JAC fix and
 **the kickoff gate** are shared by every pool the site reads. `js/sleeperSurvivor.js` and
@@ -1052,8 +1056,10 @@ job):
 `"Unauthorized"` to every unauthenticated request** — REST still serves leagues, users and rosters,
 but no pick data. The Grid's Refresh button fails, no field pick shares arrive, and my own picks
 are recorded in `data/picks-sent-<year>.json` / on the Picks tab instead (see My Picks).
-`scripts/log_week_card.mjs` reads the sent file before falling back to the log. Do not put a
-Sleeper auth token in this public repo to get around it.
+`scripts/log_week_card.mjs` reads the sent file before falling back to the log. (This said "do
+not put a Sleeper auth token in this public repo". The owner reversed that on 2026-09-26: the
+token is now the `SLEEPER_TOKEN` Actions *secret* -- encrypted, never in a file. See **The
+shared feed**.)
 
 **Resolved the same day with a per-device token — `js/sleeperAuth.js`.** Every pick query in the
 schema (`get_pickem_picks_for_league`, `get_pickem_leg`, `get_pickem_legs`) was probed across all
@@ -1062,8 +1068,9 @@ still allows any origin *and* the `Authorization` header (preflight checked), so
 the owner's own Sleeper JWT, pasted once per device into a **Connect Sleeper** box on the Grid's
 live row and the Infinity War controls.
 
-- **The token lives in that browser's localStorage (`sleeper:token`) and nowhere else.** Never
-  commit it, never write it to `data/`, never give it to CI. It is the Sleeper password in effect.
+- **The token lives in that browser's localStorage (`sleeper:token`).** Never commit it and
+  never write it to `data/`. It is the Sleeper password in effect. The one other copy is the
+  `SLEEPER_TOKEN` repo secret the shared-feed job uses (owner's call, 2026-09-26).
 - It is a JWT, so the box shows whose it is and when it expires (Sleeper's run about a year).
   `user_id` is regex-read from the payload text, not `JSON.parse`d — it is an 18-digit bare number
   and would round into someone else's id.
@@ -1092,6 +1099,34 @@ live row and the Infinity War controls.
 - **How often:** once per device; again only on expiry, a Sleeper logout, or a password change.
   The connected box turns amber ("Time to reconnect") inside 30 days of expiry, and `saveToken()`
   refuses a token that has already expired.
+
+### The shared feed -- every device, no Connect box
+
+Added 2026-09-26 because pasting a token into every phone, iPad and browser was the owner's
+standing complaint. `.github/workflows/sleeper-feeds.yml` runs `scripts/fetch_sleeper_feeds.mjs`
+with the `SLEEPER_TOKEN` secret and commits `data/sleeper/feeds-<year>.json`: every pool's feed,
+keyed by Sleeper league id, in exactly the shape the browser caches.
+
+- **The job runs the site's own fetchers** (`fetchSleeperSurvivor`, `fetchInfinityPool`) under a
+  stand-in `localStorage` that holds only the token, in memory. That is what makes the committed
+  file safe in a public repo: the kickoff gate that hides a pick is the browser's own, not a
+  second copy that could drift open. **Do not port the fetch to Python.**
+- **At load, `js/sharedFeeds.js` seeds each device's caches from it** before any tab boots
+  (`app.js`, capped at 3s, dynamically imported so a failure costs the seeding and never the
+  page). A local copy is replaced only by a *newer* shared one, so a connected device that just
+  refreshed live keeps its answer.
+- **A Refresh on a device with no usable token re-reads the shared copy** instead of failing:
+  `noUsableToken()` / `sharedFeedFor()` in `sleeperApi.js`, checked at the top of both fetchers.
+  The Connect box turns into an optional "Live refresh" once the shared feed has loaded, and
+  Standings shows pool numbers when `readable()` (connected *or* shared).
+- **Late, never early.** The copy is gated as of the run that made it, so a game that kicked off
+  since then stays hidden until the next run. The schedule follows kickoffs and finals (Thu
+  night, Sunday afternoon and night, Monday night, plus a daily run) at minute :41.
+- The job writes nothing when no pool changed apart from `fetchedAt`, so "updated N ago" is when
+  the data last changed, and fails without writing if any pool fails.
+- **Expiry:** Sleeper tokens last a year (the current one to 2027-09-22). Commish Hub's Tuesday
+  workflow opens an issue 30 days ahead with the `gh secret set` commands for both repos.
+- **Never add a `pull_request` trigger to that workflow.** The secret is the whole account.
 
 **The GraphQL endpoint is undocumented and may change without notice.** Every failure path leaves
 the last good cached feed in place and says why, rather than writing a partial pool over a

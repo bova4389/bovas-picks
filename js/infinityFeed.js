@@ -32,6 +32,7 @@
 
 import {
   REST, team, weekOfLeg, getJSON, fetchWeekPicks, picksOf, hasKickedOff,
+  sharedFeedFor, noUsableToken,
 } from './sleeperApi.js';
 
 /* ── Fetch + normalise ────────────────────────────────────────────────────*/
@@ -48,6 +49,12 @@ import {
 export async function fetchInfinityPool(pool, season) {
   const { leagueId, userId } = pool;
   if (!leagueId) throw new Error('No Sleeper league id configured for this pool');
+
+  // No token of this device's own: the GitHub job's copy (js/sleeperApi.js).
+  if (noUsableToken()) {
+    const copy = await sharedFeedFor(leagueId, season, { fresh: true });
+    if (copy) return copy;
+  }
 
   const [league, users, rosters, schedule] = await Promise.all([
     getJSON(`${REST}/league/${leagueId}`),

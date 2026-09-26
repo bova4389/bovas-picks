@@ -1,0 +1,58 @@
+name: Fetch Sleeper pools
+
+# Poop, Deadpool and Infinity War, fetched with the owner's Sleeper token (the
+# SLEEPER_TOKEN repo secret) and committed as data/sleeper/feeds-<year>.json,
+# so every device shows the pools without pasting a token into Connect Sleeper.
+# See "The shared feed" in js/sleeperApi.js and the header of
+# scripts/fetch_sleeper_feeds.mjs.
+#
+# NEVER add a pull_request trigger. The secret is the owner's whole Sleeper
+# account, not just the pick'em.
+#
+# The schedule follows when picks can change: they are revealed at kickoff and
+# graded at the final. Minute :41, off the hour, for the reason fetch-odds.yml
+# gives at length (GitHub drops on-the-hour crons under load). All UTC:
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '41 14 * * *'          # every day: 10:41am EDT, catches London games and anything missed
+    - cron: '41 0-4 * * 5'         # Thursday night game (Thu 8pm-12am EDT)
+    - cron: '41 17-23 * * 0'       # Sunday 1pm, 4pm and night kickoffs and finals
+    - cron: '41 0-4 * * 1,2'       # Sunday and Monday night games, into the early morning
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sleeper-feeds
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      # NODE IS CI-ONLY, same carve-out as log_week_card.mjs in fetch-odds.yml:
+      # nothing is installed, compiled or bundled, and the site never needs it.
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+
+      - name: Fetch the pools
+        env:
+          SLEEPER_TOKEN: ${{ secrets.SLEEPER_TOKEN }}
+        run: node scripts/fetch_sleeper_feeds.mjs
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/sleeper/
+          if git diff --cached --quiet; then
+            echo 'nothing changed'
+            exit 0
+          fi
+          git commit -m 'Sleeper pools: automated refresh'
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

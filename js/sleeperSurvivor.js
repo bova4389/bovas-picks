@@ -28,6 +28,7 @@
 
 import {
   REST, team, weekOfLeg, getJSON, fetchWeekPicks, picksOf, hasKickedOff,
+  sharedFeedFor, noUsableToken,
 } from './sleeperApi.js';
 
 /* ── Fetch + normalise ────────────────────────────────────────────────────*/
@@ -44,6 +45,13 @@ import {
 export async function fetchSleeperSurvivor(pool, season) {
   const { leagueId, userId } = pool;
   if (!leagueId) throw new Error('No Sleeper league id configured for this pool');
+
+  // No token of this device's own: the copy the GitHub job fetched with the
+  // owner's. Only when there is none does this fall through to the error.
+  if (noUsableToken()) {
+    const copy = await sharedFeedFor(leagueId, season, { fresh: true });
+    if (copy) return copy;
+  }
 
   const [league, users, rosters, schedule] = await Promise.all([
     getJSON(`${REST}/league/${leagueId}`),
