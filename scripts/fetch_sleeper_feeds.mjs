@@ -16,6 +16,14 @@
    picks before kickoff. Running the one the browser runs is the only way the
    committed copy hides exactly what the site hides.
 
+   ── NOBODY IS "ME" WHILE FETCHING. ───────────────────────────────────
+   The browser's gate exempts the owner's own entry (isMe): my card is mine
+   to see before kickoff. In a PUBLIC file that exemption publishes my picks
+   and tiebreaker to the whole pool before the games -- which the first run
+   did, 2026-09-27. So the pools are fetched with no userId, the gate applies
+   to every entry alike, and isMe is marked afterward from the entry's own
+   userId, over picks that already passed the gate.
+
    The token never touches disk or the log: it is handed to sleeperAuth.js
    through a stand-in localStorage that holds only it, in memory.
 
@@ -60,7 +68,8 @@ const pools = {};
 let failed = 0;
 for (const [name, pool, fetchPool] of jobs) {
   try {
-    const feed = await fetchPool(pool, season);
+    const feed = await fetchPool({ ...pool, userId: undefined }, season);
+    for (const e of feed.entries) e.isMe = Boolean(pool.userId) && e.userId === String(pool.userId);
     pools[pool.leagueId] = feed;
     const week = feed.weeks?.[String(feed.currentWeek)];
     console.log(`${name}: ${feed.entries.length} entries, week ${feed.currentWeek}` +
