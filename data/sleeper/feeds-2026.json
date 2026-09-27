@@ -1,0 +1,2056 @@
+{
+ "season": 2026,
+ "generated": "2026-09-27T15:00:05.428Z",
+ "pools": {
+  "1392226517005635584": {
+   "year": 2026,
+   "currentWeek": 3,
+   "weeks": {
+    "1": {
+     "entrants": 31,
+     "distinctTeams": 9,
+     "picks": [
+      {
+       "team": "LAC",
+       "count": 11,
+       "pct": 35.5
+      },
+      {
+       "team": "JAC",
+       "count": 7,
+       "pct": 22.6
+      },
+      {
+       "team": "PIT",
+       "count": 4,
+       "pct": 12.9
+      },
+      {
+       "team": "CHI",
+       "count": 2,
+       "pct": 6.5
+      },
+      {
+       "team": "CIN",
+       "count": 2,
+       "pct": 6.5
+      },
+      {
+       "team": "DET",
+       "count": 2,
+       "pct": 6.5
+      },
+      {
+       "team": "BAL",
+       "count": 1,
+       "pct": 3.2
+      },
+      {
+       "team": "LV",
+       "count": 1,
+       "pct": 3.2
+      },
+      {
+       "team": "SEA",
+       "count": 1,
+       "pct": 3.2
+      }
+     ],
+     "submitted": 31,
+     "revealed": 31,
+     "expected": 31,
+     "complete": true
+    },
+    "2": {
+     "entrants": 29,
+     "distinctTeams": 8,
+     "picks": [
+      {
+       "team": "SF",
+       "count": 13,
+       "pct": 44.8
+      },
+      {
+       "team": "TB",
+       "count": 6,
+       "pct": 20.7
+      },
+      {
+       "team": "BAL",
+       "count": 4,
+       "pct": 13.8
+      },
+      {
+       "team": "GB",
+       "count": 2,
+       "pct": 6.9
+      },
+      {
+       "team": "DAL",
+       "count": 1,
+       "pct": 3.4
+      },
+      {
+       "team": "KC",
+       "count": 1,
+       "pct": 3.4
+      },
+      {
+       "team": "LAC",
+       "count": 1,
+       "pct": 3.4
+      },
+      {
+       "team": "LAR",
+       "count": 1,
+       "pct": 3.4
+      }
+     ],
+     "submitted": 29,
+     "revealed": 29,
+     "expected": 31,
+     "complete": false
+    },
+    "3": {
+     "entrants": 3,
+     "distinctTeams": 2,
+     "picks": [
+      {
+       "team": "GB",
+       "count": 2,
+       "pct": 66.7
+      },
+      {
+       "team": "KC",
+       "count": 1,
+       "pct": 33.3
+      }
+     ],
+     "submitted": 23,
+     "revealed": 3,
+     "expected": 31,
+     "complete": false
+    }
+   },
+   "entries": [
+    {
+     "entry": 1,
+     "name": null,
+     "nick": "joefanelli90",
+     "userId": "1124383939507965952",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF"
+     ]
+    },
+    {
+     "entry": 2,
+     "name": null,
+     "nick": "AJPeak",
+     "userId": "1389633198383693824",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "TB"
+     ]
+    },
+    {
+     "entry": 3,
+     "name": null,
+     "nick": "Perko87",
+     "userId": "1393626367060348928",
+     "isMe": false,
+     "picks": {
+      "1": "CIN",
+      "2": "BAL"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "CIN",
+      "BAL"
+     ]
+    },
+    {
+     "entry": 4,
+     "name": null,
+     "nick": "Elworth",
+     "userId": "987878672361148416",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF"
+     ]
+    },
+    {
+     "entry": 5,
+     "name": null,
+     "nick": "avobttam",
+     "userId": "721908735856967680",
+     "isMe": true,
+     "picks": {
+      "1": "LAC",
+      "2": "SF",
+      "3": "KC"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF",
+      "KC"
+     ]
+    },
+    {
+     "entry": 6,
+     "name": null,
+     "nick": "TonyGuazu",
+     "userId": "1269384931323162624",
+     "isMe": false,
+     "picks": {
+      "1": "LAC"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC"
+     ]
+    },
+    {
+     "entry": 7,
+     "name": null,
+     "nick": "albuchan",
+     "userId": "1132389335963365376",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "SF"
+     ]
+    },
+    {
+     "entry": 8,
+     "name": null,
+     "nick": "creckley",
+     "userId": "988112454595002368",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 9,
+     "name": null,
+     "nick": "KyliePeacock",
+     "userId": "1393712383943282688",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF"
+     ]
+    },
+    {
+     "entry": 10,
+     "name": null,
+     "nick": "CBrown59",
+     "userId": "1393785200269361152",
+     "isMe": false,
+     "picks": {
+      "1": "LAC"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC"
+     ]
+    },
+    {
+     "entry": 11,
+     "name": null,
+     "nick": "leftypapa",
+     "userId": "1393801033058115584",
+     "isMe": false,
+     "picks": {
+      "1": "PIT",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "PIT",
+      "TB"
+     ]
+    },
+    {
+     "entry": 12,
+     "name": null,
+     "nick": "SaraWuite",
+     "userId": "1393971703809318912",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "TB"
+     ]
+    },
+    {
+     "entry": 13,
+     "name": null,
+     "nick": "domfan",
+     "userId": "1395078191508389888",
+     "isMe": false,
+     "picks": {
+      "1": "SEA",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "SEA",
+      "TB"
+     ]
+    },
+    {
+     "entry": 14,
+     "name": null,
+     "nick": "markymark317",
+     "userId": "1396795812855468032",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "SF"
+     ]
+    },
+    {
+     "entry": 15,
+     "name": null,
+     "nick": "lisaseidl",
+     "userId": "1398133132791693312",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "TB"
+     ]
+    },
+    {
+     "entry": 16,
+     "name": null,
+     "nick": "sydguthrie",
+     "userId": "1398325919613005824",
+     "isMe": false,
+     "picks": {
+      "1": "CHI",
+      "2": "GB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "CHI",
+      "GB"
+     ]
+    },
+    {
+     "entry": 17,
+     "name": null,
+     "nick": "Yungmulletgoat",
+     "userId": "1134185159265333248",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF"
+     ]
+    },
+    {
+     "entry": 18,
+     "name": null,
+     "nick": "glizzygladiator25",
+     "userId": "1400535290963066880",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF"
+     ]
+    },
+    {
+     "entry": 19,
+     "name": null,
+     "nick": "jj833041",
+     "userId": "1111417047872856064",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "GB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "GB"
+     ]
+    },
+    {
+     "entry": 20,
+     "name": null,
+     "nick": "vcaval",
+     "userId": "1402369667242139648",
+     "isMe": false,
+     "picks": {
+      "1": "DET",
+      "2": "LAC"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "DET",
+      "LAC"
+     ]
+    },
+    {
+     "entry": 21,
+     "name": null,
+     "nick": "stuto",
+     "userId": "1402412383464357888",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF"
+     ]
+    },
+    {
+     "entry": 22,
+     "name": null,
+     "nick": "Intipach",
+     "userId": "1402588734787969024",
+     "isMe": false,
+     "picks": {
+      "1": "CIN",
+      "2": "DAL"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "CIN",
+      "DAL"
+     ]
+    },
+    {
+     "entry": 23,
+     "name": null,
+     "nick": "AFrange",
+     "userId": "1402681747056926720",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "BAL"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "BAL"
+     ]
+    },
+    {
+     "entry": 24,
+     "name": null,
+     "nick": "Isabelle312",
+     "userId": "1402882975560933376",
+     "isMe": false,
+     "picks": {
+      "1": "CHI",
+      "2": "KC"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "CHI",
+      "KC"
+     ]
+    },
+    {
+     "entry": 25,
+     "name": null,
+     "nick": "DunkinDutchman45",
+     "userId": "1402923257585209344",
+     "isMe": false,
+     "picks": {
+      "1": "LV",
+      "2": "SF",
+      "3": "GB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LV",
+      "SF",
+      "GB"
+     ]
+    },
+    {
+     "entry": 26,
+     "name": null,
+     "nick": "aelliott2214",
+     "userId": "1403194981564293120",
+     "isMe": false,
+     "picks": {
+      "1": "BAL",
+      "2": "SF",
+      "3": "GB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "BAL",
+      "SF",
+      "GB"
+     ]
+    },
+    {
+     "entry": 27,
+     "name": null,
+     "nick": "JohnDaveyNATTYCHAMP",
+     "userId": "1403202909864267776",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "SF"
+     ]
+    },
+    {
+     "entry": 28,
+     "name": null,
+     "nick": "NickBova",
+     "userId": "722827711751487488",
+     "isMe": false,
+     "picks": {
+      "1": "DET",
+      "2": "BAL"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "DET",
+      "BAL"
+     ]
+    },
+    {
+     "entry": 29,
+     "name": null,
+     "nick": "MichaelSeidl",
+     "userId": "1403512170989309953",
+     "isMe": false,
+     "picks": {
+      "1": "PIT",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "PIT",
+      "TB"
+     ]
+    },
+    {
+     "entry": 30,
+     "name": null,
+     "nick": "CarlosDangers",
+     "userId": "1403590697986101248",
+     "isMe": false,
+     "picks": {
+      "1": "PIT",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "PIT",
+      "SF"
+     ]
+    },
+    {
+     "entry": 31,
+     "name": null,
+     "nick": "cbova1222",
+     "userId": "728290759668797440",
+     "isMe": false,
+     "picks": {
+      "1": "PIT",
+      "2": "BAL"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "PIT",
+      "BAL"
+     ]
+    }
+   ],
+   "source": "sleeper",
+   "leagueId": "1392226517005635584",
+   "leagueName": "Poop 2026",
+   "fetchedAt": 1790521205169,
+   "settings": {
+    "revivesAllowed": 2,
+    "picksPerTeam": 1,
+    "weeklyPickLimit": 1
+   }
+  },
+  "1400514368084451328": {
+   "year": 2026,
+   "currentWeek": 3,
+   "weeks": {
+    "1": {
+     "entrants": 20,
+     "distinctTeams": 6,
+     "picks": [
+      {
+       "team": "JAC",
+       "count": 7,
+       "pct": 35
+      },
+      {
+       "team": "LAC",
+       "count": 7,
+       "pct": 35
+      },
+      {
+       "team": "DET",
+       "count": 2,
+       "pct": 10
+      },
+      {
+       "team": "PIT",
+       "count": 2,
+       "pct": 10
+      },
+      {
+       "team": "CHI",
+       "count": 1,
+       "pct": 5
+      },
+      {
+       "team": "TEN",
+       "count": 1,
+       "pct": 5
+      }
+     ],
+     "submitted": 20,
+     "revealed": 20,
+     "expected": 20,
+     "complete": true
+    },
+    "2": {
+     "entrants": 18,
+     "distinctTeams": 5,
+     "picks": [
+      {
+       "team": "TB",
+       "count": 10,
+       "pct": 55.6
+      },
+      {
+       "team": "PHI",
+       "count": 3,
+       "pct": 16.7
+      },
+      {
+       "team": "SF",
+       "count": 3,
+       "pct": 16.7
+      },
+      {
+       "team": "KC",
+       "count": 1,
+       "pct": 5.6
+      },
+      {
+       "team": "LAR",
+       "count": 1,
+       "pct": 5.6
+      }
+     ],
+     "submitted": 18,
+     "revealed": 18,
+     "expected": 20,
+     "complete": false
+    },
+    "3": {
+     "entrants": 2,
+     "distinctTeams": 2,
+     "picks": [
+      {
+       "team": "GB",
+       "count": 1,
+       "pct": 50
+      },
+      {
+       "team": "KC",
+       "count": 1,
+       "pct": 50
+      }
+     ],
+     "submitted": 14,
+     "revealed": 2,
+     "expected": 20,
+     "complete": false
+    }
+   },
+   "entries": [
+    {
+     "entry": 1,
+     "name": null,
+     "nick": "avobttam",
+     "userId": "721908735856967680",
+     "isMe": true,
+     "picks": {
+      "1": "JAC",
+      "2": "SF",
+      "3": "KC"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "SF",
+      "KC"
+     ]
+    },
+    {
+     "entry": 2,
+     "name": null,
+     "nick": "AllBidness",
+     "userId": "473951331350999040",
+     "isMe": false,
+     "picks": {
+      "1": "PIT",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "PIT",
+      "TB"
+     ]
+    },
+    {
+     "entry": 3,
+     "name": null,
+     "nick": "NickBova",
+     "userId": "722827711751487488",
+     "isMe": false,
+     "picks": {
+      "1": "PIT",
+      "2": "PHI"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "PIT",
+      "PHI"
+     ]
+    },
+    {
+     "entry": 4,
+     "name": null,
+     "nick": "Cubbiesftw23",
+     "userId": "439891619580211200",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "TB"
+     ]
+    },
+    {
+     "entry": 5,
+     "name": null,
+     "nick": "camschnick",
+     "userId": "1136908336026333184",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "TB"
+     ]
+    },
+    {
+     "entry": 6,
+     "name": null,
+     "nick": "katiestout13",
+     "userId": "1000958994694868992",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "TB"
+     ]
+    },
+    {
+     "entry": 7,
+     "name": null,
+     "nick": "djbogardus72",
+     "userId": "722615938792382464",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "TB"
+     ]
+    },
+    {
+     "entry": 8,
+     "name": null,
+     "nick": "Roster 8",
+     "userId": "",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "TB"
+     ]
+    },
+    {
+     "entry": 9,
+     "name": null,
+     "nick": "Bustersx8",
+     "userId": "728292202471604224",
+     "isMe": false,
+     "picks": {
+      "1": "LAC"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC"
+     ]
+    },
+    {
+     "entry": 10,
+     "name": null,
+     "nick": "NastyNate725",
+     "userId": "1260077369012527104",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "TB"
+     ]
+    },
+    {
+     "entry": 11,
+     "name": null,
+     "nick": "woody1108",
+     "userId": "1267629868506431488",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "TB"
+     ]
+    },
+    {
+     "entry": 12,
+     "name": null,
+     "nick": "MJBlack",
+     "userId": "722920890647515136",
+     "isMe": false,
+     "picks": {
+      "1": "TEN",
+      "2": "TB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "TEN",
+      "TB"
+     ]
+    },
+    {
+     "entry": 13,
+     "name": null,
+     "nick": "JellyRoll6884",
+     "userId": "869299669069631488",
+     "isMe": false,
+     "picks": {
+      "1": "LAC"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC"
+     ]
+    },
+    {
+     "entry": 14,
+     "name": null,
+     "nick": "Mpletcher",
+     "userId": "977648798954479616",
+     "isMe": false,
+     "picks": {
+      "1": "CHI",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "CHI",
+      "SF"
+     ]
+    },
+    {
+     "entry": 15,
+     "name": null,
+     "nick": "MerkDaddy36",
+     "userId": "723731618132504576",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF"
+     ]
+    },
+    {
+     "entry": 16,
+     "name": null,
+     "nick": "cbova1222",
+     "userId": "728290759668797440",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "KC"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "KC"
+     ]
+    },
+    {
+     "entry": 17,
+     "name": null,
+     "nick": "AngryWillis",
+     "userId": "1403193501528629248",
+     "isMe": false,
+     "picks": {
+      "1": "DET",
+      "2": "PHI"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "DET",
+      "PHI"
+     ]
+    },
+    {
+     "entry": 18,
+     "name": null,
+     "nick": "CHRISMERKELDUH",
+     "userId": "722612742522994688",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "PHI"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "PHI"
+     ]
+    },
+    {
+     "entry": 19,
+     "name": null,
+     "nick": "Kolisekj52",
+     "userId": "1403415799057616896",
+     "isMe": false,
+     "picks": {
+      "1": "DET",
+      "2": "TB",
+      "3": "GB"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "DET",
+      "TB",
+      "GB"
+     ]
+    },
+    {
+     "entry": 20,
+     "name": null,
+     "nick": "KeithWaters",
+     "userId": "845427031985467392",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "LAR"
+     ]
+    }
+   ],
+   "source": "sleeper",
+   "leagueId": "1400514368084451328",
+   "leagueName": "Deadpool",
+   "fetchedAt": 1790521205295,
+   "settings": {
+    "revivesAllowed": 2,
+    "picksPerTeam": 1,
+    "weeklyPickLimit": 1
+   }
+  },
+  "1400511807180828672": {
+   "year": 2026,
+   "currentWeek": 3,
+   "weeks": {
+    "1": {
+     "rows": [
+      {
+       "team": "DET",
+       "count": 18
+      },
+      {
+       "team": "LAC",
+       "count": 18
+      },
+      {
+       "team": "PHI",
+       "count": 17
+      },
+      {
+       "team": "JAC",
+       "count": 16
+      },
+      {
+       "team": "PIT",
+       "count": 14
+      },
+      {
+       "team": "CHI",
+       "count": 13
+      },
+      {
+       "team": "LAR",
+       "count": 10
+      },
+      {
+       "team": "LV",
+       "count": 9
+      },
+      {
+       "team": "DAL",
+       "count": 8
+      },
+      {
+       "team": "BAL",
+       "count": 6
+      },
+      {
+       "team": "CIN",
+       "count": 6
+      },
+      {
+       "team": "SEA",
+       "count": 4
+      },
+      {
+       "team": "BUF",
+       "count": 2
+      },
+      {
+       "team": "TEN",
+       "count": 2
+      },
+      {
+       "team": "GB",
+       "count": 1
+      }
+     ],
+     "submitted": 144,
+     "revealed": 144,
+     "locked": 0,
+     "entrants": 18
+    },
+    "2": {
+     "rows": [
+      {
+       "team": "PHI",
+       "count": 18
+      },
+      {
+       "team": "SF",
+       "count": 18
+      },
+      {
+       "team": "BAL",
+       "count": 16
+      },
+      {
+       "team": "TB",
+       "count": 16
+      },
+      {
+       "team": "KC",
+       "count": 12
+      },
+      {
+       "team": "GB",
+       "count": 11
+      },
+      {
+       "team": "SEA",
+       "count": 11
+      },
+      {
+       "team": "CHI",
+       "count": 10
+      },
+      {
+       "team": "LAC",
+       "count": 9
+      },
+      {
+       "team": "LAR",
+       "count": 8
+      },
+      {
+       "team": "NE",
+       "count": 7
+      },
+      {
+       "team": "BUF",
+       "count": 3
+      },
+      {
+       "team": "CAR",
+       "count": 2
+      },
+      {
+       "team": "DAL",
+       "count": 2
+      },
+      {
+       "team": "ARI",
+       "count": 1
+      }
+     ],
+     "submitted": 144,
+     "revealed": 144,
+     "locked": 0,
+     "entrants": 18
+    },
+    "3": {
+     "rows": [
+      {
+       "team": "GB",
+       "count": 14
+      },
+      {
+       "team": "BUF",
+       "count": 1
+      },
+      {
+       "team": "CAR",
+       "count": 1
+      },
+      {
+       "team": "DET",
+       "count": 1
+      },
+      {
+       "team": "KC",
+       "count": 1
+      },
+      {
+       "team": "PHI",
+       "count": 1
+      },
+      {
+       "team": "SEA",
+       "count": 1
+      },
+      {
+       "team": "SF",
+       "count": 1
+      }
+     ],
+     "submitted": 142,
+     "revealed": 21,
+     "locked": 121,
+     "entrants": 18
+    }
+   },
+   "entries": [
+    {
+     "entry": 1,
+     "name": "avobttam",
+     "isMe": true,
+     "picks": {
+      "1": [
+       "CIN",
+       "DET",
+       "BUF",
+       "JAC",
+       "DAL",
+       "PHI",
+       "PIT",
+       "LAC"
+      ],
+      "2": [
+       "BAL",
+       "CHI",
+       "KC",
+       "LAC",
+       "SF",
+       "LAR",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "BUF",
+       "PHI",
+       "CAR",
+       "DET",
+       "GB",
+       "KC",
+       "SF",
+       "SEA"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 36,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 41,
+       "away": "NYG",
+       "home": "LAR"
+      },
+      "3": {
+       "guess": 38,
+       "away": "PHI",
+       "home": "CHI"
+      }
+     }
+    },
+    {
+     "entry": 2,
+     "name": "NickBova",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "CIN",
+       "DET",
+       "JAC",
+       "DAL",
+       "LV",
+       "PIT",
+       "LAC"
+      ],
+      "2": [
+       "CAR",
+       "BAL",
+       "BUF",
+       "GB",
+       "LAC",
+       "SF",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 48,
+       "away": "DEN",
+       "home": "KC"
+      }
+     }
+    },
+    {
+     "entry": 3,
+     "name": "Cubbiesftw23",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "DET",
+       "BAL",
+       "JAC",
+       "PHI",
+       "PIT",
+       "LAC",
+       "LAR"
+      ],
+      "2": [
+       "SEA",
+       "BAL",
+       "KC",
+       "GB",
+       "SF",
+       "LAR",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 52,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 57,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 4,
+     "name": "camschnick",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "DET",
+       "JAC",
+       "DAL",
+       "LV",
+       "PHI",
+       "PIT",
+       "LAC"
+      ],
+      "2": [
+       "SEA",
+       "BAL",
+       "CHI",
+       "DAL",
+       "NE",
+       "SF",
+       "TB",
+       "PHI"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 34,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 34,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 5,
+     "name": "katiestout13",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "DET",
+       "JAC",
+       "DAL",
+       "LV",
+       "PHI",
+       "PIT",
+       "LAC"
+      ],
+      "2": [
+       "BAL",
+       "CHI",
+       "NE",
+       "GB",
+       "LAC",
+       "SF",
+       "TB",
+       "PHI"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 47,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 50,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 6,
+     "name": "djbogardus72",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "DET",
+       "BAL",
+       "JAC",
+       "LV",
+       "PHI",
+       "PIT",
+       "LAC"
+      ],
+      "2": [
+       "SEA",
+       "BAL",
+       "BUF",
+       "GB",
+       "SF",
+       "LAR",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 43,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 48,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 7,
+     "name": "Bogeyman28",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "DET",
+       "JAC",
+       "LV",
+       "PHI",
+       "PIT",
+       "LAC",
+       "TEN"
+      ],
+      "2": [
+       "SEA",
+       "BAL",
+       "NE",
+       "GB",
+       "LAC",
+       "SF",
+       "TB",
+       "PHI"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 54,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 48,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 8,
+     "name": "bjander110",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "CIN",
+       "DET",
+       "PHI",
+       "PIT",
+       "LAC",
+       "SEA",
+       "LAR"
+      ],
+      "2": [
+       "SEA",
+       "BAL",
+       "CHI",
+       "KC",
+       "GB",
+       "SF",
+       "TB",
+       "PHI"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 48,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 54,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 9,
+     "name": "Bustersx8",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "DET",
+       "GB",
+       "PHI",
+       "PIT",
+       "LAC",
+       "LAR",
+       "TEN"
+      ],
+      "2": [
+       "SEA",
+       "CHI",
+       "KC",
+       "NE",
+       "GB",
+       "SF",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     }
+    },
+    {
+     "entry": 10,
+     "name": "NastyNate725",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "DET",
+       "BAL",
+       "JAC",
+       "LV",
+       "PHI",
+       "PIT",
+       "LAC",
+       "SEA"
+      ],
+      "2": [
+       "SEA",
+       "BAL",
+       "CHI",
+       "KC",
+       "SF",
+       "LAR",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 37,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 45,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 11,
+     "name": "MJBlack",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "DET",
+       "BAL",
+       "JAC",
+       "PHI",
+       "PIT",
+       "LAC",
+       "LAR"
+      ],
+      "2": [
+       "ARI",
+       "BAL",
+       "KC",
+       "LAC",
+       "SF",
+       "LAR",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 38,
+       "away": "DEN",
+       "home": "KC"
+      }
+     }
+    },
+    {
+     "entry": 12,
+     "name": "msymons713",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "DET",
+       "BAL",
+       "JAC",
+       "LV",
+       "PHI",
+       "LAC",
+       "SEA",
+       "LAR"
+      ],
+      "2": [
+       "BAL",
+       "KC",
+       "NE",
+       "LAC",
+       "SF",
+       "LAR",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 45,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 44,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 13,
+     "name": "Mpletcher",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "CIN",
+       "DET",
+       "JAC",
+       "LV",
+       "PHI",
+       "LAC",
+       "LAR"
+      ],
+      "2": [
+       "SEA",
+       "BAL",
+       "CHI",
+       "KC",
+       "GB",
+       "LAC",
+       "SF",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 50,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 55,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 14,
+     "name": "cbova1222",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CIN",
+       "DET",
+       "JAC",
+       "DAL",
+       "LV",
+       "PHI",
+       "LAC",
+       "LAR"
+      ],
+      "2": [
+       "BAL",
+       "BUF",
+       "DAL",
+       "KC",
+       "GB",
+       "SF",
+       "LAR",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 32,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 42,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 15,
+     "name": "AngryWillis",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "DET",
+       "JAC",
+       "DAL",
+       "PHI",
+       "PIT",
+       "LAC",
+       "LAR"
+      ],
+      "2": [
+       "SEA",
+       "BAL",
+       "CHI",
+       "KC",
+       "GB",
+       "SF",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 45,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 47,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 16,
+     "name": "CHRISMERKELDUH",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "DET",
+       "BUF",
+       "BAL",
+       "JAC",
+       "PHI",
+       "PIT",
+       "LAC"
+      ],
+      "2": [
+       "SEA",
+       "BAL",
+       "KC",
+       "GB",
+       "SF",
+       "LAR",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 48,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 52,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 17,
+     "name": "Kolisekj52",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CIN",
+       "DET",
+       "JAC",
+       "DAL",
+       "PHI",
+       "LAC",
+       "SEA",
+       "LAR"
+      ],
+      "2": [
+       "BAL",
+       "CHI",
+       "KC",
+       "NE",
+       "LAC",
+       "SF",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 42,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 52,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    },
+    {
+     "entry": 18,
+     "name": "steveedwards",
+     "isMe": false,
+     "picks": {
+      "1": [
+       "CHI",
+       "DET",
+       "JAC",
+       "DAL",
+       "PHI",
+       "PIT",
+       "LAC",
+       "LAR"
+      ],
+      "2": [
+       "SEA",
+       "CAR",
+       "CHI",
+       "NE",
+       "LAC",
+       "SF",
+       "TB",
+       "PHI"
+      ],
+      "3": [
+       "GB"
+      ]
+     },
+     "tiebreakers": {
+      "1": {
+       "guess": 41,
+       "away": "DEN",
+       "home": "KC"
+      },
+      "2": {
+       "guess": 63,
+       "away": "NYG",
+       "home": "LAR"
+      }
+     }
+    }
+   ],
+   "source": "sleeper",
+   "leagueId": "1400511807180828672",
+   "leagueName": "Inifnity War",
+   "fetchedAt": 1790521205427,
+   "settings": {
+    "weeklyPickLimit": 8,
+    "useConfidence": false,
+    "useSpread": false
+   }
+  }
+ }
+}
