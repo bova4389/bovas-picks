@@ -100,13 +100,18 @@ async function render() {
     if (frozen) games.set(w.week, frozen);
   }
 
-  if (liveWeek != null && !games.has(liveWeek)) {
-    const cfg = pool.weeks.find((w) => w.week === liveWeek);
-    if (cfg) {
-      const view = await loadWeek(SEASON, liveWeek, { live: true });
-      const live = (view?.games || []).find((g) => g.id === String(cfg.gameId));
-      if (live) games.set(liveWeek, live);
-    }
+  // Every week up to the current one that has no frozen result comes from
+  // ESPN -- not only the current week. Freezing is scripts/freeze_squares.py,
+  // run Tuesdays; before it existed nothing froze Weeks 1-2 and, reading only
+  // the current week live, this tab showed no winners for either. A missed
+  // freeze now costs a fetch, never a week of the ledger.
+  if (liveWeek != null) {
+    const unfrozen = pool.weeks.filter((w) => w.week <= liveWeek && !games.has(w.week));
+    const found = await Promise.all(unfrozen.map(async (cfg) => {
+      const view = await loadWeek(SEASON, cfg.week, { live: true });
+      return [cfg.week, (view?.games || []).find((g) => g.id === String(cfg.gameId))];
+    }));
+    for (const [week, live] of found) if (live) games.set(week, live);
   }
 
   const book = ledger(pool, games);

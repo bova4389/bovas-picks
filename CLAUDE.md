@@ -1396,6 +1396,19 @@ rebuilds them. That is what makes the ledger permanent and offline-capable rathe
 ESPN still serving a week from October — the same reason the Majors pool hardcodes a tournament
 once it is over. The live path stays authoritative only for the week in progress.
 
+**`scripts/freeze_squares.py` does the freezing, every Tuesday** (added 2026-09-27, a step in
+`fetch-schedule.yml`). It was meant to be a hand step and never happened: Weeks 1–2 sat at
+`"result": null`, the Season tab loaded only the *current* week live, and it showed no winners at
+all. Three rules in it: it freezes only a game ESPN marks completed whose per-period points sum to
+the final (a half-reported box score would pay the wrong squares forever); it never rewrites a
+frozen week; and it edits the file as **text**, replacing one `"result": null`, because a
+`json.dump` round trip would reflow the hand-kept names board. Locally ESPN may 403 Python's
+client from a home connection — the script falls back to `curl`. **The Season tab also loads any
+unfrozen week up to the current one from ESPN**, so a missed Tuesday costs a fetch, never a week.
+
+**The Board's week picker is set from `week` on every render** (fixed 2026-09-27). It was built
+with no `selected` option, so it read Week 1 above the current week's board.
+
 ### The board: two bands, three channels
 
 **The team banners are part of the grid, not cards above it.** `.sq-board-frame` spans them — the

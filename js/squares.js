@@ -151,7 +151,7 @@ function shell() {
         <select id="sq-week">
           ${weeks.map((w) => {
             const cfg = weekConfig(pool, w);
-            return `<option value="${w}">Week ${w} — ${escape(matchupLabel(cfg))}</option>`;
+            return `<option value="${w}"${w === week ? ' selected' : ''}>Week ${w} — ${escape(matchupLabel(cfg))}</option>`;
           }).join('')}
         </select>
       </div>
@@ -235,6 +235,9 @@ function stopPolling() {
 /* ── Render ───────────────────────────────────────────────────────────── */
 
 function render() {
+  // The picker says the week the board is drawing, always. It was built with
+  // no option selected, so it showed Week 1 above the current week's board.
+  if (el('sq-week')) el('sq-week').value = String(week);
   const cfg = weekConfig(pool, week);
   const grades = cfg && game ? gradeWeek(pool, cfg, game) : null;
 

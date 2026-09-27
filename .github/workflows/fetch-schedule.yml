@@ -78,12 +78,21 @@ jobs:
         continue-on-error: true
         run: python3 scripts/grade_week.py "${{ steps.season.outputs.year }}"
 
+      # Freeze each finished Squares game's quarter scores into the pool file,
+      # so the Season tab's ledger is permanent. Nothing did this until
+      # 2026-09-27 and Weeks 1-2 went unrecorded. continue-on-error for the
+      # same reason as grading: it must never cost the schedule commit.
+      - name: Freeze finished Squares weeks
+        continue-on-error: true
+        run: python3 scripts/freeze_squares.py "${{ steps.season.outputs.year }}"
+
       - name: Commit schedule, projections and results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/schedule-*.json data/projections-*.json
+          git add data/squares-*.json 2>/dev/null || true
           [ -d data/results ] && git add data/results
           git diff --cached --quiet && exit 0
-          git commit -m "chore(bot): refresh ${{ steps.season.outputs.year }} schedule, projections + results [automated]"
+          git commit -m "chore(bot): refresh ${{ steps.season.outputs.year }} schedule, projections, results + squares [automated]"
           git push
