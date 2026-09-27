@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-09-27T15:05:52.213Z",
+ "generated": "2026-09-27T18:38:37.185Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
@@ -112,17 +112,37 @@
      "complete": false
     },
     "3": {
-     "entrants": 2,
-     "distinctTeams": 1,
+     "entrants": 22,
+     "distinctTeams": 5,
      "picks": [
+      {
+       "team": "KC",
+       "count": 14,
+       "pct": 63.6
+      },
+      {
+       "team": "DET",
+       "count": 3,
+       "pct": 13.6
+      },
+      {
+       "team": "BUF",
+       "count": 2,
+       "pct": 9.1
+      },
       {
        "team": "GB",
        "count": 2,
-       "pct": 100
+       "pct": 9.1
+      },
+      {
+       "team": "SEA",
+       "count": 1,
+       "pct": 4.5
       }
      ],
-     "submitted": 23,
-     "revealed": 2,
+     "submitted": 28,
+     "revealed": 22,
      "expected": 31,
      "complete": false
     }
@@ -136,13 +156,15 @@
      "isMe": false,
      "picks": {
       "1": "LAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -153,13 +175,15 @@
      "isMe": false,
      "picks": {
       "1": "JAC",
-      "2": "TB"
+      "2": "TB",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "TB"
+      "TB",
+      "KC"
      ]
     },
     {
@@ -170,13 +194,15 @@
      "isMe": false,
      "picks": {
       "1": "CIN",
-      "2": "BAL"
+      "2": "BAL",
+      "3": "DET"
      },
      "problems": [],
      "alive": true,
      "used": [
       "CIN",
-      "BAL"
+      "BAL",
+      "DET"
      ]
     },
     {
@@ -187,13 +213,15 @@
      "isMe": false,
      "picks": {
       "1": "LAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -204,13 +232,15 @@
      "isMe": true,
      "picks": {
       "1": "LAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -236,13 +266,15 @@
      "isMe": false,
      "picks": {
       "1": "JAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -253,13 +285,15 @@
      "isMe": false,
      "picks": {
       "1": "LAC",
-      "2": "LAR"
+      "2": "LAR",
+      "3": "BUF"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "LAR"
+      "LAR",
+      "BUF"
      ]
     },
     {
@@ -270,13 +304,15 @@
      "isMe": false,
      "picks": {
       "1": "LAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -302,13 +338,15 @@
      "isMe": false,
      "picks": {
       "1": "PIT",
-      "2": "TB"
+      "2": "TB",
+      "3": "DET"
      },
      "problems": [],
      "alive": true,
      "used": [
       "PIT",
-      "TB"
+      "TB",
+      "DET"
      ]
     },
     {
@@ -336,13 +374,15 @@
      "isMe": false,
      "picks": {
       "1": "SEA",
-      "2": "TB"
+      "2": "TB",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "SEA",
-      "TB"
+      "TB",
+      "KC"
      ]
     },
     {
@@ -370,13 +410,15 @@
      "isMe": false,
      "picks": {
       "1": "JAC",
-      "2": "TB"
+      "2": "TB",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "TB"
+      "TB",
+      "KC"
      ]
     },
     {
@@ -387,13 +429,15 @@
      "isMe": false,
      "picks": {
       "1": "CHI",
-      "2": "GB"
+      "2": "GB",
+      "3": "BUF"
      },
      "problems": [],
      "alive": true,
      "used": [
       "CHI",
-      "GB"
+      "GB",
+      "BUF"
      ]
     },
     {
@@ -404,13 +448,15 @@
      "isMe": false,
      "picks": {
       "1": "LAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -421,13 +467,15 @@
      "isMe": false,
      "picks": {
       "1": "LAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -455,13 +503,15 @@
      "isMe": false,
      "picks": {
       "1": "DET",
-      "2": "LAC"
+      "2": "LAC",
+      "3": "SEA"
      },
      "problems": [],
      "alive": true,
      "used": [
       "DET",
-      "LAC"
+      "LAC",
+      "SEA"
      ]
     },
     {
@@ -472,13 +522,15 @@
      "isMe": false,
      "picks": {
       "1": "LAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -523,13 +575,15 @@
      "isMe": false,
      "picks": {
       "1": "CHI",
-      "2": "KC"
+      "2": "KC",
+      "3": "DET"
      },
      "problems": [],
      "alive": true,
      "used": [
       "CHI",
-      "KC"
+      "KC",
+      "DET"
      ]
     },
     {
@@ -578,13 +632,15 @@
      "isMe": false,
      "picks": {
       "1": "JAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -612,13 +668,15 @@
      "isMe": false,
      "picks": {
       "1": "PIT",
-      "2": "TB"
+      "2": "TB",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "PIT",
-      "TB"
+      "TB",
+      "KC"
      ]
     },
     {
@@ -629,13 +687,15 @@
      "isMe": false,
      "picks": {
       "1": "PIT",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "PIT",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -659,7 +719,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1790521552027,
+   "fetchedAt": 1790534316798,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -746,17 +806,32 @@
      "complete": false
     },
     "3": {
-     "entrants": 1,
-     "distinctTeams": 1,
+     "entrants": 13,
+     "distinctTeams": 4,
      "picks": [
+      {
+       "team": "KC",
+       "count": 7,
+       "pct": 53.8
+      },
+      {
+       "team": "DET",
+       "count": 4,
+       "pct": 30.8
+      },
       {
        "team": "GB",
        "count": 1,
-       "pct": 100
+       "pct": 7.7
+      },
+      {
+       "team": "SEA",
+       "count": 1,
+       "pct": 7.7
       }
      ],
-     "submitted": 14,
-     "revealed": 1,
+     "submitted": 15,
+     "revealed": 13,
      "expected": 20,
      "complete": false
     }
@@ -770,13 +845,15 @@
      "isMe": true,
      "picks": {
       "1": "JAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -787,13 +864,15 @@
      "isMe": false,
      "picks": {
       "1": "PIT",
-      "2": "TB"
+      "2": "TB",
+      "3": "DET"
      },
      "problems": [],
      "alive": true,
      "used": [
       "PIT",
-      "TB"
+      "TB",
+      "DET"
      ]
     },
     {
@@ -804,13 +883,15 @@
      "isMe": false,
      "picks": {
       "1": "PIT",
-      "2": "PHI"
+      "2": "PHI",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "PIT",
-      "PHI"
+      "PHI",
+      "KC"
      ]
     },
     {
@@ -821,13 +902,15 @@
      "isMe": false,
      "picks": {
       "1": "JAC",
-      "2": "TB"
+      "2": "TB",
+      "3": "DET"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "TB"
+      "TB",
+      "DET"
      ]
     },
     {
@@ -838,13 +921,15 @@
      "isMe": false,
      "picks": {
       "1": "LAC",
-      "2": "TB"
+      "2": "TB",
+      "3": "SEA"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "TB"
+      "TB",
+      "SEA"
      ]
     },
     {
@@ -855,13 +940,15 @@
      "isMe": false,
      "picks": {
       "1": "JAC",
-      "2": "TB"
+      "2": "TB",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "TB"
+      "TB",
+      "KC"
      ]
     },
     {
@@ -872,13 +959,15 @@
      "isMe": false,
      "picks": {
       "1": "JAC",
-      "2": "TB"
+      "2": "TB",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "TB"
+      "TB",
+      "KC"
      ]
     },
     {
@@ -938,13 +1027,15 @@
      "isMe": false,
      "picks": {
       "1": "JAC",
-      "2": "TB"
+      "2": "TB",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "TB"
+      "TB",
+      "KC"
      ]
     },
     {
@@ -987,13 +1078,15 @@
      "isMe": false,
      "picks": {
       "1": "CHI",
-      "2": "SF"
+      "2": "SF",
+      "3": "DET"
      },
      "problems": [],
      "alive": true,
      "used": [
       "CHI",
-      "SF"
+      "SF",
+      "DET"
      ]
     },
     {
@@ -1004,13 +1097,15 @@
      "isMe": false,
      "picks": {
       "1": "LAC",
-      "2": "SF"
+      "2": "SF",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -1038,13 +1133,15 @@
      "isMe": false,
      "picks": {
       "1": "DET",
-      "2": "PHI"
+      "2": "PHI",
+      "3": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "DET",
-      "PHI"
+      "PHI",
+      "KC"
      ]
     },
     {
@@ -1055,13 +1152,15 @@
      "isMe": false,
      "picks": {
       "1": "LAC",
-      "2": "PHI"
+      "2": "PHI",
+      "3": "DET"
      },
      "problems": [],
      "alive": true,
      "used": [
       "LAC",
-      "PHI"
+      "PHI",
+      "DET"
      ]
     },
     {
@@ -1104,7 +1203,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1790521552119,
+   "fetchedAt": 1790534316974,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1254,13 +1353,53 @@
     "3": {
      "rows": [
       {
+       "team": "KC",
+       "count": 18
+      },
+      {
+       "team": "SEA",
+       "count": 17
+      },
+      {
+       "team": "DET",
+       "count": 15
+      },
+      {
+       "team": "BUF",
+       "count": 14
+      },
+      {
        "team": "GB",
        "count": 14
+      },
+      {
+       "team": "CIN",
+       "count": 11
+      },
+      {
+       "team": "CAR",
+       "count": 6
+      },
+      {
+       "team": "IND",
+       "count": 2
+      },
+      {
+       "team": "JAC",
+       "count": 2
+      },
+      {
+       "team": "NE",
+       "count": 1
+      },
+      {
+       "team": "TEN",
+       "count": 1
       }
      ],
      "submitted": 142,
-     "revealed": 14,
-     "locked": 128,
+     "revealed": 101,
+     "locked": 41,
      "entrants": 18
     }
    },
@@ -1292,7 +1431,12 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "CAR",
+       "DET",
+       "GB",
+       "KC",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1335,7 +1479,11 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "CAR",
+       "GB",
+       "NE",
+       "KC",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1373,7 +1521,12 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "DET",
+       "GB",
+       "KC",
+       "CIN",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1414,6 +1567,13 @@
        "SF",
        "TB",
        "PHI"
+      ],
+      "3": [
+       "BUF",
+       "DET",
+       "KC",
+       "CIN",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1454,6 +1614,13 @@
        "SF",
        "TB",
        "PHI"
+      ],
+      "3": [
+       "BUF",
+       "DET",
+       "KC",
+       "CIN",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1496,7 +1663,12 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "DET",
+       "GB",
+       "KC",
+       "CIN",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1537,6 +1709,13 @@
        "SF",
        "TB",
        "PHI"
+      ],
+      "3": [
+       "CAR",
+       "DET",
+       "IND",
+       "KC",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1577,6 +1756,12 @@
        "SF",
        "TB",
        "PHI"
+      ],
+      "3": [
+       "BUF",
+       "DET",
+       "KC",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1619,7 +1804,12 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "CAR",
+       "DET",
+       "GB",
+       "KC",
+       "SEA"
       ]
      }
     },
@@ -1650,7 +1840,12 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "DET",
+       "GB",
+       "KC",
+       "CIN",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1693,7 +1888,12 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "DET",
+       "GB",
+       "KC",
+       "CIN",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1731,7 +1931,12 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "GB",
+       "JAC",
+       "KC",
+       "CIN",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1774,7 +1979,13 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "CAR",
+       "DET",
+       "GB",
+       "KC",
+       "CIN",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1817,7 +2028,12 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "DET",
+       "GB",
+       "KC",
+       "CIN",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1860,7 +2076,11 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "DET",
+       "GB",
+       "IND",
+       "KC",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1903,7 +2123,11 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "DET",
+       "GB",
+       "KC",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1946,7 +2170,12 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "BUF",
+       "DET",
+       "GB",
+       "JAC",
+       "KC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -1989,7 +2218,12 @@
        "PHI"
       ],
       "3": [
-       "GB"
+       "CAR",
+       "GB",
+       "KC",
+       "TEN",
+       "CIN",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -2009,7 +2243,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1790521552212,
+   "fetchedAt": 1790534317170,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
