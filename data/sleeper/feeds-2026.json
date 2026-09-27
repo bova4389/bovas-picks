@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-09-27T15:03:17.915Z",
+ "generated": "2026-09-27T15:05:52.213Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
@@ -659,7 +659,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1790521397611,
+   "fetchedAt": 1790521552027,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1104,7 +1104,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1790521397760,
+   "fetchedAt": 1790521552119,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1268,7 +1268,8 @@
     {
      "entry": 1,
      "name": "avobttam",
-     "isMe": false,
+     "userId": "721908735856967680",
+     "isMe": true,
      "picks": {
       "1": [
        "CIN",
@@ -1310,6 +1311,7 @@
     {
      "entry": 2,
      "name": "NickBova",
+     "userId": "722827711751487488",
      "isMe": false,
      "picks": {
       "1": [
@@ -1347,6 +1349,7 @@
     {
      "entry": 3,
      "name": "Cubbiesftw23",
+     "userId": "439891619580211200",
      "isMe": false,
      "picks": {
       "1": [
@@ -1389,6 +1392,7 @@
     {
      "entry": 4,
      "name": "camschnick",
+     "userId": "1136908336026333184",
      "isMe": false,
      "picks": {
       "1": [
@@ -1428,6 +1432,7 @@
     {
      "entry": 5,
      "name": "katiestout13",
+     "userId": "1000958994694868992",
      "isMe": false,
      "picks": {
       "1": [
@@ -1467,6 +1472,7 @@
     {
      "entry": 6,
      "name": "djbogardus72",
+     "userId": "722615938792382464",
      "isMe": false,
      "picks": {
       "1": [
@@ -1509,6 +1515,7 @@
     {
      "entry": 7,
      "name": "Bogeyman28",
+     "userId": "1124750523468480512",
      "isMe": false,
      "picks": {
       "1": [
@@ -1548,6 +1555,7 @@
     {
      "entry": 8,
      "name": "bjander110",
+     "userId": "862069655676768256",
      "isMe": false,
      "picks": {
       "1": [
@@ -1587,6 +1595,7 @@
     {
      "entry": 9,
      "name": "Bustersx8",
+     "userId": "728292202471604224",
      "isMe": false,
      "picks": {
       "1": [
@@ -1617,6 +1626,7 @@
     {
      "entry": 10,
      "name": "NastyNate725",
+     "userId": "1260077369012527104",
      "isMe": false,
      "picks": {
       "1": [
@@ -1659,6 +1669,7 @@
     {
      "entry": 11,
      "name": "MJBlack",
+     "userId": "722920890647515136",
      "isMe": false,
      "picks": {
       "1": [
@@ -1696,6 +1707,7 @@
     {
      "entry": 12,
      "name": "msymons713",
+     "userId": "1260050908176195585",
      "isMe": false,
      "picks": {
       "1": [
@@ -1738,6 +1750,7 @@
     {
      "entry": 13,
      "name": "Mpletcher",
+     "userId": "977648798954479616",
      "isMe": false,
      "picks": {
       "1": [
@@ -1780,6 +1793,7 @@
     {
      "entry": 14,
      "name": "cbova1222",
+     "userId": "728290759668797440",
      "isMe": false,
      "picks": {
       "1": [
@@ -1822,6 +1836,7 @@
     {
      "entry": 15,
      "name": "AngryWillis",
+     "userId": "1403193501528629248",
      "isMe": false,
      "picks": {
       "1": [
@@ -1864,6 +1879,7 @@
     {
      "entry": 16,
      "name": "CHRISMERKELDUH",
+     "userId": "722612742522994688",
      "isMe": false,
      "picks": {
       "1": [
@@ -1906,6 +1922,7 @@
     {
      "entry": 17,
      "name": "Kolisekj52",
+     "userId": "1403415799057616896",
      "isMe": false,
      "picks": {
       "1": [
@@ -1948,6 +1965,7 @@
     {
      "entry": 18,
      "name": "steveedwards",
+     "userId": "966144293805117440",
      "isMe": false,
      "picks": {
       "1": [
@@ -1991,7 +2009,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1790521397914,
+   "fetchedAt": 1790521552212,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
