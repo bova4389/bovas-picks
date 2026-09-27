@@ -81,6 +81,8 @@ export async function fetchInfinityPool(pool, season) {
     entries.set(String(r.roster_id), {
       entry: Number(r.roster_id),
       name: nameOf.get(owner) || `Entry ${r.roster_id}`,
+      // Kept so scripts/fetch_sleeper_feeds.mjs can mark isMe after gating.
+      userId: owner,
       isMe: Boolean(userId) && owner === String(userId),
       picks: {},
     });
