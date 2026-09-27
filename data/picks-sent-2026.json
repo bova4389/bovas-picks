@@ -24,7 +24,10 @@
       "infinity": ["BAL", "CHI", "KC", "LAC", "SF", "LAR", "TB", "PHI"]
     },
     "3": {
+      "numbers": [2, 4, 6, 7, 9, 11, 13, 15, 17, 20, 21, 23, 26, 27, 29],
+      "points": 36,
       "survivor": {
+        "mike": "KC",
         "sleeper": "KC",
         "deadpool": "KC"
       },
