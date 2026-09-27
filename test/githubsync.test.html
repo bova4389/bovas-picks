@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>githubSync — saving sent picks</title>
+<style>
+  body { font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; margin: 24px; max-width: 900px; }
+  h1 { font-size: 18px; } h2 { font-size: 15px; margin-top: 28px; }
+  .pass { color: #0a7d28; } .fail { color: #b3121b; font-weight: 700; }
+  #summary { font-size: 16px; font-weight: 700; padding: 8px 0; }
+</style>
+</head>
+<body>
+<h1>githubSync — saving sent picks for every device</h1>
+<p>GitHub is played by an in-memory fake, so this needs no network and no key. Any real key
+   stored on this origin is set aside for the run and put back afterward.</p>
+<div id="summary">running…</div>
+<div id="out"></div>
+
+<script type="module">
+import {
+  _setFetch, serialize, loadSent, currentSent, saveSent, saveSentWeek, saveGhToken, sentPath,
+} from '../js/githubSync.js';
+
+const out = document.getElementById('out');
+let passes = 0, fails = 0;
+const esc = (s) => String(s).replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
+function check(name, got, want) {
+  const ok = JSON.stringify(got) === JSON.stringify(want);
+  ok ? passes++ : fails++;
+  out.insertAdjacentHTML('beforeend',
+    `<div class="${ok ? 'pass' : 'fail'}">${ok ? 'PASS' : 'FAIL'} — ${esc(name)}`
+    + (ok ? '' : `<br>    got:  ${esc(JSON.stringify(got))}<br>    want: ${esc(JSON.stringify(want))}`)
+    + '</div>');
+}
+const h2 = (t) => out.insertAdjacentHTML('beforeend', `<h2>${esc(t)}</h2>`);
+async function throwsWith(name, fn, pattern) {
+  try { await fn(); check(name, 'did not throw', `throws ${pattern}`); }
+  catch (err) { check(name, pattern.test(err.message), true); }
+}
+
+/* ── A fake GitHub ──────────────────────────────────────────────────────── */
+
+const b64 = (text) => { let s = ''; for (const b of new TextEncoder().encode(text)) s += String.fromCharCode(b); return btoa(s); };
+const unb64 = (s) => new TextDecoder().decode(Uint8Array.from(atob(s), (c) => c.charCodeAt(0)));
+
+function fakeGitHub(initialText) {
+  const gh = { text: initialText, sha: 'sha0', n: 0, puts: [], api: 'up', putStatus: null, beforePut: null };
+  const json = (status, body) => new Response(JSON.stringify(body), { status });
+  gh.fetch = async (url, opts = {}) => {
+    url = String(url);
+    const method = opts.method || 'GET';
+    if (!url.startsWith('https://api.github.com')) {        // the Pages copy
+      return gh.text == null ? new Response('', { status: 404 }) : new Response(gh.pagesText ?? gh.text);
+    }
+    if (gh.api === 'down') throw new TypeError('Failed to fetch');
+    if (url.endsWith('/repos/bova4389/bovas-picks')) {
+      return opts.headers?.Authorization === 'Bearer github_pat_GOODGOODGOODGOODGOODGOOD'
+        ? json(200, { full_name: 'bova4389/bovas-picks' }) : json(401, {});
+    }
+    if (method === 'GET') {
+      if (gh.text == null) return json(404, {});
+      return json(200, { sha: gh.sha, content: b64(gh.text).replace(/(.{60})/g, '$1\n') });
+    }
+    if (method === 'PUT') {
+      const body = JSON.parse(opts.body);
+      gh.puts.push(body);
+      if (gh.beforePut) { const f = gh.beforePut; gh.beforePut = null; f(); }
+      if (gh.putStatus) return json(gh.putStatus, {});
+      if ((body.sha || null) !== (gh.text == null ? null : gh.sha)) return json(409, {});
+      gh.text = unb64(body.content);
+      gh.sha = `sha${++gh.n}`;
+      return json(200, { content: { sha: gh.sha } });
+    }
+    return json(400, {});
+  };
+  return gh;
+}
+
+// Set any real key aside; restored in the finally below.
+const REAL = localStorage.getItem('github:token');
+try {
+
+/* ── The file keeps its hand-written shape ─────────────────────────────── */
+h2('Shape');
+const committed = await fetch('../data/picks-sent-2026.json', { cache: 'no-store' }).then((r) => r.text());
+check('serialize() reproduces the committed file byte for byte',
+  serialize(JSON.parse(committed)) + '\n' === committed.replace(/\r\n/g, '\n'), true);
+
+/* ── Reading ───────────────────────────────────────────────────────────── */
+h2('Reading');
+let gh = fakeGitHub(committed);
+gh.pagesText = committed.replace('"points": 36', '"points": 99');   // Pages is stale
+_setFetch(gh.fetch);
+localStorage.removeItem('github:token');
+const fresh = await loadSent(2026);
+check('reads GitHub’s API, not the stale Pages copy', fresh.weeks['1'].points, 36);
+check('currentSent() holds what was read', currentSent(2026).weeks['3'].survivor.mike, 'KC');
+
+gh = fakeGitHub(committed.replace('"season": 2026', '"season": 2031'));
+gh.api = 'down';
+_setFetch(gh.fetch);
+const fallback = await loadSent(2031);
+check('falls back to the Pages copy when GitHub is unreachable', fallback?.season, 2031);
+
+/* ── The key ───────────────────────────────────────────────────────────── */
+h2('The key');
+await throwsWith('rejects something that is not a GitHub key', () => saveGhToken('eyJhbGciOi.x.y'), /github_pat_/);
+_setFetch(fakeGitHub(committed).fetch);
+await throwsWith('rejects a key GitHub does not accept', () => saveGhToken('github_pat_BADBADBADBADBADBADBADBAD'), /rejected/);
+await saveGhToken('  Bearer github_pat_GOODGOODGOODGOODGOODGOOD ');
+check('stores a good key, trimmed', localStorage.getItem('github:token'), 'github_pat_GOODGOODGOODGOODGOODGOOD');
+
+/* ── Writing ───────────────────────────────────────────────────────────── */
+h2('Writing');
+gh = fakeGitHub(committed);
+_setFetch(gh.fetch);
+let r = await saveSentWeek(2026, 4, () => ({ numbers: [1, 3], points: 33, survivor: { mike: 'BUF' } }), 'test: week 4');
+check('a new week commits once', [r.changed, gh.puts.length], [true, 1]);
+check('the commit sends the sha it read', gh.puts[0].sha, 'sha0');
+check('the commit goes to main', gh.puts[0].branch, 'main');
+const after = JSON.parse(gh.text);
+check('week 4 is written', after.weeks['4'], { numbers: [1, 3], points: 33, survivor: { mike: 'BUF' } });
+check('weeks 1-3 are untouched', after.weeks['3'], JSON.parse(committed).weeks['3']);
+check('the em dash in the note survives the base64 round trip', after.note.includes('—'), true);
+check('the saved file keeps the one-line-array shape', gh.text.includes('"numbers": [1, 3],'), true);
+check('the saved file ends with a newline', gh.text.endsWith('}\n'), true);
+check('currentSent() shows the save without a reload', currentSent(2026).weeks['4'].points, 33);
+
+r = await saveSentWeek(2026, 4, () => ({ numbers: [1, 3], points: 33, survivor: { mike: 'BUF' } }), 'test: again');
+check('saving the same card again commits nothing', [r.changed, gh.puts.length], [false, 1]);
+
+// Another device saves Deadpool's pick between our read and our write.
+gh.beforePut = () => {
+  const f = JSON.parse(gh.text);
+  f.weeks['4'].survivor.deadpool = 'DET';
+  gh.text = serialize(f) + '\n';
+  gh.sha = 'sha-other-device';
+};
+r = await saveSentWeek(2026, 4, (card) => { card.points = 40; }, 'test: conflict');
+const merged = JSON.parse(gh.text).weeks['4'];
+check('a sha conflict re-reads and retries', [r.changed, gh.puts.length], [true, 3]);
+check('…and keeps the other device’s pick', merged.survivor, { mike: 'BUF', deadpool: 'DET' });
+check('…and applies ours on top', merged.points, 40);
+
+r = await saveSent(2026, (f) => { f.weeks['2'].survivor.sleeper = 'SF'; }, 'test: no-op');
+check('a patch that changes nothing commits nothing', r.changed, false);
+
+gh.putStatus = 403;
+await throwsWith('a read-only key says what permission it needs',
+  () => saveSentWeek(2026, 5, () => ({ numbers: [2] }), 'test: 403'), /Read and write/);
+gh.putStatus = 401;
+await throwsWith('an expired key says to make a new one',
+  () => saveSentWeek(2026, 5, () => ({ numbers: [2] }), 'test: 401'), /expired/);
+gh.putStatus = null;
+
+gh = fakeGitHub(null);
+_setFetch(gh.fetch);
+await saveSentWeek(2027, 1, () => ({ numbers: [2] }), 'test: new file');
+check('a season with no file yet is created, without a sha',
+  [gh.puts[0].sha, JSON.parse(gh.text).season, JSON.parse(gh.text).weeks['1'].numbers], [undefined, 2027, [2]]);
+check('sentPath() names the committed file', sentPath(2026), 'data/picks-sent-2026.json');
+
+localStorage.removeItem('github:token');
+await throwsWith('no key: says to connect GitHub', () => saveSentWeek(2026, 6, () => ({}), 'x'), /Connect GitHub/);
+
+} finally {
+  if (REAL) localStorage.setItem('github:token', REAL); else localStorage.removeItem('github:token');
+  _setFetch(null);
+}
+
+document.getElementById('summary').innerHTML =
+  `<span class="${fails ? 'fail' : 'pass'}">${passes} passed, ${fails} failed</span>`;
+</script>
+</body>
+</html>

@@ -12,7 +12,10 @@
        1. localStorage `picks:<year>:w<N>` -- the card being edited on this
           device, which is always the latest thing typed
        2. data/picks-sent-<year>.json -- the card as it was emailed, committed
-          so it is there on every device and survives a cleared browser
+          so it is there on every device and survives a cleared browser.
+          Tapping Lock writes it (js/githubSync.js), and it is read from
+          GitHub's API rather than Pages so another device's save shows at
+          once instead of after Pages' ~10-minute cache
 
      SURVIVOR (one team per pool per week) -- ACTUAL picks only
        1. a pick marked on this device (Picks tab or Grid), or an old cached
@@ -40,33 +43,42 @@
    ========================================================================== */
 
 import {
-  SEASON, loadPicks, scoredGames, getSentPicks, getSurvivorLog,
+  SEASON, loadPicks, scoredGames, getSurvivorLog,
 } from './data.js';
+import { loadSent, currentSent } from './githubSync.js';
 import { LEAGUES, loadLeagueState, saveLeagueState } from './survivorLeagues.js';
 import { loadCachedFeed, myPicksFrom } from './sleeperSurvivor.js';
 import { loadCachedPool, myPicksFor as infinityPicksFrom } from './infinityFeed.js';
 
-let sent = null;   // data/picks-sent-<year>.json, or null
-let log = null;    // data/survivor-log-<year>.json, or null
+let sentSeason = SEASON;   // which season's sent file loadMyPicks() asked for
+let log = null;           // data/survivor-log-<year>.json, or null    // data/survivor-log-<year>.json, or null
 let loading = null;
 
 /** Load the two committed files once. Safe to call from every tab. */
 export function loadMyPicks(season = SEASON) {
   if (!loading) {
-    loading = Promise.all([getSentPicks(season), getSurvivorLog(season)])
-      .then(([s, l]) => {
-        sent = Number(s?.season) === Number(season) ? s : null;
+    sentSeason = season;
+    loading = Promise.all([loadSent(season), getSurvivorLog(season)])
+      .then(([, l]) => {
         log = Number(l?.season) === Number(season) ? l : null;
       });
   }
   return loading;
 }
 
+/** data/picks-sent-<year>.json as last read OR SAVED -- read live from
+ *  js/githubSync.js, never copied, so a Lock on this device shows everywhere
+ *  on the page without a reload. Null when the file is for another season. */
+function sentFile() {
+  const s = currentSent(sentSeason);
+  return Number(s?.season) === Number(sentSeason) ? s : null;
+}
+
 /* ── Season long ──────────────────────────────────────────────────────────*/
 
 /** The emailed card for a week, or null. */
 export function sentCard(week) {
-  return sent?.weeks?.[String(week)] || null;
+  return sentFile()?.weeks?.[String(week)] || null;
 }
 
 /**
@@ -172,7 +184,7 @@ export function survivorPicksForWeek(week, season = SEASON) {
  */
 export function survivorBoard(leagueId, season = SEASON) {
   const picks = {};
-  for (const [w, card] of Object.entries(sent?.weeks || {})) {
+  for (const [w, card] of Object.entries(sentFile()?.weeks || {})) {
     const t = card?.survivor?.[leagueId];
     if (t) picks[String(Number(w))] = t;
   }

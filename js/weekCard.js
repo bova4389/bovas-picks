@@ -23,6 +23,11 @@
    stray tap cannot re-mark a submitted pick -- see js/pickLock.js. The card,
    its scores and its recommendation keep updating while locked.
 
+   SAVED FOR EVERY DEVICE (2026-09-27): tapping Lock also writes this week's
+   marked picks, every pool, to data/picks-sent-<year>.json through
+   js/githubSync.js, so the phone sees what the iPad locked. The missing-picks
+   banner can save device-only picks from past weeks the same way.
+
    ── WHAT IT SHOWS WHEN IT IS NOT SURE, WHICH IS MOST OF THE WEEK ─────────
 
    The card is stamped Provisional / Firming / Final and is NEVER hidden.
@@ -48,6 +53,7 @@ import {
   loadMyPicks, survivorPick, survivorBoard, recordSurvivorPick, sentCard,
 } from './myPicks.js';
 import { isLocked, setLocked, lockControl } from './pickLock.js';
+import { hasGhToken, saveSent, connectBox } from './githubSync.js';
 import {
   buildWeekCard, cardForLog, diffCards, modeledShare,
   liveEntrantsFrom, FLOOR, MIN_BOOKS,
@@ -58,6 +64,7 @@ const S = {
   root: null, season: SEASON, model: null, projections: null, odds: null,
   audit: null, week: null, weeks: [], now: 1, card: null, changed: null, log: null,
   view: null,   // loadWeek() for the week on screen -- scores for "your pick"
+  sync: null,   // { week, status: 'saving'|'saved'|'error', at?, message? }
 };
 
 /* Scores are re-read this often while a game is on and this panel is showing.
@@ -253,6 +260,7 @@ function controls(card) {
       </label>
       <span class="wc-state is-${c.state}" title="${esc(c.basis)}">${esc(c.label)}</span>
       ${lockControl(lockedNow())}
+      <div class="ghs" aria-live="polite">${syncHtml()}</div>
       <p class="planctl-note">
         ${esc(c.basis)}
         <span class="planctl-spent">${spent} spent across ${words(LEAGUES.length)} pools</span>
@@ -298,9 +306,92 @@ function driftWarning() {
       <p>
         Until these are in <code>data/picks-sent-${S.season}.json</code>, other devices and the
         weekly log do not know them, and the log assumes the recommendation was what you
-        submitted. Send the picks to Claude to add.
+        submitted.${rows.some((r) => r.gaps.some((g) => g.team)) ? '' : ' Mark them here, then save.'}
       </p>
+      ${rows.some((r) => r.gaps.some((g) => g.team))
+        ? (hasGhToken()
+          ? '<button type="button" class="btn ghs-btn" data-sync-drift>Save these for every device</button>'
+          : '<p>Connect GitHub (under Lock, above) to save them for every device.</p>')
+        : ''}
     </div>`;
+}
+
+/* ── Saved for every device ───────────────────────────────────────────────*/
+
+/** This week's actual picks, pool id -> team, for pools that have one. */
+function weekPicks(week = S.week) {
+  return Object.fromEntries(LEAGUES
+    .map((l) => [l.id, survivorPick(l.id, week, S.season)?.team])
+    .filter(([, team]) => team));
+}
+
+/** Whether the sent file already holds every pick marked for this week. */
+function isSaved() {
+  const sent = sentCard(S.week)?.survivor || {};
+  return Object.entries(weekPicks()).every(([pool, team]) => sent[pool] === team);
+}
+
+/** Write `picksByWeek` ({ week: { pool: team } }) into the sent file. */
+async function savePicks(picksByWeek, label) {
+  const weeks = Object.keys(picksByWeek);
+  if (!weeks.length || !hasGhToken()) { render(); return; }
+  const w = S.week;
+  S.sync = { week: w, status: 'saving' };
+  render();
+  try {
+    await saveSent(S.season, (file) => {
+      for (const [week, pools] of Object.entries(picksByWeek)) {
+        const card = file.weeks[week] || {};
+        card.survivor = { ...(card.survivor || {}), ...pools };
+        file.weeks[week] = card;
+      }
+      file.weeks = Object.fromEntries(Object.entries(file.weeks)
+        .sort(([a], [b]) => Number(a) - Number(b)));
+    }, `data: ${label}, saved from the Picks tab`);
+    S.sync = { week: w, status: 'saved', at: new Date() };
+  } catch (err) {
+    S.sync = { week: w, status: 'error', message: err.message };
+  }
+  render();
+}
+
+function saveThisWeek() {
+  const picks = weekPicks();
+  if (!Object.keys(picks).length) return;
+  savePicks({ [S.week]: picks }, `Week ${S.week} survivor picks`);
+}
+
+/** Device-only picks from past weeks -- the drift banner's gaps. */
+function saveDrift() {
+  const byWeek = {};
+  for (const w of S.weeks) {
+    if (w >= S.now) break;
+    const picks = weekPicks(w);
+    for (const [pool, team] of Object.entries(picks)) {
+      if (sentCard(w)?.survivor?.[pool]) continue;
+      (byWeek[w] = byWeek[w] || {})[pool] = team;
+    }
+  }
+  savePicks(byWeek, `past survivor picks (weeks ${Object.keys(byWeek).join(', ')})`);
+}
+
+function syncHtml() {
+  const mine = S.sync?.week === S.week ? S.sync : null;
+  if (mine?.status === 'saving') return '<p class="ghs-note">Saving for every device…</p>';
+  if (!lockedNow()) return '';
+  if (!Object.keys(weekPicks()).length) return '';
+  if (isSaved()) {
+    const at = mine?.status === 'saved'
+      ? ` · ${mine.at.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}` : '';
+    return `<p class="ghs-note is-ok">Saved for every device${at}</p>`;
+  }
+  return `
+    <p class="ghs-note is-local">${mine?.status === 'error'
+      ? `Not saved: ${esc(mine.message)}`
+      : 'Only on this device — other devices can’t see these picks yet.'}</p>
+    ${hasGhToken()
+      ? `<button type="button" class="btn ghs-btn" data-sync-save>${mine?.status === 'error' ? 'Try again' : 'Save for every device'}</button>`
+      : `<div data-gh-connect>${connectBox()}</div>`}`;
 }
 
 /* ── The change banner ────────────────────────────────────────────────────*/
@@ -794,8 +885,11 @@ function wire() {
     if (e.target.closest('[data-lock-toggle]')) {
       setLocked('survivor', S.season, S.week, !lockedNow());
       render();
+      if (lockedNow() && !isSaved()) saveThisWeek();
       return;
     }
+    if (e.target.closest('[data-sync-save]')) { saveThisWeek(); return; }
+    if (e.target.closest('[data-sync-drift]')) { saveDrift(); return; }
     const mark = e.target.closest('[data-pick-pool]');
     if (mark) {
       if (lockedNow()) return;
@@ -834,6 +928,15 @@ function wire() {
     S.view = await loadWeek(S.season, S.week, { live: true, maxAgeMs: POLL_MS });
     render();
   });
+
+  // Connecting GitHub on a locked, unsaved week is a request to save it; a
+  // save from the Pick Sheet changes the lock default and the saved line.
+  window.addEventListener('ghauth', () => {
+    if (!S.model) return;
+    if (hasGhToken() && lockedNow() && !isSaved()) saveThisWeek();
+    else render();
+  });
+  window.addEventListener('sentchange', () => { if (S.model) render(); });
 }
 
 /* ── Formatting ───────────────────────────────────────────────────────────*/

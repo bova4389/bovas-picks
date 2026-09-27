@@ -152,6 +152,7 @@ js/liveModel.js     SHARED — live pool standings math, pure data           [NE
 js/standingsModel.js SHARED — Sleeper pools' standings math, pure data     [NEVER versioned]
 js/payouts.js       SHARED — prize winners, season tables, burn matrix     [NEVER versioned]
 js/pickLock.js      SHARED — per-week Lock / Unlock for pick editing       [NEVER versioned]
+js/githubSync.js    SHARED — Lock saves the sent file to GitHub, per device key [NEVER versioned]
 js/standings.js     Standings — Season Long: Mike's pick'em + Infinity War; Survivor: Mike's suicide + Poop + Deadpool
 js/squares.js       Squares Board tab — one week: matchup, board, payouts
 js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
@@ -2115,6 +2116,47 @@ holds the state; `js/picksheet.js` and `js/weekCard.js` render its `lockControl(
 - **A tinted left edge (`--purple-mid`), not a warning color** — locked is the normal state of a
   submitted week.
 
+### Lock saves for every device — `js/githubSync.js`
+
+Added 2026-09-27, after a card locked on the iPad was a blank sheet on the phone: everything above
+lives in one browser's localStorage, and the only shared record, `data/picks-sent-<year>.json`,
+was updated by pasting the email to Claude. **Tapping Lock now writes that file itself**, through
+GitHub's contents API, and a line under the Lock button says `Saved for every device` (teal) or
+`Only on this device` (amber) with **Save for every device** / **Connect GitHub**.
+
+- **What each Lock writes.** Pick Sheet: `numbers` (ascending), `points`, and `survivor.mike` as
+  the email's suicide line carries it — a marked pick, or the recommendation the message fell back
+  to, because that is what was sent. Picks tab: every pool's marked pick for the week, merged into
+  `survivor`. The Picks tab's missing-picks banner can also save device-only picks from past weeks.
+  Unlock never deletes anything; re-locking a corrected card replaces the week.
+- **The key.** A fine-grained GitHub token, **only** `bova4389/bovas-picks`, **Contents: Read and
+  write**, one year. Pasted once per device into the Connect GitHub box, stored in that browser's
+  localStorage (`github:token`), sent only to api.github.com. The box links GitHub's new-key page
+  with the name, expiry and permission pre-filled by URL parameters; the repository has to be
+  picked by hand (no parameter exists for it). Never commit it, never give it to CI. It sits on
+  the shared `bova4389.github.io` origin, so the owner's other Pages sites could read it — all his
+  own code, and the key can edit only this repo.
+- **Reading needs no key.** `loadSent()` reads the public contents API first, because Pages can
+  serve the file ~10 minutes stale — exactly the window in which the phone would miss the iPad's
+  lock — and falls back to the Pages copy after 4s or on any failure. `myPicks.js` reads the file
+  live from `currentSent()`, so a save shows on every tab without a reload.
+- **Every write is read-modify-write on the file's current sha**, patched onto the copy just
+  fetched, never the boot copy — so the phone cannot erase what the iPad saved. A 409/422 re-reads
+  and retries. The odds bot commits to `main` all day but to other files; the contents API checks
+  only this file's sha, so the bot never conflicts. An unchanged card commits nothing.
+- **The file keeps its hand-written shape** (arrays on one line; `serialize()` reproduces the
+  committed file byte for byte, and the test asserts it). Hand edits stay fine.
+- **The form carries `method="dialog"` and its listeners are wired at import.** The first build
+  wired them only in `mountGhConnect()`, which the Pick Sheet never calls, so Save submitted the
+  form natively and put the key in the address bar as `?token=`. Caught in testing with a fake key.
+- **A new file on purpose**, so no existing unversioned module gained an export (the stale-module
+  blank page under Cache busting). `getSentPicks()` in `data.js` has no callers now but stays until
+  cached copies of the old `myPicks.js` age out.
+- **Tests:** `test/githubsync.test.html` plays GitHub in memory (26 assertions: shape, fresh read vs.
+  stale Pages, fallback, key checks, first write, no-op, sha conflict keeping another device's
+  pick, 403/401 messages, a season with no file yet). No network, no key; any real key on the
+  origin is set aside and restored.
+
 ## My Picks — One Resolver, Three Tabs
 
 `js/myPicks.js` (added 2026-09-13) answers "what did I pick" for the Pick Sheet's email and the
@@ -2127,8 +2169,8 @@ Schedule's highlights, so the two can never disagree. Precedence:
 
 - **Why a committed sent file.** localStorage is per browser. A card typed on one device showed as
   a blank sheet on another and read as "the pick sheet reset". `data/picks-sent-<year>.json` holds
-  each card exactly as emailed (`numbers`, `points`, `suicide` abbreviation) and is hand-updated
-  after the email goes out. The device copy wins only when it holds at least one pick, so a
+  each card exactly as emailed (`numbers`, `points`, `suicide` abbreviation). **Tapping Lock
+  writes it** (see "Lock saves for every device" above); hand edits still work. The device copy wins only when it holds at least one pick, so a
   half-edited card is never swapped for the sent one.
 - **An actual pick and a recommendation are two functions, never one.** `survivorPick()` returns
   only real picks; `survivorRecommendation()` returns the card's opinion (final log → stored card

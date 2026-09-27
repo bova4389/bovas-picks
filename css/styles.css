@@ -4008,3 +4008,18 @@ footer {
 .controls.is-locked, .planblock.is-locked { box-shadow: inset 4px 0 0 var(--purple-mid), var(--shadow-sm); }
 #games.is-locked .pick:disabled { cursor: default; }
 .pick:disabled, .wc-mine-select:disabled, .wc-mine-actions .btn:disabled { cursor: not-allowed; }
+
+/* ── Saved for every device (js/githubSync.js) ────────────────────────────
+   The line under Lock. Its own row, full width, so a Connect box that opens
+   inside it never squeezes the pickers. Teal for saved (a plain fact, not a
+   celebration); amber for device-only, because it is a thing to act on but
+   nothing is broken -- the picks are safe on this device. */
+.ghs { flex: 1 0 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.ghs:empty { display: none; }
+.ghs-note { margin: 0; font-size: .8125rem; color: var(--ink-quiet); }
+.ghs-note.is-ok { color: var(--teal-ink); font-weight: 600; }
+.ghs-note.is-ok::before { content: '¹3 a0'; }
+.ghs-note.is-local { color: var(--amber-ink); font-weight: 600; }
+.ghs-btn { min-height: 46px; }
+.ghs [data-gh-connect] { flex: 1 0 100%; }
+.wc-drift .ghs-btn { margin-top: 8px; }

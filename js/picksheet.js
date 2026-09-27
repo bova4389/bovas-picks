@@ -10,6 +10,13 @@
    so a stray tap cannot change it -- see js/pickLock.js. Locked disables the
    pick buttons, the Monday total and Clear week; copying and emailing the
    message still work.
+
+   SAVED FOR EVERY DEVICE (2026-09-27): tapping Lock also writes the card --
+   numbers, Monday total and the suicide line exactly as the message carries
+   them -- to data/picks-sent-<year>.json through js/githubSync.js. Before
+   this, a card locked on the iPad was a blank sheet on the phone. The line
+   under the controls says whether the locked card matches the saved one, and
+   offers Save / Connect GitHub when it does not.
    ========================================================================== */
 
 import {
@@ -24,6 +31,7 @@ import {
   loadMyPicks, seasonCard, survivorPick, survivorRecommendation, sentCard,
 } from './myPicks.js';
 import { isLocked, setLocked, lockControl } from './pickLock.js';
+import { hasGhToken, saveSentWeek, connectBox } from './githubSync.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 import { favoriteLine } from './oddsBadge.js';
 import { seasonBanner } from './seasonBanner.js';
@@ -37,6 +45,7 @@ let week = null;
 let picks = {};          // { [awayNum]: chosenNumber }  — keyed by game
 let seasonIndex = null;  // pair+kickoff, from buildSeasonOddsIndex
 let kickoffs = new Map(); // "week|Away|Home" -> ISO kickoff, from the schedule
+let sync = null;          // { week, status: 'saving'|'saved'|'error', at?, message? }
 
 const el = (id) => document.getElementById(id);
 
@@ -90,6 +99,15 @@ export async function initPickSheet(root) {
   document.addEventListener('panelchange', (e) => {
     if (e.detail?.panel === 'picksheet') renderOutput();
   });
+
+  // Connecting GitHub on a locked, unsaved card is a request to save it.
+  window.addEventListener('ghauth', () => {
+    if (hasGhToken() && locked() && !isSaved()) saveCard();
+    else renderSync();
+  });
+  // Another tab (the Picks tab) saved the file: the lock default and the
+  // saved line both read it.
+  window.addEventListener('sentchange', () => render());
 }
 
 /* ── The odds join ────────────────────────────────────────────────────────
@@ -160,6 +178,7 @@ function shell(weeks) {
       </div>
       <button class="btn btn-ghost" id="clear-week" type="button">Clear week</button>
       <div class="field lock-field" id="lock-slot"></div>
+      <div class="ghs" id="sync-slot" aria-live="polite"></div>
     </div>
 
     <div class="progress" id="progress">
@@ -202,6 +221,11 @@ function wireControls() {
     if (!e.target.closest('[data-lock-toggle]')) return;
     setLocked('picks', SEASON, week, !locked());
     render();
+    if (locked() && !isSaved()) saveCard();
+  });
+
+  el('sync-slot').addEventListener('click', (e) => {
+    if (e.target.closest('[data-sync-save]')) saveCard();
   });
 
   el('clear-week').addEventListener('click', () => {
@@ -248,6 +272,87 @@ function render() {
   renderGames();
   renderProgress();
   renderOutput();
+  renderSync();
+}
+
+/* ── Saved for every device ───────────────────────────────────────────────*/
+
+/** The card as the message carries it: ascending numbers, the Monday total,
+ *  and the suicide line's team (a marked pick, or the recommendation the
+ *  message fell back to -- either way, what was emailed). */
+function cardToSave() {
+  return {
+    numbers: pickedNumbers().map(Number).sort((a, b) => a - b),
+    points: Number.isFinite(picks.__mnf) ? picks.__mnf : null,
+    mike: survivorPick('mike', week)?.team || survivorRecommendation('mike', week) || null,
+  };
+}
+
+/** Whether the sent file already holds this card. An empty card counts as
+ *  saved: there is nothing to put anywhere. */
+function isSaved() {
+  const c = cardToSave();
+  const sent = sentCard(week);
+  if (!c.numbers.length && c.points == null) return true;
+  if (!sent) return false;
+  const nums = (sent.numbers || []).map(Number);
+  return nums.length === c.numbers.length
+    && nums.every((n, i) => n === c.numbers[i])
+    && (sent.points ?? null) === c.points
+    && (!c.mike || sent.survivor?.mike === c.mike);
+}
+
+async function saveCard() {
+  if (!hasGhToken()) { renderSync(); return; }
+  const w = week;
+  const c = cardToSave();
+  if (!c.numbers.length && c.points == null) return;
+
+  sync = { week: w, status: 'saving' };
+  renderSync();
+  try {
+    // Rebuilt rather than patched so the keys keep the file's hand-written
+    // order (numbers, points, survivor with mike first, then anything else).
+    await saveSentWeek(SEASON, w, (card) => {
+      const { numbers: _n, points: _p, survivor = {}, ...rest } = card;
+      const pools = c.mike ? Object.assign({ mike: c.mike }, survivor, { mike: c.mike }) : survivor;
+      return {
+        numbers: c.numbers,
+        ...(c.points != null ? { points: c.points } : {}),
+        ...(Object.keys(pools).length ? { survivor: pools } : {}),
+        ...rest,
+      };
+    }, `data: Week ${w} pick'em card, saved from the Pick Sheet`);
+    sync = { week: w, status: 'saved', at: new Date() };
+  } catch (err) {
+    sync = { week: w, status: 'error', message: err.message };
+  }
+  if (week === w) render();
+}
+
+function renderSync() {
+  const slot = el('sync-slot');
+  if (!slot) return;
+  const mine = sync?.week === week ? sync : null;
+
+  if (!locked()) { slot.innerHTML = ''; return; }
+  if (mine?.status === 'saving') {
+    slot.innerHTML = '<p class="ghs-note">Saving for every device…</p>';
+    return;
+  }
+  if (isSaved()) {
+    const at = mine?.status === 'saved'
+      ? ` · ${mine.at.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}` : '';
+    slot.innerHTML = `<p class="ghs-note is-ok">Saved for every device${at}</p>`;
+    return;
+  }
+  slot.innerHTML = `
+    <p class="ghs-note is-local">${mine?.status === 'error'
+      ? `Not saved: ${escape(mine.message)}`
+      : 'Only on this device — other devices can’t see this card yet.'}</p>
+    ${hasGhToken()
+      ? `<button type="button" class="btn ghs-btn" data-sync-save>${mine?.status === 'error' ? 'Try again' : 'Save for every device'}</button>`
+      : `<div data-gh-connect>${connectBox()}</div>`}`;
 }
 
 function renderGames() {

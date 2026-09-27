@@ -197,6 +197,11 @@ export async function getSquares(season = SEASON) {
 }
 
 /**
+ * NO LONGER CALLED -- js/myPicks.js reads the sent file through
+ * js/githubSync.js now, fresh from GitHub's API. Kept because this module is
+ * unversioned: a cached old myPicks.js still imports this name, and removing
+ * it would blank the site for that visitor. Safe to delete after 2026-10-11.
+ *
  * My season-long cards as they were emailed, or null. Hand-maintained in
  * data/picks-sent-<year>.json so a sent card is there on every device, not
  * only in the browser it was typed into. See js/myPicks.js.
