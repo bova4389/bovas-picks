@@ -909,11 +909,114 @@
    "tied": []
   },
   "3": {
-   "won": 0,
-   "lost": 0,
+   "won": 81,
+   "lost": 17,
    "tie": 0,
-   "pending": 98,
-   "losers": [],
+   "pending": 0,
+   "losers": [
+    {
+     "entry": 87,
+     "nick": "Isakama",
+     "name": "Gregg Lazzaro",
+     "team": "GB"
+    },
+    {
+     "entry": 155,
+     "nick": "Handyman Herb",
+     "name": "Herb Sandborn",
+     "team": "SEA"
+    },
+    {
+     "entry": 156,
+     "nick": "ID",
+     "name": "Dick EnDres",
+     "team": "CAR"
+    },
+    {
+     "entry": 165,
+     "nick": "Sagttgrandma",
+     "name": "Matthew Hardie",
+     "team": "CAR"
+    },
+    {
+     "entry": 217,
+     "nick": "Bad Insomniac",
+     "name": "Albert Layne",
+     "team": "PHI"
+    },
+    {
+     "entry": 21,
+     "nick": "Dinglebarry 1",
+     "name": "Zach Wright",
+     "team": "GB"
+    },
+    {
+     "entry": 78,
+     "nick": "Mr Vegas 1",
+     "name": "Bobby nese",
+     "team": "SEA"
+    },
+    {
+     "entry": 104,
+     "nick": "Cenzinator92",
+     "name": "Michael Cenzi",
+     "team": "SEA"
+    },
+    {
+     "entry": 133,
+     "nick": "Rackley 3",
+     "name": null,
+     "team": "GB"
+    },
+    {
+     "entry": 199,
+     "nick": "JBC-2",
+     "name": "Beth Corallo",
+     "team": "SEA"
+    },
+    {
+     "entry": 83,
+     "nick": "Bootz8910",
+     "name": "Linda Munk(little lori mom)",
+     "team": "SEA"
+    },
+    {
+     "entry": 223,
+     "nick": "Grandy",
+     "name": "Deb & Steve Tatum",
+     "team": "SEA"
+    },
+    {
+     "entry": 241,
+     "nick": "Arrowhead",
+     "name": "John Sissman (LJ)",
+     "team": "CAR"
+    },
+    {
+     "entry": 1,
+     "nick": "Budman",
+     "name": "Mike Lowe",
+     "team": "SEA"
+    },
+    {
+     "entry": 50,
+     "nick": "Not Today Boys",
+     "name": "Tim Barrington",
+     "team": "PHI"
+    },
+    {
+     "entry": 52,
+     "nick": "LadyHawk",
+     "name": "Tim Barrington",
+     "team": "CAR"
+    },
+    {
+     "entry": 48,
+     "nick": "Porch Swing Angel",
+     "name": "Amy Totherow",
+     "team": "PHI"
+    }
+   ],
    "tied": []
   }
  }
