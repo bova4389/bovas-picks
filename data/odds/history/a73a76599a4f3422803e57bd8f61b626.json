@@ -1780,5 +1780,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-09-28T20:33:24.410401+00:00"
+ },
+ {
+  "id": "a73a76599a4f3422803e57bd8f61b626",
+  "commenceTime": "2026-10-05T00:20:00Z",
+  "home": "Carolina Panthers",
+  "away": "Detroit Lions",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.3864,
+  "rawAwayProb": 0.6552,
+  "homeWinProb": 0.371,
+  "awayWinProb": 0.629,
+  "vig": 0.0416,
+  "total": 50.5,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-09-29T19:25:44.322098+00:00"
  }
 ]

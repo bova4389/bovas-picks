@@ -169,6 +169,58 @@
           "teamsLeft": 30
         }
       ]
+    },
+    "4": {
+      "week": 4,
+      "builtAt": "2026-09-29T19:25:48.921Z",
+      "oddsFetchedAt": "2026-09-29T19:25:44.322098+00:00",
+      "confidence": "provisional",
+      "exposure": {
+        "tickets": 3,
+        "games": 2,
+        "pAllLose": 0.0274
+      },
+      "picks": [
+        {
+          "pool": "sleeper",
+          "team": "BAL",
+          "p": 0.838,
+          "gap": 0,
+          "fvCost": -0.0473,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 29,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 29
+        },
+        {
+          "pool": "deadpool",
+          "team": "MIN",
+          "p": 0.8311,
+          "gap": 0.0069,
+          "fvCost": 0.0009,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 20,
+          "swappedFrom": "BAL",
+          "swapClause": "near-free",
+          "teamsLeft": 29
+        },
+        {
+          "pool": "mike",
+          "team": "BAL",
+          "p": 0.838,
+          "gap": 0,
+          "fvCost": -0.0473,
+          "share": null,
+          "basis": "future-value",
+          "entrants": 247,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 29
+        }
+      ]
     }
   }
 }
