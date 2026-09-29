@@ -1,10 +1,10 @@
 {
  "season": 2026,
- "generated": "2026-09-27T23:22:06.206Z",
+ "generated": "2026-09-29T06:09:16.240Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
-   "currentWeek": 3,
+   "currentWeek": 4,
    "weeks": {
     "1": {
      "entrants": 31,
@@ -112,47 +112,61 @@
      "complete": false
     },
     "3": {
-     "entrants": 27,
-     "distinctTeams": 7,
+     "entrants": 28,
+     "distinctTeams": 8,
      "picks": [
       {
        "team": "KC",
        "count": 14,
-       "pct": 51.9
+       "pct": 50
       },
       {
        "team": "DET",
        "count": 3,
-       "pct": 11.1
+       "pct": 10.7
       },
       {
        "team": "SF",
        "count": 3,
-       "pct": 11.1
+       "pct": 10.7
       },
       {
        "team": "BUF",
        "count": 2,
-       "pct": 7.4
+       "pct": 7.1
       },
       {
        "team": "GB",
        "count": 2,
-       "pct": 7.4
+       "pct": 7.1
       },
       {
        "team": "NO",
        "count": 2,
-       "pct": 7.4
+       "pct": 7.1
+      },
+      {
+       "team": "PHI",
+       "count": 1,
+       "pct": 3.6
       },
       {
        "team": "SEA",
        "count": 1,
-       "pct": 3.7
+       "pct": 3.6
       }
      ],
      "submitted": 28,
-     "revealed": 27,
+     "revealed": 28,
+     "expected": 31,
+     "complete": false
+    },
+    "4": {
+     "entrants": 0,
+     "distinctTeams": 0,
+     "picks": [],
+     "submitted": 0,
+     "revealed": 0,
      "expected": 31,
      "complete": false
     }
@@ -263,7 +277,7 @@
       "1": "LAC"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "LAC"
      ]
@@ -335,7 +349,7 @@
       "1": "LAC"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "LAC"
      ]
@@ -500,13 +514,15 @@
      "isMe": false,
      "picks": {
       "1": "JAC",
-      "2": "GB"
+      "2": "GB",
+      "3": "PHI"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "GB"
+      "GB",
+      "PHI"
      ]
     },
     {
@@ -739,7 +755,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1790551325960,
+   "fetchedAt": 1790662155822,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -748,7 +764,7 @@
   },
   "1400514368084451328": {
    "year": 2026,
-   "currentWeek": 3,
+   "currentWeek": 4,
    "weeks": {
     "1": {
      "entrants": 20,
@@ -826,37 +842,51 @@
      "complete": false
     },
     "3": {
-     "entrants": 14,
-     "distinctTeams": 5,
+     "entrants": 15,
+     "distinctTeams": 6,
      "picks": [
       {
        "team": "KC",
        "count": 7,
-       "pct": 50
+       "pct": 46.7
       },
       {
        "team": "DET",
        "count": 4,
-       "pct": 28.6
+       "pct": 26.7
       },
       {
        "team": "GB",
        "count": 1,
-       "pct": 7.1
+       "pct": 6.7
+      },
+      {
+       "team": "PHI",
+       "count": 1,
+       "pct": 6.7
       },
       {
        "team": "SEA",
        "count": 1,
-       "pct": 7.1
+       "pct": 6.7
       },
       {
        "team": "SF",
        "count": 1,
-       "pct": 7.1
+       "pct": 6.7
       }
      ],
      "submitted": 15,
-     "revealed": 14,
+     "revealed": 15,
+     "expected": 20,
+     "complete": false
+    },
+    "4": {
+     "entrants": 0,
+     "distinctTeams": 0,
+     "picks": [],
+     "submitted": 0,
+     "revealed": 0,
      "expected": 20,
      "complete": false
     }
@@ -950,7 +980,7 @@
       "3": "SEA"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "LAC",
       "TB",
@@ -1006,7 +1036,7 @@
       "2": "TB"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "LAC",
       "TB"
@@ -1022,7 +1052,7 @@
       "1": "LAC"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "LAC"
      ]
@@ -1038,7 +1068,7 @@
       "2": "TB"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "LAC",
       "TB"
@@ -1074,7 +1104,7 @@
       "2": "TB"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "TEN",
       "TB"
@@ -1090,7 +1120,7 @@
       "1": "LAC"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "LAC"
      ]
@@ -1217,20 +1247,22 @@
      "isMe": false,
      "picks": {
       "1": "JAC",
-      "2": "LAR"
+      "2": "LAR",
+      "3": "PHI"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
-      "LAR"
+      "LAR",
+      "PHI"
      ]
     }
    ],
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1790551326077,
+   "fetchedAt": 1790662156020,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1239,7 +1271,7 @@
   },
   "1400511807180828672": {
    "year": 2026,
-   "currentWeek": 3,
+   "currentWeek": 4,
    "weeks": {
     "1": {
      "rows": [
@@ -1396,6 +1428,10 @@
        "count": 15
       },
       {
+       "team": "PHI",
+       "count": 15
+      },
+      {
        "team": "BUF",
        "count": 14
       },
@@ -1441,8 +1477,15 @@
       }
      ],
      "submitted": 142,
-     "revealed": 127,
-     "locked": 15,
+     "revealed": 142,
+     "locked": 0,
+     "entrants": 18
+    },
+    "4": {
+     "rows": [],
+     "submitted": 8,
+     "revealed": 0,
+     "locked": 8,
      "entrants": 18
     }
    },
@@ -1475,6 +1518,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "CAR",
        "DET",
        "GB",
@@ -1493,6 +1537,11 @@
        "guess": 41,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 38,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -1537,6 +1586,11 @@
        "guess": 48,
        "away": "DEN",
        "home": "KC"
+      },
+      "3": {
+       "guess": 46,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -1568,6 +1622,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "DET",
        "GB",
        "KC",
@@ -1586,6 +1641,11 @@
        "guess": 57,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 42,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -1617,6 +1677,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "BAL",
        "DET",
        "KC",
@@ -1635,6 +1696,11 @@
        "guess": 34,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 34,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -1666,6 +1732,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "BAL",
        "DET",
        "KC",
@@ -1684,6 +1751,11 @@
        "guess": 50,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 31,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -1715,6 +1787,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "DET",
        "GB",
        "KC",
@@ -1733,6 +1806,11 @@
        "guess": 48,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 38,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -1763,6 +1841,7 @@
        "PHI"
       ],
       "3": [
+       "PHI",
        "CAR",
        "BAL",
        "DET",
@@ -1782,6 +1861,11 @@
        "guess": 48,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 43,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -1862,6 +1946,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "CAR",
        "DET",
        "GB",
@@ -1899,6 +1984,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "DET",
        "GB",
        "KC",
@@ -1917,6 +2003,11 @@
        "guess": 45,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 44,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -1948,6 +2039,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "DET",
        "GB",
        "KC",
@@ -1992,6 +2084,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "GB",
        "JAC",
        "KC",
@@ -2091,6 +2184,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "DET",
        "GB",
        "KC",
@@ -2109,6 +2203,11 @@
        "guess": 42,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 35,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -2139,6 +2238,7 @@
        "PHI"
       ],
       "3": [
+       "PHI",
        "DET",
        "GB",
        "IND",
@@ -2158,6 +2258,11 @@
        "guess": 47,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 43,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -2189,6 +2294,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "BAL",
        "DET",
        "GB",
@@ -2207,6 +2313,11 @@
        "guess": 52,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 41,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     },
@@ -2238,6 +2349,7 @@
       ],
       "3": [
        "BUF",
+       "PHI",
        "DET",
        "GB",
        "JAC",
@@ -2286,6 +2398,7 @@
        "PHI"
       ],
       "3": [
+       "PHI",
        "CAR",
        "GB",
        "KC",
@@ -2305,6 +2418,11 @@
        "guess": 63,
        "away": "NYG",
        "home": "LAR"
+      },
+      "3": {
+       "guess": 47,
+       "away": "PHI",
+       "home": "CHI"
       }
      }
     }
@@ -2312,7 +2430,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1790551326205,
+   "fetchedAt": 1790662156238,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
