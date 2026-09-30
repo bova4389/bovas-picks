@@ -1796,5 +1796,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-09-29T19:25:44.322098+00:00"
+ },
+ {
+  "id": "2ea94ddf20f66432b9024fe2e2eaba5f",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "Cincinnati Bengals",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.5893,
+  "rawAwayProb": 0.4531,
+  "homeWinProb": 0.5654,
+  "awayWinProb": 0.4346,
+  "vig": 0.0424,
+  "total": 51.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-09-30T19:19:39.055930+00:00"
  }
 ]
