@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-01T19:48:02.305Z",
+ "generated": "2026-10-02T06:13:15.239Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
@@ -165,7 +165,7 @@
      "entrants": 0,
      "distinctTeams": 0,
      "picks": [],
-     "submitted": 11,
+     "submitted": 14,
      "revealed": 0,
      "expected": 31,
      "complete": false
@@ -755,7 +755,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1790884081841,
+   "fetchedAt": 1790921594874,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -885,7 +885,7 @@
      "entrants": 0,
      "distinctTeams": 0,
      "picks": [],
-     "submitted": 7,
+     "submitted": 9,
      "revealed": 0,
      "expected": 20,
      "complete": false
@@ -1262,7 +1262,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1790884082061,
+   "fetchedAt": 1790921595046,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1482,10 +1482,15 @@
      "entrants": 18
     },
     "4": {
-     "rows": [],
-     "submitted": 95,
-     "revealed": 0,
-     "locked": 95,
+     "rows": [
+      {
+       "team": "PIT",
+       "count": 5
+      }
+     ],
+     "submitted": 111,
+     "revealed": 5,
+     "locked": 106,
      "entrants": 18
     }
    },
@@ -1579,6 +1584,9 @@
        "NO",
        "SF",
        "SEA"
+      ],
+      "4": [
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -1903,6 +1911,9 @@
        "LV",
        "SF",
        "SEA"
+      ],
+      "4": [
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2046,6 +2057,9 @@
        "CIN",
        "SF",
        "SEA"
+      ],
+      "4": [
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2246,6 +2260,9 @@
        "NO",
        "SF",
        "SEA"
+      ],
+      "4": [
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2301,6 +2318,9 @@
        "KC",
        "SF",
        "SEA"
+      ],
+      "4": [
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2430,7 +2450,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1790884082304,
+   "fetchedAt": 1790921595237,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
