@@ -172,8 +172,8 @@
     },
     "4": {
       "week": 4,
-      "builtAt": "2026-10-02T08:37:36.332Z",
-      "oddsFetchedAt": "2026-10-02T08:37:31.497019+00:00",
+      "builtAt": "2026-10-02T16:40:34.822Z",
+      "oddsFetchedAt": "2026-10-02T16:40:30.373467+00:00",
       "confidence": "firming",
       "exposure": {
         "tickets": 3,
@@ -184,7 +184,7 @@
         {
           "pool": "sleeper",
           "team": "BAL",
-          "p": 0.8402,
+          "p": 0.8418,
           "gap": 0,
           "fvCost": -0.0506,
           "share": null,
@@ -197,8 +197,8 @@
         {
           "pool": "deadpool",
           "team": "MIN",
-          "p": 0.8283,
-          "gap": 0.0119,
+          "p": 0.8269,
+          "gap": 0.0149,
           "fvCost": -0.0648,
           "share": null,
           "basis": "win-probability",
@@ -210,8 +210,8 @@
         {
           "pool": "mike",
           "team": "MIN",
-          "p": 0.8283,
-          "gap": 0.0119,
+          "p": 0.8269,
+          "gap": 0.0149,
           "fvCost": -0.0648,
           "share": null,
           "basis": "future-value",
