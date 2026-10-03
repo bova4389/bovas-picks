@@ -17,8 +17,8 @@ we don't make.
 | Excluded | The Thursday game every week (plus the Week 1 Friday game). **Week 13 is the exception** — Thanksgiving Thursday *and* Black Friday games all counted, 16 games, nothing excluded |
 | Deadline | End of day **Saturday** — holiday weeks due before Thursday kickoff |
 | Submission | Email the **numbers** from the commissioner's weekly sheet. Away = odd, home = even, sequential down the page |
-| Weekly prize | **$1,000**, most correct picks, MNF total points as tiebreaker |
-| Season prize | **~$5,000–6,000** to the season-long winner(s) |
+| Weekly prize | **$1,270** (2026), most correct picks, MNF total points (closest by absolute value) as tiebreaker, then an even split |
+| Season prize | **$2,540** (2026) to the season-long winner |
 
 Both workbooks are parsed into `data/` — see `scripts/parse_weekly_sheets.py` (the number map,
 which also validates our outgoing picks) and `scripts/parse_pool_picks.py` (the weekly field
@@ -167,7 +167,9 @@ Five sentences, in priority order.
    market. We use its probabilities and apply pool game theory on top of them.
 4. **Target the cheap dogs.** Underdogs of roughly +1 to +3 win outright ~40–45% of the time and
    are picked by a fraction of the field. Big dogs (+7 or worse) win ~15–20% of the time and are
-   a bad deal at any price. There is a narrow band where the leverage lives.
+   a bad deal at any price. There is a narrow band where the leverage lives — **plus one more
+   (added 2026-10-03, §4 Step 4):** a 25–37% dog that almost nobody holds, because this field
+   abandons those games almost entirely.
 5. **Consistency beats cleverness.** The same process, all 18 weeks. The variance is brutal by
    design — we will have many weeks finishing mid-pack. That is what the strategy *looks like*
    when it is working correctly.
@@ -296,9 +298,17 @@ we take the hit to our score without buying separation.
 
 **Selection rules:**
 
-- **Hard floor: only pick underdogs at ≥38% true win probability.** Below that, the expected cost
-  per pick climbs steeply and the leverage does not compensate. Big dogs are a trap — they feel
-  bold and they lose 80%+ of the time.
+- **Floor for a live dog: ≥38% true win probability.** Below that, the expected cost per pick
+  climbs steeply. These are the 3 dogs of a normal week.
+- **One exception per week — the lonely longshot (revised 2026-10-03).** Take the single
+  highest-leverage dog at **25–37%** win probability, provided the field leaves it nearly empty
+  (≤12% of the pool on it, measured or modeled). This replaces the old absolute 38% floor, which
+  the 2026 lookback showed was blocking the best leverage on the board: when 95% of the pool is on
+  a 74% favorite, a 26% dog is a ticket past almost everyone. **Never more than one**, and never
+  below 25% — under that it is a lottery ticket the floor still exists to stop.
+- **Skip the near-coin-flip dog the field already holds.** A dog with 40%+ of the pool on it buys
+  no separation. Take the favorite there. (Packers, Jaguars and Titans each sat at 43–49% field
+  share in Weeks 1–3, and each cost a dog slot for nothing.)
 - **Sweet spot: dogs in the 40–47% band, ideally home dogs of +1 to +3.** Home underdogs win
   outright meaningfully more often than road underdogs.
 - **Best of all: a dog whose price is stale for a reason we can name** — the market is still
@@ -314,9 +324,9 @@ shows discipline about *which* ones:
 
 | Situation | Dogs to take |
 |---|---|
-| Default | **4–5** |
-| Slate has few live dogs (nothing ≥40% at good leverage) | 3 |
-| Slate is loaded with live dogs / many near-coin-flip games | 5–6 |
+| Default | **3 live dogs + 1 lonely longshot = 4** |
+| Slate has few live dogs (2 or fewer clear the rules) | those + 1 longshot |
+| Slate is loaded with live dogs (6+ clear the rules) | 4 live + 1 longshot |
 | Behind in season standings after ~Week 14, season prize unreachable | Ignore season entirely; 5–6 every week |
 | Genuinely contending for the season prize late (top 3 of 268) | Drop to 2–3 and protect position |
 
@@ -326,9 +336,12 @@ bolder than the median entrant without being reckless.
 **But the count is the least important part of this step.** Since the field already averages 3.32,
 simply matching or slightly exceeding it buys nothing. **Our edge is composition, not volume:**
 
-- **Zero longshots.** Never take a minority side the field rates below 15%, no matter how tempting
-  the story. Roughly 140 such picks are thrown away by this pool every week and we will not be
-  among them. This single rule is most of the edge.
+- **No true longshots — but one lonely longshot.** The original rule here was "never take a
+  minority side the field rates below 15%." The 2026 field turned out to throw far fewer of those
+  away than 2025's did (0.2–0.4 per entry a week, not ~0.5), and the lookback found the
+  opposite of the rule's premise: a 25–37% dog with 2–5% of the field on it was in every
+  best-possible card. So the line is now drawn on **win probability** (never below 25%, at most
+  one below 38%), not on how empty the side is. See the lookback below Step 8.
 - **Concentrate in the 60–85% band**, where the minority side is a genuinely live team and we still
   leapfrog most of the pool when it hits.
 - **Coin-flip games (50–60%) are nearly free but buy little separation** — half the field is already
@@ -346,6 +359,40 @@ money in this pool.
 
 **Step 8 — Log it.** Every pick gets: no-vig win probability, estimated pick share, whether it was
 a deliberate dog, and the one-line reason. See §6.
+
+### Lookback — 2026 Weeks 1–3 (2026-10-03)
+
+The first review against real results, and the reason Steps 4 and 5 were revised. Measured by
+simulating each week 40,000 times from the **last pre-kickoff de-vigged price** of every game,
+scored against **the real cards** the other ~280 entrants submitted, with the real tie rule.
+Process, not outcome: what each card's chance of winning the week *was*.
+
+| Chance of winning the week | Wk 1 | Wk 2 | Wk 3 | Avg |
+|---|---|---|---|---|
+| Our actual card | 0.41% | 0.84% | 0.56% | **0.60%** |
+| Pure chalk | 0.21% | 0.10% | 0.04% | 0.12% |
+| The old rules, followed exactly | 1.08% | 0.82% | 0.59% | 0.83% |
+| 3 live dogs + 1 lonely longshot (the revised rule) | 1.02% | 1.10% | 0.75% | **0.96%** |
+| Best card possible, knowing the field's picks in advance | 1.24% | 1.64% | 1.58% | ~1.5% |
+| A random entry (1 in N) | 0.36% | 0.35% | 0.36% | 0.36% |
+
+What it showed:
+
+- **The thesis holds.** Chalk was ~5× worse than our cards; our cards were ~1.7× a random entry.
+- **The old "~5% a week" was ~5× too optimistic.** No card reaches 2%. See §6.
+- **Results were ordinary luck.** Our dogs won 5 of 14 (36%) against ~42% expected; we ran 1, 2
+  and 1 wins behind chalk, which §6 says to expect.
+- **Execution leaked.** Three dog slots went to games the field was already split on (Packers,
+  Jaguars, Titans) and one to a 35% dog under the floor (Cardinals).
+- **The field chases favorites harder than the k=2 model.** Fitted k = **2.75** over 44 games: on
+  a 74% favorite the pool is 95% chalk, against the model's 89%. Underdogs are lonelier than the
+  Recommend tab was saying, and 25–37% dogs loneliest of all — which is what the lonely-longshot
+  rule exploits. `scripts/fit_pick_share.py` refits it as weeks land.
+- **The tiebreaker barely mattered** in any of the three weeks (±0.1 point of win chance).
+
+Caveats: three weeks; the k fit and the longshot test are in-sample on those same weeks, so the
+size of the gain is soft and its direction is the useful part. Re-run at Week 8 and again at the
+~50-dog-pick floor §6 sets for any further change.
 
 ---
 
@@ -411,8 +458,10 @@ Track every week:
 **Review thresholds:**
 
 - Do **not** change the process based on any single week. Thirteen games is nothing.
-- Expect long stretches with no weekly win. At a realistic ~5% chance per week, going eight weeks
-  without cashing is completely ordinary and means nothing.
+- Expect long stretches with no weekly win. **The realistic chance is ~1% a week, not the ~5%
+  this said until 2026-10-03** — measured against the real field, even the best possible card
+  tops out near 1.5% (see the lookback below §4 Step 8). Going an entire season without cashing
+  a week is likely, and means nothing on its own.
 - Sample floor for any process change: **~50 dog picks** (roughly 10 weeks) before concluding
   anything about selection quality.
 - **The one thing that would genuinely falsify the approach:** if our dogs hit at the expected rate

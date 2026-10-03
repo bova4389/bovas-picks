@@ -59,6 +59,7 @@ import {
 } from './pickShare.js';
 import { fetchInjuries, forGame, isQB } from './injuries.js';
 import { getIdentity } from './teamIdentity.js';
+import { currentWeek } from './gameState.js';
 
 /* ── The rulebook, straight from STRATEGY.md §4 ───────────────────────────
    Every threshold below is quoted from that document rather than tuned here.
@@ -66,11 +67,17 @@ import { getIdentity } from './teamIdentity.js';
    authority and this file is its implementation.
    ------------------------------------------------------------------------ */
 
-const FLOOR = 0.38;        // Step 4: "only pick underdogs at >=38% true win probability"
+const FLOOR = 0.38;        // Step 4: "floor for a live dog: >=38% true win probability"
 const SWEET_LO = 0.40;     // Step 4: "sweet spot: dogs in the 40-47% band"
 const SWEET_HI = 0.47;
-const LONGSHOT_SHARE = 0.15; // Step 5: "never take a minority side the field rates below 15%"
-const THIN_SHARE = 0.40;     // Step 5: above this the minority side buys little separation
+const THIN_SHARE = 0.40;     // Step 4/5: a dog 40%+ of the field holds buys no separation
+// The lonely longshot (Step 4, revised 2026-10-03): ONE dog a week at 25-37%
+// that the field leaves nearly empty. It replaced the old "never below 15%
+// share" rule, which the Weeks 1-3 lookback found was blocking the best
+// leverage on the board -- see STRATEGY.md's lookback under Step 8.
+const LONG_FLOOR = 0.25;     // never below this: under it is a lottery ticket
+const LONELY_SHARE = 0.12;   // and only if at most this much of the field is on it
+const LONG_QUOTA = 1;        // never more than one a week
 
 let state = {
   map: null, schedule: null, snapshot: null, seasonIndex: null, kickoffs: new Map(),
@@ -114,7 +121,12 @@ export async function initRecommend(root) {
     return;
   }
 
-  state.week = state.weeks[0];
+  // Open on the week being picked, the same rule as the Pick Sheet. It opened
+  // on Week 1, whose games have all been played and dropped out of the odds
+  // snapshot, so the tab looked empty from Week 2 on.
+  const now = schedule ? currentWeek(schedule) : state.weeks[0];
+  state.week = state.weeks.includes(now) ? now
+    : state.weeks.find((w) => w >= now) ?? state.weeks[state.weeks.length - 1];
 
   // Fit k ONCE, at boot, over every week that has a measured file. Doing it
   // per render meant ~18 popularity lookups on every week switch, almost all
@@ -250,6 +262,22 @@ async function render() {
  * inventing one is the cross-season failure this tab is guarded against.
  */
 async function calibrate() {
+  // The committed fit first (scripts/fit_pick_share.py). The in-browser fit
+  // below pairs each popularity file with the CURRENT snapshot, which drops a
+  // game once it is played -- so for every past week it found no prices and
+  // quietly ran the whole season on the k=2 default. The script prices each
+  // game from its last pre-kickoff history snapshot instead.
+  try {
+    const res = await fetch(`data/popularity/fit-${SEASON}.json`);
+    const fit = res.ok ? await res.json() : null;
+    if (fit && Number(fit.season) === SEASON && Number.isFinite(fit.k)) {
+      state.k = fit.k;
+      state.kSource = `fitted from ${fit.games} measured games this season`;
+      state.fit = fit;
+      return;
+    }
+  } catch { /* no committed fit yet: fall through to the live one */ }
+
   const pairs = [];
 
   for (const week of state.weeks) {
@@ -320,8 +348,8 @@ function buildRow(g, pop) {
  */
 function tierOf(r) {
   if (r.dogProb == null || r.share == null) return 'none';
-  if (r.dogProb < FLOOR) return 'below-floor';
-  if (r.share < LONGSHOT_SHARE) return 'longshot';
+  if (r.dogProb < LONG_FLOOR) return 'below-floor';
+  if (r.dogProb < FLOOR) return r.share <= LONELY_SHARE ? 'lonely' : 'below-floor';
   if (r.share > THIN_SHARE) return 'thin';
   return 'take';
 }
@@ -337,11 +365,12 @@ function tierOf(r) {
  * does not exist yet, and guessing at "are we contending" would be worse than
  * saying nothing.
  */
-function dogCount(takeable) {
+function dogCount(takeable, lonely) {
   const n = takeable.length;
-  if (n <= 2) return { lo: 3, hi: 3, why: 'Thin slate — few live dogs at good leverage.' };
-  if (n >= 6) return { lo: 5, hi: 6, why: 'Loaded slate — plenty of live dogs.' };
-  return { lo: 4, hi: 5, why: 'Normal slate.' };
+  const longs = Math.min(LONG_QUOTA, lonely.length);
+  if (n <= 2) return { live: n, longs, why: 'Thin slate — few live dogs clear the rules.' };
+  if (n >= 6) return { live: 4, longs, why: 'Loaded slate — plenty of live dogs.' };
+  return { live: 3, longs, why: 'Normal slate.' };
 }
 
 /**
@@ -364,14 +393,17 @@ function dogCount(takeable) {
  * on a week that calls for five.
  */
 function markPicks(priced) {
-  const take = priced.filter((r) => r.tier === 'take')
-    .sort((a, b) => b.leverage - a.leverage);
-  const counts = dogCount(take);
+  const byLev = (a, b) => b.leverage - a.leverage;
+  const take = priced.filter((r) => r.tier === 'take').sort(byLev);
+  const lonely = priced.filter((r) => r.tier === 'lonely').sort(byLev);
+  const counts = dogCount(take, lonely);
 
   for (const r of priced) r.pick = 'chalk';
-  take.forEach((r, i) => { r.pick = i < counts.hi ? 'take' : 'next'; });
+  take.forEach((r, i) => { r.pick = i < counts.live ? 'take' : 'next'; });
+  lonely.forEach((r, i) => { r.pick = i < counts.longs ? 'take' : 'chalk'; });
 
-  return { priced, take, picked: take.slice(0, counts.hi), ...counts };
+  const picked = [...take.slice(0, counts.live), ...lonely.slice(0, counts.longs)];
+  return { priced, take, lonely, picked, ...counts };
 }
 
 /** The team this tab is telling you to pick, and which side of the row it is on. */
@@ -381,14 +413,17 @@ function pickSideOf(r) {
   return r.dogSide;
 }
 
-function plan({ priced, take, picked, lo, hi, why }, pop) {
+function plan({ priced, take, picked, live, longs, why }, pop) {
   if (!priced.length) return '';
+  const hi = live;
+  const dogs = live + longs;
 
   return `
     <div class="card rec-plan">
       <p class="eyebrow">This week's plan</p>
       <p class="rec-plan-line">
-        Take <strong>${lo === hi ? lo : `${lo}–${hi}`} underdogs</strong>, chalk everywhere else.
+        Take <strong>${dogs} underdog${dogs === 1 ? '' : 's'}</strong>${longs
+          ? ` (${live} live, plus 1 lonely longshot)` : ''} and chalk everywhere else.
         <span class="rec-plan-why">${escape(why)}</span>
       </p>
       ${picked.length ? `
@@ -400,6 +435,7 @@ function plan({ priced, take, picked, lo, hi, why }, pop) {
               <strong>${escape(r.dogTeam)}</strong>
               <span class="rec-plan-vs">v ${escape(oppOf(r))}</span>
               <span class="rec-plan-lev">${r.leverage.toFixed(2)}×</span>
+              ${r.tier === 'lonely' ? '<span class="pick-tag is-next">longshot</span>' : ''}
             </li>`).join('')}
         </ol>
         ${take.length > hi
@@ -430,21 +466,21 @@ function tiers(priced, pop) {
 
   const take = of('take');
   const thin = of('thin');
-  const longshot = of('longshot');
+  const lonely = of('lonely');
 
   return `
     ${group('Best dogs — take these', take, `
       Clear the ${Math.round(FLOOR * 100)}% floor and the field is light enough on them to buy
       real separation. Ranked by leverage.`)}
 
-    ${group('Nearly free — but they buy little', thin, `
-      Live enough, but ${Math.round(THIN_SHARE * 100)}%+ of the field is already here, so a hit
-      leapfrogs almost nobody. §4 Step 5: don't count these toward the dog quota.`)}
+    ${group('Lonely longshots — take the best one', lonely, `
+      ${Math.round(LONG_FLOOR * 100)}–${Math.round(FLOOR * 100) - 1}% to win, with
+      ${Math.round(LONELY_SHARE * 100)}% or less of the field on them. This pool abandons these
+      games almost entirely, so one hit passes nearly everyone. One a week, never more.`)}
 
-    ${group('Traps — do not take', longshot, `
-      Under ${Math.round(LONGSHOT_SHARE * 100)}% of the field holds these, which flatters the
-      leverage score. §4 Step 5 calls this rule "most of the edge": ~140 such picks are thrown
-      away by this pool every week.`, 'is-trap')}`;
+    ${group('Skip — the field is already here', thin, `
+      Live enough, but ${Math.round(THIN_SHARE * 100)}%+ of the field already holds them, so a hit
+      leapfrogs almost nobody. Take the favorite instead.`)}`;
 }
 
 function group(heading, rows, lede, cls = '') {
@@ -484,17 +520,18 @@ function explainer() {
       </p>
 
       <ul class="rec-rules">
-        <li><strong>Floor — ${Math.round(FLOOR * 100)}% win probability.</strong> Below that the
-          cost climbs faster than the leverage compensates. Big dogs feel bold and lose 80%+
-          of the time.</li>
+        <li><strong>Live dogs — ${Math.round(FLOOR * 100)}% win probability or better.</strong>
+          Usually three a week.</li>
         <li><strong>Sweet spot — ${Math.round(SWEET_LO * 100)}–${Math.round(SWEET_HI * 100)}%,</strong>
           ideally a <em>home</em> dog. Home underdogs win outright meaningfully more often.</li>
-        <li><strong>Never below ${Math.round(LONGSHOT_SHARE * 100)}% pick share.</strong> The
-          leverage score looks best exactly where the strategy says don't go. This one rule is
-          most of the edge.</li>
-        <li><strong>Take 4–5 dogs a week</strong>, more on a live slate. The field already
-          averages 3.3 minority picks, so volume alone buys nothing —
-          <em>composition</em> is the edge.</li>
+        <li><strong>Plus one lonely longshot</strong> — ${Math.round(LONG_FLOOR * 100)}–${Math.round(FLOOR * 100) - 1}%
+          to win, with almost nobody on it. This pool piles onto favorites so hard that one of
+          these hitting passes nearly everyone. Never more than one, never below
+          ${Math.round(LONG_FLOOR * 100)}%.</li>
+        <li><strong>Skip a dog ${Math.round(THIN_SHARE * 100)}%+ of the field already holds.</strong>
+          It costs a game when it loses and gains almost nothing when it wins.</li>
+        <li><strong>Even the best card wins about 1 week in 100.</strong> Measured against the real
+          field, Weeks 1–3. A season with no weekly win is normal.</li>
         <li><strong>Every dog needs a one-line reason.</strong> Random contrarianism is not the
           strategy; cheap contrarianism is.</li>
       </ul>
@@ -781,9 +818,9 @@ const num = (n) => (n == null ? '' : `<span class="oddsteam-num">${n}</span>`);
 function verdict(r) {
   const lev = r.leverage != null ? `${r.leverage.toFixed(2)}×` : '—';
   const label = {
-    take: 'take', thin: 'low value', longshot: 'trap', 'below-floor': 'below floor',
+    take: 'take', lonely: 'lonely longshot', thin: 'low value', 'below-floor': 'below floor',
   }[r.tier] || '';
-  const cls = r.tier === 'take' ? ' ok' : r.tier === 'longshot' ? ' bad' : '';
+  const cls = r.tier === 'take' || (r.tier === 'lonely' && r.pick === 'take') ? ' ok' : '';
   return `<span class="leverage-score${cls}">${lev} leverage${label ? ` · ${label}` : ''}</span>`;
 }
 
@@ -802,12 +839,15 @@ function why(r) {
         + `${r.isHomeDog ? ', and home dogs win outright more often than road dogs' : ''}.`;
     case 'thin':
       return `Live at ${pct(r.dogProb)}, but ${share} already holds them — a hit leapfrogs almost nobody.`;
-    case 'longshot':
-      return `Only ${share} is here, which is what flatters the leverage. Under `
-        + `${Math.round(LONGSHOT_SHARE * 100)}% share is the one thing §4 Step 5 rules out outright.`;
+    case 'lonely':
+      return r.pick === 'take'
+        ? `${escape(r.dogTeam)} wins ${pct(r.dogProb)} of the time and only ${share} is on them, `
+          + 'so it is this week’s one lonely longshot.'
+        : `A lonely longshot at ${pct(r.dogProb)} with ${share}, but it is one a week and another ranks higher.`;
     case 'below-floor':
-      return `${pct(r.dogProb)} is under the ${Math.round(FLOOR * 100)}% floor — the cost climbs `
-        + 'faster than the leverage repays.';
+      return r.dogProb < LONG_FLOOR
+        ? `${pct(r.dogProb)} is under ${Math.round(LONG_FLOOR * 100)}%, which is a lottery ticket.`
+        : `${pct(r.dogProb)} with ${share} on them: too crowded for a longshot, too unlikely for a live dog.`;
     default:
       return '';
   }

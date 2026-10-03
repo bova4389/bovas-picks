@@ -569,9 +569,17 @@ all six of 2026's but would miss a Friday or Saturday game abroad.
 ## Recommend Tab — Read Before Changing Any Threshold
 
 `leverage = win_probability ÷ pick_share`, per STRATEGY.md §4. **Every threshold in
-`js/recommend.js` is quoted from that document, not tuned here** — 38% floor, 40–47% sweet spot,
-15% longshot cutoff, 40% thin-share cutoff, the 4–5 dog count. If one needs to change, change
-STRATEGY.md first; the doc is the authority and the tab is its implementation.
+`js/recommend.js` is quoted from that document, not tuned here** — 38% floor for a live dog,
+40–47% sweet spot, 40% thin-share cutoff, and **3 live dogs + 1 lonely longshot** (25–37% to win,
+≤12% of the field on it, never more than one). If one needs to change, change STRATEGY.md first;
+the doc is the authority and the tab is its implementation.
+
+**Revised 2026-10-03 from the Weeks 1–3 lookback** (STRATEGY.md, below §4 Step 8). The old rules
+were a 15% "never below this share" cutoff and 4–5 dogs. Simulated against the real field cards,
+the revised rule averaged ~0.96% a week to win against 0.83% for the old rules and 0.60% for the
+cards we actually sent; every best-possible card held a 25–37% dog with 2–5% of the pool on it,
+which is exactly what the 15% cutoff forbade. The `longshot` tier is gone; `lonely` replaces it.
+The tab also opens on the current week now (`currentWeek()`), not Week 1.
 
 **The tab used to be gated on the number map, and that was wrong.** It refused to render without
 `data/number-map-<year>.json` — the commissioner's workbook, which arrives days before the season
@@ -674,10 +682,15 @@ decisive field for what is actually an easier schedule. The residual was visibly
 tails. At k=2.0 a 55/70/85% favorite draws 60/84/97%, which brackets the real 2025 spread of
 58–93%.
 
-**It self-corrects.** `calibrate()` fits k from real pairs across every week of the *current*
-season that has both a popularity file and a priced slate, and runs **once at boot** — doing it
-per render meant ~18 popularity lookups on every week switch, and the answer cannot change between
-renders anyway. Measured share always beats modeled for any week that has a file.
+**It self-corrects — through a committed fit, since 2026-10-03.** `calibrate()` reads
+`data/popularity/fit-<year>.json` first, written by `python scripts/fit_pick_share.py <year>`
+(**run it after every `parse_pool_picks.py`**). The in-browser fit it falls back to pairs each
+popularity file with the *current* odds snapshot, and the snapshot drops a game once it is played
+— so for every past week it found no prices and the whole season silently ran on k=2.0. The
+script prices each game from its last pre-kickoff history snapshot, with the same objective as
+`fitK()`. **Measured 2026 Weeks 1–3: k = 2.75 over 44 games** — on a 74% favorite the pool is 95%
+chalk, not the 89% k=2 predicts. It runs **once at boot**; measured share always beats modeled
+for any week that has a file.
 
 **Prior-season data is shown but never joined.** `priorProfile()` reports last season's real
 entrant count and concentration spread as context for a first-week entrant ("how many people am I
