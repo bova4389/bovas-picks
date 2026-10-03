@@ -1668,5 +1668,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-10-03T08:14:03.409408+00:00"
+ },
+ {
+  "id": "f8e7f43f73aa983c5c99c189587f0118",
+  "commenceTime": "2026-10-11T20:25:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Detroit Lions",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.3341,
+  "rawAwayProb": 0.7101,
+  "homeWinProb": 0.3199,
+  "awayWinProb": 0.6801,
+  "vig": 0.0442,
+  "total": 52.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-10-03T13:29:51.020885+00:00"
  }
 ]
