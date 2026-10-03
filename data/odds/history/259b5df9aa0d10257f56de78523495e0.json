@@ -1652,5 +1652,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-10-02T21:20:39.836958+00:00"
+ },
+ {
+  "id": "259b5df9aa0d10257f56de78523495e0",
+  "commenceTime": "2026-10-09T00:15:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Tampa Bay Buccaneers",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.8408,
+  "rawAwayProb": 0.2068,
+  "homeWinProb": 0.8026,
+  "awayWinProb": 0.1974,
+  "vig": 0.0476,
+  "total": 47.0,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-10-03T02:03:45.704388+00:00"
  }
 ]
