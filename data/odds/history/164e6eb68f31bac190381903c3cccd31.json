@@ -1972,5 +1972,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-03T18:00:12.700768+00:00"
+ },
+ {
+  "id": "164e6eb68f31bac190381903c3cccd31",
+  "commenceTime": "2026-10-04T17:00:00Z",
+  "home": "Chicago Bears",
+  "away": "New York Jets",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6539,
+  "rawAwayProb": 0.3865,
+  "homeWinProb": 0.6285,
+  "awayWinProb": 0.3715,
+  "vig": 0.0404,
+  "total": 43.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-03T23:07:54.384890+00:00"
  }
 ]

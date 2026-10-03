@@ -1716,5 +1716,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-10-03T18:00:12.700768+00:00"
+ },
+ {
+  "id": "21b26266f3d78af02eb672e606275d95",
+  "commenceTime": "2026-10-11T13:30:00Z",
+  "home": "Jacksonville Jaguars",
+  "away": "Philadelphia Eagles",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.5918,
+  "rawAwayProb": 0.4512,
+  "homeWinProb": 0.5674,
+  "awayWinProb": 0.4326,
+  "vig": 0.043,
+  "total": 44.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-10-03T23:07:54.384890+00:00"
  }
 ]
