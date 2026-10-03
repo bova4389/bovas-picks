@@ -1684,5 +1684,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-10-03T13:29:51.020885+00:00"
+ },
+ {
+  "id": "2caea57b1e5cfbba1334cfbfd46f6771",
+  "commenceTime": "2026-10-11T17:00:00Z",
+  "home": "Green Bay Packers",
+  "away": "Chicago Bears",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.5745,
+  "rawAwayProb": 0.4688,
+  "homeWinProb": 0.5507,
+  "awayWinProb": 0.4493,
+  "vig": 0.0432,
+  "total": 45.0,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-10-03T18:00:12.700768+00:00"
  }
 ]
