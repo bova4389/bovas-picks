@@ -2004,5 +2004,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-04T02:43:14.007061+00:00"
+ },
+ {
+  "id": "daf55e2df5341c007fee5a0fc5bbc2d4",
+  "commenceTime": "2026-10-04T17:02:51Z",
+  "home": "Houston Texans",
+  "away": "Dallas Cowboys",
+  "bookmakerCount": 6,
+  "rawHomeProb": 0.64,
+  "rawAwayProb": 0.4243,
+  "homeWinProb": 0.6013,
+  "awayWinProb": 0.3987,
+  "vig": 0.0643,
+  "total": 47.25,
+  "totalBookCount": 6,
+  "bucket": 0,
+  "fetchedAt": "2026-10-04T18:09:28.557493+00:00"
  }
 ]

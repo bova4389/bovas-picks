@@ -1812,5 +1812,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-04T02:43:14.007061+00:00"
+ },
+ {
+  "id": "1b4f2e60ce83fa1d63a5dff83769d27c",
+  "commenceTime": "2026-10-04T17:02:38Z",
+  "home": "Philadelphia Eagles",
+  "away": "Los Angeles Rams",
+  "bookmakerCount": 6,
+  "rawHomeProb": 0.6393,
+  "rawAwayProb": 0.4214,
+  "homeWinProb": 0.6027,
+  "awayWinProb": 0.3973,
+  "vig": 0.0607,
+  "total": 42.75,
+  "totalBookCount": 6,
+  "bucket": 0,
+  "fetchedAt": "2026-10-04T18:09:28.557493+00:00"
  }
 ]
