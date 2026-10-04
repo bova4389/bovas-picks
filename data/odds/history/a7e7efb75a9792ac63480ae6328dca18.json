@@ -1796,5 +1796,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-03T23:07:54.384890+00:00"
+ },
+ {
+  "id": "a7e7efb75a9792ac63480ae6328dca18",
+  "commenceTime": "2026-10-04T20:25:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Denver Broncos",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.594,
+  "rawAwayProb": 0.4475,
+  "homeWinProb": 0.5703,
+  "awayWinProb": 0.4297,
+  "vig": 0.0416,
+  "total": 48.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-04T02:43:14.007061+00:00"
  }
 ]

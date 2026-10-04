@@ -1828,5 +1828,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-03T23:07:54.384890+00:00"
+ },
+ {
+  "id": "8bd90781e17e6d97df3941063cedae1e",
+  "commenceTime": "2026-10-06T00:15:00Z",
+  "home": "New Orleans Saints",
+  "away": "Atlanta Falcons",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.5622,
+  "rawAwayProb": 0.4825,
+  "homeWinProb": 0.5382,
+  "awayWinProb": 0.4618,
+  "vig": 0.0447,
+  "total": 48.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-04T02:43:14.007061+00:00"
  }
 ]
