@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-04T20:23:00.083Z",
+ "generated": "2026-10-04T23:33:37.729Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
@@ -162,22 +162,32 @@
      "complete": false
     },
     "4": {
-     "entrants": 24,
-     "distinctTeams": 2,
+     "entrants": 26,
+     "distinctTeams": 4,
      "picks": [
       {
        "team": "MIN",
        "count": 17,
-       "pct": 70.8
+       "pct": 65.4
       },
       {
        "team": "BAL",
        "count": 7,
-       "pct": 29.2
+       "pct": 26.9
+      },
+      {
+       "team": "KC",
+       "count": 1,
+       "pct": 3.8
+      },
+      {
+       "team": "SEA",
+       "count": 1,
+       "pct": 3.8
       }
      ],
      "submitted": 26,
-     "revealed": 24,
+     "revealed": 26,
      "expected": 31,
      "complete": false
     }
@@ -234,14 +244,16 @@
      "picks": {
       "1": "CIN",
       "2": "BAL",
-      "3": "DET"
+      "3": "DET",
+      "4": "SEA"
      },
      "problems": [],
      "alive": true,
      "used": [
       "CIN",
       "BAL",
-      "DET"
+      "DET",
+      "SEA"
      ]
     },
     {
@@ -636,14 +648,16 @@
      "picks": {
       "1": "JAC",
       "2": "BAL",
-      "3": "SF"
+      "3": "SF",
+      "4": "KC"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
       "BAL",
-      "SF"
+      "SF",
+      "KC"
      ]
     },
     {
@@ -814,7 +828,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1791145379826,
+   "fetchedAt": 1791156817493,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -941,27 +955,32 @@
      "complete": false
     },
     "4": {
-     "entrants": 13,
-     "distinctTeams": 3,
+     "entrants": 14,
+     "distinctTeams": 4,
      "picks": [
       {
        "team": "MIN",
        "count": 7,
-       "pct": 53.8
+       "pct": 50
       },
       {
        "team": "BAL",
        "count": 5,
-       "pct": 38.5
+       "pct": 35.7
       },
       {
        "team": "IND",
        "count": 1,
-       "pct": 7.7
+       "pct": 7.1
+      },
+      {
+       "team": "SEA",
+       "count": 1,
+       "pct": 7.1
       }
      ],
      "submitted": 14,
-     "revealed": 13,
+     "revealed": 14,
      "expected": 20,
      "complete": false
     }
@@ -1349,21 +1368,23 @@
      "picks": {
       "1": "JAC",
       "2": "LAR",
-      "3": "PHI"
+      "3": "PHI",
+      "4": "SEA"
      },
      "problems": [],
      "alive": true,
      "used": [
       "JAC",
       "LAR",
-      "PHI"
+      "PHI",
+      "SEA"
      ]
     }
    ],
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1791145379955,
+   "fetchedAt": 1791156817607,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1597,6 +1618,14 @@
        "count": 15
       },
       {
+       "team": "SEA",
+       "count": 15
+      },
+      {
+       "team": "KC",
+       "count": 14
+      },
+      {
        "team": "GB",
        "count": 10
       },
@@ -1614,6 +1643,10 @@
       },
       {
        "team": "ARI",
+       "count": 4
+      },
+      {
+       "team": "SF",
        "count": 4
       },
       {
@@ -1638,8 +1671,8 @@
       }
      ],
      "submitted": 143,
-     "revealed": 94,
-     "locked": 49,
+     "revealed": 127,
+     "locked": 16,
      "entrants": 18
     }
    },
@@ -1685,6 +1718,7 @@
        "BUF",
        "MIN",
        "ARI",
+       "SEA",
        "IND"
       ]
      },
@@ -1746,7 +1780,9 @@
        "PIT",
        "DAL",
        "MIN",
+       "KC",
        "LAR",
+       "SEA",
        "IND"
       ]
      },
@@ -1803,6 +1839,9 @@
        "BAL",
        "BUF",
        "MIN",
+       "KC",
+       "SEA",
+       "SF",
        "GB"
       ]
      },
@@ -1865,6 +1904,8 @@
        "BUF",
        "CHI",
        "MIN",
+       "KC",
+       "SEA",
        "GB",
        "IND"
       ]
@@ -1929,6 +1970,7 @@
        "MIN",
        "ARI",
        "LAR",
+       "SF",
        "GB"
       ]
      },
@@ -1990,6 +2032,8 @@
        "BAL",
        "BUF",
        "MIN",
+       "KC",
+       "SEA",
        "GB",
        "IND"
       ]
@@ -2054,6 +2098,8 @@
        "JAC",
        "ARI",
        "PHI",
+       "SEA",
+       "SF",
        "GB"
       ]
      },
@@ -2115,7 +2161,9 @@
        "BUF",
        "CHI",
        "PIT",
-       "MIN"
+       "MIN",
+       "KC",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -2171,7 +2219,9 @@
        "BAL",
        "BUF",
        "DAL",
+       "KC",
        "PHI",
+       "SEA",
        "GB",
        "IND"
       ]
@@ -2219,6 +2269,8 @@
        "CHI",
        "MIN",
        "ARI",
+       "KC",
+       "SEA",
        "GB"
       ]
      },
@@ -2281,7 +2333,8 @@
        "BUF",
        "JAC",
        "PIT",
-       "MIN"
+       "MIN",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -2332,7 +2385,9 @@
        "BAL",
        "BUF",
        "CHI",
-       "MIN"
+       "MIN",
+       "KC",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -2389,7 +2444,9 @@
        "BUF",
        "CHI",
        "MIN",
-       "NYG"
+       "NYG",
+       "SEA",
+       "SF"
       ]
      },
      "tiebreakers": {
@@ -2446,6 +2503,8 @@
        "BUF",
        "CHI",
        "MIN",
+       "KC",
+       "SEA",
        "GB"
       ]
      },
@@ -2509,6 +2568,7 @@
        "PIT",
        "MIN",
        "NYG",
+       "KC",
        "IND"
       ]
      },
@@ -2571,6 +2631,8 @@
        "BUF",
        "PIT",
        "MIN",
+       "KC",
+       "SEA",
        "GB"
       ]
      },
@@ -2633,7 +2695,9 @@
        "BUF",
        "CHI",
        "MIN",
-       "LAR"
+       "KC",
+       "LAR",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -2689,6 +2753,8 @@
        "BAL",
        "BUF",
        "MIN",
+       "KC",
+       "SEA",
        "GB"
       ]
      },
@@ -2714,7 +2780,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1791145380080,
+   "fetchedAt": 1791156817728,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
