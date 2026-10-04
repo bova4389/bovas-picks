@@ -1,6 +1,6 @@
 {
  "year": 2026,
- "currentWeek": 3,
+ "currentWeek": 4,
  "weeks": {
   "1": {
    "entrants": 247,
@@ -224,6 +224,42 @@
      "pct": 1.0
     }
    ]
+  },
+  "4": {
+   "entrants": 81,
+   "distinctTeams": 6,
+   "picks": [
+    {
+     "team": "MIN",
+     "count": 38,
+     "pct": 46.9
+    },
+    {
+     "team": "BAL",
+     "count": 37,
+     "pct": 45.7
+    },
+    {
+     "team": "BUF",
+     "count": 3,
+     "pct": 3.7
+    },
+    {
+     "team": "KC",
+     "count": 1,
+     "pct": 1.2
+    },
+    {
+     "team": "SEA",
+     "count": 1,
+     "pct": 1.2
+    },
+    {
+     "team": "WAS",
+     "count": 1,
+     "pct": 1.2
+    }
+   ]
   }
  },
  "entries": [
@@ -262,13 +298,15 @@
    "picks": {
     "1": "CHI",
     "2": "SF",
-    "3": "BUF"
+    "3": "BUF",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "BUF",
     "CHI",
+    "MIN",
     "SF"
    ]
   },
@@ -297,7 +335,7 @@
     "3": "GB"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "CHI",
     "GB",
@@ -314,7 +352,7 @@
     "3": "SEA"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "CHI",
     "SEA",
@@ -371,14 +409,16 @@
    "picks": {
     "1": "CIN",
     "2": "KC",
-    "3": "BUF"
+    "3": "BUF",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "BUF",
     "CIN",
-    "KC"
+    "KC",
+    "MIN"
    ]
   },
   {
@@ -487,13 +527,15 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "BUF"
+    "3": "BUF",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "BUF",
     "DET",
+    "MIN",
     "SF"
    ]
   },
@@ -519,11 +561,13 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "NYG"
+    "3": "NYG",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DET",
     "NYG",
     "SF"
@@ -536,11 +580,13 @@
    "picks": {
     "1": "DET",
     "2": "PHI",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DET",
     "KC",
     "PHI"
@@ -553,13 +599,15 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -585,11 +633,13 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "BUF"
+    "3": "BUF",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "BUF",
     "DET",
     "SF"
@@ -602,11 +652,13 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DET",
     "KC",
     "SF"
@@ -634,11 +686,13 @@
    "picks": {
     "1": "DET",
     "2": "PHI",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DET",
     "KC",
     "PHI"
@@ -651,11 +705,13 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DET",
     "KC",
     "SF"
@@ -668,11 +724,13 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DET",
     "KC",
     "SF"
@@ -685,11 +743,13 @@
    "picks": {
     "1": "DET",
     "2": "PHI",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DET",
     "KC",
     "PHI"
@@ -702,11 +762,13 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DET",
     "KC",
     "SF"
@@ -719,11 +781,13 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DET",
     "KC",
     "SF"
@@ -751,13 +815,15 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -786,7 +852,7 @@
     "3": "CAR"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "CAR",
     "DET",
@@ -803,7 +869,7 @@
     "3": "CAR"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "CAR",
     "DET",
@@ -817,11 +883,13 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BUF"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BUF",
     "DET",
     "KC",
     "SF"
@@ -834,11 +902,13 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "BUF"
+    "3": "BUF",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "BUF",
     "DET",
     "SF"
@@ -851,13 +921,15 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "BAL"
+    "3": "BAL",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "BAL",
     "DET",
+    "MIN",
     "SF"
    ]
   },
@@ -868,13 +940,15 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "BUF"
+    "3": "BUF",
+    "4": "KC"
    },
    "problems": [],
    "alive": true,
    "used": [
     "BUF",
     "DET",
+    "KC",
     "SF"
    ]
   },
@@ -885,13 +959,15 @@
    "picks": {
     "1": "DET",
     "2": "BUF",
-    "3": "SF"
+    "3": "SF",
+    "4": "SEA"
    },
    "problems": [],
    "alive": true,
    "used": [
     "BUF",
     "DET",
+    "SEA",
     "SF"
    ]
   },
@@ -902,13 +978,15 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -949,13 +1027,15 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -969,7 +1049,7 @@
     "3": "PHI"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "DET",
     "PHI",
@@ -1011,11 +1091,13 @@
    "picks": {
     "1": "JAC",
     "2": "BUF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "BUF",
     "JAC",
     "KC"
@@ -1028,13 +1110,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "DET"
+    "3": "DET",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
     "JAC",
+    "MIN",
     "SF"
    ]
   },
@@ -1075,13 +1159,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "JAC",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -1092,11 +1178,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1127,7 +1215,7 @@
     "3": "GB"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "GB",
     "JAC",
@@ -1141,11 +1229,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1158,13 +1248,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "JAC",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -1175,11 +1267,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1192,13 +1286,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "DET"
+    "3": "DET",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
     "JAC",
+    "MIN",
     "SF"
    ]
   },
@@ -1224,11 +1320,13 @@
    "picks": {
     "1": "JAC",
     "2": "SEA",
-    "3": "SF"
+    "3": "SF",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "SEA",
     "SF"
@@ -1316,13 +1414,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "DET"
+    "3": "DET",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
     "JAC",
+    "MIN",
     "SF"
    ]
   },
@@ -1381,7 +1481,7 @@
     "3": "SEA"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "JAC",
     "SEA",
@@ -1395,11 +1495,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1412,11 +1514,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1429,11 +1533,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1449,7 +1555,7 @@
     "3": "SEA"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "JAC",
     "SEA",
@@ -1463,13 +1569,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "JAC",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -1540,11 +1648,13 @@
    "picks": {
     "1": "JAC",
     "2": "PHI",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "PHI"
@@ -1575,7 +1685,7 @@
     "3": "GB"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "GB",
     "JAC",
@@ -1604,14 +1714,16 @@
    "picks": {
     "1": "JAC",
     "2": "GB",
-    "3": "DET"
+    "3": "DET",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
     "GB",
-    "JAC"
+    "JAC",
+    "MIN"
    ]
   },
   {
@@ -1621,11 +1733,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "DET"
+    "3": "DET",
+    "4": "BUF"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BUF",
     "DET",
     "JAC",
     "SF"
@@ -1638,11 +1752,13 @@
    "picks": {
     "1": "JAC",
     "2": "PHI",
-    "3": "SF"
+    "3": "SF",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "PHI",
     "SF"
@@ -1685,13 +1801,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "DET"
+    "3": "DET",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
     "JAC",
+    "MIN",
     "SF"
    ]
   },
@@ -1702,13 +1820,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "JAC",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -1734,13 +1854,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "JAC",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -1751,11 +1873,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1798,11 +1922,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1818,7 +1944,7 @@
     "3": "SEA"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "JAC",
     "SEA",
@@ -1832,11 +1958,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1864,13 +1992,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "JAC",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -1896,11 +2026,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1913,13 +2045,15 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "JAC",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -1930,11 +2064,13 @@
    "picks": {
     "1": "JAC",
     "2": "PHI",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "PHI"
@@ -1947,11 +2083,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1964,11 +2102,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -1996,11 +2136,13 @@
    "picks": {
     "1": "KC",
     "2": "DAL",
-    "3": "DET"
+    "3": "DET",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DAL",
     "DET",
     "KC"
@@ -2093,13 +2235,15 @@
    "picks": {
     "1": "DET",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
     "KC",
+    "MIN",
     "SF"
    ]
   },
@@ -2136,11 +2280,13 @@
    "picks": {
     "1": "JAC",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "JAC",
     "KC",
     "SF"
@@ -3080,13 +3226,15 @@
    "picks": {
     "1": "LV",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
     "LV",
+    "MIN",
     "SF"
    ]
   },
@@ -3097,13 +3245,15 @@
    "picks": {
     "1": "LV",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
     "LV",
+    "MIN",
     "SF"
    ]
   },
@@ -3204,13 +3354,15 @@
    "picks": {
     "1": "LV",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
     "LV",
+    "MIN",
     "SF"
    ]
   },
@@ -3249,12 +3401,14 @@
    "picks": {
     "1": "NYJ",
     "2": "SF",
-    "3": "DET"
+    "3": "DET",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
+    "MIN",
     "NYJ",
     "SF"
    ]
@@ -3284,7 +3438,7 @@
     "3": "SEA"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "PHI",
     "SEA",
@@ -3313,12 +3467,14 @@
    "picks": {
     "1": "PHI",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
+    "MIN",
     "PHI",
     "SF"
    ]
@@ -3348,7 +3504,7 @@
     "3": "SEA"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "PHI",
     "SEA",
@@ -3365,7 +3521,7 @@
     "3": "CAR"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "CAR",
     "PHI",
@@ -3382,7 +3538,7 @@
     "3": "SEA"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "BUF",
     "PIT",
@@ -3396,11 +3552,13 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "DET"
+    "3": "DET",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "DET",
     "PIT",
     "SF"
@@ -3413,11 +3571,13 @@
    "picks": {
     "1": "PIT",
     "2": "PHI",
-    "3": "SF"
+    "3": "SF",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "MIN",
     "PHI",
     "PIT",
     "SF"
@@ -3430,11 +3590,13 @@
    "picks": {
     "1": "PIT",
     "2": "PHI",
-    "3": "SF"
+    "3": "SF",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "MIN",
     "PHI",
     "PIT",
     "SF"
@@ -3477,11 +3639,13 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "KC",
     "PIT",
     "SF"
@@ -3497,7 +3661,7 @@
     "3": "PHI"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "PHI",
     "PIT",
@@ -3511,11 +3675,13 @@
    "picks": {
     "1": "PIT",
     "2": "PHI",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "KC",
     "PHI",
     "PIT"
@@ -3531,7 +3697,7 @@
     "3": "CAR"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "CAR",
     "PIT",
@@ -3545,11 +3711,13 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "KC",
     "PIT",
     "SF"
@@ -3562,12 +3730,14 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
+    "MIN",
     "PIT",
     "SF"
    ]
@@ -3579,12 +3749,14 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
+    "MIN",
     "PIT",
     "SF"
    ]
@@ -3596,11 +3768,13 @@
    "picks": {
     "1": "PIT",
     "2": "PHI",
-    "3": "KC"
+    "3": "KC",
+    "4": "BUF"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BUF",
     "KC",
     "PHI",
     "PIT"
@@ -3613,12 +3787,14 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
+    "MIN",
     "PIT",
     "SF"
    ]
@@ -3630,14 +3806,16 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "WAS"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
     "PIT",
-    "SF"
+    "SF",
+    "WAS"
    ]
   },
   {
@@ -3647,12 +3825,14 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
+    "MIN",
     "PIT",
     "SF"
    ]
@@ -3664,12 +3844,14 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "DET"
+    "3": "DET",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
+    "MIN",
     "PIT",
     "SF"
    ]
@@ -3681,12 +3863,14 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
+    "MIN",
     "PIT",
     "SF"
    ]
@@ -3698,12 +3882,14 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
+    "MIN",
     "PIT",
     "SF"
    ]
@@ -3715,11 +3901,13 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "BUF"
+    "3": "BUF",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "BUF",
     "PIT",
     "SF"
@@ -3732,12 +3920,14 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "DET"
+    "3": "DET",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "DET",
+    "MIN",
     "PIT",
     "SF"
    ]
@@ -3749,11 +3939,13 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "BUF"
+    "3": "BUF",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "BUF",
     "PIT",
     "SF"
@@ -3766,12 +3958,14 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
+    "MIN",
     "PIT",
     "SF"
    ]
@@ -3798,11 +3992,13 @@
    "picks": {
     "1": "PIT",
     "2": "SF",
-    "3": "KC"
+    "3": "KC",
+    "4": "BAL"
    },
    "problems": [],
    "alive": true,
    "used": [
+    "BAL",
     "KC",
     "PIT",
     "SF"
@@ -3843,12 +4039,14 @@
    "picks": {
     "1": "PIT",
     "2": "PHI",
-    "3": "KC"
+    "3": "KC",
+    "4": "MIN"
    },
    "problems": [],
    "alive": true,
    "used": [
     "KC",
+    "MIN",
     "PHI",
     "PIT"
    ]
@@ -3878,7 +4076,7 @@
     "3": "PHI"
    },
    "problems": [],
-   "alive": true,
+   "alive": false,
    "used": [
     "BUF",
     "PHI",
