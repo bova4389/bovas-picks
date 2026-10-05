@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-04T23:33:37.729Z",
+ "generated": "2026-10-05T02:20:22.876Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
@@ -828,7 +828,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1791156817493,
+   "fetchedAt": 1791166822413,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1384,7 +1384,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1791156817607,
+   "fetchedAt": 1791166822647,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1626,6 +1626,10 @@
        "count": 14
       },
       {
+       "team": "DET",
+       "count": 13
+      },
+      {
        "team": "GB",
        "count": 10
       },
@@ -1671,8 +1675,8 @@
       }
      ],
      "submitted": 143,
-     "revealed": 127,
-     "locked": 16,
+     "revealed": 140,
+     "locked": 3,
      "entrants": 18
     }
    },
@@ -1716,6 +1720,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "MIN",
        "ARI",
        "SEA",
@@ -1838,6 +1843,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "MIN",
        "KC",
        "SEA",
@@ -1966,6 +1972,7 @@
       ],
       "4": [
        "BAL",
+       "DET",
        "CHI",
        "MIN",
        "ARI",
@@ -2031,6 +2038,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "MIN",
        "KC",
        "SEA",
@@ -2159,6 +2167,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "CHI",
        "PIT",
        "MIN",
@@ -2331,6 +2340,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "JAC",
        "PIT",
        "MIN",
@@ -2384,6 +2394,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "CHI",
        "MIN",
        "KC",
@@ -2442,6 +2453,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "CHI",
        "MIN",
        "NYG",
@@ -2501,6 +2513,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "CHI",
        "MIN",
        "KC",
@@ -2564,6 +2577,7 @@
       ],
       "4": [
        "BAL",
+       "DET",
        "CHI",
        "PIT",
        "MIN",
@@ -2629,6 +2643,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "PIT",
        "MIN",
        "KC",
@@ -2693,6 +2708,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "CHI",
        "MIN",
        "KC",
@@ -2752,6 +2768,7 @@
       "4": [
        "BAL",
        "BUF",
+       "DET",
        "MIN",
        "KC",
        "SEA",
@@ -2780,7 +2797,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1791156817728,
+   "fetchedAt": 1791166822874,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
