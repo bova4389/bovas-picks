@@ -1020,11 +1020,36 @@
    "tied": []
   },
   "4": {
-   "won": 0,
-   "lost": 0,
+   "won": 77,
+   "lost": 4,
    "tie": 0,
-   "pending": 81,
-   "losers": [],
+   "pending": 0,
+   "losers": [
+    {
+     "entry": 173,
+     "nick": "Matt Kohn",
+     "name": "Matt Kohn",
+     "team": "BUF"
+    },
+    {
+     "entry": 140,
+     "nick": "Shark",
+     "name": "Billy Ignace",
+     "team": "BUF"
+    },
+    {
+     "entry": 89,
+     "nick": "Tess Tickles",
+     "name": null,
+     "team": "BUF"
+    },
+    {
+     "entry": 106,
+     "nick": "Jerry Thigpen",
+     "name": "Jerry Thigpen",
+     "team": "WAS"
+    }
+   ],
    "tied": []
   }
  }

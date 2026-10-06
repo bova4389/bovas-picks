@@ -9,229 +9,53 @@
   "carryover": 0.4,
   "seed": "2025 final ratings (272 games), regressed 0.40"
  },
- "trainedOnThisSeason": 48,
- "ratingSpread": 10.54,
- "maxWinProb": 0.8291,
+ "trainedOnThisSeason": 64,
+ "ratingSpread": 10.46,
+ "maxWinProb": 0.8304,
  "ratings": {
-  "ARI": -2.38,
-  "ATL": -1.91,
-  "BAL": 1.62,
-  "BUF": 3.04,
-  "CAR": -0.34,
-  "CHI": 3.18,
-  "CIN": 0.65,
-  "CLE": -2.45,
-  "DAL": -0.69,
-  "DEN": 0.79,
-  "DET": 0.39,
-  "GB": -2.69,
-  "HOU": -0.12,
-  "IND": -0.76,
-  "JAC": 5.64,
-  "KC": 2.83,
-  "LAC": -2.57,
-  "LAR": 2.51,
-  "LV": -0.1,
-  "MIA": -4.9,
-  "MIN": 2.85,
-  "NE": 1.58,
-  "NO": -0.91,
-  "NYG": -1.83,
-  "NYJ": -2.99,
-  "PHI": -0.54,
-  "PIT": -0.55,
-  "SEA": 4.97,
-  "SF": 4.57,
-  "TB": -2.15,
-  "TEN": -4.59,
-  "WAS": -2.16
+  "ARI": -3.03,
+  "ATL": -0.01,
+  "BAL": 1.46,
+  "BUF": 2.51,
+  "CAR": 0.08,
+  "CHI": 3.39,
+  "CIN": 0.39,
+  "CLE": -2.25,
+  "DAL": -0.1,
+  "DEN": 0.46,
+  "DET": -0.03,
+  "GB": -2.2,
+  "HOU": -0.72,
+  "IND": 0.61,
+  "JAC": 5.88,
+  "KC": 3.05,
+  "LAC": -2.45,
+  "LAR": 2.82,
+  "LV": -0.34,
+  "MIA": -4.58,
+  "MIN": 2.56,
+  "NE": 2.08,
+  "NO": -2.8,
+  "NYG": -1.13,
+  "NYJ": -3.2,
+  "PHI": -0.85,
+  "PIT": -0.68,
+  "SEA": 4.77,
+  "SF": 4.92,
+  "TB": -2.6,
+  "TEN": -4.43,
+  "WAS": -3.54
  },
  "games": [
-  {
-   "id": "401872964",
-   "week": 4,
-   "date": "2026-10-02T00:15Z",
-   "home": "CLE",
-   "away": "PIT",
-   "projMargin": 0.71,
-   "homeWinProb": 0.5209,
-   "awayWinProb": 0.4791,
-   "source": "projected"
-  },
-  {
-   "id": "401872965",
-   "week": 4,
-   "date": "2026-10-04T13:30Z",
-   "home": "WAS",
-   "away": "IND",
-   "projMargin": 1.2,
-   "homeWinProb": 0.5355,
-   "awayWinProb": 0.4645,
-   "source": "projected"
-  },
-  {
-   "id": "401872971",
-   "week": 4,
-   "date": "2026-10-04T17:00Z",
-   "home": "BUF",
-   "away": "NE",
-   "projMargin": 4.07,
-   "homeWinProb": 0.6184,
-   "awayWinProb": 0.3816,
-   "source": "projected"
-  },
-  {
-   "id": "401872972",
-   "week": 4,
-   "date": "2026-10-04T17:00Z",
-   "home": "CHI",
-   "away": "NYJ",
-   "projMargin": 8.77,
-   "homeWinProb": 0.742,
-   "awayWinProb": 0.258,
-   "source": "projected"
-  },
-  {
-   "id": "401872969",
-   "week": 4,
-   "date": "2026-10-04T17:00Z",
-   "home": "CIN",
-   "away": "JAC",
-   "projMargin": -2.39,
-   "homeWinProb": 0.4296,
-   "awayWinProb": 0.5704,
-   "source": "projected"
-  },
-  {
-   "id": "401872966",
-   "week": 4,
-   "date": "2026-10-04T17:00Z",
-   "home": "NYG",
-   "away": "ARI",
-   "projMargin": 3.15,
-   "homeWinProb": 0.5922,
-   "awayWinProb": 0.4078,
-   "source": "projected"
-  },
-  {
-   "id": "401872970",
-   "week": 4,
-   "date": "2026-10-04T17:00Z",
-   "home": "PHI",
-   "away": "LAR",
-   "projMargin": -0.45,
-   "homeWinProb": 0.4867,
-   "awayWinProb": 0.5133,
-   "source": "projected"
-  },
-  {
-   "id": "401872968",
-   "week": 4,
-   "date": "2026-10-04T17:00Z",
-   "home": "TB",
-   "away": "GB",
-   "projMargin": 3.13,
-   "homeWinProb": 0.5918,
-   "awayWinProb": 0.4082,
-   "source": "projected"
-  },
-  {
-   "id": "401872973",
-   "week": 4,
-   "date": "2026-10-04T17:00Z",
-   "home": "BAL",
-   "away": "TEN",
-   "projMargin": 8.81,
-   "homeWinProb": 0.743,
-   "awayWinProb": 0.257,
-   "source": "projected"
-  },
-  {
-   "id": "401872967",
-   "week": 4,
-   "date": "2026-10-04T17:00Z",
-   "home": "HOU",
-   "away": "DAL",
-   "projMargin": 3.17,
-   "homeWinProb": 0.5927,
-   "awayWinProb": 0.4073,
-   "source": "projected"
-  },
-  {
-   "id": "401872974",
-   "week": 4,
-   "date": "2026-10-04T20:05Z",
-   "home": "MIN",
-   "away": "MIA",
-   "projMargin": 10.34,
-   "homeWinProb": 0.7782,
-   "awayWinProb": 0.2218,
-   "source": "projected"
-  },
-  {
-   "id": "401872976",
-   "week": 4,
-   "date": "2026-10-04T20:25Z",
-   "home": "LV",
-   "away": "KC",
-   "projMargin": -0.34,
-   "homeWinProb": 0.49,
-   "awayWinProb": 0.51,
-   "source": "projected"
-  },
-  {
-   "id": "401872975",
-   "week": 4,
-   "date": "2026-10-04T20:25Z",
-   "home": "SF",
-   "away": "DEN",
-   "projMargin": 6.38,
-   "homeWinProb": 0.6817,
-   "awayWinProb": 0.3183,
-   "source": "projected"
-  },
-  {
-   "id": "401872977",
-   "week": 4,
-   "date": "2026-10-04T20:25Z",
-   "home": "SEA",
-   "away": "LAC",
-   "projMargin": 10.14,
-   "homeWinProb": 0.7737,
-   "awayWinProb": 0.2263,
-   "source": "projected"
-  },
-  {
-   "id": "401872978",
-   "week": 4,
-   "date": "2026-10-05T00:20Z",
-   "home": "CAR",
-   "away": "DET",
-   "projMargin": 1.86,
-   "homeWinProb": 0.5548,
-   "awayWinProb": 0.4452,
-   "source": "projected"
-  },
-  {
-   "id": "401872979",
-   "week": 4,
-   "date": "2026-10-06T00:15Z",
-   "home": "NO",
-   "away": "ATL",
-   "projMargin": 3.6,
-   "homeWinProb": 0.6052,
-   "awayWinProb": 0.3948,
-   "source": "projected"
-  },
   {
    "id": "401872980",
    "week": 5,
    "date": "2026-10-09T00:15Z",
    "home": "DAL",
    "away": "TB",
-   "projMargin": 4.06,
-   "homeWinProb": 0.6183,
-   "awayWinProb": 0.3817,
+   "projMargin": 5.1,
+   "homeWinProb": 0.6473,
+   "awayWinProb": 0.3527,
    "source": "projected"
   },
   {
@@ -240,9 +64,9 @@
    "date": "2026-10-11T13:30Z",
    "home": "JAC",
    "away": "PHI",
-   "projMargin": 8.78,
-   "homeWinProb": 0.7423,
-   "awayWinProb": 0.2577,
+   "projMargin": 9.33,
+   "homeWinProb": 0.7553,
+   "awayWinProb": 0.2447,
    "source": "projected"
   },
   {
@@ -251,9 +75,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "GB",
    "away": "CHI",
-   "projMargin": -3.27,
-   "homeWinProb": 0.4043,
-   "awayWinProb": 0.5957,
+   "projMargin": -2.99,
+   "homeWinProb": 0.4122,
+   "awayWinProb": 0.5878,
    "source": "projected"
   },
   {
@@ -262,9 +86,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "TEN",
    "away": "HOU",
-   "projMargin": -1.87,
-   "homeWinProb": 0.445,
-   "awayWinProb": 0.555,
+   "projMargin": -1.11,
+   "homeWinProb": 0.4673,
+   "awayWinProb": 0.5327,
    "source": "projected"
   },
   {
@@ -273,9 +97,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "MIA",
    "away": "CIN",
-   "projMargin": -2.95,
-   "homeWinProb": 0.4136,
-   "awayWinProb": 0.5864,
+   "projMargin": -2.37,
+   "homeWinProb": 0.4303,
+   "awayWinProb": 0.5697,
    "source": "projected"
   },
   {
@@ -284,9 +108,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "NE",
    "away": "LV",
-   "projMargin": 4.28,
-   "homeWinProb": 0.6245,
-   "awayWinProb": 0.3755,
+   "projMargin": 5.02,
+   "homeWinProb": 0.6451,
+   "awayWinProb": 0.3549,
    "source": "projected"
   },
   {
@@ -295,9 +119,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "NO",
    "away": "MIN",
-   "projMargin": -1.15,
-   "homeWinProb": 0.4659,
-   "awayWinProb": 0.5341,
+   "projMargin": -2.76,
+   "homeWinProb": 0.419,
+   "awayWinProb": 0.581,
    "source": "projected"
   },
   {
@@ -306,9 +130,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "NYJ",
    "away": "CLE",
-   "projMargin": 2.06,
-   "homeWinProb": 0.5607,
-   "awayWinProb": 0.4393,
+   "projMargin": 1.66,
+   "homeWinProb": 0.5488,
+   "awayWinProb": 0.4512,
    "source": "projected"
   },
   {
@@ -317,9 +141,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "PIT",
    "away": "IND",
-   "projMargin": 2.81,
-   "homeWinProb": 0.5824,
-   "awayWinProb": 0.4176,
+   "projMargin": 1.31,
+   "homeWinProb": 0.5387,
+   "awayWinProb": 0.4613,
    "source": "projected"
   },
   {
@@ -328,9 +152,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "WAS",
    "away": "NYG",
-   "projMargin": 2.27,
-   "homeWinProb": 0.5668,
-   "awayWinProb": 0.4332,
+   "projMargin": 0.18,
+   "homeWinProb": 0.5055,
+   "awayWinProb": 0.4945,
    "source": "projected"
   },
   {
@@ -339,9 +163,9 @@
    "date": "2026-10-11T20:05Z",
    "home": "LAC",
    "away": "DEN",
-   "projMargin": -0.76,
-   "homeWinProb": 0.4776,
-   "awayWinProb": 0.5224,
+   "projMargin": -0.31,
+   "homeWinProb": 0.4909,
+   "awayWinProb": 0.5091,
    "source": "projected"
   },
   {
@@ -350,9 +174,9 @@
    "date": "2026-10-11T20:25Z",
    "home": "ARI",
    "away": "DET",
-   "projMargin": -0.17,
-   "homeWinProb": 0.4949,
-   "awayWinProb": 0.5051,
+   "projMargin": -0.4,
+   "homeWinProb": 0.4882,
+   "awayWinProb": 0.5118,
    "source": "projected"
   },
   {
@@ -361,9 +185,9 @@
    "date": "2026-10-11T20:25Z",
    "home": "SEA",
    "away": "SF",
-   "projMargin": 3.0,
-   "homeWinProb": 0.5881,
-   "awayWinProb": 0.4119,
+   "projMargin": 2.45,
+   "homeWinProb": 0.5719,
+   "awayWinProb": 0.4281,
    "source": "projected"
   },
   {
@@ -372,9 +196,9 @@
    "date": "2026-10-12T00:20Z",
    "home": "ATL",
    "away": "BAL",
-   "projMargin": -0.93,
-   "homeWinProb": 0.4726,
-   "awayWinProb": 0.5274,
+   "projMargin": 1.13,
+   "homeWinProb": 0.5333,
+   "awayWinProb": 0.4667,
    "source": "projected"
   },
   {
@@ -383,9 +207,9 @@
    "date": "2026-10-13T00:15Z",
    "home": "LAR",
    "away": "BUF",
-   "projMargin": 2.07,
-   "homeWinProb": 0.5609,
-   "awayWinProb": 0.4391,
+   "projMargin": 2.91,
+   "homeWinProb": 0.5854,
+   "awayWinProb": 0.4146,
    "source": "projected"
   },
   {
@@ -394,9 +218,9 @@
    "date": "2026-10-16T00:15Z",
    "home": "DEN",
    "away": "SEA",
-   "projMargin": -1.58,
-   "homeWinProb": 0.4534,
-   "awayWinProb": 0.5466,
+   "projMargin": -1.71,
+   "homeWinProb": 0.4496,
+   "awayWinProb": 0.5504,
    "source": "projected"
   },
   {
@@ -405,9 +229,9 @@
    "date": "2026-10-18T13:30Z",
    "home": "JAC",
    "away": "HOU",
-   "projMargin": 8.37,
-   "homeWinProb": 0.7323,
-   "awayWinProb": 0.2677,
+   "projMargin": 9.2,
+   "homeWinProb": 0.7522,
+   "awayWinProb": 0.2478,
    "source": "projected"
   },
   {
@@ -416,9 +240,9 @@
    "date": "2026-10-18T17:00Z",
    "home": "ATL",
    "away": "CHI",
-   "projMargin": -2.49,
-   "homeWinProb": 0.4268,
-   "awayWinProb": 0.5732,
+   "projMargin": -0.8,
+   "homeWinProb": 0.4763,
+   "awayWinProb": 0.5237,
    "source": "projected"
   },
   {
@@ -427,9 +251,9 @@
    "date": "2026-10-18T17:00Z",
    "home": "CLE",
    "away": "BAL",
-   "projMargin": -1.47,
-   "homeWinProb": 0.4567,
-   "awayWinProb": 0.5433,
+   "projMargin": -1.11,
+   "homeWinProb": 0.4671,
+   "awayWinProb": 0.5329,
    "source": "projected"
   },
   {
@@ -438,9 +262,9 @@
    "date": "2026-10-18T17:00Z",
    "home": "IND",
    "away": "TEN",
-   "projMargin": 6.43,
-   "homeWinProb": 0.683,
-   "awayWinProb": 0.317,
+   "projMargin": 7.64,
+   "homeWinProb": 0.7142,
+   "awayWinProb": 0.2858,
    "source": "projected"
   },
   {
@@ -449,9 +273,9 @@
    "date": "2026-10-18T17:00Z",
    "home": "NE",
    "away": "NYJ",
-   "projMargin": 7.16,
-   "homeWinProb": 0.7022,
-   "awayWinProb": 0.2978,
+   "projMargin": 7.88,
+   "homeWinProb": 0.7203,
+   "awayWinProb": 0.2797,
    "source": "projected"
   },
   {
@@ -460,9 +284,9 @@
    "date": "2026-10-18T17:00Z",
    "home": "NYG",
    "away": "NO",
-   "projMargin": 1.68,
-   "homeWinProb": 0.5494,
-   "awayWinProb": 0.4506,
+   "projMargin": 4.28,
+   "homeWinProb": 0.6243,
+   "awayWinProb": 0.3757,
    "source": "projected"
   },
   {
@@ -471,9 +295,9 @@
    "date": "2026-10-18T17:00Z",
    "home": "PHI",
    "away": "CAR",
-   "projMargin": 2.41,
-   "homeWinProb": 0.5708,
-   "awayWinProb": 0.4292,
+   "projMargin": 1.67,
+   "homeWinProb": 0.5492,
+   "awayWinProb": 0.4508,
    "source": "projected"
   },
   {
@@ -482,9 +306,9 @@
    "date": "2026-10-18T17:00Z",
    "home": "TB",
    "away": "PIT",
-   "projMargin": 1.0,
-   "homeWinProb": 0.5295,
-   "awayWinProb": 0.4705,
+   "projMargin": 0.68,
+   "homeWinProb": 0.52,
+   "awayWinProb": 0.48,
    "source": "projected"
   },
   {
@@ -493,9 +317,9 @@
    "date": "2026-10-18T20:05Z",
    "home": "LAR",
    "away": "ARI",
-   "projMargin": 7.49,
-   "homeWinProb": 0.7105,
-   "awayWinProb": 0.2895,
+   "projMargin": 8.45,
+   "homeWinProb": 0.7344,
+   "awayWinProb": 0.2656,
    "source": "projected"
   },
   {
@@ -504,9 +328,9 @@
    "date": "2026-10-18T20:25Z",
    "home": "KC",
    "away": "LAC",
-   "projMargin": 8.0,
-   "homeWinProb": 0.7233,
-   "awayWinProb": 0.2767,
+   "projMargin": 8.1,
+   "homeWinProb": 0.7258,
+   "awayWinProb": 0.2742,
    "source": "projected"
   },
   {
@@ -515,9 +339,9 @@
    "date": "2026-10-18T20:25Z",
    "home": "LV",
    "away": "BUF",
-   "projMargin": -0.55,
-   "homeWinProb": 0.4838,
-   "awayWinProb": 0.5162,
+   "projMargin": -0.25,
+   "homeWinProb": 0.4927,
+   "awayWinProb": 0.5073,
    "source": "projected"
   },
   {
@@ -526,9 +350,9 @@
    "date": "2026-10-19T00:20Z",
    "home": "GB",
    "away": "DAL",
-   "projMargin": 0.6,
-   "homeWinProb": 0.5178,
-   "awayWinProb": 0.4822,
+   "projMargin": 0.5,
+   "homeWinProb": 0.5146,
+   "awayWinProb": 0.4854,
    "source": "projected"
   },
   {
@@ -537,9 +361,9 @@
    "date": "2026-10-20T00:15Z",
    "home": "SF",
    "away": "WAS",
-   "projMargin": 9.33,
-   "homeWinProb": 0.7552,
-   "awayWinProb": 0.2448,
+   "projMargin": 11.06,
+   "homeWinProb": 0.7938,
+   "awayWinProb": 0.2062,
    "source": "projected"
   },
   {
@@ -548,9 +372,9 @@
    "date": "2026-10-23T00:15Z",
    "home": "CHI",
    "away": "NE",
-   "projMargin": 4.21,
-   "homeWinProb": 0.6223,
-   "awayWinProb": 0.3777,
+   "projMargin": 3.91,
+   "homeWinProb": 0.6139,
+   "awayWinProb": 0.3861,
    "source": "projected"
   },
   {
@@ -559,9 +383,9 @@
    "date": "2026-10-25T13:30Z",
    "home": "NO",
    "away": "PIT",
-   "projMargin": 2.25,
-   "homeWinProb": 0.5661,
-   "awayWinProb": 0.4339,
+   "projMargin": 0.48,
+   "homeWinProb": 0.5141,
+   "awayWinProb": 0.4859,
    "source": "projected"
   },
   {
@@ -570,9 +394,9 @@
    "date": "2026-10-25T17:00Z",
    "home": "ATL",
    "away": "SF",
-   "projMargin": -3.88,
-   "homeWinProb": 0.387,
-   "awayWinProb": 0.613,
+   "projMargin": -2.33,
+   "homeWinProb": 0.4314,
+   "awayWinProb": 0.5686,
    "source": "projected"
   },
   {
@@ -581,9 +405,9 @@
    "date": "2026-10-25T17:00Z",
    "home": "TEN",
    "away": "CLE",
-   "projMargin": 0.46,
-   "homeWinProb": 0.5135,
-   "awayWinProb": 0.4865,
+   "projMargin": 0.43,
+   "homeWinProb": 0.5126,
+   "awayWinProb": 0.4874,
    "source": "projected"
   },
   {
@@ -592,9 +416,9 @@
    "date": "2026-10-25T17:00Z",
    "home": "MIN",
    "away": "IND",
-   "projMargin": 6.21,
-   "homeWinProb": 0.6772,
-   "awayWinProb": 0.3228,
+   "projMargin": 4.55,
+   "homeWinProb": 0.6319,
+   "awayWinProb": 0.3681,
    "source": "projected"
   },
   {
@@ -603,9 +427,9 @@
    "date": "2026-10-25T17:00Z",
    "home": "NYJ",
    "away": "MIA",
-   "projMargin": 4.51,
-   "homeWinProb": 0.6308,
-   "awayWinProb": 0.3692,
+   "projMargin": 3.99,
+   "homeWinProb": 0.6162,
+   "awayWinProb": 0.3838,
    "source": "projected"
   },
   {
@@ -614,9 +438,9 @@
    "date": "2026-10-25T17:00Z",
    "home": "CAR",
    "away": "TB",
-   "projMargin": 4.41,
-   "homeWinProb": 0.6281,
-   "awayWinProb": 0.3719,
+   "projMargin": 5.28,
+   "homeWinProb": 0.6521,
+   "awayWinProb": 0.3479,
    "source": "projected"
   },
   {
@@ -625,9 +449,9 @@
    "date": "2026-10-25T17:00Z",
    "home": "BAL",
    "away": "CIN",
-   "projMargin": 3.57,
-   "homeWinProb": 0.6042,
-   "awayWinProb": 0.3958,
+   "projMargin": 3.67,
+   "homeWinProb": 0.6072,
+   "awayWinProb": 0.3928,
    "source": "projected"
   },
   {
@@ -636,9 +460,9 @@
    "date": "2026-10-25T17:00Z",
    "home": "HOU",
    "away": "NYG",
-   "projMargin": 4.31,
-   "homeWinProb": 0.6252,
-   "awayWinProb": 0.3748,
+   "projMargin": 3.01,
+   "homeWinProb": 0.5882,
+   "awayWinProb": 0.4118,
    "source": "projected"
   },
   {
@@ -647,9 +471,9 @@
    "date": "2026-10-25T20:05Z",
    "home": "ARI",
    "away": "DEN",
-   "projMargin": -0.57,
-   "homeWinProb": 0.4832,
-   "awayWinProb": 0.5168,
+   "projMargin": -0.89,
+   "homeWinProb": 0.4737,
+   "awayWinProb": 0.5263,
    "source": "projected"
   },
   {
@@ -658,9 +482,9 @@
    "date": "2026-10-25T20:25Z",
    "home": "DET",
    "away": "GB",
-   "projMargin": 5.68,
-   "homeWinProb": 0.6631,
-   "awayWinProb": 0.3369,
+   "projMargin": 4.77,
+   "homeWinProb": 0.638,
+   "awayWinProb": 0.362,
    "source": "projected"
   },
   {
@@ -669,9 +493,9 @@
    "date": "2026-10-25T20:25Z",
    "home": "LV",
    "away": "LAR",
-   "projMargin": -0.02,
-   "homeWinProb": 0.4995,
-   "awayWinProb": 0.5005,
+   "projMargin": -0.56,
+   "homeWinProb": 0.4835,
+   "awayWinProb": 0.5165,
    "source": "projected"
   },
   {
@@ -680,9 +504,9 @@
    "date": "2026-10-26T00:20Z",
    "home": "SEA",
    "away": "KC",
-   "projMargin": 4.74,
-   "homeWinProb": 0.6372,
-   "awayWinProb": 0.3628,
+   "projMargin": 4.31,
+   "homeWinProb": 0.6254,
+   "awayWinProb": 0.3746,
    "source": "projected"
   },
   {
@@ -691,9 +515,9 @@
    "date": "2026-10-27T00:15Z",
    "home": "PHI",
    "away": "DAL",
-   "projMargin": 2.75,
-   "homeWinProb": 0.5808,
-   "awayWinProb": 0.4192,
+   "projMargin": 1.85,
+   "homeWinProb": 0.5544,
+   "awayWinProb": 0.4456,
    "source": "projected"
   },
   {
@@ -702,9 +526,9 @@
    "date": "2026-10-30T00:15Z",
    "home": "GB",
    "away": "CAR",
-   "projMargin": 0.26,
-   "homeWinProb": 0.5076,
-   "awayWinProb": 0.4924,
+   "projMargin": 0.32,
+   "homeWinProb": 0.5095,
+   "awayWinProb": 0.4905,
    "source": "projected"
   },
   {
@@ -713,9 +537,9 @@
    "date": "2026-11-01T18:00Z",
    "home": "BUF",
    "away": "BAL",
-   "projMargin": 4.03,
-   "homeWinProb": 0.6173,
-   "awayWinProb": 0.3827,
+   "projMargin": 3.65,
+   "homeWinProb": 0.6065,
+   "awayWinProb": 0.3935,
    "source": "projected"
   },
   {
@@ -724,9 +548,9 @@
    "date": "2026-11-01T18:00Z",
    "home": "CIN",
    "away": "TEN",
-   "projMargin": 7.84,
-   "homeWinProb": 0.7193,
-   "awayWinProb": 0.2807,
+   "projMargin": 7.41,
+   "homeWinProb": 0.7086,
+   "awayWinProb": 0.2914,
    "source": "projected"
   },
   {
@@ -735,9 +559,9 @@
    "date": "2026-11-01T18:00Z",
    "home": "DAL",
    "away": "ARI",
-   "projMargin": 4.29,
-   "homeWinProb": 0.6246,
-   "awayWinProb": 0.3754,
+   "projMargin": 5.54,
+   "homeWinProb": 0.6591,
+   "awayWinProb": 0.3409,
    "source": "projected"
   },
   {
@@ -746,9 +570,9 @@
    "date": "2026-11-01T18:00Z",
    "home": "DET",
    "away": "MIN",
-   "projMargin": 0.15,
-   "homeWinProb": 0.5044,
-   "awayWinProb": 0.4956,
+   "projMargin": 0.01,
+   "homeWinProb": 0.5003,
+   "awayWinProb": 0.4997,
    "source": "projected"
   },
   {
@@ -757,9 +581,9 @@
    "date": "2026-11-01T18:00Z",
    "home": "NYJ",
    "away": "LV",
-   "projMargin": -0.28,
-   "homeWinProb": 0.4917,
-   "awayWinProb": 0.5083,
+   "projMargin": -0.26,
+   "homeWinProb": 0.4924,
+   "awayWinProb": 0.5076,
    "source": "projected"
   },
   {
@@ -768,9 +592,9 @@
    "date": "2026-11-01T18:00Z",
    "home": "PIT",
    "away": "CLE",
-   "projMargin": 4.49,
-   "homeWinProb": 0.6304,
-   "awayWinProb": 0.3696,
+   "projMargin": 4.17,
+   "homeWinProb": 0.6214,
+   "awayWinProb": 0.3786,
    "source": "projected"
   },
   {
@@ -779,9 +603,9 @@
    "date": "2026-11-01T18:00Z",
    "home": "TB",
    "away": "ATL",
-   "projMargin": 2.35,
-   "homeWinProb": 0.5692,
-   "awayWinProb": 0.4308,
+   "projMargin": 0.01,
+   "homeWinProb": 0.5003,
+   "awayWinProb": 0.4997,
    "source": "projected"
   },
   {
@@ -790,9 +614,9 @@
    "date": "2026-11-01T18:00Z",
    "home": "JAC",
    "away": "IND",
-   "projMargin": 9.01,
-   "homeWinProb": 0.7477,
-   "awayWinProb": 0.2523,
+   "projMargin": 7.87,
+   "homeWinProb": 0.72,
+   "awayWinProb": 0.28,
    "source": "projected"
   },
   {
@@ -801,9 +625,9 @@
    "date": "2026-11-01T21:05Z",
    "home": "LAR",
    "away": "LAC",
-   "projMargin": 7.68,
-   "homeWinProb": 0.7153,
-   "awayWinProb": 0.2847,
+   "projMargin": 7.87,
+   "homeWinProb": 0.72,
+   "awayWinProb": 0.28,
    "source": "projected"
   },
   {
@@ -812,9 +636,9 @@
    "date": "2026-11-01T21:25Z",
    "home": "DEN",
    "away": "KC",
-   "projMargin": 0.56,
-   "homeWinProb": 0.5165,
-   "awayWinProb": 0.4835,
+   "projMargin": 0.0,
+   "homeWinProb": 0.5001,
+   "awayWinProb": 0.4999,
    "source": "projected"
   },
   {
@@ -823,9 +647,9 @@
    "date": "2026-11-01T21:25Z",
    "home": "MIA",
    "away": "NE",
-   "projMargin": -3.87,
-   "homeWinProb": 0.3871,
-   "awayWinProb": 0.6129,
+   "projMargin": -4.07,
+   "homeWinProb": 0.3816,
+   "awayWinProb": 0.6184,
    "source": "projected"
   },
   {
@@ -834,9 +658,9 @@
    "date": "2026-11-02T01:20Z",
    "home": "WAS",
    "away": "PHI",
-   "projMargin": 0.98,
-   "homeWinProb": 0.5288,
-   "awayWinProb": 0.4712,
+   "projMargin": -0.09,
+   "homeWinProb": 0.4973,
+   "awayWinProb": 0.5027,
    "source": "projected"
   },
   {
@@ -845,9 +669,9 @@
    "date": "2026-11-03T01:15Z",
    "home": "SEA",
    "away": "CHI",
-   "projMargin": 4.39,
-   "homeWinProb": 0.6274,
-   "awayWinProb": 0.3726,
+   "projMargin": 3.98,
+   "homeWinProb": 0.6158,
+   "awayWinProb": 0.3842,
    "source": "projected"
   },
   {
@@ -856,9 +680,9 @@
    "date": "2026-11-06T01:15Z",
    "home": "BAL",
    "away": "JAC",
-   "projMargin": -1.43,
-   "homeWinProb": 0.458,
-   "awayWinProb": 0.542,
+   "projMargin": -1.82,
+   "homeWinProb": 0.4465,
+   "awayWinProb": 0.5535,
    "source": "projected"
   },
   {
@@ -867,9 +691,9 @@
    "date": "2026-11-08T14:30Z",
    "home": "ATL",
    "away": "CIN",
-   "projMargin": 0.04,
-   "homeWinProb": 0.5012,
-   "awayWinProb": 0.4988,
+   "projMargin": 2.2,
+   "homeWinProb": 0.5647,
+   "awayWinProb": 0.4353,
    "source": "projected"
   },
   {
@@ -878,9 +702,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "IND",
    "away": "DAL",
-   "projMargin": 2.53,
-   "homeWinProb": 0.5742,
-   "awayWinProb": 0.4258,
+   "projMargin": 3.31,
+   "homeWinProb": 0.5968,
+   "awayWinProb": 0.4032,
    "source": "projected"
   },
   {
@@ -889,9 +713,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "KC",
    "away": "NYJ",
-   "projMargin": 8.42,
-   "homeWinProb": 0.7336,
-   "awayWinProb": 0.2664,
+   "projMargin": 8.85,
+   "homeWinProb": 0.7439,
+   "awayWinProb": 0.2561,
    "source": "projected"
   },
   {
@@ -900,9 +724,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "MIA",
    "away": "DET",
-   "projMargin": -2.69,
-   "homeWinProb": 0.421,
-   "awayWinProb": 0.579,
+   "projMargin": -1.95,
+   "homeWinProb": 0.4426,
+   "awayWinProb": 0.5574,
    "source": "projected"
   },
   {
@@ -911,9 +735,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "NO",
    "away": "CLE",
-   "projMargin": 4.14,
-   "homeWinProb": 0.6205,
-   "awayWinProb": 0.3795,
+   "projMargin": 2.05,
+   "homeWinProb": 0.5603,
+   "awayWinProb": 0.4397,
    "source": "projected"
   },
   {
@@ -922,9 +746,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "PHI",
    "away": "NYG",
-   "projMargin": 3.89,
-   "homeWinProb": 0.6135,
-   "awayWinProb": 0.3865,
+   "projMargin": 2.88,
+   "homeWinProb": 0.5843,
+   "awayWinProb": 0.4157,
    "source": "projected"
   },
   {
@@ -933,9 +757,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "WAS",
    "away": "LAR",
-   "projMargin": -2.07,
-   "homeWinProb": 0.439,
-   "awayWinProb": 0.561,
+   "projMargin": -3.76,
+   "homeWinProb": 0.3902,
+   "awayWinProb": 0.6098,
    "source": "projected"
   },
   {
@@ -944,9 +768,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "CAR",
    "away": "DEN",
-   "projMargin": 1.47,
-   "homeWinProb": 0.5432,
-   "awayWinProb": 0.4568,
+   "projMargin": 2.22,
+   "homeWinProb": 0.5653,
+   "awayWinProb": 0.4347,
    "source": "projected"
   },
   {
@@ -955,9 +779,9 @@
    "date": "2026-11-08T21:05Z",
    "home": "LAC",
    "away": "HOU",
-   "projMargin": 0.16,
-   "homeWinProb": 0.5046,
-   "awayWinProb": 0.4954,
+   "projMargin": 0.87,
+   "homeWinProb": 0.5257,
+   "awayWinProb": 0.4743,
    "source": "projected"
   },
   {
@@ -966,9 +790,9 @@
    "date": "2026-11-08T21:05Z",
    "home": "SF",
    "away": "LV",
-   "projMargin": 7.27,
-   "homeWinProb": 0.7049,
-   "awayWinProb": 0.2951,
+   "projMargin": 7.86,
+   "homeWinProb": 0.7198,
+   "awayWinProb": 0.2802,
    "source": "projected"
   },
   {
@@ -977,9 +801,9 @@
    "date": "2026-11-08T21:25Z",
    "home": "NE",
    "away": "GB",
-   "projMargin": 6.87,
-   "homeWinProb": 0.6945,
-   "awayWinProb": 0.3055,
+   "projMargin": 6.89,
+   "homeWinProb": 0.695,
+   "awayWinProb": 0.305,
    "source": "projected"
   },
   {
@@ -988,9 +812,9 @@
    "date": "2026-11-08T21:25Z",
    "home": "SEA",
    "away": "ARI",
-   "projMargin": 9.95,
-   "homeWinProb": 0.7694,
-   "awayWinProb": 0.2306,
+   "projMargin": 10.4,
+   "homeWinProb": 0.7795,
+   "awayWinProb": 0.2205,
    "source": "projected"
   },
   {
@@ -999,9 +823,9 @@
    "date": "2026-11-09T01:20Z",
    "home": "CHI",
    "away": "TB",
-   "projMargin": 7.94,
-   "homeWinProb": 0.7217,
-   "awayWinProb": 0.2783,
+   "projMargin": 8.59,
+   "homeWinProb": 0.7378,
+   "awayWinProb": 0.2622,
    "source": "projected"
   },
   {
@@ -1010,9 +834,9 @@
    "date": "2026-11-10T01:15Z",
    "home": "MIN",
    "away": "BUF",
-   "projMargin": 2.4,
-   "homeWinProb": 0.5706,
-   "awayWinProb": 0.4294,
+   "projMargin": 2.65,
+   "homeWinProb": 0.5778,
+   "awayWinProb": 0.4222,
    "source": "projected"
   },
   {
@@ -1021,9 +845,9 @@
    "date": "2026-11-13T01:15Z",
    "home": "NYG",
    "away": "WAS",
-   "projMargin": 2.93,
-   "homeWinProb": 0.5859,
-   "awayWinProb": 0.4141,
+   "projMargin": 5.02,
+   "homeWinProb": 0.6449,
+   "awayWinProb": 0.3551,
    "source": "projected"
   },
   {
@@ -1032,9 +856,9 @@
    "date": "2026-11-15T14:30Z",
    "home": "DET",
    "away": "NE",
-   "projMargin": 1.42,
-   "homeWinProb": 0.5418,
-   "awayWinProb": 0.4582,
+   "projMargin": 0.48,
+   "homeWinProb": 0.5142,
+   "awayWinProb": 0.4858,
    "source": "projected"
   },
   {
@@ -1043,9 +867,9 @@
    "date": "2026-11-15T18:00Z",
    "home": "ATL",
    "away": "KC",
-   "projMargin": -2.14,
-   "homeWinProb": 0.437,
-   "awayWinProb": 0.563,
+   "projMargin": -0.47,
+   "homeWinProb": 0.4862,
+   "awayWinProb": 0.5138,
    "source": "projected"
   },
   {
@@ -1054,9 +878,9 @@
    "date": "2026-11-15T18:00Z",
    "home": "CLE",
    "away": "HOU",
-   "projMargin": 0.27,
-   "homeWinProb": 0.5081,
-   "awayWinProb": 0.4919,
+   "projMargin": 1.07,
+   "homeWinProb": 0.5315,
+   "awayWinProb": 0.4685,
    "source": "projected"
   },
   {
@@ -1065,9 +889,9 @@
    "date": "2026-11-15T18:00Z",
    "home": "GB",
    "away": "MIN",
-   "projMargin": -2.93,
-   "homeWinProb": 0.414,
-   "awayWinProb": 0.586,
+   "projMargin": -2.16,
+   "homeWinProb": 0.4365,
+   "awayWinProb": 0.5635,
    "source": "projected"
   },
   {
@@ -1076,9 +900,9 @@
    "date": "2026-11-15T18:00Z",
    "home": "TEN",
    "away": "JAC",
-   "projMargin": -7.63,
-   "homeWinProb": 0.2859,
-   "awayWinProb": 0.7141,
+   "projMargin": -7.7,
+   "homeWinProb": 0.2841,
+   "awayWinProb": 0.7159,
    "source": "projected"
   },
   {
@@ -1087,9 +911,9 @@
    "date": "2026-11-15T18:00Z",
    "home": "IND",
    "away": "MIA",
-   "projMargin": 6.73,
-   "homeWinProb": 0.691,
-   "awayWinProb": 0.309,
+   "projMargin": 7.79,
+   "homeWinProb": 0.7181,
+   "awayWinProb": 0.2819,
    "source": "projected"
   },
   {
@@ -1098,9 +922,9 @@
    "date": "2026-11-15T18:00Z",
    "home": "NO",
    "away": "CAR",
-   "projMargin": 2.04,
-   "homeWinProb": 0.5599,
-   "awayWinProb": 0.4401,
+   "projMargin": -0.28,
+   "homeWinProb": 0.4917,
+   "awayWinProb": 0.5083,
    "source": "projected"
   },
   {
@@ -1109,9 +933,9 @@
    "date": "2026-11-15T18:00Z",
    "home": "NYJ",
    "away": "BUF",
-   "projMargin": -3.43,
-   "homeWinProb": 0.3997,
-   "awayWinProb": 0.6003,
+   "projMargin": -3.1,
+   "homeWinProb": 0.4091,
+   "awayWinProb": 0.5909,
    "source": "projected"
   },
   {
@@ -1120,9 +944,9 @@
    "date": "2026-11-15T21:05Z",
    "home": "LV",
    "away": "SEA",
-   "projMargin": -2.48,
-   "homeWinProb": 0.4272,
-   "awayWinProb": 0.5728,
+   "projMargin": -2.51,
+   "homeWinProb": 0.4264,
+   "awayWinProb": 0.5736,
    "source": "projected"
   },
   {
@@ -1131,9 +955,9 @@
    "date": "2026-11-15T21:05Z",
    "home": "ARI",
    "away": "LAR",
-   "projMargin": -2.29,
-   "homeWinProb": 0.4327,
-   "awayWinProb": 0.5673,
+   "projMargin": -3.25,
+   "homeWinProb": 0.4048,
+   "awayWinProb": 0.5952,
    "source": "projected"
   },
   {
@@ -1142,9 +966,9 @@
    "date": "2026-11-15T21:25Z",
    "home": "DAL",
    "away": "SF",
-   "projMargin": -2.66,
-   "homeWinProb": 0.422,
-   "awayWinProb": 0.578,
+   "projMargin": -2.42,
+   "homeWinProb": 0.4289,
+   "awayWinProb": 0.5711,
    "source": "projected"
   },
   {
@@ -1153,9 +977,9 @@
    "date": "2026-11-16T01:20Z",
    "home": "CIN",
    "away": "PIT",
-   "projMargin": 3.8,
-   "homeWinProb": 0.611,
-   "awayWinProb": 0.389,
+   "projMargin": 3.67,
+   "homeWinProb": 0.6071,
+   "awayWinProb": 0.3929,
    "source": "projected"
   },
   {
@@ -1164,9 +988,9 @@
    "date": "2026-11-17T01:15Z",
    "home": "BAL",
    "away": "LAC",
-   "projMargin": 6.79,
-   "homeWinProb": 0.6924,
-   "awayWinProb": 0.3076,
+   "projMargin": 6.51,
+   "homeWinProb": 0.6852,
+   "awayWinProb": 0.3148,
    "source": "projected"
   },
   {
@@ -1175,9 +999,9 @@
    "date": "2026-11-20T01:15Z",
    "home": "HOU",
    "away": "IND",
-   "projMargin": 3.24,
-   "homeWinProb": 0.5949,
-   "awayWinProb": 0.4051,
+   "projMargin": 1.27,
+   "homeWinProb": 0.5375,
+   "awayWinProb": 0.4625,
    "source": "projected"
   },
   {
@@ -1186,9 +1010,9 @@
    "date": "2026-11-22T18:00Z",
    "home": "BUF",
    "away": "MIA",
-   "projMargin": 10.54,
-   "homeWinProb": 0.7825,
-   "awayWinProb": 0.2175,
+   "projMargin": 9.69,
+   "homeWinProb": 0.7636,
+   "awayWinProb": 0.2364,
    "source": "projected"
   },
   {
@@ -1197,9 +1021,9 @@
    "date": "2026-11-22T18:00Z",
    "home": "CHI",
    "away": "NO",
-   "projMargin": 6.69,
-   "homeWinProb": 0.6899,
-   "awayWinProb": 0.3101,
+   "projMargin": 8.8,
+   "homeWinProb": 0.7427,
+   "awayWinProb": 0.2573,
    "source": "projected"
   },
   {
@@ -1208,9 +1032,9 @@
    "date": "2026-11-22T18:00Z",
    "home": "DAL",
    "away": "TEN",
-   "projMargin": 6.5,
-   "homeWinProb": 0.685,
-   "awayWinProb": 0.315,
+   "projMargin": 6.93,
+   "homeWinProb": 0.6961,
+   "awayWinProb": 0.3039,
    "source": "projected"
   },
   {
@@ -1219,9 +1043,9 @@
    "date": "2026-11-22T18:00Z",
    "home": "DET",
    "away": "TB",
-   "projMargin": 5.15,
-   "homeWinProb": 0.6485,
-   "awayWinProb": 0.3515,
+   "projMargin": 5.17,
+   "homeWinProb": 0.6491,
+   "awayWinProb": 0.3509,
    "source": "projected"
   },
   {
@@ -1230,9 +1054,9 @@
    "date": "2026-11-22T18:00Z",
    "home": "KC",
    "away": "ARI",
-   "projMargin": 7.81,
-   "homeWinProb": 0.7186,
-   "awayWinProb": 0.2814,
+   "projMargin": 8.69,
+   "homeWinProb": 0.7401,
+   "awayWinProb": 0.2599,
    "source": "projected"
   },
   {
@@ -1241,9 +1065,9 @@
    "date": "2026-11-22T18:00Z",
    "home": "NYG",
    "away": "JAC",
-   "projMargin": -4.87,
-   "homeWinProb": 0.3591,
-   "awayWinProb": 0.6409,
+   "projMargin": -4.41,
+   "homeWinProb": 0.3721,
+   "awayWinProb": 0.6279,
    "source": "projected"
   },
   {
@@ -1252,9 +1076,9 @@
    "date": "2026-11-22T18:00Z",
    "home": "CAR",
    "away": "BAL",
-   "projMargin": 0.64,
-   "homeWinProb": 0.5189,
-   "awayWinProb": 0.4811,
+   "projMargin": 1.22,
+   "homeWinProb": 0.5359,
+   "awayWinProb": 0.4641,
    "source": "projected"
   },
   {
@@ -1263,9 +1087,9 @@
    "date": "2026-11-22T21:05Z",
    "home": "LAC",
    "away": "NYJ",
-   "projMargin": 3.02,
-   "homeWinProb": 0.5885,
-   "awayWinProb": 0.4115,
+   "projMargin": 3.35,
+   "homeWinProb": 0.5979,
+   "awayWinProb": 0.4021,
    "source": "projected"
   },
   {
@@ -1274,9 +1098,9 @@
    "date": "2026-11-22T21:25Z",
    "home": "DEN",
    "away": "LV",
-   "projMargin": 3.5,
-   "homeWinProb": 0.6022,
-   "awayWinProb": 0.3978,
+   "projMargin": 3.4,
+   "homeWinProb": 0.5993,
+   "awayWinProb": 0.4007,
    "source": "projected"
   },
   {
@@ -1285,9 +1109,9 @@
    "date": "2026-11-22T21:25Z",
    "home": "PHI",
    "away": "PIT",
-   "projMargin": 2.62,
-   "homeWinProb": 0.5769,
-   "awayWinProb": 0.4231,
+   "projMargin": 2.43,
+   "homeWinProb": 0.5713,
+   "awayWinProb": 0.4287,
    "source": "projected"
   },
   {
@@ -1296,9 +1120,9 @@
    "date": "2026-11-23T01:20Z",
    "home": "SF",
    "away": "MIN",
-   "projMargin": 4.32,
-   "homeWinProb": 0.6256,
-   "awayWinProb": 0.3744,
+   "projMargin": 4.96,
+   "homeWinProb": 0.6435,
+   "awayWinProb": 0.3565,
    "source": "projected"
   },
   {
@@ -1307,9 +1131,9 @@
    "date": "2026-11-24T01:15Z",
    "home": "WAS",
    "away": "CIN",
-   "projMargin": -0.21,
-   "homeWinProb": 0.4938,
-   "awayWinProb": 0.5062,
+   "projMargin": -1.33,
+   "homeWinProb": 0.4607,
+   "awayWinProb": 0.5393,
    "source": "projected"
   },
   {
@@ -1318,9 +1142,9 @@
    "date": "2026-11-26T01:00Z",
    "home": "LAR",
    "away": "GB",
-   "projMargin": 7.8,
-   "homeWinProb": 0.7183,
-   "awayWinProb": 0.2817,
+   "projMargin": 7.62,
+   "homeWinProb": 0.7139,
+   "awayWinProb": 0.2861,
    "source": "projected"
   },
   {
@@ -1329,9 +1153,9 @@
    "date": "2026-11-26T18:00Z",
    "home": "DET",
    "away": "CHI",
-   "projMargin": -0.19,
-   "homeWinProb": 0.4944,
-   "awayWinProb": 0.5056,
+   "projMargin": -0.83,
+   "homeWinProb": 0.4756,
+   "awayWinProb": 0.5244,
    "source": "projected"
   },
   {
@@ -1340,9 +1164,9 @@
    "date": "2026-11-26T21:30Z",
    "home": "DAL",
    "away": "PHI",
-   "projMargin": 2.45,
-   "homeWinProb": 0.5719,
-   "awayWinProb": 0.4281,
+   "projMargin": 3.35,
+   "homeWinProb": 0.5981,
+   "awayWinProb": 0.4019,
    "source": "projected"
   },
   {
@@ -1351,9 +1175,9 @@
    "date": "2026-11-27T01:20Z",
    "home": "BUF",
    "away": "KC",
-   "projMargin": 2.81,
-   "homeWinProb": 0.5825,
-   "awayWinProb": 0.4175,
+   "projMargin": 2.05,
+   "homeWinProb": 0.5605,
+   "awayWinProb": 0.4395,
    "source": "projected"
   },
   {
@@ -1362,9 +1186,9 @@
    "date": "2026-11-27T20:00Z",
    "home": "PIT",
    "away": "DEN",
-   "projMargin": 1.25,
-   "homeWinProb": 0.537,
-   "awayWinProb": 0.463,
+   "projMargin": 1.46,
+   "homeWinProb": 0.5431,
+   "awayWinProb": 0.4569,
    "source": "projected"
   },
   {
@@ -1373,9 +1197,9 @@
    "date": "2026-11-29T18:00Z",
    "home": "CIN",
    "away": "NO",
-   "projMargin": 4.16,
-   "homeWinProb": 0.621,
-   "awayWinProb": 0.379,
+   "projMargin": 5.79,
+   "homeWinProb": 0.666,
+   "awayWinProb": 0.334,
    "source": "projected"
   },
   {
@@ -1384,9 +1208,9 @@
    "date": "2026-11-29T18:00Z",
    "home": "CLE",
    "away": "LV",
-   "projMargin": 0.26,
-   "homeWinProb": 0.5075,
-   "awayWinProb": 0.4925,
+   "projMargin": 0.69,
+   "homeWinProb": 0.5202,
+   "awayWinProb": 0.4798,
    "source": "projected"
   },
   {
@@ -1395,9 +1219,9 @@
    "date": "2026-11-29T18:00Z",
    "home": "IND",
    "away": "NYG",
-   "projMargin": 3.67,
-   "homeWinProb": 0.607,
-   "awayWinProb": 0.393,
+   "projMargin": 4.34,
+   "homeWinProb": 0.626,
+   "awayWinProb": 0.374,
    "source": "projected"
   },
   {
@@ -1406,9 +1230,9 @@
    "date": "2026-11-29T18:00Z",
    "home": "MIA",
    "away": "NYJ",
-   "projMargin": 0.69,
-   "homeWinProb": 0.5204,
-   "awayWinProb": 0.4796,
+   "projMargin": 1.21,
+   "homeWinProb": 0.5358,
+   "awayWinProb": 0.4642,
    "source": "projected"
   },
   {
@@ -1417,9 +1241,9 @@
    "date": "2026-11-29T18:00Z",
    "home": "MIN",
    "away": "ATL",
-   "projMargin": 7.35,
-   "homeWinProb": 0.7071,
-   "awayWinProb": 0.2929,
+   "projMargin": 5.17,
+   "homeWinProb": 0.6491,
+   "awayWinProb": 0.3509,
    "source": "projected"
   },
   {
@@ -1428,9 +1252,9 @@
    "date": "2026-11-29T18:00Z",
    "home": "HOU",
    "away": "BAL",
-   "projMargin": 0.86,
-   "homeWinProb": 0.5254,
-   "awayWinProb": 0.4746,
+   "projMargin": 0.42,
+   "homeWinProb": 0.5124,
+   "awayWinProb": 0.4876,
    "source": "projected"
   },
   {
@@ -1439,9 +1263,9 @@
    "date": "2026-11-29T21:05Z",
    "home": "JAC",
    "away": "TEN",
-   "projMargin": 12.83,
-   "homeWinProb": 0.8291,
-   "awayWinProb": 0.1709,
+   "projMargin": 12.9,
+   "homeWinProb": 0.8304,
+   "awayWinProb": 0.1696,
    "source": "projected"
   },
   {
@@ -1450,9 +1274,9 @@
    "date": "2026-11-29T21:25Z",
    "home": "ARI",
    "away": "WAS",
-   "projMargin": 2.38,
-   "homeWinProb": 0.5701,
-   "awayWinProb": 0.4299,
+   "projMargin": 3.11,
+   "homeWinProb": 0.5911,
+   "awayWinProb": 0.4089,
    "source": "projected"
   },
   {
@@ -1461,9 +1285,9 @@
    "date": "2026-11-29T21:25Z",
    "home": "SF",
    "away": "SEA",
-   "projMargin": 2.2,
-   "homeWinProb": 0.5646,
-   "awayWinProb": 0.4354,
+   "projMargin": 2.75,
+   "homeWinProb": 0.5808,
+   "awayWinProb": 0.4192,
    "source": "projected"
   },
   {
@@ -1472,9 +1296,9 @@
    "date": "2026-11-30T01:20Z",
    "home": "LAC",
    "away": "NE",
-   "projMargin": -1.55,
-   "homeWinProb": 0.4544,
-   "awayWinProb": 0.5456,
+   "projMargin": -1.93,
+   "homeWinProb": 0.4431,
+   "awayWinProb": 0.5569,
    "source": "projected"
   },
   {
@@ -1483,9 +1307,9 @@
    "date": "2026-12-01T01:15Z",
    "home": "TB",
    "away": "CAR",
-   "projMargin": 0.79,
-   "homeWinProb": 0.5233,
-   "awayWinProb": 0.4767,
+   "projMargin": -0.08,
+   "homeWinProb": 0.4977,
+   "awayWinProb": 0.5023,
    "source": "projected"
   },
   {
@@ -1494,9 +1318,9 @@
    "date": "2026-12-04T01:15Z",
    "home": "LAR",
    "away": "KC",
-   "projMargin": 2.28,
-   "homeWinProb": 0.567,
-   "awayWinProb": 0.433,
+   "projMargin": 2.37,
+   "homeWinProb": 0.5696,
+   "awayWinProb": 0.4304,
    "source": "projected"
   },
   {
@@ -1505,9 +1329,9 @@
    "date": "2026-12-06T18:00Z",
    "home": "ATL",
    "away": "DET",
-   "projMargin": 0.3,
-   "homeWinProb": 0.5088,
-   "awayWinProb": 0.4912,
+   "projMargin": 2.62,
+   "homeWinProb": 0.577,
+   "awayWinProb": 0.423,
    "source": "projected"
   },
   {
@@ -1516,9 +1340,9 @@
    "date": "2026-12-06T18:00Z",
    "home": "CHI",
    "away": "JAC",
-   "projMargin": 0.14,
-   "homeWinProb": 0.5042,
-   "awayWinProb": 0.4958,
+   "projMargin": 0.11,
+   "homeWinProb": 0.5034,
+   "awayWinProb": 0.4966,
    "source": "projected"
   },
   {
@@ -1527,9 +1351,9 @@
    "date": "2026-12-06T18:00Z",
    "home": "CLE",
    "away": "CIN",
-   "projMargin": -0.5,
-   "homeWinProb": 0.4853,
-   "awayWinProb": 0.5147,
+   "projMargin": -0.04,
+   "homeWinProb": 0.4988,
+   "awayWinProb": 0.5012,
    "source": "projected"
   },
   {
@@ -1538,9 +1362,9 @@
    "date": "2026-12-06T18:00Z",
    "home": "TEN",
    "away": "WAS",
-   "projMargin": 0.17,
-   "homeWinProb": 0.505,
-   "awayWinProb": 0.495,
+   "projMargin": 1.72,
+   "homeWinProb": 0.5506,
+   "awayWinProb": 0.4494,
    "source": "projected"
   },
   {
@@ -1549,9 +1373,9 @@
    "date": "2026-12-06T18:00Z",
    "home": "NO",
    "away": "GB",
-   "projMargin": 4.38,
-   "homeWinProb": 0.6272,
-   "awayWinProb": 0.3728,
+   "projMargin": 2.0,
+   "homeWinProb": 0.5588,
+   "awayWinProb": 0.4412,
    "source": "projected"
   },
   {
@@ -1560,9 +1384,9 @@
    "date": "2026-12-06T18:00Z",
    "home": "NYG",
    "away": "SF",
-   "projMargin": -3.8,
-   "homeWinProb": 0.3892,
-   "awayWinProb": 0.6108,
+   "projMargin": -3.45,
+   "homeWinProb": 0.3992,
+   "awayWinProb": 0.6008,
    "source": "projected"
   },
   {
@@ -1571,9 +1395,9 @@
    "date": "2026-12-06T18:00Z",
    "home": "TB",
    "away": "LAC",
-   "projMargin": 3.01,
-   "homeWinProb": 0.5883,
-   "awayWinProb": 0.4117,
+   "projMargin": 2.45,
+   "homeWinProb": 0.5719,
+   "awayWinProb": 0.4281,
    "source": "projected"
   },
   {
@@ -1582,9 +1406,9 @@
    "date": "2026-12-06T21:05Z",
    "home": "DEN",
    "away": "MIA",
-   "projMargin": 8.29,
-   "homeWinProb": 0.7304,
-   "awayWinProb": 0.2696,
+   "projMargin": 7.64,
+   "homeWinProb": 0.7143,
+   "awayWinProb": 0.2857,
    "source": "projected"
   },
   {
@@ -1593,9 +1417,9 @@
    "date": "2026-12-06T21:05Z",
    "home": "ARI",
    "away": "PHI",
-   "projMargin": 0.76,
-   "homeWinProb": 0.5224,
-   "awayWinProb": 0.4776,
+   "projMargin": 0.42,
+   "homeWinProb": 0.5124,
+   "awayWinProb": 0.4876,
    "source": "projected"
   },
   {
@@ -1604,9 +1428,9 @@
    "date": "2026-12-06T21:25Z",
    "home": "MIN",
    "away": "CAR",
-   "projMargin": 5.79,
-   "homeWinProb": 0.666,
-   "awayWinProb": 0.334,
+   "projMargin": 5.08,
+   "homeWinProb": 0.6466,
+   "awayWinProb": 0.3534,
    "source": "projected"
   },
   {
@@ -1615,9 +1439,9 @@
    "date": "2026-12-06T21:25Z",
    "home": "NE",
    "away": "BUF",
-   "projMargin": 1.13,
-   "homeWinProb": 0.5335,
-   "awayWinProb": 0.4665,
+   "projMargin": 2.18,
+   "homeWinProb": 0.564,
+   "awayWinProb": 0.436,
    "source": "projected"
   },
   {
@@ -1626,9 +1450,9 @@
    "date": "2026-12-07T01:20Z",
    "home": "PIT",
    "away": "HOU",
-   "projMargin": 2.17,
-   "homeWinProb": 0.5638,
-   "awayWinProb": 0.4362,
+   "projMargin": 2.64,
+   "homeWinProb": 0.5775,
+   "awayWinProb": 0.4225,
    "source": "projected"
   },
   {
@@ -1637,9 +1461,9 @@
    "date": "2026-12-08T01:15Z",
    "home": "SEA",
    "away": "DAL",
-   "projMargin": 8.26,
-   "homeWinProb": 0.7297,
-   "awayWinProb": 0.2703,
+   "projMargin": 7.47,
+   "homeWinProb": 0.7099,
+   "awayWinProb": 0.2901,
    "source": "projected"
   },
   {
@@ -1648,9 +1472,9 @@
    "date": "2026-12-11T01:15Z",
    "home": "NE",
    "away": "MIN",
-   "projMargin": 1.33,
-   "homeWinProb": 0.5393,
-   "awayWinProb": 0.4607,
+   "projMargin": 2.13,
+   "homeWinProb": 0.5626,
+   "awayWinProb": 0.4374,
    "source": "projected"
   },
   {
@@ -1659,9 +1483,9 @@
    "date": "2026-12-13T18:00Z",
    "home": "CLE",
    "away": "ATL",
-   "projMargin": 2.06,
-   "homeWinProb": 0.5606,
-   "awayWinProb": 0.4394,
+   "projMargin": 0.36,
+   "homeWinProb": 0.5106,
+   "awayWinProb": 0.4894,
    "source": "projected"
   },
   {
@@ -1670,9 +1494,9 @@
    "date": "2026-12-13T18:00Z",
    "home": "DET",
    "away": "TEN",
-   "projMargin": 7.59,
-   "homeWinProb": 0.7129,
-   "awayWinProb": 0.2871,
+   "projMargin": 6.99,
+   "homeWinProb": 0.6978,
+   "awayWinProb": 0.3022,
    "source": "projected"
   },
   {
@@ -1681,9 +1505,9 @@
    "date": "2026-12-13T18:00Z",
    "home": "MIA",
    "away": "CHI",
-   "projMargin": -5.48,
-   "homeWinProb": 0.3424,
-   "awayWinProb": 0.6576,
+   "projMargin": -5.38,
+   "homeWinProb": 0.3452,
+   "awayWinProb": 0.6548,
    "source": "projected"
   },
   {
@@ -1692,9 +1516,9 @@
    "date": "2026-12-13T18:00Z",
    "home": "NYJ",
    "away": "DEN",
-   "projMargin": -1.18,
-   "homeWinProb": 0.4652,
-   "awayWinProb": 0.5348,
+   "projMargin": -1.05,
+   "homeWinProb": 0.4689,
+   "awayWinProb": 0.5311,
    "source": "projected"
   },
   {
@@ -1703,9 +1527,9 @@
    "date": "2026-12-13T18:00Z",
    "home": "PHI",
    "away": "IND",
-   "projMargin": 2.83,
-   "homeWinProb": 0.583,
-   "awayWinProb": 0.417,
+   "projMargin": 1.14,
+   "homeWinProb": 0.5336,
+   "awayWinProb": 0.4664,
    "source": "projected"
   },
   {
@@ -1714,9 +1538,9 @@
    "date": "2026-12-13T18:00Z",
    "home": "WAS",
    "away": "HOU",
-   "projMargin": 0.56,
-   "homeWinProb": 0.5166,
-   "awayWinProb": 0.4834,
+   "projMargin": -0.22,
+   "homeWinProb": 0.4934,
+   "awayWinProb": 0.5066,
    "source": "projected"
   },
   {
@@ -1725,9 +1549,9 @@
    "date": "2026-12-13T18:00Z",
    "home": "CAR",
    "away": "NO",
-   "projMargin": 3.16,
-   "homeWinProb": 0.5927,
-   "awayWinProb": 0.4073,
+   "projMargin": 5.48,
+   "homeWinProb": 0.6576,
+   "awayWinProb": 0.3424,
    "source": "projected"
   },
   {
@@ -1736,9 +1560,9 @@
    "date": "2026-12-13T18:00Z",
    "home": "BAL",
    "away": "TB",
-   "projMargin": 6.37,
-   "homeWinProb": 0.6815,
-   "awayWinProb": 0.3185,
+   "projMargin": 6.66,
+   "homeWinProb": 0.6892,
+   "awayWinProb": 0.3108,
    "source": "projected"
   },
   {
@@ -1747,9 +1571,9 @@
    "date": "2026-12-13T21:05Z",
    "home": "LV",
    "away": "LAC",
-   "projMargin": 5.06,
-   "homeWinProb": 0.6462,
-   "awayWinProb": 0.3538,
+   "projMargin": 4.71,
+   "homeWinProb": 0.6365,
+   "awayWinProb": 0.3635,
    "source": "projected"
   },
   {
@@ -1758,9 +1582,9 @@
    "date": "2026-12-13T21:25Z",
    "home": "CIN",
    "away": "KC",
-   "projMargin": 0.42,
-   "homeWinProb": 0.5123,
-   "awayWinProb": 0.4877,
+   "projMargin": -0.07,
+   "homeWinProb": 0.498,
+   "awayWinProb": 0.502,
    "source": "projected"
   },
   {
@@ -1769,9 +1593,9 @@
    "date": "2026-12-13T21:25Z",
    "home": "SF",
    "away": "LAR",
-   "projMargin": 4.66,
-   "homeWinProb": 0.6349,
-   "awayWinProb": 0.3651,
+   "projMargin": 4.7,
+   "homeWinProb": 0.6361,
+   "awayWinProb": 0.3639,
    "source": "projected"
   },
   {
@@ -1780,9 +1604,9 @@
    "date": "2026-12-13T21:25Z",
    "home": "SEA",
    "away": "NYG",
-   "projMargin": 9.4,
-   "homeWinProb": 0.7569,
-   "awayWinProb": 0.2431,
+   "projMargin": 8.5,
+   "homeWinProb": 0.7355,
+   "awayWinProb": 0.2645,
    "source": "projected"
   },
   {
@@ -1791,9 +1615,9 @@
    "date": "2026-12-14T01:20Z",
    "home": "GB",
    "away": "BUF",
-   "projMargin": -3.13,
-   "homeWinProb": 0.4083,
-   "awayWinProb": 0.5917,
+   "projMargin": -2.11,
+   "homeWinProb": 0.4379,
+   "awayWinProb": 0.5621,
    "source": "projected"
   },
   {
@@ -1802,9 +1626,9 @@
    "date": "2026-12-15T01:15Z",
    "home": "JAC",
    "away": "PIT",
-   "projMargin": 8.8,
-   "homeWinProb": 0.7427,
-   "awayWinProb": 0.2573,
+   "projMargin": 9.16,
+   "homeWinProb": 0.7512,
+   "awayWinProb": 0.2488,
    "source": "projected"
   },
   {
@@ -1813,9 +1637,9 @@
    "date": "2026-12-18T01:15Z",
    "home": "LAC",
    "away": "SF",
-   "projMargin": -4.54,
-   "homeWinProb": 0.3685,
-   "awayWinProb": 0.6315,
+   "projMargin": -4.77,
+   "homeWinProb": 0.3619,
+   "awayWinProb": 0.6381,
    "source": "projected"
   },
   {
@@ -1824,9 +1648,9 @@
    "date": "2026-12-19T22:00Z",
    "home": "PHI",
    "away": "SEA",
-   "projMargin": -2.91,
-   "homeWinProb": 0.4147,
-   "awayWinProb": 0.5853,
+   "projMargin": -3.02,
+   "homeWinProb": 0.4115,
+   "awayWinProb": 0.5885,
    "source": "projected"
   },
   {
@@ -1835,9 +1659,9 @@
    "date": "2026-12-20T01:20Z",
    "home": "BUF",
    "away": "CHI",
-   "projMargin": 2.46,
-   "homeWinProb": 0.5723,
-   "awayWinProb": 0.4277,
+   "projMargin": 1.72,
+   "homeWinProb": 0.5506,
+   "awayWinProb": 0.4494,
    "source": "projected"
   },
   {
@@ -1846,9 +1670,9 @@
    "date": "2026-12-20T18:00Z",
    "home": "GB",
    "away": "MIA",
-   "projMargin": 4.81,
-   "homeWinProb": 0.6392,
-   "awayWinProb": 0.3608,
+   "projMargin": 4.98,
+   "homeWinProb": 0.6439,
+   "awayWinProb": 0.3561,
    "source": "projected"
   },
   {
@@ -1857,9 +1681,9 @@
    "date": "2026-12-20T18:00Z",
    "home": "TEN",
    "away": "IND",
-   "projMargin": -1.23,
-   "homeWinProb": 0.4638,
-   "awayWinProb": 0.5362,
+   "projMargin": -2.44,
+   "homeWinProb": 0.4284,
+   "awayWinProb": 0.5716,
    "source": "projected"
   },
   {
@@ -1868,9 +1692,9 @@
    "date": "2026-12-20T18:00Z",
    "home": "NYG",
    "away": "CLE",
-   "projMargin": 3.22,
-   "homeWinProb": 0.5942,
-   "awayWinProb": 0.4058,
+   "projMargin": 3.72,
+   "homeWinProb": 0.6087,
+   "awayWinProb": 0.3913,
    "source": "projected"
   },
   {
@@ -1879,9 +1703,9 @@
    "date": "2026-12-20T18:00Z",
    "home": "PIT",
    "away": "BAL",
-   "projMargin": 0.43,
-   "homeWinProb": 0.5126,
-   "awayWinProb": 0.4874,
+   "projMargin": 0.46,
+   "homeWinProb": 0.5136,
+   "awayWinProb": 0.4864,
    "source": "projected"
   },
   {
@@ -1890,9 +1714,9 @@
    "date": "2026-12-20T18:00Z",
    "home": "TB",
    "away": "NO",
-   "projMargin": 1.35,
-   "homeWinProb": 0.5399,
-   "awayWinProb": 0.4601,
+   "projMargin": 2.8,
+   "homeWinProb": 0.5822,
+   "awayWinProb": 0.4178,
    "source": "projected"
   },
   {
@@ -1901,9 +1725,9 @@
    "date": "2026-12-20T18:00Z",
    "home": "WAS",
    "away": "ATL",
-   "projMargin": 2.35,
-   "homeWinProb": 0.569,
-   "awayWinProb": 0.431,
+   "projMargin": -0.93,
+   "homeWinProb": 0.4725,
+   "awayWinProb": 0.5275,
    "source": "projected"
   },
   {
@@ -1912,9 +1736,9 @@
    "date": "2026-12-20T18:00Z",
    "home": "CAR",
    "away": "CIN",
-   "projMargin": 1.61,
-   "homeWinProb": 0.5474,
-   "awayWinProb": 0.4526,
+   "projMargin": 2.29,
+   "homeWinProb": 0.5673,
+   "awayWinProb": 0.4327,
    "source": "projected"
   },
   {
@@ -1923,9 +1747,9 @@
    "date": "2026-12-20T18:00Z",
    "home": "HOU",
    "away": "JAC",
-   "projMargin": -3.17,
-   "homeWinProb": 0.4073,
-   "awayWinProb": 0.5927,
+   "projMargin": -4.0,
+   "homeWinProb": 0.3836,
+   "awayWinProb": 0.6164,
    "source": "projected"
   },
   {
@@ -1934,9 +1758,9 @@
    "date": "2026-12-20T21:05Z",
    "home": "ARI",
    "away": "NYJ",
-   "projMargin": 3.21,
-   "homeWinProb": 0.5939,
-   "awayWinProb": 0.4061,
+   "projMargin": 2.76,
+   "homeWinProb": 0.5811,
+   "awayWinProb": 0.4189,
    "source": "projected"
   },
   {
@@ -1945,9 +1769,9 @@
    "date": "2026-12-20T21:25Z",
    "home": "LV",
    "away": "DEN",
-   "projMargin": 1.7,
-   "homeWinProb": 0.5502,
-   "awayWinProb": 0.4498,
+   "projMargin": 1.8,
+   "homeWinProb": 0.5532,
+   "awayWinProb": 0.4468,
    "source": "projected"
   },
   {
@@ -1956,9 +1780,9 @@
    "date": "2026-12-20T21:25Z",
    "home": "LAR",
    "away": "DAL",
-   "projMargin": 5.8,
-   "homeWinProb": 0.6663,
-   "awayWinProb": 0.3337,
+   "projMargin": 5.52,
+   "homeWinProb": 0.6587,
+   "awayWinProb": 0.3413,
    "source": "projected"
   },
   {
@@ -1967,9 +1791,9 @@
    "date": "2026-12-21T01:20Z",
    "home": "MIN",
    "away": "DET",
-   "projMargin": 5.05,
-   "homeWinProb": 0.6459,
-   "awayWinProb": 0.3541,
+   "projMargin": 5.19,
+   "homeWinProb": 0.6497,
+   "awayWinProb": 0.3503,
    "source": "projected"
   },
   {
@@ -1978,9 +1802,9 @@
    "date": "2026-12-22T01:15Z",
    "home": "KC",
    "away": "NE",
-   "projMargin": 3.86,
-   "homeWinProb": 0.6124,
-   "awayWinProb": 0.3876,
+   "projMargin": 3.57,
+   "homeWinProb": 0.6043,
+   "awayWinProb": 0.3957,
    "source": "projected"
   },
   {
@@ -1989,9 +1813,9 @@
    "date": "2026-12-25T01:15Z",
    "home": "PHI",
    "away": "HOU",
-   "projMargin": 2.19,
-   "homeWinProb": 0.5643,
-   "awayWinProb": 0.4357,
+   "projMargin": 2.47,
+   "homeWinProb": 0.5725,
+   "awayWinProb": 0.4275,
    "source": "projected"
   },
   {
@@ -2000,9 +1824,9 @@
    "date": "2026-12-25T18:00Z",
    "home": "CHI",
    "away": "GB",
-   "projMargin": 8.47,
-   "homeWinProb": 0.7348,
-   "awayWinProb": 0.2652,
+   "projMargin": 8.19,
+   "homeWinProb": 0.7281,
+   "awayWinProb": 0.2719,
    "source": "projected"
   },
   {
@@ -2011,9 +1835,9 @@
    "date": "2026-12-25T21:30Z",
    "home": "DEN",
    "away": "BUF",
-   "projMargin": 0.35,
-   "homeWinProb": 0.5102,
-   "awayWinProb": 0.4898,
+   "projMargin": 0.55,
+   "homeWinProb": 0.5163,
+   "awayWinProb": 0.4837,
    "source": "projected"
   },
   {
@@ -2022,9 +1846,9 @@
    "date": "2026-12-26T01:15Z",
    "home": "SEA",
    "away": "LAR",
-   "projMargin": 5.06,
-   "homeWinProb": 0.6461,
-   "awayWinProb": 0.3539,
+   "projMargin": 4.55,
+   "homeWinProb": 0.6319,
+   "awayWinProb": 0.3681,
    "source": "projected"
   },
   {
@@ -2033,9 +1857,9 @@
    "date": "2026-12-27T05:00Z",
    "home": "ATL",
    "away": "TB",
-   "projMargin": 2.85,
-   "homeWinProb": 0.5835,
-   "awayWinProb": 0.4165,
+   "projMargin": 5.19,
+   "homeWinProb": 0.6497,
+   "awayWinProb": 0.3503,
    "source": "projected"
   },
   {
@@ -2044,9 +1868,9 @@
    "date": "2026-12-27T05:00Z",
    "home": "IND",
    "away": "CIN",
-   "projMargin": 1.19,
-   "homeWinProb": 0.535,
-   "awayWinProb": 0.465,
+   "projMargin": 2.82,
+   "homeWinProb": 0.5828,
+   "awayWinProb": 0.4172,
    "source": "projected"
   },
   {
@@ -2055,9 +1879,9 @@
    "date": "2026-12-27T05:00Z",
    "home": "MIN",
    "away": "WAS",
-   "projMargin": 7.61,
-   "homeWinProb": 0.7134,
-   "awayWinProb": 0.2866,
+   "projMargin": 8.7,
+   "homeWinProb": 0.7404,
+   "awayWinProb": 0.2596,
    "source": "projected"
   },
   {
@@ -2066,9 +1890,9 @@
    "date": "2026-12-27T05:00Z",
    "home": "PIT",
    "away": "CAR",
-   "projMargin": 2.39,
-   "homeWinProb": 0.5702,
-   "awayWinProb": 0.4298,
+   "projMargin": 1.84,
+   "homeWinProb": 0.5543,
+   "awayWinProb": 0.4457,
    "source": "projected"
   },
   {
@@ -2077,9 +1901,9 @@
    "date": "2026-12-27T18:00Z",
    "home": "MIA",
    "away": "LAC",
-   "projMargin": 0.27,
-   "homeWinProb": 0.508,
-   "awayWinProb": 0.492,
+   "projMargin": 0.46,
+   "homeWinProb": 0.5137,
+   "awayWinProb": 0.4863,
    "source": "projected"
   },
   {
@@ -2088,9 +1912,9 @@
    "date": "2026-12-27T18:00Z",
    "home": "NO",
    "away": "ARI",
-   "projMargin": 4.07,
-   "homeWinProb": 0.6185,
-   "awayWinProb": 0.3815,
+   "projMargin": 2.83,
+   "homeWinProb": 0.583,
+   "awayWinProb": 0.417,
    "source": "projected"
   },
   {
@@ -2099,9 +1923,9 @@
    "date": "2026-12-27T18:00Z",
    "home": "NYJ",
    "away": "NE",
-   "projMargin": -1.96,
-   "homeWinProb": 0.4422,
-   "awayWinProb": 0.5578,
+   "projMargin": -2.68,
+   "homeWinProb": 0.4213,
+   "awayWinProb": 0.5787,
    "source": "projected"
   },
   {
@@ -2110,9 +1934,9 @@
    "date": "2026-12-27T18:00Z",
    "home": "BAL",
    "away": "CLE",
-   "projMargin": 6.67,
-   "homeWinProb": 0.6893,
-   "awayWinProb": 0.3107,
+   "projMargin": 6.31,
+   "homeWinProb": 0.68,
+   "awayWinProb": 0.32,
    "source": "projected"
   },
   {
@@ -2121,9 +1945,9 @@
    "date": "2026-12-27T21:05Z",
    "home": "LV",
    "away": "TEN",
-   "projMargin": 7.09,
-   "homeWinProb": 0.7002,
-   "awayWinProb": 0.2998,
+   "projMargin": 6.69,
+   "homeWinProb": 0.6899,
+   "awayWinProb": 0.3101,
    "source": "projected"
   },
   {
@@ -2132,9 +1956,9 @@
    "date": "2026-12-27T21:25Z",
    "home": "KC",
    "away": "SF",
-   "projMargin": 0.87,
-   "homeWinProb": 0.5256,
-   "awayWinProb": 0.4744,
+   "projMargin": 0.73,
+   "homeWinProb": 0.5217,
+   "awayWinProb": 0.4783,
    "source": "projected"
   },
   {
@@ -2143,9 +1967,9 @@
    "date": "2026-12-28T01:20Z",
    "home": "DAL",
    "away": "JAC",
-   "projMargin": -3.73,
-   "homeWinProb": 0.3911,
-   "awayWinProb": 0.6089,
+   "projMargin": -3.38,
+   "homeWinProb": 0.4013,
+   "awayWinProb": 0.5987,
    "source": "projected"
   },
   {
@@ -2154,9 +1978,9 @@
    "date": "2026-12-29T01:15Z",
    "home": "DET",
    "away": "NYG",
-   "projMargin": 4.83,
-   "homeWinProb": 0.6396,
-   "awayWinProb": 0.3604,
+   "projMargin": 3.69,
+   "homeWinProb": 0.6078,
+   "awayWinProb": 0.3922,
    "source": "projected"
   },
   {
@@ -2165,9 +1989,9 @@
    "date": "2027-01-01T01:15Z",
    "home": "CIN",
    "away": "BAL",
-   "projMargin": 1.63,
-   "homeWinProb": 0.5481,
-   "awayWinProb": 0.4519,
+   "projMargin": 1.53,
+   "homeWinProb": 0.545,
+   "awayWinProb": 0.455,
    "source": "projected"
   },
   {
@@ -2176,9 +2000,9 @@
    "date": "2027-01-03T05:00Z",
    "home": "NE",
    "away": "DEN",
-   "projMargin": 3.39,
-   "homeWinProb": 0.599,
-   "awayWinProb": 0.401,
+   "projMargin": 4.23,
+   "homeWinProb": 0.6229,
+   "awayWinProb": 0.3771,
    "source": "projected"
   },
   {
@@ -2187,9 +2011,9 @@
    "date": "2027-01-03T05:00Z",
    "home": "LAC",
    "away": "KC",
-   "projMargin": -2.8,
-   "homeWinProb": 0.4178,
-   "awayWinProb": 0.5822,
+   "projMargin": -2.9,
+   "homeWinProb": 0.4149,
+   "awayWinProb": 0.5851,
    "source": "projected"
   },
   {
@@ -2198,9 +2022,9 @@
    "date": "2027-01-03T05:00Z",
    "home": "TB",
    "away": "LAR",
-   "projMargin": -2.07,
-   "homeWinProb": 0.4392,
-   "awayWinProb": 0.5608,
+   "projMargin": -2.82,
+   "homeWinProb": 0.4172,
+   "awayWinProb": 0.5828,
    "source": "projected"
   },
   {
@@ -2209,9 +2033,9 @@
    "date": "2027-01-03T05:00Z",
    "home": "JAC",
    "away": "WAS",
-   "projMargin": 10.4,
-   "homeWinProb": 0.7795,
-   "awayWinProb": 0.2205,
+   "projMargin": 12.02,
+   "homeWinProb": 0.8134,
+   "awayWinProb": 0.1866,
    "source": "projected"
   },
   {
@@ -2220,9 +2044,9 @@
    "date": "2027-01-03T18:00Z",
    "home": "ATL",
    "away": "NO",
-   "projMargin": 1.6,
-   "homeWinProb": 0.5471,
-   "awayWinProb": 0.4529,
+   "projMargin": 5.39,
+   "homeWinProb": 0.6552,
+   "awayWinProb": 0.3448,
    "source": "projected"
   },
   {
@@ -2231,9 +2055,9 @@
    "date": "2027-01-03T18:00Z",
    "home": "CLE",
    "away": "IND",
-   "projMargin": 0.92,
-   "homeWinProb": 0.527,
-   "awayWinProb": 0.473,
+   "projMargin": -0.26,
+   "homeWinProb": 0.4923,
+   "awayWinProb": 0.5077,
    "source": "projected"
   },
   {
@@ -2242,9 +2066,9 @@
    "date": "2027-01-03T18:00Z",
    "home": "DAL",
    "away": "NYG",
-   "projMargin": 3.74,
-   "homeWinProb": 0.6092,
-   "awayWinProb": 0.3908,
+   "projMargin": 3.63,
+   "homeWinProb": 0.606,
+   "awayWinProb": 0.394,
    "source": "projected"
   },
   {
@@ -2253,9 +2077,9 @@
    "date": "2027-01-03T18:00Z",
    "home": "TEN",
    "away": "PIT",
-   "projMargin": -1.44,
-   "homeWinProb": 0.4576,
-   "awayWinProb": 0.5424,
+   "projMargin": -1.15,
+   "homeWinProb": 0.4662,
+   "awayWinProb": 0.5338,
    "source": "projected"
   },
   {
@@ -2264,9 +2088,9 @@
    "date": "2027-01-03T18:00Z",
    "home": "MIA",
    "away": "BUF",
-   "projMargin": -5.34,
-   "homeWinProb": 0.3462,
-   "awayWinProb": 0.6538,
+   "projMargin": -4.49,
+   "homeWinProb": 0.3697,
+   "awayWinProb": 0.6303,
    "source": "projected"
   },
   {
@@ -2275,9 +2099,9 @@
    "date": "2027-01-03T18:00Z",
    "home": "NYJ",
    "away": "MIN",
-   "projMargin": -3.23,
-   "homeWinProb": 0.4054,
-   "awayWinProb": 0.5946,
+   "projMargin": -3.15,
+   "homeWinProb": 0.4077,
+   "awayWinProb": 0.5923,
    "source": "projected"
   },
   {
@@ -2286,9 +2110,9 @@
    "date": "2027-01-03T18:00Z",
    "home": "CAR",
    "away": "SEA",
-   "projMargin": -2.72,
-   "homeWinProb": 0.4203,
-   "awayWinProb": 0.5797,
+   "projMargin": -2.09,
+   "homeWinProb": 0.4385,
+   "awayWinProb": 0.5615,
    "source": "projected"
   },
   {
@@ -2297,9 +2121,9 @@
    "date": "2027-01-03T21:05Z",
    "home": "ARI",
    "away": "LV",
-   "projMargin": 0.33,
-   "homeWinProb": 0.5097,
-   "awayWinProb": 0.4903,
+   "projMargin": -0.1,
+   "homeWinProb": 0.4972,
+   "awayWinProb": 0.5028,
    "source": "projected"
   },
   {
@@ -2308,9 +2132,9 @@
    "date": "2027-01-03T21:25Z",
    "home": "CHI",
    "away": "DET",
-   "projMargin": 5.39,
-   "homeWinProb": 0.6551,
-   "awayWinProb": 0.3449,
+   "projMargin": 6.03,
+   "homeWinProb": 0.6723,
+   "awayWinProb": 0.3277,
    "source": "projected"
   },
   {
@@ -2319,9 +2143,9 @@
    "date": "2027-01-04T01:20Z",
    "home": "SF",
    "away": "PHI",
-   "projMargin": 7.7,
-   "homeWinProb": 0.7159,
-   "awayWinProb": 0.2841,
+   "projMargin": 8.37,
+   "homeWinProb": 0.7325,
+   "awayWinProb": 0.2675,
    "source": "projected"
   },
   {
@@ -2330,9 +2154,9 @@
    "date": "2027-01-05T01:15Z",
    "home": "GB",
    "away": "HOU",
-   "projMargin": 0.04,
-   "homeWinProb": 0.5011,
-   "awayWinProb": 0.4989,
+   "projMargin": 1.12,
+   "homeWinProb": 0.533,
+   "awayWinProb": 0.467,
    "source": "projected"
   },
   {
@@ -2341,9 +2165,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "BUF",
    "away": "NYJ",
-   "projMargin": 8.63,
-   "homeWinProb": 0.7387,
-   "awayWinProb": 0.2613,
+   "projMargin": 8.3,
+   "homeWinProb": 0.7307,
+   "awayWinProb": 0.2693,
    "source": "projected"
   },
   {
@@ -2352,9 +2176,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "CIN",
    "away": "CLE",
-   "projMargin": 5.7,
-   "homeWinProb": 0.6635,
-   "awayWinProb": 0.3365,
+   "projMargin": 5.24,
+   "homeWinProb": 0.651,
+   "awayWinProb": 0.349,
    "source": "projected"
   },
   {
@@ -2363,9 +2187,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "DEN",
    "away": "LAC",
-   "projMargin": 5.96,
-   "homeWinProb": 0.6705,
-   "awayWinProb": 0.3295,
+   "projMargin": 5.51,
+   "homeWinProb": 0.6583,
+   "awayWinProb": 0.3417,
    "source": "projected"
   },
   {
@@ -2374,9 +2198,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "GB",
    "away": "DET",
-   "projMargin": -0.48,
-   "homeWinProb": 0.4858,
-   "awayWinProb": 0.5142,
+   "projMargin": 0.43,
+   "homeWinProb": 0.5128,
+   "awayWinProb": 0.4872,
    "source": "projected"
   },
   {
@@ -2385,9 +2209,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "IND",
    "away": "JAC",
-   "projMargin": -3.81,
-   "homeWinProb": 0.389,
-   "awayWinProb": 0.611,
+   "projMargin": -2.67,
+   "homeWinProb": 0.4216,
+   "awayWinProb": 0.5784,
    "source": "projected"
   },
   {
@@ -2396,9 +2220,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "KC",
    "away": "LV",
-   "projMargin": 5.54,
-   "homeWinProb": 0.6592,
-   "awayWinProb": 0.3408,
+   "projMargin": 5.99,
+   "homeWinProb": 0.6714,
+   "awayWinProb": 0.3286,
    "source": "projected"
   },
   {
@@ -2407,9 +2231,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "LAR",
    "away": "SEA",
-   "projMargin": 0.14,
-   "homeWinProb": 0.5041,
-   "awayWinProb": 0.4959,
+   "projMargin": 0.65,
+   "homeWinProb": 0.5193,
+   "awayWinProb": 0.4807,
    "source": "projected"
   },
   {
@@ -2418,9 +2242,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "MIN",
    "away": "CHI",
-   "projMargin": 2.26,
-   "homeWinProb": 0.5665,
-   "awayWinProb": 0.4335,
+   "projMargin": 1.76,
+   "homeWinProb": 0.552,
+   "awayWinProb": 0.448,
    "source": "projected"
   },
   {
@@ -2429,9 +2253,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "NE",
    "away": "MIA",
-   "projMargin": 9.07,
-   "homeWinProb": 0.7493,
-   "awayWinProb": 0.2507,
+   "projMargin": 9.27,
+   "homeWinProb": 0.7538,
+   "awayWinProb": 0.2462,
    "source": "projected"
   },
   {
@@ -2440,9 +2264,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "NO",
    "away": "TB",
-   "projMargin": 3.85,
-   "homeWinProb": 0.6121,
-   "awayWinProb": 0.3879,
+   "projMargin": 2.4,
+   "homeWinProb": 0.5705,
+   "awayWinProb": 0.4295,
    "source": "projected"
   },
   {
@@ -2451,9 +2275,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "NYG",
    "away": "PHI",
-   "projMargin": 1.31,
-   "homeWinProb": 0.5385,
-   "awayWinProb": 0.4615,
+   "projMargin": 2.32,
+   "homeWinProb": 0.5684,
+   "awayWinProb": 0.4316,
    "source": "projected"
   },
   {
@@ -2462,9 +2286,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "ARI",
    "away": "SF",
-   "projMargin": -4.35,
-   "homeWinProb": 0.3738,
-   "awayWinProb": 0.6262,
+   "projMargin": -5.35,
+   "homeWinProb": 0.3458,
+   "awayWinProb": 0.6542,
    "source": "projected"
   },
   {
@@ -2473,9 +2297,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "WAS",
    "away": "DAL",
-   "projMargin": 1.13,
-   "homeWinProb": 0.5333,
-   "awayWinProb": 0.4667,
+   "projMargin": -0.85,
+   "homeWinProb": 0.475,
+   "awayWinProb": 0.525,
    "source": "projected"
   },
   {
@@ -2484,9 +2308,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "CAR",
    "away": "ATL",
-   "projMargin": 4.17,
-   "homeWinProb": 0.6212,
-   "awayWinProb": 0.3788,
+   "projMargin": 2.69,
+   "homeWinProb": 0.5789,
+   "awayWinProb": 0.4211,
    "source": "projected"
   },
   {
@@ -2495,9 +2319,9 @@
    "date": "2027-01-10T05:00Z",
    "home": "BAL",
    "away": "PIT",
-   "projMargin": 4.77,
-   "homeWinProb": 0.6382,
-   "awayWinProb": 0.3618,
+   "projMargin": 4.74,
+   "homeWinProb": 0.6373,
+   "awayWinProb": 0.3627,
    "source": "projected"
   },
   {
@@ -2506,2956 +2330,2764 @@
    "date": "2027-01-10T05:00Z",
    "home": "HOU",
    "away": "TEN",
-   "projMargin": 7.07,
-   "homeWinProb": 0.6997,
-   "awayWinProb": 0.3003,
+   "projMargin": 6.31,
+   "homeWinProb": 0.6798,
+   "awayWinProb": 0.3202,
    "source": "projected"
   }
  ],
  "teamOutlook": {
   "ARI": {
-   "rating": -2.38,
+   "rating": -3.03,
    "byeWeek": 14,
    "games": [
     {
-     "week": 4,
-     "opp": "NYG",
-     "home": false,
-     "winProb": 0.4078
-    },
-    {
      "week": 5,
      "opp": "DET",
      "home": true,
-     "winProb": 0.4949
+     "winProb": 0.4882
     },
     {
      "week": 6,
      "opp": "LAR",
      "home": false,
-     "winProb": 0.2895
+     "winProb": 0.2656
     },
     {
      "week": 7,
      "opp": "DEN",
      "home": true,
-     "winProb": 0.4832
+     "winProb": 0.4737
     },
     {
      "week": 8,
      "opp": "DAL",
      "home": false,
-     "winProb": 0.3754
+     "winProb": 0.3409
     },
     {
      "week": 9,
      "opp": "SEA",
-     "home": false,
-     "winProb": 0.2306
-    },
-    {
-     "week": 10,
-     "opp": "LAR",
-     "home": true,
-     "winProb": 0.4327
-    },
-    {
-     "week": 11,
-     "opp": "KC",
-     "home": false,
-     "winProb": 0.2814
-    },
-    {
-     "week": 12,
-     "opp": "WAS",
-     "home": true,
-     "winProb": 0.5701
-    },
-    {
-     "week": 13,
-     "opp": "PHI",
-     "home": true,
-     "winProb": 0.5224
-    },
-    {
-     "week": 15,
-     "opp": "NYJ",
-     "home": true,
-     "winProb": 0.5939
-    },
-    {
-     "week": 16,
-     "opp": "NO",
-     "home": false,
-     "winProb": 0.3815
-    },
-    {
-     "week": 17,
-     "opp": "LV",
-     "home": true,
-     "winProb": 0.5097
-    },
-    {
-     "week": 18,
-     "opp": "SF",
-     "home": true,
-     "winProb": 0.3738
-    }
-   ],
-   "bestWeek": 15,
-   "bestWinProb": 0.5939
-  },
-  "ATL": {
-   "rating": -1.91,
-   "byeWeek": 11,
-   "games": [
-    {
-     "week": 4,
-     "opp": "NO",
-     "home": false,
-     "winProb": 0.3948
-    },
-    {
-     "week": 5,
-     "opp": "BAL",
-     "home": true,
-     "winProb": 0.4726
-    },
-    {
-     "week": 6,
-     "opp": "CHI",
-     "home": true,
-     "winProb": 0.4268
-    },
-    {
-     "week": 7,
-     "opp": "SF",
-     "home": true,
-     "winProb": 0.387
-    },
-    {
-     "week": 8,
-     "opp": "TB",
-     "home": false,
-     "winProb": 0.4308
-    },
-    {
-     "week": 9,
-     "opp": "CIN",
-     "home": true,
-     "winProb": 0.5012
-    },
-    {
-     "week": 10,
-     "opp": "KC",
-     "home": true,
-     "winProb": 0.437
-    },
-    {
-     "week": 12,
-     "opp": "MIN",
-     "home": false,
-     "winProb": 0.2929
-    },
-    {
-     "week": 13,
-     "opp": "DET",
-     "home": true,
-     "winProb": 0.5088
-    },
-    {
-     "week": 14,
-     "opp": "CLE",
-     "home": false,
-     "winProb": 0.4394
-    },
-    {
-     "week": 15,
-     "opp": "WAS",
-     "home": false,
-     "winProb": 0.431
-    },
-    {
-     "week": 16,
-     "opp": "TB",
-     "home": true,
-     "winProb": 0.5835
-    },
-    {
-     "week": 17,
-     "opp": "NO",
-     "home": true,
-     "winProb": 0.5471
-    },
-    {
-     "week": 18,
-     "opp": "CAR",
-     "home": false,
-     "winProb": 0.3788
-    }
-   ],
-   "bestWeek": 16,
-   "bestWinProb": 0.5835
-  },
-  "BAL": {
-   "rating": 1.62,
-   "byeWeek": 13,
-   "games": [
-    {
-     "week": 4,
-     "opp": "TEN",
-     "home": true,
-     "winProb": 0.743
-    },
-    {
-     "week": 5,
-     "opp": "ATL",
-     "home": false,
-     "winProb": 0.5274
-    },
-    {
-     "week": 6,
-     "opp": "CLE",
-     "home": false,
-     "winProb": 0.5433
-    },
-    {
-     "week": 7,
-     "opp": "CIN",
-     "home": true,
-     "winProb": 0.6042
-    },
-    {
-     "week": 8,
-     "opp": "BUF",
-     "home": false,
-     "winProb": 0.3827
-    },
-    {
-     "week": 9,
-     "opp": "JAC",
-     "home": true,
-     "winProb": 0.458
-    },
-    {
-     "week": 10,
-     "opp": "LAC",
-     "home": true,
-     "winProb": 0.6924
-    },
-    {
-     "week": 11,
-     "opp": "CAR",
-     "home": false,
-     "winProb": 0.4811
-    },
-    {
-     "week": 12,
-     "opp": "HOU",
-     "home": false,
-     "winProb": 0.4746
-    },
-    {
-     "week": 14,
-     "opp": "TB",
-     "home": true,
-     "winProb": 0.6815
-    },
-    {
-     "week": 15,
-     "opp": "PIT",
-     "home": false,
-     "winProb": 0.4874
-    },
-    {
-     "week": 16,
-     "opp": "CLE",
-     "home": true,
-     "winProb": 0.6893
-    },
-    {
-     "week": 17,
-     "opp": "CIN",
-     "home": false,
-     "winProb": 0.4519
-    },
-    {
-     "week": 18,
-     "opp": "PIT",
-     "home": true,
-     "winProb": 0.6382
-    }
-   ],
-   "bestWeek": 4,
-   "bestWinProb": 0.743
-  },
-  "BUF": {
-   "rating": 3.04,
-   "byeWeek": 7,
-   "games": [
-    {
-     "week": 4,
-     "opp": "NE",
-     "home": true,
-     "winProb": 0.6184
-    },
-    {
-     "week": 5,
-     "opp": "LAR",
-     "home": false,
-     "winProb": 0.4391
-    },
-    {
-     "week": 6,
-     "opp": "LV",
-     "home": false,
-     "winProb": 0.5162
-    },
-    {
-     "week": 8,
-     "opp": "BAL",
-     "home": true,
-     "winProb": 0.6173
-    },
-    {
-     "week": 9,
-     "opp": "MIN",
-     "home": false,
-     "winProb": 0.4294
-    },
-    {
-     "week": 10,
-     "opp": "NYJ",
-     "home": false,
-     "winProb": 0.6003
-    },
-    {
-     "week": 11,
-     "opp": "MIA",
-     "home": true,
-     "winProb": 0.7825
-    },
-    {
-     "week": 12,
-     "opp": "KC",
-     "home": true,
-     "winProb": 0.5825
-    },
-    {
-     "week": 13,
-     "opp": "NE",
-     "home": false,
-     "winProb": 0.4665
-    },
-    {
-     "week": 14,
-     "opp": "GB",
-     "home": false,
-     "winProb": 0.5917
-    },
-    {
-     "week": 15,
-     "opp": "CHI",
-     "home": true,
-     "winProb": 0.5723
-    },
-    {
-     "week": 16,
-     "opp": "DEN",
-     "home": false,
-     "winProb": 0.4898
-    },
-    {
-     "week": 17,
-     "opp": "MIA",
-     "home": false,
-     "winProb": 0.6538
-    },
-    {
-     "week": 18,
-     "opp": "NYJ",
-     "home": true,
-     "winProb": 0.7387
-    }
-   ],
-   "bestWeek": 11,
-   "bestWinProb": 0.7825
-  },
-  "CAR": {
-   "rating": -0.34,
-   "byeWeek": 5,
-   "games": [
-    {
-     "week": 4,
-     "opp": "DET",
-     "home": true,
-     "winProb": 0.5548
-    },
-    {
-     "week": 6,
-     "opp": "PHI",
-     "home": false,
-     "winProb": 0.4292
-    },
-    {
-     "week": 7,
-     "opp": "TB",
-     "home": true,
-     "winProb": 0.6281
-    },
-    {
-     "week": 8,
-     "opp": "GB",
-     "home": false,
-     "winProb": 0.4924
-    },
-    {
-     "week": 9,
-     "opp": "DEN",
-     "home": true,
-     "winProb": 0.5432
-    },
-    {
-     "week": 10,
-     "opp": "NO",
-     "home": false,
-     "winProb": 0.4401
-    },
-    {
-     "week": 11,
-     "opp": "BAL",
-     "home": true,
-     "winProb": 0.5189
-    },
-    {
-     "week": 12,
-     "opp": "TB",
-     "home": false,
-     "winProb": 0.4767
-    },
-    {
-     "week": 13,
-     "opp": "MIN",
-     "home": false,
-     "winProb": 0.334
-    },
-    {
-     "week": 14,
-     "opp": "NO",
-     "home": true,
-     "winProb": 0.5927
-    },
-    {
-     "week": 15,
-     "opp": "CIN",
-     "home": true,
-     "winProb": 0.5474
-    },
-    {
-     "week": 16,
-     "opp": "PIT",
-     "home": false,
-     "winProb": 0.4298
-    },
-    {
-     "week": 17,
-     "opp": "SEA",
-     "home": true,
-     "winProb": 0.4203
-    },
-    {
-     "week": 18,
-     "opp": "ATL",
-     "home": true,
-     "winProb": 0.6212
-    }
-   ],
-   "bestWeek": 7,
-   "bestWinProb": 0.6281
-  },
-  "CHI": {
-   "rating": 3.18,
-   "byeWeek": 10,
-   "games": [
-    {
-     "week": 4,
-     "opp": "NYJ",
-     "home": true,
-     "winProb": 0.742
-    },
-    {
-     "week": 5,
-     "opp": "GB",
-     "home": false,
-     "winProb": 0.5957
-    },
-    {
-     "week": 6,
-     "opp": "ATL",
-     "home": false,
-     "winProb": 0.5732
-    },
-    {
-     "week": 7,
-     "opp": "NE",
-     "home": true,
-     "winProb": 0.6223
-    },
-    {
-     "week": 8,
-     "opp": "SEA",
-     "home": false,
-     "winProb": 0.3726
-    },
-    {
-     "week": 9,
-     "opp": "TB",
-     "home": true,
-     "winProb": 0.7217
-    },
-    {
-     "week": 11,
-     "opp": "NO",
-     "home": true,
-     "winProb": 0.6899
-    },
-    {
-     "week": 12,
-     "opp": "DET",
-     "home": false,
-     "winProb": 0.5056
-    },
-    {
-     "week": 13,
-     "opp": "JAC",
-     "home": true,
-     "winProb": 0.5042
-    },
-    {
-     "week": 14,
-     "opp": "MIA",
-     "home": false,
-     "winProb": 0.6576
-    },
-    {
-     "week": 15,
-     "opp": "BUF",
-     "home": false,
-     "winProb": 0.4277
-    },
-    {
-     "week": 16,
-     "opp": "GB",
-     "home": true,
-     "winProb": 0.7348
-    },
-    {
-     "week": 17,
-     "opp": "DET",
-     "home": true,
-     "winProb": 0.6551
-    },
-    {
-     "week": 18,
-     "opp": "MIN",
-     "home": false,
-     "winProb": 0.4335
-    }
-   ],
-   "bestWeek": 4,
-   "bestWinProb": 0.742
-  },
-  "CIN": {
-   "rating": 0.65,
-   "byeWeek": 6,
-   "games": [
-    {
-     "week": 4,
-     "opp": "JAC",
-     "home": true,
-     "winProb": 0.4296
-    },
-    {
-     "week": 5,
-     "opp": "MIA",
-     "home": false,
-     "winProb": 0.5864
-    },
-    {
-     "week": 7,
-     "opp": "BAL",
-     "home": false,
-     "winProb": 0.3958
-    },
-    {
-     "week": 8,
-     "opp": "TEN",
-     "home": true,
-     "winProb": 0.7193
-    },
-    {
-     "week": 9,
-     "opp": "ATL",
-     "home": false,
-     "winProb": 0.4988
-    },
-    {
-     "week": 10,
-     "opp": "PIT",
-     "home": true,
-     "winProb": 0.611
-    },
-    {
-     "week": 11,
-     "opp": "WAS",
-     "home": false,
-     "winProb": 0.5062
-    },
-    {
-     "week": 12,
-     "opp": "NO",
-     "home": true,
-     "winProb": 0.621
-    },
-    {
-     "week": 13,
-     "opp": "CLE",
-     "home": false,
-     "winProb": 0.5147
-    },
-    {
-     "week": 14,
-     "opp": "KC",
-     "home": true,
-     "winProb": 0.5123
-    },
-    {
-     "week": 15,
-     "opp": "CAR",
-     "home": false,
-     "winProb": 0.4526
-    },
-    {
-     "week": 16,
-     "opp": "IND",
-     "home": false,
-     "winProb": 0.465
-    },
-    {
-     "week": 17,
-     "opp": "BAL",
-     "home": true,
-     "winProb": 0.5481
-    },
-    {
-     "week": 18,
-     "opp": "CLE",
-     "home": true,
-     "winProb": 0.6635
-    }
-   ],
-   "bestWeek": 8,
-   "bestWinProb": 0.7193
-  },
-  "CLE": {
-   "rating": -2.45,
-   "byeWeek": 11,
-   "games": [
-    {
-     "week": 4,
-     "opp": "PIT",
-     "home": true,
-     "winProb": 0.5209
-    },
-    {
-     "week": 5,
-     "opp": "NYJ",
-     "home": false,
-     "winProb": 0.4393
-    },
-    {
-     "week": 6,
-     "opp": "BAL",
-     "home": true,
-     "winProb": 0.4567
-    },
-    {
-     "week": 7,
-     "opp": "TEN",
-     "home": false,
-     "winProb": 0.4865
-    },
-    {
-     "week": 8,
-     "opp": "PIT",
-     "home": false,
-     "winProb": 0.3696
-    },
-    {
-     "week": 9,
-     "opp": "NO",
-     "home": false,
-     "winProb": 0.3795
-    },
-    {
-     "week": 10,
-     "opp": "HOU",
-     "home": true,
-     "winProb": 0.5081
-    },
-    {
-     "week": 12,
-     "opp": "LV",
-     "home": true,
-     "winProb": 0.5075
-    },
-    {
-     "week": 13,
-     "opp": "CIN",
-     "home": true,
-     "winProb": 0.4853
-    },
-    {
-     "week": 14,
-     "opp": "ATL",
-     "home": true,
-     "winProb": 0.5606
-    },
-    {
-     "week": 15,
-     "opp": "NYG",
-     "home": false,
-     "winProb": 0.4058
-    },
-    {
-     "week": 16,
-     "opp": "BAL",
-     "home": false,
-     "winProb": 0.3107
-    },
-    {
-     "week": 17,
-     "opp": "IND",
-     "home": true,
-     "winProb": 0.527
-    },
-    {
-     "week": 18,
-     "opp": "CIN",
-     "home": false,
-     "winProb": 0.3365
-    }
-   ],
-   "bestWeek": 14,
-   "bestWinProb": 0.5606
-  },
-  "DAL": {
-   "rating": -0.69,
-   "byeWeek": 14,
-   "games": [
-    {
-     "week": 4,
-     "opp": "HOU",
-     "home": false,
-     "winProb": 0.4073
-    },
-    {
-     "week": 5,
-     "opp": "TB",
-     "home": true,
-     "winProb": 0.6183
-    },
-    {
-     "week": 6,
-     "opp": "GB",
-     "home": false,
-     "winProb": 0.4822
-    },
-    {
-     "week": 7,
-     "opp": "PHI",
-     "home": false,
-     "winProb": 0.4192
-    },
-    {
-     "week": 8,
-     "opp": "ARI",
-     "home": true,
-     "winProb": 0.6246
-    },
-    {
-     "week": 9,
-     "opp": "IND",
-     "home": false,
-     "winProb": 0.4258
-    },
-    {
-     "week": 10,
-     "opp": "SF",
-     "home": true,
-     "winProb": 0.422
-    },
-    {
-     "week": 11,
-     "opp": "TEN",
-     "home": true,
-     "winProb": 0.685
-    },
-    {
-     "week": 12,
-     "opp": "PHI",
-     "home": true,
-     "winProb": 0.5719
-    },
-    {
-     "week": 13,
-     "opp": "SEA",
-     "home": false,
-     "winProb": 0.2703
-    },
-    {
-     "week": 15,
-     "opp": "LAR",
-     "home": false,
-     "winProb": 0.3337
-    },
-    {
-     "week": 16,
-     "opp": "JAC",
-     "home": true,
-     "winProb": 0.3911
-    },
-    {
-     "week": 17,
-     "opp": "NYG",
-     "home": true,
-     "winProb": 0.6092
-    },
-    {
-     "week": 18,
-     "opp": "WAS",
-     "home": false,
-     "winProb": 0.4667
-    }
-   ],
-   "bestWeek": 11,
-   "bestWinProb": 0.685
-  },
-  "DEN": {
-   "rating": 0.79,
-   "byeWeek": 10,
-   "games": [
-    {
-     "week": 4,
-     "opp": "SF",
-     "home": false,
-     "winProb": 0.3183
-    },
-    {
-     "week": 5,
-     "opp": "LAC",
-     "home": false,
-     "winProb": 0.5224
-    },
-    {
-     "week": 6,
-     "opp": "SEA",
-     "home": true,
-     "winProb": 0.4534
-    },
-    {
-     "week": 7,
-     "opp": "ARI",
-     "home": false,
-     "winProb": 0.5168
-    },
-    {
-     "week": 8,
-     "opp": "KC",
-     "home": true,
-     "winProb": 0.5165
-    },
-    {
-     "week": 9,
-     "opp": "CAR",
-     "home": false,
-     "winProb": 0.4568
-    },
-    {
-     "week": 11,
-     "opp": "LV",
-     "home": true,
-     "winProb": 0.6022
-    },
-    {
-     "week": 12,
-     "opp": "PIT",
-     "home": false,
-     "winProb": 0.463
-    },
-    {
-     "week": 13,
-     "opp": "MIA",
-     "home": true,
-     "winProb": 0.7304
-    },
-    {
-     "week": 14,
-     "opp": "NYJ",
-     "home": false,
-     "winProb": 0.5348
-    },
-    {
-     "week": 15,
-     "opp": "LV",
-     "home": false,
-     "winProb": 0.4498
-    },
-    {
-     "week": 16,
-     "opp": "BUF",
-     "home": true,
-     "winProb": 0.5102
-    },
-    {
-     "week": 17,
-     "opp": "NE",
-     "home": false,
-     "winProb": 0.401
-    },
-    {
-     "week": 18,
-     "opp": "LAC",
-     "home": true,
-     "winProb": 0.6705
-    }
-   ],
-   "bestWeek": 13,
-   "bestWinProb": 0.7304
-  },
-  "DET": {
-   "rating": 0.39,
-   "byeWeek": 6,
-   "games": [
-    {
-     "week": 4,
-     "opp": "CAR",
-     "home": false,
-     "winProb": 0.4452
-    },
-    {
-     "week": 5,
-     "opp": "ARI",
-     "home": false,
-     "winProb": 0.5051
-    },
-    {
-     "week": 7,
-     "opp": "GB",
-     "home": true,
-     "winProb": 0.6631
-    },
-    {
-     "week": 8,
-     "opp": "MIN",
-     "home": true,
-     "winProb": 0.5044
-    },
-    {
-     "week": 9,
-     "opp": "MIA",
-     "home": false,
-     "winProb": 0.579
-    },
-    {
-     "week": 10,
-     "opp": "NE",
-     "home": true,
-     "winProb": 0.5418
-    },
-    {
-     "week": 11,
-     "opp": "TB",
-     "home": true,
-     "winProb": 0.6485
-    },
-    {
-     "week": 12,
-     "opp": "CHI",
-     "home": true,
-     "winProb": 0.4944
-    },
-    {
-     "week": 13,
-     "opp": "ATL",
-     "home": false,
-     "winProb": 0.4912
-    },
-    {
-     "week": 14,
-     "opp": "TEN",
-     "home": true,
-     "winProb": 0.7129
-    },
-    {
-     "week": 15,
-     "opp": "MIN",
-     "home": false,
-     "winProb": 0.3541
-    },
-    {
-     "week": 16,
-     "opp": "NYG",
-     "home": true,
-     "winProb": 0.6396
-    },
-    {
-     "week": 17,
-     "opp": "CHI",
-     "home": false,
-     "winProb": 0.3449
-    },
-    {
-     "week": 18,
-     "opp": "GB",
-     "home": false,
-     "winProb": 0.5142
-    }
-   ],
-   "bestWeek": 14,
-   "bestWinProb": 0.7129
-  },
-  "GB": {
-   "rating": -2.69,
-   "byeWeek": 11,
-   "games": [
-    {
-     "week": 4,
-     "opp": "TB",
-     "home": false,
-     "winProb": 0.4082
-    },
-    {
-     "week": 5,
-     "opp": "CHI",
-     "home": true,
-     "winProb": 0.4043
-    },
-    {
-     "week": 6,
-     "opp": "DAL",
-     "home": true,
-     "winProb": 0.5178
-    },
-    {
-     "week": 7,
-     "opp": "DET",
-     "home": false,
-     "winProb": 0.3369
-    },
-    {
-     "week": 8,
-     "opp": "CAR",
-     "home": true,
-     "winProb": 0.5076
-    },
-    {
-     "week": 9,
-     "opp": "NE",
-     "home": false,
-     "winProb": 0.3055
-    },
-    {
-     "week": 10,
-     "opp": "MIN",
-     "home": true,
-     "winProb": 0.414
-    },
-    {
-     "week": 12,
-     "opp": "LAR",
-     "home": false,
-     "winProb": 0.2817
-    },
-    {
-     "week": 13,
-     "opp": "NO",
-     "home": false,
-     "winProb": 0.3728
-    },
-    {
-     "week": 14,
-     "opp": "BUF",
-     "home": true,
-     "winProb": 0.4083
-    },
-    {
-     "week": 15,
-     "opp": "MIA",
-     "home": true,
-     "winProb": 0.6392
-    },
-    {
-     "week": 16,
-     "opp": "CHI",
-     "home": false,
-     "winProb": 0.2652
-    },
-    {
-     "week": 17,
-     "opp": "HOU",
-     "home": true,
-     "winProb": 0.5011
-    },
-    {
-     "week": 18,
-     "opp": "DET",
-     "home": true,
-     "winProb": 0.4858
-    }
-   ],
-   "bestWeek": 15,
-   "bestWinProb": 0.6392
-  },
-  "HOU": {
-   "rating": -0.12,
-   "byeWeek": 8,
-   "games": [
-    {
-     "week": 4,
-     "opp": "DAL",
-     "home": true,
-     "winProb": 0.5927
-    },
-    {
-     "week": 5,
-     "opp": "TEN",
-     "home": false,
-     "winProb": 0.555
-    },
-    {
-     "week": 6,
-     "opp": "JAC",
-     "home": false,
-     "winProb": 0.2677
-    },
-    {
-     "week": 7,
-     "opp": "NYG",
-     "home": true,
-     "winProb": 0.6252
-    },
-    {
-     "week": 9,
-     "opp": "LAC",
-     "home": false,
-     "winProb": 0.4954
-    },
-    {
-     "week": 10,
-     "opp": "CLE",
-     "home": false,
-     "winProb": 0.4919
-    },
-    {
-     "week": 11,
-     "opp": "IND",
-     "home": true,
-     "winProb": 0.5949
-    },
-    {
-     "week": 12,
-     "opp": "BAL",
-     "home": true,
-     "winProb": 0.5254
-    },
-    {
-     "week": 13,
-     "opp": "PIT",
-     "home": false,
-     "winProb": 0.4362
-    },
-    {
-     "week": 14,
-     "opp": "WAS",
-     "home": false,
-     "winProb": 0.4834
-    },
-    {
-     "week": 15,
-     "opp": "JAC",
-     "home": true,
-     "winProb": 0.4073
-    },
-    {
-     "week": 16,
-     "opp": "PHI",
-     "home": false,
-     "winProb": 0.4357
-    },
-    {
-     "week": 17,
-     "opp": "GB",
-     "home": false,
-     "winProb": 0.4989
-    },
-    {
-     "week": 18,
-     "opp": "TEN",
-     "home": true,
-     "winProb": 0.6997
-    }
-   ],
-   "bestWeek": 18,
-   "bestWinProb": 0.6997
-  },
-  "IND": {
-   "rating": -0.76,
-   "byeWeek": 13,
-   "games": [
-    {
-     "week": 4,
-     "opp": "WAS",
-     "home": false,
-     "winProb": 0.4645
-    },
-    {
-     "week": 5,
-     "opp": "PIT",
-     "home": false,
-     "winProb": 0.4176
-    },
-    {
-     "week": 6,
-     "opp": "TEN",
-     "home": true,
-     "winProb": 0.683
-    },
-    {
-     "week": 7,
-     "opp": "MIN",
-     "home": false,
-     "winProb": 0.3228
-    },
-    {
-     "week": 8,
-     "opp": "JAC",
-     "home": false,
-     "winProb": 0.2523
-    },
-    {
-     "week": 9,
-     "opp": "DAL",
-     "home": true,
-     "winProb": 0.5742
-    },
-    {
-     "week": 10,
-     "opp": "MIA",
-     "home": true,
-     "winProb": 0.691
-    },
-    {
-     "week": 11,
-     "opp": "HOU",
-     "home": false,
-     "winProb": 0.4051
-    },
-    {
-     "week": 12,
-     "opp": "NYG",
-     "home": true,
-     "winProb": 0.607
-    },
-    {
-     "week": 14,
-     "opp": "PHI",
-     "home": false,
-     "winProb": 0.417
-    },
-    {
-     "week": 15,
-     "opp": "TEN",
-     "home": false,
-     "winProb": 0.5362
-    },
-    {
-     "week": 16,
-     "opp": "CIN",
-     "home": true,
-     "winProb": 0.535
-    },
-    {
-     "week": 17,
-     "opp": "CLE",
-     "home": false,
-     "winProb": 0.473
-    },
-    {
-     "week": 18,
-     "opp": "JAC",
-     "home": true,
-     "winProb": 0.389
-    }
-   ],
-   "bestWeek": 10,
-   "bestWinProb": 0.691
-  },
-  "JAC": {
-   "rating": 5.64,
-   "byeWeek": 7,
-   "games": [
-    {
-     "week": 4,
-     "opp": "CIN",
-     "home": false,
-     "winProb": 0.5704
-    },
-    {
-     "week": 5,
-     "opp": "PHI",
-     "home": true,
-     "winProb": 0.7423
-    },
-    {
-     "week": 6,
-     "opp": "HOU",
-     "home": true,
-     "winProb": 0.7323
-    },
-    {
-     "week": 8,
-     "opp": "IND",
-     "home": true,
-     "winProb": 0.7477
-    },
-    {
-     "week": 9,
-     "opp": "BAL",
-     "home": false,
-     "winProb": 0.542
-    },
-    {
-     "week": 10,
-     "opp": "TEN",
-     "home": false,
-     "winProb": 0.7141
-    },
-    {
-     "week": 11,
-     "opp": "NYG",
-     "home": false,
-     "winProb": 0.6409
-    },
-    {
-     "week": 12,
-     "opp": "TEN",
-     "home": true,
-     "winProb": 0.8291
-    },
-    {
-     "week": 13,
-     "opp": "CHI",
-     "home": false,
-     "winProb": 0.4958
-    },
-    {
-     "week": 14,
-     "opp": "PIT",
-     "home": true,
-     "winProb": 0.7427
-    },
-    {
-     "week": 15,
-     "opp": "HOU",
-     "home": false,
-     "winProb": 0.5927
-    },
-    {
-     "week": 16,
-     "opp": "DAL",
-     "home": false,
-     "winProb": 0.6089
-    },
-    {
-     "week": 17,
-     "opp": "WAS",
-     "home": true,
-     "winProb": 0.7795
-    },
-    {
-     "week": 18,
-     "opp": "IND",
-     "home": false,
-     "winProb": 0.611
-    }
-   ],
-   "bestWeek": 12,
-   "bestWinProb": 0.8291
-  },
-  "KC": {
-   "rating": 2.83,
-   "byeWeek": 5,
-   "games": [
-    {
-     "week": 4,
-     "opp": "LV",
-     "home": false,
-     "winProb": 0.51
-    },
-    {
-     "week": 6,
-     "opp": "LAC",
-     "home": true,
-     "winProb": 0.7233
-    },
-    {
-     "week": 7,
-     "opp": "SEA",
-     "home": false,
-     "winProb": 0.3628
-    },
-    {
-     "week": 8,
-     "opp": "DEN",
-     "home": false,
-     "winProb": 0.4835
-    },
-    {
-     "week": 9,
-     "opp": "NYJ",
-     "home": true,
-     "winProb": 0.7336
-    },
-    {
-     "week": 10,
-     "opp": "ATL",
-     "home": false,
-     "winProb": 0.563
-    },
-    {
-     "week": 11,
-     "opp": "ARI",
-     "home": true,
-     "winProb": 0.7186
-    },
-    {
-     "week": 12,
-     "opp": "BUF",
-     "home": false,
-     "winProb": 0.4175
-    },
-    {
-     "week": 13,
-     "opp": "LAR",
-     "home": false,
-     "winProb": 0.433
-    },
-    {
-     "week": 14,
-     "opp": "CIN",
-     "home": false,
-     "winProb": 0.4877
-    },
-    {
-     "week": 15,
-     "opp": "NE",
-     "home": true,
-     "winProb": 0.6124
-    },
-    {
-     "week": 16,
-     "opp": "SF",
-     "home": true,
-     "winProb": 0.5256
-    },
-    {
-     "week": 17,
-     "opp": "LAC",
-     "home": false,
-     "winProb": 0.5822
-    },
-    {
-     "week": 18,
-     "opp": "LV",
-     "home": true,
-     "winProb": 0.6592
-    }
-   ],
-   "bestWeek": 9,
-   "bestWinProb": 0.7336
-  },
-  "LAC": {
-   "rating": -2.57,
-   "byeWeek": 7,
-   "games": [
-    {
-     "week": 4,
-     "opp": "SEA",
-     "home": false,
-     "winProb": 0.2263
-    },
-    {
-     "week": 5,
-     "opp": "DEN",
-     "home": true,
-     "winProb": 0.4776
-    },
-    {
-     "week": 6,
-     "opp": "KC",
-     "home": false,
-     "winProb": 0.2767
-    },
-    {
-     "week": 8,
-     "opp": "LAR",
-     "home": false,
-     "winProb": 0.2847
-    },
-    {
-     "week": 9,
-     "opp": "HOU",
-     "home": true,
-     "winProb": 0.5046
-    },
-    {
-     "week": 10,
-     "opp": "BAL",
-     "home": false,
-     "winProb": 0.3076
-    },
-    {
-     "week": 11,
-     "opp": "NYJ",
-     "home": true,
-     "winProb": 0.5885
-    },
-    {
-     "week": 12,
-     "opp": "NE",
-     "home": true,
-     "winProb": 0.4544
-    },
-    {
-     "week": 13,
-     "opp": "TB",
-     "home": false,
-     "winProb": 0.4117
-    },
-    {
-     "week": 14,
-     "opp": "LV",
-     "home": false,
-     "winProb": 0.3538
-    },
-    {
-     "week": 15,
-     "opp": "SF",
-     "home": true,
-     "winProb": 0.3685
-    },
-    {
-     "week": 16,
-     "opp": "MIA",
-     "home": false,
-     "winProb": 0.492
-    },
-    {
-     "week": 17,
-     "opp": "KC",
-     "home": true,
-     "winProb": 0.4178
-    },
-    {
-     "week": 18,
-     "opp": "DEN",
-     "home": false,
-     "winProb": 0.3295
-    }
-   ],
-   "bestWeek": 11,
-   "bestWinProb": 0.5885
-  },
-  "LAR": {
-   "rating": 2.51,
-   "byeWeek": 11,
-   "games": [
-    {
-     "week": 4,
-     "opp": "PHI",
-     "home": false,
-     "winProb": 0.5133
-    },
-    {
-     "week": 5,
-     "opp": "BUF",
-     "home": true,
-     "winProb": 0.5609
-    },
-    {
-     "week": 6,
-     "opp": "ARI",
-     "home": true,
-     "winProb": 0.7105
-    },
-    {
-     "week": 7,
-     "opp": "LV",
-     "home": false,
-     "winProb": 0.5005
-    },
-    {
-     "week": 8,
-     "opp": "LAC",
-     "home": true,
-     "winProb": 0.7153
-    },
-    {
-     "week": 9,
-     "opp": "WAS",
-     "home": false,
-     "winProb": 0.561
-    },
-    {
-     "week": 10,
-     "opp": "ARI",
-     "home": false,
-     "winProb": 0.5673
-    },
-    {
-     "week": 12,
-     "opp": "GB",
-     "home": true,
-     "winProb": 0.7183
-    },
-    {
-     "week": 13,
-     "opp": "KC",
-     "home": true,
-     "winProb": 0.567
-    },
-    {
-     "week": 14,
-     "opp": "SF",
-     "home": false,
-     "winProb": 0.3651
-    },
-    {
-     "week": 15,
-     "opp": "DAL",
-     "home": true,
-     "winProb": 0.6663
-    },
-    {
-     "week": 16,
-     "opp": "SEA",
-     "home": false,
-     "winProb": 0.3539
-    },
-    {
-     "week": 17,
-     "opp": "TB",
-     "home": false,
-     "winProb": 0.5608
-    },
-    {
-     "week": 18,
-     "opp": "SEA",
-     "home": true,
-     "winProb": 0.5041
-    }
-   ],
-   "bestWeek": 12,
-   "bestWinProb": 0.7183
-  },
-  "LV": {
-   "rating": -0.1,
-   "byeWeek": 13,
-   "games": [
-    {
-     "week": 4,
-     "opp": "KC",
-     "home": true,
-     "winProb": 0.49
-    },
-    {
-     "week": 5,
-     "opp": "NE",
-     "home": false,
-     "winProb": 0.3755
-    },
-    {
-     "week": 6,
-     "opp": "BUF",
-     "home": true,
-     "winProb": 0.4838
-    },
-    {
-     "week": 7,
-     "opp": "LAR",
-     "home": true,
-     "winProb": 0.4995
-    },
-    {
-     "week": 8,
-     "opp": "NYJ",
-     "home": false,
-     "winProb": 0.5083
-    },
-    {
-     "week": 9,
-     "opp": "SF",
-     "home": false,
-     "winProb": 0.2951
-    },
-    {
-     "week": 10,
-     "opp": "SEA",
-     "home": true,
-     "winProb": 0.4272
-    },
-    {
-     "week": 11,
-     "opp": "DEN",
-     "home": false,
-     "winProb": 0.3978
-    },
-    {
-     "week": 12,
-     "opp": "CLE",
-     "home": false,
-     "winProb": 0.4925
-    },
-    {
-     "week": 14,
-     "opp": "LAC",
-     "home": true,
-     "winProb": 0.6462
-    },
-    {
-     "week": 15,
-     "opp": "DEN",
-     "home": true,
-     "winProb": 0.5502
-    },
-    {
-     "week": 16,
-     "opp": "TEN",
-     "home": true,
-     "winProb": 0.7002
-    },
-    {
-     "week": 17,
-     "opp": "ARI",
-     "home": false,
-     "winProb": 0.4903
-    },
-    {
-     "week": 18,
-     "opp": "KC",
-     "home": false,
-     "winProb": 0.3408
-    }
-   ],
-   "bestWeek": 16,
-   "bestWinProb": 0.7002
-  },
-  "MIA": {
-   "rating": -4.9,
-   "byeWeek": 6,
-   "games": [
-    {
-     "week": 4,
-     "opp": "MIN",
-     "home": false,
-     "winProb": 0.2218
-    },
-    {
-     "week": 5,
-     "opp": "CIN",
-     "home": true,
-     "winProb": 0.4136
-    },
-    {
-     "week": 7,
-     "opp": "NYJ",
-     "home": false,
-     "winProb": 0.3692
-    },
-    {
-     "week": 8,
-     "opp": "NE",
-     "home": true,
-     "winProb": 0.3871
-    },
-    {
-     "week": 9,
-     "opp": "DET",
-     "home": true,
-     "winProb": 0.421
-    },
-    {
-     "week": 10,
-     "opp": "IND",
-     "home": false,
-     "winProb": 0.309
-    },
-    {
-     "week": 11,
-     "opp": "BUF",
-     "home": false,
-     "winProb": 0.2175
-    },
-    {
-     "week": 12,
-     "opp": "NYJ",
-     "home": true,
-     "winProb": 0.5204
-    },
-    {
-     "week": 13,
-     "opp": "DEN",
-     "home": false,
-     "winProb": 0.2696
-    },
-    {
-     "week": 14,
-     "opp": "CHI",
-     "home": true,
-     "winProb": 0.3424
-    },
-    {
-     "week": 15,
-     "opp": "GB",
-     "home": false,
-     "winProb": 0.3608
-    },
-    {
-     "week": 16,
-     "opp": "LAC",
-     "home": true,
-     "winProb": 0.508
-    },
-    {
-     "week": 17,
-     "opp": "BUF",
-     "home": true,
-     "winProb": 0.3462
-    },
-    {
-     "week": 18,
-     "opp": "NE",
-     "home": false,
-     "winProb": 0.2507
-    }
-   ],
-   "bestWeek": 12,
-   "bestWinProb": 0.5204
-  },
-  "MIN": {
-   "rating": 2.85,
-   "byeWeek": 6,
-   "games": [
-    {
-     "week": 4,
-     "opp": "MIA",
-     "home": true,
-     "winProb": 0.7782
-    },
-    {
-     "week": 5,
-     "opp": "NO",
-     "home": false,
-     "winProb": 0.5341
-    },
-    {
-     "week": 7,
-     "opp": "IND",
-     "home": true,
-     "winProb": 0.6772
-    },
-    {
-     "week": 8,
-     "opp": "DET",
-     "home": false,
-     "winProb": 0.4956
-    },
-    {
-     "week": 9,
-     "opp": "BUF",
-     "home": true,
-     "winProb": 0.5706
-    },
-    {
-     "week": 10,
-     "opp": "GB",
-     "home": false,
-     "winProb": 0.586
-    },
-    {
-     "week": 11,
-     "opp": "SF",
-     "home": false,
-     "winProb": 0.3744
-    },
-    {
-     "week": 12,
-     "opp": "ATL",
-     "home": true,
-     "winProb": 0.7071
-    },
-    {
-     "week": 13,
-     "opp": "CAR",
-     "home": true,
-     "winProb": 0.666
-    },
-    {
-     "week": 14,
-     "opp": "NE",
-     "home": false,
-     "winProb": 0.4607
-    },
-    {
-     "week": 15,
-     "opp": "DET",
-     "home": true,
-     "winProb": 0.6459
-    },
-    {
-     "week": 16,
-     "opp": "WAS",
-     "home": true,
-     "winProb": 0.7134
-    },
-    {
-     "week": 17,
-     "opp": "NYJ",
-     "home": false,
-     "winProb": 0.5946
-    },
-    {
-     "week": 18,
-     "opp": "CHI",
-     "home": true,
-     "winProb": 0.5665
-    }
-   ],
-   "bestWeek": 4,
-   "bestWinProb": 0.7782
-  },
-  "NE": {
-   "rating": 1.58,
-   "byeWeek": 11,
-   "games": [
-    {
-     "week": 4,
-     "opp": "BUF",
-     "home": false,
-     "winProb": 0.3816
-    },
-    {
-     "week": 5,
-     "opp": "LV",
-     "home": true,
-     "winProb": 0.6245
-    },
-    {
-     "week": 6,
-     "opp": "NYJ",
-     "home": true,
-     "winProb": 0.7022
-    },
-    {
-     "week": 7,
-     "opp": "CHI",
-     "home": false,
-     "winProb": 0.3777
-    },
-    {
-     "week": 8,
-     "opp": "MIA",
-     "home": false,
-     "winProb": 0.6129
-    },
-    {
-     "week": 9,
-     "opp": "GB",
-     "home": true,
-     "winProb": 0.6945
-    },
-    {
-     "week": 10,
-     "opp": "DET",
-     "home": false,
-     "winProb": 0.4582
-    },
-    {
-     "week": 12,
-     "opp": "LAC",
-     "home": false,
-     "winProb": 0.5456
-    },
-    {
-     "week": 13,
-     "opp": "BUF",
-     "home": true,
-     "winProb": 0.5335
-    },
-    {
-     "week": 14,
-     "opp": "MIN",
-     "home": true,
-     "winProb": 0.5393
-    },
-    {
-     "week": 15,
-     "opp": "KC",
-     "home": false,
-     "winProb": 0.3876
-    },
-    {
-     "week": 16,
-     "opp": "NYJ",
-     "home": false,
-     "winProb": 0.5578
-    },
-    {
-     "week": 17,
-     "opp": "DEN",
-     "home": true,
-     "winProb": 0.599
-    },
-    {
-     "week": 18,
-     "opp": "MIA",
-     "home": true,
-     "winProb": 0.7493
-    }
-   ],
-   "bestWeek": 18,
-   "bestWinProb": 0.7493
-  },
-  "NO": {
-   "rating": -0.91,
-   "byeWeek": 8,
-   "games": [
-    {
-     "week": 4,
-     "opp": "ATL",
-     "home": true,
-     "winProb": 0.6052
-    },
-    {
-     "week": 5,
-     "opp": "MIN",
-     "home": true,
-     "winProb": 0.4659
-    },
-    {
-     "week": 6,
-     "opp": "NYG",
-     "home": false,
-     "winProb": 0.4506
-    },
-    {
-     "week": 7,
-     "opp": "PIT",
-     "home": true,
-     "winProb": 0.5661
-    },
-    {
-     "week": 9,
-     "opp": "CLE",
-     "home": true,
-     "winProb": 0.6205
-    },
-    {
-     "week": 10,
-     "opp": "CAR",
-     "home": true,
-     "winProb": 0.5599
-    },
-    {
-     "week": 11,
-     "opp": "CHI",
-     "home": false,
-     "winProb": 0.3101
-    },
-    {
-     "week": 12,
-     "opp": "CIN",
-     "home": false,
-     "winProb": 0.379
-    },
-    {
-     "week": 13,
-     "opp": "GB",
-     "home": true,
-     "winProb": 0.6272
-    },
-    {
-     "week": 14,
-     "opp": "CAR",
-     "home": false,
-     "winProb": 0.4073
-    },
-    {
-     "week": 15,
-     "opp": "TB",
-     "home": false,
-     "winProb": 0.4601
-    },
-    {
-     "week": 16,
-     "opp": "ARI",
-     "home": true,
-     "winProb": 0.6185
-    },
-    {
-     "week": 17,
-     "opp": "ATL",
-     "home": false,
-     "winProb": 0.4529
-    },
-    {
-     "week": 18,
-     "opp": "TB",
-     "home": true,
-     "winProb": 0.6121
-    }
-   ],
-   "bestWeek": 13,
-   "bestWinProb": 0.6272
-  },
-  "NYG": {
-   "rating": -1.83,
-   "byeWeek": 8,
-   "games": [
-    {
-     "week": 4,
-     "opp": "ARI",
-     "home": true,
-     "winProb": 0.5922
-    },
-    {
-     "week": 5,
-     "opp": "WAS",
-     "home": false,
-     "winProb": 0.4332
-    },
-    {
-     "week": 6,
-     "opp": "NO",
-     "home": true,
-     "winProb": 0.5494
-    },
-    {
-     "week": 7,
-     "opp": "HOU",
-     "home": false,
-     "winProb": 0.3748
-    },
-    {
-     "week": 9,
-     "opp": "PHI",
-     "home": false,
-     "winProb": 0.3865
-    },
-    {
-     "week": 10,
-     "opp": "WAS",
-     "home": true,
-     "winProb": 0.5859
-    },
-    {
-     "week": 11,
-     "opp": "JAC",
-     "home": true,
-     "winProb": 0.3591
-    },
-    {
-     "week": 12,
-     "opp": "IND",
-     "home": false,
-     "winProb": 0.393
-    },
-    {
-     "week": 13,
-     "opp": "SF",
-     "home": true,
-     "winProb": 0.3892
-    },
-    {
-     "week": 14,
-     "opp": "SEA",
-     "home": false,
-     "winProb": 0.2431
-    },
-    {
-     "week": 15,
-     "opp": "CLE",
-     "home": true,
-     "winProb": 0.5942
-    },
-    {
-     "week": 16,
-     "opp": "DET",
-     "home": false,
-     "winProb": 0.3604
-    },
-    {
-     "week": 17,
-     "opp": "DAL",
-     "home": false,
-     "winProb": 0.3908
-    },
-    {
-     "week": 18,
-     "opp": "PHI",
-     "home": true,
-     "winProb": 0.5385
-    }
-   ],
-   "bestWeek": 15,
-   "bestWinProb": 0.5942
-  },
-  "NYJ": {
-   "rating": -2.99,
-   "byeWeek": 13,
-   "games": [
-    {
-     "week": 4,
-     "opp": "CHI",
-     "home": false,
-     "winProb": 0.258
-    },
-    {
-     "week": 5,
-     "opp": "CLE",
-     "home": true,
-     "winProb": 0.5607
-    },
-    {
-     "week": 6,
-     "opp": "NE",
-     "home": false,
-     "winProb": 0.2978
-    },
-    {
-     "week": 7,
-     "opp": "MIA",
-     "home": true,
-     "winProb": 0.6308
-    },
-    {
-     "week": 8,
-     "opp": "LV",
-     "home": true,
-     "winProb": 0.4917
-    },
-    {
-     "week": 9,
-     "opp": "KC",
-     "home": false,
-     "winProb": 0.2664
-    },
-    {
-     "week": 10,
-     "opp": "BUF",
-     "home": true,
-     "winProb": 0.3997
-    },
-    {
-     "week": 11,
-     "opp": "LAC",
-     "home": false,
-     "winProb": 0.4115
-    },
-    {
-     "week": 12,
-     "opp": "MIA",
-     "home": false,
-     "winProb": 0.4796
-    },
-    {
-     "week": 14,
-     "opp": "DEN",
-     "home": true,
-     "winProb": 0.4652
-    },
-    {
-     "week": 15,
-     "opp": "ARI",
-     "home": false,
-     "winProb": 0.4061
-    },
-    {
-     "week": 16,
-     "opp": "NE",
-     "home": true,
-     "winProb": 0.4422
-    },
-    {
-     "week": 17,
-     "opp": "MIN",
-     "home": true,
-     "winProb": 0.4054
-    },
-    {
-     "week": 18,
-     "opp": "BUF",
-     "home": false,
-     "winProb": 0.2613
-    }
-   ],
-   "bestWeek": 7,
-   "bestWinProb": 0.6308
-  },
-  "PHI": {
-   "rating": -0.54,
-   "byeWeek": 10,
-   "games": [
-    {
-     "week": 4,
-     "opp": "LAR",
-     "home": true,
-     "winProb": 0.4867
-    },
-    {
-     "week": 5,
-     "opp": "JAC",
-     "home": false,
-     "winProb": 0.2577
-    },
-    {
-     "week": 6,
-     "opp": "CAR",
-     "home": true,
-     "winProb": 0.5708
-    },
-    {
-     "week": 7,
-     "opp": "DAL",
-     "home": true,
-     "winProb": 0.5808
-    },
-    {
-     "week": 8,
-     "opp": "WAS",
-     "home": false,
-     "winProb": 0.4712
-    },
-    {
-     "week": 9,
-     "opp": "NYG",
-     "home": true,
-     "winProb": 0.6135
-    },
-    {
-     "week": 11,
-     "opp": "PIT",
-     "home": true,
-     "winProb": 0.5769
-    },
-    {
-     "week": 12,
-     "opp": "DAL",
-     "home": false,
-     "winProb": 0.4281
-    },
-    {
-     "week": 13,
-     "opp": "ARI",
-     "home": false,
-     "winProb": 0.4776
-    },
-    {
-     "week": 14,
-     "opp": "IND",
-     "home": true,
-     "winProb": 0.583
-    },
-    {
-     "week": 15,
-     "opp": "SEA",
-     "home": true,
-     "winProb": 0.4147
-    },
-    {
-     "week": 16,
-     "opp": "HOU",
-     "home": true,
-     "winProb": 0.5643
-    },
-    {
-     "week": 17,
-     "opp": "SF",
-     "home": false,
-     "winProb": 0.2841
-    },
-    {
-     "week": 18,
-     "opp": "NYG",
-     "home": false,
-     "winProb": 0.4615
-    }
-   ],
-   "bestWeek": 9,
-   "bestWinProb": 0.6135
-  },
-  "PIT": {
-   "rating": -0.55,
-   "byeWeek": 9,
-   "games": [
-    {
-     "week": 4,
-     "opp": "CLE",
-     "home": false,
-     "winProb": 0.4791
-    },
-    {
-     "week": 5,
-     "opp": "IND",
-     "home": true,
-     "winProb": 0.5824
-    },
-    {
-     "week": 6,
-     "opp": "TB",
-     "home": false,
-     "winProb": 0.4705
-    },
-    {
-     "week": 7,
-     "opp": "NO",
-     "home": false,
-     "winProb": 0.4339
-    },
-    {
-     "week": 8,
-     "opp": "CLE",
-     "home": true,
-     "winProb": 0.6304
-    },
-    {
-     "week": 10,
-     "opp": "CIN",
-     "home": false,
-     "winProb": 0.389
-    },
-    {
-     "week": 11,
-     "opp": "PHI",
-     "home": false,
-     "winProb": 0.4231
-    },
-    {
-     "week": 12,
-     "opp": "DEN",
-     "home": true,
-     "winProb": 0.537
-    },
-    {
-     "week": 13,
-     "opp": "HOU",
-     "home": true,
-     "winProb": 0.5638
-    },
-    {
-     "week": 14,
-     "opp": "JAC",
-     "home": false,
-     "winProb": 0.2573
-    },
-    {
-     "week": 15,
-     "opp": "BAL",
-     "home": true,
-     "winProb": 0.5126
-    },
-    {
-     "week": 16,
-     "opp": "CAR",
-     "home": true,
-     "winProb": 0.5702
-    },
-    {
-     "week": 17,
-     "opp": "TEN",
-     "home": false,
-     "winProb": 0.5424
-    },
-    {
-     "week": 18,
-     "opp": "BAL",
-     "home": false,
-     "winProb": 0.3618
-    }
-   ],
-   "bestWeek": 8,
-   "bestWinProb": 0.6304
-  },
-  "SEA": {
-   "rating": 4.97,
-   "byeWeek": 11,
-   "games": [
-    {
-     "week": 4,
-     "opp": "LAC",
-     "home": true,
-     "winProb": 0.7737
-    },
-    {
-     "week": 5,
-     "opp": "SF",
-     "home": true,
-     "winProb": 0.5881
-    },
-    {
-     "week": 6,
-     "opp": "DEN",
-     "home": false,
-     "winProb": 0.5466
-    },
-    {
-     "week": 7,
-     "opp": "KC",
-     "home": true,
-     "winProb": 0.6372
-    },
-    {
-     "week": 8,
-     "opp": "CHI",
-     "home": true,
-     "winProb": 0.6274
-    },
-    {
-     "week": 9,
-     "opp": "ARI",
-     "home": true,
-     "winProb": 0.7694
-    },
-    {
-     "week": 10,
-     "opp": "LV",
-     "home": false,
-     "winProb": 0.5728
-    },
-    {
-     "week": 12,
-     "opp": "SF",
-     "home": false,
-     "winProb": 0.4354
-    },
-    {
-     "week": 13,
-     "opp": "DAL",
-     "home": true,
-     "winProb": 0.7297
-    },
-    {
-     "week": 14,
-     "opp": "NYG",
-     "home": true,
-     "winProb": 0.7569
-    },
-    {
-     "week": 15,
-     "opp": "PHI",
-     "home": false,
-     "winProb": 0.5853
-    },
-    {
-     "week": 16,
-     "opp": "LAR",
-     "home": true,
-     "winProb": 0.6461
-    },
-    {
-     "week": 17,
-     "opp": "CAR",
-     "home": false,
-     "winProb": 0.5797
-    },
-    {
-     "week": 18,
-     "opp": "LAR",
-     "home": false,
-     "winProb": 0.4959
-    }
-   ],
-   "bestWeek": 4,
-   "bestWinProb": 0.7737
-  },
-  "SF": {
-   "rating": 4.57,
-   "byeWeek": 8,
-   "games": [
-    {
-     "week": 4,
-     "opp": "DEN",
-     "home": true,
-     "winProb": 0.6817
-    },
-    {
-     "week": 5,
-     "opp": "SEA",
-     "home": false,
-     "winProb": 0.4119
-    },
-    {
-     "week": 6,
-     "opp": "WAS",
-     "home": true,
-     "winProb": 0.7552
-    },
-    {
-     "week": 7,
-     "opp": "ATL",
-     "home": false,
-     "winProb": 0.613
-    },
-    {
-     "week": 9,
-     "opp": "LV",
-     "home": true,
-     "winProb": 0.7049
-    },
-    {
-     "week": 10,
-     "opp": "DAL",
-     "home": false,
-     "winProb": 0.578
-    },
-    {
-     "week": 11,
-     "opp": "MIN",
-     "home": true,
-     "winProb": 0.6256
-    },
-    {
-     "week": 12,
-     "opp": "SEA",
-     "home": true,
-     "winProb": 0.5646
-    },
-    {
-     "week": 13,
-     "opp": "NYG",
-     "home": false,
-     "winProb": 0.6108
-    },
-    {
-     "week": 14,
-     "opp": "LAR",
-     "home": true,
-     "winProb": 0.6349
-    },
-    {
-     "week": 15,
-     "opp": "LAC",
-     "home": false,
-     "winProb": 0.6315
-    },
-    {
-     "week": 16,
-     "opp": "KC",
-     "home": false,
-     "winProb": 0.4744
-    },
-    {
-     "week": 17,
-     "opp": "PHI",
-     "home": true,
-     "winProb": 0.7159
-    },
-    {
-     "week": 18,
-     "opp": "ARI",
-     "home": false,
-     "winProb": 0.6262
-    }
-   ],
-   "bestWeek": 6,
-   "bestWinProb": 0.7552
-  },
-  "TB": {
-   "rating": -2.15,
-   "byeWeek": 10,
-   "games": [
-    {
-     "week": 4,
-     "opp": "GB",
-     "home": true,
-     "winProb": 0.5918
-    },
-    {
-     "week": 5,
-     "opp": "DAL",
-     "home": false,
-     "winProb": 0.3817
-    },
-    {
-     "week": 6,
-     "opp": "PIT",
-     "home": true,
-     "winProb": 0.5295
-    },
-    {
-     "week": 7,
-     "opp": "CAR",
-     "home": false,
-     "winProb": 0.3719
-    },
-    {
-     "week": 8,
-     "opp": "ATL",
-     "home": true,
-     "winProb": 0.5692
-    },
-    {
-     "week": 9,
-     "opp": "CHI",
-     "home": false,
-     "winProb": 0.2783
-    },
-    {
-     "week": 11,
-     "opp": "DET",
-     "home": false,
-     "winProb": 0.3515
-    },
-    {
-     "week": 12,
-     "opp": "CAR",
-     "home": true,
-     "winProb": 0.5233
-    },
-    {
-     "week": 13,
-     "opp": "LAC",
-     "home": true,
-     "winProb": 0.5883
-    },
-    {
-     "week": 14,
-     "opp": "BAL",
-     "home": false,
-     "winProb": 0.3185
-    },
-    {
-     "week": 15,
-     "opp": "NO",
-     "home": true,
-     "winProb": 0.5399
-    },
-    {
-     "week": 16,
-     "opp": "ATL",
-     "home": false,
-     "winProb": 0.4165
-    },
-    {
-     "week": 17,
-     "opp": "LAR",
-     "home": true,
-     "winProb": 0.4392
-    },
-    {
-     "week": 18,
-     "opp": "NO",
-     "home": false,
-     "winProb": 0.3879
-    }
-   ],
-   "bestWeek": 4,
-   "bestWinProb": 0.5918
-  },
-  "TEN": {
-   "rating": -4.59,
-   "byeWeek": 9,
-   "games": [
-    {
-     "week": 4,
-     "opp": "BAL",
-     "home": false,
-     "winProb": 0.257
-    },
-    {
-     "week": 5,
-     "opp": "HOU",
-     "home": true,
-     "winProb": 0.445
-    },
-    {
-     "week": 6,
-     "opp": "IND",
-     "home": false,
-     "winProb": 0.317
-    },
-    {
-     "week": 7,
-     "opp": "CLE",
-     "home": true,
-     "winProb": 0.5135
-    },
-    {
-     "week": 8,
-     "opp": "CIN",
-     "home": false,
-     "winProb": 0.2807
-    },
-    {
-     "week": 10,
-     "opp": "JAC",
-     "home": true,
-     "winProb": 0.2859
-    },
-    {
-     "week": 11,
-     "opp": "DAL",
-     "home": false,
-     "winProb": 0.315
-    },
-    {
-     "week": 12,
-     "opp": "JAC",
-     "home": false,
-     "winProb": 0.1709
-    },
-    {
-     "week": 13,
-     "opp": "WAS",
-     "home": true,
-     "winProb": 0.505
-    },
-    {
-     "week": 14,
-     "opp": "DET",
-     "home": false,
-     "winProb": 0.2871
-    },
-    {
-     "week": 15,
-     "opp": "IND",
-     "home": true,
-     "winProb": 0.4638
-    },
-    {
-     "week": 16,
-     "opp": "LV",
-     "home": false,
-     "winProb": 0.2998
-    },
-    {
-     "week": 17,
-     "opp": "PIT",
-     "home": true,
-     "winProb": 0.4576
-    },
-    {
-     "week": 18,
-     "opp": "HOU",
-     "home": false,
-     "winProb": 0.3003
-    }
-   ],
-   "bestWeek": 7,
-   "bestWinProb": 0.5135
-  },
-  "WAS": {
-   "rating": -2.16,
-   "byeWeek": 7,
-   "games": [
-    {
-     "week": 4,
-     "opp": "IND",
-     "home": true,
-     "winProb": 0.5355
-    },
-    {
-     "week": 5,
-     "opp": "NYG",
-     "home": true,
-     "winProb": 0.5668
-    },
-    {
-     "week": 6,
-     "opp": "SF",
-     "home": false,
-     "winProb": 0.2448
-    },
-    {
-     "week": 8,
-     "opp": "PHI",
-     "home": true,
-     "winProb": 0.5288
-    },
-    {
-     "week": 9,
-     "opp": "LAR",
-     "home": true,
-     "winProb": 0.439
-    },
-    {
-     "week": 10,
-     "opp": "NYG",
-     "home": false,
-     "winProb": 0.4141
-    },
-    {
-     "week": 11,
-     "opp": "CIN",
-     "home": true,
-     "winProb": 0.4938
-    },
-    {
-     "week": 12,
-     "opp": "ARI",
-     "home": false,
-     "winProb": 0.4299
-    },
-    {
-     "week": 13,
-     "opp": "TEN",
-     "home": false,
-     "winProb": 0.495
-    },
-    {
-     "week": 14,
-     "opp": "HOU",
-     "home": true,
-     "winProb": 0.5166
-    },
-    {
-     "week": 15,
-     "opp": "ATL",
-     "home": true,
-     "winProb": 0.569
-    },
-    {
-     "week": 16,
-     "opp": "MIN",
-     "home": false,
-     "winProb": 0.2866
-    },
-    {
-     "week": 17,
-     "opp": "JAC",
      "home": false,
      "winProb": 0.2205
     },
     {
+     "week": 10,
+     "opp": "LAR",
+     "home": true,
+     "winProb": 0.4048
+    },
+    {
+     "week": 11,
+     "opp": "KC",
+     "home": false,
+     "winProb": 0.2599
+    },
+    {
+     "week": 12,
+     "opp": "WAS",
+     "home": true,
+     "winProb": 0.5911
+    },
+    {
+     "week": 13,
+     "opp": "PHI",
+     "home": true,
+     "winProb": 0.5124
+    },
+    {
+     "week": 15,
+     "opp": "NYJ",
+     "home": true,
+     "winProb": 0.5811
+    },
+    {
+     "week": 16,
+     "opp": "NO",
+     "home": false,
+     "winProb": 0.417
+    },
+    {
+     "week": 17,
+     "opp": "LV",
+     "home": true,
+     "winProb": 0.4972
+    },
+    {
      "week": 18,
-     "opp": "DAL",
+     "opp": "SF",
+     "home": true,
+     "winProb": 0.3458
+    }
+   ],
+   "bestWeek": 12,
+   "bestWinProb": 0.5911
+  },
+  "ATL": {
+   "rating": -0.01,
+   "byeWeek": 11,
+   "games": [
+    {
+     "week": 5,
+     "opp": "BAL",
      "home": true,
      "winProb": 0.5333
+    },
+    {
+     "week": 6,
+     "opp": "CHI",
+     "home": true,
+     "winProb": 0.4763
+    },
+    {
+     "week": 7,
+     "opp": "SF",
+     "home": true,
+     "winProb": 0.4314
+    },
+    {
+     "week": 8,
+     "opp": "TB",
+     "home": false,
+     "winProb": 0.4997
+    },
+    {
+     "week": 9,
+     "opp": "CIN",
+     "home": true,
+     "winProb": 0.5647
+    },
+    {
+     "week": 10,
+     "opp": "KC",
+     "home": true,
+     "winProb": 0.4862
+    },
+    {
+     "week": 12,
+     "opp": "MIN",
+     "home": false,
+     "winProb": 0.3509
+    },
+    {
+     "week": 13,
+     "opp": "DET",
+     "home": true,
+     "winProb": 0.577
+    },
+    {
+     "week": 14,
+     "opp": "CLE",
+     "home": false,
+     "winProb": 0.4894
+    },
+    {
+     "week": 15,
+     "opp": "WAS",
+     "home": false,
+     "winProb": 0.5275
+    },
+    {
+     "week": 16,
+     "opp": "TB",
+     "home": true,
+     "winProb": 0.6497
+    },
+    {
+     "week": 17,
+     "opp": "NO",
+     "home": true,
+     "winProb": 0.6552
+    },
+    {
+     "week": 18,
+     "opp": "CAR",
+     "home": false,
+     "winProb": 0.4211
+    }
+   ],
+   "bestWeek": 17,
+   "bestWinProb": 0.6552
+  },
+  "BAL": {
+   "rating": 1.46,
+   "byeWeek": 13,
+   "games": [
+    {
+     "week": 5,
+     "opp": "ATL",
+     "home": false,
+     "winProb": 0.4667
+    },
+    {
+     "week": 6,
+     "opp": "CLE",
+     "home": false,
+     "winProb": 0.5329
+    },
+    {
+     "week": 7,
+     "opp": "CIN",
+     "home": true,
+     "winProb": 0.6072
+    },
+    {
+     "week": 8,
+     "opp": "BUF",
+     "home": false,
+     "winProb": 0.3935
+    },
+    {
+     "week": 9,
+     "opp": "JAC",
+     "home": true,
+     "winProb": 0.4465
+    },
+    {
+     "week": 10,
+     "opp": "LAC",
+     "home": true,
+     "winProb": 0.6852
+    },
+    {
+     "week": 11,
+     "opp": "CAR",
+     "home": false,
+     "winProb": 0.4641
+    },
+    {
+     "week": 12,
+     "opp": "HOU",
+     "home": false,
+     "winProb": 0.4876
+    },
+    {
+     "week": 14,
+     "opp": "TB",
+     "home": true,
+     "winProb": 0.6892
+    },
+    {
+     "week": 15,
+     "opp": "PIT",
+     "home": false,
+     "winProb": 0.4864
+    },
+    {
+     "week": 16,
+     "opp": "CLE",
+     "home": true,
+     "winProb": 0.68
+    },
+    {
+     "week": 17,
+     "opp": "CIN",
+     "home": false,
+     "winProb": 0.455
+    },
+    {
+     "week": 18,
+     "opp": "PIT",
+     "home": true,
+     "winProb": 0.6373
+    }
+   ],
+   "bestWeek": 14,
+   "bestWinProb": 0.6892
+  },
+  "BUF": {
+   "rating": 2.51,
+   "byeWeek": 7,
+   "games": [
+    {
+     "week": 5,
+     "opp": "LAR",
+     "home": false,
+     "winProb": 0.4146
+    },
+    {
+     "week": 6,
+     "opp": "LV",
+     "home": false,
+     "winProb": 0.5073
+    },
+    {
+     "week": 8,
+     "opp": "BAL",
+     "home": true,
+     "winProb": 0.6065
+    },
+    {
+     "week": 9,
+     "opp": "MIN",
+     "home": false,
+     "winProb": 0.4222
+    },
+    {
+     "week": 10,
+     "opp": "NYJ",
+     "home": false,
+     "winProb": 0.5909
+    },
+    {
+     "week": 11,
+     "opp": "MIA",
+     "home": true,
+     "winProb": 0.7636
+    },
+    {
+     "week": 12,
+     "opp": "KC",
+     "home": true,
+     "winProb": 0.5605
+    },
+    {
+     "week": 13,
+     "opp": "NE",
+     "home": false,
+     "winProb": 0.436
+    },
+    {
+     "week": 14,
+     "opp": "GB",
+     "home": false,
+     "winProb": 0.5621
+    },
+    {
+     "week": 15,
+     "opp": "CHI",
+     "home": true,
+     "winProb": 0.5506
+    },
+    {
+     "week": 16,
+     "opp": "DEN",
+     "home": false,
+     "winProb": 0.4837
+    },
+    {
+     "week": 17,
+     "opp": "MIA",
+     "home": false,
+     "winProb": 0.6303
+    },
+    {
+     "week": 18,
+     "opp": "NYJ",
+     "home": true,
+     "winProb": 0.7307
+    }
+   ],
+   "bestWeek": 11,
+   "bestWinProb": 0.7636
+  },
+  "CAR": {
+   "rating": 0.08,
+   "byeWeek": 5,
+   "games": [
+    {
+     "week": 6,
+     "opp": "PHI",
+     "home": false,
+     "winProb": 0.4508
+    },
+    {
+     "week": 7,
+     "opp": "TB",
+     "home": true,
+     "winProb": 0.6521
+    },
+    {
+     "week": 8,
+     "opp": "GB",
+     "home": false,
+     "winProb": 0.4905
+    },
+    {
+     "week": 9,
+     "opp": "DEN",
+     "home": true,
+     "winProb": 0.5653
+    },
+    {
+     "week": 10,
+     "opp": "NO",
+     "home": false,
+     "winProb": 0.5083
+    },
+    {
+     "week": 11,
+     "opp": "BAL",
+     "home": true,
+     "winProb": 0.5359
+    },
+    {
+     "week": 12,
+     "opp": "TB",
+     "home": false,
+     "winProb": 0.5023
+    },
+    {
+     "week": 13,
+     "opp": "MIN",
+     "home": false,
+     "winProb": 0.3534
+    },
+    {
+     "week": 14,
+     "opp": "NO",
+     "home": true,
+     "winProb": 0.6576
+    },
+    {
+     "week": 15,
+     "opp": "CIN",
+     "home": true,
+     "winProb": 0.5673
+    },
+    {
+     "week": 16,
+     "opp": "PIT",
+     "home": false,
+     "winProb": 0.4457
+    },
+    {
+     "week": 17,
+     "opp": "SEA",
+     "home": true,
+     "winProb": 0.4385
+    },
+    {
+     "week": 18,
+     "opp": "ATL",
+     "home": true,
+     "winProb": 0.5789
+    }
+   ],
+   "bestWeek": 14,
+   "bestWinProb": 0.6576
+  },
+  "CHI": {
+   "rating": 3.39,
+   "byeWeek": 10,
+   "games": [
+    {
+     "week": 5,
+     "opp": "GB",
+     "home": false,
+     "winProb": 0.5878
+    },
+    {
+     "week": 6,
+     "opp": "ATL",
+     "home": false,
+     "winProb": 0.5237
+    },
+    {
+     "week": 7,
+     "opp": "NE",
+     "home": true,
+     "winProb": 0.6139
+    },
+    {
+     "week": 8,
+     "opp": "SEA",
+     "home": false,
+     "winProb": 0.3842
+    },
+    {
+     "week": 9,
+     "opp": "TB",
+     "home": true,
+     "winProb": 0.7378
+    },
+    {
+     "week": 11,
+     "opp": "NO",
+     "home": true,
+     "winProb": 0.7427
+    },
+    {
+     "week": 12,
+     "opp": "DET",
+     "home": false,
+     "winProb": 0.5244
+    },
+    {
+     "week": 13,
+     "opp": "JAC",
+     "home": true,
+     "winProb": 0.5034
+    },
+    {
+     "week": 14,
+     "opp": "MIA",
+     "home": false,
+     "winProb": 0.6548
+    },
+    {
+     "week": 15,
+     "opp": "BUF",
+     "home": false,
+     "winProb": 0.4494
+    },
+    {
+     "week": 16,
+     "opp": "GB",
+     "home": true,
+     "winProb": 0.7281
+    },
+    {
+     "week": 17,
+     "opp": "DET",
+     "home": true,
+     "winProb": 0.6723
+    },
+    {
+     "week": 18,
+     "opp": "MIN",
+     "home": false,
+     "winProb": 0.448
+    }
+   ],
+   "bestWeek": 11,
+   "bestWinProb": 0.7427
+  },
+  "CIN": {
+   "rating": 0.39,
+   "byeWeek": 6,
+   "games": [
+    {
+     "week": 5,
+     "opp": "MIA",
+     "home": false,
+     "winProb": 0.5697
+    },
+    {
+     "week": 7,
+     "opp": "BAL",
+     "home": false,
+     "winProb": 0.3928
+    },
+    {
+     "week": 8,
+     "opp": "TEN",
+     "home": true,
+     "winProb": 0.7086
+    },
+    {
+     "week": 9,
+     "opp": "ATL",
+     "home": false,
+     "winProb": 0.4353
+    },
+    {
+     "week": 10,
+     "opp": "PIT",
+     "home": true,
+     "winProb": 0.6071
+    },
+    {
+     "week": 11,
+     "opp": "WAS",
+     "home": false,
+     "winProb": 0.5393
+    },
+    {
+     "week": 12,
+     "opp": "NO",
+     "home": true,
+     "winProb": 0.666
+    },
+    {
+     "week": 13,
+     "opp": "CLE",
+     "home": false,
+     "winProb": 0.5012
+    },
+    {
+     "week": 14,
+     "opp": "KC",
+     "home": true,
+     "winProb": 0.498
+    },
+    {
+     "week": 15,
+     "opp": "CAR",
+     "home": false,
+     "winProb": 0.4327
+    },
+    {
+     "week": 16,
+     "opp": "IND",
+     "home": false,
+     "winProb": 0.4172
+    },
+    {
+     "week": 17,
+     "opp": "BAL",
+     "home": true,
+     "winProb": 0.545
+    },
+    {
+     "week": 18,
+     "opp": "CLE",
+     "home": true,
+     "winProb": 0.651
+    }
+   ],
+   "bestWeek": 8,
+   "bestWinProb": 0.7086
+  },
+  "CLE": {
+   "rating": -2.25,
+   "byeWeek": 11,
+   "games": [
+    {
+     "week": 5,
+     "opp": "NYJ",
+     "home": false,
+     "winProb": 0.4512
+    },
+    {
+     "week": 6,
+     "opp": "BAL",
+     "home": true,
+     "winProb": 0.4671
+    },
+    {
+     "week": 7,
+     "opp": "TEN",
+     "home": false,
+     "winProb": 0.4874
+    },
+    {
+     "week": 8,
+     "opp": "PIT",
+     "home": false,
+     "winProb": 0.3786
+    },
+    {
+     "week": 9,
+     "opp": "NO",
+     "home": false,
+     "winProb": 0.4397
+    },
+    {
+     "week": 10,
+     "opp": "HOU",
+     "home": true,
+     "winProb": 0.5315
+    },
+    {
+     "week": 12,
+     "opp": "LV",
+     "home": true,
+     "winProb": 0.5202
+    },
+    {
+     "week": 13,
+     "opp": "CIN",
+     "home": true,
+     "winProb": 0.4988
+    },
+    {
+     "week": 14,
+     "opp": "ATL",
+     "home": true,
+     "winProb": 0.5106
+    },
+    {
+     "week": 15,
+     "opp": "NYG",
+     "home": false,
+     "winProb": 0.3913
+    },
+    {
+     "week": 16,
+     "opp": "BAL",
+     "home": false,
+     "winProb": 0.32
+    },
+    {
+     "week": 17,
+     "opp": "IND",
+     "home": true,
+     "winProb": 0.4923
+    },
+    {
+     "week": 18,
+     "opp": "CIN",
+     "home": false,
+     "winProb": 0.349
+    }
+   ],
+   "bestWeek": 10,
+   "bestWinProb": 0.5315
+  },
+  "DAL": {
+   "rating": -0.1,
+   "byeWeek": 14,
+   "games": [
+    {
+     "week": 5,
+     "opp": "TB",
+     "home": true,
+     "winProb": 0.6473
+    },
+    {
+     "week": 6,
+     "opp": "GB",
+     "home": false,
+     "winProb": 0.4854
+    },
+    {
+     "week": 7,
+     "opp": "PHI",
+     "home": false,
+     "winProb": 0.4456
+    },
+    {
+     "week": 8,
+     "opp": "ARI",
+     "home": true,
+     "winProb": 0.6591
+    },
+    {
+     "week": 9,
+     "opp": "IND",
+     "home": false,
+     "winProb": 0.4032
+    },
+    {
+     "week": 10,
+     "opp": "SF",
+     "home": true,
+     "winProb": 0.4289
+    },
+    {
+     "week": 11,
+     "opp": "TEN",
+     "home": true,
+     "winProb": 0.6961
+    },
+    {
+     "week": 12,
+     "opp": "PHI",
+     "home": true,
+     "winProb": 0.5981
+    },
+    {
+     "week": 13,
+     "opp": "SEA",
+     "home": false,
+     "winProb": 0.2901
+    },
+    {
+     "week": 15,
+     "opp": "LAR",
+     "home": false,
+     "winProb": 0.3413
+    },
+    {
+     "week": 16,
+     "opp": "JAC",
+     "home": true,
+     "winProb": 0.4013
+    },
+    {
+     "week": 17,
+     "opp": "NYG",
+     "home": true,
+     "winProb": 0.606
+    },
+    {
+     "week": 18,
+     "opp": "WAS",
+     "home": false,
+     "winProb": 0.525
+    }
+   ],
+   "bestWeek": 11,
+   "bestWinProb": 0.6961
+  },
+  "DEN": {
+   "rating": 0.46,
+   "byeWeek": 10,
+   "games": [
+    {
+     "week": 5,
+     "opp": "LAC",
+     "home": false,
+     "winProb": 0.5091
+    },
+    {
+     "week": 6,
+     "opp": "SEA",
+     "home": true,
+     "winProb": 0.4496
+    },
+    {
+     "week": 7,
+     "opp": "ARI",
+     "home": false,
+     "winProb": 0.5263
+    },
+    {
+     "week": 8,
+     "opp": "KC",
+     "home": true,
+     "winProb": 0.5001
+    },
+    {
+     "week": 9,
+     "opp": "CAR",
+     "home": false,
+     "winProb": 0.4347
+    },
+    {
+     "week": 11,
+     "opp": "LV",
+     "home": true,
+     "winProb": 0.5993
+    },
+    {
+     "week": 12,
+     "opp": "PIT",
+     "home": false,
+     "winProb": 0.4569
+    },
+    {
+     "week": 13,
+     "opp": "MIA",
+     "home": true,
+     "winProb": 0.7143
+    },
+    {
+     "week": 14,
+     "opp": "NYJ",
+     "home": false,
+     "winProb": 0.5311
+    },
+    {
+     "week": 15,
+     "opp": "LV",
+     "home": false,
+     "winProb": 0.4468
+    },
+    {
+     "week": 16,
+     "opp": "BUF",
+     "home": true,
+     "winProb": 0.5163
+    },
+    {
+     "week": 17,
+     "opp": "NE",
+     "home": false,
+     "winProb": 0.3771
+    },
+    {
+     "week": 18,
+     "opp": "LAC",
+     "home": true,
+     "winProb": 0.6583
+    }
+   ],
+   "bestWeek": 13,
+   "bestWinProb": 0.7143
+  },
+  "DET": {
+   "rating": -0.03,
+   "byeWeek": 6,
+   "games": [
+    {
+     "week": 5,
+     "opp": "ARI",
+     "home": false,
+     "winProb": 0.5118
+    },
+    {
+     "week": 7,
+     "opp": "GB",
+     "home": true,
+     "winProb": 0.638
+    },
+    {
+     "week": 8,
+     "opp": "MIN",
+     "home": true,
+     "winProb": 0.5003
+    },
+    {
+     "week": 9,
+     "opp": "MIA",
+     "home": false,
+     "winProb": 0.5574
+    },
+    {
+     "week": 10,
+     "opp": "NE",
+     "home": true,
+     "winProb": 0.5142
+    },
+    {
+     "week": 11,
+     "opp": "TB",
+     "home": true,
+     "winProb": 0.6491
+    },
+    {
+     "week": 12,
+     "opp": "CHI",
+     "home": true,
+     "winProb": 0.4756
+    },
+    {
+     "week": 13,
+     "opp": "ATL",
+     "home": false,
+     "winProb": 0.423
+    },
+    {
+     "week": 14,
+     "opp": "TEN",
+     "home": true,
+     "winProb": 0.6978
+    },
+    {
+     "week": 15,
+     "opp": "MIN",
+     "home": false,
+     "winProb": 0.3503
+    },
+    {
+     "week": 16,
+     "opp": "NYG",
+     "home": true,
+     "winProb": 0.6078
+    },
+    {
+     "week": 17,
+     "opp": "CHI",
+     "home": false,
+     "winProb": 0.3277
+    },
+    {
+     "week": 18,
+     "opp": "GB",
+     "home": false,
+     "winProb": 0.4872
+    }
+   ],
+   "bestWeek": 14,
+   "bestWinProb": 0.6978
+  },
+  "GB": {
+   "rating": -2.2,
+   "byeWeek": 11,
+   "games": [
+    {
+     "week": 5,
+     "opp": "CHI",
+     "home": true,
+     "winProb": 0.4122
+    },
+    {
+     "week": 6,
+     "opp": "DAL",
+     "home": true,
+     "winProb": 0.5146
+    },
+    {
+     "week": 7,
+     "opp": "DET",
+     "home": false,
+     "winProb": 0.362
+    },
+    {
+     "week": 8,
+     "opp": "CAR",
+     "home": true,
+     "winProb": 0.5095
+    },
+    {
+     "week": 9,
+     "opp": "NE",
+     "home": false,
+     "winProb": 0.305
+    },
+    {
+     "week": 10,
+     "opp": "MIN",
+     "home": true,
+     "winProb": 0.4365
+    },
+    {
+     "week": 12,
+     "opp": "LAR",
+     "home": false,
+     "winProb": 0.2861
+    },
+    {
+     "week": 13,
+     "opp": "NO",
+     "home": false,
+     "winProb": 0.4412
+    },
+    {
+     "week": 14,
+     "opp": "BUF",
+     "home": true,
+     "winProb": 0.4379
+    },
+    {
+     "week": 15,
+     "opp": "MIA",
+     "home": true,
+     "winProb": 0.6439
+    },
+    {
+     "week": 16,
+     "opp": "CHI",
+     "home": false,
+     "winProb": 0.2719
+    },
+    {
+     "week": 17,
+     "opp": "HOU",
+     "home": true,
+     "winProb": 0.533
+    },
+    {
+     "week": 18,
+     "opp": "DET",
+     "home": true,
+     "winProb": 0.5128
     }
    ],
    "bestWeek": 15,
-   "bestWinProb": 0.569
+   "bestWinProb": 0.6439
+  },
+  "HOU": {
+   "rating": -0.72,
+   "byeWeek": 8,
+   "games": [
+    {
+     "week": 5,
+     "opp": "TEN",
+     "home": false,
+     "winProb": 0.5327
+    },
+    {
+     "week": 6,
+     "opp": "JAC",
+     "home": false,
+     "winProb": 0.2478
+    },
+    {
+     "week": 7,
+     "opp": "NYG",
+     "home": true,
+     "winProb": 0.5882
+    },
+    {
+     "week": 9,
+     "opp": "LAC",
+     "home": false,
+     "winProb": 0.4743
+    },
+    {
+     "week": 10,
+     "opp": "CLE",
+     "home": false,
+     "winProb": 0.4685
+    },
+    {
+     "week": 11,
+     "opp": "IND",
+     "home": true,
+     "winProb": 0.5375
+    },
+    {
+     "week": 12,
+     "opp": "BAL",
+     "home": true,
+     "winProb": 0.5124
+    },
+    {
+     "week": 13,
+     "opp": "PIT",
+     "home": false,
+     "winProb": 0.4225
+    },
+    {
+     "week": 14,
+     "opp": "WAS",
+     "home": false,
+     "winProb": 0.5066
+    },
+    {
+     "week": 15,
+     "opp": "JAC",
+     "home": true,
+     "winProb": 0.3836
+    },
+    {
+     "week": 16,
+     "opp": "PHI",
+     "home": false,
+     "winProb": 0.4275
+    },
+    {
+     "week": 17,
+     "opp": "GB",
+     "home": false,
+     "winProb": 0.467
+    },
+    {
+     "week": 18,
+     "opp": "TEN",
+     "home": true,
+     "winProb": 0.6798
+    }
+   ],
+   "bestWeek": 18,
+   "bestWinProb": 0.6798
+  },
+  "IND": {
+   "rating": 0.61,
+   "byeWeek": 13,
+   "games": [
+    {
+     "week": 5,
+     "opp": "PIT",
+     "home": false,
+     "winProb": 0.4613
+    },
+    {
+     "week": 6,
+     "opp": "TEN",
+     "home": true,
+     "winProb": 0.7142
+    },
+    {
+     "week": 7,
+     "opp": "MIN",
+     "home": false,
+     "winProb": 0.3681
+    },
+    {
+     "week": 8,
+     "opp": "JAC",
+     "home": false,
+     "winProb": 0.28
+    },
+    {
+     "week": 9,
+     "opp": "DAL",
+     "home": true,
+     "winProb": 0.5968
+    },
+    {
+     "week": 10,
+     "opp": "MIA",
+     "home": true,
+     "winProb": 0.7181
+    },
+    {
+     "week": 11,
+     "opp": "HOU",
+     "home": false,
+     "winProb": 0.4625
+    },
+    {
+     "week": 12,
+     "opp": "NYG",
+     "home": true,
+     "winProb": 0.626
+    },
+    {
+     "week": 14,
+     "opp": "PHI",
+     "home": false,
+     "winProb": 0.4664
+    },
+    {
+     "week": 15,
+     "opp": "TEN",
+     "home": false,
+     "winProb": 0.5716
+    },
+    {
+     "week": 16,
+     "opp": "CIN",
+     "home": true,
+     "winProb": 0.5828
+    },
+    {
+     "week": 17,
+     "opp": "CLE",
+     "home": false,
+     "winProb": 0.5077
+    },
+    {
+     "week": 18,
+     "opp": "JAC",
+     "home": true,
+     "winProb": 0.4216
+    }
+   ],
+   "bestWeek": 10,
+   "bestWinProb": 0.7181
+  },
+  "JAC": {
+   "rating": 5.88,
+   "byeWeek": 7,
+   "games": [
+    {
+     "week": 5,
+     "opp": "PHI",
+     "home": true,
+     "winProb": 0.7553
+    },
+    {
+     "week": 6,
+     "opp": "HOU",
+     "home": true,
+     "winProb": 0.7522
+    },
+    {
+     "week": 8,
+     "opp": "IND",
+     "home": true,
+     "winProb": 0.72
+    },
+    {
+     "week": 9,
+     "opp": "BAL",
+     "home": false,
+     "winProb": 0.5535
+    },
+    {
+     "week": 10,
+     "opp": "TEN",
+     "home": false,
+     "winProb": 0.7159
+    },
+    {
+     "week": 11,
+     "opp": "NYG",
+     "home": false,
+     "winProb": 0.6279
+    },
+    {
+     "week": 12,
+     "opp": "TEN",
+     "home": true,
+     "winProb": 0.8304
+    },
+    {
+     "week": 13,
+     "opp": "CHI",
+     "home": false,
+     "winProb": 0.4966
+    },
+    {
+     "week": 14,
+     "opp": "PIT",
+     "home": true,
+     "winProb": 0.7512
+    },
+    {
+     "week": 15,
+     "opp": "HOU",
+     "home": false,
+     "winProb": 0.6164
+    },
+    {
+     "week": 16,
+     "opp": "DAL",
+     "home": false,
+     "winProb": 0.5987
+    },
+    {
+     "week": 17,
+     "opp": "WAS",
+     "home": true,
+     "winProb": 0.8134
+    },
+    {
+     "week": 18,
+     "opp": "IND",
+     "home": false,
+     "winProb": 0.5784
+    }
+   ],
+   "bestWeek": 12,
+   "bestWinProb": 0.8304
+  },
+  "KC": {
+   "rating": 3.05,
+   "byeWeek": 5,
+   "games": [
+    {
+     "week": 6,
+     "opp": "LAC",
+     "home": true,
+     "winProb": 0.7258
+    },
+    {
+     "week": 7,
+     "opp": "SEA",
+     "home": false,
+     "winProb": 0.3746
+    },
+    {
+     "week": 8,
+     "opp": "DEN",
+     "home": false,
+     "winProb": 0.4999
+    },
+    {
+     "week": 9,
+     "opp": "NYJ",
+     "home": true,
+     "winProb": 0.7439
+    },
+    {
+     "week": 10,
+     "opp": "ATL",
+     "home": false,
+     "winProb": 0.5138
+    },
+    {
+     "week": 11,
+     "opp": "ARI",
+     "home": true,
+     "winProb": 0.7401
+    },
+    {
+     "week": 12,
+     "opp": "BUF",
+     "home": false,
+     "winProb": 0.4395
+    },
+    {
+     "week": 13,
+     "opp": "LAR",
+     "home": false,
+     "winProb": 0.4304
+    },
+    {
+     "week": 14,
+     "opp": "CIN",
+     "home": false,
+     "winProb": 0.502
+    },
+    {
+     "week": 15,
+     "opp": "NE",
+     "home": true,
+     "winProb": 0.6043
+    },
+    {
+     "week": 16,
+     "opp": "SF",
+     "home": true,
+     "winProb": 0.5217
+    },
+    {
+     "week": 17,
+     "opp": "LAC",
+     "home": false,
+     "winProb": 0.5851
+    },
+    {
+     "week": 18,
+     "opp": "LV",
+     "home": true,
+     "winProb": 0.6714
+    }
+   ],
+   "bestWeek": 9,
+   "bestWinProb": 0.7439
+  },
+  "LAC": {
+   "rating": -2.45,
+   "byeWeek": 7,
+   "games": [
+    {
+     "week": 5,
+     "opp": "DEN",
+     "home": true,
+     "winProb": 0.4909
+    },
+    {
+     "week": 6,
+     "opp": "KC",
+     "home": false,
+     "winProb": 0.2742
+    },
+    {
+     "week": 8,
+     "opp": "LAR",
+     "home": false,
+     "winProb": 0.28
+    },
+    {
+     "week": 9,
+     "opp": "HOU",
+     "home": true,
+     "winProb": 0.5257
+    },
+    {
+     "week": 10,
+     "opp": "BAL",
+     "home": false,
+     "winProb": 0.3148
+    },
+    {
+     "week": 11,
+     "opp": "NYJ",
+     "home": true,
+     "winProb": 0.5979
+    },
+    {
+     "week": 12,
+     "opp": "NE",
+     "home": true,
+     "winProb": 0.4431
+    },
+    {
+     "week": 13,
+     "opp": "TB",
+     "home": false,
+     "winProb": 0.4281
+    },
+    {
+     "week": 14,
+     "opp": "LV",
+     "home": false,
+     "winProb": 0.3635
+    },
+    {
+     "week": 15,
+     "opp": "SF",
+     "home": true,
+     "winProb": 0.3619
+    },
+    {
+     "week": 16,
+     "opp": "MIA",
+     "home": false,
+     "winProb": 0.4863
+    },
+    {
+     "week": 17,
+     "opp": "KC",
+     "home": true,
+     "winProb": 0.4149
+    },
+    {
+     "week": 18,
+     "opp": "DEN",
+     "home": false,
+     "winProb": 0.3417
+    }
+   ],
+   "bestWeek": 11,
+   "bestWinProb": 0.5979
+  },
+  "LAR": {
+   "rating": 2.82,
+   "byeWeek": 11,
+   "games": [
+    {
+     "week": 5,
+     "opp": "BUF",
+     "home": true,
+     "winProb": 0.5854
+    },
+    {
+     "week": 6,
+     "opp": "ARI",
+     "home": true,
+     "winProb": 0.7344
+    },
+    {
+     "week": 7,
+     "opp": "LV",
+     "home": false,
+     "winProb": 0.5165
+    },
+    {
+     "week": 8,
+     "opp": "LAC",
+     "home": true,
+     "winProb": 0.72
+    },
+    {
+     "week": 9,
+     "opp": "WAS",
+     "home": false,
+     "winProb": 0.6098
+    },
+    {
+     "week": 10,
+     "opp": "ARI",
+     "home": false,
+     "winProb": 0.5952
+    },
+    {
+     "week": 12,
+     "opp": "GB",
+     "home": true,
+     "winProb": 0.7139
+    },
+    {
+     "week": 13,
+     "opp": "KC",
+     "home": true,
+     "winProb": 0.5696
+    },
+    {
+     "week": 14,
+     "opp": "SF",
+     "home": false,
+     "winProb": 0.3639
+    },
+    {
+     "week": 15,
+     "opp": "DAL",
+     "home": true,
+     "winProb": 0.6587
+    },
+    {
+     "week": 16,
+     "opp": "SEA",
+     "home": false,
+     "winProb": 0.3681
+    },
+    {
+     "week": 17,
+     "opp": "TB",
+     "home": false,
+     "winProb": 0.5828
+    },
+    {
+     "week": 18,
+     "opp": "SEA",
+     "home": true,
+     "winProb": 0.5193
+    }
+   ],
+   "bestWeek": 6,
+   "bestWinProb": 0.7344
+  },
+  "LV": {
+   "rating": -0.34,
+   "byeWeek": 13,
+   "games": [
+    {
+     "week": 5,
+     "opp": "NE",
+     "home": false,
+     "winProb": 0.3549
+    },
+    {
+     "week": 6,
+     "opp": "BUF",
+     "home": true,
+     "winProb": 0.4927
+    },
+    {
+     "week": 7,
+     "opp": "LAR",
+     "home": true,
+     "winProb": 0.4835
+    },
+    {
+     "week": 8,
+     "opp": "NYJ",
+     "home": false,
+     "winProb": 0.5076
+    },
+    {
+     "week": 9,
+     "opp": "SF",
+     "home": false,
+     "winProb": 0.2802
+    },
+    {
+     "week": 10,
+     "opp": "SEA",
+     "home": true,
+     "winProb": 0.4264
+    },
+    {
+     "week": 11,
+     "opp": "DEN",
+     "home": false,
+     "winProb": 0.4007
+    },
+    {
+     "week": 12,
+     "opp": "CLE",
+     "home": false,
+     "winProb": 0.4798
+    },
+    {
+     "week": 14,
+     "opp": "LAC",
+     "home": true,
+     "winProb": 0.6365
+    },
+    {
+     "week": 15,
+     "opp": "DEN",
+     "home": true,
+     "winProb": 0.5532
+    },
+    {
+     "week": 16,
+     "opp": "TEN",
+     "home": true,
+     "winProb": 0.6899
+    },
+    {
+     "week": 17,
+     "opp": "ARI",
+     "home": false,
+     "winProb": 0.5028
+    },
+    {
+     "week": 18,
+     "opp": "KC",
+     "home": false,
+     "winProb": 0.3286
+    }
+   ],
+   "bestWeek": 16,
+   "bestWinProb": 0.6899
+  },
+  "MIA": {
+   "rating": -4.58,
+   "byeWeek": 6,
+   "games": [
+    {
+     "week": 5,
+     "opp": "CIN",
+     "home": true,
+     "winProb": 0.4303
+    },
+    {
+     "week": 7,
+     "opp": "NYJ",
+     "home": false,
+     "winProb": 0.3838
+    },
+    {
+     "week": 8,
+     "opp": "NE",
+     "home": true,
+     "winProb": 0.3816
+    },
+    {
+     "week": 9,
+     "opp": "DET",
+     "home": true,
+     "winProb": 0.4426
+    },
+    {
+     "week": 10,
+     "opp": "IND",
+     "home": false,
+     "winProb": 0.2819
+    },
+    {
+     "week": 11,
+     "opp": "BUF",
+     "home": false,
+     "winProb": 0.2364
+    },
+    {
+     "week": 12,
+     "opp": "NYJ",
+     "home": true,
+     "winProb": 0.5358
+    },
+    {
+     "week": 13,
+     "opp": "DEN",
+     "home": false,
+     "winProb": 0.2857
+    },
+    {
+     "week": 14,
+     "opp": "CHI",
+     "home": true,
+     "winProb": 0.3452
+    },
+    {
+     "week": 15,
+     "opp": "GB",
+     "home": false,
+     "winProb": 0.3561
+    },
+    {
+     "week": 16,
+     "opp": "LAC",
+     "home": true,
+     "winProb": 0.5137
+    },
+    {
+     "week": 17,
+     "opp": "BUF",
+     "home": true,
+     "winProb": 0.3697
+    },
+    {
+     "week": 18,
+     "opp": "NE",
+     "home": false,
+     "winProb": 0.2462
+    }
+   ],
+   "bestWeek": 12,
+   "bestWinProb": 0.5358
+  },
+  "MIN": {
+   "rating": 2.56,
+   "byeWeek": 6,
+   "games": [
+    {
+     "week": 5,
+     "opp": "NO",
+     "home": false,
+     "winProb": 0.581
+    },
+    {
+     "week": 7,
+     "opp": "IND",
+     "home": true,
+     "winProb": 0.6319
+    },
+    {
+     "week": 8,
+     "opp": "DET",
+     "home": false,
+     "winProb": 0.4997
+    },
+    {
+     "week": 9,
+     "opp": "BUF",
+     "home": true,
+     "winProb": 0.5778
+    },
+    {
+     "week": 10,
+     "opp": "GB",
+     "home": false,
+     "winProb": 0.5635
+    },
+    {
+     "week": 11,
+     "opp": "SF",
+     "home": false,
+     "winProb": 0.3565
+    },
+    {
+     "week": 12,
+     "opp": "ATL",
+     "home": true,
+     "winProb": 0.6491
+    },
+    {
+     "week": 13,
+     "opp": "CAR",
+     "home": true,
+     "winProb": 0.6466
+    },
+    {
+     "week": 14,
+     "opp": "NE",
+     "home": false,
+     "winProb": 0.4374
+    },
+    {
+     "week": 15,
+     "opp": "DET",
+     "home": true,
+     "winProb": 0.6497
+    },
+    {
+     "week": 16,
+     "opp": "WAS",
+     "home": true,
+     "winProb": 0.7404
+    },
+    {
+     "week": 17,
+     "opp": "NYJ",
+     "home": false,
+     "winProb": 0.5923
+    },
+    {
+     "week": 18,
+     "opp": "CHI",
+     "home": true,
+     "winProb": 0.552
+    }
+   ],
+   "bestWeek": 16,
+   "bestWinProb": 0.7404
+  },
+  "NE": {
+   "rating": 2.08,
+   "byeWeek": 11,
+   "games": [
+    {
+     "week": 5,
+     "opp": "LV",
+     "home": true,
+     "winProb": 0.6451
+    },
+    {
+     "week": 6,
+     "opp": "NYJ",
+     "home": true,
+     "winProb": 0.7203
+    },
+    {
+     "week": 7,
+     "opp": "CHI",
+     "home": false,
+     "winProb": 0.3861
+    },
+    {
+     "week": 8,
+     "opp": "MIA",
+     "home": false,
+     "winProb": 0.6184
+    },
+    {
+     "week": 9,
+     "opp": "GB",
+     "home": true,
+     "winProb": 0.695
+    },
+    {
+     "week": 10,
+     "opp": "DET",
+     "home": false,
+     "winProb": 0.4858
+    },
+    {
+     "week": 12,
+     "opp": "LAC",
+     "home": false,
+     "winProb": 0.5569
+    },
+    {
+     "week": 13,
+     "opp": "BUF",
+     "home": true,
+     "winProb": 0.564
+    },
+    {
+     "week": 14,
+     "opp": "MIN",
+     "home": true,
+     "winProb": 0.5626
+    },
+    {
+     "week": 15,
+     "opp": "KC",
+     "home": false,
+     "winProb": 0.3957
+    },
+    {
+     "week": 16,
+     "opp": "NYJ",
+     "home": false,
+     "winProb": 0.5787
+    },
+    {
+     "week": 17,
+     "opp": "DEN",
+     "home": true,
+     "winProb": 0.6229
+    },
+    {
+     "week": 18,
+     "opp": "MIA",
+     "home": true,
+     "winProb": 0.7538
+    }
+   ],
+   "bestWeek": 18,
+   "bestWinProb": 0.7538
+  },
+  "NO": {
+   "rating": -2.8,
+   "byeWeek": 8,
+   "games": [
+    {
+     "week": 5,
+     "opp": "MIN",
+     "home": true,
+     "winProb": 0.419
+    },
+    {
+     "week": 6,
+     "opp": "NYG",
+     "home": false,
+     "winProb": 0.3757
+    },
+    {
+     "week": 7,
+     "opp": "PIT",
+     "home": true,
+     "winProb": 0.5141
+    },
+    {
+     "week": 9,
+     "opp": "CLE",
+     "home": true,
+     "winProb": 0.5603
+    },
+    {
+     "week": 10,
+     "opp": "CAR",
+     "home": true,
+     "winProb": 0.4917
+    },
+    {
+     "week": 11,
+     "opp": "CHI",
+     "home": false,
+     "winProb": 0.2573
+    },
+    {
+     "week": 12,
+     "opp": "CIN",
+     "home": false,
+     "winProb": 0.334
+    },
+    {
+     "week": 13,
+     "opp": "GB",
+     "home": true,
+     "winProb": 0.5588
+    },
+    {
+     "week": 14,
+     "opp": "CAR",
+     "home": false,
+     "winProb": 0.3424
+    },
+    {
+     "week": 15,
+     "opp": "TB",
+     "home": false,
+     "winProb": 0.4178
+    },
+    {
+     "week": 16,
+     "opp": "ARI",
+     "home": true,
+     "winProb": 0.583
+    },
+    {
+     "week": 17,
+     "opp": "ATL",
+     "home": false,
+     "winProb": 0.3448
+    },
+    {
+     "week": 18,
+     "opp": "TB",
+     "home": true,
+     "winProb": 0.5705
+    }
+   ],
+   "bestWeek": 16,
+   "bestWinProb": 0.583
+  },
+  "NYG": {
+   "rating": -1.13,
+   "byeWeek": 8,
+   "games": [
+    {
+     "week": 5,
+     "opp": "WAS",
+     "home": false,
+     "winProb": 0.4945
+    },
+    {
+     "week": 6,
+     "opp": "NO",
+     "home": true,
+     "winProb": 0.6243
+    },
+    {
+     "week": 7,
+     "opp": "HOU",
+     "home": false,
+     "winProb": 0.4118
+    },
+    {
+     "week": 9,
+     "opp": "PHI",
+     "home": false,
+     "winProb": 0.4157
+    },
+    {
+     "week": 10,
+     "opp": "WAS",
+     "home": true,
+     "winProb": 0.6449
+    },
+    {
+     "week": 11,
+     "opp": "JAC",
+     "home": true,
+     "winProb": 0.3721
+    },
+    {
+     "week": 12,
+     "opp": "IND",
+     "home": false,
+     "winProb": 0.374
+    },
+    {
+     "week": 13,
+     "opp": "SF",
+     "home": true,
+     "winProb": 0.3992
+    },
+    {
+     "week": 14,
+     "opp": "SEA",
+     "home": false,
+     "winProb": 0.2645
+    },
+    {
+     "week": 15,
+     "opp": "CLE",
+     "home": true,
+     "winProb": 0.6087
+    },
+    {
+     "week": 16,
+     "opp": "DET",
+     "home": false,
+     "winProb": 0.3922
+    },
+    {
+     "week": 17,
+     "opp": "DAL",
+     "home": false,
+     "winProb": 0.394
+    },
+    {
+     "week": 18,
+     "opp": "PHI",
+     "home": true,
+     "winProb": 0.5684
+    }
+   ],
+   "bestWeek": 10,
+   "bestWinProb": 0.6449
+  },
+  "NYJ": {
+   "rating": -3.2,
+   "byeWeek": 13,
+   "games": [
+    {
+     "week": 5,
+     "opp": "CLE",
+     "home": true,
+     "winProb": 0.5488
+    },
+    {
+     "week": 6,
+     "opp": "NE",
+     "home": false,
+     "winProb": 0.2797
+    },
+    {
+     "week": 7,
+     "opp": "MIA",
+     "home": true,
+     "winProb": 0.6162
+    },
+    {
+     "week": 8,
+     "opp": "LV",
+     "home": true,
+     "winProb": 0.4924
+    },
+    {
+     "week": 9,
+     "opp": "KC",
+     "home": false,
+     "winProb": 0.2561
+    },
+    {
+     "week": 10,
+     "opp": "BUF",
+     "home": true,
+     "winProb": 0.4091
+    },
+    {
+     "week": 11,
+     "opp": "LAC",
+     "home": false,
+     "winProb": 0.4021
+    },
+    {
+     "week": 12,
+     "opp": "MIA",
+     "home": false,
+     "winProb": 0.4642
+    },
+    {
+     "week": 14,
+     "opp": "DEN",
+     "home": true,
+     "winProb": 0.4689
+    },
+    {
+     "week": 15,
+     "opp": "ARI",
+     "home": false,
+     "winProb": 0.4189
+    },
+    {
+     "week": 16,
+     "opp": "NE",
+     "home": true,
+     "winProb": 0.4213
+    },
+    {
+     "week": 17,
+     "opp": "MIN",
+     "home": true,
+     "winProb": 0.4077
+    },
+    {
+     "week": 18,
+     "opp": "BUF",
+     "home": false,
+     "winProb": 0.2693
+    }
+   ],
+   "bestWeek": 7,
+   "bestWinProb": 0.6162
+  },
+  "PHI": {
+   "rating": -0.85,
+   "byeWeek": 10,
+   "games": [
+    {
+     "week": 5,
+     "opp": "JAC",
+     "home": false,
+     "winProb": 0.2447
+    },
+    {
+     "week": 6,
+     "opp": "CAR",
+     "home": true,
+     "winProb": 0.5492
+    },
+    {
+     "week": 7,
+     "opp": "DAL",
+     "home": true,
+     "winProb": 0.5544
+    },
+    {
+     "week": 8,
+     "opp": "WAS",
+     "home": false,
+     "winProb": 0.5027
+    },
+    {
+     "week": 9,
+     "opp": "NYG",
+     "home": true,
+     "winProb": 0.5843
+    },
+    {
+     "week": 11,
+     "opp": "PIT",
+     "home": true,
+     "winProb": 0.5713
+    },
+    {
+     "week": 12,
+     "opp": "DAL",
+     "home": false,
+     "winProb": 0.4019
+    },
+    {
+     "week": 13,
+     "opp": "ARI",
+     "home": false,
+     "winProb": 0.4876
+    },
+    {
+     "week": 14,
+     "opp": "IND",
+     "home": true,
+     "winProb": 0.5336
+    },
+    {
+     "week": 15,
+     "opp": "SEA",
+     "home": true,
+     "winProb": 0.4115
+    },
+    {
+     "week": 16,
+     "opp": "HOU",
+     "home": true,
+     "winProb": 0.5725
+    },
+    {
+     "week": 17,
+     "opp": "SF",
+     "home": false,
+     "winProb": 0.2675
+    },
+    {
+     "week": 18,
+     "opp": "NYG",
+     "home": false,
+     "winProb": 0.4316
+    }
+   ],
+   "bestWeek": 9,
+   "bestWinProb": 0.5843
+  },
+  "PIT": {
+   "rating": -0.68,
+   "byeWeek": 9,
+   "games": [
+    {
+     "week": 5,
+     "opp": "IND",
+     "home": true,
+     "winProb": 0.5387
+    },
+    {
+     "week": 6,
+     "opp": "TB",
+     "home": false,
+     "winProb": 0.48
+    },
+    {
+     "week": 7,
+     "opp": "NO",
+     "home": false,
+     "winProb": 0.4859
+    },
+    {
+     "week": 8,
+     "opp": "CLE",
+     "home": true,
+     "winProb": 0.6214
+    },
+    {
+     "week": 10,
+     "opp": "CIN",
+     "home": false,
+     "winProb": 0.3929
+    },
+    {
+     "week": 11,
+     "opp": "PHI",
+     "home": false,
+     "winProb": 0.4287
+    },
+    {
+     "week": 12,
+     "opp": "DEN",
+     "home": true,
+     "winProb": 0.5431
+    },
+    {
+     "week": 13,
+     "opp": "HOU",
+     "home": true,
+     "winProb": 0.5775
+    },
+    {
+     "week": 14,
+     "opp": "JAC",
+     "home": false,
+     "winProb": 0.2488
+    },
+    {
+     "week": 15,
+     "opp": "BAL",
+     "home": true,
+     "winProb": 0.5136
+    },
+    {
+     "week": 16,
+     "opp": "CAR",
+     "home": true,
+     "winProb": 0.5543
+    },
+    {
+     "week": 17,
+     "opp": "TEN",
+     "home": false,
+     "winProb": 0.5338
+    },
+    {
+     "week": 18,
+     "opp": "BAL",
+     "home": false,
+     "winProb": 0.3627
+    }
+   ],
+   "bestWeek": 8,
+   "bestWinProb": 0.6214
+  },
+  "SEA": {
+   "rating": 4.77,
+   "byeWeek": 11,
+   "games": [
+    {
+     "week": 5,
+     "opp": "SF",
+     "home": true,
+     "winProb": 0.5719
+    },
+    {
+     "week": 6,
+     "opp": "DEN",
+     "home": false,
+     "winProb": 0.5504
+    },
+    {
+     "week": 7,
+     "opp": "KC",
+     "home": true,
+     "winProb": 0.6254
+    },
+    {
+     "week": 8,
+     "opp": "CHI",
+     "home": true,
+     "winProb": 0.6158
+    },
+    {
+     "week": 9,
+     "opp": "ARI",
+     "home": true,
+     "winProb": 0.7795
+    },
+    {
+     "week": 10,
+     "opp": "LV",
+     "home": false,
+     "winProb": 0.5736
+    },
+    {
+     "week": 12,
+     "opp": "SF",
+     "home": false,
+     "winProb": 0.4192
+    },
+    {
+     "week": 13,
+     "opp": "DAL",
+     "home": true,
+     "winProb": 0.7099
+    },
+    {
+     "week": 14,
+     "opp": "NYG",
+     "home": true,
+     "winProb": 0.7355
+    },
+    {
+     "week": 15,
+     "opp": "PHI",
+     "home": false,
+     "winProb": 0.5885
+    },
+    {
+     "week": 16,
+     "opp": "LAR",
+     "home": true,
+     "winProb": 0.6319
+    },
+    {
+     "week": 17,
+     "opp": "CAR",
+     "home": false,
+     "winProb": 0.5615
+    },
+    {
+     "week": 18,
+     "opp": "LAR",
+     "home": false,
+     "winProb": 0.4807
+    }
+   ],
+   "bestWeek": 9,
+   "bestWinProb": 0.7795
+  },
+  "SF": {
+   "rating": 4.92,
+   "byeWeek": 8,
+   "games": [
+    {
+     "week": 5,
+     "opp": "SEA",
+     "home": false,
+     "winProb": 0.4281
+    },
+    {
+     "week": 6,
+     "opp": "WAS",
+     "home": true,
+     "winProb": 0.7938
+    },
+    {
+     "week": 7,
+     "opp": "ATL",
+     "home": false,
+     "winProb": 0.5686
+    },
+    {
+     "week": 9,
+     "opp": "LV",
+     "home": true,
+     "winProb": 0.7198
+    },
+    {
+     "week": 10,
+     "opp": "DAL",
+     "home": false,
+     "winProb": 0.5711
+    },
+    {
+     "week": 11,
+     "opp": "MIN",
+     "home": true,
+     "winProb": 0.6435
+    },
+    {
+     "week": 12,
+     "opp": "SEA",
+     "home": true,
+     "winProb": 0.5808
+    },
+    {
+     "week": 13,
+     "opp": "NYG",
+     "home": false,
+     "winProb": 0.6008
+    },
+    {
+     "week": 14,
+     "opp": "LAR",
+     "home": true,
+     "winProb": 0.6361
+    },
+    {
+     "week": 15,
+     "opp": "LAC",
+     "home": false,
+     "winProb": 0.6381
+    },
+    {
+     "week": 16,
+     "opp": "KC",
+     "home": false,
+     "winProb": 0.4783
+    },
+    {
+     "week": 17,
+     "opp": "PHI",
+     "home": true,
+     "winProb": 0.7325
+    },
+    {
+     "week": 18,
+     "opp": "ARI",
+     "home": false,
+     "winProb": 0.6542
+    }
+   ],
+   "bestWeek": 6,
+   "bestWinProb": 0.7938
+  },
+  "TB": {
+   "rating": -2.6,
+   "byeWeek": 10,
+   "games": [
+    {
+     "week": 5,
+     "opp": "DAL",
+     "home": false,
+     "winProb": 0.3527
+    },
+    {
+     "week": 6,
+     "opp": "PIT",
+     "home": true,
+     "winProb": 0.52
+    },
+    {
+     "week": 7,
+     "opp": "CAR",
+     "home": false,
+     "winProb": 0.3479
+    },
+    {
+     "week": 8,
+     "opp": "ATL",
+     "home": true,
+     "winProb": 0.5003
+    },
+    {
+     "week": 9,
+     "opp": "CHI",
+     "home": false,
+     "winProb": 0.2622
+    },
+    {
+     "week": 11,
+     "opp": "DET",
+     "home": false,
+     "winProb": 0.3509
+    },
+    {
+     "week": 12,
+     "opp": "CAR",
+     "home": true,
+     "winProb": 0.4977
+    },
+    {
+     "week": 13,
+     "opp": "LAC",
+     "home": true,
+     "winProb": 0.5719
+    },
+    {
+     "week": 14,
+     "opp": "BAL",
+     "home": false,
+     "winProb": 0.3108
+    },
+    {
+     "week": 15,
+     "opp": "NO",
+     "home": true,
+     "winProb": 0.5822
+    },
+    {
+     "week": 16,
+     "opp": "ATL",
+     "home": false,
+     "winProb": 0.3503
+    },
+    {
+     "week": 17,
+     "opp": "LAR",
+     "home": true,
+     "winProb": 0.4172
+    },
+    {
+     "week": 18,
+     "opp": "NO",
+     "home": false,
+     "winProb": 0.4295
+    }
+   ],
+   "bestWeek": 15,
+   "bestWinProb": 0.5822
+  },
+  "TEN": {
+   "rating": -4.43,
+   "byeWeek": 9,
+   "games": [
+    {
+     "week": 5,
+     "opp": "HOU",
+     "home": true,
+     "winProb": 0.4673
+    },
+    {
+     "week": 6,
+     "opp": "IND",
+     "home": false,
+     "winProb": 0.2858
+    },
+    {
+     "week": 7,
+     "opp": "CLE",
+     "home": true,
+     "winProb": 0.5126
+    },
+    {
+     "week": 8,
+     "opp": "CIN",
+     "home": false,
+     "winProb": 0.2914
+    },
+    {
+     "week": 10,
+     "opp": "JAC",
+     "home": true,
+     "winProb": 0.2841
+    },
+    {
+     "week": 11,
+     "opp": "DAL",
+     "home": false,
+     "winProb": 0.3039
+    },
+    {
+     "week": 12,
+     "opp": "JAC",
+     "home": false,
+     "winProb": 0.1696
+    },
+    {
+     "week": 13,
+     "opp": "WAS",
+     "home": true,
+     "winProb": 0.5506
+    },
+    {
+     "week": 14,
+     "opp": "DET",
+     "home": false,
+     "winProb": 0.3022
+    },
+    {
+     "week": 15,
+     "opp": "IND",
+     "home": true,
+     "winProb": 0.4284
+    },
+    {
+     "week": 16,
+     "opp": "LV",
+     "home": false,
+     "winProb": 0.3101
+    },
+    {
+     "week": 17,
+     "opp": "PIT",
+     "home": true,
+     "winProb": 0.4662
+    },
+    {
+     "week": 18,
+     "opp": "HOU",
+     "home": false,
+     "winProb": 0.3202
+    }
+   ],
+   "bestWeek": 13,
+   "bestWinProb": 0.5506
+  },
+  "WAS": {
+   "rating": -3.54,
+   "byeWeek": 7,
+   "games": [
+    {
+     "week": 5,
+     "opp": "NYG",
+     "home": true,
+     "winProb": 0.5055
+    },
+    {
+     "week": 6,
+     "opp": "SF",
+     "home": false,
+     "winProb": 0.2062
+    },
+    {
+     "week": 8,
+     "opp": "PHI",
+     "home": true,
+     "winProb": 0.4973
+    },
+    {
+     "week": 9,
+     "opp": "LAR",
+     "home": true,
+     "winProb": 0.3902
+    },
+    {
+     "week": 10,
+     "opp": "NYG",
+     "home": false,
+     "winProb": 0.3551
+    },
+    {
+     "week": 11,
+     "opp": "CIN",
+     "home": true,
+     "winProb": 0.4607
+    },
+    {
+     "week": 12,
+     "opp": "ARI",
+     "home": false,
+     "winProb": 0.4089
+    },
+    {
+     "week": 13,
+     "opp": "TEN",
+     "home": false,
+     "winProb": 0.4494
+    },
+    {
+     "week": 14,
+     "opp": "HOU",
+     "home": true,
+     "winProb": 0.4934
+    },
+    {
+     "week": 15,
+     "opp": "ATL",
+     "home": true,
+     "winProb": 0.4725
+    },
+    {
+     "week": 16,
+     "opp": "MIN",
+     "home": false,
+     "winProb": 0.2596
+    },
+    {
+     "week": 17,
+     "opp": "JAC",
+     "home": false,
+     "winProb": 0.1866
+    },
+    {
+     "week": 18,
+     "opp": "DAL",
+     "home": true,
+     "winProb": 0.475
+    }
+   ],
+   "bestWeek": 5,
+   "bestWinProb": 0.5055
   }
  }
 }
