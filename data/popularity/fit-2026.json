@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "k": 2.61,
+  "k": 2.6,
   "n": 118,
   "games": 59,
   "weeks": [
@@ -11,5 +11,5 @@
   ],
   "rmse": 0.0765,
   "priceRule": "last odds snapshot before kickoff",
-  "fittedAt": "2026-10-04T16:31:17Z"
+  "fittedAt": "2026-10-06T13:45:30Z"
 }
