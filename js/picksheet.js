@@ -31,6 +31,7 @@ import {
   loadMyPicks, seasonCard, survivorPick, survivorRecommendation, sentCard,
 } from './myPicks.js';
 import { isLocked, setLocked, lockControl } from './pickLock.js';
+import { tiebreakSuggestion, TIEBREAK_WHY } from './tiebreak.js';
 import { hasGhToken, saveSentWeek, connectBox } from './githubSync.js';
 import { ABBR_TO_MASCOT } from './teams.js';
 import { favoriteLine } from './oddsBadge.js';
@@ -175,6 +176,7 @@ function shell(weeks) {
         <input id="mnf-points" type="number" inputmode="numeric" min="0" max="120"
                placeholder="Total" value="" aria-describedby="mnf-game" />
         <span class="hint" id="mnf-game"></span>
+        <div class="tb-suggest" id="tb-suggest"></div>
       </div>
       <button class="btn btn-ghost" id="clear-week" type="button">Clear week</button>
       <div class="field lock-field" id="lock-slot"></div>
@@ -222,6 +224,14 @@ function wireControls() {
     setLocked('picks', SEASON, week, !locked());
     render();
     if (locked() && !isSaved()) saveCard();
+  });
+
+  el('tb-suggest').addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-tb-use]');
+    if (!btn || locked()) return;
+    picks.__mnf = Number(btn.dataset.tbUse);
+    persist();
+    render();
   });
 
   el('sync-slot').addEventListener('click', (e) => {
@@ -380,8 +390,9 @@ function renderGames() {
 
   const tb = tiebreakerGame(map, week);
   el('mnf-game').textContent = tb
-    ? `Total points in ${tb.away} at ${tb.home}${marketTotalNote(tb)}`
+    ? `Total points in ${tb.away} at ${tb.home}`
     : 'Tiebreaker game not marked on this sheet';
+  renderTiebreak(tb);
 
   el('games').querySelectorAll('.pick').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -399,25 +410,31 @@ function renderGames() {
 }
 
 /**
- * ` — market O/U 43.5 (the field guesses this number)`, or '' with no line.
+ * The market total for the Monday game and the number to write, with a
+ * one-tap "Use" button (2026-10-06, at the owner's request -- this box used
+ * to print the line and deliberately stop short of a number).
  *
- * The parenthetical is a warning, not a suggestion, and it is worth the
- * pixels. Mike's pool breaks a tie on ABSOLUTE distance from the real total,
- * and the 267 parsed cards in data/raw/entries-2025-w01.json show the field
- * landing right on the market: that week's line was ~43.5 and the field's
- * median guess was 44, with 41% of all entries inside 42-45. Simulated
- * against 2,127 real finals (mean 45.1, SD 13.9), guessing the market number
- * is close to the worst available choice -- roughly 4% equity in the
- * tiebreaker versus roughly 24% for a number 8 points off it, because the
- * market number is where you split with 25 people on the rare occasion you
- * are right. Same leverage logic as STRATEGY.md's underdog rule, pointed at
- * the tiebreaker box. Printing the line without that caveat would invite
- * exactly the wrong move.
+ * The line alone is the worst answer: about half the pool guesses within 3
+ * points of it, so a tie on it is split many ways. See js/tiebreak.js for the
+ * measured basis of the suggestion. Renders nothing without a market total.
  */
-function marketTotalNote(tb) {
-  const ev = oddsFor(tb);
-  if (!ev || ev.total == null) return '';
-  return ` — market O/U ${ev.total} (the field guesses this number)`;
+function renderTiebreak(tb) {
+  const slot = el('tb-suggest');
+  if (!slot) return;
+  const ev = tb ? oddsFor(tb) : null;
+  const s = tiebreakSuggestion(ev?.total);
+  if (!s) { slot.innerHTML = ''; return; }
+  const using = picks.__mnf === s.guess || picks.__mnf === s.alt;
+  slot.innerHTML = `
+    <p class="tb-line">
+      Line <strong>${s.line}</strong>
+      <span class="tb-sep">·</span>
+      Suggested <strong class="tb-guess">${s.guess}</strong>
+      <span class="tb-alt">(or ${s.alt})</span>
+    </p>
+    ${using ? '' : `<button type="button" class="btn btn-ghost tb-use" data-tb-use="${s.guess}"${
+      locked() ? ' disabled' : ''}>Use ${s.guess}</button>`}
+    <p class="tb-why">${escape(TIEBREAK_WHY)}</p>`;
 }
 
 function gameRow(g) {

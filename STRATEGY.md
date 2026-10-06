@@ -300,9 +300,13 @@ we take the hit to our score without buying separation.
 
 - **Floor for a live dog: ≥38% true win probability.** Below that, the expected cost per pick
   climbs steeply. These are the 3 dogs of a normal week.
-- **One exception per week — the lonely longshot (revised 2026-10-03).** Take the single
-  highest-leverage dog at **25–37%** win probability, provided the field leaves it nearly empty
-  (≤12% of the pool on it, measured or modeled). This replaces the old absolute 38% floor, which
+- **One exception per week — the lonely longshot (revised 2026-10-03, selection fixed
+  2026-10-06).** Take the single **most likely** dog at **25–37%** win probability among those the
+  field leaves nearly empty (≤12% of the pool on it, measured or modeled). *Most likely, not
+  highest leverage:* with a modeled share, leverage only grows as the price falls, so ranking on
+  it always took the 25–27% dog at the floor — Saints, Titans, Chargers, Chargers in Weeks 1–4,
+  all lost. Every candidate is already lonely; among them the better team is the better ticket
+  (Weeks 1–4 re-run: 0.89% → 1.01% a week to win, and two more games right). This replaces the old absolute 38% floor, which
   the 2026 lookback showed was blocking the best leverage on the board: when 95% of the pool is on
   a 74% favorite, a 26% dog is a ticket past almost everyone. **Never more than one**, and never
   below 25% — under that it is a lottery ticket the floor still exists to stop.
@@ -403,8 +407,17 @@ picks heavily chalk, scores cluster tightly at the top and ties are frequent. In
 pool, the MNF total plausibly decides a large share of the eighteen $1,000 payouts. Any week we
 finish tied for the lead, this number *is* the $1,000.
 
-**Baseline:** start from the market total for the MNF game. It is the best available estimate and
-any deviation costs accuracy.
+**The rule the site applies (2026-10-06): guess the market total + 7, or − 7.** Measured on the
+2026 Weeks 1–4 cards: about half the pool guesses within 3 points of the line every week (55%,
+54%, 48%, 46%), and ties at the top were small (1, 2, 3, 3 entries). Simulated against those real
+guesses, with the total landing around the line at the historical SD of 13.9, a guess 6–9 points
+off the line wins a tie against 2–3 rivals ~30% of the time; on the line, ~20%. The peak is a
+plateau and both sides are within noise; +7 is shown first because this field leans slightly over
+and totals run long more than short. The Pick Sheet and Recommend both show it (`js/tiebreak.js`).
+The 2025 notes below are kept for the history of how the field guesses.
+
+**Baseline:** start from the market total for the MNF game. It is the best available estimate of
+the total — which is exactly why it is the worst guess in a tie.
 
 **Then deviate deliberately** — guided by the actual density, not by folklore. Measured from 267
 guesses in 2025 Week 1:

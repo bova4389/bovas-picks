@@ -153,6 +153,7 @@ js/standingsModel.js SHARED — Sleeper pools' standings math, pure data     [NE
 js/payouts.js       SHARED — prize winners, season tables, burn matrix     [NEVER versioned]
 js/pickLock.js      SHARED — per-week Lock / Unlock for pick editing       [NEVER versioned]
 js/githubSync.js    SHARED — Lock saves the sent file to GitHub, per device key [NEVER versioned]
+js/tiebreak.js      SHARED — the Monday-total suggestion (line ± 7), pure       [NEVER versioned]
 js/standings.js     Standings — Season Long: Mike's pick'em + Infinity War; Survivor: Mike's suicide + Poop + Deadpool
 js/squares.js       Squares Board tab — one week: matchup, board, payouts
 js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
@@ -579,6 +580,13 @@ were a 15% "never below this share" cutoff and 4–5 dogs. Simulated against the
 the revised rule averaged ~0.96% a week to win against 0.83% for the old rules and 0.60% for the
 cards we actually sent; every best-possible card held a 25–37% dog with 2–5% of the pool on it,
 which is exactly what the 15% cutoff forbade. The `longshot` tier is gone; `lonely` replaces it.
+**The longshot is the most likely lonely dog, not the highest-leverage one** (fixed 2026-10-06):
+leverage on a modeled share always grows as the price falls, so it took the 25–27% dog every
+week and all four lost. `markPicks()` and the tier list sort lonely dogs by `dogProb`.
+**Line movement was checked and is not a signal** (Weeks 1–4, 59 games): the Saturday price was
+as accurate as the closing one, no line moved 3+ points after the Saturday deadline, and the side
+a 5+ point move went toward won 4 of 7 against 4.2 expected. Use the Saturday price; do not
+add a follow-the-move or fade-the-move rule.
 The tab also opens on the current week now (`currentWeek()`), not Week 1.
 
 **The tab used to be gated on the number map, and that was wrong.** It refused to render without
@@ -2023,9 +2031,13 @@ The low side is preferred over the high side at equal simulated equity, because 
 distribution puts more mass below 37 than above 51, and because it is the half that survives if
 the pool rule ever turns out to be closest-without-going-over.
 
-**The tab prints the caveat and stops there. It does not recommend a number** — that is the same
-line the Infinity War tab holds between the season prize and the weekly prize, for the same
-reason: the trade is the user's.
+**It suggests a number now (2026-10-06, the owner's call — reversing "prints the caveat and
+stops there").** A box under the input reads `Line 54.5 · Suggested 62 (or 48)` with a one-tap
+**Use 62** button, and Recommend's plan card carries the same line. The rule — market total ± 7,
+high side first — and its measurement live in `js/tiebreak.js` and STRATEGY.md §5: half the pool
+guesses within 3 of the line, ties at the top are 1–3 entries, and 6–9 off wins a tie ~30% of the
+time against ~20% on the line. `js/tiebreak.js` is a new file so neither caller imports a new name
+from a cached shared module. The hint line under the input now names only the game.
 
 **Do not restore `placeholder="44"` on the input.** It was there from the first build and it is a
 nudge toward the exact worst answer, sitting inches from text that says so.

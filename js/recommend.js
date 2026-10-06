@@ -47,8 +47,9 @@
 
 import {
   SEASON, tryNumberMap, weekNumbers, scoredGames, getPopularity, getOddsSnapshot,
-  getSeasonAudit, getSchedule, getOddsHistory,
+  getSeasonAudit, getSchedule, getOddsHistory, tiebreakerGame,
 } from './data.js';
+import { tiebreakSuggestion, TIEBREAK_WHY } from './tiebreak.js';
 import {
   buildSeasonOddsIndex, matchSeasonOdds, orientProbs, kickoffIndex, kickoffFor,
 } from './oddsMatch.js';
@@ -395,7 +396,13 @@ function dogCount(takeable, lonely) {
 function markPicks(priced) {
   const byLev = (a, b) => b.leverage - a.leverage;
   const take = priced.filter((r) => r.tier === 'take').sort(byLev);
-  const lonely = priced.filter((r) => r.tier === 'lonely').sort(byLev);
+  // The longshot is the MOST LIKELY lonely dog, not the highest leverage. With
+  // a modeled share, p / share(p) only grows as p falls, so ranking on it
+  // always took the 25-27% dog at the floor -- Saints, Titans, Chargers,
+  // Chargers in Weeks 1-4, all lost. Every candidate here is already lonely
+  // by the tier's share cap; among them the better team is the better ticket
+  // (Weeks 1-4 re-run: 0.89% -> 1.01% a week). STRATEGY.md §4 Step 4.
+  const lonely = priced.filter((r) => r.tier === 'lonely').sort((a, b) => b.dogProb - a.dogProb);
   const counts = dogCount(take, lonely);
 
   for (const r of priced) r.pick = 'chalk';
@@ -446,6 +453,7 @@ function plan({ priced, take, picked, live, longs, why }, pop) {
           Nothing on this slate clears the floor at usable pick share — that is a
           real answer, not a gap. Take the chalk (§4 Step 6).
         </p>`}
+      ${tiebreakLine()}
       ${pop ? '' : `
         <p class="rec-plan-caveat">
           Pick share is <strong>modeled</strong>, so treat the order as a shortlist to
@@ -455,6 +463,24 @@ function plan({ priced, take, picked, live, longs, why }, pop) {
 }
 
 const kNote = () => `Curve k=${state.k} (${state.kSource}).`;
+
+/** The Monday tiebreaker, on the plan card, so the whole card -- picks and
+ *  points -- is on one screen. Same suggestion as the Pick Sheet's box
+ *  (js/tiebreak.js). Renders nothing without a sheet or a market total. */
+function tiebreakLine() {
+  const tb = state.map ? tiebreakerGame(state.map, state.week) : null;
+  if (!tb) return '';
+  const date = kickoffFor(state.kickoffs, state.week, tb.away, tb.home);
+  const ev = date ? matchSeasonOdds({ away: tb.away, home: tb.home, date }, state.seasonIndex) : null;
+  const s = tiebreakSuggestion(ev?.total);
+  if (!s) return '';
+  return `
+    <p class="rec-plan-line rec-plan-tb">
+      Monday tiebreaker, ${escape(tb.away)} at ${escape(tb.home)}: line ${s.line}, guess
+      <strong>${s.guess}</strong> <span class="rec-plan-why">(or ${s.alt})</span>
+    </p>
+    <p class="rec-plan-why">${escape(TIEBREAK_WHY)}</p>`;
+}
 
 /* ── Tiers — the options ──────────────────────────────────────────────────*/
 
@@ -466,14 +492,14 @@ function tiers(priced, pop) {
 
   const take = of('take');
   const thin = of('thin');
-  const lonely = of('lonely');
+  const lonely = of('lonely').sort((a, b) => b.dogProb - a.dogProb);
 
   return `
     ${group('Best dogs — take these', take, `
       Clear the ${Math.round(FLOOR * 100)}% floor and the field is light enough on them to buy
       real separation. Ranked by leverage.`)}
 
-    ${group('Lonely longshots — take the best one', lonely, `
+    ${group('Lonely longshots — take the most likely one', lonely, `
       ${Math.round(LONG_FLOOR * 100)}–${Math.round(FLOOR * 100) - 1}% to win, with
       ${Math.round(LONELY_SHARE * 100)}% or less of the field on them. This pool abandons these
       games almost entirely, so one hit passes nearly everyone. One a week, never more.`)}

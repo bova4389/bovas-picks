@@ -500,6 +500,23 @@ body.chrome-off main.wrap { padding-top: 24px; }
   color: var(--ink-soft);
 }
 
+/* The tiebreaker suggestion under the Monday-night input (js/tiebreak.js).
+   A quiet box, not a callout: it is advice the owner asked for, and the
+   number in it is the one thing to read, so only that is weighted. */
+.tb-suggest:empty { display: none; }
+.tb-suggest {
+  margin-top: 8px; padding: 10px 12px;
+  border-radius: 12px; background: var(--purple-soft);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
+  max-width: 420px;
+}
+.tb-line { margin: 0; font-size: .9375rem; color: var(--ink); }
+.tb-guess { font-size: 1.125rem; color: var(--purple); }
+.tb-sep { color: var(--ink-quiet); margin: 0 2px; }
+.tb-alt { color: var(--ink-quiet); font-size: .8125rem; }
+.tb-use { min-height: 46px; }
+.tb-why { flex: 1 0 100%; margin: 0; font-size: .75rem; line-height: 1.4; color: var(--ink-soft); }
+
 /* ── Output ───────────────────────────────────────────────────────────── */
 
 .output { margin-top: 26px; padding: 20px; }
