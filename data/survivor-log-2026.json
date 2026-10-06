@@ -221,6 +221,58 @@
           "teamsLeft": 29
         }
       ]
+    },
+    "5": {
+      "week": 5,
+      "builtAt": "2026-10-06T19:32:26.904Z",
+      "oddsFetchedAt": "2026-10-06T19:32:21.586637+00:00",
+      "confidence": "provisional",
+      "exposure": {
+        "tickets": 3,
+        "games": 1,
+        "pAllLose": 0.2134
+      },
+      "picks": [
+        {
+          "pool": "sleeper",
+          "team": "DAL",
+          "p": 0.7866,
+          "gap": 0,
+          "fvCost": 0.0488,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 29,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 28
+        },
+        {
+          "pool": "deadpool",
+          "team": "DAL",
+          "p": 0.7866,
+          "gap": 0,
+          "fvCost": 0.0488,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 20,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 28
+        },
+        {
+          "pool": "mike",
+          "team": "DAL",
+          "p": 0.7866,
+          "gap": 0,
+          "fvCost": 0.0488,
+          "share": null,
+          "basis": "future-value",
+          "entrants": 247,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 28
+        }
+      ]
     }
   }
 }
