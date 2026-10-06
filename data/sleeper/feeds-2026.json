@@ -1,10 +1,10 @@
 {
  "season": 2026,
- "generated": "2026-10-05T02:20:22.876Z",
+ "generated": "2026-10-06T06:49:30.907Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
-   "currentWeek": 4,
+   "currentWeek": 5,
    "weeks": {
     "1": {
      "entrants": 31,
@@ -188,6 +188,15 @@
      ],
      "submitted": 26,
      "revealed": 26,
+     "expected": 31,
+     "complete": false
+    },
+    "5": {
+     "entrants": 0,
+     "distinctTeams": 0,
+     "picks": [],
+     "submitted": 0,
+     "revealed": 0,
      "expected": 31,
      "complete": false
     }
@@ -590,7 +599,7 @@
       "3": "SEA"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "DET",
       "LAC",
@@ -818,7 +827,7 @@
       "2": "BAL"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "PIT",
       "BAL"
@@ -828,7 +837,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1791166822413,
+   "fetchedAt": 1791269370512,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -837,7 +846,7 @@
   },
   "1400514368084451328": {
    "year": 2026,
-   "currentWeek": 4,
+   "currentWeek": 5,
    "weeks": {
     "1": {
      "entrants": 20,
@@ -981,6 +990,15 @@
      ],
      "submitted": 14,
      "revealed": 14,
+     "expected": 20,
+     "complete": false
+    },
+    "5": {
+     "entrants": 0,
+     "distinctTeams": 0,
+     "picks": [],
+     "submitted": 0,
+     "revealed": 0,
      "expected": 20,
      "complete": false
     }
@@ -1384,7 +1402,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1791166822647,
+   "fetchedAt": 1791269370704,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1393,7 +1411,7 @@
   },
   "1400511807180828672": {
    "year": 2026,
-   "currentWeek": 4,
+   "currentWeek": 5,
    "weeks": {
     "1": {
      "rows": [
@@ -1658,6 +1676,10 @@
        "count": 3
       },
       {
+       "team": "NO",
+       "count": 3
+      },
+      {
        "team": "DAL",
        "count": 2
       },
@@ -1675,8 +1697,15 @@
       }
      ],
      "submitted": 143,
-     "revealed": 140,
-     "locked": 3,
+     "revealed": 143,
+     "locked": 0,
+     "entrants": 18
+    },
+    "5": {
+     "rows": [],
+     "submitted": 27,
+     "revealed": 0,
+     "locked": 27,
      "entrants": 18
     }
    },
@@ -1722,6 +1751,7 @@
        "BUF",
        "DET",
        "MIN",
+       "NO",
        "ARI",
        "SEA",
        "IND"
@@ -1742,6 +1772,11 @@
        "guess": 38,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 44,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -1801,6 +1836,11 @@
        "guess": 46,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 52,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -1866,6 +1906,11 @@
        "guess": 42,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 54,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -1931,6 +1976,11 @@
        "guess": 34,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 45,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -1996,6 +2046,11 @@
        "guess": 31,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 46,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -2061,6 +2116,11 @@
        "guess": 38,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 48,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -2126,6 +2186,11 @@
        "guess": 43,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 40,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -2298,6 +2363,11 @@
        "guess": 44,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 44,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -2344,6 +2414,7 @@
        "JAC",
        "PIT",
        "MIN",
+       "NO",
        "KC"
       ]
      },
@@ -2352,6 +2423,11 @@
        "guess": 38,
        "away": "DEN",
        "home": "KC"
+      },
+      "4": {
+       "guess": 35,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -2411,6 +2487,11 @@
        "guess": 44,
        "away": "NYG",
        "home": "LAR"
+      },
+      "4": {
+       "guess": 44,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -2536,6 +2617,11 @@
        "guess": 35,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 40,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -2601,6 +2687,11 @@
        "guess": 43,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 54,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -2666,6 +2757,11 @@
        "guess": 41,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 44,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -2726,6 +2822,11 @@
        "guess": 52,
        "away": "NYG",
        "home": "LAR"
+      },
+      "4": {
+       "guess": 49,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     },
@@ -2770,6 +2871,7 @@
        "BUF",
        "DET",
        "MIN",
+       "NO",
        "KC",
        "SEA",
        "GB"
@@ -2790,6 +2892,11 @@
        "guess": 47,
        "away": "PHI",
        "home": "CHI"
+      },
+      "4": {
+       "guess": 63,
+       "away": "ATL",
+       "home": "NO"
       }
      }
     }
@@ -2797,7 +2904,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1791166822874,
+   "fetchedAt": 1791269370905,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
