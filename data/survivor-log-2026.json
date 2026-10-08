@@ -224,19 +224,19 @@
     },
     "5": {
       "week": 5,
-      "builtAt": "2026-10-08T09:06:05.236Z",
-      "oddsFetchedAt": "2026-10-08T09:05:58.797667+00:00",
+      "builtAt": "2026-10-08T17:53:53.631Z",
+      "oddsFetchedAt": "2026-10-08T17:53:48.523387+00:00",
       "confidence": "firming",
       "exposure": {
         "tickets": 3,
         "games": 1,
-        "pAllLose": 0.2083
+        "pAllLose": 0.1993
       },
       "picks": [
         {
           "pool": "sleeper",
           "team": "DAL",
-          "p": 0.7917,
+          "p": 0.8007,
           "gap": 0,
           "fvCost": 0.0488,
           "share": null,
@@ -249,7 +249,7 @@
         {
           "pool": "deadpool",
           "team": "DAL",
-          "p": 0.7917,
+          "p": 0.8007,
           "gap": 0,
           "fvCost": 0.0488,
           "share": null,
@@ -262,7 +262,7 @@
         {
           "pool": "mike",
           "team": "DAL",
-          "p": 0.7917,
+          "p": 0.8007,
           "gap": 0,
           "fvCost": 0.0488,
           "share": null,
