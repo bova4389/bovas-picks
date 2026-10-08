@@ -39,6 +39,13 @@
       "survivor": {
         "mike": "MIN"
       }
+    },
+    "5": {
+      "survivor": {
+        "sleeper": "DAL",
+        "deadpool": "DAL",
+        "mike": "DAL"
+      }
     }
   }
 }
