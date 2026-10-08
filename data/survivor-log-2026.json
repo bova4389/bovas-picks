@@ -224,19 +224,19 @@
     },
     "5": {
       "week": 5,
-      "builtAt": "2026-10-07T19:59:21.402Z",
-      "oddsFetchedAt": "2026-10-07T19:59:15.232226+00:00",
-      "confidence": "provisional",
+      "builtAt": "2026-10-08T09:06:05.236Z",
+      "oddsFetchedAt": "2026-10-08T09:05:58.797667+00:00",
+      "confidence": "firming",
       "exposure": {
         "tickets": 3,
-        "games": 2,
-        "pAllLose": 0.0513
+        "games": 1,
+        "pAllLose": 0.2083
       },
       "picks": [
         {
           "pool": "sleeper",
           "team": "DAL",
-          "p": 0.7878,
+          "p": 0.7917,
           "gap": 0,
           "fvCost": 0.0488,
           "share": null,
@@ -248,21 +248,21 @@
         },
         {
           "pool": "deadpool",
-          "team": "HOU",
-          "p": 0.7584,
-          "gap": 0.0294,
-          "fvCost": 0.1471,
+          "team": "DAL",
+          "p": 0.7917,
+          "gap": 0,
+          "fvCost": 0.0488,
           "share": null,
           "basis": "win-probability",
           "entrants": 20,
-          "swappedFrom": "DAL",
-          "swapClause": "near-free",
+          "swappedFrom": null,
+          "swapClause": null,
           "teamsLeft": 28
         },
         {
           "pool": "mike",
           "team": "DAL",
-          "p": 0.7878,
+          "p": 0.7917,
           "gap": 0,
           "fvCost": 0.0488,
           "share": null,
