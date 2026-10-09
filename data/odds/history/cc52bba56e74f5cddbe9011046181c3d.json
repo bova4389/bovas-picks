@@ -1812,5 +1812,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-08T17:53:48.523387+00:00"
+ },
+ {
+  "id": "cc52bba56e74f5cddbe9011046181c3d",
+  "commenceTime": "2026-10-11T17:00:00Z",
+  "home": "Tennessee Titans",
+  "away": "Houston Texans",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.2485,
+  "rawAwayProb": 0.794,
+  "homeWinProb": 0.2384,
+  "awayWinProb": 0.7616,
+  "vig": 0.0426,
+  "total": 38.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-09T00:26:51.932559+00:00"
  }
 ]
