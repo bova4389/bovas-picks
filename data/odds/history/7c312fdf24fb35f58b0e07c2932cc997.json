@@ -1588,5 +1588,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-10-09T00:26:51.932559+00:00"
+ },
+ {
+  "id": "7c312fdf24fb35f58b0e07c2932cc997",
+  "commenceTime": "2026-10-18T17:00:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Chicago Bears",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.4809,
+  "rawAwayProb": 0.5661,
+  "homeWinProb": 0.4593,
+  "awayWinProb": 0.5407,
+  "vig": 0.047,
+  "total": 48.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-10-09T09:12:28.045390+00:00"
  }
 ]

@@ -1588,5 +1588,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-10-09T00:26:51.932559+00:00"
+ },
+ {
+  "id": "45b2690b350ed45145c7a716b18e8e66",
+  "commenceTime": "2026-10-18T20:25:00Z",
+  "home": "Las Vegas Raiders",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.345,
+  "rawAwayProb": 0.7035,
+  "homeWinProb": 0.329,
+  "awayWinProb": 0.671,
+  "vig": 0.0485,
+  "total": 51.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-10-09T09:12:28.045390+00:00"
  }
 ]
