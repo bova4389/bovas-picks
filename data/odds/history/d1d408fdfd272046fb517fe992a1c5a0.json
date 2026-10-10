@@ -1892,5 +1892,21 @@
   "totalBookCount": 8,
   "bucket": 0,
   "fetchedAt": "2026-10-10T08:36:05.685352+00:00"
+ },
+ {
+  "id": "d1d408fdfd272046fb517fe992a1c5a0",
+  "commenceTime": "2026-10-11T20:05:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "Denver Broncos",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.3897,
+  "rawAwayProb": 0.6507,
+  "homeWinProb": 0.3745,
+  "awayWinProb": 0.6255,
+  "vig": 0.0404,
+  "total": 42.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-10T16:15:28.877806+00:00"
  }
 ]
