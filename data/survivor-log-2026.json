@@ -224,21 +224,21 @@
     },
     "5": {
       "week": 5,
-      "builtAt": "2026-10-09T17:27:40.137Z",
-      "oddsFetchedAt": "2026-10-09T17:27:35.505805+00:00",
+      "builtAt": "2026-10-10T00:04:24.259Z",
+      "oddsFetchedAt": "2026-10-10T00:04:18.221441+00:00",
       "confidence": "firming",
       "exposure": {
         "tickets": 3,
-        "games": 2,
-        "pAllLose": 0.0634
+        "games": 3,
+        "pAllLose": 0.0155
       },
       "picks": [
         {
           "pool": "sleeper",
-          "team": "HOU",
-          "p": 0.7642,
+          "team": "JAC",
+          "p": 0.7594,
           "gap": 0,
-          "fvCost": 0.1471,
+          "fvCost": 0.0751,
           "share": null,
           "basis": "win-probability",
           "entrants": 29,
@@ -249,7 +249,7 @@
         {
           "pool": "deadpool",
           "team": "HOU",
-          "p": 0.7642,
+          "p": 0.754,
           "gap": 0,
           "fvCost": 0.1471,
           "share": null,
@@ -262,8 +262,8 @@
         {
           "pool": "mike",
           "team": "CIN",
-          "p": 0.7313,
-          "gap": 0.0329,
+          "p": 0.7385,
+          "gap": 0.0155,
           "fvCost": 0.1389,
           "share": null,
           "basis": "future-value",

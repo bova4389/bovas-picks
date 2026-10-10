@@ -1620,5 +1620,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-10-09T17:27:35.505805+00:00"
+ },
+ {
+  "id": "1cf74afd313e9fd300e1462012b174cb",
+  "commenceTime": "2026-10-18T17:00:00Z",
+  "home": "New York Giants",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.5061,
+  "rawAwayProb": 0.5434,
+  "homeWinProb": 0.4823,
+  "awayWinProb": 0.5177,
+  "vig": 0.0495,
+  "total": 44.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-10-10T00:04:18.221441+00:00"
  }
 ]

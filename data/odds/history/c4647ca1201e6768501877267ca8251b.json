@@ -1876,5 +1876,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-09T17:27:35.505805+00:00"
+ },
+ {
+  "id": "c4647ca1201e6768501877267ca8251b",
+  "commenceTime": "2026-10-11T17:00:00Z",
+  "home": "Miami Dolphins",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.2726,
+  "rawAwayProb": 0.77,
+  "homeWinProb": 0.2615,
+  "awayWinProb": 0.7385,
+  "vig": 0.0426,
+  "total": 43.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-10T00:04:18.221441+00:00"
  }
 ]
