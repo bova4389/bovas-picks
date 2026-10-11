@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-10T18:49:56.981Z",
+ "generated": "2026-10-11T19:09:24.116Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
@@ -192,17 +192,32 @@
      "complete": false
     },
     "5": {
-     "entrants": 6,
-     "distinctTeams": 1,
+     "entrants": 24,
+     "distinctTeams": 4,
      "picks": [
+      {
+       "team": "HOU",
+       "count": 12,
+       "pct": 50
+      },
       {
        "team": "DAL",
        "count": 6,
-       "pct": 100
+       "pct": 25
+      },
+      {
+       "team": "CIN",
+       "count": 5,
+       "pct": 20.8
+      },
+      {
+       "team": "PIT",
+       "count": 1,
+       "pct": 4.2
       }
      ],
-     "submitted": 19,
-     "revealed": 6,
+     "submitted": 26,
+     "revealed": 24,
      "expected": 31,
      "complete": false
     }
@@ -218,7 +233,8 @@
       "1": "LAC",
       "2": "SF",
       "3": "KC",
-      "4": "BAL"
+      "4": "BAL",
+      "5": "CIN"
      },
      "problems": [],
      "alive": true,
@@ -226,7 +242,8 @@
       "LAC",
       "SF",
       "KC",
-      "BAL"
+      "BAL",
+      "CIN"
      ]
     },
     {
@@ -285,7 +302,8 @@
       "1": "LAC",
       "2": "SF",
       "3": "KC",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -293,7 +311,8 @@
       "LAC",
       "SF",
       "KC",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -344,7 +363,8 @@
       "1": "JAC",
       "2": "SF",
       "3": "KC",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "CIN"
      },
      "problems": [],
      "alive": true,
@@ -352,7 +372,8 @@
       "JAC",
       "SF",
       "KC",
-      "MIN"
+      "MIN",
+      "CIN"
      ]
     },
     {
@@ -365,7 +386,8 @@
       "1": "LAC",
       "2": "LAR",
       "3": "BUF",
-      "4": "BAL"
+      "4": "BAL",
+      "5": "CIN"
      },
      "problems": [],
      "alive": true,
@@ -373,7 +395,8 @@
       "LAC",
       "LAR",
       "BUF",
-      "BAL"
+      "BAL",
+      "CIN"
      ]
     },
     {
@@ -386,7 +409,8 @@
       "1": "LAC",
       "2": "SF",
       "3": "KC",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -394,7 +418,8 @@
       "LAC",
       "SF",
       "KC",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -422,7 +447,8 @@
       "1": "PIT",
       "2": "TB",
       "3": "DET",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -430,7 +456,8 @@
       "PIT",
       "TB",
       "DET",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -443,7 +470,8 @@
       "1": "LAC",
       "2": "TB",
       "3": "SF",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -451,7 +479,8 @@
       "LAC",
       "TB",
       "SF",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -464,7 +493,8 @@
       "1": "SEA",
       "2": "TB",
       "3": "KC",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -472,7 +502,8 @@
       "SEA",
       "TB",
       "KC",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -504,7 +535,8 @@
       "1": "JAC",
       "2": "TB",
       "3": "KC",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -512,7 +544,8 @@
       "JAC",
       "TB",
       "KC",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -525,7 +558,8 @@
       "1": "CHI",
       "2": "GB",
       "3": "BUF",
-      "4": "BAL"
+      "4": "BAL",
+      "5": "PIT"
      },
      "problems": [],
      "alive": true,
@@ -533,7 +567,8 @@
       "CHI",
       "GB",
       "BUF",
-      "BAL"
+      "BAL",
+      "PIT"
      ]
     },
     {
@@ -569,7 +604,8 @@
       "1": "LAC",
       "2": "SF",
       "3": "KC",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -577,7 +613,8 @@
       "LAC",
       "SF",
       "KC",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -590,7 +627,8 @@
       "1": "JAC",
       "2": "GB",
       "3": "PHI",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -598,7 +636,8 @@
       "JAC",
       "GB",
       "PHI",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -653,7 +692,8 @@
       "1": "CIN",
       "2": "DAL",
       "3": "SF",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -661,7 +701,8 @@
       "CIN",
       "DAL",
       "SF",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -674,7 +715,8 @@
       "1": "JAC",
       "2": "BAL",
       "3": "SF",
-      "4": "KC"
+      "4": "KC",
+      "5": "CIN"
      },
      "problems": [],
      "alive": true,
@@ -682,7 +724,8 @@
       "JAC",
       "BAL",
       "SF",
-      "KC"
+      "KC",
+      "CIN"
      ]
     },
     {
@@ -760,7 +803,8 @@
       "1": "JAC",
       "2": "SF",
       "3": "KC",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -768,7 +812,8 @@
       "JAC",
       "SF",
       "KC",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -781,7 +826,8 @@
       "1": "DET",
       "2": "BAL",
       "3": "NO",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "CIN"
      },
      "problems": [],
      "alive": true,
@@ -789,7 +835,8 @@
       "DET",
       "BAL",
       "NO",
-      "MIN"
+      "MIN",
+      "CIN"
      ]
     },
     {
@@ -802,7 +849,8 @@
       "1": "PIT",
       "2": "TB",
       "3": "KC",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -810,7 +858,8 @@
       "PIT",
       "TB",
       "KC",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -823,7 +872,8 @@
       "1": "PIT",
       "2": "SF",
       "3": "KC",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -831,7 +881,8 @@
       "PIT",
       "SF",
       "KC",
-      "MIN"
+      "MIN",
+      "HOU"
      ]
     },
     {
@@ -855,7 +906,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1791658196738,
+   "fetchedAt": 1791745763950,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1012,17 +1063,27 @@
      "complete": false
     },
     "5": {
-     "entrants": 9,
-     "distinctTeams": 1,
+     "entrants": 14,
+     "distinctTeams": 3,
      "picks": [
       {
        "team": "DAL",
        "count": 9,
-       "pct": 100
+       "pct": 64.3
+      },
+      {
+       "team": "CIN",
+       "count": 4,
+       "pct": 28.6
+      },
+      {
+       "team": "HOU",
+       "count": 1,
+       "pct": 7.1
       }
      ],
      "submitted": 14,
-     "revealed": 9,
+     "revealed": 14,
      "expected": 20,
      "complete": false
     }
@@ -1084,7 +1145,8 @@
       "1": "PIT",
       "2": "PHI",
       "3": "KC",
-      "4": "IND"
+      "4": "IND",
+      "5": "CIN"
      },
      "problems": [],
      "alive": true,
@@ -1092,7 +1154,8 @@
       "PIT",
       "PHI",
       "KC",
-      "IND"
+      "IND",
+      "CIN"
      ]
     },
     {
@@ -1105,7 +1168,8 @@
       "1": "JAC",
       "2": "TB",
       "3": "DET",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "CIN"
      },
      "problems": [],
      "alive": true,
@@ -1113,7 +1177,8 @@
       "JAC",
       "TB",
       "DET",
-      "MIN"
+      "MIN",
+      "CIN"
      ]
     },
     {
@@ -1295,7 +1360,8 @@
       "1": "CHI",
       "2": "SF",
       "3": "DET",
-      "4": "BAL"
+      "4": "BAL",
+      "5": "HOU"
      },
      "problems": [],
      "alive": true,
@@ -1303,7 +1369,8 @@
       "CHI",
       "SF",
       "DET",
-      "BAL"
+      "BAL",
+      "HOU"
      ]
     },
     {
@@ -1339,7 +1406,8 @@
       "1": "JAC",
       "2": "KC",
       "3": "SF",
-      "4": "BAL"
+      "4": "BAL",
+      "5": "CIN"
      },
      "problems": [],
      "alive": true,
@@ -1347,7 +1415,8 @@
       "JAC",
       "KC",
       "SF",
-      "BAL"
+      "BAL",
+      "CIN"
      ]
     },
     {
@@ -1360,7 +1429,8 @@
       "1": "DET",
       "2": "PHI",
       "3": "KC",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "CIN"
      },
      "problems": [],
      "alive": true,
@@ -1368,7 +1438,8 @@
       "DET",
       "PHI",
       "KC",
-      "MIN"
+      "MIN",
+      "CIN"
      ]
     },
     {
@@ -1444,7 +1515,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1791658196859,
+   "fetchedAt": 1791745764035,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1746,13 +1817,69 @@
     "5": {
      "rows": [
       {
+       "team": "CIN",
+       "count": 18
+      },
+      {
+       "team": "HOU",
+       "count": 17
+      },
+      {
+       "team": "JAC",
+       "count": 17
+      },
+      {
        "team": "DAL",
        "count": 13
+      },
+      {
+       "team": "NE",
+       "count": 10
+      },
+      {
+       "team": "MIN",
+       "count": 6
+      },
+      {
+       "team": "WAS",
+       "count": 5
+      },
+      {
+       "team": "CLE",
+       "count": 4
+      },
+      {
+       "team": "CHI",
+       "count": 3
+      },
+      {
+       "team": "LV",
+       "count": 3
+      },
+      {
+       "team": "PIT",
+       "count": 3
+      },
+      {
+       "team": "IND",
+       "count": 2
+      },
+      {
+       "team": "GB",
+       "count": 1
+      },
+      {
+       "team": "NO",
+       "count": 1
+      },
+      {
+       "team": "NYJ",
+       "count": 1
       }
      ],
-     "submitted": 124,
-     "revealed": 13,
-     "locked": 111,
+     "submitted": 144,
+     "revealed": 104,
+     "locked": 40,
      "entrants": 18
     }
    },
@@ -1804,7 +1931,11 @@
        "IND"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "CIN",
+       "NE",
+       "IND",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -1876,7 +2007,11 @@
        "IND"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "JAC",
+       "CIN",
+       "MIN",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -1944,7 +2079,12 @@
        "GB"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "CHI",
+       "JAC",
+       "CIN",
+       "PIT",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -2015,6 +2155,13 @@
        "SEA",
        "GB",
        "IND"
+      ],
+      "5": [
+       "JAC",
+       "CIN",
+       "MIN",
+       "CLE",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -2087,7 +2234,14 @@
        "GB"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "JAC",
+       "CIN",
+       "LV",
+       "NO",
+       "CLE",
+       "HOU",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2160,7 +2314,11 @@
        "IND"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "JAC",
+       "CIN",
+       "NE",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -2231,6 +2389,13 @@
        "SEA",
        "SF",
        "GB"
+      ],
+      "5": [
+       "GB",
+       "JAC",
+       "CIN",
+       "MIN",
+       "NYJ"
       ]
      },
      "tiebreakers": {
@@ -2300,6 +2465,14 @@
        "MIN",
        "KC",
        "SEA"
+      ],
+      "5": [
+       "JAC",
+       "CIN",
+       "NE",
+       "MIN",
+       "PIT",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -2362,7 +2535,12 @@
        "IND"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "JAC",
+       "CIN",
+       "NE",
+       "IND",
+       "HOU"
       ]
      }
     },
@@ -2413,7 +2591,12 @@
        "GB"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "JAC",
+       "CIN",
+       "NE",
+       "HOU",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2486,7 +2669,12 @@
        "KC"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "JAC",
+       "CIN",
+       "LV",
+       "PIT",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -2546,6 +2734,13 @@
        "MIN",
        "KC",
        "SEA"
+      ],
+      "5": [
+       "CHI",
+       "JAC",
+       "CIN",
+       "NE",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -2613,7 +2808,12 @@
        "SF"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "CHI",
+       "JAC",
+       "CIN",
+       "CLE",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -2674,6 +2874,14 @@
        "KC",
        "SEA",
        "GB"
+      ],
+      "5": [
+       "JAC",
+       "CIN",
+       "LV",
+       "CLE",
+       "HOU",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2746,7 +2954,12 @@
        "IND"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "JAC",
+       "CIN",
+       "NE",
+       "HOU",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2819,7 +3032,12 @@
        "GB"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "JAC",
+       "CIN",
+       "NE",
+       "MIN",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -2892,7 +3110,13 @@
        "SEA"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "JAC",
+       "CIN",
+       "NE",
+       "MIN",
+       "HOU",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2960,7 +3184,11 @@
        "GB"
       ],
       "5": [
-       "DAL"
+       "DAL",
+       "JAC",
+       "CIN",
+       "NE",
+       "HOU"
       ]
      },
      "tiebreakers": {
@@ -2990,7 +3218,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1791658196980,
+   "fetchedAt": 1791745764114,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
