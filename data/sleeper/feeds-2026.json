@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-11T19:09:24.116Z",
+ "generated": "2026-10-11T21:03:09.242Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
@@ -192,32 +192,37 @@
      "complete": false
     },
     "5": {
-     "entrants": 24,
-     "distinctTeams": 4,
+     "entrants": 26,
+     "distinctTeams": 5,
      "picks": [
       {
        "team": "HOU",
        "count": 12,
-       "pct": 50
+       "pct": 46.2
       },
       {
        "team": "DAL",
        "count": 6,
-       "pct": 25
+       "pct": 23.1
       },
       {
        "team": "CIN",
        "count": 5,
-       "pct": 20.8
+       "pct": 19.2
+      },
+      {
+       "team": "DET",
+       "count": 2,
+       "pct": 7.7
       },
       {
        "team": "PIT",
        "count": 1,
-       "pct": 4.2
+       "pct": 3.8
       }
      ],
      "submitted": 26,
-     "revealed": 24,
+     "revealed": 26,
      "expected": 31,
      "complete": false
     }
@@ -761,7 +766,8 @@
       "1": "LV",
       "2": "SF",
       "3": "GB",
-      "4": "BAL"
+      "4": "BAL",
+      "5": "DET"
      },
      "problems": [],
      "alive": true,
@@ -769,7 +775,8 @@
       "LV",
       "SF",
       "GB",
-      "BAL"
+      "BAL",
+      "DET"
      ]
     },
     {
@@ -782,7 +789,8 @@
       "1": "BAL",
       "2": "SF",
       "3": "GB",
-      "4": "MIN"
+      "4": "MIN",
+      "5": "DET"
      },
      "problems": [],
      "alive": true,
@@ -790,7 +798,8 @@
       "BAL",
       "SF",
       "GB",
-      "MIN"
+      "MIN",
+      "DET"
      ]
     },
     {
@@ -906,7 +915,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1791745763950,
+   "fetchedAt": 1791752588801,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1515,7 +1524,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1791745764035,
+   "fetchedAt": 1791752588996,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1829,8 +1838,16 @@
        "count": 17
       },
       {
+       "team": "DET",
+       "count": 15
+      },
+      {
        "team": "DAL",
        "count": 13
+      },
+      {
+       "team": "DEN",
+       "count": 12
       },
       {
        "team": "NE",
@@ -1865,6 +1882,10 @@
        "count": 2
       },
       {
+       "team": "SF",
+       "count": 2
+      },
+      {
        "team": "GB",
        "count": 1
       },
@@ -1878,8 +1899,8 @@
       }
      ],
      "submitted": 144,
-     "revealed": 104,
-     "locked": 40,
+     "revealed": 133,
+     "locked": 11,
      "entrants": 18
     }
    },
@@ -1931,10 +1952,12 @@
        "IND"
       ],
       "5": [
+       "DET",
        "DAL",
        "CIN",
        "NE",
        "IND",
+       "DEN",
        "HOU"
       ]
      },
@@ -2011,6 +2034,7 @@
        "JAC",
        "CIN",
        "MIN",
+       "SF",
        "HOU"
       ]
      },
@@ -2079,11 +2103,13 @@
        "GB"
       ],
       "5": [
+       "DET",
        "DAL",
        "CHI",
        "JAC",
        "CIN",
        "PIT",
+       "DEN",
        "HOU"
       ]
      },
@@ -2157,10 +2183,12 @@
        "IND"
       ],
       "5": [
+       "DET",
        "JAC",
        "CIN",
        "MIN",
        "CLE",
+       "DEN",
        "HOU"
       ]
      },
@@ -2314,10 +2342,12 @@
        "IND"
       ],
       "5": [
+       "DET",
        "DAL",
        "JAC",
        "CIN",
        "NE",
+       "DEN",
        "HOU"
       ]
      },
@@ -2391,6 +2421,7 @@
        "GB"
       ],
       "5": [
+       "DET",
        "GB",
        "JAC",
        "CIN",
@@ -2467,6 +2498,7 @@
        "SEA"
       ],
       "5": [
+       "DET",
        "JAC",
        "CIN",
        "NE",
@@ -2535,11 +2567,13 @@
        "IND"
       ],
       "5": [
+       "DET",
        "DAL",
        "JAC",
        "CIN",
        "NE",
        "IND",
+       "DEN",
        "HOU"
       ]
      }
@@ -2591,10 +2625,12 @@
        "GB"
       ],
       "5": [
+       "DET",
        "DAL",
        "JAC",
        "CIN",
        "NE",
+       "DEN",
        "HOU",
        "WAS"
       ]
@@ -2669,11 +2705,13 @@
        "KC"
       ],
       "5": [
+       "DET",
        "DAL",
        "JAC",
        "CIN",
        "LV",
        "PIT",
+       "DEN",
        "HOU"
       ]
      },
@@ -2736,10 +2774,13 @@
        "SEA"
       ],
       "5": [
+       "DET",
        "CHI",
        "JAC",
        "CIN",
        "NE",
+       "DEN",
+       "SF",
        "HOU"
       ]
      },
@@ -2808,6 +2849,7 @@
        "SF"
       ],
       "5": [
+       "DET",
        "DAL",
        "CHI",
        "JAC",
@@ -2876,10 +2918,12 @@
        "GB"
       ],
       "5": [
+       "DET",
        "JAC",
        "CIN",
        "LV",
        "CLE",
+       "DEN",
        "HOU",
        "WAS"
       ]
@@ -2954,6 +2998,7 @@
        "IND"
       ],
       "5": [
+       "DET",
        "DAL",
        "JAC",
        "CIN",
@@ -3032,11 +3077,13 @@
        "GB"
       ],
       "5": [
+       "DET",
        "DAL",
        "JAC",
        "CIN",
        "NE",
        "MIN",
+       "DEN",
        "HOU"
       ]
      },
@@ -3115,6 +3162,7 @@
        "CIN",
        "NE",
        "MIN",
+       "DEN",
        "HOU",
        "WAS"
       ]
@@ -3184,10 +3232,12 @@
        "GB"
       ],
       "5": [
+       "DET",
        "DAL",
        "JAC",
        "CIN",
        "NE",
+       "DEN",
        "HOU"
       ]
      },
@@ -3218,7 +3268,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1791745764114,
+   "fetchedAt": 1791752589241,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
