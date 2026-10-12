@@ -1588,5 +1588,21 @@
   "totalBookCount": 5,
   "bucket": 1,
   "fetchedAt": "2026-10-09T00:26:51.932559+00:00"
+ },
+ {
+  "id": "27f3994841ce8081c0b7349cf3d1e3d7",
+  "commenceTime": "2026-10-18T17:00:00Z",
+  "home": "Tampa Bay Buccaneers",
+  "away": "Pittsburgh Steelers",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.4442,
+  "rawAwayProb": 0.5974,
+  "homeWinProb": 0.4264,
+  "awayWinProb": 0.5736,
+  "vig": 0.0416,
+  "total": 40.5,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-10-12T22:08:21.207262+00:00"
  }
 ]

@@ -1700,5 +1700,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-10-11T01:58:00.624108+00:00"
+ },
+ {
+  "id": "57418b2cf5aca558b3c98eafac1e264a",
+  "commenceTime": "2026-10-18T13:30:00Z",
+  "home": "Jacksonville Jaguars",
+  "away": "Houston Texans",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.5958,
+  "rawAwayProb": 0.4483,
+  "homeWinProb": 0.5706,
+  "awayWinProb": 0.4294,
+  "vig": 0.0441,
+  "total": 42.5,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-10-12T22:08:21.207262+00:00"
  }
 ]
