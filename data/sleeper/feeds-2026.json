@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-11T21:03:09.242Z",
+ "generated": "2026-10-12T00:42:41.008Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
@@ -915,7 +915,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1791752588801,
+   "fetchedAt": 1791765760519,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1524,7 +1524,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1791752588996,
+   "fetchedAt": 1791765760769,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1866,6 +1866,14 @@
        "count": 4
       },
       {
+       "team": "ATL",
+       "count": 3
+      },
+      {
+       "team": "BAL",
+       "count": 3
+      },
+      {
        "team": "CHI",
        "count": 3
       },
@@ -1899,8 +1907,8 @@
       }
      ],
      "submitted": 144,
-     "revealed": 133,
-     "locked": 11,
+     "revealed": 139,
+     "locked": 5,
      "entrants": 18
     }
    },
@@ -1953,6 +1961,7 @@
       ],
       "5": [
        "DET",
+       "BAL",
        "DAL",
        "CIN",
        "NE",
@@ -2030,6 +2039,7 @@
        "IND"
       ],
       "5": [
+       "BAL",
        "DAL",
        "JAC",
        "CIN",
@@ -2343,6 +2353,7 @@
       ],
       "5": [
        "DET",
+       "ATL",
        "DAL",
        "JAC",
        "CIN",
@@ -2422,6 +2433,7 @@
       ],
       "5": [
        "DET",
+       "ATL",
        "GB",
        "JAC",
        "CIN",
@@ -2999,6 +3011,7 @@
       ],
       "5": [
        "DET",
+       "ATL",
        "DAL",
        "JAC",
        "CIN",
@@ -3233,6 +3246,7 @@
       ],
       "5": [
        "DET",
+       "BAL",
        "DAL",
        "JAC",
        "CIN",
@@ -3268,7 +3282,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1791752589241,
+   "fetchedAt": 1791765761007,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
