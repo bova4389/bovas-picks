@@ -273,6 +273,58 @@
           "teamsLeft": 28
         }
       ]
+    },
+    "6": {
+      "week": 6,
+      "builtAt": "2026-10-13T20:15:20.103Z",
+      "oddsFetchedAt": "2026-10-13T20:15:15.477702+00:00",
+      "confidence": "provisional",
+      "exposure": {
+        "tickets": 3,
+        "games": 1,
+        "pAllLose": 0.1446
+      },
+      "picks": [
+        {
+          "pool": "sleeper",
+          "team": "LAR",
+          "p": 0.8554,
+          "gap": 0,
+          "fvCost": -0.0432,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 29,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 27
+        },
+        {
+          "pool": "deadpool",
+          "team": "LAR",
+          "p": 0.8554,
+          "gap": 0,
+          "fvCost": -0.0432,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 20,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 27
+        },
+        {
+          "pool": "mike",
+          "team": "LAR",
+          "p": 0.8554,
+          "gap": 0,
+          "fvCost": -0.0432,
+          "share": null,
+          "basis": "future-value",
+          "entrants": 247,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 27
+        }
+      ]
     }
   }
 }

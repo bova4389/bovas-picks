@@ -1524,5 +1524,21 @@
   "totalBookCount": 2,
   "bucket": 6,
   "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
+ },
+ {
+  "id": "f3992ad4496724baf7dcd1ef58245d6b",
+  "commenceTime": "2026-10-25T17:00:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.7048,
+  "rawAwayProb": 0.3382,
+  "homeWinProb": 0.6757,
+  "awayWinProb": 0.3243,
+  "vig": 0.043,
+  "total": 43.5,
+  "totalBookCount": 6,
+  "bucket": 2,
+  "fetchedAt": "2026-10-13T20:15:15.477702+00:00"
  }
 ]
