@@ -282,6 +282,16 @@
    "rank": 20
   },
   {
+   "entry": 236,
+   "name": "Cory Laabs",
+   "nick": "Cory L",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 19,
+   "rank": 21
+  },
+  {
    "entry": 15,
    "name": "Bryce Nealon",
    "nick": "Fitznews",
@@ -322,19 +332,9 @@
    "rank": 21
   },
   {
-   "entry": 236,
-   "name": "Cory Laabs",
-   "nick": "Cory L",
-   "correct": 10,
-   "picks": 14,
-   "mnf": 52,
-   "mnfDiff": 19,
-   "rank": 21
-  },
-  {
-   "entry": 69,
-   "name": "Joe Janisch",
-   "nick": "Scuba Joe",
+   "entry": 101,
+   "name": "Angie Munk",
+   "nick": "Turtle",
    "correct": 10,
    "picks": 14,
    "mnf": 51,
@@ -342,9 +342,9 @@
    "rank": 26
   },
   {
-   "entry": 101,
-   "name": "Angie Munk",
-   "nick": "Turtle",
+   "entry": 69,
+   "name": "Joe Janisch",
+   "nick": "Scuba Joe",
    "correct": 10,
    "picks": 14,
    "mnf": 51,
@@ -372,9 +372,9 @@
    "rank": 26
   },
   {
-   "entry": 234,
+   "entry": 235,
    "name": "Kevin Kenny",
-   "nick": "Trask",
+   "nick": "Thirsty Siblings",
    "correct": 10,
    "picks": 14,
    "mnf": 50,
@@ -382,9 +382,9 @@
    "rank": 30
   },
   {
-   "entry": 235,
+   "entry": 234,
    "name": "Kevin Kenny",
-   "nick": "Thirsty Siblings",
+   "nick": "Trask",
    "correct": 10,
    "picks": 14,
    "mnf": 50,
@@ -410,6 +410,16 @@
    "mnf": 49,
    "mnfDiff": 22,
    "rank": 32
+  },
+  {
+   "entry": 125,
+   "name": "Lynn Lilly",
+   "nick": "Lynn",
+   "correct": 10,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 23,
+   "rank": 34
   },
   {
    "entry": 74,
@@ -445,16 +455,6 @@
    "entry": 121,
    "name": "Michael Cenzi",
    "nick": "Cenzinator92",
-   "correct": 10,
-   "picks": 14,
-   "mnf": 48,
-   "mnfDiff": 23,
-   "rank": 34
-  },
-  {
-   "entry": 125,
-   "name": "Lynn Lilly",
-   "nick": "Lynn",
    "correct": 10,
    "picks": 14,
    "mnf": 48,
@@ -552,6 +552,26 @@
    "rank": 47
   },
   {
+   "entry": 73,
+   "name": "Tiffany Williams",
+   "nick": "Cheesehead",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 59,
+   "mnfDiff": 12,
+   "rank": 48
+  },
+  {
+   "entry": 270,
+   "name": "Jack Kirk",
+   "nick": "Jack K",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 59,
+   "mnfDiff": 12,
+   "rank": 48
+  },
+  {
    "entry": 11,
    "name": "Max Kirk",
    "nick": "Maxbkirk",
@@ -572,29 +592,9 @@
    "rank": 48
   },
   {
-   "entry": 73,
-   "name": "Tiffany Williams",
-   "nick": "Cheesehead",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 59,
-   "mnfDiff": 12,
-   "rank": 48
-  },
-  {
    "entry": 204,
    "name": "Louis Batelli",
    "nick": "Frankie D",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 59,
-   "mnfDiff": 12,
-   "rank": 48
-  },
-  {
-   "entry": 270,
-   "name": "Jack Kirk",
-   "nick": "Jack K",
    "correct": 9,
    "picks": 14,
    "mnf": 59,
@@ -682,9 +682,9 @@
    "rank": 55
   },
   {
-   "entry": 245,
-   "name": "Ryan Oxx",
-   "nick": "Oxx",
+   "entry": 271,
+   "name": "Patrick JR",
+   "nick": "Paddy the Baddy",
    "correct": 9,
    "picks": 14,
    "mnf": 57,
@@ -692,9 +692,9 @@
    "rank": 55
   },
   {
-   "entry": 271,
-   "name": "Patrick JR",
-   "nick": "Paddy the Baddy",
+   "entry": 245,
+   "name": "Ryan Oxx",
+   "nick": "Oxx",
    "correct": 9,
    "picks": 14,
    "mnf": 57,
@@ -715,16 +715,6 @@
    "entry": 21,
    "name": "Krista Marsh",
    "nick": "MamaMarsh",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 55,
-   "mnfDiff": 16,
-   "rank": 64
-  },
-  {
-   "entry": 119,
-   "name": "Tim Brooks",
-   "nick": "Spyder",
    "correct": 9,
    "picks": 14,
    "mnf": 55,
@@ -782,6 +772,16 @@
    "rank": 64
   },
   {
+   "entry": 119,
+   "name": "Tim Brooks",
+   "nick": "Spyder",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 55,
+   "mnfDiff": 16,
+   "rank": 64
+  },
+  {
    "entry": 268,
    "name": "Bryces friend(Mack)",
    "nick": "Mackpool",
@@ -792,39 +792,9 @@
    "rank": 64
   },
   {
-   "entry": 18,
-   "name": "Thomas Santangelo",
-   "nick": "Tsanta",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 54,
-   "mnfDiff": 17,
-   "rank": 72
-  },
-  {
    "entry": 60,
    "name": "Greg ",
    "nick": "Hurricane Boi",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 54,
-   "mnfDiff": 17,
-   "rank": 72
-  },
-  {
-   "entry": 91,
-   "name": "Chad Gernstein",
-   "nick": "Omaha",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 54,
-   "mnfDiff": 17,
-   "rank": 72
-  },
-  {
-   "entry": 132,
-   "name": null,
-   "nick": "Big Mike 2",
    "correct": 9,
    "picks": 14,
    "mnf": 54,
@@ -852,9 +822,9 @@
    "rank": 72
   },
   {
-   "entry": 266,
-   "name": "Rene Zona",
-   "nick": "Watch Me NeNe",
+   "entry": 274,
+   "name": "Michelle Coyle",
+   "nick": "Michelle Coyle",
    "correct": 9,
    "picks": 14,
    "mnf": 54,
@@ -862,9 +832,39 @@
    "rank": 72
   },
   {
-   "entry": 274,
-   "name": "Michelle Coyle",
-   "nick": "Michelle Coyle",
+   "entry": 18,
+   "name": "Thomas Santangelo",
+   "nick": "Tsanta",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 54,
+   "mnfDiff": 17,
+   "rank": 72
+  },
+  {
+   "entry": 91,
+   "name": "Chad Gernstein",
+   "nick": "Omaha",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 54,
+   "mnfDiff": 17,
+   "rank": 72
+  },
+  {
+   "entry": 132,
+   "name": null,
+   "nick": "Big Mike 2",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 54,
+   "mnfDiff": 17,
+   "rank": 72
+  },
+  {
+   "entry": 266,
+   "name": "Rene Zona",
+   "nick": "Watch Me NeNe",
    "correct": 9,
    "picks": 14,
    "mnf": 54,
@@ -892,16 +892,6 @@
    "rank": 80
   },
   {
-   "entry": 66,
-   "name": "Michael Paul",
-   "nick": "Michael Paul",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 52,
-   "mnfDiff": 19,
-   "rank": 82
-  },
-  {
    "entry": 88,
    "name": "Ronnie Grigby",
    "nick": "Ronnie",
@@ -912,39 +902,9 @@
    "rank": 82
   },
   {
-   "entry": 120,
-   "name": "George Mallous",
-   "nick": "The Riddler",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 52,
-   "mnfDiff": 19,
-   "rank": 82
-  },
-  {
    "entry": 146,
    "name": "Curtis Gunther",
    "nick": "Gunther ",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 52,
-   "mnfDiff": 19,
-   "rank": 82
-  },
-  {
-   "entry": 214,
-   "name": "John Fowle",
-   "nick": "Foul Ball",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 52,
-   "mnfDiff": 19,
-   "rank": 82
-  },
-  {
-   "entry": 223,
-   "name": "Mike Gallagher",
-   "nick": "Gallagher",
    "correct": 9,
    "picks": 14,
    "mnf": 52,
@@ -975,6 +935,46 @@
    "entry": 275,
    "name": "Jeremy Jones",
    "nick": "Double J",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 19,
+   "rank": 82
+  },
+  {
+   "entry": 66,
+   "name": "Michael Paul",
+   "nick": "Michael Paul",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 19,
+   "rank": 82
+  },
+  {
+   "entry": 120,
+   "name": "George Mallous",
+   "nick": "The Riddler",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 19,
+   "rank": 82
+  },
+  {
+   "entry": 214,
+   "name": "John Fowle",
+   "nick": "Foul Ball",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 19,
+   "rank": 82
+  },
+  {
+   "entry": 223,
+   "name": "Mike Gallagher",
+   "nick": "Gallagher",
    "correct": 9,
    "picks": 14,
    "mnf": 52,
@@ -1022,16 +1022,6 @@
    "rank": 91
   },
   {
-   "entry": 12,
-   "name": "Don Nealon",
-   "nick": "DaCanes",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 50,
-   "mnfDiff": 21,
-   "rank": 95
-  },
-  {
    "entry": 48,
    "name": "Jon Paul Jackson",
    "nick": "Ball & Achane",
@@ -1072,16 +1062,6 @@
    "rank": 95
   },
   {
-   "entry": 156,
-   "name": "Billy Ignace",
-   "nick": "Shark",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 50,
-   "mnfDiff": 21,
-   "rank": 95
-  },
-  {
    "entry": 179,
    "name": "Patty Strohn",
    "nick": "Xray Lady",
@@ -1095,6 +1075,26 @@
    "entry": 225,
    "name": "Nancy Lappi",
    "nick": "Lappin",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 50,
+   "mnfDiff": 21,
+   "rank": 95
+  },
+  {
+   "entry": 12,
+   "name": "Don Nealon",
+   "nick": "DaCanes",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 50,
+   "mnfDiff": 21,
+   "rank": 95
+  },
+  {
+   "entry": 156,
+   "name": "Billy Ignace",
+   "nick": "Shark",
    "correct": 9,
    "picks": 14,
    "mnf": 50,
@@ -1132,14 +1132,14 @@
    "rank": 103
   },
   {
-   "entry": 75,
-   "name": "Matt Heksel",
-   "nick": "Mr Matt",
+   "entry": 102,
+   "name": "Josh Colvenback",
+   "nick": "WhoDat",
    "correct": 9,
    "picks": 14,
-   "mnf": 48,
-   "mnfDiff": 23,
-   "rank": 106
+   "mnf": 49,
+   "mnfDiff": 22,
+   "rank": 103
   },
   {
    "entry": 80,
@@ -1149,17 +1149,7 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 106
-  },
-  {
-   "entry": 105,
-   "name": "Kyle Rayburn",
-   "nick": "Lil Kyle",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 48,
-   "mnfDiff": 23,
-   "rank": 106
+   "rank": 107
   },
   {
    "entry": 129,
@@ -1169,7 +1159,27 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 106
+   "rank": 107
+  },
+  {
+   "entry": 75,
+   "name": "Matt Heksel",
+   "nick": "Mr Matt",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 23,
+   "rank": 107
+  },
+  {
+   "entry": 105,
+   "name": "Kyle Rayburn",
+   "nick": "Lil Kyle",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 23,
+   "rank": 107
   },
   {
    "entry": 208,
@@ -1179,7 +1189,7 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 106
+   "rank": 107
   },
   {
    "entry": 231,
@@ -1189,7 +1199,7 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 106
+   "rank": 107
   },
   {
    "entry": 282,
@@ -1199,17 +1209,7 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 106
-  },
-  {
-   "entry": 72,
-   "name": "Andrea Weldemeyer",
-   "nick": "Hail Andi",
-   "correct": 9,
-   "picks": 14,
-   "mnf": 47,
-   "mnfDiff": 24,
-   "rank": 113
+   "rank": 107
   },
   {
    "entry": 78,
@@ -1219,7 +1219,17 @@
    "picks": 14,
    "mnf": 47,
    "mnfDiff": 24,
-   "rank": 113
+   "rank": 114
+  },
+  {
+   "entry": 72,
+   "name": "Andrea Weldemeyer",
+   "nick": "Hail Andi",
+   "correct": 9,
+   "picks": 14,
+   "mnf": 47,
+   "mnfDiff": 24,
+   "rank": 114
   },
   {
    "entry": 93,
@@ -1229,7 +1239,7 @@
    "picks": 14,
    "mnf": 46,
    "mnfDiff": 25,
-   "rank": 115
+   "rank": 116
   },
   {
    "entry": 248,
@@ -1239,7 +1249,7 @@
    "picks": 14,
    "mnf": 45,
    "mnfDiff": 26,
-   "rank": 116
+   "rank": 117
   },
   {
    "entry": 45,
@@ -1249,7 +1259,7 @@
    "picks": 14,
    "mnf": 44,
    "mnfDiff": 27,
-   "rank": 117
+   "rank": 118
   },
   {
    "entry": 81,
@@ -1259,7 +1269,7 @@
    "picks": 14,
    "mnf": 44,
    "mnfDiff": 27,
-   "rank": 117
+   "rank": 118
   },
   {
    "entry": 149,
@@ -1269,7 +1279,7 @@
    "picks": 14,
    "mnf": 44,
    "mnfDiff": 27,
-   "rank": 117
+   "rank": 118
   },
   {
    "entry": 255,
@@ -1279,7 +1289,7 @@
    "picks": 14,
    "mnf": 42,
    "mnfDiff": 29,
-   "rank": 120
+   "rank": 121
   },
   {
    "entry": 79,
@@ -1289,7 +1299,7 @@
    "picks": 14,
    "mnf": 41,
    "mnfDiff": 30,
-   "rank": 121
+   "rank": 122
   },
   {
    "entry": 218,
@@ -1299,7 +1309,7 @@
    "picks": 14,
    "mnf": 39,
    "mnfDiff": 32,
-   "rank": 122
+   "rank": 123
   },
   {
    "entry": 202,
@@ -1309,7 +1319,7 @@
    "picks": 14,
    "mnf": 62,
    "mnfDiff": 9,
-   "rank": 123
+   "rank": 124
   },
   {
    "entry": 219,
@@ -1319,7 +1329,7 @@
    "picks": 12,
    "mnf": 60,
    "mnfDiff": 11,
-   "rank": 124
+   "rank": 125
   },
   {
    "entry": 133,
@@ -1329,16 +1339,6 @@
    "picks": 14,
    "mnf": 59,
    "mnfDiff": 12,
-   "rank": 125
-  },
-  {
-   "entry": 51,
-   "name": "Amy Totherow",
-   "nick": "Porch Swing Angel",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 58,
-   "mnfDiff": 13,
    "rank": 126
   },
   {
@@ -1349,7 +1349,7 @@
    "picks": 14,
    "mnf": 58,
    "mnfDiff": 13,
-   "rank": 126
+   "rank": 127
   },
   {
    "entry": 157,
@@ -1359,7 +1359,7 @@
    "picks": 14,
    "mnf": 58,
    "mnfDiff": 13,
-   "rank": 126
+   "rank": 127
   },
   {
    "entry": 205,
@@ -1369,7 +1369,7 @@
    "picks": 14,
    "mnf": 58,
    "mnfDiff": 13,
-   "rank": 126
+   "rank": 127
   },
   {
    "entry": 215,
@@ -1379,7 +1379,7 @@
    "picks": 14,
    "mnf": 58,
    "mnfDiff": 13,
-   "rank": 126
+   "rank": 127
   },
   {
    "entry": 265,
@@ -1389,7 +1389,17 @@
    "picks": 14,
    "mnf": 58,
    "mnfDiff": 13,
-   "rank": 126
+   "rank": 127
+  },
+  {
+   "entry": 51,
+   "name": "Amy Totherow",
+   "nick": "Porch Swing Angel",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 58,
+   "mnfDiff": 13,
+   "rank": 127
   },
   {
    "entry": 98,
@@ -1399,7 +1409,7 @@
    "picks": 14,
    "mnf": 57,
    "mnfDiff": 14,
-   "rank": 132
+   "rank": 133
   },
   {
    "entry": 159,
@@ -1409,7 +1419,7 @@
    "picks": 14,
    "mnf": 57,
    "mnfDiff": 14,
-   "rank": 132
+   "rank": 133
   },
   {
    "entry": 192,
@@ -1419,7 +1429,7 @@
    "picks": 14,
    "mnf": 57,
    "mnfDiff": 14,
-   "rank": 132
+   "rank": 133
   },
   {
    "entry": 20,
@@ -1429,7 +1439,7 @@
    "picks": 14,
    "mnf": 56,
    "mnfDiff": 15,
-   "rank": 135
+   "rank": 136
   },
   {
    "entry": 30,
@@ -1439,7 +1449,7 @@
    "picks": 14,
    "mnf": 56,
    "mnfDiff": 15,
-   "rank": 135
+   "rank": 136
   },
   {
    "entry": 103,
@@ -1449,7 +1459,7 @@
    "picks": 14,
    "mnf": 56,
    "mnfDiff": 15,
-   "rank": 135
+   "rank": 136
   },
   {
    "entry": 182,
@@ -1459,7 +1469,7 @@
    "picks": 14,
    "mnf": 56,
    "mnfDiff": 15,
-   "rank": 135
+   "rank": 136
   },
   {
    "entry": 209,
@@ -1469,7 +1479,7 @@
    "picks": 14,
    "mnf": 56,
    "mnfDiff": 15,
-   "rank": 135
+   "rank": 136
   },
   {
    "entry": 38,
@@ -1479,7 +1489,7 @@
    "picks": 14,
    "mnf": 55,
    "mnfDiff": 16,
-   "rank": 140
+   "rank": 141
   },
   {
    "entry": 118,
@@ -1489,7 +1499,7 @@
    "picks": 14,
    "mnf": 55,
    "mnfDiff": 16,
-   "rank": 140
+   "rank": 141
   },
   {
    "entry": 134,
@@ -1499,7 +1509,7 @@
    "picks": 14,
    "mnf": 55,
    "mnfDiff": 16,
-   "rank": 140
+   "rank": 141
   },
   {
    "entry": 174,
@@ -1509,7 +1519,7 @@
    "picks": 14,
    "mnf": 55,
    "mnfDiff": 16,
-   "rank": 140
+   "rank": 141
   },
   {
    "entry": 213,
@@ -1519,17 +1529,7 @@
    "picks": 14,
    "mnf": 55,
    "mnfDiff": 16,
-   "rank": 140
-  },
-  {
-   "entry": 13,
-   "name": "Shane Oconnor",
-   "nick": "Coltstud2001",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 54,
-   "mnfDiff": 17,
-   "rank": 145
+   "rank": 141
   },
   {
    "entry": 34,
@@ -1539,7 +1539,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 145
+   "rank": 146
   },
   {
    "entry": 89,
@@ -1549,7 +1549,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 145
+   "rank": 146
   },
   {
    "entry": 200,
@@ -1559,7 +1559,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 145
+   "rank": 146
   },
   {
    "entry": 267,
@@ -1569,17 +1569,17 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 145
+   "rank": 146
   },
   {
-   "entry": 106,
-   "name": "Justin Santangelo",
-   "nick": "Justin Santangelo",
+   "entry": 13,
+   "name": "Shane Oconnor",
+   "nick": "Coltstud2001",
    "correct": 8,
    "picks": 14,
-   "mnf": 53,
-   "mnfDiff": 18,
-   "rank": 150
+   "mnf": 54,
+   "mnfDiff": 17,
+   "rank": 146
   },
   {
    "entry": 164,
@@ -1589,7 +1589,7 @@
    "picks": 14,
    "mnf": 53,
    "mnfDiff": 18,
-   "rank": 150
+   "rank": 151
   },
   {
    "entry": 226,
@@ -1599,37 +1599,17 @@
    "picks": 14,
    "mnf": 53,
    "mnfDiff": 18,
-   "rank": 150
+   "rank": 151
   },
   {
-   "entry": 2,
-   "name": "Sandy O'Donnell",
-   "nick": "Bills Fan",
+   "entry": 106,
+   "name": "Justin Santangelo",
+   "nick": "Justin Santangelo",
    "correct": 8,
    "picks": 14,
-   "mnf": 52,
-   "mnfDiff": 19,
-   "rank": 153
-  },
-  {
-   "entry": 33,
-   "name": null,
-   "nick": "Blake",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 52,
-   "mnfDiff": 19,
-   "rank": 153
-  },
-  {
-   "entry": 49,
-   "name": "Paul Jackson",
-   "nick": "Shelby Man",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 52,
-   "mnfDiff": 19,
-   "rank": 153
+   "mnf": 53,
+   "mnfDiff": 18,
+   "rank": 151
   },
   {
    "entry": 54,
@@ -1639,7 +1619,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 153
+   "rank": 154
   },
   {
    "entry": 55,
@@ -1649,17 +1629,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 153
-  },
-  {
-   "entry": 56,
-   "name": "Tim Barrington",
-   "nick": "Silence of the Lamb",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 52,
-   "mnfDiff": 19,
-   "rank": 153
+   "rank": 154
   },
   {
    "entry": 97,
@@ -1669,17 +1639,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 153
-  },
-  {
-   "entry": 99,
-   "name": "Thaddius Longsworth",
-   "nick": "Thaddius",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 52,
-   "mnfDiff": 19,
-   "rank": 153
+   "rank": 154
   },
   {
    "entry": 115,
@@ -1689,7 +1649,57 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 153
+   "rank": 154
+  },
+  {
+   "entry": 2,
+   "name": "Sandy O'Donnell",
+   "nick": "Bills Fan",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 19,
+   "rank": 154
+  },
+  {
+   "entry": 33,
+   "name": null,
+   "nick": "Blake",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 19,
+   "rank": 154
+  },
+  {
+   "entry": 49,
+   "name": "Paul Jackson",
+   "nick": "Shelby Man",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 19,
+   "rank": 154
+  },
+  {
+   "entry": 56,
+   "name": "Tim Barrington",
+   "nick": "Silence of the Lamb",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 19,
+   "rank": 154
+  },
+  {
+   "entry": 99,
+   "name": "Thaddius Longsworth",
+   "nick": "Thaddius",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 52,
+   "mnfDiff": 19,
+   "rank": 154
   },
   {
    "entry": 195,
@@ -1699,7 +1709,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 153
+   "rank": 154
   },
   {
    "entry": 201,
@@ -1709,7 +1719,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 153
+   "rank": 154
   },
   {
    "entry": 25,
@@ -1719,7 +1729,7 @@
    "picks": 14,
    "mnf": 51,
    "mnfDiff": 20,
-   "rank": 164
+   "rank": 165
   },
   {
    "entry": 29,
@@ -1729,7 +1739,7 @@
    "picks": 14,
    "mnf": 51,
    "mnfDiff": 20,
-   "rank": 164
+   "rank": 165
   },
   {
    "entry": 31,
@@ -1739,17 +1749,7 @@
    "picks": 14,
    "mnf": 51,
    "mnfDiff": 20,
-   "rank": 164
-  },
-  {
-   "entry": 71,
-   "name": null,
-   "nick": "Bryant Whittaker",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 51,
-   "mnfDiff": 20,
-   "rank": 164
+   "rank": 165
   },
   {
    "entry": 138,
@@ -1759,7 +1759,7 @@
    "picks": 14,
    "mnf": 51,
    "mnfDiff": 20,
-   "rank": 164
+   "rank": 165
   },
   {
    "entry": 259,
@@ -1769,7 +1769,17 @@
    "picks": 14,
    "mnf": 51,
    "mnfDiff": 20,
-   "rank": 164
+   "rank": 165
+  },
+  {
+   "entry": 71,
+   "name": null,
+   "nick": "Bryant Whittaker",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 51,
+   "mnfDiff": 20,
+   "rank": 165
   },
   {
    "entry": 77,
@@ -1779,7 +1789,7 @@
    "picks": 14,
    "mnf": 50,
    "mnfDiff": 21,
-   "rank": 170
+   "rank": 171
   },
   {
    "entry": 85,
@@ -1789,7 +1799,7 @@
    "picks": 14,
    "mnf": 50,
    "mnfDiff": 21,
-   "rank": 170
+   "rank": 171
   },
   {
    "entry": 107,
@@ -1799,7 +1809,7 @@
    "picks": 14,
    "mnf": 50,
    "mnfDiff": 21,
-   "rank": 170
+   "rank": 171
   },
   {
    "entry": 247,
@@ -1809,17 +1819,7 @@
    "picks": 14,
    "mnf": 50,
    "mnfDiff": 21,
-   "rank": 170
-  },
-  {
-   "entry": 160,
-   "name": "Aaron Jackson",
-   "nick": "Aaron Jackson",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 49,
-   "mnfDiff": 22,
-   "rank": 174
+   "rank": 171
   },
   {
    "entry": 237,
@@ -1829,17 +1829,17 @@
    "picks": 14,
    "mnf": 49,
    "mnfDiff": 22,
-   "rank": 174
+   "rank": 175
   },
   {
-   "entry": 86,
-   "name": "Matt Symons wife",
-   "nick": "Comanea",
+   "entry": 160,
+   "name": "Aaron Jackson",
+   "nick": "Aaron Jackson",
    "correct": 8,
    "picks": 14,
-   "mnf": 48,
-   "mnfDiff": 23,
-   "rank": 176
+   "mnf": 49,
+   "mnfDiff": 22,
+   "rank": 175
   },
   {
    "entry": 114,
@@ -1849,17 +1849,7 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 176
-  },
-  {
-   "entry": 163,
-   "name": "Patricia Vince",
-   "nick": "Cryin Colts Fan",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 48,
-   "mnfDiff": 23,
-   "rank": 176
+   "rank": 177
   },
   {
    "entry": 167,
@@ -1869,7 +1859,27 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 176
+   "rank": 177
+  },
+  {
+   "entry": 86,
+   "name": "Matt Symons wife",
+   "nick": "Comanea",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 23,
+   "rank": 177
+  },
+  {
+   "entry": 163,
+   "name": "Patricia Vince",
+   "nick": "Cryin Colts Fan",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 48,
+   "mnfDiff": 23,
+   "rank": 177
   },
   {
    "entry": 39,
@@ -1879,7 +1889,7 @@
    "picks": 14,
    "mnf": 47,
    "mnfDiff": 24,
-   "rank": 180
+   "rank": 181
   },
   {
    "entry": 26,
@@ -1889,7 +1899,7 @@
    "picks": 14,
    "mnf": 46,
    "mnfDiff": 25,
-   "rank": 181
+   "rank": 182
   },
   {
    "entry": 100,
@@ -1899,7 +1909,7 @@
    "picks": 14,
    "mnf": 46,
    "mnfDiff": 25,
-   "rank": 181
+   "rank": 182
   },
   {
    "entry": 155,
@@ -1909,7 +1919,7 @@
    "picks": 14,
    "mnf": 46,
    "mnfDiff": 25,
-   "rank": 181
+   "rank": 182
   },
   {
    "entry": 278,
@@ -1919,7 +1929,7 @@
    "picks": 14,
    "mnf": 46,
    "mnfDiff": 25,
-   "rank": 181
+   "rank": 182
   },
   {
    "entry": 217,
@@ -1929,7 +1939,7 @@
    "picks": 14,
    "mnf": 45,
    "mnfDiff": 26,
-   "rank": 185
+   "rank": 186
   },
   {
    "entry": 263,
@@ -1939,7 +1949,7 @@
    "picks": 14,
    "mnf": 45,
    "mnfDiff": 26,
-   "rank": 185
+   "rank": 186
   },
   {
    "entry": 241,
@@ -1949,7 +1959,7 @@
    "picks": 14,
    "mnf": 44,
    "mnfDiff": 27,
-   "rank": 187
+   "rank": 188
   },
   {
    "entry": 23,
@@ -1959,7 +1969,7 @@
    "picks": 14,
    "mnf": 43,
    "mnfDiff": 28,
-   "rank": 188
+   "rank": 189
   },
   {
    "entry": 171,
@@ -1969,17 +1979,7 @@
    "picks": 14,
    "mnf": 43,
    "mnfDiff": 28,
-   "rank": 188
-  },
-  {
-   "entry": 59,
-   "name": "Tim Barrington",
-   "nick": "Ladyhawke",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 42,
-   "mnfDiff": 29,
-   "rank": 190
+   "rank": 189
   },
   {
    "entry": 250,
@@ -1989,7 +1989,17 @@
    "picks": 14,
    "mnf": 42,
    "mnfDiff": 29,
-   "rank": 190
+   "rank": 191
+  },
+  {
+   "entry": 59,
+   "name": "Tim Barrington",
+   "nick": "Ladyhawke",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 42,
+   "mnfDiff": 29,
+   "rank": 191
   },
   {
    "entry": 3,
@@ -1999,7 +2009,7 @@
    "picks": 14,
    "mnf": 41,
    "mnfDiff": 30,
-   "rank": 192
+   "rank": 193
   },
   {
    "entry": 36,
@@ -2009,16 +2019,6 @@
    "picks": 14,
    "mnf": 39,
    "mnfDiff": 32,
-   "rank": 193
-  },
-  {
-   "entry": 4,
-   "name": "Alicia Wolfe",
-   "nick": "Rotar523",
-   "correct": 8,
-   "picks": 14,
-   "mnf": 38,
-   "mnfDiff": 33,
    "rank": 194
   },
   {
@@ -2029,7 +2029,17 @@
    "picks": 14,
    "mnf": 38,
    "mnfDiff": 33,
-   "rank": 194
+   "rank": 195
+  },
+  {
+   "entry": 4,
+   "name": "Alicia Wolfe",
+   "nick": "Rotar523",
+   "correct": 8,
+   "picks": 14,
+   "mnf": 38,
+   "mnfDiff": 33,
+   "rank": 195
   },
   {
    "entry": 6,
@@ -2039,7 +2049,7 @@
    "picks": 14,
    "mnf": 65,
    "mnfDiff": 6,
-   "rank": 196
+   "rank": 197
   },
   {
    "entry": 277,
@@ -2049,7 +2059,7 @@
    "picks": 14,
    "mnf": 62,
    "mnfDiff": 9,
-   "rank": 197
+   "rank": 198
   },
   {
    "entry": 212,
@@ -2059,7 +2069,7 @@
    "picks": 14,
    "mnf": 61,
    "mnfDiff": 10,
-   "rank": 198
+   "rank": 199
   },
   {
    "entry": 177,
@@ -2069,7 +2079,7 @@
    "picks": 14,
    "mnf": 60,
    "mnfDiff": 11,
-   "rank": 199
+   "rank": 200
   },
   {
    "entry": 252,
@@ -2079,7 +2089,7 @@
    "picks": 14,
    "mnf": 59,
    "mnfDiff": 12,
-   "rank": 200
+   "rank": 201
   },
   {
    "entry": 22,
@@ -2089,17 +2099,7 @@
    "picks": 14,
    "mnf": 58,
    "mnfDiff": 13,
-   "rank": 201
-  },
-  {
-   "entry": 127,
-   "name": "Carol Roming",
-   "nick": "Red Zone",
-   "correct": 7,
-   "picks": 14,
-   "mnf": 58,
-   "mnfDiff": 13,
-   "rank": 201
+   "rank": 202
   },
   {
    "entry": 190,
@@ -2109,7 +2109,7 @@
    "picks": 14,
    "mnf": 58,
    "mnfDiff": 13,
-   "rank": 201
+   "rank": 202
   },
   {
    "entry": 207,
@@ -2119,7 +2119,17 @@
    "picks": 14,
    "mnf": 58,
    "mnfDiff": 13,
-   "rank": 201
+   "rank": 202
+  },
+  {
+   "entry": 127,
+   "name": "Carol Roming",
+   "nick": "Red Zone",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 58,
+   "mnfDiff": 13,
+   "rank": 202
   },
   {
    "entry": 178,
@@ -2129,7 +2139,7 @@
    "picks": 14,
    "mnf": 57,
    "mnfDiff": 14,
-   "rank": 205
+   "rank": 206
   },
   {
    "entry": 256,
@@ -2139,7 +2149,7 @@
    "picks": 14,
    "mnf": 57,
    "mnfDiff": 14,
-   "rank": 205
+   "rank": 206
   },
   {
    "entry": 233,
@@ -2149,16 +2159,6 @@
    "picks": 14,
    "mnf": 56,
    "mnfDiff": 15,
-   "rank": 207
-  },
-  {
-   "entry": 58,
-   "name": "Tim Barrington",
-   "nick": "The U SUCKS!",
-   "correct": 7,
-   "picks": 14,
-   "mnf": 55,
-   "mnfDiff": 16,
    "rank": 208
   },
   {
@@ -2169,17 +2169,7 @@
    "picks": 14,
    "mnf": 55,
    "mnfDiff": 16,
-   "rank": 208
-  },
-  {
-   "entry": 227,
-   "name": "David Rollins",
-   "nick": "Steelcurtain31",
-   "correct": 7,
-   "picks": 14,
-   "mnf": 55,
-   "mnfDiff": 16,
-   "rank": 208
+   "rank": 209
   },
   {
    "entry": 249,
@@ -2189,7 +2179,27 @@
    "picks": 14,
    "mnf": 55,
    "mnfDiff": 16,
-   "rank": 208
+   "rank": 209
+  },
+  {
+   "entry": 58,
+   "name": "Tim Barrington",
+   "nick": "The U SUCKS!",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 55,
+   "mnfDiff": 16,
+   "rank": 209
+  },
+  {
+   "entry": 227,
+   "name": "David Rollins",
+   "nick": "Steelcurtain31",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 55,
+   "mnfDiff": 16,
+   "rank": 209
   },
   {
    "entry": 258,
@@ -2199,7 +2209,7 @@
    "picks": 14,
    "mnf": 55,
    "mnfDiff": 16,
-   "rank": 208
+   "rank": 209
   },
   {
    "entry": 104,
@@ -2209,7 +2219,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 213
+   "rank": 214
   },
   {
    "entry": 110,
@@ -2219,7 +2229,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 213
+   "rank": 214
   },
   {
    "entry": 124,
@@ -2229,7 +2239,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 213
+   "rank": 214
   },
   {
    "entry": 206,
@@ -2239,7 +2249,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 213
+   "rank": 214
   },
   {
    "entry": 44,
@@ -2249,7 +2259,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 217
+   "rank": 218
   },
   {
    "entry": 92,
@@ -2259,7 +2269,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 217
+   "rank": 218
   },
   {
    "entry": 135,
@@ -2269,7 +2279,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 217
+   "rank": 218
   },
   {
    "entry": 139,
@@ -2279,7 +2289,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 217
+   "rank": 218
   },
   {
    "entry": 46,
@@ -2289,17 +2299,7 @@
    "picks": 14,
    "mnf": 51,
    "mnfDiff": 20,
-   "rank": 221
-  },
-  {
-   "entry": 62,
-   "name": "Troy Peck",
-   "nick": "D-Troy",
-   "correct": 7,
-   "picks": 14,
-   "mnf": 51,
-   "mnfDiff": 20,
-   "rank": 221
+   "rank": 222
   },
   {
    "entry": 82,
@@ -2309,7 +2309,17 @@
    "picks": 14,
    "mnf": 51,
    "mnfDiff": 20,
-   "rank": 221
+   "rank": 222
+  },
+  {
+   "entry": 62,
+   "name": "Troy Peck",
+   "nick": "D-Troy",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 51,
+   "mnfDiff": 20,
+   "rank": 222
   },
   {
    "entry": 199,
@@ -2319,17 +2329,7 @@
    "picks": 14,
    "mnf": 51,
    "mnfDiff": 20,
-   "rank": 221
-  },
-  {
-   "entry": 61,
-   "name": "Matt Colla",
-   "nick": "Gino",
-   "correct": 7,
-   "picks": 14,
-   "mnf": 50,
-   "mnfDiff": 21,
-   "rank": 225
+   "rank": 222
   },
   {
    "entry": 126,
@@ -2339,7 +2339,17 @@
    "picks": 14,
    "mnf": 50,
    "mnfDiff": 21,
-   "rank": 225
+   "rank": 226
+  },
+  {
+   "entry": 61,
+   "name": "Matt Colla",
+   "nick": "Gino",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 50,
+   "mnfDiff": 21,
+   "rank": 226
   },
   {
    "entry": 165,
@@ -2349,7 +2359,7 @@
    "picks": 14,
    "mnf": 49,
    "mnfDiff": 22,
-   "rank": 227
+   "rank": 228
   },
   {
    "entry": 169,
@@ -2359,7 +2369,7 @@
    "picks": 14,
    "mnf": 49,
    "mnfDiff": 22,
-   "rank": 227
+   "rank": 228
   },
   {
    "entry": 84,
@@ -2369,7 +2379,7 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 229
+   "rank": 230
   },
   {
    "entry": 144,
@@ -2379,7 +2389,7 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 229
+   "rank": 230
   },
   {
    "entry": 221,
@@ -2389,7 +2399,7 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 229
+   "rank": 230
   },
   {
    "entry": 41,
@@ -2399,7 +2409,7 @@
    "picks": 14,
    "mnf": 47,
    "mnfDiff": 24,
-   "rank": 232
+   "rank": 233
   },
   {
    "entry": 273,
@@ -2409,7 +2419,7 @@
    "picks": 14,
    "mnf": 47,
    "mnfDiff": 24,
-   "rank": 232
+   "rank": 233
   },
   {
    "entry": 148,
@@ -2419,7 +2429,7 @@
    "picks": 14,
    "mnf": 46,
    "mnfDiff": 25,
-   "rank": 234
+   "rank": 235
   },
   {
    "entry": 24,
@@ -2429,7 +2439,7 @@
    "picks": 14,
    "mnf": 45,
    "mnfDiff": 26,
-   "rank": 235
+   "rank": 236
   },
   {
    "entry": 153,
@@ -2439,7 +2449,7 @@
    "picks": 14,
    "mnf": 45,
    "mnfDiff": 26,
-   "rank": 235
+   "rank": 236
   },
   {
    "entry": 203,
@@ -2449,7 +2459,7 @@
    "picks": 14,
    "mnf": 45,
    "mnfDiff": 26,
-   "rank": 235
+   "rank": 236
   },
   {
    "entry": 32,
@@ -2459,17 +2469,7 @@
    "picks": 14,
    "mnf": 43,
    "mnfDiff": 28,
-   "rank": 238
-  },
-  {
-   "entry": 187,
-   "name": "Evan(Mark) Jones",
-   "nick": "AppStateAlum",
-   "correct": 7,
-   "picks": 14,
-   "mnf": 43,
-   "mnfDiff": 28,
-   "rank": 238
+   "rank": 239
   },
   {
    "entry": 251,
@@ -2479,7 +2479,17 @@
    "picks": 14,
    "mnf": 43,
    "mnfDiff": 28,
-   "rank": 238
+   "rank": 239
+  },
+  {
+   "entry": 187,
+   "name": "Evan(Mark) Jones",
+   "nick": "AppStateAlum",
+   "correct": 7,
+   "picks": 14,
+   "mnf": 43,
+   "mnfDiff": 28,
+   "rank": 239
   },
   {
    "entry": 52,
@@ -2489,7 +2499,7 @@
    "picks": 14,
    "mnf": 42,
    "mnfDiff": 29,
-   "rank": 241
+   "rank": 242
   },
   {
    "entry": 113,
@@ -2499,7 +2509,7 @@
    "picks": 14,
    "mnf": 38,
    "mnfDiff": 33,
-   "rank": 242
+   "rank": 243
   },
   {
    "entry": 262,
@@ -2509,7 +2519,7 @@
    "picks": 14,
    "mnf": 17,
    "mnfDiff": 54,
-   "rank": 243
+   "rank": 244
   },
   {
    "entry": 68,
@@ -2519,7 +2529,7 @@
    "picks": 14,
    "mnf": 65,
    "mnfDiff": 6,
-   "rank": 244
+   "rank": 245
   },
   {
    "entry": 180,
@@ -2529,7 +2539,7 @@
    "picks": 14,
    "mnf": 62,
    "mnfDiff": 9,
-   "rank": 245
+   "rank": 246
   },
   {
    "entry": 181,
@@ -2539,7 +2549,7 @@
    "picks": 14,
    "mnf": 60,
    "mnfDiff": 11,
-   "rank": 246
+   "rank": 247
   },
   {
    "entry": 94,
@@ -2549,7 +2559,7 @@
    "picks": 14,
    "mnf": 59,
    "mnfDiff": 12,
-   "rank": 247
+   "rank": 248
   },
   {
    "entry": 70,
@@ -2559,7 +2569,7 @@
    "picks": 14,
    "mnf": 57,
    "mnfDiff": 14,
-   "rank": 248
+   "rank": 249
   },
   {
    "entry": 65,
@@ -2569,7 +2579,7 @@
    "picks": 14,
    "mnf": 55,
    "mnfDiff": 16,
-   "rank": 249
+   "rank": 250
   },
   {
    "entry": 228,
@@ -2579,7 +2589,7 @@
    "picks": 14,
    "mnf": 55,
    "mnfDiff": 16,
-   "rank": 249
+   "rank": 250
   },
   {
    "entry": 43,
@@ -2589,7 +2599,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 251
+   "rank": 252
   },
   {
    "entry": 111,
@@ -2599,7 +2609,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 251
+   "rank": 252
   },
   {
    "entry": 147,
@@ -2609,7 +2619,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 251
+   "rank": 252
   },
   {
    "entry": 50,
@@ -2619,7 +2629,7 @@
    "picks": 14,
    "mnf": 53,
    "mnfDiff": 18,
-   "rank": 254
+   "rank": 255
   },
   {
    "entry": 42,
@@ -2629,7 +2639,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 255
+   "rank": 256
   },
   {
    "entry": 172,
@@ -2639,17 +2649,7 @@
    "picks": 14,
    "mnf": 52,
    "mnfDiff": 19,
-   "rank": 255
-  },
-  {
-   "entry": 53,
-   "name": "Meredith Parsons",
-   "nick": "Meredith",
-   "correct": 6,
-   "picks": 14,
-   "mnf": 51,
-   "mnfDiff": 20,
-   "rank": 257
+   "rank": 256
   },
   {
    "entry": 96,
@@ -2659,17 +2659,7 @@
    "picks": 14,
    "mnf": 51,
    "mnfDiff": 20,
-   "rank": 257
-  },
-  {
-   "entry": 109,
-   "name": "Leslie Kugel",
-   "nick": "Kugeliscious2",
-   "correct": 6,
-   "picks": 14,
-   "mnf": 51,
-   "mnfDiff": 20,
-   "rank": 257
+   "rank": 258
   },
   {
    "entry": 269,
@@ -2679,17 +2669,27 @@
    "picks": 14,
    "mnf": 51,
    "mnfDiff": 20,
-   "rank": 257
+   "rank": 258
   },
   {
-   "entry": 40,
-   "name": "Matt Gradowski(flex)",
-   "nick": "MattG",
+   "entry": 53,
+   "name": "Meredith Parsons",
+   "nick": "Meredith",
    "correct": 6,
    "picks": 14,
-   "mnf": 50,
-   "mnfDiff": 21,
-   "rank": 261
+   "mnf": 51,
+   "mnfDiff": 20,
+   "rank": 258
+  },
+  {
+   "entry": 109,
+   "name": "Leslie Kugel",
+   "nick": "Kugeliscious2",
+   "correct": 6,
+   "picks": 14,
+   "mnf": 51,
+   "mnfDiff": 20,
+   "rank": 258
   },
   {
    "entry": 257,
@@ -2699,7 +2699,17 @@
    "picks": 14,
    "mnf": 50,
    "mnfDiff": 21,
-   "rank": 261
+   "rank": 262
+  },
+  {
+   "entry": 40,
+   "name": "Matt Gradowski(flex)",
+   "nick": "MattG",
+   "correct": 6,
+   "picks": 14,
+   "mnf": 50,
+   "mnfDiff": 21,
+   "rank": 262
   },
   {
    "entry": 16,
@@ -2709,7 +2719,7 @@
    "picks": 14,
    "mnf": 49,
    "mnfDiff": 22,
-   "rank": 263
+   "rank": 264
   },
   {
    "entry": 162,
@@ -2719,7 +2729,7 @@
    "picks": 14,
    "mnf": 48,
    "mnfDiff": 23,
-   "rank": 264
+   "rank": 265
   },
   {
    "entry": 63,
@@ -2729,7 +2739,7 @@
    "picks": 14,
    "mnf": 45,
    "mnfDiff": 26,
-   "rank": 265
+   "rank": 266
   },
   {
    "entry": 220,
@@ -2739,7 +2749,7 @@
    "picks": 14,
    "mnf": 45,
    "mnfDiff": 26,
-   "rank": 265
+   "rank": 266
   },
   {
    "entry": 143,
@@ -2749,7 +2759,7 @@
    "picks": 14,
    "mnf": 44,
    "mnfDiff": 27,
-   "rank": 267
+   "rank": 268
   },
   {
    "entry": 9,
@@ -2759,7 +2769,7 @@
    "picks": 14,
    "mnf": 43,
    "mnfDiff": 28,
-   "rank": 268
+   "rank": 269
   },
   {
    "entry": 283,
@@ -2769,7 +2779,7 @@
    "picks": 14,
    "mnf": 42,
    "mnfDiff": 29,
-   "rank": 269
+   "rank": 270
   },
   {
    "entry": 284,
@@ -2779,7 +2789,7 @@
    "picks": 14,
    "mnf": 22,
    "mnfDiff": 49,
-   "rank": 270
+   "rank": 271
   },
   {
    "entry": 210,
@@ -2789,7 +2799,7 @@
    "picks": 14,
    "mnf": 61,
    "mnfDiff": 10,
-   "rank": 271
+   "rank": 272
   },
   {
    "entry": 150,
@@ -2799,7 +2809,7 @@
    "picks": 14,
    "mnf": 54,
    "mnfDiff": 17,
-   "rank": 272
+   "rank": 273
   },
   {
    "entry": 145,
@@ -2809,7 +2819,7 @@
    "picks": 14,
    "mnf": 46,
    "mnfDiff": 25,
-   "rank": 273
+   "rank": 274
   },
   {
    "entry": 272,
@@ -2819,7 +2829,7 @@
    "picks": 14,
    "mnf": 44,
    "mnfDiff": 27,
-   "rank": 274
+   "rank": 275
   },
   {
    "entry": 64,
@@ -2829,7 +2839,7 @@
    "picks": 14,
    "mnf": 42,
    "mnfDiff": 29,
-   "rank": 275
+   "rank": 276
   },
   {
    "entry": 27,
@@ -2839,7 +2849,7 @@
    "picks": 14,
    "mnf": 37,
    "mnfDiff": 34,
-   "rank": 276
+   "rank": 277
   },
   {
    "entry": 264,
@@ -2849,7 +2859,7 @@
    "picks": 14,
    "mnf": 24,
    "mnfDiff": 47,
-   "rank": 277
+   "rank": 278
   },
   {
    "entry": 261,
@@ -2859,7 +2869,7 @@
    "picks": 14,
    "mnf": 21,
    "mnfDiff": 50,
-   "rank": 278
+   "rank": 279
   },
   {
    "entry": 8,
@@ -2869,7 +2879,7 @@
    "picks": 14,
    "mnf": 58,
    "mnfDiff": 13,
-   "rank": 279
+   "rank": 280
   },
   {
    "entry": 17,
@@ -2879,7 +2889,7 @@
    "picks": 14,
    "mnf": 45,
    "mnfDiff": 26,
-   "rank": 280
+   "rank": 281
   },
   {
    "entry": 161,
@@ -2889,7 +2899,7 @@
    "picks": 14,
    "mnf": 40,
    "mnfDiff": 31,
-   "rank": 281
+   "rank": 282
   }
  ]
 }

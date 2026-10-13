@@ -1891,8 +1891,10 @@ python scripts/grade_week.py 2026 1 --check "Weekly picks 26.xlsx" --check-suici
     mid-season gets looked at by hand;
     **(c) a pick we hold and his sheet does not is never cleared** — he hides eliminated entries'
     later cells, and a blank is not a retraction.
-- **A tie credits nobody and prints a warning**, because the pool's tie rule is not on record.
-  Ask Mike the first time it happens and write the answer here.
+- **A tied game credits nobody — confirmed from Mike's sheet, Week 5 2026.** Giants 22, Commanders
+  22: his answer key left that game blank, and all 281 of his card totals matched ours scored that
+  way. `grade_week.py` still prints a `TIE` line so a tied week is visible, but it is not a question
+  any more. (The suicide-pool rule for a tie is still not on record.)
 - **Suicide results record losses, never eliminations.** Buy-backs cannot be read from any feed.
 - A week with games still to play is written `"complete": false` with no ranking.
 
