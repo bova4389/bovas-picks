@@ -726,9 +726,9 @@
    "date": "2026-10-09T00:15Z",
    "home": "DAL",
    "away": "TB",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 16,
+   "awayScore": 24,
+   "completed": true,
    "neutral": false
   },
   {
@@ -737,9 +737,9 @@
    "date": "2026-10-11T13:30Z",
    "home": "JAC",
    "away": "PHI",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 19,
+   "awayScore": 17,
+   "completed": true,
    "neutral": true,
    "venue": {
     "name": "Tottenham Hotspur Stadium",
@@ -753,9 +753,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "GB",
    "away": "CHI",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 31,
+   "awayScore": 7,
+   "completed": true,
    "neutral": false
   },
   {
@@ -764,9 +764,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "TEN",
    "away": "HOU",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 3,
+   "awayScore": 26,
+   "completed": true,
    "neutral": false
   },
   {
@@ -775,9 +775,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "MIA",
    "away": "CIN",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 24,
+   "awayScore": 31,
+   "completed": true,
    "neutral": false
   },
   {
@@ -786,9 +786,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "NE",
    "away": "LV",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 45,
+   "awayScore": 17,
+   "completed": true,
    "neutral": false
   },
   {
@@ -797,9 +797,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "NO",
    "away": "MIN",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 13,
+   "awayScore": 23,
+   "completed": true,
    "neutral": false
   },
   {
@@ -808,9 +808,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "NYJ",
    "away": "CLE",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 17,
+   "awayScore": 12,
+   "completed": true,
    "neutral": false
   },
   {
@@ -819,9 +819,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "PIT",
    "away": "IND",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 34,
+   "awayScore": 22,
+   "completed": true,
    "neutral": false
   },
   {
@@ -830,9 +830,9 @@
    "date": "2026-10-11T17:00Z",
    "home": "WAS",
    "away": "NYG",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 27,
+   "awayScore": 27,
+   "completed": true,
    "neutral": false
   },
   {
@@ -841,9 +841,9 @@
    "date": "2026-10-11T20:05Z",
    "home": "LAC",
    "away": "DEN",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 17,
+   "awayScore": 23,
+   "completed": true,
    "neutral": false
   },
   {
@@ -852,9 +852,9 @@
    "date": "2026-10-11T20:25Z",
    "home": "ARI",
    "away": "DET",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 21,
+   "awayScore": 45,
+   "completed": true,
    "neutral": false
   },
   {
@@ -863,9 +863,9 @@
    "date": "2026-10-11T20:25Z",
    "home": "SEA",
    "away": "SF",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 29,
+   "awayScore": 32,
+   "completed": true,
    "neutral": false
   },
   {
@@ -874,9 +874,9 @@
    "date": "2026-10-12T00:20Z",
    "home": "ATL",
    "away": "BAL",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 23,
+   "awayScore": 30,
+   "completed": true,
    "neutral": false
   },
   {
@@ -885,9 +885,9 @@
    "date": "2026-10-13T00:15Z",
    "home": "LAR",
    "away": "BUF",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 34,
+   "awayScore": 37,
+   "completed": true,
    "neutral": false
   },
   {
@@ -3101,5 +3101,5 @@
   "18": []
  },
  "gameCount": 272,
- "completed": 64
+ "completed": 79
 }
