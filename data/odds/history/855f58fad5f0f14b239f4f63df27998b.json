@@ -1544,5 +1544,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-15T18:21:31.587684+00:00"
+ },
+ {
+  "id": "855f58fad5f0f14b239f4f63df27998b",
+  "commenceTime": "2026-10-16T00:15:00Z",
+  "home": "Denver Broncos",
+  "away": "Seattle Seahawks",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.4449,
+  "rawAwayProb": 0.5944,
+  "homeWinProb": 0.4281,
+  "awayWinProb": 0.5719,
+  "vig": 0.0393,
+  "total": 40.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-15T23:05:33.998142+00:00"
  }
 ]

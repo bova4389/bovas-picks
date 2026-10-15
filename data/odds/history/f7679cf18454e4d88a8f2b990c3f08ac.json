@@ -1412,5 +1412,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-10-15T18:21:31.587684+00:00"
+ },
+ {
+  "id": "f7679cf18454e4d88a8f2b990c3f08ac",
+  "commenceTime": "2026-10-25T20:25:00Z",
+  "home": "Las Vegas Raiders",
+  "away": "Los Angeles Rams",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.2792,
+  "rawAwayProb": 0.7646,
+  "homeWinProb": 0.2675,
+  "awayWinProb": 0.7325,
+  "vig": 0.0437,
+  "total": 48.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-10-15T23:05:33.998142+00:00"
  }
 ]
