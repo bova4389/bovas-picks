@@ -1320,5 +1320,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-10-15T07:31:51.082646+00:00"
+ },
+ {
+  "id": "176d474ed8b2bbf1eb4d7e9c56b4bf22",
+  "commenceTime": "2026-10-26T00:20:00Z",
+  "home": "Seattle Seahawks",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.5893,
+  "rawAwayProb": 0.4548,
+  "homeWinProb": 0.5644,
+  "awayWinProb": 0.4356,
+  "vig": 0.0441,
+  "total": 44.0,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-10-15T13:29:52.494776+00:00"
  }
 ]
