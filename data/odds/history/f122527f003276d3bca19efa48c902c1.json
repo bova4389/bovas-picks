@@ -1684,5 +1684,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-16T18:07:26.042153+00:00"
+ },
+ {
+  "id": "f122527f003276d3bca19efa48c902c1",
+  "commenceTime": "2026-10-20T00:15:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Washington Commanders",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.803,
+  "rawAwayProb": 0.2423,
+  "homeWinProb": 0.7682,
+  "awayWinProb": 0.2318,
+  "vig": 0.0453,
+  "total": 52.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-16T22:52:53.927349+00:00"
  }
 ]
