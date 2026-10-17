@@ -111,6 +111,13 @@ export const LEAGUES = [
     // was 235, the 2025 Week 1 count, until 2026-09-14.
     entrants: 247, lives: 1, hasField: true,
     note: 'One life. No buy-back.',
+    // OUT: Dallas lost Week 5 (Tampa Bay 24, Dallas 16). One life and no
+    // buy-back, so there is nothing to pick here for the rest of the season.
+    // Every tab reads `out.week` rather than dropping the pool: weeks up to
+    // and including it are history and still render; every week after it is
+    // greyed and read-only, no default view opens on it, the Pick Sheet email
+    // drops its Suicide line, and CI stops logging a card for it.
+    out: { week: 5, team: 'DAL' },
   },
 ];
 
@@ -342,17 +349,21 @@ const POOL_KEY = 'survivor:pool';
 export function activePool() {
   try {
     const stored = localStorage.getItem(POOL_KEY);
-    if (stored && leagueById(stored)) return stored;
+    if (stored && playing(stored)) return stored;
 
     const grid = JSON.parse(localStorage.getItem('grid:prefs'));
-    if (grid?.league && leagueById(grid.league)) return grid.league;
+    if (grid?.league && playing(grid.league)) return grid.league;
   } catch { /* unreadable storage -- fall through to the default */ }
 
-  return LEAGUES[0].id;
+  return LEAGUES.find((l) => !l.out).id;
 }
 
+/* A pool I am out of is never the pool in play: a stored choice pointing at
+   one falls through to the first pool still being played. */
+const playing = (id) => Boolean(leagueById(id)) && !leagueById(id).out;
+
 export function setActivePool(id) {
-  if (!leagueById(id)) return;
+  if (!playing(id)) return;
   try {
     localStorage.setItem(POOL_KEY, id);
   } catch { /* private browsing -- the tab still works, it just won't persist */ }

@@ -134,13 +134,25 @@ async function getLog(season) {
  * the recommendation under it.
  */
 function boards() {
-  return LEAGUES.map((league) => {
+  return playing().map((league) => {
     const picks = survivorBoard(league.id, S.season);
     const used = new Set(
       Object.entries(picks).filter(([w]) => Number(w) !== S.week).map(([, t]) => t)
     );
     return { league, used };
   });
+}
+
+/**
+ * The pools still being played in the week on screen.
+ *
+ * A pool I am out of (`out` in js/survivorLeagues.js -- Mike's, after Week 5)
+ * is left out of everything the model sees: no recommendation, no exposure,
+ * no duplicate split against it, and no "missing pick" nag for weeks that
+ * have nothing to pick. It still renders, greyed and read-only, via outCard().
+ */
+function playing(week = S.week) {
+  return LEAGUES.filter((l) => !l.out || week <= l.out.week);
 }
 
 /**
@@ -235,7 +247,7 @@ function head() {
     </div>
     <p class="lede">
       One pick per pool, every pool at once &mdash; and how much of the week rides on the
-      same game. The ${words(LEAGUES.length)} pools are ${words(LEAGUES.length)} different games: what is right in a three-life
+      same game. The ${words(playing().length)} pools are ${words(playing().length)} different games: what is right in a three-life
       pool of 20 can be wrong in a 247-entry pool with one life on the same Sunday, so
       <strong>nothing here is submitted anywhere as a set</strong>.
       Prices are the market's, at ${MIN_BOOKS}+ books. The week-against-week comparisons are
@@ -263,7 +275,7 @@ function controls(card) {
       <div class="ghs" aria-live="polite">${syncHtml()}</div>
       <p class="planctl-note">
         ${esc(c.basis)}
-        <span class="planctl-spent">${spent} spent across ${words(LEAGUES.length)} pools</span>
+        <span class="planctl-spent">${spent} spent across ${words(playing().length)} pools</span>
       </p>
     </div>`;
 }
@@ -284,7 +296,7 @@ function driftWarning() {
   for (const league of LEAGUES) {
     const gaps = [];
     for (const w of S.weeks) {
-      if (w >= S.now) break;
+      if (w >= S.now || (league.out && w > league.out.week)) break;
       if (sentCard(w)?.survivor?.[league.id]) continue;
       gaps.push({ week: w, team: survivorPick(league.id, w, S.season)?.team || null });
     }
@@ -320,7 +332,7 @@ function driftWarning() {
 
 /** This week's actual picks, pool id -> team, for pools that have one. */
 function weekPicks(week = S.week) {
-  return Object.fromEntries(LEAGUES
+  return Object.fromEntries(playing(week)
     .map((l) => [l.id, survivorPick(l.id, week, S.season)?.team])
     .filter(([, team]) => team));
 }
@@ -431,7 +443,7 @@ function poolCards(card) {
     <section class="card planblock${lockedNow() ? ' is-locked' : ''}">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Week ${card.week} &middot; ${words(LEAGUES.length)} pools</p>
+          <p class="eyebrow">Week ${card.week} &middot; ${words(playing().length)} pools</p>
           <h3>Your picks</h3>
         </div>
         ${card.exposure ? `<span class="pill${card.exposure.games > 1 ? ' ok' : ' warn'}">${
@@ -439,6 +451,7 @@ function poolCards(card) {
       </div>
       <div class="wc-pools">
         ${card.picks.map((p) => poolCard(p, card)).join('')}
+        ${LEAGUES.filter((l) => !playing().includes(l)).map(outCard).join('')}
       </div>
       <p class="plannote">
         A pick must clear the market's ${pct(FLOOR)} floor on a ${MIN_BOOKS}+ book line
@@ -447,6 +460,24 @@ function poolCards(card) {
         team can carry a different gap in two pools.
       </p>
     </section>`;
+}
+
+/**
+ * A pool I am out of: greyed, with no buttons and no menu, so nothing on it
+ * can be marked. Kept on the page rather than dropped so the row of pools
+ * still says where that pool went.
+ */
+function outCard(L) {
+  const { week, team } = L.out;
+  return `
+    <article class="wc-pool is-out" aria-disabled="true">
+      <header class="wc-pool-head">
+        <b>${esc(L.short)}</b>
+        <span>Out</span>
+      </header>
+      <p class="wc-empty">Out after Week ${week} &mdash; ${esc(mascot(team))} lost.</p>
+      <p class="wc-why">One life, no buy-back. Nothing to pick here for the rest of the season.</p>
+    </article>`;
 }
 
 function poolCard(entry, card) {

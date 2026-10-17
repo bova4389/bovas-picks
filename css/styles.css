@@ -2359,6 +2359,18 @@ footer {
   background: var(--white);
 }
 .wc-pool.is-empty { background: var(--paper); }
+/* A pool I am out of: greyed and inert. No controls render on it, so the
+   grey says "nothing to do here" rather than "something is broken". */
+.wc-pool.is-out {
+  background: var(--paper);
+  color: var(--ink-quiet);
+  filter: grayscale(1);
+}
+.wc-pool.is-out .wc-pool-head b { color: var(--ink-quiet); }
+/* Survivor Standings: Mike's card after I went out -- below the live pools,
+   greyed. Opacity rather than recoloring every chip inside it. */
+.st-out { opacity: .55; filter: grayscale(1); }
+.st-out-note { margin: 0 0 8px; font-size: .875rem; font-weight: 600; }
 
 .wc-pool-head {
   display: flex;

@@ -154,7 +154,7 @@ function controls() {
       <label class="planctl-item">
         <span>Pool</span>
         <select id="pl-pool">
-          ${LEAGUES.map((l) => `
+          ${LEAGUES.filter((l) => !l.out).map((l) => `
             <option value="${l.id}"${l.id === S.pool ? ' selected' : ''}>${esc(l.name)}</option>
           `).join('')}
         </select>

@@ -100,7 +100,9 @@ async function main() {
 
   const boards = [];
   const feeds = [];
-  for (const league of LEAGUES) {
+  // A pool I am out of (`out` in survivorLeagues.js) gets no card: there is
+  // nothing to recommend in it, and logging one would claim a pick never made.
+  for (const league of LEAGUES.filter((l) => !l.out || week <= l.out.week)) {
     const { used, source, feed } = await usedFor(league, season, log, week, sent);
     const size = feed?.entries?.length;
     say(`  ${league.short}: ${used.size} spent (${source})`

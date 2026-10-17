@@ -1953,6 +1953,18 @@ Tab section. **Needs `ODDS_API_KEY` as a repo secret before the GitHub Action wi
 up at the-odds-api.com (an account Claude cannot create on your behalf) and add the secret once the
 repo has a remote.
 
+## Out of Mike's Suicide Pool — after Week 5, 2026
+
+Dallas lost Week 5 (Tampa Bay 24–16); one life, no buy-back. Recorded once, as
+`out: { week: 5, team: 'DAL' }` on Mike's entry in `js/survivorLeagues.js`, and every consumer
+reads that rather than a hardcoded week. For any week **after** `out.week`: the Pick Sheet email
+has **no `Suicide` line** and no missing-pick warning; the Grid and Planning drop Mike's from the
+pool dropdown and default to Poop (`activePool()` and `knownLeague()` skip an `out` pool); the
+Picks tab leaves it out of the model (no recommendation, exposure or duplicate split) and shows it
+as a greyed card with no controls; Survivor Standings moves its card below the Sleeper pools,
+greyed; and `scripts/log_week_card.mjs` logs no card for it. Weeks up to and including Week 5
+render exactly as before. Next season, delete the `out` line.
+
 ## Submission Format — Quoted From The Commissioner, Do Not Invent
 
 Confirmed by Mike's 2026-09-01 email to the pool ("Please put your picks in like this"). **Both

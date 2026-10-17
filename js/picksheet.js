@@ -34,6 +34,7 @@ import { isLocked, setLocked, lockControl } from './pickLock.js';
 import { tiebreakSuggestion, TIEBREAK_WHY } from './tiebreak.js';
 import { hasGhToken, saveSentWeek, connectBox } from './githubSync.js';
 import { ABBR_TO_MASCOT } from './teams.js';
+import { leagueById } from './survivorLeagues.js';
 import { favoriteLine } from './oddsBadge.js';
 import { seasonBanner } from './seasonBanner.js';
 
@@ -294,7 +295,9 @@ function cardToSave() {
   return {
     numbers: pickedNumbers().map(Number).sort((a, b) => a - b),
     points: Number.isFinite(picks.__mnf) ? picks.__mnf : null,
-    mike: survivorPick('mike', week)?.team || survivorRecommendation('mike', week) || null,
+    mike: suicideLive()
+      ? survivorPick('mike', week)?.team || survivorRecommendation('mike', week) || null
+      : null,
   };
 }
 
@@ -524,7 +527,7 @@ function validate() {
   // rather than blocked: the pick'em card is still valid on its own, and some
   // weeks the suicide entry is already out (a Wednesday or Thursday team has
   // to be in by 6pm before that game, which is days earlier).
-  if (!survivorPickName()) {
+  if (suicideLive() && !survivorPickName()) {
     problems.push(`No suicide pick for Week ${week} yet — the Survivor Picks tab has no card for Mike's pool`);
   }
 
@@ -585,7 +588,7 @@ function buildMessage() {
 
   lines.push(pickedNumbers().join(',') || '(no picks yet)');
   lines.push(`points ${picks.__mnf ?? '—'}`);
-  lines.push(`Suicide ${survivorPickName() ?? '—'}`);
+  if (suicideLive()) lines.push(`Suicide ${survivorPickName() ?? '—'}`);
 
   lines.push('');
   lines.push(`--- Week ${week} check ---`);
@@ -614,8 +617,20 @@ function survivorPickName() {
   return abbr ? (ABBR_TO_MASCOT[abbr] || abbr) : null;
 }
 
-const suicideIsRecommendation = () =>
-  !survivorPick('mike', week) && Boolean(survivorRecommendation('mike', week));
+const suicideIsRecommendation = () => suicideLive()
+  && !survivorPick('mike', week) && Boolean(survivorRecommendation('mike', week));
+
+/**
+ * Whether this week's email carries a Suicide line at all. Not once I am out
+ * of Mike's pool (`out` in js/survivorLeagues.js): the line, the "no suicide
+ * pick" warning and the saved `survivor.mike` all stop after that week, and
+ * the email is just the pick'em numbers and the Monday total. Earlier weeks
+ * still show the line, since that is what was sent.
+ */
+function suicideLive() {
+  const out = leagueById('mike')?.out;
+  return !out || week <= out.week;
+}
 
 function escape(s) {
   return String(s).replace(/[&<>"']/g, (c) => (

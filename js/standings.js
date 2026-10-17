@@ -357,10 +357,32 @@ function render(S) {
   S.body.innerHTML = `
     <p class="lede">Week ${S.week} · ${esc(updated)}</p>
     ${S.mode === 'survivor'
-      ? survivorSection(S, live)
-        + LEAGUES.filter((l) => l.sleeper).map((l) => sleeperSurvivorCard(S, l, live)).join('')
+      ? (mikeOut(S.week)
+        ? LEAGUES.filter((l) => l.sleeper).map((l) => sleeperSurvivorCard(S, l, live)).join('')
+          + outWrap(survivorSection(S, live))
+        : survivorSection(S, live)
+          + LEAGUES.filter((l) => l.sleeper).map((l) => sleeperSurvivorCard(S, l, live)).join(''))
       : pickemSection(S, live) + infinityCard(S, live)}`;
   mountConnectBoxes(S.body);
+}
+
+/* ── A pool I am out of ───────────────────────────────────────────────── */
+
+/* Mike's suicide pool after I went out of it (`out` in survivorLeagues.js).
+   Its card still renders -- the field is still worth a glance -- but it moves
+   below the pools I am playing and is greyed, with a line saying why. Weeks up
+   to and including the one I went out in render as they always did. */
+const MIKE_OUT = LEAGUES.find((l) => l.id === 'mike')?.out || null;
+const mikeOut = (week) => Boolean(MIKE_OUT) && (week === 'all' || week > MIKE_OUT.week);
+
+function outWrap(html) {
+  return `
+    <div class="st-out" aria-disabled="true">
+      <p class="st-out-note">You are out of Mike's suicide pool &mdash;
+        ${esc(ABBR_TO_MASCOT[MIKE_OUT.team] || MIKE_OUT.team)} lost in Week ${MIKE_OUT.week}.
+        Shown for reference only; nothing to pick.</p>
+      ${html}
+    </div>`;
 }
 
 /* ── Pick'em ──────────────────────────────────────────────────────────── */
@@ -1121,20 +1143,26 @@ function allInfinity(S) {
 }
 
 function allSurvivor(S) {
-  const cards = [["Mike's suicide pool", 'mike-suicide', null]]
-    .concat(LEAGUES.filter((l) => l.sleeper).map((l) => [l.name, l.id, l]));
+  const mike = [["Mike's suicide pool", 'mike-suicide', null]];
+  const sleeper = LEAGUES.filter((l) => l.sleeper).map((l) => [l.name, l.id, l]);
+  const cards = mikeOut('all') ? sleeper.concat(mike) : mike.concat(sleeper);
   return cards.map(([title, id, league]) => {
-    if (league) {
-      const feed = loadCachedFeed(S.season, league.id);
-      if (!feed || !readable()) return card(title, 'Season to date', poolEmpty(S, id, feed, title));
-    }
-    if (!S.ytd) return waiting(title);
-    const m = S.ytd.pools?.[id];
-    if (!m || !m.rows.length) {
-      return card(title, 'Season to date', `<p class="lede">No picks recorded for ${esc(title)} yet.</p>${league ? poolFoot(S, id, loadCachedFeed(S.season, id)) : ''}`);
-    }
-    return card(title, 'Season to date', burnHtml(S, id, m, league));
+    const html = allSurvivorCard(S, title, id, league);
+    return id === 'mike-suicide' && mikeOut('all') ? outWrap(html) : html;
   }).join('');
+}
+
+function allSurvivorCard(S, title, id, league) {
+  if (league) {
+    const feed = loadCachedFeed(S.season, league.id);
+    if (!feed || !readable()) return card(title, 'Season to date', poolEmpty(S, id, feed, title));
+  }
+  if (!S.ytd) return waiting(title);
+  const m = S.ytd.pools?.[id];
+  if (!m || !m.rows.length) {
+    return card(title, 'Season to date', `<p class="lede">No picks recorded for ${esc(title)} yet.</p>${league ? poolFoot(S, id, loadCachedFeed(S.season, id)) : ''}`);
+  }
+  return card(title, 'Season to date', burnHtml(S, id, m, league));
 }
 
 function burnHtml(S, id, m, league) {
