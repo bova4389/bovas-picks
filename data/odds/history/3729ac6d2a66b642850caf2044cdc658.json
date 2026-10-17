@@ -1732,5 +1732,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-17T07:01:12.450798+00:00"
+ },
+ {
+  "id": "3729ac6d2a66b642850caf2044cdc658",
+  "commenceTime": "2026-10-18T20:05:00Z",
+  "home": "Los Angeles Rams",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.8927,
+  "rawAwayProb": 0.1504,
+  "homeWinProb": 0.8558,
+  "awayWinProb": 0.1442,
+  "vig": 0.043,
+  "total": 51.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-17T12:14:26.001825+00:00"
  }
 ]
