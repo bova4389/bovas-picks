@@ -2004,5 +2004,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-18T01:09:13.972524+00:00"
+ },
+ {
+  "id": "caca2d752fe1a1779029082e95332fcc",
+  "commenceTime": "2026-10-18T17:02:48Z",
+  "home": "Philadelphia Eagles",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 6,
+  "rawHomeProb": 0.296,
+  "rawAwayProb": 0.7651,
+  "homeWinProb": 0.279,
+  "awayWinProb": 0.721,
+  "vig": 0.0611,
+  "total": 37.5,
+  "totalBookCount": 6,
+  "bucket": 0,
+  "fetchedAt": "2026-10-18T17:23:09.162369+00:00"
  }
 ]
