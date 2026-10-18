@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-18T17:32:42.646Z",
+ "generated": "2026-10-18T19:37:01.706Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
@@ -241,7 +241,7 @@
        "pct": 27.3
       }
      ],
-     "submitted": 23,
+     "submitted": 24,
      "revealed": 11,
      "expected": 31,
      "complete": false
@@ -957,7 +957,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1792344762337,
+   "fetchedAt": 1792352221456,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1598,7 +1598,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1792344762449,
+   "fetchedAt": 1792352221581,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -3611,7 +3611,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1792344762645,
+   "fetchedAt": 1792352221704,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
