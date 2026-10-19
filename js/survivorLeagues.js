@@ -86,6 +86,12 @@ export const LEAGUES = [
     // duplicate pick across them as one correlated bet worth splitting.
     economics: { entry: 30, buyback: 15, buybacks: 2, potShare: 1 },
 
+    // OUT: third strike in Week 6 (Arizona 18, Rams 16), after the Chargers in
+    // Week 1 and Dallas in Week 5. Both buy-backs spent. Same `out` contract
+    // as Mike's below, plus: no tab fetches this pool for any week after it,
+    // and the shared-feed job stops pulling it and keeps its last copy.
+    out: { week: 6, team: 'LAR', why: 'Three strikes. Both buy-backs spent.' },
+
     // Read live by js/sleeperSurvivor.js. `userId` is which entry is mine --
     // there is no authenticated call here, so the pool cannot tell us on its
     // own and it has to be stated.
@@ -117,7 +123,7 @@ export const LEAGUES = [
     // and including it are history and still render; every week after it is
     // greyed and read-only, no default view opens on it, the Pick Sheet email
     // drops its Suicide line, and CI stops logging a card for it.
-    out: { week: 5, team: 'DAL' },
+    out: { week: 5, team: 'DAL', why: 'One life, no buy-back.' },
   },
 ];
 

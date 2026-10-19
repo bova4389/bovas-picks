@@ -154,9 +154,10 @@ function controls() {
       <label class="planctl-item">
         <span>Pool</span>
         <select id="pl-pool">
-          ${LEAGUES.filter((l) => !l.out).map((l) => `
+          ${LEAGUES.map((l) => (l.out ? `
+            <option value="${l.id}" disabled>${esc(l.name)} (out after Week ${l.out.week})</option>` : `
             <option value="${l.id}"${l.id === S.pool ? ' selected' : ''}>${esc(l.name)}</option>
-          `).join('')}
+          `)).join('')}
         </select>
       </label>
       <label class="planctl-item">

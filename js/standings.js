@@ -222,7 +222,7 @@ export async function initStandings(root, season, mode) {
         saveCachedPool(S.season, id, await fetchInfinityPool(INFINITY.sleeper, S.season));
       } else {
         const league = LEAGUES.find((l) => l.id === id);
-        if (!league?.sleeper) return;
+        if (!league?.sleeper || league.out) return;
         const feed = await fetchSleeperSurvivor(league.sleeper, S.season);
         saveCachedFeed(S.season, id, feed);
         saveLeagueState(id, S.season, mergeMyPicks(loadLeagueState(id, S.season), feed));
@@ -358,10 +358,11 @@ function render(S) {
     <p class="lede">Week ${S.week} · ${esc(updated)}</p>
     ${S.mode === 'survivor'
       ? (mikeOut(S.week)
-        ? LEAGUES.filter((l) => l.sleeper).map((l) => sleeperSurvivorCard(S, l, live)).join('')
+        ? playingSleeper(S.week).map((l) => sleeperSurvivorCard(S, l, live)).join('')
           + outWrap(survivorSection(S, live))
         : survivorSection(S, live)
-          + LEAGUES.filter((l) => l.sleeper).map((l) => sleeperSurvivorCard(S, l, live)).join(''))
+          + playingSleeper(S.week).map((l) => sleeperSurvivorCard(S, l, live)).join(''))
+        + outSleeperNotes(S.week)
       : pickemSection(S, live) + infinityCard(S, live)}`;
   mountConnectBoxes(S.body);
 }
@@ -374,6 +375,19 @@ function render(S) {
    to and including the one I went out in render as they always did. */
 const MIKE_OUT = LEAGUES.find((l) => l.id === 'mike')?.out || null;
 const mikeOut = (week) => Boolean(MIKE_OUT) && (week === 'all' || week > MIKE_OUT.week);
+
+/* A Sleeper pool I am out of (Poop, after Week 6) goes further: past its
+   `out.week`, and in All weeks, it is one greyed line -- no numbers, no
+   Refresh button, nothing fetched. Weeks up to its exit render as before. */
+const sleeperOut = (l, week) => Boolean(l.out) && (week === 'all' || week > l.out.week);
+const playingSleeper = (week) => LEAGUES.filter((l) => l.sleeper && !sleeperOut(l, week));
+const outSleeperNotes = (week) => LEAGUES.filter((l) => l.sleeper && sleeperOut(l, week))
+  .map((l) => `
+    <div class="st-out" aria-disabled="true">
+      <p class="st-out-note">You are out of ${esc(l.name)} &mdash;
+        ${esc(ABBR_TO_MASCOT[l.out.team] || l.out.team)} lost in Week ${l.out.week}.
+        ${esc(l.out.why || '')} Not tracked for the rest of the season.</p>
+    </div>`).join('');
 
 function outWrap(html) {
   return `
@@ -1032,7 +1046,7 @@ function survivorSeason(S, weeks, views) {
     })), weeks, results);
   }
   if (readable()) {
-    for (const league of LEAGUES.filter((l) => l.sleeper)) {
+    for (const league of playingSleeper('all')) {
       const feed = loadCachedFeed(S.season, league.id);
       if (!feed) continue;
       pools[league.id] = burnMatrix((feed.entries || []).map((e) => ({
@@ -1144,12 +1158,12 @@ function allInfinity(S) {
 
 function allSurvivor(S) {
   const mike = [["Mike's suicide pool", 'mike-suicide', null]];
-  const sleeper = LEAGUES.filter((l) => l.sleeper).map((l) => [l.name, l.id, l]);
+  const sleeper = playingSleeper('all').map((l) => [l.name, l.id, l]);
   const cards = mikeOut('all') ? sleeper.concat(mike) : mike.concat(sleeper);
   return cards.map(([title, id, league]) => {
     const html = allSurvivorCard(S, title, id, league);
     return id === 'mike-suicide' && mikeOut('all') ? outWrap(html) : html;
-  }).join('');
+  }).join('') + outSleeperNotes('all');
 }
 
 function allSurvivorCard(S, title, id, league) {

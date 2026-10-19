@@ -59,8 +59,10 @@ const { POOL: INFINITY } = await import('../js/infinityPool.js');
 const { fetchSleeperSurvivor } = await import('../js/sleeperSurvivor.js');
 const { fetchInfinityPool } = await import('../js/infinityFeed.js');
 
+// A pool I am out of is not fetched again; its last copy is carried forward
+// below so the weeks before I went out still render on every device.
 const jobs = [
-  ...LEAGUES.filter((l) => l.sleeper).map((l) => [l.name, l.sleeper, fetchSleeperSurvivor]),
+  ...LEAGUES.filter((l) => l.sleeper && !l.out).map((l) => [l.name, l.sleeper, fetchSleeperSurvivor]),
   [INFINITY.name, INFINITY.sleeper, fetchInfinityPool],
 ];
 
@@ -85,6 +87,10 @@ if (failed) {
 }
 
 const path = join(ROOT, 'data', 'sleeper', `feeds-${season}.json`);
+const previous = existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')).pools || {} : {};
+for (const l of LEAGUES.filter((x) => x.sleeper && x.out)) {
+  if (previous[l.sleeper.leagueId]) pools[l.sleeper.leagueId] = previous[l.sleeper.leagueId];
+}
 const strip = (d) => JSON.stringify(d, (k, v) => (k === 'fetchedAt' || k === 'generated' ? undefined : v));
 if (existsSync(path)) {
   const old = JSON.parse(readFileSync(path, 'utf8'));

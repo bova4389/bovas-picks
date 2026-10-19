@@ -476,7 +476,7 @@ function outCard(L) {
         <span>Out</span>
       </header>
       <p class="wc-empty">Out after Week ${week} &mdash; ${esc(mascot(team))} lost.</p>
-      <p class="wc-why">One life, no buy-back. Nothing to pick here for the rest of the season.</p>
+      <p class="wc-why">${esc(L.out.why || '')} Nothing to pick here for the rest of the season.</p>
     </article>`;
 }
 

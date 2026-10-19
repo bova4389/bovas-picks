@@ -63,7 +63,7 @@ const DEFAULTS = {
   zoom: 2,              // index into ZOOMS -- only consulted when fit is off
   sort: 'abbr',
   weeks: 'all',         // 'all' | 'rest' | 'ahead3' | 'ahead6' | 'from:<week>'
-  league: 'sleeper',   // Poop; Mike's was the default until I went out of it in Week 5
+  league: 'deadpool',   // Mike's, then Poop, were the default until I went out of each (Weeks 5 and 6)
   hidden: [],           // team abbrs switched off by hand
   hideUsed: false,      // and, separately, every team already spent in the pool
 };
@@ -129,8 +129,8 @@ function loadPrefs() {
  * error anywhere. Anything read from storage and rendered as a choice needs
  * this check; `paint` and `sort` get it free by being validated in CSS.
  *
- * A pool I am out of (`out` in LEAGUES) gets the same treatment: it is not in
- * the dropdown, so a pref still pointing at it would hit exactly that trap.
+ * A pool I am out of (`out` in LEAGUES) gets the same treatment: its option is
+ * disabled, so a pref still pointing at it would hit exactly that trap.
  */
 function knownLeague(id) {
   if (id === 'none') return 'none';
@@ -332,7 +332,9 @@ function controls() {
              which real pool you are looking at, and "Mike's" vs "Poop" is not
              enough to be sure. */''}
         ${picker('g-league', 'Pool', `
-          ${LEAGUES.filter((l) => !l.out).map((l) => opt(l.id, l.name, p.league)).join('')}
+          ${LEAGUES.map((l) => (l.out
+            ? `<option value="${l.id}" disabled>${esc(l.name)} (out after Week ${l.out.week})</option>`
+            : opt(l.id, l.name, p.league))).join('')}
           ${opt('none', 'Off', p.league)}`)}
 
         <div class="gzoom" role="group" aria-label="Size">

@@ -1953,17 +1953,30 @@ Tab section. **Needs `ODDS_API_KEY` as a repo secret before the GitHub Action wi
 up at the-odds-api.com (an account Claude cannot create on your behalf) and add the secret once the
 repo has a remote.
 
-## Out of Mike's Suicide Pool — after Week 5, 2026
+## Out of Mike's Suicide Pool (after Week 5) and Poop (after Week 6), 2026
 
 Dallas lost Week 5 (Tampa Bay 24–16); one life, no buy-back. Recorded once, as
-`out: { week: 5, team: 'DAL' }` on Mike's entry in `js/survivorLeagues.js`, and every consumer
+`out: { week: 5, team: 'DAL', why }` on Mike's entry in `js/survivorLeagues.js`, and every consumer
 reads that rather than a hardcoded week. For any week **after** `out.week`: the Pick Sheet email
-has **no `Suicide` line** and no missing-pick warning; the Grid and Planning drop Mike's from the
-pool dropdown and default to Poop (`activePool()` and `knownLeague()` skip an `out` pool); the
+has **no `Suicide` line** and no missing-pick warning; the Grid and Planning list it in the pool
+dropdown as a **disabled, greyed option** (`Mike's Suicide League (out after Week 5)`) and never
+default to it (`activePool()` and `knownLeague()` skip an `out` pool); the
 Picks tab leaves it out of the model (no recommendation, exposure or duplicate split) and shows it
 as a greyed card with no controls; Survivor Standings moves its card below the Sleeper pools,
 greyed; and `scripts/log_week_card.mjs` logs no card for it. Weeks up to and including Week 5
-render exactly as before. Next season, delete the `out` line.
+render exactly as before.
+
+**Poop 2026 is out after Week 6**: the Rams lost 18–16 to Arizona, the third strike after the
+Chargers (Week 1) and Dallas (Week 5), with both buy-backs spent. It is recorded as
+`out: { week: 6, team: 'LAR', why }` on the `sleeper` entry and follows the same contract. Three
+more things apply because it is a Sleeper pool. **Survivor Standings shows it as one greyed
+line** past Week 6 and in All weeks, with no numbers, no Refresh button, and nothing fetched; the
+Refresh handler also ignores any out pool. **`scripts/fetch_sleeper_feeds.mjs` stops fetching
+it**, but carries its last copy forward in `data/sleeper/feeds-<year>.json`, so Weeks 1–6 still
+render on every device. And Deadpool now has no same-format partner, so the Picks tab's
+duplicate split has nothing to do. The Grid and Planning now default to Deadpool.
+
+Next season, delete both `out` lines.
 
 ## Submission Format — Quoted From The Commissioner, Do Not Invent
 
