@@ -1812,5 +1812,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-10-18T01:09:13.972524+00:00"
+ },
+ {
+  "id": "2bba7fde6f97d0e54403d53676e4ab63",
+  "commenceTime": "2026-10-25T17:00:00Z",
+  "home": "Houston Texans",
+  "away": "New York Giants",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.8212,
+  "rawAwayProb": 0.223,
+  "homeWinProb": 0.7864,
+  "awayWinProb": 0.2136,
+  "vig": 0.0442,
+  "total": 43.0,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-10-19T19:56:11.657369+00:00"
  }
 ]
