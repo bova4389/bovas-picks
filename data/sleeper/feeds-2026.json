@@ -1,1005 +1,7 @@
 {
  "season": 2026,
- "generated": "2026-10-19T00:26:29.199Z",
+ "generated": "2026-10-19T20:10:49.689Z",
  "pools": {
-  "1392226517005635584": {
-   "year": 2026,
-   "currentWeek": 6,
-   "weeks": {
-    "1": {
-     "entrants": 31,
-     "distinctTeams": 9,
-     "picks": [
-      {
-       "team": "LAC",
-       "count": 11,
-       "pct": 35.5
-      },
-      {
-       "team": "JAC",
-       "count": 7,
-       "pct": 22.6
-      },
-      {
-       "team": "PIT",
-       "count": 4,
-       "pct": 12.9
-      },
-      {
-       "team": "CHI",
-       "count": 2,
-       "pct": 6.5
-      },
-      {
-       "team": "CIN",
-       "count": 2,
-       "pct": 6.5
-      },
-      {
-       "team": "DET",
-       "count": 2,
-       "pct": 6.5
-      },
-      {
-       "team": "BAL",
-       "count": 1,
-       "pct": 3.2
-      },
-      {
-       "team": "LV",
-       "count": 1,
-       "pct": 3.2
-      },
-      {
-       "team": "SEA",
-       "count": 1,
-       "pct": 3.2
-      }
-     ],
-     "submitted": 31,
-     "revealed": 31,
-     "expected": 31,
-     "complete": true
-    },
-    "2": {
-     "entrants": 29,
-     "distinctTeams": 8,
-     "picks": [
-      {
-       "team": "SF",
-       "count": 13,
-       "pct": 44.8
-      },
-      {
-       "team": "TB",
-       "count": 6,
-       "pct": 20.7
-      },
-      {
-       "team": "BAL",
-       "count": 4,
-       "pct": 13.8
-      },
-      {
-       "team": "GB",
-       "count": 2,
-       "pct": 6.9
-      },
-      {
-       "team": "DAL",
-       "count": 1,
-       "pct": 3.4
-      },
-      {
-       "team": "KC",
-       "count": 1,
-       "pct": 3.4
-      },
-      {
-       "team": "LAC",
-       "count": 1,
-       "pct": 3.4
-      },
-      {
-       "team": "LAR",
-       "count": 1,
-       "pct": 3.4
-      }
-     ],
-     "submitted": 29,
-     "revealed": 29,
-     "expected": 31,
-     "complete": false
-    },
-    "3": {
-     "entrants": 28,
-     "distinctTeams": 8,
-     "picks": [
-      {
-       "team": "KC",
-       "count": 14,
-       "pct": 50
-      },
-      {
-       "team": "DET",
-       "count": 3,
-       "pct": 10.7
-      },
-      {
-       "team": "SF",
-       "count": 3,
-       "pct": 10.7
-      },
-      {
-       "team": "BUF",
-       "count": 2,
-       "pct": 7.1
-      },
-      {
-       "team": "GB",
-       "count": 2,
-       "pct": 7.1
-      },
-      {
-       "team": "NO",
-       "count": 2,
-       "pct": 7.1
-      },
-      {
-       "team": "PHI",
-       "count": 1,
-       "pct": 3.6
-      },
-      {
-       "team": "SEA",
-       "count": 1,
-       "pct": 3.6
-      }
-     ],
-     "submitted": 28,
-     "revealed": 28,
-     "expected": 31,
-     "complete": false
-    },
-    "4": {
-     "entrants": 26,
-     "distinctTeams": 4,
-     "picks": [
-      {
-       "team": "MIN",
-       "count": 17,
-       "pct": 65.4
-      },
-      {
-       "team": "BAL",
-       "count": 7,
-       "pct": 26.9
-      },
-      {
-       "team": "KC",
-       "count": 1,
-       "pct": 3.8
-      },
-      {
-       "team": "SEA",
-       "count": 1,
-       "pct": 3.8
-      }
-     ],
-     "submitted": 26,
-     "revealed": 26,
-     "expected": 31,
-     "complete": false
-    },
-    "5": {
-     "entrants": 26,
-     "distinctTeams": 5,
-     "picks": [
-      {
-       "team": "HOU",
-       "count": 12,
-       "pct": 46.2
-      },
-      {
-       "team": "DAL",
-       "count": 6,
-       "pct": 23.1
-      },
-      {
-       "team": "CIN",
-       "count": 5,
-       "pct": 19.2
-      },
-      {
-       "team": "DET",
-       "count": 2,
-       "pct": 7.7
-      },
-      {
-       "team": "PIT",
-       "count": 1,
-       "pct": 3.8
-      }
-     ],
-     "submitted": 26,
-     "revealed": 26,
-     "expected": 31,
-     "complete": false
-    },
-    "6": {
-     "entrants": 24,
-     "distinctTeams": 4,
-     "picks": [
-      {
-       "team": "LAR",
-       "count": 12,
-       "pct": 50
-      },
-      {
-       "team": "IND",
-       "count": 8,
-       "pct": 33.3
-      },
-      {
-       "team": "NE",
-       "count": 3,
-       "pct": 12.5
-      },
-      {
-       "team": "KC",
-       "count": 1,
-       "pct": 4.2
-      }
-     ],
-     "submitted": 25,
-     "revealed": 24,
-     "expected": 31,
-     "complete": false
-    }
-   },
-   "entries": [
-    {
-     "entry": 1,
-     "name": null,
-     "nick": "joefanelli90",
-     "userId": "1124383939507965952",
-     "isMe": false,
-     "picks": {
-      "1": "LAC",
-      "2": "SF",
-      "3": "KC",
-      "4": "BAL",
-      "5": "CIN",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "LAC",
-      "SF",
-      "KC",
-      "BAL",
-      "CIN",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 2,
-     "name": null,
-     "nick": "AJPeak",
-     "userId": "1389633198383693824",
-     "isMe": false,
-     "picks": {
-      "1": "JAC",
-      "2": "TB",
-      "3": "KC",
-      "4": "MIN",
-      "5": "DAL",
-      "6": "IND"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "JAC",
-      "TB",
-      "KC",
-      "MIN",
-      "DAL",
-      "IND"
-     ]
-    },
-    {
-     "entry": 3,
-     "name": null,
-     "nick": "Perko87",
-     "userId": "1393626367060348928",
-     "isMe": false,
-     "picks": {
-      "1": "CIN",
-      "2": "BAL",
-      "3": "DET",
-      "4": "SEA",
-      "5": "DAL",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "CIN",
-      "BAL",
-      "DET",
-      "SEA",
-      "DAL",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 4,
-     "name": null,
-     "nick": "Elworth",
-     "userId": "987878672361148416",
-     "isMe": false,
-     "picks": {
-      "1": "LAC",
-      "2": "SF",
-      "3": "KC",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "LAC",
-      "SF",
-      "KC",
-      "MIN",
-      "HOU",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 5,
-     "name": null,
-     "nick": "avobttam",
-     "userId": "721908735856967680",
-     "isMe": true,
-     "picks": {
-      "1": "LAC",
-      "2": "SF",
-      "3": "KC",
-      "4": "BAL",
-      "5": "DAL",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "LAC",
-      "SF",
-      "KC",
-      "BAL",
-      "DAL",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 6,
-     "name": null,
-     "nick": "TonyGuazu",
-     "userId": "1269384931323162624",
-     "isMe": false,
-     "picks": {
-      "1": "LAC"
-     },
-     "problems": [],
-     "alive": false,
-     "used": [
-      "LAC"
-     ]
-    },
-    {
-     "entry": 7,
-     "name": null,
-     "nick": "albuchan",
-     "userId": "1132389335963365376",
-     "isMe": false,
-     "picks": {
-      "1": "JAC",
-      "2": "SF",
-      "3": "KC",
-      "4": "MIN",
-      "5": "CIN",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "JAC",
-      "SF",
-      "KC",
-      "MIN",
-      "CIN",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 8,
-     "name": null,
-     "nick": "creckley",
-     "userId": "988112454595002368",
-     "isMe": false,
-     "picks": {
-      "1": "LAC",
-      "2": "LAR",
-      "3": "BUF",
-      "4": "BAL",
-      "5": "CIN",
-      "6": "KC"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "LAC",
-      "LAR",
-      "BUF",
-      "BAL",
-      "CIN",
-      "KC"
-     ]
-    },
-    {
-     "entry": 9,
-     "name": null,
-     "nick": "KyliePeacock",
-     "userId": "1393712383943282688",
-     "isMe": false,
-     "picks": {
-      "1": "LAC",
-      "2": "SF",
-      "3": "KC",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "LAC",
-      "SF",
-      "KC",
-      "MIN",
-      "HOU",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 10,
-     "name": null,
-     "nick": "CBrown59",
-     "userId": "1393785200269361152",
-     "isMe": false,
-     "picks": {
-      "1": "LAC"
-     },
-     "problems": [],
-     "alive": false,
-     "used": [
-      "LAC"
-     ]
-    },
-    {
-     "entry": 11,
-     "name": null,
-     "nick": "leftypapa",
-     "userId": "1393801033058115584",
-     "isMe": false,
-     "picks": {
-      "1": "PIT",
-      "2": "TB",
-      "3": "DET",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "IND"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "PIT",
-      "TB",
-      "DET",
-      "MIN",
-      "HOU",
-      "IND"
-     ]
-    },
-    {
-     "entry": 12,
-     "name": null,
-     "nick": "SaraWuite",
-     "userId": "1393971703809318912",
-     "isMe": false,
-     "picks": {
-      "1": "LAC",
-      "2": "TB",
-      "3": "SF",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "IND"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "LAC",
-      "TB",
-      "SF",
-      "MIN",
-      "HOU",
-      "IND"
-     ]
-    },
-    {
-     "entry": 13,
-     "name": null,
-     "nick": "domfan",
-     "userId": "1395078191508389888",
-     "isMe": false,
-     "picks": {
-      "1": "SEA",
-      "2": "TB",
-      "3": "KC",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "NE"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "SEA",
-      "TB",
-      "KC",
-      "MIN",
-      "HOU",
-      "NE"
-     ]
-    },
-    {
-     "entry": 14,
-     "name": null,
-     "nick": "markymark317",
-     "userId": "1396795812855468032",
-     "isMe": false,
-     "picks": {
-      "1": "JAC",
-      "2": "SF",
-      "3": "NO"
-     },
-     "problems": [],
-     "alive": false,
-     "used": [
-      "JAC",
-      "SF",
-      "NO"
-     ]
-    },
-    {
-     "entry": 15,
-     "name": null,
-     "nick": "lisaseidl",
-     "userId": "1398133132791693312",
-     "isMe": false,
-     "picks": {
-      "1": "JAC",
-      "2": "TB",
-      "3": "KC",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "IND"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "JAC",
-      "TB",
-      "KC",
-      "MIN",
-      "HOU",
-      "IND"
-     ]
-    },
-    {
-     "entry": 16,
-     "name": null,
-     "nick": "sydguthrie",
-     "userId": "1398325919613005824",
-     "isMe": false,
-     "picks": {
-      "1": "CHI",
-      "2": "GB",
-      "3": "BUF",
-      "4": "BAL",
-      "5": "PIT",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "CHI",
-      "GB",
-      "BUF",
-      "BAL",
-      "PIT",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 17,
-     "name": null,
-     "nick": "Yungmulletgoat",
-     "userId": "1134185159265333248",
-     "isMe": false,
-     "picks": {
-      "1": "LAC",
-      "2": "SF",
-      "3": "KC",
-      "4": "MIN",
-      "5": "DAL"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "LAC",
-      "SF",
-      "KC",
-      "MIN",
-      "DAL"
-     ]
-    },
-    {
-     "entry": 18,
-     "name": null,
-     "nick": "glizzygladiator25",
-     "userId": "1400535290963066880",
-     "isMe": false,
-     "picks": {
-      "1": "LAC",
-      "2": "SF",
-      "3": "KC",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "LAC",
-      "SF",
-      "KC",
-      "MIN",
-      "HOU",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 19,
-     "name": null,
-     "nick": "jj833041",
-     "userId": "1111417047872856064",
-     "isMe": false,
-     "picks": {
-      "1": "JAC",
-      "2": "GB",
-      "3": "PHI",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "NE"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "JAC",
-      "GB",
-      "PHI",
-      "MIN",
-      "HOU",
-      "NE"
-     ]
-    },
-    {
-     "entry": 20,
-     "name": null,
-     "nick": "vcaval",
-     "userId": "1402369667242139648",
-     "isMe": false,
-     "picks": {
-      "1": "DET",
-      "2": "LAC",
-      "3": "SEA"
-     },
-     "problems": [],
-     "alive": false,
-     "used": [
-      "DET",
-      "LAC",
-      "SEA"
-     ]
-    },
-    {
-     "entry": 21,
-     "name": null,
-     "nick": "stuto",
-     "userId": "1402412383464357888",
-     "isMe": false,
-     "picks": {
-      "1": "LAC",
-      "2": "SF",
-      "3": "KC",
-      "4": "BAL",
-      "5": "DAL",
-      "6": "IND"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "LAC",
-      "SF",
-      "KC",
-      "BAL",
-      "DAL",
-      "IND"
-     ]
-    },
-    {
-     "entry": 22,
-     "name": null,
-     "nick": "Intipach",
-     "userId": "1402588734787969024",
-     "isMe": false,
-     "picks": {
-      "1": "CIN",
-      "2": "DAL",
-      "3": "SF",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "IND"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "CIN",
-      "DAL",
-      "SF",
-      "MIN",
-      "HOU",
-      "IND"
-     ]
-    },
-    {
-     "entry": 23,
-     "name": null,
-     "nick": "AFrange",
-     "userId": "1402681747056926720",
-     "isMe": false,
-     "picks": {
-      "1": "JAC",
-      "2": "BAL",
-      "3": "SF",
-      "4": "KC",
-      "5": "CIN",
-      "6": "NE"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "JAC",
-      "BAL",
-      "SF",
-      "KC",
-      "CIN",
-      "NE"
-     ]
-    },
-    {
-     "entry": 24,
-     "name": null,
-     "nick": "Isabelle312",
-     "userId": "1402882975560933376",
-     "isMe": false,
-     "picks": {
-      "1": "CHI",
-      "2": "KC",
-      "3": "DET",
-      "4": "BAL",
-      "5": "DAL",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "CHI",
-      "KC",
-      "DET",
-      "BAL",
-      "DAL",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 25,
-     "name": null,
-     "nick": "DunkinDutchman45",
-     "userId": "1402923257585209344",
-     "isMe": false,
-     "picks": {
-      "1": "LV",
-      "2": "SF",
-      "3": "GB",
-      "4": "BAL",
-      "5": "DET",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "LV",
-      "SF",
-      "GB",
-      "BAL",
-      "DET",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 26,
-     "name": null,
-     "nick": "aelliott2214",
-     "userId": "1403194981564293120",
-     "isMe": false,
-     "picks": {
-      "1": "BAL",
-      "2": "SF",
-      "3": "GB",
-      "4": "MIN",
-      "5": "DET",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "BAL",
-      "SF",
-      "GB",
-      "MIN",
-      "DET",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 27,
-     "name": null,
-     "nick": "JohnDaveyNATTYCHAMP",
-     "userId": "1403202909864267776",
-     "isMe": false,
-     "picks": {
-      "1": "JAC",
-      "2": "SF",
-      "3": "KC",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "IND"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "JAC",
-      "SF",
-      "KC",
-      "MIN",
-      "HOU",
-      "IND"
-     ]
-    },
-    {
-     "entry": 28,
-     "name": null,
-     "nick": "NickBova",
-     "userId": "722827711751487488",
-     "isMe": false,
-     "picks": {
-      "1": "DET",
-      "2": "BAL",
-      "3": "NO",
-      "4": "MIN",
-      "5": "CIN"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "DET",
-      "BAL",
-      "NO",
-      "MIN",
-      "CIN"
-     ]
-    },
-    {
-     "entry": 29,
-     "name": null,
-     "nick": "MichaelSeidl",
-     "userId": "1403512170989309953",
-     "isMe": false,
-     "picks": {
-      "1": "PIT",
-      "2": "TB",
-      "3": "KC",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "IND"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "PIT",
-      "TB",
-      "KC",
-      "MIN",
-      "HOU",
-      "IND"
-     ]
-    },
-    {
-     "entry": 30,
-     "name": null,
-     "nick": "CarlosDangers",
-     "userId": "1403590697986101248",
-     "isMe": false,
-     "picks": {
-      "1": "PIT",
-      "2": "SF",
-      "3": "KC",
-      "4": "MIN",
-      "5": "HOU",
-      "6": "LAR"
-     },
-     "problems": [],
-     "alive": true,
-     "used": [
-      "PIT",
-      "SF",
-      "KC",
-      "MIN",
-      "HOU",
-      "LAR"
-     ]
-    },
-    {
-     "entry": 31,
-     "name": null,
-     "nick": "cbova1222",
-     "userId": "728290759668797440",
-     "isMe": false,
-     "picks": {
-      "1": "PIT",
-      "2": "BAL"
-     },
-     "problems": [],
-     "alive": false,
-     "used": [
-      "PIT",
-      "BAL"
-     ]
-    }
-   ],
-   "source": "sleeper",
-   "leagueId": "1392226517005635584",
-   "leagueName": "Poop 2026",
-   "fetchedAt": 1792369588779,
-   "settings": {
-    "revivesAllowed": 2,
-    "picksPerTeam": 1,
-    "weeklyPickLimit": 1
-   }
-  },
   "1400514368084451328": {
    "year": 2026,
    "currentWeek": 6,
@@ -1641,7 +643,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1792369588994,
+   "fetchedAt": 1792440649438,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -3725,11 +2727,1009 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1792369589196,
+   "fetchedAt": 1792440649686,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
     "useSpread": false
+   }
+  },
+  "1392226517005635584": {
+   "year": 2026,
+   "currentWeek": 6,
+   "weeks": {
+    "1": {
+     "entrants": 31,
+     "distinctTeams": 9,
+     "picks": [
+      {
+       "team": "LAC",
+       "count": 11,
+       "pct": 35.5
+      },
+      {
+       "team": "JAC",
+       "count": 7,
+       "pct": 22.6
+      },
+      {
+       "team": "PIT",
+       "count": 4,
+       "pct": 12.9
+      },
+      {
+       "team": "CHI",
+       "count": 2,
+       "pct": 6.5
+      },
+      {
+       "team": "CIN",
+       "count": 2,
+       "pct": 6.5
+      },
+      {
+       "team": "DET",
+       "count": 2,
+       "pct": 6.5
+      },
+      {
+       "team": "BAL",
+       "count": 1,
+       "pct": 3.2
+      },
+      {
+       "team": "LV",
+       "count": 1,
+       "pct": 3.2
+      },
+      {
+       "team": "SEA",
+       "count": 1,
+       "pct": 3.2
+      }
+     ],
+     "submitted": 31,
+     "revealed": 31,
+     "expected": 31,
+     "complete": true
+    },
+    "2": {
+     "entrants": 29,
+     "distinctTeams": 8,
+     "picks": [
+      {
+       "team": "SF",
+       "count": 13,
+       "pct": 44.8
+      },
+      {
+       "team": "TB",
+       "count": 6,
+       "pct": 20.7
+      },
+      {
+       "team": "BAL",
+       "count": 4,
+       "pct": 13.8
+      },
+      {
+       "team": "GB",
+       "count": 2,
+       "pct": 6.9
+      },
+      {
+       "team": "DAL",
+       "count": 1,
+       "pct": 3.4
+      },
+      {
+       "team": "KC",
+       "count": 1,
+       "pct": 3.4
+      },
+      {
+       "team": "LAC",
+       "count": 1,
+       "pct": 3.4
+      },
+      {
+       "team": "LAR",
+       "count": 1,
+       "pct": 3.4
+      }
+     ],
+     "submitted": 29,
+     "revealed": 29,
+     "expected": 31,
+     "complete": false
+    },
+    "3": {
+     "entrants": 28,
+     "distinctTeams": 8,
+     "picks": [
+      {
+       "team": "KC",
+       "count": 14,
+       "pct": 50
+      },
+      {
+       "team": "DET",
+       "count": 3,
+       "pct": 10.7
+      },
+      {
+       "team": "SF",
+       "count": 3,
+       "pct": 10.7
+      },
+      {
+       "team": "BUF",
+       "count": 2,
+       "pct": 7.1
+      },
+      {
+       "team": "GB",
+       "count": 2,
+       "pct": 7.1
+      },
+      {
+       "team": "NO",
+       "count": 2,
+       "pct": 7.1
+      },
+      {
+       "team": "PHI",
+       "count": 1,
+       "pct": 3.6
+      },
+      {
+       "team": "SEA",
+       "count": 1,
+       "pct": 3.6
+      }
+     ],
+     "submitted": 28,
+     "revealed": 28,
+     "expected": 31,
+     "complete": false
+    },
+    "4": {
+     "entrants": 26,
+     "distinctTeams": 4,
+     "picks": [
+      {
+       "team": "MIN",
+       "count": 17,
+       "pct": 65.4
+      },
+      {
+       "team": "BAL",
+       "count": 7,
+       "pct": 26.9
+      },
+      {
+       "team": "KC",
+       "count": 1,
+       "pct": 3.8
+      },
+      {
+       "team": "SEA",
+       "count": 1,
+       "pct": 3.8
+      }
+     ],
+     "submitted": 26,
+     "revealed": 26,
+     "expected": 31,
+     "complete": false
+    },
+    "5": {
+     "entrants": 26,
+     "distinctTeams": 5,
+     "picks": [
+      {
+       "team": "HOU",
+       "count": 12,
+       "pct": 46.2
+      },
+      {
+       "team": "DAL",
+       "count": 6,
+       "pct": 23.1
+      },
+      {
+       "team": "CIN",
+       "count": 5,
+       "pct": 19.2
+      },
+      {
+       "team": "DET",
+       "count": 2,
+       "pct": 7.7
+      },
+      {
+       "team": "PIT",
+       "count": 1,
+       "pct": 3.8
+      }
+     ],
+     "submitted": 26,
+     "revealed": 26,
+     "expected": 31,
+     "complete": false
+    },
+    "6": {
+     "entrants": 24,
+     "distinctTeams": 4,
+     "picks": [
+      {
+       "team": "LAR",
+       "count": 12,
+       "pct": 50
+      },
+      {
+       "team": "IND",
+       "count": 8,
+       "pct": 33.3
+      },
+      {
+       "team": "NE",
+       "count": 3,
+       "pct": 12.5
+      },
+      {
+       "team": "KC",
+       "count": 1,
+       "pct": 4.2
+      }
+     ],
+     "submitted": 25,
+     "revealed": 24,
+     "expected": 31,
+     "complete": false
+    }
+   },
+   "entries": [
+    {
+     "entry": 1,
+     "name": null,
+     "nick": "joefanelli90",
+     "userId": "1124383939507965952",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF",
+      "3": "KC",
+      "4": "BAL",
+      "5": "CIN",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF",
+      "KC",
+      "BAL",
+      "CIN",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 2,
+     "name": null,
+     "nick": "AJPeak",
+     "userId": "1389633198383693824",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "TB",
+      "3": "KC",
+      "4": "MIN",
+      "5": "DAL",
+      "6": "IND"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "TB",
+      "KC",
+      "MIN",
+      "DAL",
+      "IND"
+     ]
+    },
+    {
+     "entry": 3,
+     "name": null,
+     "nick": "Perko87",
+     "userId": "1393626367060348928",
+     "isMe": false,
+     "picks": {
+      "1": "CIN",
+      "2": "BAL",
+      "3": "DET",
+      "4": "SEA",
+      "5": "DAL",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "CIN",
+      "BAL",
+      "DET",
+      "SEA",
+      "DAL",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 4,
+     "name": null,
+     "nick": "Elworth",
+     "userId": "987878672361148416",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF",
+      "3": "KC",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF",
+      "KC",
+      "MIN",
+      "HOU",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 5,
+     "name": null,
+     "nick": "avobttam",
+     "userId": "721908735856967680",
+     "isMe": true,
+     "picks": {
+      "1": "LAC",
+      "2": "SF",
+      "3": "KC",
+      "4": "BAL",
+      "5": "DAL",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF",
+      "KC",
+      "BAL",
+      "DAL",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 6,
+     "name": null,
+     "nick": "TonyGuazu",
+     "userId": "1269384931323162624",
+     "isMe": false,
+     "picks": {
+      "1": "LAC"
+     },
+     "problems": [],
+     "alive": false,
+     "used": [
+      "LAC"
+     ]
+    },
+    {
+     "entry": 7,
+     "name": null,
+     "nick": "albuchan",
+     "userId": "1132389335963365376",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "SF",
+      "3": "KC",
+      "4": "MIN",
+      "5": "CIN",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "SF",
+      "KC",
+      "MIN",
+      "CIN",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 8,
+     "name": null,
+     "nick": "creckley",
+     "userId": "988112454595002368",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "LAR",
+      "3": "BUF",
+      "4": "BAL",
+      "5": "CIN",
+      "6": "KC"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "LAR",
+      "BUF",
+      "BAL",
+      "CIN",
+      "KC"
+     ]
+    },
+    {
+     "entry": 9,
+     "name": null,
+     "nick": "KyliePeacock",
+     "userId": "1393712383943282688",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF",
+      "3": "KC",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF",
+      "KC",
+      "MIN",
+      "HOU",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 10,
+     "name": null,
+     "nick": "CBrown59",
+     "userId": "1393785200269361152",
+     "isMe": false,
+     "picks": {
+      "1": "LAC"
+     },
+     "problems": [],
+     "alive": false,
+     "used": [
+      "LAC"
+     ]
+    },
+    {
+     "entry": 11,
+     "name": null,
+     "nick": "leftypapa",
+     "userId": "1393801033058115584",
+     "isMe": false,
+     "picks": {
+      "1": "PIT",
+      "2": "TB",
+      "3": "DET",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "IND"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "PIT",
+      "TB",
+      "DET",
+      "MIN",
+      "HOU",
+      "IND"
+     ]
+    },
+    {
+     "entry": 12,
+     "name": null,
+     "nick": "SaraWuite",
+     "userId": "1393971703809318912",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "TB",
+      "3": "SF",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "IND"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "TB",
+      "SF",
+      "MIN",
+      "HOU",
+      "IND"
+     ]
+    },
+    {
+     "entry": 13,
+     "name": null,
+     "nick": "domfan",
+     "userId": "1395078191508389888",
+     "isMe": false,
+     "picks": {
+      "1": "SEA",
+      "2": "TB",
+      "3": "KC",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "NE"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "SEA",
+      "TB",
+      "KC",
+      "MIN",
+      "HOU",
+      "NE"
+     ]
+    },
+    {
+     "entry": 14,
+     "name": null,
+     "nick": "markymark317",
+     "userId": "1396795812855468032",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "SF",
+      "3": "NO"
+     },
+     "problems": [],
+     "alive": false,
+     "used": [
+      "JAC",
+      "SF",
+      "NO"
+     ]
+    },
+    {
+     "entry": 15,
+     "name": null,
+     "nick": "lisaseidl",
+     "userId": "1398133132791693312",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "TB",
+      "3": "KC",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "IND"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "TB",
+      "KC",
+      "MIN",
+      "HOU",
+      "IND"
+     ]
+    },
+    {
+     "entry": 16,
+     "name": null,
+     "nick": "sydguthrie",
+     "userId": "1398325919613005824",
+     "isMe": false,
+     "picks": {
+      "1": "CHI",
+      "2": "GB",
+      "3": "BUF",
+      "4": "BAL",
+      "5": "PIT",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "CHI",
+      "GB",
+      "BUF",
+      "BAL",
+      "PIT",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 17,
+     "name": null,
+     "nick": "Yungmulletgoat",
+     "userId": "1134185159265333248",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF",
+      "3": "KC",
+      "4": "MIN",
+      "5": "DAL"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF",
+      "KC",
+      "MIN",
+      "DAL"
+     ]
+    },
+    {
+     "entry": 18,
+     "name": null,
+     "nick": "glizzygladiator25",
+     "userId": "1400535290963066880",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF",
+      "3": "KC",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF",
+      "KC",
+      "MIN",
+      "HOU",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 19,
+     "name": null,
+     "nick": "jj833041",
+     "userId": "1111417047872856064",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "GB",
+      "3": "PHI",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "NE"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "GB",
+      "PHI",
+      "MIN",
+      "HOU",
+      "NE"
+     ]
+    },
+    {
+     "entry": 20,
+     "name": null,
+     "nick": "vcaval",
+     "userId": "1402369667242139648",
+     "isMe": false,
+     "picks": {
+      "1": "DET",
+      "2": "LAC",
+      "3": "SEA"
+     },
+     "problems": [],
+     "alive": false,
+     "used": [
+      "DET",
+      "LAC",
+      "SEA"
+     ]
+    },
+    {
+     "entry": 21,
+     "name": null,
+     "nick": "stuto",
+     "userId": "1402412383464357888",
+     "isMe": false,
+     "picks": {
+      "1": "LAC",
+      "2": "SF",
+      "3": "KC",
+      "4": "BAL",
+      "5": "DAL",
+      "6": "IND"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LAC",
+      "SF",
+      "KC",
+      "BAL",
+      "DAL",
+      "IND"
+     ]
+    },
+    {
+     "entry": 22,
+     "name": null,
+     "nick": "Intipach",
+     "userId": "1402588734787969024",
+     "isMe": false,
+     "picks": {
+      "1": "CIN",
+      "2": "DAL",
+      "3": "SF",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "IND"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "CIN",
+      "DAL",
+      "SF",
+      "MIN",
+      "HOU",
+      "IND"
+     ]
+    },
+    {
+     "entry": 23,
+     "name": null,
+     "nick": "AFrange",
+     "userId": "1402681747056926720",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "BAL",
+      "3": "SF",
+      "4": "KC",
+      "5": "CIN",
+      "6": "NE"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "BAL",
+      "SF",
+      "KC",
+      "CIN",
+      "NE"
+     ]
+    },
+    {
+     "entry": 24,
+     "name": null,
+     "nick": "Isabelle312",
+     "userId": "1402882975560933376",
+     "isMe": false,
+     "picks": {
+      "1": "CHI",
+      "2": "KC",
+      "3": "DET",
+      "4": "BAL",
+      "5": "DAL",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "CHI",
+      "KC",
+      "DET",
+      "BAL",
+      "DAL",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 25,
+     "name": null,
+     "nick": "DunkinDutchman45",
+     "userId": "1402923257585209344",
+     "isMe": false,
+     "picks": {
+      "1": "LV",
+      "2": "SF",
+      "3": "GB",
+      "4": "BAL",
+      "5": "DET",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "LV",
+      "SF",
+      "GB",
+      "BAL",
+      "DET",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 26,
+     "name": null,
+     "nick": "aelliott2214",
+     "userId": "1403194981564293120",
+     "isMe": false,
+     "picks": {
+      "1": "BAL",
+      "2": "SF",
+      "3": "GB",
+      "4": "MIN",
+      "5": "DET",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "BAL",
+      "SF",
+      "GB",
+      "MIN",
+      "DET",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 27,
+     "name": null,
+     "nick": "JohnDaveyNATTYCHAMP",
+     "userId": "1403202909864267776",
+     "isMe": false,
+     "picks": {
+      "1": "JAC",
+      "2": "SF",
+      "3": "KC",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "IND"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "JAC",
+      "SF",
+      "KC",
+      "MIN",
+      "HOU",
+      "IND"
+     ]
+    },
+    {
+     "entry": 28,
+     "name": null,
+     "nick": "NickBova",
+     "userId": "722827711751487488",
+     "isMe": false,
+     "picks": {
+      "1": "DET",
+      "2": "BAL",
+      "3": "NO",
+      "4": "MIN",
+      "5": "CIN"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "DET",
+      "BAL",
+      "NO",
+      "MIN",
+      "CIN"
+     ]
+    },
+    {
+     "entry": 29,
+     "name": null,
+     "nick": "MichaelSeidl",
+     "userId": "1403512170989309953",
+     "isMe": false,
+     "picks": {
+      "1": "PIT",
+      "2": "TB",
+      "3": "KC",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "IND"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "PIT",
+      "TB",
+      "KC",
+      "MIN",
+      "HOU",
+      "IND"
+     ]
+    },
+    {
+     "entry": 30,
+     "name": null,
+     "nick": "CarlosDangers",
+     "userId": "1403590697986101248",
+     "isMe": false,
+     "picks": {
+      "1": "PIT",
+      "2": "SF",
+      "3": "KC",
+      "4": "MIN",
+      "5": "HOU",
+      "6": "LAR"
+     },
+     "problems": [],
+     "alive": true,
+     "used": [
+      "PIT",
+      "SF",
+      "KC",
+      "MIN",
+      "HOU",
+      "LAR"
+     ]
+    },
+    {
+     "entry": 31,
+     "name": null,
+     "nick": "cbova1222",
+     "userId": "728290759668797440",
+     "isMe": false,
+     "picks": {
+      "1": "PIT",
+      "2": "BAL"
+     },
+     "problems": [],
+     "alive": false,
+     "used": [
+      "PIT",
+      "BAL"
+     ]
+    }
+   ],
+   "source": "sleeper",
+   "leagueId": "1392226517005635584",
+   "leagueName": "Poop 2026",
+   "fetchedAt": 1792369588779,
+   "settings": {
+    "revivesAllowed": 2,
+    "picksPerTeam": 1,
+    "weeklyPickLimit": 1
    }
   }
  }
