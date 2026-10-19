@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-18T21:48:18.199Z",
+ "generated": "2026-10-19T00:26:29.199Z",
  "pools": {
   "1392226517005635584": {
    "year": 2026,
@@ -251,7 +251,7 @@
        "pct": 4.2
       }
      ],
-     "submitted": 24,
+     "submitted": 25,
      "revealed": 24,
      "expected": 31,
      "complete": false
@@ -993,7 +993,7 @@
    "source": "sleeper",
    "leagueId": "1392226517005635584",
    "leagueName": "Poop 2026",
-   "fetchedAt": 1792360097981,
+   "fetchedAt": 1792369588779,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1194,7 +1194,7 @@
        "pct": 14.3
       }
      ],
-     "submitted": 7,
+     "submitted": 8,
      "revealed": 7,
      "expected": 20,
      "complete": false
@@ -1641,7 +1641,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1792360098093,
+   "fetchedAt": 1792369588994,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -2075,6 +2075,10 @@
        "count": 5
       },
       {
+       "team": "GB",
+       "count": 3
+      },
+      {
        "team": "ATL",
        "count": 2
       },
@@ -2103,9 +2107,9 @@
        "count": 1
       }
      ],
-     "submitted": 136,
-     "revealed": 118,
-     "locked": 18,
+     "submitted": 138,
+     "revealed": 121,
+     "locked": 17,
      "entrants": 18
     }
    },
@@ -2258,6 +2262,9 @@
        "SF",
        "BUF",
        "HOU"
+      ],
+      "6": [
+       "GB"
       ]
      },
      "tiebreakers": {
@@ -2961,6 +2968,7 @@
        "WAS"
       ],
       "6": [
+       "GB",
        "IND",
        "JAC",
        "KC",
@@ -3587,6 +3595,7 @@
        "WAS"
       ],
       "6": [
+       "GB",
        "IND",
        "JAC",
        "KC",
@@ -3716,7 +3725,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1792360098197,
+   "fetchedAt": 1792369589196,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
