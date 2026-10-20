@@ -312,6 +312,32 @@
           "teamsLeft": 27
         }
       ]
+    },
+    "7": {
+      "week": 7,
+      "builtAt": "2026-10-20T18:27:50.309Z",
+      "oddsFetchedAt": "2026-10-20T18:27:45.553147+00:00",
+      "confidence": "provisional",
+      "exposure": {
+        "tickets": 1,
+        "games": 1,
+        "pAllLose": 0.2073
+      },
+      "picks": [
+        {
+          "pool": "deadpool",
+          "team": "HOU",
+          "p": 0.7927,
+          "gap": 0,
+          "fvCost": 0.1232,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 20,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 26
+        }
+      ]
     }
   }
 }

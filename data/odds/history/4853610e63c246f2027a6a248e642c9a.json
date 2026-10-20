@@ -1604,5 +1604,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-10-19T19:56:11.657369+00:00"
+ },
+ {
+  "id": "4853610e63c246f2027a6a248e642c9a",
+  "commenceTime": "2026-10-27T00:15:00Z",
+  "home": "Philadelphia Eagles",
+  "away": "Dallas Cowboys",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.3551,
+  "rawAwayProb": 0.6883,
+  "homeWinProb": 0.3403,
+  "awayWinProb": 0.6597,
+  "vig": 0.0434,
+  "total": 44.5,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-10-20T18:27:45.553147+00:00"
  }
 ]
