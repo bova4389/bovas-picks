@@ -1844,5 +1844,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-10-20T18:27:45.553147+00:00"
+ },
+ {
+  "id": "550ec5290f935d311995affbcb0b5c79",
+  "commenceTime": "2026-10-25T17:00:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 6,
+  "rawHomeProb": 0.5244,
+  "rawAwayProb": 0.5225,
+  "homeWinProb": 0.5009,
+  "awayWinProb": 0.4991,
+  "vig": 0.0469,
+  "total": 48.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-21T18:39:04.860731+00:00"
  }
 ]
