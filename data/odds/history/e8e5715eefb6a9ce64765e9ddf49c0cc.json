@@ -1876,5 +1876,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-22T07:41:21.730709+00:00"
+ },
+ {
+  "id": "e8e5715eefb6a9ce64765e9ddf49c0cc",
+  "commenceTime": "2026-10-25T20:25:00Z",
+  "home": "Detroit Lions",
+  "away": "Green Bay Packers",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6368,
+  "rawAwayProb": 0.4039,
+  "homeWinProb": 0.6119,
+  "awayWinProb": 0.3881,
+  "vig": 0.0408,
+  "total": 53.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-22T13:52:13.068590+00:00"
  }
 ]
