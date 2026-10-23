@@ -315,19 +315,19 @@
     },
     "7": {
       "week": 7,
-      "builtAt": "2026-10-23T07:38:46.521Z",
-      "oddsFetchedAt": "2026-10-23T07:38:41.796158+00:00",
+      "builtAt": "2026-10-23T13:32:32.740Z",
+      "oddsFetchedAt": "2026-10-23T13:32:27.948993+00:00",
       "confidence": "firming",
       "exposure": {
         "tickets": 1,
         "games": 1,
-        "pAllLose": 0.1996
+        "pAllLose": 0.1995
       },
       "picks": [
         {
           "pool": "deadpool",
           "team": "HOU",
-          "p": 0.8004,
+          "p": 0.8005,
           "gap": 0,
           "fvCost": 0.0749,
           "share": null,
