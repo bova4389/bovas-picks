@@ -1732,5 +1732,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-22T23:26:28.589495+00:00"
+ },
+ {
+  "id": "b1be064fb52a198a62109c279e7ab24c",
+  "commenceTime": "2026-10-25T17:00:00Z",
+  "home": "Atlanta Falcons",
+  "away": "San Francisco 49ers",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.4435,
+  "rawAwayProb": 0.5963,
+  "homeWinProb": 0.4265,
+  "awayWinProb": 0.5735,
+  "vig": 0.0398,
+  "total": 50.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-23T07:38:41.796158+00:00"
  }
 ]
