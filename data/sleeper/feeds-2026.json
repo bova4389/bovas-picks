@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-23T18:42:12.712Z",
+ "generated": "2026-10-24T17:34:47.730Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -210,7 +210,7 @@
      "entrants": 0,
      "distinctTeams": 0,
      "picks": [],
-     "submitted": 5,
+     "submitted": 6,
      "revealed": 0,
      "expected": 20,
      "complete": false
@@ -659,7 +659,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1792780932562,
+   "fetchedAt": 1792863287606,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1145,9 +1145,9 @@
        "count": 1
       }
      ],
-     "submitted": 71,
+     "submitted": 79,
      "revealed": 3,
-     "locked": 68,
+     "locked": 76,
      "entrants": 18
     }
    },
@@ -2864,7 +2864,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1792780932709,
+   "fetchedAt": 1792863287729,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
