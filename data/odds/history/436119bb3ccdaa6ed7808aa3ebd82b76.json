@@ -1876,5 +1876,21 @@
   "totalBookCount": 8,
   "bucket": 0,
   "fetchedAt": "2026-10-24T22:32:44.751659+00:00"
+ },
+ {
+  "id": "436119bb3ccdaa6ed7808aa3ebd82b76",
+  "commenceTime": "2026-10-25T20:05:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Denver Broncos",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.3466,
+  "rawAwayProb": 0.696,
+  "homeWinProb": 0.3324,
+  "awayWinProb": 0.6676,
+  "vig": 0.0426,
+  "total": 43.5,
+  "totalBookCount": 8,
+  "bucket": 0,
+  "fetchedAt": "2026-10-25T01:15:23.749148+00:00"
  }
 ]
