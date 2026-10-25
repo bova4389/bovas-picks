@@ -1,7 +1,23 @@
 {
  "year": 2026,
  "week": 2,
- "answerKey": {},
+ "answerKey": {
+  "4": 1,
+  "5": 3,
+  "6": 5,
+  "7": 7,
+  "8": 10,
+  "9": 11,
+  "10": 13,
+  "11": 15,
+  "12": 18,
+  "13": 19,
+  "14": 21,
+  "15": 24,
+  "16": 26,
+  "17": 28,
+  "18": 30
+ },
  "entries": [
   {
    "entry": 1,
@@ -25,7 +41,7 @@
     30
    ],
    "mnf": 54,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 2,
@@ -49,7 +65,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 3,
@@ -73,7 +89,7 @@
     30
    ],
    "mnf": 36,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 4,
@@ -97,7 +113,7 @@
     30
    ],
    "mnf": 59,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 5,
@@ -121,7 +137,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 6,
@@ -145,7 +161,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 7,
@@ -169,7 +185,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 8,
@@ -193,7 +209,7 @@
     30
    ],
    "mnf": 58,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 9,
@@ -217,7 +233,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 10,
@@ -241,7 +257,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 11,
@@ -265,7 +281,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 12,
@@ -289,7 +305,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 13,
@@ -313,7 +329,7 @@
     29
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 14,
@@ -337,7 +353,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 15,
@@ -361,7 +377,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 16,
@@ -385,7 +401,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 17,
@@ -409,7 +425,7 @@
     29
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 18,
@@ -433,7 +449,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 19,
@@ -457,7 +473,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 20,
@@ -481,7 +497,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 21,
@@ -505,7 +521,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 22,
@@ -529,7 +545,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 23,
@@ -553,7 +569,7 @@
     30
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 24,
@@ -577,7 +593,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 25,
@@ -601,7 +617,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 26,
@@ -625,7 +641,7 @@
     30
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 27,
@@ -649,7 +665,7 @@
     29
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 28,
@@ -673,7 +689,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 29,
@@ -697,7 +713,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 30,
@@ -721,7 +737,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 31,
@@ -745,7 +761,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 32,
@@ -769,7 +785,7 @@
     30
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 33,
@@ -793,7 +809,7 @@
     30
    ],
    "mnf": 38,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 34,
@@ -817,7 +833,7 @@
     29
    ],
    "mnf": 37,
-   "correct": null
+   "correct": 5
   },
   {
    "entry": 35,
@@ -841,7 +857,7 @@
     30
    ],
    "mnf": 73,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 36,
@@ -865,7 +881,7 @@
     29
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 37,
@@ -889,7 +905,7 @@
     30
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 38,
@@ -913,7 +929,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 39,
@@ -937,7 +953,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 40,
@@ -961,7 +977,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 41,
@@ -985,7 +1001,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 42,
@@ -1009,7 +1025,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 43,
@@ -1033,7 +1049,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 44,
@@ -1057,7 +1073,7 @@
     30
    ],
    "mnf": 40,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 45,
@@ -1081,7 +1097,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 46,
@@ -1105,7 +1121,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 47,
@@ -1129,7 +1145,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 48,
@@ -1153,7 +1169,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 49,
@@ -1177,7 +1193,7 @@
     29
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 50,
@@ -1201,7 +1217,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 51,
@@ -1225,7 +1241,7 @@
     30
    ],
    "mnf": 38,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 52,
@@ -1249,7 +1265,7 @@
     29
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 53,
@@ -1273,7 +1289,7 @@
     30
    ],
    "mnf": 29,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 54,
@@ -1297,7 +1313,7 @@
     30
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 55,
@@ -1321,7 +1337,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 56,
@@ -1345,7 +1361,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 57,
@@ -1369,7 +1385,7 @@
     29
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 58,
@@ -1393,7 +1409,7 @@
     29
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 59,
@@ -1417,7 +1433,7 @@
     29
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 60,
@@ -1441,7 +1457,7 @@
     30
    ],
    "mnf": 50,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 61,
@@ -1465,7 +1481,7 @@
     30
    ],
    "mnf": 29,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 62,
@@ -1489,7 +1505,7 @@
     30
    ],
    "mnf": 57,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 63,
@@ -1513,7 +1529,7 @@
     30
    ],
    "mnf": 32,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 64,
@@ -1537,7 +1553,7 @@
     30
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 65,
@@ -1561,7 +1577,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 66,
@@ -1585,7 +1601,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 67,
@@ -1609,7 +1625,7 @@
     30
    ],
    "mnf": 59,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 68,
@@ -1633,7 +1649,7 @@
     30
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 69,
@@ -1657,7 +1673,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 70,
@@ -1681,7 +1697,7 @@
     30
    ],
    "mnf": 58,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 71,
@@ -1705,7 +1721,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 72,
@@ -1729,7 +1745,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 73,
@@ -1753,7 +1769,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 74,
@@ -1777,7 +1793,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 75,
@@ -1801,7 +1817,7 @@
     30
    ],
    "mnf": 35,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 76,
@@ -1825,7 +1841,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 77,
@@ -1849,7 +1865,7 @@
     30
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 78,
@@ -1873,7 +1889,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 79,
@@ -1897,7 +1913,7 @@
     29
    ],
    "mnf": 30,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 80,
@@ -1921,7 +1937,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 81,
@@ -1945,7 +1961,7 @@
     30
    ],
    "mnf": 37,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 82,
@@ -1969,7 +1985,7 @@
     30
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 83,
@@ -1993,7 +2009,7 @@
     30
    ],
    "mnf": 58,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 84,
@@ -2017,7 +2033,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 85,
@@ -2041,7 +2057,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 86,
@@ -2065,7 +2081,7 @@
     30
    ],
    "mnf": 50,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 87,
@@ -2089,7 +2105,7 @@
     30
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 88,
@@ -2113,7 +2129,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 89,
@@ -2137,7 +2153,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 90,
@@ -2161,7 +2177,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 91,
@@ -2185,7 +2201,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 92,
@@ -2209,7 +2225,7 @@
     29
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 93,
@@ -2233,7 +2249,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 95,
@@ -2257,7 +2273,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 96,
@@ -2281,7 +2297,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 97,
@@ -2305,7 +2321,7 @@
     29
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 98,
@@ -2329,7 +2345,7 @@
     30
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 99,
@@ -2353,7 +2369,7 @@
     29
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 100,
@@ -2377,7 +2393,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 101,
@@ -2401,7 +2417,7 @@
     30
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 102,
@@ -2425,7 +2441,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 103,
@@ -2449,7 +2465,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 104,
@@ -2473,7 +2489,7 @@
     30
    ],
    "mnf": 53,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 105,
@@ -2497,7 +2513,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 106,
@@ -2521,7 +2537,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 107,
@@ -2545,7 +2561,7 @@
     29
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 108,
@@ -2569,7 +2585,7 @@
     30
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 109,
@@ -2593,7 +2609,7 @@
     29
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 110,
@@ -2617,7 +2633,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 111,
@@ -2641,7 +2657,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 112,
@@ -2665,7 +2681,7 @@
     29
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 113,
@@ -2689,7 +2705,7 @@
     30
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 114,
@@ -2713,7 +2729,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 115,
@@ -2737,7 +2753,7 @@
     29
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 116,
@@ -2761,7 +2777,7 @@
     30
    ],
    "mnf": 40,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 117,
@@ -2785,7 +2801,7 @@
     30
    ],
    "mnf": 50,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 118,
@@ -2809,7 +2825,7 @@
     30
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 119,
@@ -2833,7 +2849,7 @@
     30
    ],
    "mnf": 55,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 120,
@@ -2857,7 +2873,7 @@
     29
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 121,
@@ -2881,7 +2897,7 @@
     30
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 122,
@@ -2905,7 +2921,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 123,
@@ -2929,7 +2945,7 @@
     30
    ],
    "mnf": 53,
-   "correct": null
+   "correct": 12
   },
   {
    "entry": 124,
@@ -2953,7 +2969,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 125,
@@ -2977,7 +2993,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 126,
@@ -3001,7 +3017,7 @@
     30
    ],
    "mnf": 55,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 127,
@@ -3025,7 +3041,7 @@
     29
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 128,
@@ -3049,7 +3065,7 @@
     30
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 129,
@@ -3073,7 +3089,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 130,
@@ -3097,7 +3113,7 @@
     30
    ],
    "mnf": 54,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 131,
@@ -3121,7 +3137,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 132,
@@ -3145,7 +3161,7 @@
     29
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 133,
@@ -3169,7 +3185,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 134,
@@ -3193,7 +3209,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 135,
@@ -3217,7 +3233,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 136,
@@ -3241,7 +3257,7 @@
     30
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 137,
@@ -3265,7 +3281,7 @@
     30
    ],
    "mnf": 50,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 138,
@@ -3289,7 +3305,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 139,
@@ -3313,7 +3329,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 140,
@@ -3337,7 +3353,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 141,
@@ -3361,7 +3377,7 @@
     29
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 4
   },
   {
    "entry": 142,
@@ -3385,7 +3401,7 @@
     29
    ],
    "mnf": 36,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 143,
@@ -3409,7 +3425,7 @@
     29
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 144,
@@ -3433,7 +3449,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 145,
@@ -3457,7 +3473,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 146,
@@ -3481,7 +3497,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 147,
@@ -3505,7 +3521,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 148,
@@ -3529,7 +3545,7 @@
     30
    ],
    "mnf": 55,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 149,
@@ -3553,7 +3569,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 150,
@@ -3577,7 +3593,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 151,
@@ -3601,7 +3617,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 152,
@@ -3625,7 +3641,7 @@
     30
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 153,
@@ -3649,7 +3665,7 @@
     30
    ],
    "mnf": 39,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 154,
@@ -3673,7 +3689,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 155,
@@ -3697,7 +3713,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 156,
@@ -3721,7 +3737,7 @@
     30
    ],
    "mnf": 50,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 157,
@@ -3745,7 +3761,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 158,
@@ -3769,7 +3785,7 @@
     29
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 159,
@@ -3793,7 +3809,7 @@
     30
    ],
    "mnf": 54,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 160,
@@ -3817,7 +3833,7 @@
     29
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 161,
@@ -3841,7 +3857,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 162,
@@ -3865,7 +3881,7 @@
     30
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 163,
@@ -3889,7 +3905,7 @@
     30
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 164,
@@ -3913,7 +3929,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 165,
@@ -3937,7 +3953,7 @@
     29
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 166,
@@ -3961,7 +3977,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 167,
@@ -3985,7 +4001,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 168,
@@ -4009,7 +4025,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 169,
@@ -4033,7 +4049,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 170,
@@ -4057,7 +4073,7 @@
     30
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 171,
@@ -4081,7 +4097,7 @@
     30
    ],
    "mnf": 36,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 172,
@@ -4105,7 +4121,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 173,
@@ -4129,7 +4145,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 174,
@@ -4153,7 +4169,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 175,
@@ -4177,7 +4193,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 176,
@@ -4201,7 +4217,7 @@
     29
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 177,
@@ -4225,7 +4241,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 178,
@@ -4249,7 +4265,7 @@
     30
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 179,
@@ -4273,7 +4289,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 180,
@@ -4297,7 +4313,7 @@
     30
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 181,
@@ -4321,7 +4337,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 182,
@@ -4345,7 +4361,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 183,
@@ -4369,7 +4385,7 @@
     30
    ],
    "mnf": 63,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 184,
@@ -4393,7 +4409,7 @@
     30
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 185,
@@ -4417,7 +4433,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 186,
@@ -4441,7 +4457,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 187,
@@ -4465,7 +4481,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 188,
@@ -4489,7 +4505,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 189,
@@ -4513,7 +4529,7 @@
     29
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 190,
@@ -4537,7 +4553,7 @@
     29
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 191,
@@ -4561,7 +4577,7 @@
     30
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 192,
@@ -4585,7 +4601,7 @@
     30
    ],
    "mnf": 39,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 193,
@@ -4609,7 +4625,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 194,
@@ -4633,7 +4649,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 195,
@@ -4657,7 +4673,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 196,
@@ -4681,7 +4697,7 @@
     30
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 197,
@@ -4705,7 +4721,7 @@
     29
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 198,
@@ -4729,7 +4745,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 199,
@@ -4753,7 +4769,7 @@
     30
    ],
    "mnf": 58,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 200,
@@ -4777,7 +4793,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 201,
@@ -4801,7 +4817,7 @@
     30
    ],
    "mnf": 50,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 202,
@@ -4825,7 +4841,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 203,
@@ -4849,7 +4865,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 204,
@@ -4873,7 +4889,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 205,
@@ -4897,7 +4913,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 206,
@@ -4921,7 +4937,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 207,
@@ -4945,7 +4961,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 208,
@@ -4969,7 +4985,7 @@
     29
    ],
    "mnf": 38,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 209,
@@ -4993,7 +5009,7 @@
     30
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 210,
@@ -5017,7 +5033,7 @@
     29
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 6
   },
   {
    "entry": 211,
@@ -5041,7 +5057,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 212,
@@ -5065,7 +5081,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 213,
@@ -5089,7 +5105,7 @@
     30
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 214,
@@ -5113,7 +5129,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 215,
@@ -5137,7 +5153,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 216,
@@ -5161,7 +5177,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 217,
@@ -5185,7 +5201,7 @@
     29
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 218,
@@ -5209,7 +5225,7 @@
     30
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 219,
@@ -5233,7 +5249,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 220,
@@ -5257,7 +5273,7 @@
     29
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 221,
@@ -5281,7 +5297,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 222,
@@ -5305,7 +5321,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 223,
@@ -5329,7 +5345,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 224,
@@ -5353,7 +5369,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 225,
@@ -5377,7 +5393,7 @@
     29
    ],
    "mnf": 50,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 226,
@@ -5401,7 +5417,7 @@
     30
    ],
    "mnf": 54,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 227,
@@ -5425,7 +5441,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 228,
@@ -5449,7 +5465,7 @@
     30
    ],
    "mnf": 50,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 229,
@@ -5473,7 +5489,7 @@
     30
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 230,
@@ -5497,7 +5513,7 @@
     30
    ],
    "mnf": 51,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 231,
@@ -5521,7 +5537,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 232,
@@ -5545,7 +5561,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 233,
@@ -5569,7 +5585,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 234,
@@ -5593,7 +5609,7 @@
     29
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 235,
@@ -5617,7 +5633,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 236,
@@ -5641,7 +5657,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 237,
@@ -5665,7 +5681,7 @@
     30
    ],
    "mnf": 50,
-   "correct": null
+   "correct": 12
   },
   {
    "entry": 238,
@@ -5689,7 +5705,7 @@
     30
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 239,
@@ -5713,7 +5729,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 240,
@@ -5737,7 +5753,7 @@
     29
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 241,
@@ -5761,7 +5777,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 242,
@@ -5785,7 +5801,7 @@
     29
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 243,
@@ -5809,7 +5825,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 244,
@@ -5833,7 +5849,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 245,
@@ -5857,7 +5873,7 @@
     29
    ],
    "mnf": 37,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 246,
@@ -5881,7 +5897,7 @@
     29
    ],
    "mnf": 37,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 247,
@@ -5905,7 +5921,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 248,
@@ -5929,7 +5945,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 249,
@@ -5953,7 +5969,7 @@
     30
    ],
    "mnf": 52,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 250,
@@ -5977,7 +5993,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 251,
@@ -6001,7 +6017,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 253,
@@ -6025,7 +6041,7 @@
     29
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 254,
@@ -6049,7 +6065,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 255,
@@ -6073,7 +6089,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 256,
@@ -6097,7 +6113,7 @@
     30
    ],
    "mnf": 54,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 257,
@@ -6121,7 +6137,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 258,
@@ -6145,7 +6161,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 259,
@@ -6169,7 +6185,7 @@
     30
    ],
    "mnf": 48,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 260,
@@ -6193,7 +6209,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 261,
@@ -6217,7 +6233,7 @@
     30
    ],
    "mnf": 21,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 262,
@@ -6241,7 +6257,7 @@
     29
    ],
    "mnf": 27,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 263,
@@ -6265,7 +6281,7 @@
     30
    ],
    "mnf": 37,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 264,
@@ -6289,7 +6305,7 @@
     30
    ],
    "mnf": 32,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 265,
@@ -6313,7 +6329,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 266,
@@ -6337,7 +6353,7 @@
     29
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 267,
@@ -6361,7 +6377,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 7
   },
   {
    "entry": 268,
@@ -6385,7 +6401,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 269,
@@ -6409,7 +6425,7 @@
     30
    ],
    "mnf": 41,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 270,
@@ -6433,7 +6449,7 @@
     30
    ],
    "mnf": 42,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 271,
@@ -6457,7 +6473,7 @@
     30
    ],
    "mnf": 37,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 272,
@@ -6481,7 +6497,7 @@
     30
    ],
    "mnf": 59,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 273,
@@ -6505,7 +6521,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 274,
@@ -6529,7 +6545,7 @@
     30
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 275,
@@ -6553,7 +6569,7 @@
     29
    ],
    "mnf": 43,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 276,
@@ -6577,7 +6593,7 @@
     30
    ],
    "mnf": 45,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 277,
@@ -6601,7 +6617,7 @@
     30
    ],
    "mnf": 49,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 278,
@@ -6625,7 +6641,7 @@
     30
    ],
    "mnf": 46,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 279,
@@ -6649,7 +6665,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 11
   },
   {
    "entry": 280,
@@ -6673,7 +6689,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 281,
@@ -6697,7 +6713,7 @@
     30
    ],
    "mnf": 47,
-   "correct": null
+   "correct": 10
   },
   {
    "entry": 282,
@@ -6721,7 +6737,7 @@
     29
    ],
    "mnf": 40,
-   "correct": null
+   "correct": 9
   },
   {
    "entry": 283,
@@ -6745,7 +6761,7 @@
     30
    ],
    "mnf": 44,
-   "correct": null
+   "correct": 8
   },
   {
    "entry": 284,
@@ -6769,7 +6785,7 @@
     30
    ],
    "mnf": 35,
-   "correct": null
+   "correct": 8
   }
  ]
 }
