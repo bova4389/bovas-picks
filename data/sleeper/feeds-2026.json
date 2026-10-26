@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-25T22:46:51.698Z",
+ "generated": "2026-10-26T01:36:47.646Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -689,7 +689,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1792968411480,
+   "fetchedAt": 1792978607410,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1207,6 +1207,14 @@
        "count": 7
       },
       {
+       "team": "KC",
+       "count": 4
+      },
+      {
+       "team": "SEA",
+       "count": 3
+      },
+      {
        "team": "BAL",
        "count": 2
       },
@@ -1240,8 +1248,8 @@
       }
      ],
      "submitted": 135,
-     "revealed": 116,
-     "locked": 19,
+     "revealed": 123,
+     "locked": 12,
      "entrants": 18
     }
    },
@@ -1318,7 +1326,8 @@
        "HOU",
        "PIT",
        "NYJ",
-       "LAR"
+       "LAR",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -1420,6 +1429,7 @@
        "NE",
        "HOU",
        "LAR",
+       "KC",
        "CLE"
       ]
      },
@@ -1628,6 +1638,7 @@
        "MIN",
        "PIT",
        "NYJ",
+       "KC",
        "CLE"
       ]
      },
@@ -1733,7 +1744,8 @@
       "7": [
        "ARI",
        "DET",
-       "LAR"
+       "LAR",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -1951,6 +1963,7 @@
        "MIN",
        "NYJ",
        "LV",
+       "SEA",
        "CLE"
       ]
      },
@@ -2231,7 +2244,8 @@
       "7": [
        "DEN",
        "GB",
-       "LAR"
+       "LAR",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -2336,7 +2350,8 @@
       "7": [
        "DEN",
        "DET",
-       "LAR"
+       "LAR",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -3101,7 +3116,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1792968411697,
+   "fetchedAt": 1792978607643,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
