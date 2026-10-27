@@ -1,10 +1,10 @@
 {
  "season": 2026,
- "generated": "2026-10-26T01:36:47.646Z",
+ "generated": "2026-10-27T05:32:38.878Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
-   "currentWeek": 7,
+   "currentWeek": 8,
    "weeks": {
     "1": {
      "entrants": 20,
@@ -230,6 +230,15 @@
      "revealed": 7,
      "expected": 20,
      "complete": false
+    },
+    "8": {
+     "entrants": 0,
+     "distinctTeams": 0,
+     "picks": [],
+     "submitted": 0,
+     "revealed": 0,
+     "expected": 20,
+     "complete": false
     }
    },
    "entries": [
@@ -249,7 +258,7 @@
       "7": "HOU"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "JAC",
       "SF",
@@ -276,7 +285,7 @@
       "7": "HOU"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "PIT",
       "TB",
@@ -330,7 +339,7 @@
       "7": "HOU"
      },
      "problems": [],
-     "alive": true,
+     "alive": false,
      "used": [
       "JAC",
       "TB",
@@ -689,7 +698,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1792978607410,
+   "fetchedAt": 1793079158636,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -698,7 +707,7 @@
   },
   "1400511807180828672": {
    "year": 2026,
-   "currentWeek": 7,
+   "currentWeek": 8,
    "weeks": {
     "1": {
      "rows": [
@@ -1175,6 +1184,10 @@
        "count": 14
       },
       {
+       "team": "DAL",
+       "count": 12
+      },
+      {
        "team": "NYJ",
        "count": 12
       },
@@ -1248,8 +1261,15 @@
       }
      ],
      "submitted": 135,
-     "revealed": 123,
-     "locked": 12,
+     "revealed": 135,
+     "locked": 0,
+     "entrants": 18
+    },
+    "8": {
+     "rows": [],
+     "submitted": 8,
+     "revealed": 0,
+     "locked": 8,
      "entrants": 18
     }
    },
@@ -1327,6 +1347,7 @@
        "PIT",
        "NYJ",
        "LAR",
+       "DAL",
        "SEA"
       ]
      },
@@ -1360,6 +1381,11 @@
        "guess": 59,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 51,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -1453,6 +1479,11 @@
        "guess": 56,
        "away": "BUF",
        "home": "LAR"
+      },
+      "7": {
+       "guess": 45,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -1529,6 +1560,7 @@
        "MIN",
        "PIT",
        "NYJ",
+       "DAL",
        "CLE"
       ]
      },
@@ -1562,6 +1594,11 @@
        "guess": 46,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 47,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -1672,6 +1709,11 @@
        "guess": 52,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 36,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -1745,6 +1787,7 @@
        "ARI",
        "DET",
        "LAR",
+       "DAL",
        "KC"
       ]
      },
@@ -1778,6 +1821,11 @@
        "guess": 53,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 37,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -1854,7 +1902,8 @@
        "HOU",
        "MIN",
        "NYJ",
-       "LAR"
+       "LAR",
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -1887,6 +1936,11 @@
        "guess": 56,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 38,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -1997,6 +2051,11 @@
        "guess": 46,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 43,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -2072,7 +2131,8 @@
        "MIN",
        "PIT",
        "NYJ",
-       "LAR"
+       "LAR",
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -2095,6 +2155,11 @@
        "guess": 41,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 42,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -2171,7 +2236,8 @@
        "HOU",
        "MIN",
        "PIT",
-       "LAR"
+       "LAR",
+       "DAL"
       ]
      }
     },
@@ -2245,6 +2311,7 @@
        "DEN",
        "GB",
        "LAR",
+       "DAL",
        "KC"
       ]
      },
@@ -2278,6 +2345,11 @@
        "guess": 48,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 44,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -2351,6 +2423,7 @@
        "DEN",
        "DET",
        "LAR",
+       "DAL",
        "SEA"
       ]
      },
@@ -2468,6 +2541,11 @@
        "guess": 60,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 52,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -2678,6 +2756,11 @@
        "guess": 42,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 42,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -2754,6 +2837,7 @@
        "PIT",
        "NYJ",
        "LAR",
+       "DAL",
        "CLE"
       ]
      },
@@ -2787,6 +2871,11 @@
        "guess": 44,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 47,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -2863,6 +2952,7 @@
        "HOU",
        "MIN",
        "NYJ",
+       "DAL",
        "CLE"
       ]
      },
@@ -2896,6 +2986,11 @@
        "guess": 51,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 44,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -2972,7 +3067,8 @@
        "HOU",
        "PIT",
        "NYJ",
-       "LAR"
+       "LAR",
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -3000,6 +3096,11 @@
        "guess": 41,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 42,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     },
@@ -3076,7 +3177,8 @@
        "HOU",
        "MIN",
        "NYJ",
-       "LAR"
+       "LAR",
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -3109,6 +3211,11 @@
        "guess": 53,
        "away": "WAS",
        "home": "SF"
+      },
+      "7": {
+       "guess": 45,
+       "away": "DAL",
+       "home": "PHI"
       }
      }
     }
@@ -3116,7 +3223,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1792978607643,
+   "fetchedAt": 1793079158876,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
