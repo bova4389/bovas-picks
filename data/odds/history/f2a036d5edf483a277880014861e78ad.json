@@ -1780,5 +1780,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-10-26T19:56:38.389734+00:00"
+ },
+ {
+  "id": "f2a036d5edf483a277880014861e78ad",
+  "commenceTime": "2026-11-01T21:25:00Z",
+  "home": "Denver Broncos",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.4981,
+  "rawAwayProb": 0.5456,
+  "homeWinProb": 0.4773,
+  "awayWinProb": 0.5227,
+  "vig": 0.0438,
+  "total": 41.0,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-10-27T19:25:50.441739+00:00"
  }
 ]
