@@ -341,21 +341,21 @@
     },
     "8": {
       "week": 8,
-      "builtAt": "2026-10-27T19:25:55.026Z",
-      "oddsFetchedAt": "2026-10-27T19:25:50.441739+00:00",
+      "builtAt": "2026-10-28T19:33:46.713Z",
+      "oddsFetchedAt": "2026-10-28T19:33:41.933948+00:00",
       "confidence": "provisional",
       "exposure": {
         "tickets": 1,
         "games": 1,
-        "pAllLose": 0.1841
+        "pAllLose": 0.184
       },
       "picks": [
         {
           "pool": "deadpool",
           "team": "CIN",
-          "p": 0.8159,
+          "p": 0.816,
           "gap": 0,
-          "fvCost": -0.0621,
+          "fvCost": -0.0534,
           "share": null,
           "basis": "win-probability",
           "entrants": 20,

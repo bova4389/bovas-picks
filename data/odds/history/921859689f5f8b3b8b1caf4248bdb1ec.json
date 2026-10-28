@@ -1796,5 +1796,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-10-27T19:25:50.441739+00:00"
+ },
+ {
+  "id": "921859689f5f8b3b8b1caf4248bdb1ec",
+  "commenceTime": "2026-11-01T18:00:00Z",
+  "home": "Tampa Bay Buccaneers",
+  "away": "Atlanta Falcons",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.5805,
+  "rawAwayProb": 0.4622,
+  "homeWinProb": 0.5568,
+  "awayWinProb": 0.4432,
+  "vig": 0.0427,
+  "total": 45.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-28T19:33:41.933948+00:00"
  }
 ]

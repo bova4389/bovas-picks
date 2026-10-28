@@ -1524,5 +1524,21 @@
   "totalBookCount": 1,
   "bucket": 8,
   "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
+ },
+ {
+  "id": "9760d8f19f84bfee300a74ceb656c95d",
+  "commenceTime": "2026-11-09T01:20:00Z",
+  "home": "Chicago Bears",
+  "away": "Tampa Bay Buccaneers",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.7311,
+  "rawAwayProb": 0.3131,
+  "homeWinProb": 0.7001,
+  "awayWinProb": 0.2999,
+  "vig": 0.0443,
+  "total": 48.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-10-28T19:33:41.933948+00:00"
  }
 ]

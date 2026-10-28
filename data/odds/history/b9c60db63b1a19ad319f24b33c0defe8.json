@@ -1796,5 +1796,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-10-27T19:25:50.441739+00:00"
+ },
+ {
+  "id": "b9c60db63b1a19ad319f24b33c0defe8",
+  "commenceTime": "2026-11-02T01:20:00Z",
+  "home": "Washington Commanders",
+  "away": "Philadelphia Eagles",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.7088,
+  "rawAwayProb": 0.3322,
+  "homeWinProb": 0.6809,
+  "awayWinProb": 0.3191,
+  "vig": 0.0411,
+  "total": 40.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-28T19:33:41.933948+00:00"
  }
 ]

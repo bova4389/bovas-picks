@@ -1524,5 +1524,21 @@
   "totalBookCount": 1,
   "bucket": 8,
   "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
+ },
+ {
+  "id": "e354e6a04b1cb9c96e549b863debb92e",
+  "commenceTime": "2026-11-08T18:00:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "New York Jets",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.8427,
+  "rawAwayProb": 0.2008,
+  "homeWinProb": 0.8076,
+  "awayWinProb": 0.1924,
+  "vig": 0.0435,
+  "total": 43.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-10-28T19:33:41.933948+00:00"
  }
 ]
