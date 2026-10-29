@@ -1828,5 +1828,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-29T08:37:00.792157+00:00"
+ },
+ {
+  "id": "159dbf0253dd2038eda2212f84387f0c",
+  "commenceTime": "2026-11-01T18:00:00Z",
+  "home": "Jacksonville Jaguars",
+  "away": "Indianapolis Colts",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.8332,
+  "rawAwayProb": 0.2093,
+  "homeWinProb": 0.7993,
+  "awayWinProb": 0.2007,
+  "vig": 0.0425,
+  "total": 46.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-29T17:27:19.715612+00:00"
  }
 ]

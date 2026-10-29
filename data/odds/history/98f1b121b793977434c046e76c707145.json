@@ -1828,5 +1828,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-29T08:37:00.792157+00:00"
+ },
+ {
+  "id": "98f1b121b793977434c046e76c707145",
+  "commenceTime": "2026-11-01T18:00:00Z",
+  "home": "New York Jets",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.5524,
+  "rawAwayProb": 0.4924,
+  "homeWinProb": 0.5287,
+  "awayWinProb": 0.4713,
+  "vig": 0.0448,
+  "total": 45.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-29T17:27:19.715612+00:00"
  }
 ]
