@@ -1620,5 +1620,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-28T19:33:41.933948+00:00"
+ },
+ {
+  "id": "2ff84d3f6053d083c8c0a5bebf7cdd4c",
+  "commenceTime": "2026-11-01T21:05:00Z",
+  "home": "Los Angeles Rams",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.7466,
+  "rawAwayProb": 0.2954,
+  "homeWinProb": 0.7165,
+  "awayWinProb": 0.2835,
+  "vig": 0.0421,
+  "total": 45.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-29T08:37:00.792157+00:00"
  }
 ]
