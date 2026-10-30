@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-29T19:50:47.036Z",
+ "generated": "2026-10-30T06:27:27.339Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -698,7 +698,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1793303446812,
+   "fetchedAt": 1793341647137,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1266,10 +1266,19 @@
      "entrants": 18
     },
     "8": {
-     "rows": [],
+     "rows": [
+      {
+       "team": "GB",
+       "count": 5
+      },
+      {
+       "team": "CAR",
+       "count": 1
+      }
+     ],
      "submitted": 81,
-     "revealed": 0,
-     "locked": 81,
+     "revealed": 6,
+     "locked": 75,
      "entrants": 18
     }
    },
@@ -1457,6 +1466,9 @@
        "LAR",
        "KC",
        "CLE"
+      ],
+      "8": [
+       "CAR"
       ]
      },
      "tiebreakers": {
@@ -1562,6 +1574,9 @@
        "NYJ",
        "DAL",
        "CLE"
+      ],
+      "8": [
+       "GB"
       ]
      },
      "tiebreakers": {
@@ -2624,6 +2639,9 @@
        "MIN",
        "NYJ",
        "CLE"
+      ],
+      "8": [
+       "GB"
       ]
      },
      "tiebreakers": {
@@ -2839,6 +2857,9 @@
        "LAR",
        "DAL",
        "CLE"
+      ],
+      "8": [
+       "GB"
       ]
      },
      "tiebreakers": {
@@ -3069,6 +3090,9 @@
        "NYJ",
        "LAR",
        "DAL"
+      ],
+      "8": [
+       "GB"
       ]
      },
      "tiebreakers": {
@@ -3179,6 +3203,9 @@
        "NYJ",
        "LAR",
        "DAL"
+      ],
+      "8": [
+       "GB"
       ]
      },
      "tiebreakers": {
@@ -3223,7 +3250,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1793303447032,
+   "fetchedAt": 1793341647336,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
