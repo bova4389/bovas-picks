@@ -124,6 +124,7 @@ js/sharedFeeds.js   SHARED — seeds the pool caches from the GitHub job's copy 
 js/infinityPool.js  SHARED — Infinity War's league id, importable by Node   [NEVER versioned]
 js/sleeperBookmarklet.js SHARED — the "Get Sleeper token" bookmark        [NEVER versioned]
 js/pickShare.js     SHARED — modeled pick share + k calibration            [NEVER versioned]
+js/recordShare.js   SHARED — the record-aware share curve, pure          [NEVER versioned]
 js/injuries.js      SHARED — ESPN injury report, live from the browser      [NEVER versioned]
 js/teamIdentity.js  SHARED — team colors, uniforms, logo/wordmark paths     [NEVER versioned]
 js/schedule.js      Schedule tab — one week, live scores
@@ -696,6 +697,16 @@ script prices each game from its last pre-kickoff history snapshot, with the sam
 `fitK()`. **Measured 2026 Weeks 1–3: k = 2.75 over 44 games** — on a 74% favorite the pool is 95%
 chalk, not the 89% k=2 predicts. It runs **once at boot**; measured share always beats modeled
 for any week that has a file.
+
+**From Week 2 on, the modeled share is record-aware (2026-10-31).** The field picks the team
+with the better record over and above the price, so `fit-<year>.json` also carries a `record`
+block: `logit(dog share) = intercept + price·logit(p) + record·(dog win% − fav win%)`, with
+win% shrunk by half a game each way. That cut share error from 9.3 to 7.6 points, and raised
+the rules' weekly win chance from 0.99% to 1.13% on weeks the curve was not fitted on.
+`modeledShare()` in `recommend.js` applies it through `js/recordShare.js`, a new file for the
+cached-module reason. It falls back to the k curve when the fit has no `record` block or either
+team has not played yet. It models **the field only**; win probability never sees a record.
+`scripts/lookback.py` applies the same model, so the Lookback tab grades the rules the site uses.
 
 **Prior-season data is shown but never joined.** `priorProfile()` reports last season's real
 entrant count and concentration spread as context for a first-week entrant ("how many people am I

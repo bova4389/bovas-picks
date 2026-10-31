@@ -55,6 +55,7 @@ import {
 } from './oddsMatch.js';
 import { seasonBanner, isBlocked } from './seasonBanner.js';
 import { ABBR_TO_MASCOT, MASCOT_TO_ABBR } from './teams.js';
+import { teamRecords, recordShare, usableRecordFit } from './recordShare.js';
 import {
   DEFAULT_K, shareFor, leverageFor, fitK, pairsFrom, priorProfile,
 } from './pickShare.js';
@@ -83,6 +84,7 @@ const LONG_QUOTA = 1;        // never more than one a week
 let state = {
   map: null, schedule: null, snapshot: null, seasonIndex: null, kickoffs: new Map(),
   week: null, weeks: [], k: DEFAULT_K, kSource: 'default', prior: null,
+  recordFit: null, records: new Map(),
   injuries: null, movement: new Map(), identity: null,
 };
 
@@ -233,6 +235,8 @@ async function render() {
   }
 
   const pop = await getPopularity(state.week);
+  // Records going INTO the week -- the field picks on them (js/recordShare.js).
+  state.records = teamRecords(state.schedule, state.week);
   const rows = slateFor(state.week).map((g) => buildRow(g, pop));
   const priced = rows.filter((r) => r.awayProb != null);
 
@@ -275,6 +279,9 @@ async function calibrate() {
       state.k = fit.k;
       state.kSource = `fitted from ${fit.games} measured games this season`;
       state.fit = fit;
+      // The record-aware curve rides in the same file (2026-10-31). Absent in
+      // a fit written before then, which leaves the plain k curve in charge.
+      state.recordFit = usableRecordFit(fit.record) ? fit.record : null;
       return;
     }
   } catch { /* no committed fit yet: fall through to the live one */ }
@@ -329,13 +336,34 @@ function buildRow(g, pop) {
     row.share = (row.dogSide === 'away' ? measured.awayPct : measured.homePct) / 100;
     row.shareSource = 'measured';
   } else {
-    row.share = shareFor(row.dogProb, state.k);
+    row.share = modeledShare(row, g);
     row.shareSource = 'modeled';
   }
 
   row.leverage = leverageFor(row.dogProb, row.share);
   row.tier = tierOf(row);
   return row;
+}
+
+/**
+ * The dog's share when the field's cards are not in yet -- which is every
+ * week at the deadline, since they arrive after it.
+ *
+ * Record-aware when it can be: the field picks the better RECORD over and
+ * above the price (STRATEGY.md "Lookback -- 2026 Weeks 1-7"), and the plain
+ * k curve, seeing only the price, called a 4-2 dog lonely when half the pool
+ * was on it. Only once a game has been played, though: in Week 1 every record
+ * is 0-0 and the record term has nothing to say, so the k curve -- fitted on
+ * the same field -- stays in charge.
+ */
+function modeledShare(row, g) {
+  const fav = row.dogSide === 'away' ? g.homeAbbr : g.awayAbbr;
+  const dogRec = state.records.get(row.dogAbbr);
+  const favRec = state.records.get(fav);
+  if (state.recordFit && dogRec && favRec) {
+    return recordShare(row.dogProb, dogRec, favRec, state.recordFit);
+  }
+  return shareFor(row.dogProb, state.k);
 }
 
 /**
@@ -462,7 +490,9 @@ function plan({ priced, take, picked, live, longs, why }, pop) {
     </div>`;
 }
 
-const kNote = () => `Curve k=${state.k} (${state.kSource}).`;
+const kNote = () => (state.recordFit && state.records.size
+  ? `Modeled from price and both teams' records, ${state.kSource}.`
+  : `Curve k=${state.k} (${state.kSource}).`);
 
 /** The Monday tiebreaker, on the plan card, so the whole card -- picks and
  *  points -- is on one screen. Same suggestion as the Pick Sheet's box

@@ -232,8 +232,8 @@ function methodNote(data) {
   return `
     <p class="st-note st-fine lb-method">How this is worked out: every game is priced from its last
       odds snapshot before kickoff. "The site's rules" pick from the last price before the Saturday
-      deadline, with a modeled pick share (k = ${esc(data.k)}), because the field's cards arrive
-      after picks are due. "Best card possible" is the best card found by changing one game at a
+      deadline, with a modeled pick share${data.recordShare ? ' built from the price and both teams’ records, as Recommend does' : ` (k = ${esc(data.k)})`},
+      because the field's cards arrive after picks are due. "Best card possible" is the best card found by changing one game at a
       time with every card already known, so it is a ceiling, not a target. Rebuilt by
       <code>scripts/lookback.py</code>; the reasoning is in STRATEGY.md §4.</p>`;
 }

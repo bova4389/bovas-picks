@@ -34,7 +34,11 @@ Cards compared, each week:
     chalk        every Saturday favorite, our Monday guess
     rules        what the Recommend tab's rules pick, from SATURDAY prices
                  and a MODELED pick share -- the information it actually has
-                 when picks are due (the cards arrive after the deadline)
+                 when picks are due (the cards arrive after the deadline).
+                 Record-aware from Week 2 on, like the tab (2026-10-31). The
+                 curve is fitted on these same weeks, so this card is mildly
+                 in-sample: leave-one-week-out it measured 1.13% against the
+                 in-sample figure here, Weeks 1-7.
     rulesKnown   the same rules given the field's real pick shares -- what
                  better share estimates alone would be worth
     best         a hill-climb from the best of the above, one game flipped at
@@ -57,6 +61,8 @@ import random
 import statistics
 import sys
 from pathlib import Path
+
+from fit_pick_share import record_share, team_records, win_pct
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -135,7 +141,7 @@ class Week:
     """Everything the simulation needs, as bitmasks: bit i set = home side of
     counted game i."""
 
-    def __init__(self, year, week, games, entries, result, pop, histories, sched, k):
+    def __init__(self, year, week, games, entries, result, pop, histories, sched, k, record_fit=None):
         self.week = week
         self.games = games
         self.n = len(games)
@@ -202,6 +208,12 @@ class Week:
             p = meas.get((g["away"], g["home"]))
             self.share_home_meas.append(p["homePct"] / 100 if p else None)
         self.k = k
+        # js/recommend.js modeledShare(): record-aware once a game has been
+        # played, the plain k curve before then.
+        self.record_fit = record_fit
+        recs = team_records(sched, week)
+        abbr = {t["mascot"]: a for a, t in load(DATA / "teams" / "team-identity.json")["teams"].items()}
+        self.recs = [(recs.get(abbr.get(g["away"])), recs.get(abbr.get(g["home"]))) for g in games]
 
     # ── the rules, as js/recommend.js applies them ──
     def rules_card(self, measured):
@@ -214,7 +226,12 @@ class Week:
                 sh = self.share_home_meas[i]
                 share = sh if dog_home else 1 - sh
             else:
-                share = share_for(dog_p, self.k)
+                ra, rh = self.recs[i]
+                dog_r, fav_r = (rh, ra) if dog_home else (ra, rh)
+                if self.record_fit and dog_r and fav_r:
+                    share = record_share(dog_p, win_pct(dog_r) - win_pct(fav_r), self.record_fit)
+                else:
+                    share = share_for(dog_p, self.k)
             lev = dog_p / share if share else 0
             if dog_p < LONG_FLOOR:
                 tier = "below"
@@ -360,7 +377,9 @@ def main(argv):
     number_map = load(DATA / f"number-map-{year}.json")["weeks"]
     sched = load(DATA / f"schedule-{year}.json")["games"]
     fit = DATA / "popularity" / f"fit-{year}.json"
-    k = load(fit)["k"] if fit.exists() else 2.0
+    fit_doc = load(fit) if fit.exists() else {}
+    k = fit_doc.get("k", 2.0)
+    record_fit = fit_doc.get("record")
     histories = load_histories()
 
     weeks_out, people = [], {}
@@ -376,7 +395,7 @@ def main(argv):
         if not result.get("complete"):
             continue
         games = [dict(g) for g in number_map[str(week)] if g["counts"]]
-        wk = Week(year, week, games, cards["entries"], result, load(pop_path), histories, sched, k)
+        wk = Week(year, week, games, cards["entries"], result, load(pop_path), histories, sched, k, record_fit)
         if wk.mine is None:
             print(f"week {week}: no card for {MY_NICK}, skipped")
             continue
@@ -484,6 +503,7 @@ def main(argv):
         "season": year,
         "trials": TRIALS,
         "k": k,
+        "recordShare": bool(record_fit),
         "priceRule": "simulated from the last price before kickoff; rules choose from the last price before the Saturday deadline",
         "weeks": weeks_out,
         "calibration": [{"band": f"{b}-{b + 10}%", "games": c[0], "favWon": c[1],

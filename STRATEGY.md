@@ -410,8 +410,8 @@ above to within a few hundredths.
 | Pure chalk | 0.27% |
 | A random entry | 0.36% |
 | **Our actual cards** | **0.66%** |
-| The site's rules, as built | 0.99% |
-| The rules with a record-aware share model (fitted on the *other* six weeks) | 1.13% |
+| The site's rules, with the price-only share model used through Week 7 | 0.99% |
+| The rules with the record-aware share model (fitted on the *other* six weeks) | 1.13% |
 | The rules if we had known the field's real shares | 1.35% |
 | Best card possible, knowing every card | 1.77% |
 
@@ -446,9 +446,12 @@ What it showed:
 - **Leverage buckets (§6) say nothing yet.** 16 dogs below 1.5× won 6 (6.8 expected), 10 at
   1.5–2× won 5 (4.1), and 5 above 2× won 1 (1.8). That is too few to read.
 
-**Proposed change, not yet made: add team record to the pick-share model** (`fit_pick_share.py`
-fits the extra coefficient, and Recommend applies it when it models a share). It does not change
-the Week 8 card: both models take Ravens, Bears and Vikings, plus the Chargers as the longshot.
+**Change made 2026-10-31: the pick-share model now includes team records.**
+`scripts/fit_pick_share.py` fits the record term into `fit-<year>.json`. Recommend applies it
+(`js/recordShare.js`) whenever it has to model a share, from Week 2 on. In Week 1 every record
+is 0–0, so the price-only k curve stays in charge. The Lookback tab's rules card uses the same
+model. This change does not affect the Week 8 card: both models take the Ravens, Bears and
+Vikings, plus the Chargers as the longshot.
 
 ---
 

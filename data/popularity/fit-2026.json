@@ -14,5 +14,13 @@
   ],
   "rmse": 0.0934,
   "priceRule": "last odds snapshot before kickoff",
-  "fittedAt": "2026-10-25T14:59:21Z"
+  "record": {
+    "intercept": -0.1469,
+    "price": 2.2316,
+    "record": 1.1436,
+    "games": 99,
+    "rmse": 0.0764,
+    "rmseK": 0.0934
+  },
+  "fittedAt": "2026-10-31T16:14:24Z"
 }
