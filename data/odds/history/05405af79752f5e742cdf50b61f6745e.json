@@ -1656,5 +1656,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-10-30T21:33:18.114962+00:00"
+ },
+ {
+  "id": "05405af79752f5e742cdf50b61f6745e",
+  "commenceTime": "2026-11-01T21:25:00Z",
+  "home": "Miami Dolphins",
+  "away": "New England Patriots",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.2737,
+  "rawAwayProb": 0.7683,
+  "homeWinProb": 0.2627,
+  "awayWinProb": 0.7373,
+  "vig": 0.042,
+  "total": 43.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-10-31T02:28:30.123532+00:00"
  }
 ]
