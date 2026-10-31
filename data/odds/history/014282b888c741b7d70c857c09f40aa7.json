@@ -1604,5 +1604,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-10-31T02:28:30.123532+00:00"
+ },
+ {
+  "id": "014282b888c741b7d70c857c09f40aa7",
+  "commenceTime": "2026-11-08T18:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "Denver Broncos",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.4616,
+  "rawAwayProb": 0.5821,
+  "homeWinProb": 0.4423,
+  "awayWinProb": 0.5577,
+  "vig": 0.0437,
+  "total": 44.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-10-31T10:57:47.877902+00:00"
  }
 ]
