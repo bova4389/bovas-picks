@@ -78,6 +78,15 @@ jobs:
         continue-on-error: true
         run: python3 scripts/grade_week.py "${{ steps.season.outputs.year }}"
 
+      # Rebuild the Lookback tab's numbers from the week just graded. MUST
+      # follow grading: it only looks back on weeks that are carded AND graded
+      # complete. Stdlib only, ~2s a week. A week whose cards arrive after
+      # Tuesday is picked up the following Tuesday, or by running it by hand
+      # after parse_pool_picks.py. continue-on-error: never costs the commit.
+      - name: Rebuild lookback
+        continue-on-error: true
+        run: python3 scripts/lookback.py "${{ steps.season.outputs.year }}"
+
       # Freeze each finished Squares game's quarter scores into the pool file,
       # so the Season tab's ledger is permanent. Nothing did this until
       # 2026-09-27 and Weeks 1-2 went unrecorded. continue-on-error for the

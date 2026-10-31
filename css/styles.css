@@ -4052,3 +4052,33 @@ footer {
 .ghs-btn { min-height: 46px; }
 .ghs [data-gh-connect] { flex: 1 0 100%; }
 .wc-drift .ghs-btn { margin-top: 8px; }
+
+/* ── Lookback (js/lookback.js) ────────────────────────────────────────────
+   Borrows the Standings vocabulary (.st-card, .st-stats, .st-table, .st-res)
+   so a result chip and a leaderboard look the same on both tabs. Only the
+   chance bars are its own. They are scaled to the longest bar, not to 100%:
+   every number here is under 3%, and share-scaled bars would all be stubs.
+   The value is printed beside each bar so length is never read as the
+   figure itself. */
+.lb-bars { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 10px; }
+.lb-bar { display: grid; grid-template-columns: minmax(0, 1fr) 4.5rem; grid-template-areas: "label val" "track track"; gap: 4px 10px; align-items: center; }
+.lb-bar-label { grid-area: label; font-size: .875rem; font-weight: 500; color: var(--ink); }
+.lb-bar-note { font-weight: 400; font-size: .75rem; color: var(--ink-quiet); }
+.lb-bar-val { grid-area: val; text-align: right; font-variant-numeric: tabular-nums; font-size: .875rem; color: var(--ink); }
+.lb-bar-track { grid-area: track; height: 10px; background: var(--paper-2); border-radius: 999px; overflow: hidden; }
+.lb-bar-fill { display: block; height: 100%; background: var(--ink-quiet); border-radius: 999px; }
+.lb-bar.is-ours .lb-bar-fill { background: var(--purple-mid); }
+.lb-bar.is-ours .lb-bar-label, .lb-bar.is-ours .lb-bar-val { font-weight: 700; color: var(--fav-ink); }
+/* The ceiling is hatched: nobody can play it, so it must not look like a
+   result someone achieved. */
+.lb-bar.is-ceiling .lb-bar-fill { background: repeating-linear-gradient(135deg, var(--ink-quiet) 0 4px, var(--paper-2) 4px 7px); }
+@media (min-width: 640px) {
+  .lb-bar { grid-template-columns: 15rem minmax(0, 1fr) 4.5rem; grid-template-areas: "label track val"; }
+}
+.lb-week { border: 1px solid var(--line); border-radius: var(--r-md); padding: 10px 12px; }
+.lb-line { margin: 4px 0 0; font-size: .875rem; color: var(--ink); }
+.lb-chances { color: var(--ink-soft); }
+.lb-chances strong { color: var(--fav-ink); }
+.lb-quiet { color: var(--ink-soft); font-size: .8125rem; }
+.lb-dogs { margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.lb-method { margin: 0 4px 24px; }

@@ -398,6 +398,58 @@ Caveats: three weeks; the k fit and the longshot test are in-sample on those sam
 size of the gain is soft and its direction is the useful part. Re-run at Week 8 and again at the
 ~50-dog-pick floor §6 sets for any further change.
 
+### Lookback — 2026 Weeks 1–7 (2026-10-31)
+
+The Week 8 re-run. Same method as above, now scripted (`scripts/lookback.py`, rebuilt every
+Tuesday) and shown on the **Lookback** tab. "The site's rules" pick from the Saturday price and a
+**modeled** share, because that is all we have when picks are due. Weeks 1–3 reproduce the table
+above to within a few hundredths.
+
+| Chance of winning the week, average of 7 | |
+|---|---|
+| Pure chalk | 0.27% |
+| A random entry | 0.36% |
+| **Our actual cards** | **0.66%** |
+| The site's rules, as built | 0.99% |
+| The rules with a record-aware share model (fitted on the *other* six weeks) | 1.13% |
+| The rules if we had known the field's real shares | 1.35% |
+| Best card possible, knowing every card | 1.77% |
+
+What it showed:
+
+- **The thesis still holds.** Our cards are 2.4× chalk and 1.8× a random entry.
+- **Most of our shortfall was Weeks 1–4, before the 10/3 and 10/6 revisions.** Then our cards
+  averaged 0.55% against the rules' 1.29%. In Weeks 5–7 we followed the rules and matched them
+  (0.81% vs. 0.74%). The rest of the gap is execution that has already been fixed.
+- **Results are ordinary luck.** Our dogs won 12 of 31 against 12.7 expected. We are 58 right
+  against chalk's 65 (133rd of ~280). Week 7 (4 right, five dogs, all lost) was the bad draw.
+- **The market is honest.** Favorites won 65 of 98 against 63.6 expected. Nothing to exploit there.
+- **The biggest remaining leak is the pick-share estimate, not the rules.** The same rules, given
+  the field's real shares, are worth 1.35% against 0.99%. **The field picks the team with the
+  better record, over and above the price.** Logit regression across 99 games: share tracks
+  `2.25 × logit(price) + 1.13 × (dog win% − favorite win%)`. A 4–2 dog against a 2–5 favorite
+  draws ~49%, not the ~31% the price alone predicts. A 2–5 dog against a 6–0 favorite draws ~15%.
+  Tested on weeks it was not fit to, prediction error fell from 9.7 to 8.2 points, and the rules'
+  win chance rose from 0.99% to 1.13%. This models **the field's behavior**, not who wins, so §3's ban on
+  record-based "trend" angles does not apply. Win probability still comes only from the market.
+- **Dog count does not matter much.** With the record-aware share, 3, 4 or 5 live dogs land at
+  1.10–1.16%. The **lonely longshot earns its slot**: dropping it costs 0.2–0.3 points in every
+  variant. Keep both rules as they are.
+- **Threshold tuning is noise.** Thin share 0.35–0.45, lonely share 0.08–0.16 and a 0.35 floor are
+  all within ±0.05. A 0.40 floor scored 1.25%, but on 28 dogs, in-sample, that is not a finding.
+  Leave the 38% floor until the §6 sample floor.
+- **The tiebreaker barely moved anything** (±0.1 point; Week 2 was the largest, +0.14 with the
+  ±7 rule). Keep ±7.
+- **The season prize is out of reach.** The leaders are only +2 on chalk; we are 9 games back with
+  11 weeks left on a strategy expected to lose ~1 a week to chalk. Nothing in §4 Step 5 should
+  protect a season position from here. Play every week for the weekly prize.
+- **Leverage buckets (§6) say nothing yet.** 16 dogs below 1.5× won 6 (6.8 expected), 10 at
+  1.5–2× won 5 (4.1), and 5 above 2× won 1 (1.8). That is too few to read.
+
+**Proposed change, not yet made: add team record to the pick-share model** (`fit_pick_share.py`
+fits the extra coefficient, and Recommend applies it when it models a share). It does not change
+the Week 8 card: both models take Ravens, Bears and Vikings, plus the Chargers as the longshot.
+
 ---
 
 ## 5. The Monday Night Tiebreaker

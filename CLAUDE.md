@@ -10,12 +10,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   repo per the workspace convention (see workspace `CLAUDE.md` Git Setup). Pushed since 2026-08-11.
 - **Hosting**: **GitHub Pages, live** at `https://bova4389.github.io/bovas-picks/` (enabled
   2026-08-11), deploying from `main`. See GitHub Setup below.
-- **Status**: Schedule, Grid, Pick Sheet, Odds, Recommend, Planning, Picks, Infinity War and
-  Squares tabs are functional.
-  **Lookback is the only "Soon" panel left**, and it is genuinely blocked rather than unstarted:
-  it needs per-entrant weekly cards, and the first 2026 ones (Week 1, both workbooks) were parsed
-  2026-09-13. It needs graded weeks — the answer key fills in as results post — before it has
-  anything to look back on.
+- **Status**: Every tab is functional. **Lookback was the last "Soon" panel and was built
+  2026-10-31**; see Lookback Tab below.
 
 **Folder left as `NFL Pickems/`, not renamed to match.** The rename request was for *displayed*
 branding — title, header, docs — not the repo's on-disk path. Renaming the folder now would touch
@@ -154,6 +150,7 @@ js/payouts.js       SHARED — prize winners, season tables, burn matrix     [NE
 js/pickLock.js      SHARED — per-week Lock / Unlock for pick editing       [NEVER versioned]
 js/githubSync.js    SHARED — Lock saves the sent file to GitHub, per device key [NEVER versioned]
 js/tiebreak.js      SHARED — the Monday-total suggestion (line ± 7), pure       [NEVER versioned]
+js/lookback.js      Lookback tab — the season graded on process, reads data/results/lookback-<year>.json
 js/standings.js     Standings — Season Long: Mike's pick'em + Infinity War; Survivor: Mike's suicide + Poop + Deadpool
 js/squares.js       Squares Board tab — one week: matchup, board, payouts
 js/squaresLedger.js Squares Season tab — 18 weeks of payouts and P&L
@@ -736,6 +733,29 @@ it fills in asynchronously, and a bare `<p>` keeps the UA's 16px margin even at 
 "contending late") need a standings feed that does not exist yet. Guessing at whether we are
 contending would be worse than saying nothing, so `dogCount()` implements only the slate-shape
 rows.
+
+## Lookback Tab — Process, Not Outcome
+
+Built 2026-10-31. `js/lookback.js` renders `data/results/lookback-<year>.json`, which
+`scripts/lookback.py <year>` writes. The Tuesday schedule workflow reruns it right after grading,
+and it should also be run by hand after `parse_pool_picks.py`. The findings it produced are in
+STRATEGY.md, "Lookback — 2026 Weeks 1–7".
+
+- **The headline is a chance, not a result.** Each carded, graded week is replayed 40,000 times
+  from every game's last pre-kickoff price and scored against the real cards, with the real tie
+  rule (most correct, then closest Monday total, then split). The same simulated weeks score
+  every card, so differences between cards are paired comparisons, not noise.
+- **The simulation is offline because it is heavy**, around 2 seconds a week in Python. The browser
+  only formats. It is stdlib only, so CI needs no pip install. It is seeded, so an unchanged
+  week writes an identical file.
+- **"The site's rules" card is a copy of `markPicks()` / `tierOf()`** in `js/recommend.js`,
+  chosen from the **Saturday** price with a **modeled** share, because the field's cards arrive
+  after the deadline. If Recommend's rules change, change the `RULES` block in `lookback.py` in
+  the same commit, or the tab grades a rulebook the site no longer uses.
+- **"Best card possible" is a ceiling.** It comes from a one-game-at-a-time hill-climb with every
+  card known. The bar is hatched so it never reads as a result someone achieved.
+- It borrows the Standings classes (`.st-card`, `.st-stats`, `.st-table`, `.st-res`). Only the
+  chance bars (`.lb-*`) are its own.
 
 ## Planning Tab — Read Before Adding Any Number
 

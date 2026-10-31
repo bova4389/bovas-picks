@@ -36,6 +36,7 @@ import { initPlanning } from './planning.js';
 import { initWeekCard } from './weekCard.js';
 import { initInfinityWar } from './infinityWar.js';
 import { initStandings } from './standings.js';
+import { initLookback } from './lookback.js';
 import { initSquares } from './squares.js';
 import { initSquaresLedger } from './squaresLedger.js';
 
@@ -55,7 +56,7 @@ const PANELS = {
   infinity:  { label: 'Infinity War' },
   standings: { label: 'Standings' },
   'survivor-standings': { label: 'Standings' },
-  lookback:  { label: 'Lookback', soon: true },
+  lookback:  { label: 'Lookback' },
   survivor:  { label: 'Planning' },
   picks:     { label: 'Picks' },
   'squares-board':  { label: 'Board' },
@@ -363,5 +364,6 @@ initWeekCard(document.getElementById('picks-root'), SEASON);
 initInfinityWar(document.getElementById('infinity-root'), SEASON);
 initStandings(document.getElementById('standings-root'), SEASON, 'season');
 initStandings(document.getElementById('survivor-standings-root'), SEASON, 'survivor');
+initLookback(document.getElementById('lookback-root'), SEASON);
 initSquares(document.getElementById('squares-root'), SEASON);
 initSquaresLedger(document.getElementById('squares-season-root'), SEASON);

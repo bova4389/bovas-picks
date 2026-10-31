@@ -28,7 +28,7 @@
        because the Squares tab is deliberately not in this site's look --
        see the SQUARES block in css/styles.css. -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20261017" />
+  <link rel="stylesheet" href="css/styles.css?v=20261031" />
 </head>
 <body>
 
@@ -90,17 +90,10 @@
       </div>
     </section>
 
-    <!-- ── Placeholders ───────────────────────────────────────────────── -->
-    <section class="panel card soon" id="panel-lookback" role="tabpanel" hidden>
-      <p class="eyebrow">Needs more weekly files</p>
-      <h2>Field lookback</h2>
-      <p>Who in the pool actually picks well, and who quietly burns their week on longshots.</p>
-      <ul>
-        <li>Per-entrant accuracy, and accuracy relative to pure chalk</li>
-        <li>Who consistently finds live dogs versus who throws darts</li>
-        <li>Which teams the field over- and under-backs, week to week</li>
-        <li>Who to root for and against once your card is locked</li>
-      </ul>
+    <section class="panel" id="panel-lookback" role="tabpanel" hidden>
+      <div id="lookback-root">
+        <p class="eyebrow">Loading</p>
+      </div>
     </section>
 
     <section class="panel" id="panel-survivor" role="tabpanel" hidden>
@@ -157,6 +150,6 @@
     Personal tool. Picks are emailed manually — this only builds and checks the message.
   </footer>
 
-  <script type="module" src="js/app.js?v=20261019"></script>
+  <script type="module" src="js/app.js?v=20261031"></script>
 </body>
 </html>

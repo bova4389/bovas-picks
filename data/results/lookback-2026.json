@@ -1,0 +1,1430 @@
+{
+ "season": 2026,
+ "trials": 40000,
+ "k": 2.45,
+ "priceRule": "simulated from the last price before kickoff; rules choose from the last price before the Saturday deadline",
+ "weeks": [
+  {
+   "week": 1,
+   "entrants": 281,
+   "games": 14,
+   "k": 2.45,
+   "cards": {
+    "actual": {
+     "chance": 0.0046,
+     "correct": 10,
+     "dogs": [
+      {
+       "team": "Jets",
+       "p": 0.477,
+       "share": 0.32,
+       "won": true
+      },
+      {
+       "team": "Dolphins",
+       "p": 0.399,
+       "share": 0.217,
+       "won": false
+      },
+      {
+       "team": "Packers",
+       "p": 0.46,
+       "share": 0.495,
+       "won": false
+      },
+      {
+       "team": "Giants",
+       "p": 0.406,
+       "share": 0.242,
+       "won": true
+      },
+      {
+       "team": "Broncos",
+       "p": 0.444,
+       "share": 0.47,
+       "won": false
+      }
+     ],
+     "mnf": 36
+    },
+    "chalk": {
+     "chance": 0.00202,
+     "correct": 11,
+     "dogs": [],
+     "mnf": 36
+    },
+    "rules": {
+     "chance": 0.01201,
+     "correct": 7,
+     "dogs": [
+      {
+       "team": "Panthers",
+       "p": 0.392,
+       "share": 0.167,
+       "won": false
+      },
+      {
+       "team": "Colts",
+       "p": 0.394,
+       "share": 0.203,
+       "won": false
+      },
+      {
+       "team": "Falcons",
+       "p": 0.292,
+       "share": 0.064,
+       "won": false
+      },
+      {
+       "team": "Dolphins",
+       "p": 0.399,
+       "share": 0.217,
+       "won": false
+      }
+     ],
+     "mnf": 50
+    },
+    "rulesKnown": {
+     "chance": 0.01031,
+     "correct": 8,
+     "dogs": [
+      {
+       "team": "Panthers",
+       "p": 0.392,
+       "share": 0.167,
+       "won": false
+      },
+      {
+       "team": "Colts",
+       "p": 0.394,
+       "share": 0.203,
+       "won": false
+      },
+      {
+       "team": "Dolphins",
+       "p": 0.399,
+       "share": 0.217,
+       "won": false
+      },
+      {
+       "team": "Commanders",
+       "p": 0.316,
+       "share": 0.05,
+       "won": false
+      },
+      {
+       "team": "Giants",
+       "p": 0.406,
+       "share": 0.242,
+       "won": true
+      }
+     ],
+     "mnf": 50
+    },
+    "best": {
+     "chance": 0.01524,
+     "correct": 9,
+     "dogs": [
+      {
+       "team": "Panthers",
+       "p": 0.392,
+       "share": 0.167,
+       "won": false
+      },
+      {
+       "team": "Falcons",
+       "p": 0.292,
+       "share": 0.064,
+       "won": false
+      },
+      {
+       "team": "Jets",
+       "p": 0.477,
+       "share": 0.32,
+       "won": true
+      },
+      {
+       "team": "Dolphins",
+       "p": 0.399,
+       "share": 0.217,
+       "won": false
+      }
+     ],
+     "mnf": 50
+    }
+   },
+   "random": 0.00356,
+   "actualWithRuleTiebreak": 0.00453,
+   "rank": 100,
+   "myCorrect": 10,
+   "top": 13,
+   "median": 9,
+   "fieldDogsAvg": 2.99,
+   "mnfTotal": 41,
+   "marketTotal": 43.5,
+   "myMnf": 36,
+   "ruleMnf": 50,
+   "winners": [
+    {
+     "nick": "Crab Rangoon",
+     "correct": 13,
+     "mnf": 42,
+     "dogs": 2,
+     "dogsWon": 2
+    }
+   ],
+   "tiedAtTop": 1
+  },
+  {
+   "week": 2,
+   "entrants": 282,
+   "games": 15,
+   "k": 2.45,
+   "cards": {
+    "actual": {
+     "chance": 0.00812,
+     "correct": 8,
+     "dogs": [
+      {
+       "team": "Falcons",
+       "p": 0.424,
+       "share": 0.251,
+       "won": false
+      },
+      {
+       "team": "Bengals",
+       "p": 0.43,
+       "share": 0.372,
+       "won": true
+      },
+      {
+       "team": "Jaguars",
+       "p": 0.417,
+       "share": 0.489,
+       "won": false
+      },
+      {
+       "team": "Cardinals",
+       "p": 0.353,
+       "share": 0.156,
+       "won": false
+      }
+     ],
+     "mnf": 41
+    },
+    "chalk": {
+     "chance": 0.00095,
+     "correct": 10,
+     "dogs": [],
+     "mnf": 41
+    },
+    "rules": {
+     "chance": 0.01554,
+     "correct": 6,
+     "dogs": [
+      {
+       "team": "Falcons",
+       "p": 0.424,
+       "share": 0.251,
+       "won": false
+      },
+      {
+       "team": "Jets",
+       "p": 0.382,
+       "share": 0.199,
+       "won": false
+      },
+      {
+       "team": "Jaguars",
+       "p": 0.417,
+       "share": 0.489,
+       "won": false
+      },
+      {
+       "team": "Colts",
+       "p": 0.287,
+       "share": 0.028,
+       "won": false
+      }
+     ],
+     "mnf": 55
+    },
+    "rulesKnown": {
+     "chance": 0.01555,
+     "correct": 10,
+     "dogs": [
+      {
+       "team": "Falcons",
+       "p": 0.424,
+       "share": 0.251,
+       "won": false
+      },
+      {
+       "team": "Vikings",
+       "p": 0.34,
+       "share": 0.074,
+       "won": true
+      },
+      {
+       "team": "Bengals",
+       "p": 0.43,
+       "share": 0.372,
+       "won": true
+      },
+      {
+       "team": "Jets",
+       "p": 0.382,
+       "share": 0.199,
+       "won": false
+      }
+     ],
+     "mnf": 55
+    },
+    "best": {
+     "chance": 0.01833,
+     "correct": 8,
+     "dogs": [
+      {
+       "team": "Falcons",
+       "p": 0.424,
+       "share": 0.251,
+       "won": false
+      },
+      {
+       "team": "Vikings",
+       "p": 0.34,
+       "share": 0.074,
+       "won": true
+      },
+      {
+       "team": "Jets",
+       "p": 0.382,
+       "share": 0.199,
+       "won": false
+      },
+      {
+       "team": "Colts",
+       "p": 0.287,
+       "share": 0.028,
+       "won": false
+      }
+     ],
+     "mnf": 55
+    }
+   },
+   "random": 0.00355,
+   "actualWithRuleTiebreak": 0.00951,
+   "rank": 194,
+   "myCorrect": 8,
+   "top": 12,
+   "median": 9.0,
+   "fieldDogsAvg": 2.28,
+   "mnfTotal": 34,
+   "marketTotal": 48.0,
+   "myMnf": 41,
+   "ruleMnf": 55,
+   "winners": [
+    {
+     "nick": "Gator John",
+     "correct": 12,
+     "mnf": 50,
+     "dogs": 2,
+     "dogsWon": 2
+    }
+   ],
+   "tiedAtTop": 2
+  },
+  {
+   "week": 3,
+   "entrants": 281,
+   "games": 15,
+   "k": 2.45,
+   "cards": {
+    "actual": {
+     "chance": 0.00537,
+     "correct": 7,
+     "dogs": [
+      {
+       "team": "Browns",
+       "p": 0.449,
+       "share": 0.235,
+       "won": true
+      },
+      {
+       "team": "Patriots",
+       "p": 0.414,
+       "share": 0.231,
+       "won": false
+      },
+      {
+       "team": "Titans",
+       "p": 0.442,
+       "share": 0.431,
+       "won": false
+      },
+      {
+       "team": "Raiders",
+       "p": 0.383,
+       "share": 0.192,
+       "won": true
+      },
+      {
+       "team": "Cowboys",
+       "p": 0.383,
+       "share": 0.317,
+       "won": false
+      }
+     ],
+     "mnf": 36
+    },
+    "chalk": {
+     "chance": 0.00047,
+     "correct": 8,
+     "dogs": [],
+     "mnf": 36
+    },
+    "rules": {
+     "chance": 0.00723,
+     "correct": 5,
+     "dogs": [
+      {
+       "team": "Jets",
+       "p": 0.275,
+       "share": 0.032,
+       "won": false
+      },
+      {
+       "team": "Patriots",
+       "p": 0.414,
+       "share": 0.231,
+       "won": false
+      },
+      {
+       "team": "Titans",
+       "p": 0.442,
+       "share": 0.431,
+       "won": false
+      },
+      {
+       "team": "Raiders",
+       "p": 0.383,
+       "share": 0.192,
+       "won": true
+      },
+      {
+       "team": "Cowboys",
+       "p": 0.383,
+       "share": 0.317,
+       "won": false
+      }
+     ],
+     "mnf": 49
+    },
+    "rulesKnown": {
+     "chance": 0.01154,
+     "correct": 10,
+     "dogs": [
+      {
+       "team": "Browns",
+       "p": 0.449,
+       "share": 0.235,
+       "won": true
+      },
+      {
+       "team": "Patriots",
+       "p": 0.414,
+       "share": 0.231,
+       "won": false
+      },
+      {
+       "team": "Raiders",
+       "p": 0.383,
+       "share": 0.192,
+       "won": true
+      },
+      {
+       "team": "Bears",
+       "p": 0.375,
+       "share": 0.086,
+       "won": true
+      }
+     ],
+     "mnf": 49
+    },
+    "best": {
+     "chance": 0.01491,
+     "correct": 11,
+     "dogs": [
+      {
+       "team": "Browns",
+       "p": 0.449,
+       "share": 0.235,
+       "won": true
+      },
+      {
+       "team": "Patriots",
+       "p": 0.414,
+       "share": 0.231,
+       "won": false
+      },
+      {
+       "team": "Raiders",
+       "p": 0.383,
+       "share": 0.192,
+       "won": true
+      },
+      {
+       "team": "Broncos",
+       "p": 0.453,
+       "share": 0.317,
+       "won": true
+      },
+      {
+       "team": "Bears",
+       "p": 0.375,
+       "share": 0.086,
+       "won": true
+      }
+     ],
+     "mnf": 49
+    }
+   },
+   "random": 0.00356,
+   "actualWithRuleTiebreak": 0.00553,
+   "rank": 179,
+   "myCorrect": 7,
+   "top": 12,
+   "median": 8,
+   "fieldDogsAvg": 3.02,
+   "mnfTotal": 34,
+   "marketTotal": 42.0,
+   "myMnf": 36,
+   "ruleMnf": 49,
+   "winners": [
+    {
+     "nick": "Meredith",
+     "correct": 12,
+     "mnf": 42,
+     "dogs": 4,
+     "dogsWon": 4
+    },
+    {
+     "nick": "Ironman 87",
+     "correct": 12,
+     "mnf": 42,
+     "dogs": 4,
+     "dogsWon": 4
+    }
+   ],
+   "tiedAtTop": 3
+  },
+  {
+   "week": 4,
+   "entrants": 279,
+   "games": 15,
+   "k": 2.45,
+   "cards": {
+    "actual": {
+     "chance": 0.00369,
+     "correct": 11,
+     "dogs": [
+      {
+       "team": "Jaguars",
+       "p": 0.432,
+       "share": 0.491,
+       "won": true
+      },
+      {
+       "team": "Cowboys",
+       "p": 0.414,
+       "share": 0.462,
+       "won": true
+      },
+      {
+       "team": "Giants",
+       "p": 0.436,
+       "share": 0.451,
+       "won": true
+      },
+      {
+       "team": "Broncos",
+       "p": 0.429,
+       "share": 0.144,
+       "won": false
+      }
+     ],
+     "mnf": 41
+    },
+    "chalk": {
+     "chance": 0.00258,
+     "correct": 9,
+     "dogs": [],
+     "mnf": 41
+    },
+    "rules": {
+     "chance": 0.01206,
+     "correct": 9,
+     "dogs": [
+      {
+       "team": "Patriots",
+       "p": 0.266,
+       "share": 0.032,
+       "won": true
+      },
+      {
+       "team": "Cowboys",
+       "p": 0.414,
+       "share": 0.462,
+       "won": true
+      },
+      {
+       "team": "Buccaneers",
+       "p": 0.394,
+       "share": 0.258,
+       "won": false
+      },
+      {
+       "team": "Broncos",
+       "p": 0.429,
+       "share": 0.144,
+       "won": false
+      }
+     ],
+     "mnf": 55
+    },
+    "rulesKnown": {
+     "chance": 0.0155,
+     "correct": 9,
+     "dogs": [
+      {
+       "team": "Patriots",
+       "p": 0.266,
+       "share": 0.032,
+       "won": true
+      },
+      {
+       "team": "Buccaneers",
+       "p": 0.394,
+       "share": 0.258,
+       "won": false
+      },
+      {
+       "team": "Broncos",
+       "p": 0.429,
+       "share": 0.144,
+       "won": false
+      },
+      {
+       "team": "Falcons",
+       "p": 0.459,
+       "share": 0.222,
+       "won": true
+      }
+     ],
+     "mnf": 55
+    },
+    "best": {
+     "chance": 0.01589,
+     "correct": 8,
+     "dogs": [
+      {
+       "team": "Buccaneers",
+       "p": 0.394,
+       "share": 0.258,
+       "won": false
+      },
+      {
+       "team": "Broncos",
+       "p": 0.429,
+       "share": 0.144,
+       "won": false
+      },
+      {
+       "team": "Falcons",
+       "p": 0.459,
+       "share": 0.222,
+       "won": true
+      }
+     ],
+     "mnf": 55
+    }
+   },
+   "random": 0.00358,
+   "actualWithRuleTiebreak": 0.00402,
+   "rank": 63,
+   "myCorrect": 11,
+   "top": 13,
+   "median": 9,
+   "fieldDogsAvg": 3.24,
+   "mnfTotal": 69,
+   "marketTotal": 48.0,
+   "myMnf": 41,
+   "ruleMnf": 55,
+   "winners": [
+    {
+     "nick": "Momoneymac",
+     "correct": 13,
+     "mnf": 57,
+     "dogs": 4,
+     "dogsWon": 4
+    }
+   ],
+   "tiedAtTop": 3
+  },
+  {
+   "week": 5,
+   "entrants": 282,
+   "games": 14,
+   "k": 2.45,
+   "cards": {
+    "actual": {
+     "chance": 0.00978,
+     "correct": 9,
+     "dogs": [
+      {
+       "team": "Dolphins",
+       "p": 0.261,
+       "share": 0.074,
+       "won": false
+      },
+      {
+       "team": "Colts",
+       "p": 0.427,
+       "share": 0.342,
+       "won": false
+      },
+      {
+       "team": "49ers",
+       "p": 0.396,
+       "share": 0.383,
+       "won": true
+      },
+      {
+       "team": "Ravens",
+       "p": 0.386,
+       "share": 0.253,
+       "won": true
+      }
+     ],
+     "mnf": 62
+    },
+    "chalk": {
+     "chance": 0.00429,
+     "correct": 9,
+     "dogs": [],
+     "mnf": 62
+    },
+    "rules": {
+     "chance": 0.00677,
+     "correct": 10,
+     "dogs": [
+      {
+       "team": "Dolphins",
+       "p": 0.261,
+       "share": 0.074,
+       "won": false
+      },
+      {
+       "team": "Colts",
+       "p": 0.427,
+       "share": 0.342,
+       "won": false
+      },
+      {
+       "team": "49ers",
+       "p": 0.396,
+       "share": 0.383,
+       "won": true
+      },
+      {
+       "team": "Ravens",
+       "p": 0.386,
+       "share": 0.253,
+       "won": true
+      },
+      {
+       "team": "Bills",
+       "p": 0.387,
+       "share": 0.377,
+       "won": true
+      }
+     ],
+     "mnf": 62
+    },
+    "rulesKnown": {
+     "chance": 0.01056,
+     "correct": 8,
+     "dogs": [
+      {
+       "team": "Saints",
+       "p": 0.441,
+       "share": 0.294,
+       "won": false
+      },
+      {
+       "team": "Colts",
+       "p": 0.427,
+       "share": 0.342,
+       "won": false
+      },
+      {
+       "team": "Cardinals",
+       "p": 0.317,
+       "share": 0.11,
+       "won": false
+      },
+      {
+       "team": "Packers",
+       "p": 0.47,
+       "share": 0.344,
+       "won": true
+      },
+      {
+       "team": "Ravens",
+       "p": 0.386,
+       "share": 0.253,
+       "won": true
+      }
+     ],
+     "mnf": 62
+    },
+    "best": {
+     "chance": 0.01556,
+     "correct": 7,
+     "dogs": [
+      {
+       "team": "Raiders",
+       "p": 0.37,
+       "share": 0.27,
+       "won": false
+      },
+      {
+       "team": "Saints",
+       "p": 0.441,
+       "share": 0.294,
+       "won": false
+      },
+      {
+       "team": "Cardinals",
+       "p": 0.317,
+       "share": 0.11,
+       "won": false
+      },
+      {
+       "team": "Ravens",
+       "p": 0.386,
+       "share": 0.253,
+       "won": true
+      }
+     ],
+     "mnf": 62
+    }
+   },
+   "random": 0.00355,
+   "actualWithRuleTiebreak": 0.00978,
+   "rank": 47,
+   "myCorrect": 9,
+   "top": 12,
+   "median": 8.0,
+   "fieldDogsAvg": 4.01,
+   "mnfTotal": 71,
+   "marketTotal": 54.5,
+   "myMnf": 62,
+   "ruleMnf": 62,
+   "winners": [
+    {
+     "nick": "Dr T",
+     "correct": 12,
+     "mnf": 57,
+     "dogs": 4,
+     "dogsWon": 3
+    }
+   ],
+   "tiedAtTop": 3
+  },
+  {
+   "week": 6,
+   "entrants": 275,
+   "games": 13,
+   "k": 2.45,
+   "cards": {
+    "actual": {
+     "chance": 0.00854,
+     "correct": 9,
+     "dogs": [
+      {
+       "team": "Texans",
+       "p": 0.431,
+       "share": 0.171,
+       "won": true
+      },
+      {
+       "team": "Falcons",
+       "p": 0.487,
+       "share": 0.465,
+       "won": false
+      },
+      {
+       "team": "Browns",
+       "p": 0.388,
+       "share": 0.258,
+       "won": true
+      },
+      {
+       "team": "Buccaneers",
+       "p": 0.436,
+       "share": 0.233,
+       "won": false
+      }
+     ],
+     "mnf": 58
+    },
+    "chalk": {
+     "chance": 0.0047,
+     "correct": 9,
+     "dogs": [],
+     "mnf": 58
+    },
+    "rules": {
+     "chance": 0.00914,
+     "correct": 11,
+     "dogs": [
+      {
+       "team": "Texans",
+       "p": 0.431,
+       "share": 0.171,
+       "won": true
+      },
+      {
+       "team": "Browns",
+       "p": 0.388,
+       "share": 0.258,
+       "won": true
+      },
+      {
+       "team": "Titans",
+       "p": 0.265,
+       "share": 0.044,
+       "won": true
+      },
+      {
+       "team": "Eagles",
+       "p": 0.388,
+       "share": 0.287,
+       "won": false
+      }
+     ],
+     "mnf": 59
+    },
+    "rulesKnown": {
+     "chance": 0.01864,
+     "correct": 7,
+     "dogs": [
+      {
+       "team": "Texans",
+       "p": 0.431,
+       "share": 0.171,
+       "won": true
+      },
+      {
+       "team": "Buccaneers",
+       "p": 0.436,
+       "share": 0.233,
+       "won": false
+      },
+      {
+       "team": "Raiders",
+       "p": 0.323,
+       "share": 0.055,
+       "won": false
+      },
+      {
+       "team": "Cowboys",
+       "p": 0.486,
+       "share": 0.236,
+       "won": false
+      }
+     ],
+     "mnf": 59
+    },
+    "best": {
+     "chance": 0.02115,
+     "correct": 6,
+     "dogs": [
+      {
+       "team": "Buccaneers",
+       "p": 0.436,
+       "share": 0.233,
+       "won": false
+      },
+      {
+       "team": "Raiders",
+       "p": 0.323,
+       "share": 0.055,
+       "won": false
+      },
+      {
+       "team": "Cowboys",
+       "p": 0.486,
+       "share": 0.236,
+       "won": false
+      }
+     ],
+     "mnf": 59
+    }
+   },
+   "random": 0.00364,
+   "actualWithRuleTiebreak": 0.0084,
+   "rank": 46,
+   "myCorrect": 9,
+   "top": 11,
+   "median": 7,
+   "fieldDogsAvg": 2.59,
+   "mnfTotal": 40,
+   "marketTotal": 52.0,
+   "myMnf": 58,
+   "ruleMnf": 59,
+   "winners": [
+    {
+     "nick": "JD21",
+     "correct": 11,
+     "mnf": 49,
+     "dogs": 4,
+     "dogsWon": 3
+    }
+   ],
+   "tiedAtTop": 2
+  },
+  {
+   "week": 7,
+   "entrants": 275,
+   "games": 13,
+   "k": 2.45,
+   "cards": {
+    "actual": {
+     "chance": 0.0061,
+     "correct": 4,
+     "dogs": [
+      {
+       "team": "Saints",
+       "p": 0.395,
+       "share": 0.302,
+       "won": false
+      },
+      {
+       "team": "Ravens",
+       "p": 0.419,
+       "share": 0.367,
+       "won": false
+      },
+      {
+       "team": "Colts",
+       "p": 0.286,
+       "share": 0.065,
+       "won": false
+      },
+      {
+       "team": "Packers",
+       "p": 0.375,
+       "share": 0.218,
+       "won": false
+      },
+      {
+       "team": "Raiders",
+       "p": 0.387,
+       "share": 0.342,
+       "won": false
+      }
+     ],
+     "mnf": 51
+    },
+    "chalk": {
+     "chance": 0.00398,
+     "correct": 9,
+     "dogs": [],
+     "mnf": 51
+    },
+    "rules": {
+     "chance": 0.00627,
+     "correct": 6,
+     "dogs": [
+      {
+       "team": "Saints",
+       "p": 0.395,
+       "share": 0.302,
+       "won": false
+      },
+      {
+       "team": "Ravens",
+       "p": 0.419,
+       "share": 0.367,
+       "won": false
+      },
+      {
+       "team": "Buccaneers",
+       "p": 0.42,
+       "share": 0.153,
+       "won": true
+      },
+      {
+       "team": "Colts",
+       "p": 0.286,
+       "share": 0.065,
+       "won": false
+      },
+      {
+       "team": "Raiders",
+       "p": 0.387,
+       "share": 0.342,
+       "won": false
+      }
+     ],
+     "mnf": 51
+    },
+    "rulesKnown": {
+     "chance": 0.01255,
+     "correct": 8,
+     "dogs": [
+      {
+       "team": "Saints",
+       "p": 0.395,
+       "share": 0.302,
+       "won": false
+      },
+      {
+       "team": "Falcons",
+       "p": 0.431,
+       "share": 0.171,
+       "won": true
+      },
+      {
+       "team": "Buccaneers",
+       "p": 0.42,
+       "share": 0.153,
+       "won": true
+      },
+      {
+       "team": "Colts",
+       "p": 0.286,
+       "share": 0.065,
+       "won": false
+      },
+      {
+       "team": "Titans",
+       "p": 0.457,
+       "share": 0.204,
+       "won": false
+      }
+     ],
+     "mnf": 51
+    },
+    "best": {
+     "chance": 0.02317,
+     "correct": 9,
+     "dogs": [
+      {
+       "team": "Falcons",
+       "p": 0.431,
+       "share": 0.171,
+       "won": true
+      },
+      {
+       "team": "Buccaneers",
+       "p": 0.42,
+       "share": 0.153,
+       "won": true
+      },
+      {
+       "team": "Titans",
+       "p": 0.457,
+       "share": 0.204,
+       "won": false
+      },
+      {
+       "team": "Packers",
+       "p": 0.375,
+       "share": 0.218,
+       "won": false
+      }
+     ],
+     "mnf": 51
+    }
+   },
+   "random": 0.00364,
+   "actualWithRuleTiebreak": 0.0061,
+   "rank": 267,
+   "myCorrect": 4,
+   "top": 11,
+   "median": 7,
+   "fieldDogsAvg": 2.95,
+   "mnfTotal": 59,
+   "marketTotal": 44.0,
+   "myMnf": 51,
+   "ruleMnf": 51,
+   "winners": [
+    {
+     "nick": "Silence of the Lamb",
+     "correct": 11,
+     "mnf": 37,
+     "dogs": 2,
+     "dogsWon": 2
+    }
+   ],
+   "tiedAtTop": 1
+  }
+ ],
+ "calibration": [
+  {
+   "band": "50-60%",
+   "games": 33,
+   "favWon": 20,
+   "expected": 18.3
+  },
+  {
+   "band": "60-70%",
+   "games": 35,
+   "favWon": 24,
+   "expected": 22.3
+  },
+  {
+   "band": "70-80%",
+   "games": 24,
+   "favWon": 17,
+   "expected": 18.0
+  },
+  {
+   "band": "80-90%",
+   "games": 6,
+   "favWon": 4,
+   "expected": 5.0
+  }
+ ],
+ "fullSeasonWeeks": 7,
+ "field": [
+  {
+   "name": "Dick Degroat",
+   "nick": "Bills Dad",
+   "weeks": 7,
+   "correct": 67,
+   "chalk": 65,
+   "dogs": 14,
+   "dogsWon": 8,
+   "wins": 0,
+   "top5": 1,
+   "vsChalk": 2,
+   "me": false,
+   "rank": 1
+  },
+  {
+   "name": "Andrea Weldemeyer",
+   "nick": "Hail Andi",
+   "weeks": 7,
+   "correct": 67,
+   "chalk": 65,
+   "dogs": 11,
+   "dogsWon": 6,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 2,
+   "me": false,
+   "rank": 1
+  },
+  {
+   "name": "Tom Sr (sue dad)",
+   "nick": "Tom Sr",
+   "weeks": 7,
+   "correct": 67,
+   "chalk": 65,
+   "dogs": 15,
+   "dogsWon": 8,
+   "wins": 0,
+   "top5": 1,
+   "vsChalk": 2,
+   "me": false,
+   "rank": 1
+  },
+  {
+   "name": "Josh Colvenback",
+   "nick": "WhoDat",
+   "weeks": 7,
+   "correct": 67,
+   "chalk": 65,
+   "dogs": 12,
+   "dogsWon": 7,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 2,
+   "me": false,
+   "rank": 1
+  },
+  {
+   "name": "Larry Niedert",
+   "nick": "DLN",
+   "weeks": 7,
+   "correct": 66,
+   "chalk": 65,
+   "dogs": 22,
+   "dogsWon": 11,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 1,
+   "me": false,
+   "rank": 5
+  },
+  {
+   "name": "Louis Batelli",
+   "nick": "Frankie D",
+   "weeks": 7,
+   "correct": 66,
+   "chalk": 65,
+   "dogs": 14,
+   "dogsWon": 7,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 1,
+   "me": false,
+   "rank": 5
+  },
+  {
+   "name": "Tyler Harris",
+   "nick": "Harrisite",
+   "weeks": 7,
+   "correct": 66,
+   "chalk": 65,
+   "dogs": 11,
+   "dogsWon": 6,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 1,
+   "me": false,
+   "rank": 5
+  },
+  {
+   "name": "Kyle Rayburn",
+   "nick": "Lil Kyle",
+   "weeks": 7,
+   "correct": 66,
+   "chalk": 65,
+   "dogs": 20,
+   "dogsWon": 10,
+   "wins": 0,
+   "top5": 1,
+   "vsChalk": 1,
+   "me": false,
+   "rank": 5
+  },
+  {
+   "name": "Dan Napadano",
+   "nick": "Nap",
+   "weeks": 7,
+   "correct": 66,
+   "chalk": 65,
+   "dogs": 17,
+   "dogsWon": 9,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 1,
+   "me": false,
+   "rank": 5
+  },
+  {
+   "name": "Ervin Funke",
+   "nick": "Swingin",
+   "weeks": 7,
+   "correct": 66,
+   "chalk": 65,
+   "dogs": 13,
+   "dogsWon": 7,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 1,
+   "me": false,
+   "rank": 5
+  },
+  {
+   "name": "Allie Scuffil",
+   "nick": "Allie",
+   "weeks": 7,
+   "correct": 65,
+   "chalk": 65,
+   "dogs": 12,
+   "dogsWon": 6,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 0,
+   "me": false,
+   "rank": 11
+  },
+  {
+   "name": "Amanda Ferguson",
+   "nick": "BAMF",
+   "weeks": 7,
+   "correct": 65,
+   "chalk": 65,
+   "dogs": 22,
+   "dogsWon": 11,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 0,
+   "me": false,
+   "rank": 11
+  },
+  {
+   "name": "Scott Wojcik",
+   "nick": "Scott W",
+   "weeks": 7,
+   "correct": 65,
+   "chalk": 65,
+   "dogs": 18,
+   "dogsWon": 9,
+   "wins": 0,
+   "top5": 1,
+   "vsChalk": 0,
+   "me": false,
+   "rank": 11
+  },
+  {
+   "name": "Austin Beach",
+   "nick": "Waddle into the playoffs",
+   "weeks": 7,
+   "correct": 65,
+   "chalk": 65,
+   "dogs": 30,
+   "dogsWon": 15,
+   "wins": 0,
+   "top5": 1,
+   "vsChalk": 0,
+   "me": false,
+   "rank": 11
+  },
+  {
+   "name": "Tim Barrington",
+   "nick": "Silence of the Lamb",
+   "weeks": 7,
+   "correct": 64,
+   "chalk": 65,
+   "dogs": 26,
+   "dogsWon": 12,
+   "wins": 1,
+   "top5": 1,
+   "vsChalk": -1,
+   "me": false,
+   "rank": 15
+  },
+  {
+   "name": "Matt Bova",
+   "nick": "Bova",
+   "weeks": 7,
+   "correct": 58,
+   "chalk": 65,
+   "dogs": 31,
+   "dogsWon": 12,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": -7,
+   "me": true,
+   "rank": 133
+  }
+ ],
+ "fieldSize": 288
+}
