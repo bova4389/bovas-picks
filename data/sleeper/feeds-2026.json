@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-10-31T18:44:28.891Z",
+ "generated": "2026-11-01T19:10:46.700Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -232,11 +232,22 @@
      "complete": false
     },
     "8": {
-     "entrants": 0,
-     "distinctTeams": 0,
-     "picks": [],
+     "entrants": 2,
+     "distinctTeams": 2,
+     "picks": [
+      {
+       "team": "CIN",
+       "count": 1,
+       "pct": 50
+      },
+      {
+       "team": "JAC",
+       "count": 1,
+       "pct": 50
+      }
+     ],
      "submitted": 4,
-     "revealed": 0,
+     "revealed": 2,
      "expected": 20,
      "complete": false
     }
@@ -532,7 +543,8 @@
       "4": "BAL",
       "5": "HOU",
       "6": "IND",
-      "7": "CAR"
+      "7": "CAR",
+      "8": "CIN"
      },
      "problems": [],
      "alive": true,
@@ -543,7 +555,8 @@
       "BAL",
       "HOU",
       "IND",
-      "CAR"
+      "CAR",
+      "CIN"
      ]
     },
     {
@@ -609,7 +622,8 @@
       "4": "MIN",
       "5": "CIN",
       "6": "NE",
-      "7": "DEN"
+      "7": "DEN",
+      "8": "JAC"
      },
      "problems": [],
      "alive": true,
@@ -620,7 +634,8 @@
       "MIN",
       "CIN",
       "NE",
-      "DEN"
+      "DEN",
+      "JAC"
      ]
     },
     {
@@ -698,7 +713,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1793472268758,
+   "fetchedAt": 1793560246605,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1268,17 +1283,53 @@
     "8": {
      "rows": [
       {
+       "team": "CIN",
+       "count": 18
+      },
+      {
+       "team": "JAC",
+       "count": 18
+      },
+      {
+       "team": "DAL",
+       "count": 17
+      },
+      {
+       "team": "BUF",
+       "count": 10
+      },
+      {
+       "team": "PIT",
+       "count": 7
+      },
+      {
+       "team": "LV",
+       "count": 6
+      },
+      {
+       "team": "DET",
+       "count": 5
+      },
+      {
        "team": "GB",
        "count": 5
       },
       {
        "team": "CAR",
        "count": 1
+      },
+      {
+       "team": "CLE",
+       "count": 1
+      },
+      {
+       "team": "TB",
+       "count": 1
       }
      ],
-     "submitted": 84,
-     "revealed": 6,
-     "locked": 78,
+     "submitted": 141,
+     "revealed": 89,
+     "locked": 52,
      "entrants": 18
     }
    },
@@ -1358,6 +1409,13 @@
        "LAR",
        "DAL",
        "SEA"
+      ],
+      "8": [
+       "CIN",
+       "DAL",
+       "DET",
+       "JAC",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -1468,7 +1526,12 @@
        "CLE"
       ],
       "8": [
-       "CAR"
+       "BUF",
+       "CIN",
+       "DAL",
+       "CAR",
+       "JAC",
+       "LV"
       ]
      },
      "tiebreakers": {
@@ -1576,7 +1639,12 @@
        "CLE"
       ],
       "8": [
-       "GB"
+       "CIN",
+       "DAL",
+       "GB",
+       "JAC",
+       "LV",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -1692,6 +1760,13 @@
        "NYJ",
        "KC",
        "CLE"
+      ],
+      "8": [
+       "BUF",
+       "CIN",
+       "DAL",
+       "JAC",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -1804,6 +1879,12 @@
        "LAR",
        "DAL",
        "KC"
+      ],
+      "8": [
+       "CIN",
+       "DAL",
+       "JAC",
+       "LV"
       ]
      },
      "tiebreakers": {
@@ -1919,6 +2000,12 @@
        "NYJ",
        "LAR",
        "DAL"
+      ],
+      "8": [
+       "BUF",
+       "CIN",
+       "DAL",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2034,6 +2121,13 @@
        "LV",
        "SEA",
        "CLE"
+      ],
+      "8": [
+       "CIN",
+       "DAL",
+       "JAC",
+       "LV",
+       "TB"
       ]
      },
      "tiebreakers": {
@@ -2148,6 +2242,13 @@
        "NYJ",
        "LAR",
        "DAL"
+      ],
+      "8": [
+       "CIN",
+       "DAL",
+       "DET",
+       "JAC",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2253,6 +2354,12 @@
        "PIT",
        "LAR",
        "DAL"
+      ],
+      "8": [
+       "CIN",
+       "DAL",
+       "JAC",
+       "LV"
       ]
      }
     },
@@ -2328,6 +2435,13 @@
        "LAR",
        "DAL",
        "KC"
+      ],
+      "8": [
+       "BUF",
+       "CIN",
+       "DAL",
+       "JAC",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2440,6 +2554,13 @@
        "LAR",
        "DAL",
        "SEA"
+      ],
+      "8": [
+       "CIN",
+       "DAL",
+       "JAC",
+       "LV",
+       "CLE"
       ]
      },
      "tiebreakers": {
@@ -2529,6 +2650,12 @@
        "HOU",
        "MIN",
        "CLE"
+      ],
+      "8": [
+       "BUF",
+       "CIN",
+       "DAL",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2641,7 +2768,12 @@
        "CLE"
       ],
       "8": [
-       "GB"
+       "BUF",
+       "CIN",
+       "DAL",
+       "GB",
+       "JAC",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2742,6 +2874,13 @@
        "PIT",
        "NYJ",
        "CLE"
+      ],
+      "8": [
+       "BUF",
+       "CIN",
+       "DAL",
+       "DET",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2859,7 +2998,12 @@
        "CLE"
       ],
       "8": [
-       "GB"
+       "CIN",
+       "DAL",
+       "DET",
+       "GB",
+       "JAC",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2975,6 +3119,12 @@
        "NYJ",
        "DAL",
        "CLE"
+      ],
+      "8": [
+       "BUF",
+       "CIN",
+       "DET",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3092,7 +3242,11 @@
        "DAL"
       ],
       "8": [
-       "GB"
+       "BUF",
+       "CIN",
+       "DAL",
+       "GB",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3205,7 +3359,11 @@
        "DAL"
       ],
       "8": [
-       "GB"
+       "BUF",
+       "CIN",
+       "DAL",
+       "GB",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3250,7 +3408,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1793472268890,
+   "fetchedAt": 1793560246698,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
