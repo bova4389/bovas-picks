@@ -1988,5 +1988,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-01T02:18:29.948631+00:00"
+ },
+ {
+  "id": "9255ca8f32aea590d00aa57de79f6bb6",
+  "commenceTime": "2026-11-01T18:02:39Z",
+  "home": "Dallas Cowboys",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 6,
+  "rawHomeProb": 0.9403,
+  "rawAwayProb": 0.1158,
+  "homeWinProb": 0.8903,
+  "awayWinProb": 0.1097,
+  "vig": 0.0561,
+  "total": 45.5,
+  "totalBookCount": 5,
+  "bucket": 0,
+  "fetchedAt": "2026-11-01T18:56:10.334886+00:00"
  }
 ]

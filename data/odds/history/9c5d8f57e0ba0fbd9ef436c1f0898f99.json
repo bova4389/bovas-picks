@@ -1988,5 +1988,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-01T02:18:29.948631+00:00"
+ },
+ {
+  "id": "9c5d8f57e0ba0fbd9ef436c1f0898f99",
+  "commenceTime": "2026-11-01T18:02:38Z",
+  "home": "Cincinnati Bengals",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 5,
+  "rawHomeProb": 0.7769,
+  "rawAwayProb": 0.2842,
+  "homeWinProb": 0.7322,
+  "awayWinProb": 0.2678,
+  "vig": 0.0611,
+  "total": 55.5,
+  "totalBookCount": 6,
+  "bucket": 0,
+  "fetchedAt": "2026-11-01T18:56:10.334886+00:00"
  }
 ]
