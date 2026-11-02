@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-01T21:21:41.738Z",
+ "generated": "2026-11-02T00:59:34.396Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -232,22 +232,27 @@
      "complete": false
     },
     "8": {
-     "entrants": 2,
-     "distinctTeams": 2,
+     "entrants": 3,
+     "distinctTeams": 3,
      "picks": [
       {
        "team": "CIN",
        "count": 1,
-       "pct": 50
+       "pct": 33.3
       },
       {
        "team": "JAC",
        "count": 1,
-       "pct": 50
+       "pct": 33.3
+      },
+      {
+       "team": "NE",
+       "count": 1,
+       "pct": 33.3
       }
      ],
      "submitted": 4,
-     "revealed": 2,
+     "revealed": 3,
      "expected": 20,
      "complete": false
     }
@@ -595,7 +600,8 @@
       "4": "BAL",
       "5": "CIN",
       "6": "IND",
-      "7": "HOU"
+      "7": "HOU",
+      "8": "NE"
      },
      "problems": [],
      "alive": true,
@@ -606,7 +612,8 @@
       "BAL",
       "CIN",
       "IND",
-      "HOU"
+      "HOU",
+      "NE"
      ]
     },
     {
@@ -713,7 +720,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1793568101530,
+   "fetchedAt": 1793581174155,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1295,6 +1302,10 @@
        "count": 17
       },
       {
+       "team": "NE",
+       "count": 17
+      },
+      {
        "team": "LAR",
        "count": 16
       },
@@ -1319,6 +1330,10 @@
        "count": 5
       },
       {
+       "team": "KC",
+       "count": 3
+      },
+      {
        "team": "CAR",
        "count": 1
       },
@@ -1327,13 +1342,17 @@
        "count": 1
       },
       {
+       "team": "DEN",
+       "count": 1
+      },
+      {
        "team": "TB",
        "count": 1
       }
      ],
-     "submitted": 141,
-     "revealed": 105,
-     "locked": 36,
+     "submitted": 142,
+     "revealed": 126,
+     "locked": 16,
      "entrants": 18
     }
    },
@@ -1419,6 +1438,7 @@
        "DAL",
        "DET",
        "JAC",
+       "NE",
        "PIT",
        "LAR"
       ]
@@ -1536,6 +1556,7 @@
        "DAL",
        "CAR",
        "JAC",
+       "NE",
        "LV"
       ]
      },
@@ -1648,6 +1669,7 @@
        "DAL",
        "GB",
        "JAC",
+       "NE",
        "LV",
        "PIT",
        "LAR"
@@ -1772,6 +1794,7 @@
        "CIN",
        "DAL",
        "JAC",
+       "NE",
        "PIT",
        "LAR"
       ]
@@ -1890,7 +1913,9 @@
       "8": [
        "CIN",
        "DAL",
+       "KC",
        "JAC",
+       "NE",
        "LV",
        "LAR"
       ]
@@ -2014,6 +2039,7 @@
        "CIN",
        "DAL",
        "JAC",
+       "NE",
        "LAR"
       ]
      },
@@ -2135,6 +2161,7 @@
        "CIN",
        "DAL",
        "JAC",
+       "NE",
        "LV",
        "LAR",
        "TB"
@@ -2258,6 +2285,7 @@
        "DAL",
        "DET",
        "JAC",
+       "NE",
        "PIT"
       ]
      },
@@ -2368,7 +2396,9 @@
       "8": [
        "CIN",
        "DAL",
+       "KC",
        "JAC",
+       "NE",
        "LV",
        "LAR"
       ]
@@ -2452,6 +2482,7 @@
        "CIN",
        "DAL",
        "JAC",
+       "NE",
        "PIT",
        "LAR"
       ]
@@ -2570,7 +2601,9 @@
       "8": [
        "CIN",
        "DAL",
+       "DEN",
        "JAC",
+       "NE",
        "LV",
        "CLE",
        "LAR"
@@ -2669,6 +2702,7 @@
        "CIN",
        "DAL",
        "JAC",
+       "NE",
        "LAR"
       ]
      },
@@ -2896,6 +2930,7 @@
        "DAL",
        "DET",
        "JAC",
+       "NE",
        "LAR"
       ]
      },
@@ -3019,6 +3054,7 @@
        "DET",
        "GB",
        "JAC",
+       "NE",
        "PIT",
        "LAR"
       ]
@@ -3140,8 +3176,10 @@
       "8": [
        "BUF",
        "CIN",
+       "KC",
        "DET",
        "JAC",
+       "NE",
        "LAR"
       ]
      },
@@ -3265,6 +3303,7 @@
        "DAL",
        "GB",
        "JAC",
+       "NE",
        "LAR"
       ]
      },
@@ -3383,6 +3422,7 @@
        "DAL",
        "GB",
        "JAC",
+       "NE",
        "LAR"
       ]
      },
@@ -3428,7 +3468,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1793568101735,
+   "fetchedAt": 1793581174393,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
