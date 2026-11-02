@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-02T00:59:34.396Z",
+ "generated": "2026-11-02T06:45:48.508Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -232,27 +232,32 @@
      "complete": false
     },
     "8": {
-     "entrants": 3,
-     "distinctTeams": 3,
+     "entrants": 4,
+     "distinctTeams": 4,
      "picks": [
       {
        "team": "CIN",
        "count": 1,
-       "pct": 33.3
+       "pct": 25
       },
       {
        "team": "JAC",
        "count": 1,
-       "pct": 33.3
+       "pct": 25
       },
       {
        "team": "NE",
        "count": 1,
-       "pct": 33.3
+       "pct": 25
+      },
+      {
+       "team": "WAS",
+       "count": 1,
+       "pct": 25
       }
      ],
      "submitted": 4,
-     "revealed": 3,
+     "revealed": 4,
      "expected": 20,
      "complete": false
     }
@@ -325,7 +330,8 @@
       "4": "IND",
       "5": "CIN",
       "6": "SF",
-      "7": "HOU"
+      "7": "HOU",
+      "8": "WAS"
      },
      "problems": [],
      "alive": true,
@@ -336,7 +342,8 @@
       "IND",
       "CIN",
       "SF",
-      "HOU"
+      "HOU",
+      "WAS"
      ]
     },
     {
@@ -720,7 +727,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1793581174155,
+   "fetchedAt": 1793601948426,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1314,6 +1321,10 @@
        "count": 10
       },
       {
+       "team": "WAS",
+       "count": 10
+      },
+      {
        "team": "PIT",
        "count": 7
       },
@@ -1346,13 +1357,17 @@
        "count": 1
       },
       {
+       "team": "PHI",
+       "count": 1
+      },
+      {
        "team": "TB",
        "count": 1
       }
      ],
      "submitted": 142,
-     "revealed": 126,
-     "locked": 16,
+     "revealed": 137,
+     "locked": 5,
      "entrants": 18
     }
    },
@@ -1440,7 +1455,8 @@
        "JAC",
        "NE",
        "PIT",
-       "LAR"
+       "LAR",
+       "PHI"
       ]
      },
      "tiebreakers": {
@@ -1557,7 +1573,8 @@
        "CAR",
        "JAC",
        "NE",
-       "LV"
+       "LV",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -1796,7 +1813,8 @@
        "JAC",
        "NE",
        "PIT",
-       "LAR"
+       "LAR",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -1917,7 +1935,8 @@
        "JAC",
        "NE",
        "LV",
-       "LAR"
+       "LAR",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2040,7 +2059,8 @@
        "DAL",
        "JAC",
        "NE",
-       "LAR"
+       "LAR",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2164,7 +2184,8 @@
        "NE",
        "LV",
        "LAR",
-       "TB"
+       "TB",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2286,7 +2307,8 @@
        "DET",
        "JAC",
        "NE",
-       "PIT"
+       "PIT",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2484,7 +2506,8 @@
        "JAC",
        "NE",
        "PIT",
-       "LAR"
+       "LAR",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2822,7 +2845,8 @@
        "GB",
        "JAC",
        "PIT",
-       "LAR"
+       "LAR",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -2931,7 +2955,8 @@
        "DET",
        "JAC",
        "NE",
-       "LAR"
+       "LAR",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -3423,7 +3448,8 @@
        "GB",
        "JAC",
        "NE",
-       "LAR"
+       "LAR",
+       "WAS"
       ]
      },
      "tiebreakers": {
@@ -3468,7 +3494,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1793581174393,
+   "fetchedAt": 1793601948505,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
