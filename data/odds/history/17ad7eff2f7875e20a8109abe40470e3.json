@@ -1732,5 +1732,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-11-02T22:46:53.990421+00:00"
+ },
+ {
+  "id": "17ad7eff2f7875e20a8109abe40470e3",
+  "commenceTime": "2026-11-10T01:15:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.3966,
+  "rawAwayProb": 0.644,
+  "homeWinProb": 0.3811,
+  "awayWinProb": 0.6189,
+  "vig": 0.0407,
+  "total": 46.0,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-11-03T20:30:06.739136+00:00"
  }
 ]

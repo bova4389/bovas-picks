@@ -364,6 +364,32 @@
           "teamsLeft": 25
         }
       ]
+    },
+    "9": {
+      "week": 9,
+      "builtAt": "2026-11-03T20:30:11.553Z",
+      "oddsFetchedAt": "2026-11-03T20:30:06.739136+00:00",
+      "confidence": "provisional",
+      "exposure": {
+        "tickets": 1,
+        "games": 1,
+        "pAllLose": 0.1716
+      },
+      "picks": [
+        {
+          "pool": "deadpool",
+          "team": "SEA",
+          "p": 0.8284,
+          "gap": 0,
+          "fvCost": -0.0801,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 20,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 24
+        }
+      ]
     }
   }
 }
