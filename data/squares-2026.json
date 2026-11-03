@@ -168,7 +168,7 @@
             "cols": [3, 5, 4, 0, 1, 8, 6, 7, 2, 9],
             "rows": [4, 9, 5, 3, 1, 2, 6, 8, 0, 7]
           },
-          "result": null
+          "result": {"awayScore": 7, "homeScore": 42, "awayLine": [0, 0, 7, 0], "homeLine": [7, 21, 14, 0], "detail": "Final"}
         },
         {
           "week": 9,
