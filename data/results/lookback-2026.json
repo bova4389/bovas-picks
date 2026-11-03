@@ -716,7 +716,7 @@
      "mnf": 62
     },
     "rules": {
-     "chance": 0.01151,
+     "chance": 0.01056,
      "correct": 8,
      "dogs": [
       {
@@ -738,15 +738,15 @@
        "won": false
       },
       {
-       "team": "Ravens",
-       "p": 0.386,
-       "share": 0.253,
+       "team": "Packers",
+       "p": 0.47,
+       "share": 0.344,
        "won": true
       },
       {
-       "team": "Bills",
-       "p": 0.387,
-       "share": 0.377,
+       "team": "Ravens",
+       "p": 0.386,
+       "share": 0.253,
        "won": true
       }
      ],
@@ -1052,7 +1052,7 @@
      "mnf": 51
     },
     "rules": {
-     "chance": 0.0102,
+     "chance": 0.01255,
      "correct": 8,
      "dogs": [
       {
@@ -1074,15 +1074,15 @@
        "won": true
       },
       {
-       "team": "Titans",
-       "p": 0.457,
-       "share": 0.204,
+       "team": "Colts",
+       "p": 0.286,
+       "share": 0.065,
        "won": false
       },
       {
-       "team": "Cardinals",
-       "p": 0.335,
-       "share": 0.145,
+       "team": "Titans",
+       "p": 0.457,
+       "share": 0.204,
        "won": false
       }
      ],
@@ -1178,259 +1178,418 @@
     }
    ],
    "tiedAtTop": 1
+  },
+  {
+   "week": 8,
+   "entrants": 275,
+   "games": 13,
+   "k": 2.45,
+   "cards": {
+    "actual": {
+     "chance": 0.01386,
+     "correct": 7,
+     "dogs": [
+      {
+       "team": "Ravens",
+       "p": 0.39,
+       "share": 0.105,
+       "won": false
+      },
+      {
+       "team": "Vikings",
+       "p": 0.385,
+       "share": 0.229,
+       "won": false
+      },
+      {
+       "team": "Chargers",
+       "p": 0.287,
+       "share": 0.08,
+       "won": false
+      },
+      {
+       "team": "Bears",
+       "p": 0.393,
+       "share": 0.247,
+       "won": true
+      }
+     ],
+     "mnf": 54
+    },
+    "chalk": {
+     "chance": 0.00378,
+     "correct": 9,
+     "dogs": [],
+     "mnf": 54
+    },
+    "rules": {
+     "chance": 0.01386,
+     "correct": 7,
+     "dogs": [
+      {
+       "team": "Ravens",
+       "p": 0.39,
+       "share": 0.105,
+       "won": false
+      },
+      {
+       "team": "Vikings",
+       "p": 0.385,
+       "share": 0.229,
+       "won": false
+      },
+      {
+       "team": "Chargers",
+       "p": 0.287,
+       "share": 0.08,
+       "won": false
+      },
+      {
+       "team": "Bears",
+       "p": 0.393,
+       "share": 0.247,
+       "won": true
+      }
+     ],
+     "mnf": 54
+    },
+    "rulesKnown": {
+     "chance": 0.01386,
+     "correct": 7,
+     "dogs": [
+      {
+       "team": "Ravens",
+       "p": 0.39,
+       "share": 0.105,
+       "won": false
+      },
+      {
+       "team": "Vikings",
+       "p": 0.385,
+       "share": 0.229,
+       "won": false
+      },
+      {
+       "team": "Chargers",
+       "p": 0.287,
+       "share": 0.08,
+       "won": false
+      },
+      {
+       "team": "Bears",
+       "p": 0.393,
+       "share": 0.247,
+       "won": true
+      }
+     ],
+     "mnf": 54
+    },
+    "best": {
+     "chance": 0.01386,
+     "correct": 7,
+     "dogs": [
+      {
+       "team": "Ravens",
+       "p": 0.39,
+       "share": 0.105,
+       "won": false
+      },
+      {
+       "team": "Vikings",
+       "p": 0.385,
+       "share": 0.229,
+       "won": false
+      },
+      {
+       "team": "Chargers",
+       "p": 0.287,
+       "share": 0.08,
+       "won": false
+      },
+      {
+       "team": "Bears",
+       "p": 0.393,
+       "share": 0.247,
+       "won": true
+      }
+     ],
+     "mnf": 54
+    }
+   },
+   "random": 0.00364,
+   "actualWithRuleTiebreak": 0.01386,
+   "rank": 245,
+   "myCorrect": 7,
+   "top": 12,
+   "median": 9,
+   "fieldDogsAvg": 2.64,
+   "mnfTotal": 51,
+   "marketTotal": 46.5,
+   "myMnf": 54,
+   "ruleMnf": 54,
+   "winners": [
+    {
+     "nick": "Harrisite",
+     "correct": 12,
+     "mnf": 51,
+     "dogs": 3,
+     "dogsWon": 3
+    }
+   ],
+   "tiedAtTop": 2
   }
  ],
  "calibration": [
   {
    "band": "50-60%",
-   "games": 33,
-   "favWon": 20,
-   "expected": 18.3
+   "games": 36,
+   "favWon": 21,
+   "expected": 19.9
   },
   {
    "band": "60-70%",
-   "games": 35,
-   "favWon": 24,
-   "expected": 22.3
+   "games": 40,
+   "favWon": 28,
+   "expected": 25.4
   },
   {
    "band": "70-80%",
-   "games": 24,
-   "favWon": 17,
-   "expected": 18.0
+   "games": 28,
+   "favWon": 20,
+   "expected": 21.0
   },
   {
    "band": "80-90%",
-   "games": 6,
-   "favWon": 4,
-   "expected": 5.0
+   "games": 7,
+   "favWon": 5,
+   "expected": 5.9
   }
  ],
- "fullSeasonWeeks": 7,
+ "fullSeasonWeeks": 8,
  "field": [
+  {
+   "name": "Tyler Harris",
+   "nick": "Harrisite",
+   "weeks": 8,
+   "correct": 78,
+   "chalk": 74,
+   "dogs": 14,
+   "dogsWon": 9,
+   "wins": 1,
+   "top5": 1,
+   "vsChalk": 4,
+   "me": false,
+   "rank": 1
+  },
   {
    "name": "Dick Degroat",
    "nick": "Bills Dad",
-   "weeks": 7,
-   "correct": 67,
-   "chalk": 65,
-   "dogs": 14,
-   "dogsWon": 8,
+   "weeks": 8,
+   "correct": 77,
+   "chalk": 74,
+   "dogs": 17,
+   "dogsWon": 10,
    "wins": 0,
    "top5": 1,
-   "vsChalk": 2,
+   "vsChalk": 3,
    "me": false,
-   "rank": 1
+   "rank": 2
   },
   {
    "name": "Andrea Weldemeyer",
    "nick": "Hail Andi",
-   "weeks": 7,
-   "correct": 67,
-   "chalk": 65,
-   "dogs": 11,
-   "dogsWon": 6,
-   "wins": 0,
-   "top5": 0,
-   "vsChalk": 2,
-   "me": false,
-   "rank": 1
-  },
-  {
-   "name": "Tom Sr (sue dad)",
-   "nick": "Tom Sr",
-   "weeks": 7,
-   "correct": 67,
-   "chalk": 65,
-   "dogs": 15,
-   "dogsWon": 8,
-   "wins": 0,
-   "top5": 1,
-   "vsChalk": 2,
-   "me": false,
-   "rank": 1
-  },
-  {
-   "name": "Josh Colvenback",
-   "nick": "WhoDat",
-   "weeks": 7,
-   "correct": 67,
-   "chalk": 65,
+   "weeks": 8,
+   "correct": 77,
+   "chalk": 74,
    "dogs": 12,
    "dogsWon": 7,
    "wins": 0,
    "top5": 0,
+   "vsChalk": 3,
+   "me": false,
+   "rank": 2
+  },
+  {
+   "name": "Kyle Rayburn",
+   "nick": "Lil Kyle",
+   "weeks": 8,
+   "correct": 77,
+   "chalk": 74,
+   "dogs": 22,
+   "dogsWon": 12,
+   "wins": 0,
+   "top5": 1,
+   "vsChalk": 3,
+   "me": false,
+   "rank": 2
+  },
+  {
+   "name": "Tom Sr (sue dad)",
+   "nick": "Tom Sr",
+   "weeks": 8,
+   "correct": 77,
+   "chalk": 74,
+   "dogs": 18,
+   "dogsWon": 10,
+   "wins": 0,
+   "top5": 1,
+   "vsChalk": 3,
+   "me": false,
+   "rank": 2
+  },
+  {
+   "name": "Allie Scuffil",
+   "nick": "Allie",
+   "weeks": 8,
+   "correct": 76,
+   "chalk": 74,
+   "dogs": 14,
+   "dogsWon": 8,
+   "wins": 0,
+   "top5": 0,
    "vsChalk": 2,
    "me": false,
-   "rank": 1
+   "rank": 6
+  },
+  {
+   "name": "Amanda Ferguson",
+   "nick": "BAMF",
+   "weeks": 8,
+   "correct": 76,
+   "chalk": 74,
+   "dogs": 24,
+   "dogsWon": 13,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 2,
+   "me": false,
+   "rank": 6
   },
   {
    "name": "Larry Niedert",
    "nick": "DLN",
-   "weeks": 7,
-   "correct": 66,
-   "chalk": 65,
-   "dogs": 22,
-   "dogsWon": 11,
+   "weeks": 8,
+   "correct": 76,
+   "chalk": 74,
+   "dogs": 25,
+   "dogsWon": 13,
    "wins": 0,
    "top5": 0,
-   "vsChalk": 1,
+   "vsChalk": 2,
    "me": false,
-   "rank": 5
+   "rank": 6
   },
   {
    "name": "Louis Batelli",
    "nick": "Frankie D",
-   "weeks": 7,
-   "correct": 66,
-   "chalk": 65,
+   "weeks": 8,
+   "correct": 76,
+   "chalk": 74,
+   "dogs": 15,
+   "dogsWon": 8,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 2,
+   "me": false,
+   "rank": 6
+  },
+  {
+   "name": "Dan Napadano",
+   "nick": "Nap",
+   "weeks": 8,
+   "correct": 76,
+   "chalk": 74,
+   "dogs": 18,
+   "dogsWon": 10,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 2,
+   "me": false,
+   "rank": 6
+  },
+  {
+   "name": "Josh Colvenback",
+   "nick": "WhoDat",
+   "weeks": 8,
+   "correct": 76,
+   "chalk": 74,
+   "dogs": 14,
+   "dogsWon": 8,
+   "wins": 0,
+   "top5": 0,
+   "vsChalk": 2,
+   "me": false,
+   "rank": 6
+  },
+  {
+   "name": "Big Mike",
+   "nick": "Big Mike 1",
+   "weeks": 8,
+   "correct": 75,
+   "chalk": 74,
    "dogs": 14,
    "dogsWon": 7,
    "wins": 0,
    "top5": 0,
    "vsChalk": 1,
    "me": false,
-   "rank": 5
+   "rank": 12
   },
   {
-   "name": "Tyler Harris",
-   "nick": "Harrisite",
-   "weeks": 7,
-   "correct": 66,
-   "chalk": 65,
-   "dogs": 11,
-   "dogsWon": 6,
+   "name": "James D'Amico",
+   "nick": "James D",
+   "weeks": 8,
+   "correct": 75,
+   "chalk": 74,
+   "dogs": 16,
+   "dogsWon": 8,
    "wins": 0,
    "top5": 0,
    "vsChalk": 1,
    "me": false,
-   "rank": 5
-  },
-  {
-   "name": "Kyle Rayburn",
-   "nick": "Lil Kyle",
-   "weeks": 7,
-   "correct": 66,
-   "chalk": 65,
-   "dogs": 20,
-   "dogsWon": 10,
-   "wins": 0,
-   "top5": 1,
-   "vsChalk": 1,
-   "me": false,
-   "rank": 5
-  },
-  {
-   "name": "Dan Napadano",
-   "nick": "Nap",
-   "weeks": 7,
-   "correct": 66,
-   "chalk": 65,
-   "dogs": 17,
-   "dogsWon": 9,
-   "wins": 0,
-   "top5": 0,
-   "vsChalk": 1,
-   "me": false,
-   "rank": 5
+   "rank": 12
   },
   {
    "name": "Ervin Funke",
    "nick": "Swingin",
-   "weeks": 7,
-   "correct": 66,
-   "chalk": 65,
-   "dogs": 13,
-   "dogsWon": 7,
+   "weeks": 8,
+   "correct": 75,
+   "chalk": 74,
+   "dogs": 15,
+   "dogsWon": 8,
    "wins": 0,
    "top5": 0,
    "vsChalk": 1,
    "me": false,
-   "rank": 5
+   "rank": 12
   },
   {
-   "name": "Allie Scuffil",
-   "nick": "Allie",
-   "weeks": 7,
-   "correct": 65,
-   "chalk": 65,
-   "dogs": 12,
-   "dogsWon": 6,
+   "name": "Cory Laabs",
+   "nick": "Cory L",
+   "weeks": 8,
+   "correct": 74,
+   "chalk": 74,
+   "dogs": 16,
+   "dogsWon": 8,
    "wins": 0,
    "top5": 0,
    "vsChalk": 0,
-   "me": false,
-   "rank": 11
-  },
-  {
-   "name": "Amanda Ferguson",
-   "nick": "BAMF",
-   "weeks": 7,
-   "correct": 65,
-   "chalk": 65,
-   "dogs": 22,
-   "dogsWon": 11,
-   "wins": 0,
-   "top5": 0,
-   "vsChalk": 0,
-   "me": false,
-   "rank": 11
-  },
-  {
-   "name": "Scott Wojcik",
-   "nick": "Scott W",
-   "weeks": 7,
-   "correct": 65,
-   "chalk": 65,
-   "dogs": 18,
-   "dogsWon": 9,
-   "wins": 0,
-   "top5": 1,
-   "vsChalk": 0,
-   "me": false,
-   "rank": 11
-  },
-  {
-   "name": "Austin Beach",
-   "nick": "Waddle into the playoffs",
-   "weeks": 7,
-   "correct": 65,
-   "chalk": 65,
-   "dogs": 30,
-   "dogsWon": 15,
-   "wins": 0,
-   "top5": 1,
-   "vsChalk": 0,
-   "me": false,
-   "rank": 11
-  },
-  {
-   "name": "Tim Barrington",
-   "nick": "Silence of the Lamb",
-   "weeks": 7,
-   "correct": 64,
-   "chalk": 65,
-   "dogs": 26,
-   "dogsWon": 12,
-   "wins": 1,
-   "top5": 1,
-   "vsChalk": -1,
    "me": false,
    "rank": 15
   },
   {
    "name": "Matt Bova",
    "nick": "Bova",
-   "weeks": 7,
-   "correct": 58,
-   "chalk": 65,
-   "dogs": 31,
-   "dogsWon": 12,
+   "weeks": 8,
+   "correct": 65,
+   "chalk": 74,
+   "dogs": 35,
+   "dogsWon": 13,
    "wins": 0,
    "top5": 0,
-   "vsChalk": -7,
+   "vsChalk": -9,
    "me": true,
-   "rank": 133
+   "rank": 173
   }
  ],
  "fieldSize": 288
