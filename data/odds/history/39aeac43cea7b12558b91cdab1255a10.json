@@ -1748,5 +1748,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-11-03T20:30:06.739136+00:00"
+ },
+ {
+  "id": "39aeac43cea7b12558b91cdab1255a10",
+  "commenceTime": "2026-11-08T21:05:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "Houston Texans",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.3508,
+  "rawAwayProb": 0.6908,
+  "homeWinProb": 0.3367,
+  "awayWinProb": 0.6633,
+  "vig": 0.0416,
+  "total": 40.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-04T20:49:37.739250+00:00"
  }
 ]
