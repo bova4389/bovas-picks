@@ -1764,5 +1764,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-04T20:49:37.739250+00:00"
+ },
+ {
+  "id": "e571bab6736f9338130a78a4f75c3231",
+  "commenceTime": "2026-11-08T18:00:00Z",
+  "home": "New Orleans Saints",
+  "away": "Cleveland Browns",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6224,
+  "rawAwayProb": 0.4187,
+  "homeWinProb": 0.5978,
+  "awayWinProb": 0.4022,
+  "vig": 0.0412,
+  "total": 42.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-05T09:35:39.579619+00:00"
  }
 ]
