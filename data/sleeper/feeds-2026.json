@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-05T21:13:28.203Z",
+ "generated": "2026-11-06T07:24:15.157Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -736,7 +736,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1793913207984,
+   "fetchedAt": 1793949855032,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1388,10 +1388,15 @@
      "entrants": 18
     },
     "9": {
-     "rows": [],
-     "submitted": 72,
-     "revealed": 0,
-     "locked": 72,
+     "rows": [
+      {
+       "team": "JAC",
+       "count": 11
+      }
+     ],
+     "submitted": 97,
+     "revealed": 11,
+     "locked": 86,
      "entrants": 18
     }
    },
@@ -1481,6 +1486,9 @@
        "PIT",
        "LAR",
        "PHI"
+      ],
+      "9": [
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -1724,6 +1732,9 @@
        "LV",
        "PIT",
        "LAR"
+      ],
+      "9": [
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2111,6 +2122,9 @@
        "SEA",
        "LAR",
        "WAS"
+      ],
+      "9": [
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2370,6 +2384,9 @@
        "PIT",
        "SEA",
        "WAS"
+      ],
+      "9": [
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2490,6 +2507,9 @@
        "LV",
        "SEA",
        "LAR"
+      ],
+      "9": [
+       "JAC"
       ]
      }
     },
@@ -2702,6 +2722,9 @@
        "LV",
        "CLE",
        "LAR"
+      ],
+      "9": [
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2925,6 +2948,9 @@
        "PIT",
        "LAR",
        "WAS"
+      ],
+      "9": [
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3170,6 +3196,9 @@
        "NE",
        "PIT",
        "LAR"
+      ],
+      "9": [
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3300,6 +3329,9 @@
        "NE",
        "SEA",
        "LAR"
+      ],
+      "9": [
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3430,6 +3462,9 @@
        "NE",
        "SEA",
        "LAR"
+      ],
+      "9": [
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3555,6 +3590,9 @@
        "NE",
        "LAR",
        "WAS"
+      ],
+      "9": [
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3604,7 +3642,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1793913208201,
+   "fetchedAt": 1793949855155,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
