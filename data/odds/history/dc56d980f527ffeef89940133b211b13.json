@@ -1812,5 +1812,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-06T00:58:22.872991+00:00"
+ },
+ {
+  "id": "dc56d980f527ffeef89940133b211b13",
+  "commenceTime": "2026-11-08T14:30:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.4088,
+  "rawAwayProb": 0.633,
+  "homeWinProb": 0.3924,
+  "awayWinProb": 0.6076,
+  "vig": 0.0418,
+  "total": 52.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-06T09:28:54.413185+00:00"
  }
 ]
