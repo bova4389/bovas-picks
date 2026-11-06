@@ -1796,5 +1796,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-05T18:49:06.496730+00:00"
+ },
+ {
+  "id": "c75744790b7acf6260c78ba5e739c0e5",
+  "commenceTime": "2026-11-06T01:15:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.2301,
+  "rawAwayProb": 0.8111,
+  "homeWinProb": 0.221,
+  "awayWinProb": 0.779,
+  "vig": 0.0412,
+  "total": 40.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-06T00:58:22.872991+00:00"
  }
 ]
