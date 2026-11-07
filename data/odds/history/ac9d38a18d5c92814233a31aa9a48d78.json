@@ -1668,5 +1668,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-07T00:08:15.500893+00:00"
+ },
+ {
+  "id": "ac9d38a18d5c92814233a31aa9a48d78",
+  "commenceTime": "2026-11-08T21:05:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.8261,
+  "rawAwayProb": 0.2161,
+  "homeWinProb": 0.7927,
+  "awayWinProb": 0.2073,
+  "vig": 0.0422,
+  "total": 52.0,
+  "totalBookCount": 8,
+  "bucket": 0,
+  "fetchedAt": "2026-11-07T08:53:14.221992+00:00"
  }
 ]

@@ -367,19 +367,19 @@
     },
     "9": {
       "week": 9,
-      "builtAt": "2026-11-07T00:08:20.303Z",
-      "oddsFetchedAt": "2026-11-07T00:08:15.500893+00:00",
-      "confidence": "firming",
+      "builtAt": "2026-11-07T08:53:18.770Z",
+      "oddsFetchedAt": "2026-11-07T08:53:14.221992+00:00",
+      "confidence": "final",
       "exposure": {
         "tickets": 1,
         "games": 1,
-        "pAllLose": 0.2275
+        "pAllLose": 0.227
       },
       "picks": [
         {
           "pool": "deadpool",
           "team": "SEA",
-          "p": 0.7725,
+          "p": 0.773,
           "gap": 0,
           "fvCost": -0.0739,
           "share": null,
