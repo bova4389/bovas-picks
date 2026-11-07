@@ -1668,5 +1668,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-11-07T16:53:00.273985+00:00"
+ },
+ {
+  "id": "e5aa20e1364dd639f042af1c2281bbe2",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "New Orleans Saints",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.5,
+  "rawAwayProb": 0.5442,
+  "homeWinProb": 0.4788,
+  "awayWinProb": 0.5212,
+  "vig": 0.0442,
+  "total": 47.0,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-11-07T20:56:51.161258+00:00"
  }
 ]

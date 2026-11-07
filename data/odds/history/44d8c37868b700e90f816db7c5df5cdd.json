@@ -1892,5 +1892,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-07T16:53:00.273985+00:00"
+ },
+ {
+  "id": "44d8c37868b700e90f816db7c5df5cdd",
+  "commenceTime": "2026-11-08T18:00:00Z",
+  "home": "Miami Dolphins",
+  "away": "Detroit Lions",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.2889,
+  "rawAwayProb": 0.754,
+  "homeWinProb": 0.277,
+  "awayWinProb": 0.723,
+  "vig": 0.0429,
+  "total": 50.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-07T20:56:51.161258+00:00"
  }
 ]

@@ -1668,5 +1668,21 @@
   "totalBookCount": 4,
   "bucket": 1,
   "fetchedAt": "2026-11-07T16:53:00.273985+00:00"
+ },
+ {
+  "id": "28800df7e768ecec14f116454d560f9b",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "Tennessee Titans",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.1957,
+  "rawAwayProb": 0.8492,
+  "homeWinProb": 0.1873,
+  "awayWinProb": 0.8127,
+  "vig": 0.0449,
+  "total": 44.5,
+  "totalBookCount": 5,
+  "bucket": 1,
+  "fetchedAt": "2026-11-07T20:56:51.161258+00:00"
  }
 ]
