@@ -1652,5 +1652,21 @@
   "totalBookCount": 3,
   "bucket": 1,
   "fetchedAt": "2026-11-07T08:53:14.221992+00:00"
+ },
+ {
+  "id": "5d8d85473b87f772a979ecf294acab94",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "Green Bay Packers",
+  "away": "Minnesota Vikings",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.602,
+  "rawAwayProb": 0.4406,
+  "homeWinProb": 0.5774,
+  "awayWinProb": 0.4226,
+  "vig": 0.0426,
+  "total": 41.5,
+  "totalBookCount": 3,
+  "bucket": 1,
+  "fetchedAt": "2026-11-07T16:53:00.273985+00:00"
  }
 ]
