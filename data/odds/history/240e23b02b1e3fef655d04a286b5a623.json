@@ -1656,5 +1656,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-07T20:56:51.161258+00:00"
+ },
+ {
+  "id": "240e23b02b1e3fef655d04a286b5a623",
+  "commenceTime": "2026-11-08T21:25:00Z",
+  "home": "Seattle Seahawks",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.8075,
+  "rawAwayProb": 0.2357,
+  "homeWinProb": 0.774,
+  "awayWinProb": 0.226,
+  "vig": 0.0433,
+  "total": 39.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-08T02:32:39.747751+00:00"
  }
 ]
