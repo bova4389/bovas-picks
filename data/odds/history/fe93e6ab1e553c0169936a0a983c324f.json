@@ -1924,5 +1924,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-08T02:32:39.747751+00:00"
+ },
+ {
+  "id": "fe93e6ab1e553c0169936a0a983c324f",
+  "commenceTime": "2026-11-08T18:02:51Z",
+  "home": "Philadelphia Eagles",
+  "away": "New York Giants",
+  "bookmakerCount": 6,
+  "rawHomeProb": 0.5201,
+  "rawAwayProb": 0.542,
+  "homeWinProb": 0.4897,
+  "awayWinProb": 0.5103,
+  "vig": 0.0621,
+  "total": 42.5,
+  "totalBookCount": 6,
+  "bucket": 0,
+  "fetchedAt": "2026-11-08T18:49:37.918859+00:00"
  }
 ]
