@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-07T19:01:58.890Z",
+ "generated": "2026-11-08T19:07:16.838Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -262,11 +262,17 @@
      "complete": false
     },
     "9": {
-     "entrants": 0,
-     "distinctTeams": 0,
-     "picks": [],
-     "submitted": 3,
-     "revealed": 0,
+     "entrants": 1,
+     "distinctTeams": 1,
+     "picks": [
+      {
+       "team": "KC",
+       "count": 1,
+       "pct": 100
+      }
+     ],
+     "submitted": 4,
+     "revealed": 1,
      "expected": 20,
      "complete": false
     }
@@ -565,7 +571,8 @@
       "5": "HOU",
       "6": "IND",
       "7": "CAR",
-      "8": "CIN"
+      "8": "CIN",
+      "9": "KC"
      },
      "problems": [],
      "alive": true,
@@ -577,7 +584,8 @@
       "HOU",
       "IND",
       "CAR",
-      "CIN"
+      "CIN",
+      "KC"
      ]
     },
     {
@@ -736,7 +744,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1794078118759,
+   "fetchedAt": 1794164836708,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1390,13 +1398,41 @@
     "9": {
      "rows": [
       {
+       "team": "DET",
+       "count": 18
+      },
+      {
+       "team": "KC",
+       "count": 18
+      },
+      {
+       "team": "DAL",
+       "count": 13
+      },
+      {
        "team": "JAC",
        "count": 11
+      },
+      {
+       "team": "LAR",
+       "count": 11
+      },
+      {
+       "team": "CIN",
+       "count": 9
+      },
+      {
+       "team": "DEN",
+       "count": 7
+      },
+      {
+       "team": "NYG",
+       "count": 4
       }
      ],
-     "submitted": 121,
-     "revealed": 11,
-     "locked": 110,
+     "submitted": 144,
+     "revealed": 91,
+     "locked": 53,
      "entrants": 18
     }
    },
@@ -1488,7 +1524,12 @@
        "PHI"
       ],
       "9": [
-       "JAC"
+       "CIN",
+       "JAC",
+       "DAL",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -1612,6 +1653,13 @@
        "NE",
        "LV",
        "WAS"
+      ],
+      "9": [
+       "CIN",
+       "DAL",
+       "KC",
+       "DET",
+       "NYG"
       ]
      },
      "tiebreakers": {
@@ -1734,7 +1782,11 @@
        "LAR"
       ],
       "9": [
-       "JAC"
+       "CIN",
+       "JAC",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -1865,6 +1917,12 @@
        "PIT",
        "LAR",
        "WAS"
+      ],
+      "9": [
+       "DAL",
+       "KC",
+       "DET",
+       "NYG"
       ]
      },
      "tiebreakers": {
@@ -1992,6 +2050,12 @@
        "LV",
        "LAR",
        "WAS"
+      ],
+      "9": [
+       "CIN",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -2124,7 +2188,11 @@
        "WAS"
       ],
       "9": [
-       "JAC"
+       "JAC",
+       "DAL",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -2255,6 +2323,13 @@
        "LAR",
        "TB",
        "WAS"
+      ],
+      "9": [
+       "DEN",
+       "DAL",
+       "KC",
+       "DET",
+       "NYG"
       ]
      },
      "tiebreakers": {
@@ -2386,7 +2461,13 @@
        "WAS"
       ],
       "9": [
-       "JAC"
+       "CIN",
+       "JAC",
+       "DEN",
+       "DAL",
+       "KC",
+       "DET",
+       "NYG"
       ]
      },
      "tiebreakers": {
@@ -2509,7 +2590,11 @@
        "LAR"
       ],
       "9": [
-       "JAC"
+       "CIN",
+       "JAC",
+       "DAL",
+       "KC",
+       "DET"
       ]
      }
     },
@@ -2595,6 +2680,13 @@
        "PIT",
        "LAR",
        "WAS"
+      ],
+      "9": [
+       "DEN",
+       "DAL",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -2724,7 +2816,12 @@
        "LAR"
       ],
       "9": [
-       "JAC"
+       "JAC",
+       "DEN",
+       "DAL",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -2823,6 +2920,12 @@
        "NE",
        "CHI",
        "LAR"
+      ],
+      "9": [
+       "CIN",
+       "DAL",
+       "KC",
+       "DET"
       ]
      },
      "tiebreakers": {
@@ -2950,7 +3053,11 @@
        "WAS"
       ],
       "9": [
-       "JAC"
+       "CIN",
+       "JAC",
+       "DAL",
+       "KC",
+       "DET"
       ]
      },
      "tiebreakers": {
@@ -3066,6 +3173,12 @@
        "NE",
        "LAR",
        "WAS"
+      ],
+      "9": [
+       "DAL",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -3198,7 +3311,11 @@
        "LAR"
       ],
       "9": [
-       "JAC"
+       "JAC",
+       "DEN",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -3331,7 +3448,12 @@
        "LAR"
       ],
       "9": [
-       "JAC"
+       "JAC",
+       "DEN",
+       "DAL",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -3464,7 +3586,10 @@
        "LAR"
       ],
       "9": [
-       "JAC"
+       "JAC",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -3592,7 +3717,12 @@
        "WAS"
       ],
       "9": [
-       "JAC"
+       "CIN",
+       "JAC",
+       "DEN",
+       "KC",
+       "DET",
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -3642,7 +3772,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1794078118888,
+   "fetchedAt": 1794164836836,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
