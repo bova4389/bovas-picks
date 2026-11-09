@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-08T21:20:38.790Z",
+ "generated": "2026-11-09T01:10:15.011Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -262,17 +262,27 @@
      "complete": false
     },
     "9": {
-     "entrants": 1,
-     "distinctTeams": 1,
+     "entrants": 4,
+     "distinctTeams": 3,
      "picks": [
+      {
+       "team": "SEA",
+       "count": 2,
+       "pct": 50
+      },
       {
        "team": "KC",
        "count": 1,
-       "pct": 100
+       "pct": 25
+      },
+      {
+       "team": "SF",
+       "count": 1,
+       "pct": 25
       }
      ],
      "submitted": 4,
-     "revealed": 1,
+     "revealed": 4,
      "expected": 20,
      "complete": false
     }
@@ -346,7 +356,8 @@
       "5": "CIN",
       "6": "SF",
       "7": "HOU",
-      "8": "WAS"
+      "8": "WAS",
+      "9": "SEA"
      },
      "problems": [],
      "alive": true,
@@ -358,7 +369,8 @@
       "CIN",
       "SF",
       "HOU",
-      "WAS"
+      "WAS",
+      "SEA"
      ]
     },
     {
@@ -625,7 +637,8 @@
       "5": "CIN",
       "6": "IND",
       "7": "HOU",
-      "8": "NE"
+      "8": "NE",
+      "9": "SEA"
      },
      "problems": [],
      "alive": true,
@@ -637,7 +650,8 @@
       "CIN",
       "IND",
       "HOU",
-      "NE"
+      "NE",
+      "SEA"
      ]
     },
     {
@@ -654,7 +668,8 @@
       "5": "CIN",
       "6": "NE",
       "7": "DEN",
-      "8": "JAC"
+      "8": "JAC",
+      "9": "SF"
      },
      "problems": [],
      "alive": true,
@@ -666,7 +681,8 @@
       "CIN",
       "NE",
       "DEN",
-      "JAC"
+      "JAC",
+      "SF"
      ]
     },
     {
@@ -744,7 +760,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1794172838697,
+   "fetchedAt": 1794186614790,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1406,8 +1422,16 @@
        "count": 18
       },
       {
+       "team": "SF",
+       "count": 15
+      },
+      {
        "team": "DAL",
        "count": 13
+      },
+      {
+       "team": "SEA",
+       "count": 12
       },
       {
        "team": "JAC",
@@ -1432,11 +1456,15 @@
       {
        "team": "NYG",
        "count": 4
+      },
+      {
+       "team": "GB",
+       "count": 2
       }
      ],
      "submitted": 144,
-     "revealed": 97,
-     "locked": 47,
+     "revealed": 126,
+     "locked": 18,
      "entrants": 18
     }
    },
@@ -1533,6 +1561,7 @@
        "DAL",
        "KC",
        "DET",
+       "SEA",
        "LAR"
       ]
      },
@@ -1663,7 +1692,9 @@
        "DAL",
        "KC",
        "DET",
-       "NYG"
+       "NYG",
+       "SEA",
+       "SF"
       ]
      },
      "tiebreakers": {
@@ -1790,6 +1821,8 @@
        "JAC",
        "KC",
        "DET",
+       "SEA",
+       "SF",
        "LAR"
       ]
      },
@@ -1927,7 +1960,9 @@
        "KC",
        "DET",
        "NYG",
-       "HOU"
+       "HOU",
+       "SEA",
+       "SF"
       ]
      },
      "tiebreakers": {
@@ -2060,7 +2095,9 @@
        "CIN",
        "KC",
        "DET",
+       "GB",
        "HOU",
+       "SF",
        "LAR"
       ]
      },
@@ -2198,6 +2235,8 @@
        "DAL",
        "KC",
        "DET",
+       "GB",
+       "SF",
        "LAR"
       ]
      },
@@ -2335,7 +2374,9 @@
        "DAL",
        "KC",
        "DET",
-       "NYG"
+       "NYG",
+       "SEA",
+       "SF"
       ]
      },
      "tiebreakers": {
@@ -2473,7 +2514,8 @@
        "DAL",
        "KC",
        "DET",
-       "NYG"
+       "NYG",
+       "SEA"
       ]
      },
      "tiebreakers": {
@@ -2600,7 +2642,9 @@
        "JAC",
        "DAL",
        "KC",
-       "DET"
+       "DET",
+       "SEA",
+       "SF"
       ]
      }
     },
@@ -2692,6 +2736,8 @@
        "DAL",
        "KC",
        "DET",
+       "SEA",
+       "SF",
        "LAR"
       ]
      },
@@ -2933,7 +2979,8 @@
        "DAL",
        "KC",
        "DET",
-       "HOU"
+       "HOU",
+       "SF"
       ]
      },
      "tiebreakers": {
@@ -3065,7 +3112,9 @@
        "JAC",
        "DAL",
        "KC",
-       "DET"
+       "DET",
+       "SEA",
+       "SF"
       ]
      },
      "tiebreakers": {
@@ -3187,6 +3236,8 @@
        "KC",
        "DET",
        "HOU",
+       "SEA",
+       "SF",
        "LAR"
       ]
      },
@@ -3324,6 +3375,8 @@
        "DEN",
        "KC",
        "DET",
+       "SEA",
+       "SF",
        "LAR"
       ]
      },
@@ -3462,6 +3515,7 @@
        "DAL",
        "KC",
        "DET",
+       "SF",
        "LAR"
       ]
      },
@@ -3599,6 +3653,8 @@
        "KC",
        "DET",
        "HOU",
+       "SEA",
+       "SF",
        "LAR"
       ]
      },
@@ -3732,6 +3788,7 @@
        "DEN",
        "KC",
        "DET",
+       "SF",
        "LAR"
       ]
      },
@@ -3782,7 +3839,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1794172838787,
+   "fetchedAt": 1794186615009,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
