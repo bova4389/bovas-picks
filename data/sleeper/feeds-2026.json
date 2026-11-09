@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-09T01:10:15.011Z",
+ "generated": "2026-11-09T07:07:55.270Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -760,7 +760,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1794186614790,
+   "fetchedAt": 1794208075155,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1430,6 +1430,10 @@
        "count": 13
       },
       {
+       "team": "CHI",
+       "count": 12
+      },
+      {
        "team": "SEA",
        "count": 12
       },
@@ -1460,11 +1464,15 @@
       {
        "team": "GB",
        "count": 2
+      },
+      {
+       "team": "TB",
+       "count": 1
       }
      ],
      "submitted": 144,
-     "revealed": 126,
-     "locked": 18,
+     "revealed": 139,
+     "locked": 5,
      "entrants": 18
     }
    },
@@ -1689,6 +1697,7 @@
       ],
       "9": [
        "CIN",
+       "CHI",
        "DAL",
        "KC",
        "DET",
@@ -1819,6 +1828,7 @@
       "9": [
        "CIN",
        "JAC",
+       "CHI",
        "KC",
        "DET",
        "SEA",
@@ -1956,6 +1966,7 @@
        "WAS"
       ],
       "9": [
+       "CHI",
        "DAL",
        "KC",
        "DET",
@@ -2093,6 +2104,7 @@
       ],
       "9": [
        "CIN",
+       "CHI",
        "KC",
        "DET",
        "GB",
@@ -2232,6 +2244,7 @@
       ],
       "9": [
        "JAC",
+       "CHI",
        "DAL",
        "KC",
        "DET",
@@ -2371,6 +2384,7 @@
       ],
       "9": [
        "DEN",
+       "TB",
        "DAL",
        "KC",
        "DET",
@@ -2640,6 +2654,7 @@
       "9": [
        "CIN",
        "JAC",
+       "CHI",
        "DAL",
        "KC",
        "DET",
@@ -2733,6 +2748,7 @@
       ],
       "9": [
        "DEN",
+       "CHI",
        "DAL",
        "KC",
        "DET",
@@ -2870,6 +2886,7 @@
       "9": [
        "JAC",
        "DEN",
+       "CHI",
        "DAL",
        "KC",
        "DET",
@@ -2976,6 +2993,7 @@
       ],
       "9": [
        "CIN",
+       "CHI",
        "DAL",
        "KC",
        "DET",
@@ -3110,6 +3128,7 @@
       "9": [
        "CIN",
        "JAC",
+       "CHI",
        "DAL",
        "KC",
        "DET",
@@ -3232,6 +3251,7 @@
        "WAS"
       ],
       "9": [
+       "CHI",
        "DAL",
        "KC",
        "DET",
@@ -3650,6 +3670,7 @@
       ],
       "9": [
        "JAC",
+       "CHI",
        "KC",
        "DET",
        "HOU",
@@ -3839,7 +3860,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1794186615009,
+   "fetchedAt": 1794208075268,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
