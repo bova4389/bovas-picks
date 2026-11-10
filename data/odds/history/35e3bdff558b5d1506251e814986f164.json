@@ -1700,5 +1700,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-11-09T23:26:04.169363+00:00"
+ },
+ {
+  "id": "35e3bdff558b5d1506251e814986f164",
+  "commenceTime": "2026-11-17T01:15:00Z",
+  "home": "Baltimore Ravens",
+  "away": "Los Angeles Chargers",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.7011,
+  "rawAwayProb": 0.3417,
+  "homeWinProb": 0.6723,
+  "awayWinProb": 0.3277,
+  "vig": 0.0428,
+  "total": 38.5,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-11-10T20:49:19.980611+00:00"
  }
 ]

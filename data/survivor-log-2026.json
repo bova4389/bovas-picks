@@ -390,6 +390,32 @@
           "teamsLeft": 24
         }
       ]
+    },
+    "10": {
+      "week": 10,
+      "builtAt": "2026-11-10T20:49:25.166Z",
+      "oddsFetchedAt": "2026-11-10T20:49:19.980611+00:00",
+      "confidence": "provisional",
+      "exposure": {
+        "tickets": 1,
+        "games": 1,
+        "pAllLose": 0.2123
+      },
+      "picks": [
+        {
+          "pool": "deadpool",
+          "team": "LAR",
+          "p": 0.7877,
+          "gap": 0,
+          "fvCost": 0.0461,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 20,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 23
+        }
+      ]
     }
   }
 }

@@ -1716,5 +1716,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-11-09T23:26:04.169363+00:00"
+ },
+ {
+  "id": "be0e03cc42fbc9b6962467b22c7bf9dd",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "Cleveland Browns",
+  "away": "Houston Texans",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.3449,
+  "rawAwayProb": 0.697,
+  "homeWinProb": 0.331,
+  "awayWinProb": 0.669,
+  "vig": 0.0419,
+  "total": 40.0,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-11-10T20:49:19.980611+00:00"
  }
 ]
