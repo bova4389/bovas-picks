@@ -1368,9 +1368,9 @@
    "date": "2026-11-06T01:15Z",
    "home": "BAL",
    "away": "JAC",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 10,
+   "awayScore": 33,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1379,9 +1379,9 @@
    "date": "2026-11-08T14:30Z",
    "home": "ATL",
    "away": "CIN",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 17,
+   "awayScore": 34,
+   "completed": true,
    "neutral": true,
    "venue": {
     "name": "Santiago Bernab\u00e9u",
@@ -1395,9 +1395,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "IND",
    "away": "DAL",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 23,
+   "awayScore": 27,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1406,9 +1406,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "KC",
    "away": "NYJ",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 35,
+   "awayScore": 12,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1417,9 +1417,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "MIA",
    "away": "DET",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 9,
+   "awayScore": 19,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1428,9 +1428,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "NO",
    "away": "CLE",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 23,
+   "awayScore": 22,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1439,9 +1439,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "PHI",
    "away": "NYG",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 11,
+   "awayScore": 19,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1450,9 +1450,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "WAS",
    "away": "LAR",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 13,
+   "awayScore": 20,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1461,9 +1461,9 @@
    "date": "2026-11-08T18:00Z",
    "home": "CAR",
    "away": "DEN",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 21,
+   "awayScore": 26,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1472,9 +1472,9 @@
    "date": "2026-11-08T21:05Z",
    "home": "LAC",
    "away": "HOU",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 22,
+   "awayScore": 44,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1483,9 +1483,9 @@
    "date": "2026-11-08T21:25Z",
    "home": "NE",
    "away": "GB",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 27,
+   "awayScore": 45,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1494,9 +1494,9 @@
    "date": "2026-11-08T21:25Z",
    "home": "SF",
    "away": "LV",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 38,
+   "awayScore": 17,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1505,9 +1505,9 @@
    "date": "2026-11-08T21:25Z",
    "home": "SEA",
    "away": "ARI",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 17,
+   "awayScore": 3,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1516,9 +1516,9 @@
    "date": "2026-11-09T01:20Z",
    "home": "CHI",
    "away": "TB",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 27,
+   "awayScore": 24,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1527,9 +1527,9 @@
    "date": "2026-11-10T01:15Z",
    "home": "MIN",
    "away": "BUF",
-   "homeScore": null,
-   "awayScore": null,
-   "completed": false,
+   "homeScore": 6,
+   "awayScore": 23,
+   "completed": true,
    "neutral": false
   },
   {
@@ -1758,11 +1758,11 @@
    "neutral": false
   },
   {
-   "id": "401873069",
+   "id": "401873076",
    "week": 11,
    "date": "2026-11-22T18:00Z",
-   "home": "NYG",
-   "away": "JAC",
+   "home": "PHI",
+   "away": "PIT",
    "homeScore": null,
    "awayScore": null,
    "completed": false,
@@ -1802,11 +1802,11 @@
    "neutral": false
   },
   {
-   "id": "401873076",
+   "id": "401873069",
    "week": 11,
    "date": "2026-11-22T21:25Z",
-   "home": "PHI",
-   "away": "PIT",
+   "home": "NYG",
+   "away": "JAC",
    "homeScore": null,
    "awayScore": null,
    "completed": false,
@@ -3101,5 +3101,5 @@
   "18": []
  },
  "gameCount": 272,
- "completed": 121
+ "completed": 136
 }
