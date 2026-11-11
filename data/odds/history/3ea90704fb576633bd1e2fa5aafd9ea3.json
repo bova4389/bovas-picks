@@ -1540,5 +1540,21 @@
   "totalBookCount": 5,
   "bucket": 2,
   "fetchedAt": "2026-11-10T20:49:19.980611+00:00"
+ },
+ {
+  "id": "3ea90704fb576633bd1e2fa5aafd9ea3",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Chicago Bears",
+  "away": "New Orleans Saints",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.8392,
+  "rawAwayProb": 0.2047,
+  "homeWinProb": 0.8039,
+  "awayWinProb": 0.1961,
+  "vig": 0.0439,
+  "total": 49.0,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-11-11T21:25:29.617026+00:00"
  }
 ]
