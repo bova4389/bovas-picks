@@ -393,21 +393,21 @@
     },
     "10": {
       "week": 10,
-      "builtAt": "2026-11-11T21:25:34.704Z",
-      "oddsFetchedAt": "2026-11-11T21:25:29.617026+00:00",
-      "confidence": "provisional",
+      "builtAt": "2026-11-12T09:54:58.659Z",
+      "oddsFetchedAt": "2026-11-12T09:54:54.574985+00:00",
+      "confidence": "firming",
       "exposure": {
         "tickets": 1,
         "games": 1,
-        "pAllLose": 0.2138
+        "pAllLose": 0.206
       },
       "picks": [
         {
           "pool": "deadpool",
-          "team": "BUF",
-          "p": 0.7862,
+          "team": "LAR",
+          "p": 0.794,
           "gap": 0,
-          "fvCost": 0.1208,
+          "fvCost": 0.0288,
           "share": null,
           "basis": "win-probability",
           "entrants": 20,
