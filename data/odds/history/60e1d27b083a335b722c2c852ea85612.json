@@ -1380,5 +1380,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-11-12T09:54:54.574985+00:00"
+ },
+ {
+  "id": "60e1d27b083a335b722c2c852ea85612",
+  "commenceTime": "2026-11-23T01:20:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Minnesota Vikings",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.6815,
+  "rawAwayProb": 0.364,
+  "homeWinProb": 0.6519,
+  "awayWinProb": 0.3481,
+  "vig": 0.0455,
+  "total": 45.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-11-12T18:58:13.802670+00:00"
  }
 ]
