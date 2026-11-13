@@ -1780,5 +1780,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-12T18:58:13.802670+00:00"
+ },
+ {
+  "id": "74d39e19225caf211ad2c8eb4110179f",
+  "commenceTime": "2026-11-13T01:15:00Z",
+  "home": "New York Giants",
+  "away": "Washington Commanders",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.5537,
+  "rawAwayProb": 0.4905,
+  "homeWinProb": 0.5302,
+  "awayWinProb": 0.4698,
+  "vig": 0.0442,
+  "total": 40.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-13T01:10:02.348959+00:00"
  }
 ]
