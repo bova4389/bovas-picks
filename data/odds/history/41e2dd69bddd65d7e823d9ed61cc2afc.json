@@ -1604,5 +1604,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-11-13T01:10:02.348959+00:00"
+ },
+ {
+  "id": "41e2dd69bddd65d7e823d9ed61cc2afc",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Detroit Lions",
+  "away": "Tampa Bay Buccaneers",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.6448,
+  "rawAwayProb": 0.4053,
+  "homeWinProb": 0.614,
+  "awayWinProb": 0.386,
+  "vig": 0.0501,
+  "total": 47.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-11-13T09:39:46.349354+00:00"
  }
 ]

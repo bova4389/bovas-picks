@@ -1604,5 +1604,21 @@
   "totalBookCount": 4,
   "bucket": 1,
   "fetchedAt": "2026-11-13T01:10:02.348959+00:00"
+ },
+ {
+  "id": "4c5b1c0843a260278e95eb93e7787576",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Buffalo Bills",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.9479,
+  "rawAwayProb": 0.0963,
+  "homeWinProb": 0.9078,
+  "awayWinProb": 0.0922,
+  "vig": 0.0441,
+  "total": 46.5,
+  "totalBookCount": 4,
+  "bucket": 1,
+  "fetchedAt": "2026-11-13T09:39:46.349354+00:00"
  }
 ]
