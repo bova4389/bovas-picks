@@ -1620,5 +1620,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-11-13T09:39:46.349354+00:00"
+ },
+ {
+  "id": "1940706a79cbcbafacdcbf231069716b",
+  "commenceTime": "2026-11-22T21:25:00Z",
+  "home": "Denver Broncos",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 4,
+  "rawHomeProb": 0.8128,
+  "rawAwayProb": 0.2312,
+  "homeWinProb": 0.7785,
+  "awayWinProb": 0.2215,
+  "vig": 0.044,
+  "total": 41.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-11-13T18:34:04.882396+00:00"
  }
 ]

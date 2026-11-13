@@ -1812,5 +1812,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-13T09:39:46.349354+00:00"
+ },
+ {
+  "id": "1057d50949844ddf483da9c8c20354be",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "New York Jets",
+  "away": "Buffalo Bills",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.2265,
+  "rawAwayProb": 0.8158,
+  "homeWinProb": 0.2173,
+  "awayWinProb": 0.7827,
+  "vig": 0.0422,
+  "total": 51.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-13T18:34:04.882396+00:00"
  }
 ]

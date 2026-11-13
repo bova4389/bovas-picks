@@ -1812,5 +1812,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-13T09:39:46.349354+00:00"
+ },
+ {
+  "id": "b5700b4d938fd94429f60d4622cc9c0a",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "Indianapolis Colts",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6728,
+  "rawAwayProb": 0.3684,
+  "homeWinProb": 0.6462,
+  "awayWinProb": 0.3538,
+  "vig": 0.0411,
+  "total": 37.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-13T18:34:04.882396+00:00"
  }
 ]
