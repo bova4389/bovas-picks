@@ -1684,5 +1684,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-14T17:11:27.279405+00:00"
+ },
+ {
+  "id": "7627192fd89b05120ab6c712aa23fd81",
+  "commenceTime": "2026-11-15T21:25:00Z",
+  "home": "Dallas Cowboys",
+  "away": "San Francisco 49ers",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.3598,
+  "rawAwayProb": 0.681,
+  "homeWinProb": 0.3457,
+  "awayWinProb": 0.6543,
+  "vig": 0.0408,
+  "total": 55.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-14T21:33:06.685438+00:00"
  }
 ]

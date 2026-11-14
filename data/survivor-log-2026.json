@@ -393,19 +393,19 @@
     },
     "10": {
       "week": 10,
-      "builtAt": "2026-11-14T17:11:30.967Z",
-      "oddsFetchedAt": "2026-11-14T17:11:27.279405+00:00",
+      "builtAt": "2026-11-14T21:33:11.044Z",
+      "oddsFetchedAt": "2026-11-14T21:33:06.685438+00:00",
       "confidence": "final",
       "exposure": {
         "tickets": 1,
         "games": 1,
-        "pAllLose": 0.2068
+        "pAllLose": 0.2073
       },
       "picks": [
         {
           "pool": "deadpool",
           "team": "LAR",
-          "p": 0.7932,
+          "p": 0.7927,
           "gap": 0,
           "fvCost": 0.0288,
           "share": null,
