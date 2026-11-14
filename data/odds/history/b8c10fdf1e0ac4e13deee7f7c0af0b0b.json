@@ -1578,5 +1578,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-14T00:54:33.803946+00:00"
+ },
+ {
+  "id": "b8c10fdf1e0ac4e13deee7f7c0af0b0b",
+  "commenceTime": "2026-11-15T14:30:00Z",
+  "home": "Detroit Lions",
+  "away": "New England Patriots",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6025,
+  "rawAwayProb": 0.4378,
+  "homeWinProb": 0.5792,
+  "awayWinProb": 0.4208,
+  "vig": 0.0403,
+  "total": 49.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-14T09:03:20.334477+00:00"
  }
 ]
