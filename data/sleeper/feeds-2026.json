@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-15T19:56:55.001Z",
+ "generated": "2026-11-15T22:02:03.992Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -287,22 +287,27 @@
      "complete": false
     },
     "10": {
-     "entrants": 2,
-     "distinctTeams": 2,
+     "entrants": 4,
+     "distinctTeams": 3,
      "picks": [
+      {
+       "team": "LAR",
+       "count": 2,
+       "pct": 50
+      },
       {
        "team": "BUF",
        "count": 1,
-       "pct": 50
+       "pct": 25
       },
       {
        "team": "JAC",
        "count": 1,
-       "pct": 50
+       "pct": 25
       }
      ],
      "submitted": 4,
-     "revealed": 2,
+     "revealed": 4,
      "expected": 20,
      "complete": false
     }
@@ -377,7 +382,8 @@
       "6": "SF",
       "7": "HOU",
       "8": "WAS",
-      "9": "SEA"
+      "9": "SEA",
+      "10": "LAR"
      },
      "problems": [],
      "alive": true,
@@ -390,7 +396,8 @@
       "SF",
       "HOU",
       "WAS",
-      "SEA"
+      "SEA",
+      "LAR"
      ]
     },
     {
@@ -660,7 +667,8 @@
       "6": "IND",
       "7": "HOU",
       "8": "NE",
-      "9": "SEA"
+      "9": "SEA",
+      "10": "LAR"
      },
      "problems": [],
      "alive": true,
@@ -673,7 +681,8 @@
       "IND",
       "HOU",
       "NE",
-      "SEA"
+      "SEA",
+      "LAR"
      ]
     },
     {
@@ -784,7 +793,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1794772614889,
+   "fetchedAt": 1794780123874,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1514,7 +1523,19 @@
        "count": 18
       },
       {
+       "team": "LAR",
+       "count": 18
+      },
+      {
        "team": "KC",
+       "count": 16
+      },
+      {
+       "team": "SEA",
+       "count": 16
+      },
+      {
+       "team": "SF",
        "count": 16
       },
       {
@@ -1547,8 +1568,8 @@
       }
      ],
      "submitted": 143,
-     "revealed": 82,
-     "locked": 61,
+     "revealed": 132,
+     "locked": 11,
      "entrants": 18
     }
    },
@@ -1650,6 +1671,7 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "KC",
        "HOU",
        "DET",
@@ -1796,10 +1818,13 @@
        "SF"
       ],
       "10": [
+       "LAR",
        "KC",
        "HOU",
+       "SF",
        "GB",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -1938,9 +1963,12 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "KC",
        "HOU",
+       "SF",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -2089,9 +2117,12 @@
        "SF"
       ],
       "10": [
+       "LAR",
        "KC",
+       "SF",
        "IND",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -2237,10 +2268,12 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "HOU",
        "DET",
        "IND",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -2389,10 +2422,13 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "KC",
        "HOU",
+       "SF",
        "GB",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -2541,10 +2577,13 @@
        "SF"
       ],
       "10": [
+       "LAR",
        "KC",
+       "SF",
        "GB",
        "NO",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -2692,10 +2731,13 @@
        "SEA"
       ],
       "10": [
+       "LAR",
        "KC",
        "HOU",
+       "SF",
        "IND",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -2834,10 +2876,13 @@
        "SF"
       ],
       "10": [
+       "LAR",
        "KC",
+       "SF",
        "DET",
        "GB",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -2943,9 +2988,12 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "KC",
        "HOU",
+       "SF",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -3091,7 +3139,9 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "KC",
+       "SF",
        "MIN",
        "NO",
        "NYG",
@@ -3212,9 +3262,12 @@
        "SF"
       ],
       "10": [
+       "LAR",
        "KC",
+       "SF",
        "DET",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -3358,8 +3411,11 @@
        "SF"
       ],
       "10": [
+       "LAR",
+       "SF",
        "GB",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -3493,9 +3549,12 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "KC",
        "HOU",
+       "SF",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -3644,10 +3703,13 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "KC",
        "HOU",
+       "SF",
        "IND",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -3796,9 +3858,12 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "KC",
+       "SF",
        "NO",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -3947,9 +4012,12 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "KC",
        "HOU",
+       "SF",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -4093,9 +4161,12 @@
        "LAR"
       ],
       "10": [
+       "LAR",
        "KC",
+       "SF",
        "NYG",
        "BUF",
+       "SEA",
        "JAC"
       ]
      },
@@ -4151,7 +4222,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1794772614999,
+   "fetchedAt": 1794780123990,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
