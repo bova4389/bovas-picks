@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-13T07:19:00.271Z",
+ "generated": "2026-11-15T19:56:55.001Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -287,11 +287,22 @@
      "complete": false
     },
     "10": {
-     "entrants": 0,
-     "distinctTeams": 0,
-     "picks": [],
-     "submitted": 3,
-     "revealed": 0,
+     "entrants": 2,
+     "distinctTeams": 2,
+     "picks": [
+      {
+       "team": "BUF",
+       "count": 1,
+       "pct": 50
+      },
+      {
+       "team": "JAC",
+       "count": 1,
+       "pct": 50
+      }
+     ],
+     "submitted": 4,
+     "revealed": 2,
      "expected": 20,
      "complete": false
     }
@@ -593,7 +604,8 @@
       "6": "IND",
       "7": "CAR",
       "8": "CIN",
-      "9": "KC"
+      "9": "KC",
+      "10": "JAC"
      },
      "problems": [],
      "alive": true,
@@ -606,7 +618,8 @@
       "IND",
       "CAR",
       "CIN",
-      "KC"
+      "KC",
+      "JAC"
      ]
     },
     {
@@ -678,7 +691,8 @@
       "6": "NE",
       "7": "DEN",
       "8": "JAC",
-      "9": "SF"
+      "9": "SF",
+      "10": "BUF"
      },
      "problems": [],
      "alive": true,
@@ -691,7 +705,8 @@
       "NE",
       "DEN",
       "JAC",
-      "SF"
+      "SF",
+      "BUF"
      ]
     },
     {
@@ -769,7 +784,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1794554340066,
+   "fetchedAt": 1794772614889,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1491,13 +1506,49 @@
     "10": {
      "rows": [
       {
+       "team": "BUF",
+       "count": 18
+      },
+      {
+       "team": "JAC",
+       "count": 18
+      },
+      {
+       "team": "KC",
+       "count": 16
+      },
+      {
+       "team": "HOU",
+       "count": 10
+      },
+      {
+       "team": "GB",
+       "count": 6
+      },
+      {
+       "team": "DET",
+       "count": 4
+      },
+      {
+       "team": "IND",
+       "count": 4
+      },
+      {
+       "team": "NO",
+       "count": 3
+      },
+      {
        "team": "NYG",
        "count": 2
+      },
+      {
+       "team": "MIN",
+       "count": 1
       }
      ],
-     "submitted": 100,
-     "revealed": 2,
-     "locked": 98,
+     "submitted": 143,
+     "revealed": 82,
+     "locked": 61,
      "entrants": 18
     }
    },
@@ -1597,6 +1648,14 @@
        "BUF",
        "SEA",
        "LAR"
+      ],
+      "10": [
+       "KC",
+       "HOU",
+       "DET",
+       "GB",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -1735,6 +1794,13 @@
        "NYG",
        "SEA",
        "SF"
+      ],
+      "10": [
+       "KC",
+       "HOU",
+       "GB",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -1870,6 +1936,12 @@
        "SEA",
        "SF",
        "LAR"
+      ],
+      "10": [
+       "KC",
+       "HOU",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2015,6 +2087,12 @@
        "HOU",
        "SEA",
        "SF"
+      ],
+      "10": [
+       "KC",
+       "IND",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2157,6 +2235,13 @@
        "HOU",
        "SF",
        "LAR"
+      ],
+      "10": [
+       "HOU",
+       "DET",
+       "IND",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2302,6 +2387,13 @@
        "GB",
        "SF",
        "LAR"
+      ],
+      "10": [
+       "KC",
+       "HOU",
+       "GB",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2447,6 +2539,13 @@
        "NYG",
        "SEA",
        "SF"
+      ],
+      "10": [
+       "KC",
+       "GB",
+       "NO",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2591,6 +2690,13 @@
        "DET",
        "NYG",
        "SEA"
+      ],
+      "10": [
+       "KC",
+       "HOU",
+       "IND",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2726,6 +2832,13 @@
        "DET",
        "SEA",
        "SF"
+      ],
+      "10": [
+       "KC",
+       "DET",
+       "GB",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2828,6 +2941,12 @@
        "SEA",
        "SF",
        "LAR"
+      ],
+      "10": [
+       "KC",
+       "HOU",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2972,7 +3091,12 @@
        "LAR"
       ],
       "10": [
-       "NYG"
+       "KC",
+       "MIN",
+       "NO",
+       "NYG",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3086,6 +3210,12 @@
        "BUF",
        "HOU",
        "SF"
+      ],
+      "10": [
+       "KC",
+       "DET",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3226,6 +3356,11 @@
        "DET",
        "SEA",
        "SF"
+      ],
+      "10": [
+       "GB",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3356,6 +3491,12 @@
        "SEA",
        "SF",
        "LAR"
+      ],
+      "10": [
+       "KC",
+       "HOU",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3501,6 +3642,13 @@
        "SEA",
        "SF",
        "LAR"
+      ],
+      "10": [
+       "KC",
+       "HOU",
+       "IND",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3646,6 +3794,12 @@
        "BUF",
        "SF",
        "LAR"
+      ],
+      "10": [
+       "KC",
+       "NO",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3791,6 +3945,12 @@
        "SEA",
        "SF",
        "LAR"
+      ],
+      "10": [
+       "KC",
+       "HOU",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3933,7 +4093,10 @@
        "LAR"
       ],
       "10": [
-       "NYG"
+       "KC",
+       "NYG",
+       "BUF",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3988,7 +4151,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1794554340268,
+   "fetchedAt": 1794772614999,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
