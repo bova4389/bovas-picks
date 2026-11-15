@@ -1892,5 +1892,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-14T21:33:06.685438+00:00"
+ },
+ {
+  "id": "3c71d515b726f1096aabb435badb83fd",
+  "commenceTime": "2026-11-15T18:00:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.4025,
+  "rawAwayProb": 0.637,
+  "homeWinProb": 0.3872,
+  "awayWinProb": 0.6128,
+  "vig": 0.0395,
+  "total": 47.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-15T02:46:01.000183+00:00"
  }
 ]
