@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-15T22:02:03.992Z",
+ "generated": "2026-11-16T02:21:50.337Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -793,7 +793,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1794780123874,
+   "fetchedAt": 1794795710211,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1543,6 +1543,10 @@
        "count": 10
       },
       {
+       "team": "CIN",
+       "count": 6
+      },
+      {
        "team": "GB",
        "count": 6
       },
@@ -1565,11 +1569,15 @@
       {
        "team": "MIN",
        "count": 1
+      },
+      {
+       "team": "PIT",
+       "count": 1
       }
      ],
-     "submitted": 143,
-     "revealed": 132,
-     "locked": 11,
+     "submitted": 144,
+     "revealed": 139,
+     "locked": 5,
      "entrants": 18
     }
    },
@@ -1673,6 +1681,7 @@
       "10": [
        "LAR",
        "KC",
+       "CIN",
        "HOU",
        "DET",
        "GB",
@@ -2269,6 +2278,7 @@
       ],
       "10": [
        "LAR",
+       "CIN",
        "HOU",
        "DET",
        "IND",
@@ -2990,6 +3000,7 @@
       "10": [
        "LAR",
        "KC",
+       "CIN",
        "HOU",
        "SF",
        "BUF",
@@ -3412,6 +3423,7 @@
       ],
       "10": [
        "LAR",
+       "CIN",
        "SF",
        "GB",
        "BUF",
@@ -3860,6 +3872,7 @@
       "10": [
        "LAR",
        "KC",
+       "CIN",
        "SF",
        "NO",
        "BUF",
@@ -4014,6 +4027,7 @@
       "10": [
        "LAR",
        "KC",
+       "CIN",
        "HOU",
        "SF",
        "BUF",
@@ -4163,6 +4177,7 @@
       "10": [
        "LAR",
        "KC",
+       "PIT",
        "SF",
        "NYG",
        "BUF",
@@ -4222,7 +4237,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1794780123990,
+   "fetchedAt": 1794795710335,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
