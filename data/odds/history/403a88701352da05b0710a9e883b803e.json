@@ -1716,5 +1716,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-11-15T02:46:01.000183+00:00"
+ },
+ {
+  "id": "403a88701352da05b0710a9e883b803e",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Kansas City Chiefs",
+  "away": "Arizona Cardinals",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.94,
+  "rawAwayProb": 0.104,
+  "homeWinProb": 0.9004,
+  "awayWinProb": 0.0996,
+  "vig": 0.044,
+  "total": 41.0,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-11-16T23:23:25.509240+00:00"
  }
 ]

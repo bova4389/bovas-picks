@@ -1716,5 +1716,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-11-15T02:46:01.000183+00:00"
+ },
+ {
+  "id": "4527f57f5bc32742d8194af1ccf7da7e",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Carolina Panthers",
+  "away": "Baltimore Ravens",
+  "bookmakerCount": 5,
+  "rawHomeProb": 0.5737,
+  "rawAwayProb": 0.4735,
+  "homeWinProb": 0.5478,
+  "awayWinProb": 0.4522,
+  "vig": 0.0472,
+  "total": 44.0,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-11-16T23:23:25.509240+00:00"
  }
 ]

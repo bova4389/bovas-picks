@@ -1716,5 +1716,21 @@
   "totalBookCount": 4,
   "bucket": 1,
   "fetchedAt": "2026-11-15T02:46:01.000183+00:00"
+ },
+ {
+  "id": "8ba112fabf4e87639338a5f437c5abfe",
+  "commenceTime": "2026-11-22T21:25:00Z",
+  "home": "New York Giants",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.3177,
+  "rawAwayProb": 0.7246,
+  "homeWinProb": 0.3048,
+  "awayWinProb": 0.6952,
+  "vig": 0.0423,
+  "total": 46.5,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-11-16T23:23:25.509240+00:00"
  }
 ]
