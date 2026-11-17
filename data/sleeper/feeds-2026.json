@@ -1,10 +1,10 @@
 {
  "season": 2026,
- "generated": "2026-11-16T02:21:50.337Z",
+ "generated": "2026-11-17T08:26:23.303Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
-   "currentWeek": 10,
+   "currentWeek": 11,
    "weeks": {
     "1": {
      "entrants": 20,
@@ -308,6 +308,15 @@
      ],
      "submitted": 4,
      "revealed": 4,
+     "expected": 20,
+     "complete": false
+    },
+    "11": {
+     "entrants": 0,
+     "distinctTeams": 0,
+     "picks": [],
+     "submitted": 0,
+     "revealed": 0,
      "expected": 20,
      "complete": false
     }
@@ -793,7 +802,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1794795710211,
+   "fetchedAt": 1794903983182,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -802,7 +811,7 @@
   },
   "1400511807180828672": {
    "year": 2026,
-   "currentWeek": 10,
+   "currentWeek": 11,
    "weeks": {
     "1": {
      "rows": [
@@ -1551,6 +1560,10 @@
        "count": 6
       },
       {
+       "team": "BAL",
+       "count": 5
+      },
+      {
        "team": "DET",
        "count": 4
       },
@@ -1576,8 +1589,15 @@
       }
      ],
      "submitted": 144,
-     "revealed": 139,
-     "locked": 5,
+     "revealed": 144,
+     "locked": 0,
+     "entrants": 18
+    },
+    "11": {
+     "rows": [],
+     "submitted": 8,
+     "revealed": 0,
+     "locked": 8,
      "entrants": 18
     }
    },
@@ -1734,6 +1754,11 @@
        "guess": 40,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 46,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -1872,6 +1897,11 @@
        "guess": 48,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 36,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -1974,6 +2004,7 @@
       "10": [
        "LAR",
        "KC",
+       "BAL",
        "HOU",
        "SF",
        "BUF",
@@ -2026,6 +2057,11 @@
        "guess": 43,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 47,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -2128,6 +2164,7 @@
       "10": [
        "LAR",
        "KC",
+       "BAL",
        "SF",
        "IND",
        "BUF",
@@ -2180,6 +2217,11 @@
        "guess": 44,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 39,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -2332,6 +2374,11 @@
        "guess": 35,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 40,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -2487,6 +2534,11 @@
        "guess": 48,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 38,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -2642,6 +2694,11 @@
        "guess": 46,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 34,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -2786,6 +2843,11 @@
        "guess": 41,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 36,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -3053,6 +3115,11 @@
        "guess": 46,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 39,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -3275,6 +3342,7 @@
       "10": [
        "LAR",
        "KC",
+       "BAL",
        "SF",
        "DET",
        "BUF",
@@ -3322,6 +3390,11 @@
        "guess": 52,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 44,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -3423,6 +3496,7 @@
       ],
       "10": [
        "LAR",
+       "BAL",
        "CIN",
        "SF",
        "GB",
@@ -3461,6 +3535,11 @@
        "guess": 50,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 50,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -3563,6 +3642,7 @@
       "10": [
        "LAR",
        "KC",
+       "BAL",
        "HOU",
        "SF",
        "BUF",
@@ -3615,6 +3695,11 @@
        "guess": 42,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 42,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -3770,6 +3855,11 @@
        "guess": 45,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 37,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -3925,6 +4015,11 @@
        "guess": 48,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 41,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -4075,6 +4170,11 @@
        "guess": 51,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 33,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     },
@@ -4230,6 +4330,11 @@
        "guess": 58,
        "away": "BUF",
        "home": "MIN"
+      },
+      "10": {
+       "guess": 60,
+       "away": "LAC",
+       "home": "BAL"
       }
      }
     }
@@ -4237,7 +4342,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1794795710335,
+   "fetchedAt": 1794903983301,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
