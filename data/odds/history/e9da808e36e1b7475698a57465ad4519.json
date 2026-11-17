@@ -1524,5 +1524,21 @@
   "totalBookCount": 1,
   "bucket": 11,
   "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
+ },
+ {
+  "id": "e9da808e36e1b7475698a57465ad4519",
+  "commenceTime": "2026-11-29T18:00:00Z",
+  "home": "Indianapolis Colts",
+  "away": "New York Giants",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.3736,
+  "rawAwayProb": 0.671,
+  "homeWinProb": 0.3577,
+  "awayWinProb": 0.6423,
+  "vig": 0.0446,
+  "total": 44.25,
+  "totalBookCount": 6,
+  "bucket": 2,
+  "fetchedAt": "2026-11-17T22:23:19.495031+00:00"
  }
 ]

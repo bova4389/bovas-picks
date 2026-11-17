@@ -416,6 +416,32 @@
           "teamsLeft": 23
         }
       ]
+    },
+    "11": {
+      "week": 11,
+      "builtAt": "2026-11-17T22:23:24.608Z",
+      "oddsFetchedAt": "2026-11-17T22:23:19.495031+00:00",
+      "confidence": "provisional",
+      "exposure": {
+        "tickets": 1,
+        "games": 1,
+        "pAllLose": 0.0951
+      },
+      "picks": [
+        {
+          "pool": "deadpool",
+          "team": "BUF",
+          "p": 0.9049,
+          "gap": 0,
+          "fvCost": -0.0072,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 20,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 22
+        }
+      ]
     }
   }
 }

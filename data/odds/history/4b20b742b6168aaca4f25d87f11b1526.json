@@ -1732,5 +1732,21 @@
   "totalBookCount": 5,
   "bucket": 1,
   "fetchedAt": "2026-11-16T23:23:25.509240+00:00"
+ },
+ {
+  "id": "4b20b742b6168aaca4f25d87f11b1526",
+  "commenceTime": "2026-11-22T21:05:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "New York Jets",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6432,
+  "rawAwayProb": 0.3969,
+  "homeWinProb": 0.6184,
+  "awayWinProb": 0.3816,
+  "vig": 0.04,
+  "total": 41.0,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-11-17T22:23:19.495031+00:00"
  }
 ]

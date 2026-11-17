@@ -1524,5 +1524,21 @@
   "totalBookCount": 1,
   "bucket": 11,
   "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
+ },
+ {
+  "id": "5ea0e3ea5944b0ad5169f21c0787b331",
+  "commenceTime": "2026-11-29T18:00:00Z",
+  "home": "Miami Dolphins",
+  "away": "New York Jets",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.3996,
+  "rawAwayProb": 0.6444,
+  "homeWinProb": 0.3827,
+  "awayWinProb": 0.6173,
+  "vig": 0.0439,
+  "total": 41.5,
+  "totalBookCount": 6,
+  "bucket": 2,
+  "fetchedAt": "2026-11-17T22:23:19.495031+00:00"
  }
 ]
