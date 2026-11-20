@@ -1812,5 +1812,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-20T01:47:26.207544+00:00"
+ },
+ {
+  "id": "5e63079b678f8c13419adc169fff02d3",
+  "commenceTime": "2026-11-22T18:00:00Z",
+  "home": "Dallas Cowboys",
+  "away": "Tennessee Titans",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.7998,
+  "rawAwayProb": 0.2425,
+  "homeWinProb": 0.7674,
+  "awayWinProb": 0.2326,
+  "vig": 0.0423,
+  "total": 55.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-20T10:07:40.623096+00:00"
  }
 ]
