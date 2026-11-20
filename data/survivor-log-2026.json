@@ -419,8 +419,8 @@
     },
     "11": {
       "week": 11,
-      "builtAt": "2026-11-20T10:07:43.615Z",
-      "oddsFetchedAt": "2026-11-20T10:07:40.623096+00:00",
+      "builtAt": "2026-11-20T19:08:15.011Z",
+      "oddsFetchedAt": "2026-11-20T19:08:11.210917+00:00",
       "confidence": "firming",
       "exposure": {
         "tickets": 1,
