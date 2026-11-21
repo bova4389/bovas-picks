@@ -1668,5 +1668,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-11-21T09:55:30.982526+00:00"
+ },
+ {
+  "id": "69a1dbe9de3d3212c3a7a55be5d204ab",
+  "commenceTime": "2026-11-29T21:25:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Washington Commanders",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.2788,
+  "rawAwayProb": 0.7639,
+  "homeWinProb": 0.2674,
+  "awayWinProb": 0.7326,
+  "vig": 0.0427,
+  "total": 42.0,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-11-21T18:02:29.182236+00:00"
  }
 ]
