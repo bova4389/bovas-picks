@@ -1652,5 +1652,21 @@
   "totalBookCount": 7,
   "bucket": 1,
   "fetchedAt": "2026-11-21T01:34:48.484853+00:00"
+ },
+ {
+  "id": "44a3bcf5bd002583ddef2207a92dd977",
+  "commenceTime": "2026-11-27T20:00:00Z",
+  "home": "Pittsburgh Steelers",
+  "away": "Denver Broncos",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.4832,
+  "rawAwayProb": 0.5614,
+  "homeWinProb": 0.4626,
+  "awayWinProb": 0.5374,
+  "vig": 0.0446,
+  "total": 40.5,
+  "totalBookCount": 7,
+  "bucket": 1,
+  "fetchedAt": "2026-11-21T09:55:30.982526+00:00"
  }
 ]

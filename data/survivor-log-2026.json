@@ -419,19 +419,19 @@
     },
     "11": {
       "week": 11,
-      "builtAt": "2026-11-21T01:34:53.016Z",
-      "oddsFetchedAt": "2026-11-21T01:34:48.484853+00:00",
-      "confidence": "firming",
+      "builtAt": "2026-11-21T09:55:34.364Z",
+      "oddsFetchedAt": "2026-11-21T09:55:30.982526+00:00",
+      "confidence": "final",
       "exposure": {
         "tickets": 1,
         "games": 1,
-        "pAllLose": 0.0954
+        "pAllLose": 0.0959
       },
       "picks": [
         {
           "pool": "deadpool",
           "team": "BUF",
-          "p": 0.9046,
+          "p": 0.9041,
           "gap": 0,
           "fvCost": 0.0114,
           "share": null,
