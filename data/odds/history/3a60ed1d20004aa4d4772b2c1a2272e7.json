@@ -1860,5 +1860,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-20T19:08:11.210917+00:00"
+ },
+ {
+  "id": "3a60ed1d20004aa4d4772b2c1a2272e7",
+  "commenceTime": "2026-11-24T01:15:00Z",
+  "home": "Washington Commanders",
+  "away": "Cincinnati Bengals",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.2969,
+  "rawAwayProb": 0.7447,
+  "homeWinProb": 0.285,
+  "awayWinProb": 0.715,
+  "vig": 0.0416,
+  "total": 54.0,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-21T01:34:48.484853+00:00"
  }
 ]
