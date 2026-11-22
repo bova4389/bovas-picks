@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-21T20:39:31.928Z",
+ "generated": "2026-11-22T20:49:40.791Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -312,17 +312,27 @@
      "complete": false
     },
     "11": {
-     "entrants": 1,
-     "distinctTeams": 1,
+     "entrants": 4,
+     "distinctTeams": 3,
      "picks": [
+      {
+       "team": "BUF",
+       "count": 2,
+       "pct": 50
+      },
+      {
+       "team": "DAL",
+       "count": 1,
+       "pct": 25
+      },
       {
        "team": "HOU",
        "count": 1,
-       "pct": 100
+       "pct": 25
       }
      ],
      "submitted": 4,
-     "revealed": 1,
+     "revealed": 4,
      "expected": 20,
      "complete": false
     }
@@ -398,7 +408,8 @@
       "7": "HOU",
       "8": "WAS",
       "9": "SEA",
-      "10": "LAR"
+      "10": "LAR",
+      "11": "BUF"
      },
      "problems": [],
      "alive": true,
@@ -412,7 +423,8 @@
       "HOU",
       "WAS",
       "SEA",
-      "LAR"
+      "LAR",
+      "BUF"
      ]
     },
     {
@@ -627,7 +639,8 @@
       "7": "CAR",
       "8": "CIN",
       "9": "KC",
-      "10": "JAC"
+      "10": "JAC",
+      "11": "BUF"
      },
      "problems": [],
      "alive": true,
@@ -641,7 +654,8 @@
       "CAR",
       "CIN",
       "KC",
-      "JAC"
+      "JAC",
+      "BUF"
      ]
     },
     {
@@ -683,7 +697,8 @@
       "7": "HOU",
       "8": "NE",
       "9": "SEA",
-      "10": "LAR"
+      "10": "LAR",
+      "11": "DAL"
      },
      "problems": [],
      "alive": true,
@@ -697,7 +712,8 @@
       "HOU",
       "NE",
       "SEA",
-      "LAR"
+      "LAR",
+      "DAL"
      ]
     },
     {
@@ -810,7 +826,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1795293571809,
+   "fetchedAt": 1795380580564,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1604,13 +1620,41 @@
     "11": {
      "rows": [
       {
+       "team": "BUF",
+       "count": 18
+      },
+      {
+       "team": "CHI",
+       "count": 18
+      },
+      {
+       "team": "KC",
+       "count": 18
+      },
+      {
+       "team": "DAL",
+       "count": 16
+      },
+      {
        "team": "HOU",
        "count": 13
+      },
+      {
+       "team": "DET",
+       "count": 11
+      },
+      {
+       "team": "PIT",
+       "count": 4
+      },
+      {
+       "team": "CAR",
+       "count": 2
       }
      ],
-     "submitted": 116,
-     "revealed": 13,
-     "locked": 103,
+     "submitted": 144,
+     "revealed": 100,
+     "locked": 44,
      "entrants": 18
     }
    },
@@ -1722,7 +1766,12 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CAR",
+       "CHI",
+       "DAL",
+       "HOU",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -1876,6 +1925,14 @@
        "BUF",
        "SEA",
        "JAC"
+      ],
+      "11": [
+       "BUF",
+       "CHI",
+       "DAL",
+       "DET",
+       "KC",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2028,7 +2085,12 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "DAL",
+       "DET",
+       "HOU",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -2189,6 +2251,13 @@
        "BUF",
        "SEA",
        "JAC"
+      ],
+      "11": [
+       "BUF",
+       "CHI",
+       "DAL",
+       "DET",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -2348,7 +2417,11 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "DAL",
+       "HOU",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -2511,7 +2584,12 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "DAL",
+       "HOU",
+       "KC",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2672,6 +2750,14 @@
        "BUF",
        "SEA",
        "JAC"
+      ],
+      "11": [
+       "BUF",
+       "CAR",
+       "CHI",
+       "DAL",
+       "DET",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -2833,7 +2919,12 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "DAL",
+       "HOU",
+       "KC",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -2986,7 +3077,12 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "DAL",
+       "DET",
+       "HOU",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -3101,7 +3197,11 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "DAL",
+       "HOU",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -3261,7 +3361,12 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "DAL",
+       "DET",
+       "HOU",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -3385,6 +3490,13 @@
        "BUF",
        "SEA",
        "JAC"
+      ],
+      "11": [
+       "BUF",
+       "CHI",
+       "DAL",
+       "DET",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -3542,7 +3654,12 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "DAL",
+       "DET",
+       "HOU",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -3690,7 +3807,12 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "DAL",
+       "DET",
+       "HOU",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -3853,7 +3975,10 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "HOU",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -4016,7 +4141,12 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "DAL",
+       "DET",
+       "HOU",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -4177,6 +4307,13 @@
        "BUF",
        "SEA",
        "JAC"
+      ],
+      "11": [
+       "BUF",
+       "CHI",
+       "DAL",
+       "DET",
+       "KC"
       ]
      },
      "tiebreakers": {
@@ -4334,7 +4471,11 @@
        "JAC"
       ],
       "11": [
-       "HOU"
+       "BUF",
+       "CHI",
+       "HOU",
+       "KC",
+       "PIT"
       ]
      },
      "tiebreakers": {
@@ -4394,7 +4535,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1795293571926,
+   "fetchedAt": 1795380580790,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
