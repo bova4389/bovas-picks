@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-22T20:49:40.791Z",
+ "generated": "2026-11-22T22:44:57.650Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -826,7 +826,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1795380580564,
+   "fetchedAt": 1795387497470,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1636,11 +1636,19 @@
        "count": 16
       },
       {
+       "team": "DEN",
+       "count": 14
+      },
+      {
        "team": "HOU",
        "count": 13
       },
       {
        "team": "DET",
+       "count": 11
+      },
+      {
+       "team": "JAC",
        "count": 11
       },
       {
@@ -1650,11 +1658,15 @@
       {
        "team": "CAR",
        "count": 2
+      },
+      {
+       "team": "LAC",
+       "count": 1
       }
      ],
      "submitted": 144,
-     "revealed": 100,
-     "locked": 44,
+     "revealed": 126,
+     "locked": 18,
      "entrants": 18
     }
    },
@@ -1770,6 +1782,7 @@
        "CAR",
        "CHI",
        "DAL",
+       "DEN",
        "HOU",
        "KC"
       ]
@@ -1932,6 +1945,7 @@
        "DAL",
        "DET",
        "KC",
+       "JAC",
        "PIT"
       ]
      },
@@ -2090,7 +2104,8 @@
        "DAL",
        "DET",
        "HOU",
-       "KC"
+       "KC",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2256,8 +2271,10 @@
        "BUF",
        "CHI",
        "DAL",
+       "DEN",
        "DET",
-       "KC"
+       "KC",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -2421,7 +2438,9 @@
        "CHI",
        "DAL",
        "HOU",
-       "KC"
+       "KC",
+       "JAC",
+       "LAC"
       ]
      },
      "tiebreakers": {
@@ -2587,6 +2606,7 @@
        "BUF",
        "CHI",
        "DAL",
+       "DEN",
        "HOU",
        "KC",
        "PIT"
@@ -2756,6 +2776,7 @@
        "CAR",
        "CHI",
        "DAL",
+       "DEN",
        "DET",
        "KC"
       ]
@@ -2922,6 +2943,7 @@
        "BUF",
        "CHI",
        "DAL",
+       "DEN",
        "HOU",
        "KC",
        "PIT"
@@ -3080,9 +3102,11 @@
        "BUF",
        "CHI",
        "DAL",
+       "DEN",
        "DET",
        "HOU",
-       "KC"
+       "KC",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3200,8 +3224,10 @@
        "BUF",
        "CHI",
        "DAL",
+       "DEN",
        "HOU",
-       "KC"
+       "KC",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3364,6 +3390,7 @@
        "BUF",
        "CHI",
        "DAL",
+       "DEN",
        "DET",
        "HOU",
        "KC"
@@ -3495,8 +3522,10 @@
        "BUF",
        "CHI",
        "DAL",
+       "DEN",
        "DET",
-       "KC"
+       "KC",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -3657,6 +3686,7 @@
        "BUF",
        "CHI",
        "DAL",
+       "DEN",
        "DET",
        "HOU",
        "KC"
@@ -3810,6 +3840,7 @@
        "BUF",
        "CHI",
        "DAL",
+       "DEN",
        "DET",
        "HOU",
        "KC"
@@ -3977,8 +4008,10 @@
       "11": [
        "BUF",
        "CHI",
+       "DEN",
        "HOU",
-       "KC"
+       "KC",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -4146,7 +4179,8 @@
        "DAL",
        "DET",
        "HOU",
-       "KC"
+       "KC",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -4312,8 +4346,10 @@
        "BUF",
        "CHI",
        "DAL",
+       "DEN",
        "DET",
-       "KC"
+       "KC",
+       "JAC"
       ]
      },
      "tiebreakers": {
@@ -4473,8 +4509,10 @@
       "11": [
        "BUF",
        "CHI",
+       "DEN",
        "HOU",
        "KC",
+       "JAC",
        "PIT"
       ]
      },
@@ -4535,7 +4573,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1795380580790,
+   "fetchedAt": 1795387497648,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
