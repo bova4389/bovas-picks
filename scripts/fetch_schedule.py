@@ -26,6 +26,7 @@ on the site API is the thing most likely to have changed.
 No API key, no rate limit worth worrying about; 18 requests per run.
 """
 
+import datetime as dt
 import json
 import sys
 import time
@@ -53,6 +54,40 @@ CANONICAL = {
     "MIN", "NE", "NO", "NYG", "NYJ", "PHI", "PIT", "SEA", "SF", "TB",
     "TEN", "WAS",
 }
+
+
+def in_season(date, year):
+    """A regular-season kickoff falls between August of `year` and February of
+    the next. ESPN once returned 1993-01-31T23:30Z for every Week 2 game (the
+    11/17/2026 run); nothing threw, and the bad dates quietly dropped Week 2
+    from the pick-share fit and broke lookback.py."""
+    try:
+        when = dt.datetime.fromisoformat(date.replace("Z", "+00:00"))
+    except (AttributeError, ValueError):
+        return False
+    return (year, 8) <= (when.year, when.month) <= (year + 1, 2)
+
+
+def repair_dates(games, out, year):
+    """Swap any out-of-season date for the one already on file for that game
+    id, keeping the fresh score. Returns the games that could not be repaired."""
+    bad = [g for g in games if not in_season(g["date"], year)]
+    if not bad:
+        return []
+    known = {}
+    if out.exists():
+        for g in json.loads(out.read_text(encoding="utf-8")).get("games", []):
+            if in_season(g.get("date"), year):
+                known[g["id"]] = g["date"]
+    unfixed = []
+    for g in bad:
+        if g["id"] in known:
+            print(f"  week {g['week']} {g['away']} at {g['home']}: ESPN sent {g['date']}, "
+                  f"kept {known[g['id']]}", file=sys.stderr)
+            g["date"] = known[g["id"]]
+        else:
+            unfixed.append(g)
+    return unfixed
 
 
 def get(url):
@@ -148,6 +183,16 @@ def main():
     if not all_games:
         sys.exit("no games returned — check the endpoint note in this file's docstring")
 
+    out = ROOT / "data" / f"schedule-{year}.json"
+    unfixed = repair_dates(all_games, out, year)
+    if unfixed:
+        for g in unfixed:
+            print(f"  week {g['week']} {g['away']} at {g['home']}: date {g['date']} is "
+                  f"outside the {year} season", file=sys.stderr)
+        sys.exit(f"{len(unfixed)} game(s) with out-of-season dates and no good copy on file; "
+                 f"{out.relative_to(ROOT)} left unchanged")
+    all_games.sort(key=lambda g: (g["week"], g["date"]))
+
     # Byes are derivable rather than stored: any team absent from a week.
     byes = {}
     for week in range(1, 19):
@@ -156,7 +201,6 @@ def main():
             byes[week] = sorted(CANONICAL - playing)
 
     played = sum(1 for g in all_games if g["completed"])
-    out = ROOT / "data" / f"schedule-{year}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(
         json.dumps(

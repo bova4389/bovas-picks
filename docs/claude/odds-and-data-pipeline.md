@@ -109,6 +109,13 @@ the answer key from the ESPN final scores in `data/schedule-<year>.json` and gra
 (most correct, then closest Monday-night total by absolute value) and every suicide pick.
 `fetch-schedule.yml` runs it every Tuesday right after the score fetch.
 
+**`fetch_schedule.py` rejects kickoff dates outside the season** (August of the season year
+through February of the next). On 11/17/2026, ESPN sent `1993-01-31T23:30Z` for every Week 2
+game. The bot committed it without complaint, and that quietly dropped Week 2 from the pick-share
+fit and broke `lookback.py`. Now a bad date is swapped for the date already on file for that
+game id, the fresh score is kept, and a line goes to stderr. A bad date with no good copy on file
+exits non-zero and leaves the file unchanged, which fails the workflow so the problem is visible.
+
 ```bash
 python scripts/grade_week.py 2026 [week]
 python scripts/grade_week.py 2026 1 --check "Weekly picks 26.xlsx" --check-suicide "Suicide 26.xlsx"
