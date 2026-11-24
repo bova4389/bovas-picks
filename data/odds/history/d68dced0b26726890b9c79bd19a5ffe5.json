@@ -1448,5 +1448,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-11-22T00:23:43.462163+00:00"
+ },
+ {
+  "id": "d68dced0b26726890b9c79bd19a5ffe5",
+  "commenceTime": "2026-11-29T21:25:00Z",
+  "home": "San Francisco 49ers",
+  "away": "Seattle Seahawks",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6353,
+  "rawAwayProb": 0.4051,
+  "homeWinProb": 0.6106,
+  "awayWinProb": 0.3894,
+  "vig": 0.0404,
+  "total": 46.5,
+  "totalBookCount": 9,
+  "bucket": 1,
+  "fetchedAt": "2026-11-24T01:39:47.379670+00:00"
  }
 ]
