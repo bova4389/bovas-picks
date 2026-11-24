@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-23T03:57:24.139Z",
+ "generated": "2026-11-24T01:52:56.952Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -826,7 +826,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1795406243825,
+   "fetchedAt": 1795485176820,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1636,6 +1636,10 @@
        "count": 16
       },
       {
+       "team": "CIN",
+       "count": 15
+      },
+      {
        "team": "DEN",
        "count": 14
       },
@@ -1669,8 +1673,8 @@
       }
      ],
      "submitted": 144,
-     "revealed": 129,
-     "locked": 15,
+     "revealed": 144,
+     "locked": 0,
      "entrants": 18
     }
    },
@@ -1788,7 +1792,8 @@
        "DAL",
        "DEN",
        "HOU",
-       "KC"
+       "KC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -1841,6 +1846,11 @@
        "guess": 46,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 61,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -1950,7 +1960,8 @@
        "DET",
        "KC",
        "JAC",
-       "PIT"
+       "PIT",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -1993,6 +2004,11 @@
        "guess": 36,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 42,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -2109,7 +2125,8 @@
        "DET",
        "HOU",
        "KC",
-       "JAC"
+       "JAC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -2162,6 +2179,11 @@
        "guess": 47,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 58,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -2278,7 +2300,8 @@
        "DEN",
        "DET",
        "KC",
-       "JAC"
+       "JAC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -2331,6 +2354,11 @@
        "guess": 39,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 54,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -2444,7 +2472,8 @@
        "HOU",
        "KC",
        "JAC",
-       "LAC"
+       "LAC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -2497,6 +2526,11 @@
        "guess": 40,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 47,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -2613,7 +2647,8 @@
        "DEN",
        "HOU",
        "KC",
-       "PIT"
+       "PIT",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -2666,6 +2701,11 @@
        "guess": 38,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 52,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -2836,6 +2876,11 @@
        "guess": 34,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 53,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -2951,7 +2996,8 @@
        "DEN",
        "HOU",
        "KC",
-       "PIT"
+       "PIT",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -2994,6 +3040,11 @@
        "guess": 36,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 53,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -3119,6 +3170,11 @@
        "guess": 45,
        "away": "BUF",
        "home": "MIN"
+      },
+      "11": {
+       "guess": 32,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -3232,7 +3288,8 @@
        "DEN",
        "HOU",
        "KC",
-       "JAC"
+       "JAC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -3285,6 +3342,11 @@
        "guess": 39,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 48,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -3398,7 +3460,8 @@
        "DEN",
        "DET",
        "HOU",
-       "KC"
+       "KC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -3416,6 +3479,11 @@
        "guess": 38,
        "away": "BUF",
        "home": "MIN"
+      },
+      "11": {
+       "guess": 47,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -3579,6 +3647,11 @@
        "guess": 44,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 52,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -3695,7 +3768,8 @@
        "DEN",
        "DET",
        "HOU",
-       "KC"
+       "KC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -3733,6 +3807,11 @@
        "guess": 50,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 55,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -3849,7 +3928,8 @@
        "DEN",
        "DET",
        "HOU",
-       "KC"
+       "KC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -3902,6 +3982,11 @@
        "guess": 42,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 42,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -4018,7 +4103,8 @@
        "HOU",
        "KC",
        "JAC",
-       "SF"
+       "SF",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -4071,6 +4157,11 @@
        "guess": 37,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 55,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -4187,7 +4278,8 @@
        "DET",
        "HOU",
        "KC",
-       "JAC"
+       "JAC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -4240,6 +4332,11 @@
        "guess": 41,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 48,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -4356,7 +4453,8 @@
        "DEN",
        "DET",
        "KC",
-       "JAC"
+       "JAC",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -4404,6 +4502,11 @@
        "guess": 33,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 57,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     },
@@ -4520,7 +4623,8 @@
        "HOU",
        "KC",
        "JAC",
-       "PIT"
+       "PIT",
+       "CIN"
       ]
      },
      "tiebreakers": {
@@ -4573,6 +4677,11 @@
        "guess": 60,
        "away": "LAC",
        "home": "BAL"
+      },
+      "11": {
+       "guess": 63,
+       "away": "CIN",
+       "home": "WAS"
       }
      }
     }
@@ -4580,7 +4689,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1795406244137,
+   "fetchedAt": 1795485176950,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
