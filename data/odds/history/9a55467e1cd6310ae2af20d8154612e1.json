@@ -1524,5 +1524,21 @@
   "totalBookCount": 1,
   "bucket": 12,
   "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
+ },
+ {
+  "id": "9a55467e1cd6310ae2af20d8154612e1",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "Denver Broncos",
+  "away": "Miami Dolphins",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.9257,
+  "rawAwayProb": 0.1155,
+  "homeWinProb": 0.8891,
+  "awayWinProb": 0.1109,
+  "vig": 0.0412,
+  "total": 39.5,
+  "totalBookCount": 5,
+  "bucket": 2,
+  "fetchedAt": "2026-11-24T23:28:39.237802+00:00"
  }
 ]

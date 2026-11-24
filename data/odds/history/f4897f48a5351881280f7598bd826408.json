@@ -1524,5 +1524,21 @@
   "totalBookCount": 2,
   "bucket": 12,
   "fetchedAt": "2026-09-13T01:05:53.012441+00:00"
+ },
+ {
+  "id": "f4897f48a5351881280f7598bd826408",
+  "commenceTime": "2026-12-06T21:05:00Z",
+  "home": "Arizona Cardinals",
+  "away": "Philadelphia Eagles",
+  "bookmakerCount": 2,
+  "rawHomeProb": 0.4301,
+  "rawAwayProb": 0.6109,
+  "homeWinProb": 0.4132,
+  "awayWinProb": 0.5868,
+  "vig": 0.041,
+  "total": 36.5,
+  "totalBookCount": 5,
+  "bucket": 2,
+  "fetchedAt": "2026-11-24T23:28:39.237802+00:00"
  }
 ]

@@ -1716,5 +1716,21 @@
   "totalBookCount": 9,
   "bucket": 1,
   "fetchedAt": "2026-11-24T01:39:47.379670+00:00"
+ },
+ {
+  "id": "f36f518585aec40e8cb40e071c0844aa",
+  "commenceTime": "2026-11-27T01:20:00Z",
+  "home": "Buffalo Bills",
+  "away": "Kansas City Chiefs",
+  "bookmakerCount": 8,
+  "rawHomeProb": 0.5991,
+  "rawAwayProb": 0.443,
+  "homeWinProb": 0.5749,
+  "awayWinProb": 0.4251,
+  "vig": 0.0421,
+  "total": 47.5,
+  "totalBookCount": 8,
+  "bucket": 1,
+  "fetchedAt": "2026-11-24T23:28:39.237802+00:00"
  }
 ]

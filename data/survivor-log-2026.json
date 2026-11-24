@@ -442,6 +442,32 @@
           "teamsLeft": 22
         }
       ]
+    },
+    "12": {
+      "week": 12,
+      "builtAt": "2026-11-24T23:28:43.173Z",
+      "oddsFetchedAt": "2026-11-24T23:28:39.237802+00:00",
+      "confidence": "provisional",
+      "exposure": {
+        "tickets": 1,
+        "games": 1,
+        "pAllLose": 0.2493
+      },
+      "picks": [
+        {
+          "pool": "deadpool",
+          "team": "WAS",
+          "p": 0.7507,
+          "gap": 0,
+          "fvCost": 0.0882,
+          "share": null,
+          "basis": "win-probability",
+          "entrants": 20,
+          "swappedFrom": null,
+          "swapClause": null,
+          "teamsLeft": 21
+        }
+      ]
     }
   }
 }
