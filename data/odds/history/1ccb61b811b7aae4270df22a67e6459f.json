@@ -1540,5 +1540,21 @@
   "totalBookCount": 5,
   "bucket": 2,
   "fetchedAt": "2026-11-24T23:28:39.237802+00:00"
+ },
+ {
+  "id": "1ccb61b811b7aae4270df22a67e6459f",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "New Orleans Saints",
+  "away": "Green Bay Packers",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.3223,
+  "rawAwayProb": 0.7206,
+  "homeWinProb": 0.309,
+  "awayWinProb": 0.691,
+  "vig": 0.0429,
+  "total": 46.0,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-11-25T23:05:17.614643+00:00"
  }
 ]

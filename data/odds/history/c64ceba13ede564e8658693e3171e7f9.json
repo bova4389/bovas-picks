@@ -1480,5 +1480,21 @@
   "totalBookCount": 8,
   "bucket": 1,
   "fetchedAt": "2026-11-24T23:28:39.237802+00:00"
+ },
+ {
+  "id": "c64ceba13ede564e8658693e3171e7f9",
+  "commenceTime": "2026-11-29T21:05:00Z",
+  "home": "Los Angeles Chargers",
+  "away": "New England Patriots",
+  "bookmakerCount": 6,
+  "rawHomeProb": 0.5148,
+  "rawAwayProb": 0.5311,
+  "homeWinProb": 0.4922,
+  "awayWinProb": 0.5078,
+  "vig": 0.046,
+  "total": 35.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-25T23:05:17.614643+00:00"
  }
 ]
