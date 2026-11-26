@@ -1380,5 +1380,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-11-26T11:00:53.831594+00:00"
+ },
+ {
+  "id": "a5495c3360b3bb13da76ba23a675c9ef",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "New York Giants",
+  "away": "San Francisco 49ers",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.2845,
+  "rawAwayProb": 0.7574,
+  "homeWinProb": 0.273,
+  "awayWinProb": 0.727,
+  "vig": 0.0418,
+  "total": 46.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-11-26T20:13:31.164984+00:00"
  }
 ]
