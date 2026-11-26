@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "trials": 40000,
- "k": 2.5,
+ "k": 2.49,
  "recordShare": true,
  "priceRule": "simulated from the last price before kickoff; rules choose from the last price before the Saturday deadline",
  "weeks": [
@@ -9,7 +9,7 @@
    "week": 1,
    "entrants": 281,
    "games": 14,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.0046,
@@ -180,7 +180,7 @@
    "week": 2,
    "entrants": 282,
    "games": 15,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.00812,
@@ -333,7 +333,7 @@
    "week": 3,
    "entrants": 281,
    "games": 15,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.00537,
@@ -517,7 +517,7 @@
    "week": 4,
    "entrants": 279,
    "games": 15,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.00369,
@@ -676,7 +676,7 @@
    "week": 5,
    "entrants": 282,
    "games": 14,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.00978,
@@ -847,7 +847,7 @@
    "week": 6,
    "entrants": 275,
    "games": 13,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.00854,
@@ -1006,7 +1006,7 @@
    "week": 7,
    "entrants": 275,
    "games": 13,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.0061,
@@ -1183,7 +1183,7 @@
    "week": 8,
    "entrants": 275,
    "games": 13,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.01386,
@@ -1342,7 +1342,7 @@
    "week": 9,
    "entrants": 268,
    "games": 14,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.00873,
@@ -1513,7 +1513,7 @@
    "week": 10,
    "entrants": 262,
    "games": 13,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.00862,
@@ -1672,7 +1672,7 @@
    "week": 11,
    "entrants": 271,
    "games": 12,
-   "k": 2.5,
+   "k": 2.49,
    "cards": {
     "actual": {
      "chance": 0.00761,

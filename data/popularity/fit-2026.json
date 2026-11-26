@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "k": 2.5,
-  "n": 302,
-  "games": 151,
+  "k": 2.49,
+  "n": 334,
+  "games": 167,
   "weeks": [
     1,
     2,
@@ -14,17 +14,18 @@
     8,
     9,
     10,
-    11
+    11,
+    12
   ],
-  "rmse": 0.0882,
+  "rmse": 0.0875,
   "priceRule": "last odds snapshot before kickoff",
   "record": {
-    "intercept": -0.3312,
-    "price": 1.8568,
-    "record": 1.185,
-    "games": 151,
-    "rmse": 0.0743,
-    "rmseK": 0.0882
+    "intercept": -0.3067,
+    "price": 1.8791,
+    "record": 1.1809,
+    "games": 167,
+    "rmse": 0.0755,
+    "rmseK": 0.0875
   },
-  "fittedAt": "2026-11-22T18:12:53Z"
+  "fittedAt": "2026-11-26T14:58:01Z"
 }
