@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-26T15:27:23.617Z",
+ "generated": "2026-11-26T23:16:35.074Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -337,11 +337,17 @@
      "complete": false
     },
     "12": {
-     "entrants": 0,
-     "distinctTeams": 0,
-     "picks": [],
+     "entrants": 1,
+     "distinctTeams": 1,
+     "picks": [
+      {
+       "team": "DAL",
+       "count": 1,
+       "pct": 100
+      }
+     ],
      "submitted": 4,
-     "revealed": 0,
+     "revealed": 1,
      "expected": 20,
      "complete": false
     }
@@ -742,7 +748,8 @@
       "8": "JAC",
       "9": "SF",
       "10": "BUF",
-      "11": "HOU"
+      "11": "HOU",
+      "12": "DAL"
      },
      "problems": [],
      "alive": true,
@@ -757,7 +764,8 @@
       "JAC",
       "SF",
       "BUF",
-      "HOU"
+      "HOU",
+      "DAL"
      ]
     },
     {
@@ -835,7 +843,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1795706843495,
+   "fetchedAt": 1795734994947,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1689,13 +1697,21 @@
     "12": {
      "rows": [
       {
+       "team": "DAL",
+       "count": 17
+      },
+      {
+       "team": "CHI",
+       "count": 2
+      },
+      {
        "team": "LAR",
        "count": 1
       }
      ],
-     "submitted": 126,
-     "revealed": 1,
-     "locked": 125,
+     "submitted": 142,
+     "revealed": 20,
+     "locked": 122,
      "entrants": 18
     }
    },
@@ -1815,6 +1831,9 @@
        "HOU",
        "KC",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -1983,6 +2002,9 @@
        "JAC",
        "PIT",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -2148,6 +2170,9 @@
        "KC",
        "JAC",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -2323,6 +2348,9 @@
        "KC",
        "JAC",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -2495,6 +2523,10 @@
        "JAC",
        "LAC",
        "CIN"
+      ],
+      "12": [
+       "DAL",
+       "CHI"
       ]
      },
      "tiebreakers": {
@@ -2670,6 +2702,9 @@
        "KC",
        "PIT",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -2845,6 +2880,9 @@
        "DET",
        "KC",
        "SF"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -3019,6 +3057,9 @@
        "KC",
        "PIT",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -3184,6 +3225,9 @@
        "HOU",
        "KC",
        "JAC"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -3311,6 +3355,9 @@
        "KC",
        "JAC",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -3483,6 +3530,9 @@
        "HOU",
        "KC",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -3621,6 +3671,9 @@
        "KC",
        "JAC",
        "SF"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -3791,6 +3844,10 @@
        "HOU",
        "KC",
        "CIN"
+      ],
+      "12": [
+       "DAL",
+       "CHI"
       ]
      },
      "tiebreakers": {
@@ -3951,6 +4008,9 @@
        "HOU",
        "KC",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -4126,6 +4186,9 @@
        "JAC",
        "SF",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -4301,6 +4364,9 @@
        "KC",
        "JAC",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -4649,6 +4715,9 @@
        "JAC",
        "PIT",
        "CIN"
+      ],
+      "12": [
+       "DAL"
       ]
      },
      "tiebreakers": {
@@ -4713,7 +4782,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1795706843615,
+   "fetchedAt": 1795734995072,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
