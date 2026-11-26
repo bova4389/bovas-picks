@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated": "2026-11-25T23:17:24.529Z",
+ "generated": "2026-11-26T15:27:23.617Z",
  "pools": {
   "1400514368084451328": {
    "year": 2026,
@@ -340,7 +340,7 @@
      "entrants": 0,
      "distinctTeams": 0,
      "picks": [],
-     "submitted": 3,
+     "submitted": 4,
      "revealed": 0,
      "expected": 20,
      "complete": false
@@ -835,7 +835,7 @@
    "source": "sleeper",
    "leagueId": "1400514368084451328",
    "leagueName": "Deadpool",
-   "fetchedAt": 1795648644282,
+   "fetchedAt": 1795706843495,
    "settings": {
     "revivesAllowed": 2,
     "picksPerTeam": 1,
@@ -1687,10 +1687,15 @@
      "entrants": 18
     },
     "12": {
-     "rows": [],
-     "submitted": 93,
-     "revealed": 0,
-     "locked": 93,
+     "rows": [
+      {
+       "team": "LAR",
+       "count": 1
+      }
+     ],
+     "submitted": 126,
+     "revealed": 1,
+     "locked": 125,
      "entrants": 18
     }
    },
@@ -4471,6 +4476,9 @@
        "KC",
        "JAC",
        "CIN"
+      ],
+      "12": [
+       "LAR"
       ]
      },
      "tiebreakers": {
@@ -4705,7 +4713,7 @@
    "source": "sleeper",
    "leagueId": "1400511807180828672",
    "leagueName": "Inifnity War",
-   "fetchedAt": 1795648644527,
+   "fetchedAt": 1795706843615,
    "settings": {
     "weeklyPickLimit": 8,
     "useConfidence": false,
