@@ -1588,5 +1588,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-11-26T20:13:31.164984+00:00"
+ },
+ {
+  "id": "26bf8e165d2d273ed0772a355f07ab16",
+  "commenceTime": "2026-12-07T01:20:00Z",
+  "home": "Pittsburgh Steelers",
+  "away": "Houston Texans",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.3551,
+  "rawAwayProb": 0.6888,
+  "homeWinProb": 0.3402,
+  "awayWinProb": 0.6598,
+  "vig": 0.0439,
+  "total": 42.0,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-11-27T02:56:06.049492+00:00"
  }
 ]

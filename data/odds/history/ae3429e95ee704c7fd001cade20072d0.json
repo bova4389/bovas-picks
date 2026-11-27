@@ -1588,5 +1588,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-11-26T20:13:31.164984+00:00"
+ },
+ {
+  "id": "ae3429e95ee704c7fd001cade20072d0",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "Tennessee Titans",
+  "away": "Washington Commanders",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.3526,
+  "rawAwayProb": 0.6906,
+  "homeWinProb": 0.338,
+  "awayWinProb": 0.662,
+  "vig": 0.0432,
+  "total": 46.5,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-11-27T02:56:06.049492+00:00"
  }
 ]

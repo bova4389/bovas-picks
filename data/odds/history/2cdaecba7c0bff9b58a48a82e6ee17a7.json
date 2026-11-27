@@ -1780,5 +1780,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-26T20:13:31.164984+00:00"
+ },
+ {
+  "id": "2cdaecba7c0bff9b58a48a82e6ee17a7",
+  "commenceTime": "2026-12-01T01:15:00Z",
+  "home": "Tampa Bay Buccaneers",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.6156,
+  "rawAwayProb": 0.4258,
+  "homeWinProb": 0.5911,
+  "awayWinProb": 0.4089,
+  "vig": 0.0414,
+  "total": 43.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-27T02:56:06.049492+00:00"
  }
 ]
