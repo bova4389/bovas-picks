@@ -1572,5 +1572,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-11-26T11:00:53.831594+00:00"
+ },
+ {
+  "id": "c94419ba8fb818fc36a5b21b526aab75",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "Atlanta Falcons",
+  "away": "Detroit Lions",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.3748,
+  "rawAwayProb": 0.6668,
+  "homeWinProb": 0.3598,
+  "awayWinProb": 0.6402,
+  "vig": 0.0416,
+  "total": 50.5,
+  "totalBookCount": 3,
+  "bucket": 1,
+  "fetchedAt": "2026-11-27T15:12:39.590836+00:00"
  }
 ]

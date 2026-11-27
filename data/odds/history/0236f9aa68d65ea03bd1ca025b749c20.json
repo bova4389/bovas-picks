@@ -1572,5 +1572,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-11-26T11:00:53.831594+00:00"
+ },
+ {
+  "id": "0236f9aa68d65ea03bd1ca025b749c20",
+  "commenceTime": "2026-12-06T18:00:00Z",
+  "home": "Chicago Bears",
+  "away": "Jacksonville Jaguars",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.5966,
+  "rawAwayProb": 0.4522,
+  "homeWinProb": 0.5688,
+  "awayWinProb": 0.4312,
+  "vig": 0.0488,
+  "total": 50.5,
+  "totalBookCount": 3,
+  "bucket": 1,
+  "fetchedAt": "2026-11-27T15:12:39.590836+00:00"
  }
 ]
