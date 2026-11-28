@@ -1636,5 +1636,21 @@
   "totalBookCount": 6,
   "bucket": 1,
   "fetchedAt": "2026-11-28T00:33:57.435375+00:00"
+ },
+ {
+  "id": "c186c605febd6370b292469c9151cfb3",
+  "commenceTime": "2026-12-06T21:25:00Z",
+  "home": "Minnesota Vikings",
+  "away": "Carolina Panthers",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.7019,
+  "rawAwayProb": 0.3416,
+  "homeWinProb": 0.6727,
+  "awayWinProb": 0.3273,
+  "vig": 0.0435,
+  "total": 42.25,
+  "totalBookCount": 6,
+  "bucket": 1,
+  "fetchedAt": "2026-11-28T10:35:03.378652+00:00"
  }
 ]
