@@ -1352,5 +1352,21 @@
   "totalBookCount": 5,
   "bucket": 1,
   "fetchedAt": "2026-11-27T15:12:39.590836+00:00"
+ },
+ {
+  "id": "0db4646c964ecdff19957373fe707546",
+  "commenceTime": "2026-12-08T01:15:00Z",
+  "home": "Seattle Seahawks",
+  "away": "Dallas Cowboys",
+  "bookmakerCount": 3,
+  "rawHomeProb": 0.7429,
+  "rawAwayProb": 0.299,
+  "homeWinProb": 0.713,
+  "awayWinProb": 0.287,
+  "vig": 0.0419,
+  "total": 51.0,
+  "totalBookCount": 5,
+  "bucket": 1,
+  "fetchedAt": "2026-11-28T00:33:57.435375+00:00"
  }
 ]

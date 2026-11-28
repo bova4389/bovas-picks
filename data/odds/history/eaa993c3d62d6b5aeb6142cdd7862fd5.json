@@ -1812,5 +1812,21 @@
   "totalBookCount": 9,
   "bucket": 0,
   "fetchedAt": "2026-11-27T15:12:39.590836+00:00"
+ },
+ {
+  "id": "eaa993c3d62d6b5aeb6142cdd7862fd5",
+  "commenceTime": "2026-11-30T01:20:00Z",
+  "home": "Cleveland Browns",
+  "away": "Las Vegas Raiders",
+  "bookmakerCount": 9,
+  "rawHomeProb": 0.699,
+  "rawAwayProb": 0.3437,
+  "homeWinProb": 0.6703,
+  "awayWinProb": 0.3297,
+  "vig": 0.0427,
+  "total": 39.5,
+  "totalBookCount": 9,
+  "bucket": 0,
+  "fetchedAt": "2026-11-28T00:33:57.435375+00:00"
  }
 ]
